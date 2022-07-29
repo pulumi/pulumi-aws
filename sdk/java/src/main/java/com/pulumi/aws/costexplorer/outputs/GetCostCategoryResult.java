@@ -8,6 +8,7 @@ import com.pulumi.aws.costexplorer.outputs.GetCostCategorySplitChargeRule;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -44,6 +45,11 @@ public final class GetCostCategoryResult {
      * 
      */
     private final List<GetCostCategorySplitChargeRule> splitChargeRules;
+    /**
+     * @return Resource tags.
+     * 
+     */
+    private final Map<String,String> tags;
 
     @CustomType.Constructor
     private GetCostCategoryResult(
@@ -54,7 +60,8 @@ public final class GetCostCategoryResult {
         @CustomType.Parameter("name") String name,
         @CustomType.Parameter("ruleVersion") String ruleVersion,
         @CustomType.Parameter("rules") List<GetCostCategoryRule> rules,
-        @CustomType.Parameter("splitChargeRules") List<GetCostCategorySplitChargeRule> splitChargeRules) {
+        @CustomType.Parameter("splitChargeRules") List<GetCostCategorySplitChargeRule> splitChargeRules,
+        @CustomType.Parameter("tags") Map<String,String> tags) {
         this.costCategoryArn = costCategoryArn;
         this.effectiveEnd = effectiveEnd;
         this.effectiveStart = effectiveStart;
@@ -63,6 +70,7 @@ public final class GetCostCategoryResult {
         this.ruleVersion = ruleVersion;
         this.rules = rules;
         this.splitChargeRules = splitChargeRules;
+        this.tags = tags;
     }
 
     public String costCategoryArn() {
@@ -113,6 +121,13 @@ public final class GetCostCategoryResult {
     public List<GetCostCategorySplitChargeRule> splitChargeRules() {
         return this.splitChargeRules;
     }
+    /**
+     * @return Resource tags.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -131,6 +146,7 @@ public final class GetCostCategoryResult {
         private String ruleVersion;
         private List<GetCostCategoryRule> rules;
         private List<GetCostCategorySplitChargeRule> splitChargeRules;
+        private Map<String,String> tags;
 
         public Builder() {
     	      // Empty
@@ -146,6 +162,7 @@ public final class GetCostCategoryResult {
     	      this.ruleVersion = defaults.ruleVersion;
     	      this.rules = defaults.rules;
     	      this.splitChargeRules = defaults.splitChargeRules;
+    	      this.tags = defaults.tags;
         }
 
         public Builder costCategoryArn(String costCategoryArn) {
@@ -185,8 +202,12 @@ public final class GetCostCategoryResult {
         }
         public Builder splitChargeRules(GetCostCategorySplitChargeRule... splitChargeRules) {
             return splitChargeRules(List.of(splitChargeRules));
+        }
+        public Builder tags(Map<String,String> tags) {
+            this.tags = Objects.requireNonNull(tags);
+            return this;
         }        public GetCostCategoryResult build() {
-            return new GetCostCategoryResult(costCategoryArn, effectiveEnd, effectiveStart, id, name, ruleVersion, rules, splitChargeRules);
+            return new GetCostCategoryResult(costCategoryArn, effectiveEnd, effectiveStart, id, name, ruleVersion, rules, splitChargeRules, tags);
         }
     }
 }

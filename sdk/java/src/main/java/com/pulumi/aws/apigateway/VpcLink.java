@@ -22,13 +22,24 @@ import javax.annotation.Nullable;
  * To enable private integration for HTTP APIs, use the `Amazon API Gateway Version 2 VPC Link` resource.
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lb.LoadBalancer;
+ * import com.pulumi.aws.lb.LoadBalancerArgs;
+ * import com.pulumi.aws.lb.inputs.LoadBalancerSubnetMappingArgs;
+ * import com.pulumi.aws.apigateway.VpcLink;
+ * import com.pulumi.aws.apigateway.VpcLinkArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

@@ -29,10 +29,33 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lb.LoadBalancer;
+ * import com.pulumi.aws.lb.Listener;
+ * import com.pulumi.aws.lb.ListenerRule;
+ * import com.pulumi.aws.lb.ListenerRuleArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerRuleActionArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerRuleConditionArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerRuleConditionPathPatternArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerRuleConditionHostHeaderArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerRuleActionForwardArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerRuleActionForwardStickinessArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerRuleActionRedirectArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerRuleConditionHttpHeaderArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerRuleActionFixedResponseArgs;
+ * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolClient;
+ * import com.pulumi.aws.cognito.UserPoolDomain;
+ * import com.pulumi.aws.lb.inputs.ListenerRuleActionAuthenticateCognitoArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerRuleActionAuthenticateOidcArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

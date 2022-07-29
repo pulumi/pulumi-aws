@@ -44,7 +44,19 @@ import (
 // 			return err
 // 		}
 // 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"appsync.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "appsync.amazonaws.com"
+//       },
+//       "Effect": "Allow"
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -52,7 +64,21 @@ import (
 // 		_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
 // 			Role: exampleRole.ID(),
 // 			Policy: exampleTable.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"dynamodb:*\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": [\n", "        \"", arn, "\"\n", "      ]\n", "    }\n", "  ]\n", "}\n"), nil
+// 				return fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": [
+//         "dynamodb:*"
+//       ],
+//       "Effect": "Allow",
+//       "Resource": [
+//         "%v"
+//       ]
+//     }
+//   ]
+// }
+// `, arn), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

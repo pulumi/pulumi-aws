@@ -20,10 +20,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appstream.Fleet;
+ * import com.pulumi.aws.appstream.FleetArgs;
+ * import com.pulumi.aws.appstream.inputs.FleetComputeCapacityArgs;
+ * import com.pulumi.aws.appstream.Stack;
+ * import com.pulumi.aws.appstream.FleetStackAssociation;
+ * import com.pulumi.aws.appstream.FleetStackAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

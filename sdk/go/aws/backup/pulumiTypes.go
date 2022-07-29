@@ -513,7 +513,7 @@ func (o PlanAdvancedBackupSettingArrayOutput) Index(i pulumi.IntInput) PlanAdvan
 }
 
 type PlanRule struct {
-	// The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
+	// The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
 	CompletionWindow *int `pulumi:"completionWindow"`
 	// Configuration block(s) with copy operation settings. Detailed below.
 	CopyActions []PlanRuleCopyAction `pulumi:"copyActions"`
@@ -545,7 +545,7 @@ type PlanRuleInput interface {
 }
 
 type PlanRuleArgs struct {
-	// The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
+	// The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
 	CompletionWindow pulumi.IntPtrInput `pulumi:"completionWindow"`
 	// Configuration block(s) with copy operation settings. Detailed below.
 	CopyActions PlanRuleCopyActionArrayInput `pulumi:"copyActions"`
@@ -616,7 +616,7 @@ func (o PlanRuleOutput) ToPlanRuleOutputWithContext(ctx context.Context) PlanRul
 	return o
 }
 
-// The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
+// The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
 func (o PlanRuleOutput) CompletionWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlanRule) *int { return v.CompletionWindow }).(pulumi.IntPtrOutput)
 }

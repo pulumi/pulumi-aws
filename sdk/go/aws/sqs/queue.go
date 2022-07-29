@@ -32,7 +32,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
+// 		_, err = sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
 // 			DelaySeconds:            pulumi.Int(90),
 // 			MaxMessageSize:          pulumi.Int(2048),
 // 			MessageRetentionSeconds: pulumi.Int(86400),
@@ -122,7 +122,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := sqs.NewQueue(ctx, "terraformQueueDeadletter", &sqs.QueueArgs{
+// 		_, err = sqs.NewQueue(ctx, "terraformQueueDeadletter", &sqs.QueueArgs{
 // 			RedriveAllowPolicy: pulumi.String(json0),
 // 		})
 // 		if err != nil {

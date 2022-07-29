@@ -25,10 +25,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.VpcEndpoint;
+ * import com.pulumi.aws.ec2.VpcEndpointArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -48,10 +55,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.VpcEndpoint;
+ * import com.pulumi.aws.ec2.VpcEndpointArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -72,10 +86,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.VpcEndpoint;
+ * import com.pulumi.aws.ec2.VpcEndpointArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -89,39 +110,6 @@ import javax.annotation.Nullable;
  *             .vpcEndpointType(&#34;Interface&#34;)
  *             .securityGroupIds(aws_security_group.sg1().id())
  *             .privateDnsEnabled(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Gateway Load Balancer Endpoint Type
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(AwsFunctions.getCallerIdentity());
- * 
- *         var exampleVpcEndpointService = new VpcEndpointService(&#34;exampleVpcEndpointService&#34;, VpcEndpointServiceArgs.builder()        
- *             .acceptanceRequired(false)
- *             .allowedPrincipals(current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
- *             .gatewayLoadBalancerArns(aws_lb.example().arn())
- *             .build());
- * 
- *         var exampleVpcEndpoint = new VpcEndpoint(&#34;exampleVpcEndpoint&#34;, VpcEndpointArgs.builder()        
- *             .serviceName(exampleVpcEndpointService.serviceName())
- *             .subnetIds(aws_subnet.example().id())
- *             .vpcEndpointType(exampleVpcEndpointService.serviceType())
- *             .vpcId(aws_vpc.example().id())
  *             .build());
  * 
  *     }

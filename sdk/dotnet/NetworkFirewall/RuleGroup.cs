@@ -26,7 +26,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///         var example = new Aws.NetworkFirewall.RuleGroup("example", new Aws.NetworkFirewall.RuleGroupArgs
     ///         {
     ///             Capacity = 100,
-    ///             RuleGroup = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
+    ///             RuleGroupConfiguration = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
     ///             {
     ///                 RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
     ///                 {
@@ -40,127 +40,6 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                         Targets = 
     ///                         {
     ///                             "test.example.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Tag1", "Value1" },
-    ///                 { "Tag2", "Value2" },
-    ///             },
-    ///             Type = "STATEFUL",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### Stateful Inspection for permitting packets from a source IP address
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var ips = 
-    ///         {
-    ///             "1.1.1.1/32",
-    ///             "1.0.0.1/32",
-    ///         };
-    ///         var example = new Aws.NetworkFirewall.RuleGroup("example", new Aws.NetworkFirewall.RuleGroupArgs
-    ///         {
-    ///             Capacity = 50,
-    ///             Description = "Permits http traffic from source",
-    ///             Type = "STATEFUL",
-    ///             RuleGroup = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
-    ///             {
-    ///                 RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
-    ///                 {
-    ///                     Dynamic = 
-    ///                     {
-    ///                         
-    ///                         {
-    ///                             { "forEach", ips },
-    ///                             { "content", 
-    ///                             {
-    ///                                 
-    ///                                 {
-    ///                                     { "action", "PASS" },
-    ///                                     { "header", 
-    ///                                     {
-    ///                                         
-    ///                                         {
-    ///                                             { "destination", "ANY" },
-    ///                                             { "destinationPort", "ANY" },
-    ///                                             { "protocol", "HTTP" },
-    ///                                             { "direction", "ANY" },
-    ///                                             { "sourcePort", "ANY" },
-    ///                                             { "source", stateful_rule.Value },
-    ///                                         },
-    ///                                     } },
-    ///                                     { "ruleOption", 
-    ///                                     {
-    ///                                         
-    ///                                         {
-    ///                                             { "keyword", "sid:1" },
-    ///                                         },
-    ///                                     } },
-    ///                                 },
-    ///                             } },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "permit HTTP from source" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### Stateful Inspection for blocking packets from going to an intended destination
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.NetworkFirewall.RuleGroup("example", new Aws.NetworkFirewall.RuleGroupArgs
-    ///         {
-    ///             Capacity = 100,
-    ///             RuleGroup = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
-    ///             {
-    ///                 RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
-    ///                 {
-    ///                     StatefulRule = 
-    ///                     {
-    ///                         
-    ///                         {
-    ///                             { "action", "DROP" },
-    ///                             { "header", 
-    ///                             {
-    ///                                 { "destination", "124.1.1.24/32" },
-    ///                                 { "destinationPort", 53 },
-    ///                                 { "direction", "ANY" },
-    ///                                 { "protocol", "TCP" },
-    ///                                 { "source", "1.2.3.4/32" },
-    ///                                 { "sourcePort", 53 },
-    ///                             } },
-    ///                             { "ruleOption", 
-    ///                             {
-    ///                                 
-    ///                                 {
-    ///                                     { "keyword", "sid:1" },
-    ///                                 },
-    ///                             } },
     ///                         },
     ///                     },
     ///                 },
@@ -217,7 +96,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///         {
     ///             Capacity = 100,
     ///             Type = "STATEFUL",
-    ///             RuleGroup = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
+    ///             RuleGroupConfiguration = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
     ///             {
     ///                 RuleVariables = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesArgs
     ///                 {
@@ -274,127 +153,6 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 { "Tag1", "Value1" },
     ///                 { "Tag2", "Value2" },
     ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### Stateless Inspection with a Custom Action
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.NetworkFirewall.RuleGroup("example", new Aws.NetworkFirewall.RuleGroupArgs
-    ///         {
-    ///             Capacity = 100,
-    ///             Description = "Stateless Rate Limiting Rule",
-    ///             RuleGroup = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
-    ///             {
-    ///                 RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
-    ///                 {
-    ///                     StatelessRulesAndCustomActions = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs
-    ///                     {
-    ///                         CustomAction = 
-    ///                         {
-    ///                             
-    ///                             {
-    ///                                 { "actionDefinition", 
-    ///                                 {
-    ///                                     { "publishMetricAction", 
-    ///                                     {
-    ///                                         { "dimension", 
-    ///                                         {
-    ///                                             
-    ///                                             {
-    ///                                                 { "value", "2" },
-    ///                                             },
-    ///                                         } },
-    ///                                     } },
-    ///                                 } },
-    ///                                 { "actionName", "ExampleMetricsAction" },
-    ///                             },
-    ///                         },
-    ///                         StatelessRule = 
-    ///                         {
-    ///                             
-    ///                             {
-    ///                                 { "priority", 1 },
-    ///                                 { "ruleDefinition", 
-    ///                                 {
-    ///                                     { "actions", 
-    ///                                     {
-    ///                                         "aws:pass",
-    ///                                         "ExampleMetricsAction",
-    ///                                     } },
-    ///                                     { "matchAttributes", 
-    ///                                     {
-    ///                                         { "destination", 
-    ///                                         {
-    ///                                             
-    ///                                             {
-    ///                                                 { "addressDefinition", "124.1.1.5/32" },
-    ///                                             },
-    ///                                         } },
-    ///                                         { "destinationPort", 
-    ///                                         {
-    ///                                             
-    ///                                             {
-    ///                                                 { "fromPort", 443 },
-    ///                                                 { "toPort", 443 },
-    ///                                             },
-    ///                                         } },
-    ///                                         { "protocols", 
-    ///                                         {
-    ///                                             6,
-    ///                                         } },
-    ///                                         { "source", 
-    ///                                         {
-    ///                                             
-    ///                                             {
-    ///                                                 { "addressDefinition", "1.2.3.4/32" },
-    ///                                             },
-    ///                                         } },
-    ///                                         { "sourcePort", 
-    ///                                         {
-    ///                                             
-    ///                                             {
-    ///                                                 { "fromPort", 443 },
-    ///                                                 { "toPort", 443 },
-    ///                                             },
-    ///                                         } },
-    ///                                         { "tcpFlag", 
-    ///                                         {
-    ///                                             
-    ///                                             {
-    ///                                                 { "flags", 
-    ///                                                 {
-    ///                                                     "SYN",
-    ///                                                 } },
-    ///                                                 { "masks", 
-    ///                                                 {
-    ///                                                     "SYN",
-    ///                                                     "ACK",
-    ///                                                 } },
-    ///                                             },
-    ///                                         } },
-    ///                                     } },
-    ///                                 } },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Tag1", "Value1" },
-    ///                 { "Tag2", "Value2" },
-    ///             },
-    ///             Type = "STATELESS",
     ///         });
     ///     }
     /// 

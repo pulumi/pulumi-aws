@@ -40,7 +40,7 @@ import (
 // 		exampleMailFrom, err := ses.NewMailFrom(ctx, "exampleMailFrom", &ses.MailFromArgs{
 // 			Domain: exampleDomainIdentity.Domain,
 // 			MailFromDomain: exampleDomainIdentity.Domain.ApplyT(func(domain string) (string, error) {
-// 				return fmt.Sprintf("%v%v", "bounce.", domain), nil
+// 				return fmt.Sprintf("bounce.%v", domain), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

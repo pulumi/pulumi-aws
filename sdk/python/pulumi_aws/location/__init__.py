@@ -5,6 +5,8 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .geofence_collection import *
+from .get_geofence_collection import *
 from .get_map import *
 from .get_place_index import *
 from .get_route_calculator import *

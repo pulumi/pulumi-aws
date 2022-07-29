@@ -133,7 +133,7 @@ type ClusterLogging struct {
 	Enable bool `pulumi:"enable"`
 	// The log destination type. An enum with possible values of `s3` and `cloudwatch`.
 	LogDestinationType *string `pulumi:"logDestinationType"`
-	// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `logDestinationType` is `cloudwatch`.
+	// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `logDestinationType` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
 	LogExports []string `pulumi:"logExports"`
 	// The prefix applied to the log file names.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
@@ -158,7 +158,7 @@ type ClusterLoggingArgs struct {
 	Enable pulumi.BoolInput `pulumi:"enable"`
 	// The log destination type. An enum with possible values of `s3` and `cloudwatch`.
 	LogDestinationType pulumi.StringPtrInput `pulumi:"logDestinationType"`
-	// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `logDestinationType` is `cloudwatch`.
+	// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `logDestinationType` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
 	LogExports pulumi.StringArrayInput `pulumi:"logExports"`
 	// The prefix applied to the log file names.
 	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
@@ -257,7 +257,7 @@ func (o ClusterLoggingOutput) LogDestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLogging) *string { return v.LogDestinationType }).(pulumi.StringPtrOutput)
 }
 
-// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `logDestinationType` is `cloudwatch`.
+// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `logDestinationType` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
 func (o ClusterLoggingOutput) LogExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterLogging) []string { return v.LogExports }).(pulumi.StringArrayOutput)
 }
@@ -322,7 +322,7 @@ func (o ClusterLoggingPtrOutput) LogDestinationType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `logDestinationType` is `cloudwatch`.
+// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `logDestinationType` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
 func (o ClusterLoggingPtrOutput) LogExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterLogging) []string {
 		if v == nil {

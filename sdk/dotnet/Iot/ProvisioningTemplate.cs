@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Iot
     ///         }));
     ///         var devicePolicyPolicy = new Aws.Iot.Policy("devicePolicyPolicy", new Aws.Iot.PolicyArgs
     ///         {
-    ///             Policy = devicePolicyPolicyDocument.Apply(devicePolicyPolicyDocument =&gt; devicePolicyPolicyDocument.Json),
+    ///             PolicyDocument = devicePolicyPolicyDocument.Apply(devicePolicyPolicyDocument =&gt; devicePolicyPolicyDocument.Json),
     ///         });
     ///         var fleet = new Aws.Iot.ProvisioningTemplate("fleet", new Aws.Iot.ProvisioningTemplateArgs
     ///         {

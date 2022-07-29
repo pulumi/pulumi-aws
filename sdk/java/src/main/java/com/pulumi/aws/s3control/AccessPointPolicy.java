@@ -19,11 +19,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.AccessPoint;
+ * import com.pulumi.aws.s3.AccessPointArgs;
+ * import com.pulumi.aws.s3.inputs.AccessPointPublicAccessBlockConfigurationArgs;
+ * import com.pulumi.aws.s3control.AccessPointPolicy;
+ * import com.pulumi.aws.s3control.AccessPointPolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -45,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleAccessPointPolicy = new AccessPointPolicy(&#34;exampleAccessPointPolicy&#34;, AccessPointPolicyArgs.builder()        
  *             .accessPointArn(exampleAccessPoint.arn())
- *             .policy(exampleAccessPoint.arn().apply(arn -&gt; serializeJson(
+ *             .policy(exampleAccessPoint.arn().applyValue(arn -&gt; serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;Version&#34;, &#34;2008-10-17&#34;),
  *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(

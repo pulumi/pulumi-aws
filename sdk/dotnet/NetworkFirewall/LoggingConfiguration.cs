@@ -26,7 +26,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///         var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new Aws.NetworkFirewall.LoggingConfigurationArgs
     ///         {
     ///             FirewallArn = aws_networkfirewall_firewall.Example.Arn,
-    ///             LoggingConfiguration = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
+    ///             LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///             {
     ///                 LogDestinationConfigs = 
     ///                 {
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///         var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new Aws.NetworkFirewall.LoggingConfigurationArgs
     ///         {
     ///             FirewallArn = aws_networkfirewall_firewall.Example.Arn,
-    ///             LoggingConfiguration = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
+    ///             LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///             {
     ///                 LogDestinationConfigs = 
     ///                 {
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///         var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new Aws.NetworkFirewall.LoggingConfigurationArgs
     ///         {
     ///             FirewallArn = aws_networkfirewall_firewall.Example.Arn,
-    ///             LoggingConfiguration = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
+    ///             LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///             {
     ///                 LogDestinationConfigs = 
     ///                 {

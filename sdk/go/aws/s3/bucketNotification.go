@@ -37,7 +37,19 @@ import (
 // 		}
 // 		topic, err := sns.NewTopic(ctx, "topic", &sns.TopicArgs{
 // 			Policy: bucket.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\":\"2012-10-17\",\n", "    \"Statement\":[{\n", "        \"Effect\": \"Allow\",\n", "        \"Principal\": { \"Service\": \"s3.amazonaws.com\" },\n", "        \"Action\": \"SNS:Publish\",\n", "        \"Resource\": \"arn:aws:sns:*:*:s3-event-notification-topic\",\n", "        \"Condition\":{\n", "            \"ArnLike\":{\"aws:SourceArn\":\"", arn, "\"}\n", "        }\n", "    }]\n", "}\n"), nil
+// 				return fmt.Sprintf(`{
+//     "Version":"2012-10-17",
+//     "Statement":[{
+//         "Effect": "Allow",
+//         "Principal": { "Service": "s3.amazonaws.com" },
+//         "Action": "SNS:Publish",
+//         "Resource": "arn:aws:sns:*:*:s3-event-notification-topic",
+//         "Condition":{
+//             "ArnLike":{"aws:SourceArn":"%v"}
+//         }
+//     }]
+// }
+// `, arn), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
@@ -83,7 +95,21 @@ import (
 // 		}
 // 		queue, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
 // 			Policy: bucket.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": \"*\",\n", "      \"Action\": \"sqs:SendMessage\",\n", "	  \"Resource\": \"arn:aws:sqs:*:*:s3-event-notification-queue\",\n", "      \"Condition\": {\n", "        \"ArnEquals\": { \"aws:SourceArn\": \"", arn, "\" }\n", "      }\n", "    }\n", "  ]\n", "}\n"), nil
+// 				return fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Effect": "Allow",
+//       "Principal": "*",
+//       "Action": "sqs:SendMessage",
+// 	  "Resource": "arn:aws:sqs:*:*:s3-event-notification-queue",
+//       "Condition": {
+//         "ArnEquals": { "aws:SourceArn": "%v" }
+//       }
+//     }
+//   ]
+// }
+// `, arn), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
@@ -126,7 +152,19 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"lambda.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "lambda.amazonaws.com"
+//       },
+//       "Effect": "Allow"
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -193,7 +231,19 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"lambda.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "lambda.amazonaws.com"
+//       },
+//       "Effect": "Allow"
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -289,7 +339,21 @@ import (
 // 		}
 // 		queue, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
 // 			Policy: bucket.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": \"*\",\n", "      \"Action\": \"sqs:SendMessage\",\n", "	  \"Resource\": \"arn:aws:sqs:*:*:s3-event-notification-queue\",\n", "      \"Condition\": {\n", "        \"ArnEquals\": { \"aws:SourceArn\": \"", arn, "\" }\n", "      }\n", "    }\n", "  ]\n", "}\n"), nil
+// 				return fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Effect": "Allow",
+//       "Principal": "*",
+//       "Action": "sqs:SendMessage",
+// 	  "Resource": "arn:aws:sqs:*:*:s3-event-notification-queue",
+//       "Condition": {
+//         "ArnEquals": { "aws:SourceArn": "%v" }
+//       }
+//     }
+//   ]
+// }
+// `, arn), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

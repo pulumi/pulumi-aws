@@ -21,10 +21,17 @@ public final class GuarddutyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
+     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -32,7 +39,7 @@ public final class GuarddutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GuarddutyFunctions.getDetector());
+     *         final var example = GuarddutyFunctions.getDetector();
      * 
      *     }
      * }
@@ -49,10 +56,17 @@ public final class GuarddutyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
+     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -60,7 +74,7 @@ public final class GuarddutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GuarddutyFunctions.getDetector());
+     *         final var example = GuarddutyFunctions.getDetector();
      * 
      *     }
      * }
@@ -77,10 +91,17 @@ public final class GuarddutyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
+     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -88,7 +109,7 @@ public final class GuarddutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GuarddutyFunctions.getDetector());
+     *         final var example = GuarddutyFunctions.getDetector();
      * 
      *     }
      * }
@@ -105,10 +126,17 @@ public final class GuarddutyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
+     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -116,7 +144,7 @@ public final class GuarddutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GuarddutyFunctions.getDetector());
+     *         final var example = GuarddutyFunctions.getDetector();
      * 
      *     }
      * }
@@ -133,10 +161,17 @@ public final class GuarddutyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
+     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -144,7 +179,7 @@ public final class GuarddutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GuarddutyFunctions.getDetector());
+     *         final var example = GuarddutyFunctions.getDetector();
      * 
      *     }
      * }
@@ -161,10 +196,17 @@ public final class GuarddutyFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.guardduty.GuarddutyFunctions;
+     * import com.pulumi.aws.guardduty.inputs.GetDetectorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -172,7 +214,7 @@ public final class GuarddutyFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GuarddutyFunctions.getDetector());
+     *         final var example = GuarddutyFunctions.getDetector();
      * 
      *     }
      * }

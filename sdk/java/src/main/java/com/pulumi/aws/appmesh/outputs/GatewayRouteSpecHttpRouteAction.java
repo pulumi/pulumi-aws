@@ -3,12 +3,20 @@
 
 package com.pulumi.aws.appmesh.outputs;
 
+import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttpRouteActionRewrite;
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttpRouteActionTarget;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GatewayRouteSpecHttpRouteAction {
+    /**
+     * @return The gateway route action to rewrite.
+     * 
+     */
+    private final @Nullable GatewayRouteSpecHttpRouteActionRewrite rewrite;
     /**
      * @return The target that traffic is routed to when a request matches the gateway route.
      * 
@@ -16,10 +24,20 @@ public final class GatewayRouteSpecHttpRouteAction {
     private final GatewayRouteSpecHttpRouteActionTarget target;
 
     @CustomType.Constructor
-    private GatewayRouteSpecHttpRouteAction(@CustomType.Parameter("target") GatewayRouteSpecHttpRouteActionTarget target) {
+    private GatewayRouteSpecHttpRouteAction(
+        @CustomType.Parameter("rewrite") @Nullable GatewayRouteSpecHttpRouteActionRewrite rewrite,
+        @CustomType.Parameter("target") GatewayRouteSpecHttpRouteActionTarget target) {
+        this.rewrite = rewrite;
         this.target = target;
     }
 
+    /**
+     * @return The gateway route action to rewrite.
+     * 
+     */
+    public Optional<GatewayRouteSpecHttpRouteActionRewrite> rewrite() {
+        return Optional.ofNullable(this.rewrite);
+    }
     /**
      * @return The target that traffic is routed to when a request matches the gateway route.
      * 
@@ -37,6 +55,7 @@ public final class GatewayRouteSpecHttpRouteAction {
     }
 
     public static final class Builder {
+        private @Nullable GatewayRouteSpecHttpRouteActionRewrite rewrite;
         private GatewayRouteSpecHttpRouteActionTarget target;
 
         public Builder() {
@@ -45,14 +64,19 @@ public final class GatewayRouteSpecHttpRouteAction {
 
         public Builder(GatewayRouteSpecHttpRouteAction defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.rewrite = defaults.rewrite;
     	      this.target = defaults.target;
         }
 
+        public Builder rewrite(@Nullable GatewayRouteSpecHttpRouteActionRewrite rewrite) {
+            this.rewrite = rewrite;
+            return this;
+        }
         public Builder target(GatewayRouteSpecHttpRouteActionTarget target) {
             this.target = Objects.requireNonNull(target);
             return this;
         }        public GatewayRouteSpecHttpRouteAction build() {
-            return new GatewayRouteSpecHttpRouteAction(target);
+            return new GatewayRouteSpecHttpRouteAction(rewrite, target);
         }
     }
 }

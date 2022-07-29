@@ -7,6 +7,23 @@ import * as utilities from "../utilities";
 /**
  * Manages an EC2 Transit Gateway Connect.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2transitgateway.VpcAttachment("example", {
+ *     subnetIds: [aws_subnet.example.id],
+ *     transitGatewayId: aws_ec2_transit_gateway.example.id,
+ *     vpcId: aws_vpc.example.id,
+ * });
+ * const attachment = new aws.ec2transitgateway.Connect("attachment", {
+ *     transportAttachmentId: example.id,
+ *     transitGatewayId: aws_ec2_transit_gateway.example.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * `aws_ec2_transit_gateway_connect` can be imported by using the EC2 Transit Gateway Connect identifier, e.g.,

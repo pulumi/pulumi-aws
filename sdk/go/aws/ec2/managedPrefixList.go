@@ -28,12 +28,12 @@ import (
 // 		_, err := ec2.NewManagedPrefixList(ctx, "example", &ec2.ManagedPrefixListArgs{
 // 			AddressFamily: pulumi.String("IPv4"),
 // 			MaxEntries:    pulumi.Int(5),
-// 			Entries: ec2.ManagedPrefixListEntryArray{
-// 				&ec2.ManagedPrefixListEntryArgs{
+// 			Entries: ec2.ManagedPrefixListEntryTypeArray{
+// 				&ec2.ManagedPrefixListEntryTypeArgs{
 // 					Cidr:        pulumi.Any(aws_vpc.Example.Cidr_block),
 // 					Description: pulumi.String("Primary"),
 // 				},
-// 				&ec2.ManagedPrefixListEntryArgs{
+// 				&ec2.ManagedPrefixListEntryTypeArgs{
 // 					Cidr:        pulumi.Any(aws_vpc_ipv4_cidr_block_association.Example.Cidr_block),
 // 					Description: pulumi.String("Secondary"),
 // 				},

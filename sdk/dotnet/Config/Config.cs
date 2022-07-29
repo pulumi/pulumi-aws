@@ -657,12 +657,14 @@ namespace Pulumi.Aws
                 public string? Redshift { get; set; } = null!;
                 public string? Redshiftdata { get; set; } = null!;
                 public string? Redshiftdataapiservice { get; set; } = null!;
+                public string? Redshiftserverless { get; set; } = null!;
                 public string? Rekognition { get; set; } = null!;
                 public string? Resiliencehub { get; set; } = null!;
                 public string? Resourcegroups { get; set; } = null!;
                 public string? Resourcegroupstagging { get; set; } = null!;
                 public string? Resourcegroupstaggingapi { get; set; } = null!;
                 public string? Robomaker { get; set; } = null!;
+                public string? Rolesanywhere { get; set; } = null!;
                 public string? Route53 { get; set; } = null!;
                 public string? Route53domains { get; set; } = null!;
                 public string? Route53recoverycluster { get; set; } = null!;

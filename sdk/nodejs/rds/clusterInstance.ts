@@ -184,7 +184,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly performanceInsightsKmsKeyId!: pulumi.Output<string>;
     /**
-     * Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+     * Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
      */
     public readonly performanceInsightsRetentionPeriod!: pulumi.Output<number>;
     /**
@@ -419,7 +419,7 @@ export interface ClusterInstanceState {
      */
     performanceInsightsKmsKeyId?: pulumi.Input<string>;
     /**
-     * Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+     * Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
      */
     performanceInsightsRetentionPeriod?: pulumi.Input<number>;
     /**
@@ -544,7 +544,7 @@ export interface ClusterInstanceArgs {
      */
     performanceInsightsKmsKeyId?: pulumi.Input<string>;
     /**
-     * Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+     * Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
      */
     performanceInsightsRetentionPeriod?: pulumi.Input<number>;
     /**

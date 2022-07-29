@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const test = new aws.worklink.Fleet("test", {identityProvider: {
  *     type: "SAML",

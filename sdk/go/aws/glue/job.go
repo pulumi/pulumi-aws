@@ -33,7 +33,7 @@ import (
 // 		_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
 // 			RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
 // 			Command: &glue.JobCommandArgs{
-// 				ScriptLocation: pulumi.String(fmt.Sprintf("%v%v%v", "s3://", aws_s3_bucket.Example.Bucket, "/example.py")),
+// 				ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.py", aws_s3_bucket.Example.Bucket)),
 // 			},
 // 		})
 // 		if err != nil {
@@ -60,7 +60,7 @@ import (
 // 		_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
 // 			RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
 // 			Command: &glue.JobCommandArgs{
-// 				ScriptLocation: pulumi.String(fmt.Sprintf("%v%v%v", "s3://", aws_s3_bucket.Example.Bucket, "/example.scala")),
+// 				ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.scala", aws_s3_bucket.Example.Bucket)),
 // 			},
 // 			DefaultArguments: pulumi.StringMap{
 // 				"--job-language": pulumi.String("scala"),
@@ -91,7 +91,7 @@ import (
 // 			RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
 // 			Command: &glue.JobCommandArgs{
 // 				Name:           pulumi.String("gluestreaming"),
-// 				ScriptLocation: pulumi.String(fmt.Sprintf("%v%v%v", "s3://", aws_s3_bucket.Example.Bucket, "/example.script")),
+// 				ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.script", aws_s3_bucket.Example.Bucket)),
 // 			},
 // 		})
 // 		if err != nil {

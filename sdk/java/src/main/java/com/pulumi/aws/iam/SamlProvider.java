@@ -22,10 +22,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.SamlProvider;
+ * import com.pulumi.aws.iam.SamlProviderArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -34,7 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new SamlProvider(&#34;default&#34;, SamlProviderArgs.builder()        
- *             .samlMetadataDocument(Files.readString(&#34;saml-metadata.xml&#34;))
+ *             .samlMetadataDocument(Files.readString(Paths.get(&#34;saml-metadata.xml&#34;)))
  *             .build());
  * 
  *     }

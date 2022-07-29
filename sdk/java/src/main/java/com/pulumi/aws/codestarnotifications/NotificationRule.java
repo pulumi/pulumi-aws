@@ -24,10 +24,25 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codecommit.Repository;
+ * import com.pulumi.aws.codecommit.RepositoryArgs;
+ * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.sns.TopicPolicy;
+ * import com.pulumi.aws.sns.TopicPolicyArgs;
+ * import com.pulumi.aws.codestarnotifications.NotificationRule;
+ * import com.pulumi.aws.codestarnotifications.NotificationRuleArgs;
+ * import com.pulumi.aws.codestarnotifications.inputs.NotificationRuleTargetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -54,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  *         var default_ = new TopicPolicy(&#34;default&#34;, TopicPolicyArgs.builder()        
  *             .arn(notif.arn())
- *             .policy(notifAccess.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult).apply(notifAccess -&gt; notifAccess.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(notifAccess.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(notifAccess -&gt; notifAccess.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *         var commits = new NotificationRule(&#34;commits&#34;, NotificationRuleArgs.builder()        

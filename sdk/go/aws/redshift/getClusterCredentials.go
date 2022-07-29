@@ -11,29 +11,6 @@ import (
 )
 
 // Provides redshift subnet group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := redshift.GetClusterCredentials(ctx, &redshift.GetClusterCredentialsArgs{
-// 			Name: aws_redshift_cluster_credentials.Example.Name,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 func GetClusterCredentials(ctx *pulumi.Context, args *GetClusterCredentialsArgs, opts ...pulumi.InvokeOption) (*GetClusterCredentialsResult, error) {
 	var rv GetClusterCredentialsResult
 	err := ctx.Invoke("aws:redshift/getClusterCredentials:getClusterCredentials", args, &rv, opts...)

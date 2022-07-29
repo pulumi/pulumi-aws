@@ -30,10 +30,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codebuild.Webhook;
+ * import com.pulumi.aws.codebuild.WebhookArgs;
+ * import com.pulumi.aws.codebuild.inputs.WebhookFilterGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -68,10 +76,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codebuild.Webhook;
+ * import com.pulumi.aws.codebuild.WebhookArgs;
+ * import com.pulumi.github.RepositoryWebhook;
+ * import com.pulumi.github.RepositoryWebhookArgs;
+ * import com.pulumi.github.inputs.RepositoryWebhookConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -111,14 +129,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:codebuild/webhook:Webhook")
 public class Webhook extends com.pulumi.resources.CustomResource {
     /**
-     * A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
+     * A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
      * 
      */
     @Export(name="branchFilter", type=String.class, parameters={})
     private Output</* @Nullable */ String> branchFilter;
 
     /**
-     * @return A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
+     * @return A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
      * 
      */
     public Output<Optional<String>> branchFilter() {

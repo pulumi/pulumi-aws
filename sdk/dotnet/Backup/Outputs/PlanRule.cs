@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Backup.Outputs
     public sealed class PlanRule
     {
         /// <summary>
-        /// The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
+        /// The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
         /// </summary>
         public readonly int? CompletionWindow;
         /// <summary>

@@ -30,10 +30,17 @@ public final class EcrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.codeartifact.inputs.GetAuthorizationTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -41,7 +48,7 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = Output.of(EcrFunctions.getAuthorizationToken());
+     *         final var token = EcrFunctions.getAuthorizationToken();
      * 
      *     }
      * }
@@ -58,10 +65,17 @@ public final class EcrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.codeartifact.inputs.GetAuthorizationTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -69,7 +83,7 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = Output.of(EcrFunctions.getAuthorizationToken());
+     *         final var token = EcrFunctions.getAuthorizationToken();
      * 
      *     }
      * }
@@ -86,10 +100,17 @@ public final class EcrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.codeartifact.inputs.GetAuthorizationTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -97,7 +118,7 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = Output.of(EcrFunctions.getAuthorizationToken());
+     *         final var token = EcrFunctions.getAuthorizationToken();
      * 
      *     }
      * }
@@ -114,10 +135,17 @@ public final class EcrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.codeartifact.inputs.GetAuthorizationTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -125,7 +153,7 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = Output.of(EcrFunctions.getAuthorizationToken());
+     *         final var token = EcrFunctions.getAuthorizationToken();
      * 
      *     }
      * }
@@ -142,10 +170,17 @@ public final class EcrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.codeartifact.inputs.GetAuthorizationTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -153,7 +188,7 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = Output.of(EcrFunctions.getAuthorizationToken());
+     *         final var token = EcrFunctions.getAuthorizationToken();
      * 
      *     }
      * }
@@ -170,10 +205,17 @@ public final class EcrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.codeartifact.inputs.GetAuthorizationTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -181,7 +223,7 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var token = Output.of(EcrFunctions.getAuthorizationToken());
+     *         final var token = EcrFunctions.getAuthorizationToken();
      * 
      *     }
      * }
@@ -210,10 +252,17 @@ public final class EcrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -221,10 +270,10 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var serviceImage = Output.of(EcrFunctions.getImage(GetImageArgs.builder()
+     *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
      *             .imageTag(&#34;latest&#34;)
      *             .repositoryName(&#34;my/service&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -241,10 +290,17 @@ public final class EcrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -252,10 +308,10 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var serviceImage = Output.of(EcrFunctions.getImage(GetImageArgs.builder()
+     *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
      *             .imageTag(&#34;latest&#34;)
      *             .repositoryName(&#34;my/service&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -272,10 +328,17 @@ public final class EcrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -283,10 +346,10 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var serviceImage = Output.of(EcrFunctions.getImage(GetImageArgs.builder()
+     *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
      *             .imageTag(&#34;latest&#34;)
      *             .repositoryName(&#34;my/service&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -303,10 +366,17 @@ public final class EcrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -314,10 +384,10 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var serviceImage = Output.of(EcrFunctions.getImage(GetImageArgs.builder()
+     *         final var serviceImage = EcrFunctions.getImage(GetImageArgs.builder()
      *             .imageTag(&#34;latest&#34;)
      *             .repositoryName(&#34;my/service&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -334,10 +404,17 @@ public final class EcrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.codecommit.inputs.GetRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -345,9 +422,9 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var service = Output.of(EcrFunctions.getRepository(GetRepositoryArgs.builder()
+     *         final var service = EcrFunctions.getRepository(GetRepositoryArgs.builder()
      *             .name(&#34;ecr-repository&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -364,10 +441,17 @@ public final class EcrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.codecommit.inputs.GetRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -375,9 +459,9 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var service = Output.of(EcrFunctions.getRepository(GetRepositoryArgs.builder()
+     *         final var service = EcrFunctions.getRepository(GetRepositoryArgs.builder()
      *             .name(&#34;ecr-repository&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -394,10 +478,17 @@ public final class EcrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.codecommit.inputs.GetRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -405,9 +496,9 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var service = Output.of(EcrFunctions.getRepository(GetRepositoryArgs.builder()
+     *         final var service = EcrFunctions.getRepository(GetRepositoryArgs.builder()
      *             .name(&#34;ecr-repository&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -424,10 +515,17 @@ public final class EcrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.codecommit.inputs.GetRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -435,9 +533,9 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var service = Output.of(EcrFunctions.getRepository(GetRepositoryArgs.builder()
+     *         final var service = EcrFunctions.getRepository(GetRepositoryArgs.builder()
      *             .name(&#34;ecr-repository&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

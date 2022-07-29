@@ -40,7 +40,7 @@ import (
 // 				WorkteamArn:                       pulumi.Any(aws_sagemaker_workteam.Example.Arn),
 // 			},
 // 			OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
-// 				S3OutputPath: pulumi.String(fmt.Sprintf("%v%v%v", "s3://", aws_s3_bucket.Example.Bucket, "/")),
+// 				S3OutputPath: pulumi.String(fmt.Sprintf("s3://%v/", aws_s3_bucket.Example.Bucket)),
 // 			},
 // 		})
 // 		if err != nil {
@@ -73,7 +73,7 @@ import (
 // 				TaskCount:                         pulumi.Int(1),
 // 				TaskDescription:                   pulumi.String("example"),
 // 				TaskTitle:                         pulumi.String("example"),
-// 				WorkteamArn:                       pulumi.String(fmt.Sprintf("%v%v%v", "arn:aws:sagemaker:", data.Aws_region.Current.Name, ":394669845002:workteam/public-crowd/default")),
+// 				WorkteamArn:                       pulumi.String(fmt.Sprintf("arn:aws:sagemaker:%v:394669845002:workteam/public-crowd/default", data.Aws_region.Current.Name)),
 // 				PublicWorkforceTaskPrice: &sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs{
 // 					AmountInUsd: &sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs{
 // 						Cents:                 pulumi.Int(1),
@@ -82,7 +82,7 @@ import (
 // 				},
 // 			},
 // 			OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
-// 				S3OutputPath: pulumi.String(fmt.Sprintf("%v%v%v", "s3://", aws_s3_bucket.Example.Bucket, "/")),
+// 				S3OutputPath: pulumi.String(fmt.Sprintf("s3://%v/", aws_s3_bucket.Example.Bucket)),
 // 			},
 // 		})
 // 		if err != nil {
@@ -122,11 +122,21 @@ import (
 // 			},
 // 			HumanLoopActivationConfig: &sagemaker.FlowDefinitionHumanLoopActivationConfigArgs{
 // 				HumanLoopActivationConditionsConfig: &sagemaker.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs{
-// 					HumanLoopActivationConditions: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v", "        {\n", "			\"Conditions\": [\n", "			  {\n", "				\"ConditionType\": \"Sampling\",\n", "				\"ConditionParameters\": {\n", "				  \"RandomSamplingPercentage\": 5\n", "				}\n", "			  }\n", "			]\n", "		}\n")),
+// 					HumanLoopActivationConditions: pulumi.String(fmt.Sprintf(`        {
+// 			"Conditions": [
+// 			  {
+// 				"ConditionType": "Sampling",
+// 				"ConditionParameters": {
+// 				  "RandomSamplingPercentage": 5
+// 				}
+// 			  }
+// 			]
+// 		}
+// `)),
 // 				},
 // 			},
 // 			OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
-// 				S3OutputPath: pulumi.String(fmt.Sprintf("%v%v%v", "s3://", aws_s3_bucket.Example.Bucket, "/")),
+// 				S3OutputPath: pulumi.String(fmt.Sprintf("s3://%v/", aws_s3_bucket.Example.Bucket)),
 // 			},
 // 		})
 // 		if err != nil {

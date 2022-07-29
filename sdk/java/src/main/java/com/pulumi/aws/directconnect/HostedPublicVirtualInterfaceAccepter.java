@@ -20,48 +20,6 @@ import javax.annotation.Nullable;
  * This resource accepts ownership of a public virtual interface created by another AWS account.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * import com.pulumi.resources.CustomResourceOptions;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var accepter = new Provider(&#34;accepter&#34;);
- * 
- *         final var accepterCallerIdentity = Output.of(AwsFunctions.getCallerIdentity());
- * 
- *         var creator = new HostedPublicVirtualInterface(&#34;creator&#34;, HostedPublicVirtualInterfaceArgs.builder()        
- *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
- *             .ownerAccountId(accepterCallerIdentity.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *             .vlan(4094)
- *             .addressFamily(&#34;ipv4&#34;)
- *             .bgpAsn(65352)
- *             .customerAddress(&#34;175.45.176.1/30&#34;)
- *             .amazonAddress(&#34;175.45.176.2/30&#34;)
- *             .routeFilterPrefixes(            
- *                 &#34;210.52.109.0/24&#34;,
- *                 &#34;175.45.176.0/22&#34;)
- *             .build());
- * 
- *         var accepterHostedPublicVirtualInterfaceAccepter = new HostedPublicVirtualInterfaceAccepter(&#34;accepterHostedPublicVirtualInterfaceAccepter&#34;, HostedPublicVirtualInterfaceAccepterArgs.builder()        
- *             .virtualInterfaceId(creator.id())
- *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.accepter())
- *                 .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

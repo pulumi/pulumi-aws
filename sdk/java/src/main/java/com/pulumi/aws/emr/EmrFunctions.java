@@ -21,10 +21,18 @@ public final class EmrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.EmrFunctions;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -32,12 +40,12 @@ public final class EmrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
+     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
      *                 .application(&#34;spark@2.1.0&#34;)
      *                 .prefix(&#34;emr-5&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -54,10 +62,18 @@ public final class EmrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.EmrFunctions;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -65,12 +81,12 @@ public final class EmrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
+     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
      *                 .application(&#34;spark@2.1.0&#34;)
      *                 .prefix(&#34;emr-5&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -87,10 +103,18 @@ public final class EmrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.EmrFunctions;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -98,12 +122,12 @@ public final class EmrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
+     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
      *                 .application(&#34;spark@2.1.0&#34;)
      *                 .prefix(&#34;emr-5&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -120,10 +144,18 @@ public final class EmrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.EmrFunctions;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -131,12 +163,12 @@ public final class EmrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
+     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
      *                 .application(&#34;spark@2.1.0&#34;)
      *                 .prefix(&#34;emr-5&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -153,10 +185,18 @@ public final class EmrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.EmrFunctions;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -164,12 +204,12 @@ public final class EmrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
+     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
      *                 .application(&#34;spark@2.1.0&#34;)
      *                 .prefix(&#34;emr-5&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -186,10 +226,18 @@ public final class EmrFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.EmrFunctions;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsArgs;
+     * import com.pulumi.aws.emr.inputs.GetReleaseLabelsFiltersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -197,12 +245,12 @@ public final class EmrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
+     *         final var example = EmrFunctions.getReleaseLabels(GetReleaseLabelsArgs.builder()
      *             .filters(GetReleaseLabelsFiltersArgs.builder()
      *                 .application(&#34;spark@2.1.0&#34;)
      *                 .prefix(&#34;emr-5&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

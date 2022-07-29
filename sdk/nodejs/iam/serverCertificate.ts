@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const testCert = new aws.iam.ServerCertificate("testCert", {
  *     certificateBody: fs.readFileSync("self-ca-cert.pem"),
@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const testCert = new aws.iam.ServerCertificate("testCert", {
  *     namePrefix: "example-cert",

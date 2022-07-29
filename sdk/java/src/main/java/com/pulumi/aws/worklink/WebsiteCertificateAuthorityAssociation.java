@@ -19,10 +19,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.worklink.Fleet;
+ * import com.pulumi.aws.worklink.WebsiteCertificateAuthorityAssociation;
+ * import com.pulumi.aws.worklink.WebsiteCertificateAuthorityAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -34,7 +42,7 @@ import javax.annotation.Nullable;
  * 
  *         var test = new WebsiteCertificateAuthorityAssociation(&#34;test&#34;, WebsiteCertificateAuthorityAssociationArgs.builder()        
  *             .fleetArn(aws_worklink_fleet.test().arn())
- *             .certificate(Files.readString(&#34;certificate.pem&#34;))
+ *             .certificate(Files.readString(Paths.get(&#34;certificate.pem&#34;)))
  *             .build());
  * 
  *     }

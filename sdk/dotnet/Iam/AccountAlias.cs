@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Iam
     ///     {
     ///         var @alias = new Aws.Iam.AccountAlias("alias", new Aws.Iam.AccountAliasArgs
     ///         {
-    ///             AccountAlias = "my-account-alias",
+    ///             Alias = "my-account-alias",
     ///         });
     ///     }
     /// 

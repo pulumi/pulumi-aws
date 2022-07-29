@@ -30,7 +30,7 @@ public final class ClusterLogging {
      */
     private final @Nullable String logDestinationType;
     /**
-     * @return The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`.
+     * @return The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
      * 
      */
     private final @Nullable List<String> logExports;
@@ -77,7 +77,7 @@ public final class ClusterLogging {
         return Optional.ofNullable(this.logDestinationType);
     }
     /**
-     * @return The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`.
+     * @return The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
      * 
      */
     public List<String> logExports() {

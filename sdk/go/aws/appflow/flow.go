@@ -34,7 +34,27 @@ import (
 // 		}
 // 		exampleSourceBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleSourceBucketPolicy", &s3.BucketPolicyArgs{
 // 			Bucket: exampleSourceBucketV2.ID(),
-// 			Policy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Statement\": [\n", "        {\n", "            \"Effect\": \"Allow\",\n", "            \"Sid\": \"AllowAppFlowSourceActions\",\n", "            \"Principal\": {\n", "                \"Service\": \"appflow.amazonaws.com\"\n", "            },\n", "            \"Action\": [\n", "                \"s3:ListBucket\",\n", "                \"s3:GetObject\"\n", "            ],\n", "            \"Resource\": [\n", "                \"arn:aws:s3:::example_source\",\n", "                \"arn:aws:s3:::example_source/*\"\n", "            ]\n", "        }\n", "    ],\n", "	\"Version\": \"2012-10-17\"\n", "}\n")),
+// 			Policy: pulumi.Any(fmt.Sprintf(`{
+//     "Statement": [
+//         {
+//             "Effect": "Allow",
+//             "Sid": "AllowAppFlowSourceActions",
+//             "Principal": {
+//                 "Service": "appflow.amazonaws.com"
+//             },
+//             "Action": [
+//                 "s3:ListBucket",
+//                 "s3:GetObject"
+//             ],
+//             "Resource": [
+//                 "arn:aws:s3:::example_source",
+//                 "arn:aws:s3:::example_source/*"
+//             ]
+//         }
+//     ],
+// 	"Version": "2012-10-17"
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -53,7 +73,32 @@ import (
 // 		}
 // 		exampleDestinationBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleDestinationBucketPolicy", &s3.BucketPolicyArgs{
 // 			Bucket: exampleDestinationBucketV2.ID(),
-// 			Policy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "\n", "{\n", "    \"Statement\": [\n", "        {\n", "            \"Effect\": \"Allow\",\n", "            \"Sid\": \"AllowAppFlowDestinationActions\",\n", "            \"Principal\": {\n", "                \"Service\": \"appflow.amazonaws.com\"\n", "            },\n", "            \"Action\": [\n", "                \"s3:PutObject\",\n", "                \"s3:AbortMultipartUpload\",\n", "                \"s3:ListMultipartUploadParts\",\n", "                \"s3:ListBucketMultipartUploads\",\n", "                \"s3:GetBucketAcl\",\n", "                \"s3:PutObjectAcl\"\n", "            ],\n", "            \"Resource\": [\n", "                \"arn:aws:s3:::example_destination\",\n", "                \"arn:aws:s3:::example_destination/*\"\n", "            ]\n", "        }\n", "    ],\n", "	\"Version\": \"2012-10-17\"\n", "}\n")),
+// 			Policy: pulumi.Any(fmt.Sprintf(`
+// {
+//     "Statement": [
+//         {
+//             "Effect": "Allow",
+//             "Sid": "AllowAppFlowDestinationActions",
+//             "Principal": {
+//                 "Service": "appflow.amazonaws.com"
+//             },
+//             "Action": [
+//                 "s3:PutObject",
+//                 "s3:AbortMultipartUpload",
+//                 "s3:ListMultipartUploadParts",
+//                 "s3:ListBucketMultipartUploads",
+//                 "s3:GetBucketAcl",
+//                 "s3:PutObjectAcl"
+//             ],
+//             "Resource": [
+//                 "arn:aws:s3:::example_destination",
+//                 "arn:aws:s3:::example_destination/*"
+//             ]
+//         }
+//     ],
+// 	"Version": "2012-10-17"
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

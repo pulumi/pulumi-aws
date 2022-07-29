@@ -27,7 +27,7 @@ namespace Pulumi.Aws.RedShift.Outputs
         /// </summary>
         public readonly string? LogDestinationType;
         /// <summary>
-        /// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`.
+        /// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
         /// </summary>
         public readonly ImmutableArray<string> LogExports;
         /// <summary>

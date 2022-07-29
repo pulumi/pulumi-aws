@@ -4,6 +4,7 @@
 package com.pulumi.aws.outposts.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 
@@ -27,6 +28,11 @@ public final class GetAssetResult {
      */
     private final String id;
     /**
+     * @return The position of an asset in a rack measured in rack units.
+     * 
+     */
+    private final Integer rackElevation;
+    /**
      * @return The rack ID of the asset.
      * 
      */
@@ -39,12 +45,14 @@ public final class GetAssetResult {
         @CustomType.Parameter("assetType") String assetType,
         @CustomType.Parameter("hostId") String hostId,
         @CustomType.Parameter("id") String id,
+        @CustomType.Parameter("rackElevation") Integer rackElevation,
         @CustomType.Parameter("rackId") String rackId) {
         this.arn = arn;
         this.assetId = assetId;
         this.assetType = assetType;
         this.hostId = hostId;
         this.id = id;
+        this.rackElevation = rackElevation;
         this.rackId = rackId;
     }
 
@@ -76,6 +84,13 @@ public final class GetAssetResult {
         return this.id;
     }
     /**
+     * @return The position of an asset in a rack measured in rack units.
+     * 
+     */
+    public Integer rackElevation() {
+        return this.rackElevation;
+    }
+    /**
      * @return The rack ID of the asset.
      * 
      */
@@ -97,6 +112,7 @@ public final class GetAssetResult {
         private String assetType;
         private String hostId;
         private String id;
+        private Integer rackElevation;
         private String rackId;
 
         public Builder() {
@@ -110,6 +126,7 @@ public final class GetAssetResult {
     	      this.assetType = defaults.assetType;
     	      this.hostId = defaults.hostId;
     	      this.id = defaults.id;
+    	      this.rackElevation = defaults.rackElevation;
     	      this.rackId = defaults.rackId;
         }
 
@@ -133,11 +150,15 @@ public final class GetAssetResult {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        public Builder rackElevation(Integer rackElevation) {
+            this.rackElevation = Objects.requireNonNull(rackElevation);
+            return this;
+        }
         public Builder rackId(String rackId) {
             this.rackId = Objects.requireNonNull(rackId);
             return this;
         }        public GetAssetResult build() {
-            return new GetAssetResult(arn, assetId, assetType, hostId, id, rackId);
+            return new GetAssetResult(arn, assetId, assetType, hostId, id, rackElevation, rackId);
         }
     }
 }

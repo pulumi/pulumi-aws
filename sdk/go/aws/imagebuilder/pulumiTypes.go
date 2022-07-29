@@ -517,6 +517,8 @@ type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Identifier of the EC2 Volume Snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
+	// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+	Throughput *int `pulumi:"throughput"`
 	// Size of the volume, in GiB.
 	VolumeSize *int `pulumi:"volumeSize"`
 	// Type of the volume. For example, `gp2` or `io2`.
@@ -545,6 +547,8 @@ type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Identifier of the EC2 Volume Snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// Size of the volume, in GiB.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// Type of the volume. For example, `gp2` or `io2`.
@@ -655,6 +659,11 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) Snapsho
 	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
 // Size of the volume, in GiB.
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
@@ -737,6 +746,16 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Snap
 		}
 		return v.SnapshotId
 	}).(pulumi.StringPtrOutput)
+}
+
+// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
 }
 
 // Size of the volume, in GiB.
@@ -3276,6 +3295,8 @@ type ImageRecipeBlockDeviceMappingEbs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Identifier of the EC2 Volume Snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
+	// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+	Throughput *int `pulumi:"throughput"`
 	// Size of the volume, in GiB.
 	VolumeSize *int `pulumi:"volumeSize"`
 	// Type of the volume. For example, `gp2` or `io2`.
@@ -3304,6 +3325,8 @@ type ImageRecipeBlockDeviceMappingEbsArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Identifier of the EC2 Volume Snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// Size of the volume, in GiB.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// Type of the volume. For example, `gp2` or `io2`.
@@ -3412,6 +3435,11 @@ func (o ImageRecipeBlockDeviceMappingEbsOutput) SnapshotId() pulumi.StringPtrOut
 	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+func (o ImageRecipeBlockDeviceMappingEbsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
 // Size of the volume, in GiB.
 func (o ImageRecipeBlockDeviceMappingEbsOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
@@ -3494,6 +3522,16 @@ func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) SnapshotId() pulumi.StringPtr
 		}
 		return v.SnapshotId
 	}).(pulumi.StringPtrOutput)
+}
+
+// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
 }
 
 // Size of the volume, in GiB.
@@ -4877,6 +4915,8 @@ type GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb struct {
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Identifier of the EC2 Volume Snapshot.
 	SnapshotId string `pulumi:"snapshotId"`
+	// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+	Throughput int `pulumi:"throughput"`
 	// Size of the volume, in GiB.
 	VolumeSize int `pulumi:"volumeSize"`
 	// Type of the volume. For example, `gp2` or `io2`.
@@ -4905,6 +4945,8 @@ type GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs struct {
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Identifier of the EC2 Volume Snapshot.
 	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
+	// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+	Throughput pulumi.IntInput `pulumi:"throughput"`
 	// Size of the volume, in GiB.
 	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
 	// Type of the volume. For example, `gp2` or `io2`.
@@ -4985,6 +5027,11 @@ func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) KmsKe
 // Identifier of the EC2 Volume Snapshot.
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) string { return v.SnapshotId }).(pulumi.StringOutput)
+}
+
+// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) Throughput() pulumi.IntOutput {
+	return o.ApplyT(func(v GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb) int { return v.Throughput }).(pulumi.IntOutput)
 }
 
 // Size of the volume, in GiB.
@@ -7263,6 +7310,8 @@ type GetImageRecipeBlockDeviceMappingEb struct {
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Identifier of the EC2 Volume Snapshot.
 	SnapshotId string `pulumi:"snapshotId"`
+	// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+	Throughput int `pulumi:"throughput"`
 	// Size of the volume, in GiB.
 	VolumeSize int `pulumi:"volumeSize"`
 	// Type of the volume. For example, `gp2` or `io2`.
@@ -7291,6 +7340,8 @@ type GetImageRecipeBlockDeviceMappingEbArgs struct {
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Identifier of the EC2 Volume Snapshot.
 	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
+	// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+	Throughput pulumi.IntInput `pulumi:"throughput"`
 	// Size of the volume, in GiB.
 	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
 	// Type of the volume. For example, `gp2` or `io2`.
@@ -7371,6 +7422,11 @@ func (o GetImageRecipeBlockDeviceMappingEbOutput) KmsKeyId() pulumi.StringOutput
 // Identifier of the EC2 Volume Snapshot.
 func (o GetImageRecipeBlockDeviceMappingEbOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) string { return v.SnapshotId }).(pulumi.StringOutput)
+}
+
+// For GP3 volumes only. The throughput in MiB/s that the volume supports.
+func (o GetImageRecipeBlockDeviceMappingEbOutput) Throughput() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) int { return v.Throughput }).(pulumi.IntOutput)
 }
 
 // Size of the volume, in GiB.

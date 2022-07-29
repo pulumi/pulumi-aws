@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Iam
     ///         var policy = new Aws.Iam.Policy("policy", new Aws.Iam.PolicyArgs
     ///         {
     ///             Description = "A test policy",
-    ///             Policy = @"{
+    ///             PolicyDocument = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {

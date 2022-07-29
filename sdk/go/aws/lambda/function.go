@@ -39,7 +39,20 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"lambda.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "lambda.amazonaws.com"
+//       },
+//       "Effect": "Allow",
+//       "Sid": ""
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -109,7 +122,20 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"lambda.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "lambda.amazonaws.com"
+//       },
+//       "Effect": "Allow",
+//       "Sid": ""
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -238,7 +264,21 @@ import (
 // 		lambdaLogging, err := iam.NewPolicy(ctx, "lambdaLogging", &iam.PolicyArgs{
 // 			Path:        pulumi.String("/"),
 // 			Description: pulumi.String("IAM policy for logging from a lambda"),
-// 			Policy:      pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"logs:CreateLogGroup\",\n", "        \"logs:CreateLogStream\",\n", "        \"logs:PutLogEvents\"\n", "      ],\n", "      \"Resource\": \"arn:aws:logs:*:*:*\",\n", "      \"Effect\": \"Allow\"\n", "    }\n", "  ]\n", "}\n")),
+// 			Policy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": [
+//         "logs:CreateLogGroup",
+//         "logs:CreateLogStream",
+//         "logs:PutLogEvents"
+//       ],
+//       "Resource": "arn:aws:logs:*:*:*",
+//       "Effect": "Allow"
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -278,7 +318,20 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"lambda.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "lambda.amazonaws.com"
+//       },
+//       "Effect": "Allow",
+//       "Sid": ""
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

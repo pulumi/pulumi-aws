@@ -102,7 +102,7 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        /// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         /// </summary>
         [Output("maintenanceWindow")]
         public Output<string> MaintenanceWindow { get; private set; } = null!;
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        /// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<string>? MaintenanceWindow { get; set; }
@@ -472,7 +472,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        /// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<string>? MaintenanceWindow { get; set; }

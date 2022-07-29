@@ -73,7 +73,7 @@ type LookupClusterResult struct {
 	Id string `pulumi:"id"`
 	// ARN of the KMS key used to encrypt the cluster at rest.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
-	// The weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
+	// The weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow string `pulumi:"maintenanceWindow"`
 	// Name of this node.
 	// * `endpoint`
@@ -196,7 +196,7 @@ func (o LookupClusterResultOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
 
-// The weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
+// The weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
 func (o LookupClusterResultOutput) MaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.MaintenanceWindow }).(pulumi.StringOutput)
 }

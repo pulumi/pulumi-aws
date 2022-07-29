@@ -27,10 +27,17 @@ public final class GlueFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -38,9 +45,9 @@ public final class GlueFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GlueFunctions.getConnection(GetConnectionArgs.builder()
+     *         final var example = GlueFunctions.getConnection(GetConnectionArgs.builder()
      *             .id(&#34;123456789123:connection&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -57,10 +64,17 @@ public final class GlueFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -68,9 +82,9 @@ public final class GlueFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GlueFunctions.getConnection(GetConnectionArgs.builder()
+     *         final var example = GlueFunctions.getConnection(GetConnectionArgs.builder()
      *             .id(&#34;123456789123:connection&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -87,10 +101,17 @@ public final class GlueFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -98,9 +119,9 @@ public final class GlueFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GlueFunctions.getConnection(GetConnectionArgs.builder()
+     *         final var example = GlueFunctions.getConnection(GetConnectionArgs.builder()
      *             .id(&#34;123456789123:connection&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -117,10 +138,17 @@ public final class GlueFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -128,9 +156,9 @@ public final class GlueFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GlueFunctions.getConnection(GetConnectionArgs.builder()
+     *         final var example = GlueFunctions.getConnection(GetConnectionArgs.builder()
      *             .id(&#34;123456789123:connection&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -147,10 +175,17 @@ public final class GlueFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -158,9 +193,9 @@ public final class GlueFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
+     *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
      *             .id(&#34;123456789123&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -177,10 +212,17 @@ public final class GlueFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -188,9 +230,9 @@ public final class GlueFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
+     *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
      *             .id(&#34;123456789123&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -207,10 +249,17 @@ public final class GlueFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -218,9 +267,9 @@ public final class GlueFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
+     *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
      *             .id(&#34;123456789123&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -237,10 +286,17 @@ public final class GlueFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -248,9 +304,9 @@ public final class GlueFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
+     *         final var example = GlueFunctions.getDataCatalogEncryptionSettings(GetDataCatalogEncryptionSettingsArgs.builder()
      *             .id(&#34;123456789123&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -268,10 +324,17 @@ public final class GlueFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -279,7 +342,7 @@ public final class GlueFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GlueFunctions.getScript(GetScriptArgs.builder()
+     *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
      *             .language(&#34;PYTHON&#34;)
      *             .dagEdges(            
      *                 GetScriptDagEdgeArgs.builder()
@@ -358,9 +421,9 @@ public final class GlueFunctions {
      *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
      *                             .build())
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;pythonScript&#34;, example.apply(getScriptResult -&gt; getScriptResult.pythonScript()));
+     *         ctx.export(&#34;pythonScript&#34;, example.applyValue(getScriptResult -&gt; getScriptResult.pythonScript()));
      *     }
      * }
      * ```
@@ -368,10 +431,17 @@ public final class GlueFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -379,7 +449,7 @@ public final class GlueFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GlueFunctions.getScript(GetScriptArgs.builder()
+     *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
      *             .language(&#34;SCALA&#34;)
      *             .dagEdges(            
      *                 GetScriptDagEdgeArgs.builder()
@@ -458,9 +528,9 @@ public final class GlueFunctions {
      *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
      *                             .build())
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;scalaCode&#34;, example.apply(getScriptResult -&gt; getScriptResult.scalaCode()));
+     *         ctx.export(&#34;scalaCode&#34;, example.applyValue(getScriptResult -&gt; getScriptResult.scalaCode()));
      *     }
      * }
      * ```
@@ -477,10 +547,17 @@ public final class GlueFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -488,7 +565,7 @@ public final class GlueFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GlueFunctions.getScript(GetScriptArgs.builder()
+     *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
      *             .language(&#34;PYTHON&#34;)
      *             .dagEdges(            
      *                 GetScriptDagEdgeArgs.builder()
@@ -567,9 +644,9 @@ public final class GlueFunctions {
      *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
      *                             .build())
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;pythonScript&#34;, example.apply(getScriptResult -&gt; getScriptResult.pythonScript()));
+     *         ctx.export(&#34;pythonScript&#34;, example.applyValue(getScriptResult -&gt; getScriptResult.pythonScript()));
      *     }
      * }
      * ```
@@ -577,10 +654,17 @@ public final class GlueFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -588,7 +672,7 @@ public final class GlueFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GlueFunctions.getScript(GetScriptArgs.builder()
+     *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
      *             .language(&#34;SCALA&#34;)
      *             .dagEdges(            
      *                 GetScriptDagEdgeArgs.builder()
@@ -667,9 +751,9 @@ public final class GlueFunctions {
      *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
      *                             .build())
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;scalaCode&#34;, example.apply(getScriptResult -&gt; getScriptResult.scalaCode()));
+     *         ctx.export(&#34;scalaCode&#34;, example.applyValue(getScriptResult -&gt; getScriptResult.scalaCode()));
      *     }
      * }
      * ```
@@ -686,10 +770,17 @@ public final class GlueFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -697,7 +788,7 @@ public final class GlueFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GlueFunctions.getScript(GetScriptArgs.builder()
+     *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
      *             .language(&#34;PYTHON&#34;)
      *             .dagEdges(            
      *                 GetScriptDagEdgeArgs.builder()
@@ -776,9 +867,9 @@ public final class GlueFunctions {
      *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
      *                             .build())
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;pythonScript&#34;, example.apply(getScriptResult -&gt; getScriptResult.pythonScript()));
+     *         ctx.export(&#34;pythonScript&#34;, example.applyValue(getScriptResult -&gt; getScriptResult.pythonScript()));
      *     }
      * }
      * ```
@@ -786,10 +877,17 @@ public final class GlueFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -797,7 +895,7 @@ public final class GlueFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GlueFunctions.getScript(GetScriptArgs.builder()
+     *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
      *             .language(&#34;SCALA&#34;)
      *             .dagEdges(            
      *                 GetScriptDagEdgeArgs.builder()
@@ -876,9 +974,9 @@ public final class GlueFunctions {
      *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
      *                             .build())
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;scalaCode&#34;, example.apply(getScriptResult -&gt; getScriptResult.scalaCode()));
+     *         ctx.export(&#34;scalaCode&#34;, example.applyValue(getScriptResult -&gt; getScriptResult.scalaCode()));
      *     }
      * }
      * ```
@@ -895,10 +993,17 @@ public final class GlueFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -906,7 +1011,7 @@ public final class GlueFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GlueFunctions.getScript(GetScriptArgs.builder()
+     *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
      *             .language(&#34;PYTHON&#34;)
      *             .dagEdges(            
      *                 GetScriptDagEdgeArgs.builder()
@@ -985,9 +1090,9 @@ public final class GlueFunctions {
      *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
      *                             .build())
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;pythonScript&#34;, example.apply(getScriptResult -&gt; getScriptResult.pythonScript()));
+     *         ctx.export(&#34;pythonScript&#34;, example.applyValue(getScriptResult -&gt; getScriptResult.pythonScript()));
      *     }
      * }
      * ```
@@ -995,10 +1100,17 @@ public final class GlueFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1006,7 +1118,7 @@ public final class GlueFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(GlueFunctions.getScript(GetScriptArgs.builder()
+     *         final var example = GlueFunctions.getScript(GetScriptArgs.builder()
      *             .language(&#34;SCALA&#34;)
      *             .dagEdges(            
      *                 GetScriptDagEdgeArgs.builder()
@@ -1085,9 +1197,9 @@ public final class GlueFunctions {
      *                             .value(String.format(&#34;\&#34;%s\&#34;&#34;, aws_glue_catalog_table.destination().name()))
      *                             .build())
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;scalaCode&#34;, example.apply(getScriptResult -&gt; getScriptResult.scalaCode()));
+     *         ctx.export(&#34;scalaCode&#34;, example.applyValue(getScriptResult -&gt; getScriptResult.scalaCode()));
      *     }
      * }
      * ```

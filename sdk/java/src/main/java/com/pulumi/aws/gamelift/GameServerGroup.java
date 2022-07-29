@@ -27,11 +27,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.gamelift.GameServerGroup;
+ * import com.pulumi.aws.gamelift.GameServerGroupArgs;
+ * import com.pulumi.aws.gamelift.inputs.GameServerGroupInstanceDefinitionArgs;
+ * import com.pulumi.aws.gamelift.inputs.GameServerGroupLaunchTemplateArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -66,11 +75,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.gamelift.GameServerGroup;
+ * import com.pulumi.aws.gamelift.GameServerGroupArgs;
+ * import com.pulumi.aws.gamelift.inputs.GameServerGroupAutoScalingPolicyArgs;
+ * import com.pulumi.aws.gamelift.inputs.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs;
+ * import com.pulumi.aws.gamelift.inputs.GameServerGroupInstanceDefinitionArgs;
+ * import com.pulumi.aws.gamelift.inputs.GameServerGroupLaunchTemplateArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -111,51 +131,6 @@ import javax.annotation.Nullable;
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_iam_role_policy_attachment.example())
  *                 .build());
- * 
- *     }
- * }
- * ```
- * ### Example IAM Role for GameLift Game Server Group
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(AwsFunctions.getPartition());
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: [
- *           &#34;autoscaling.amazonaws.com&#34;,
- *           &#34;gamelift.amazonaws.com&#34;
- *         ]
- *       },
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(String.format(&#34;arn:%s:iam::aws:policy/GameLiftGameServerGroupPolicy&#34;, current.apply(getPartitionResult -&gt; getPartitionResult.partition())))
- *             .role(exampleRole.name())
- *             .build());
  * 
  *     }
  * }

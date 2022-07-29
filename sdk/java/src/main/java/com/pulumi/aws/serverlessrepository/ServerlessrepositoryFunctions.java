@@ -21,10 +21,19 @@ public final class ServerlessrepositoryFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.serverlessrepository.ServerlessrepositoryFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetApplicationArgs;
+     * import com.pulumi.aws.serverlessrepository.CloudFormationStack;
+     * import com.pulumi.aws.serverlessrepository.CloudFormationStackArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -32,14 +41,14 @@ public final class ServerlessrepositoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleApplication = Output.of(ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var exampleApplication = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
      *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack(&#34;exampleCloudFormationStack&#34;, CloudFormationStackArgs.builder()        
-     *             .applicationId(exampleApplication.apply(getApplicationResult -&gt; getApplicationResult.applicationId()))
-     *             .semanticVersion(exampleApplication.apply(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
-     *             .capabilities(exampleApplication.apply(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
+     *             .applicationId(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
+     *             .semanticVersion(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
+     *             .capabilities(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
      *             .build());
      * 
      *     }
@@ -57,10 +66,19 @@ public final class ServerlessrepositoryFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.serverlessrepository.ServerlessrepositoryFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetApplicationArgs;
+     * import com.pulumi.aws.serverlessrepository.CloudFormationStack;
+     * import com.pulumi.aws.serverlessrepository.CloudFormationStackArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -68,14 +86,14 @@ public final class ServerlessrepositoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleApplication = Output.of(ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var exampleApplication = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
      *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack(&#34;exampleCloudFormationStack&#34;, CloudFormationStackArgs.builder()        
-     *             .applicationId(exampleApplication.apply(getApplicationResult -&gt; getApplicationResult.applicationId()))
-     *             .semanticVersion(exampleApplication.apply(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
-     *             .capabilities(exampleApplication.apply(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
+     *             .applicationId(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
+     *             .semanticVersion(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
+     *             .capabilities(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
      *             .build());
      * 
      *     }
@@ -93,10 +111,19 @@ public final class ServerlessrepositoryFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.serverlessrepository.ServerlessrepositoryFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetApplicationArgs;
+     * import com.pulumi.aws.serverlessrepository.CloudFormationStack;
+     * import com.pulumi.aws.serverlessrepository.CloudFormationStackArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -104,14 +131,14 @@ public final class ServerlessrepositoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleApplication = Output.of(ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var exampleApplication = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
      *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack(&#34;exampleCloudFormationStack&#34;, CloudFormationStackArgs.builder()        
-     *             .applicationId(exampleApplication.apply(getApplicationResult -&gt; getApplicationResult.applicationId()))
-     *             .semanticVersion(exampleApplication.apply(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
-     *             .capabilities(exampleApplication.apply(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
+     *             .applicationId(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
+     *             .semanticVersion(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
+     *             .capabilities(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
      *             .build());
      * 
      *     }
@@ -129,10 +156,19 @@ public final class ServerlessrepositoryFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.serverlessrepository.ServerlessrepositoryFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetApplicationArgs;
+     * import com.pulumi.aws.serverlessrepository.CloudFormationStack;
+     * import com.pulumi.aws.serverlessrepository.CloudFormationStackArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -140,14 +176,14 @@ public final class ServerlessrepositoryFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleApplication = Output.of(ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var exampleApplication = ServerlessrepositoryFunctions.getApplication(GetApplicationArgs.builder()
      *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var exampleCloudFormationStack = new CloudFormationStack(&#34;exampleCloudFormationStack&#34;, CloudFormationStackArgs.builder()        
-     *             .applicationId(exampleApplication.apply(getApplicationResult -&gt; getApplicationResult.applicationId()))
-     *             .semanticVersion(exampleApplication.apply(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
-     *             .capabilities(exampleApplication.apply(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
+     *             .applicationId(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
+     *             .semanticVersion(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.semanticVersion()))
+     *             .capabilities(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.requiredCapabilities()))
      *             .build());
      * 
      *     }

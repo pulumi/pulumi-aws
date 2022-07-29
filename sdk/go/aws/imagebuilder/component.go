@@ -30,7 +30,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := imagebuilder.NewComponent(ctx, "example", &imagebuilder.ComponentArgs{
 // 			Platform: pulumi.String("Linux"),
-// 			Uri:      pulumi.String(fmt.Sprintf("%v%v%v%v", "s3://", aws_s3_object.Example.Bucket, "/", aws_s3_object.Example.Key)),
+// 			Uri:      pulumi.String(fmt.Sprintf("s3://%v/%v", aws_s3_object.Example.Bucket, aws_s3_object.Example.Key)),
 // 			Version:  pulumi.String("1.0.0"),
 // 		})
 // 		if err != nil {

@@ -26,7 +26,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := cloudformation.NewCloudFormationType(ctx, "example", &cloudformation.CloudFormationTypeArgs{
-// 			SchemaHandlerPackage: pulumi.String(fmt.Sprintf("%v%v%v%v", "s3://", aws_s3_object.Example.Bucket, "/", aws_s3_object.Example.Key)),
+// 			SchemaHandlerPackage: pulumi.String(fmt.Sprintf("s3://%v/%v", aws_s3_object.Example.Bucket, aws_s3_object.Example.Key)),
 // 			Type:                 pulumi.String("RESOURCE"),
 // 			TypeName:             pulumi.String("ExampleCompany::ExampleService::ExampleResource"),
 // 			LoggingConfig: &cloudformation.CloudFormationTypeLoggingConfigArgs{

@@ -2017,6 +2017,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.redshiftdataapiservice);
     }
 
+    @Import(name="redshiftserverless")
+    private @Nullable Output<String> redshiftserverless;
+
+    public Optional<Output<String>> redshiftserverless() {
+        return Optional.ofNullable(this.redshiftserverless);
+    }
+
     @Import(name="rekognition")
     private @Nullable Output<String> rekognition;
 
@@ -2057,6 +2064,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> robomaker() {
         return Optional.ofNullable(this.robomaker);
+    }
+
+    @Import(name="rolesanywhere")
+    private @Nullable Output<String> rolesanywhere;
+
+    public Optional<Output<String>> rolesanywhere() {
+        return Optional.ofNullable(this.rolesanywhere);
     }
 
     @Import(name="route53")
@@ -2866,12 +2880,14 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.redshift = $.redshift;
         this.redshiftdata = $.redshiftdata;
         this.redshiftdataapiservice = $.redshiftdataapiservice;
+        this.redshiftserverless = $.redshiftserverless;
         this.rekognition = $.rekognition;
         this.resiliencehub = $.resiliencehub;
         this.resourcegroups = $.resourcegroups;
         this.resourcegroupstagging = $.resourcegroupstagging;
         this.resourcegroupstaggingapi = $.resourcegroupstaggingapi;
         this.robomaker = $.robomaker;
+        this.rolesanywhere = $.rolesanywhere;
         this.route53 = $.route53;
         this.route53domains = $.route53domains;
         this.route53recoverycluster = $.route53recoverycluster;
@@ -5540,6 +5556,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
             return redshiftdataapiservice(Output.of(redshiftdataapiservice));
         }
 
+        public Builder redshiftserverless(@Nullable Output<String> redshiftserverless) {
+            $.redshiftserverless = redshiftserverless;
+            return this;
+        }
+
+        public Builder redshiftserverless(String redshiftserverless) {
+            return redshiftserverless(Output.of(redshiftserverless));
+        }
+
         public Builder rekognition(@Nullable Output<String> rekognition) {
             $.rekognition = rekognition;
             return this;
@@ -5592,6 +5617,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder robomaker(String robomaker) {
             return robomaker(Output.of(robomaker));
+        }
+
+        public Builder rolesanywhere(@Nullable Output<String> rolesanywhere) {
+            $.rolesanywhere = rolesanywhere;
+            return this;
+        }
+
+        public Builder rolesanywhere(String rolesanywhere) {
+            return rolesanywhere(Output.of(rolesanywhere));
         }
 
         public Builder route53(@Nullable Output<String> route53) {

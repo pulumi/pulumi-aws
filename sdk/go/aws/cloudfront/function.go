@@ -45,7 +45,7 @@ import (
 // 			Runtime: pulumi.String("cloudfront-js-1.0"),
 // 			Comment: pulumi.String("my function"),
 // 			Publish: pulumi.Bool(true),
-// 			Code:    readFileOrPanic(fmt.Sprintf("%v%v", path.Module, "/function.js")),
+// 			Code:    readFileOrPanic(fmt.Sprintf("%v/function.js", path.Module)),
 // 		})
 // 		if err != nil {
 // 			return err

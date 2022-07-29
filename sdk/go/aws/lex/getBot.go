@@ -28,7 +28,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := lex.LookupBot(ctx, &lex.LookupBotArgs{
 // 			Name:    "OrderFlowers",
-// 			Version: pulumi.StringRef(fmt.Sprintf("%v%v", "$", "LATEST")),
+// 			Version: pulumi.StringRef(fmt.Sprintf("$LATEST")),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

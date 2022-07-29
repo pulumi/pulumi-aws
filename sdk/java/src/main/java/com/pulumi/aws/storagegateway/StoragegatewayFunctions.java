@@ -21,10 +21,17 @@ public final class StoragegatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
+     * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -32,10 +39,10 @@ public final class StoragegatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
+     *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
      *             .diskPath(aws_volume_attachment.test().device_name())
      *             .gatewayArn(aws_storagegateway_gateway.test().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -52,10 +59,17 @@ public final class StoragegatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
+     * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -63,10 +77,10 @@ public final class StoragegatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
+     *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
      *             .diskPath(aws_volume_attachment.test().device_name())
      *             .gatewayArn(aws_storagegateway_gateway.test().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -83,10 +97,17 @@ public final class StoragegatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
+     * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -94,10 +115,10 @@ public final class StoragegatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
+     *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
      *             .diskPath(aws_volume_attachment.test().device_name())
      *             .gatewayArn(aws_storagegateway_gateway.test().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -114,10 +135,17 @@ public final class StoragegatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
+     * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -125,10 +153,10 @@ public final class StoragegatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
+     *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
      *             .diskPath(aws_volume_attachment.test().device_name())
      *             .gatewayArn(aws_storagegateway_gateway.test().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

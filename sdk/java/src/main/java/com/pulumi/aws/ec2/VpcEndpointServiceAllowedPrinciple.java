@@ -24,32 +24,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * Basic usage:
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(AwsFunctions.getCallerIdentity());
- * 
- *         var allowMeToFoo = new VpcEndpointServiceAllowedPrinciple(&#34;allowMeToFoo&#34;, VpcEndpointServiceAllowedPrincipleArgs.builder()        
- *             .vpcEndpointServiceId(aws_vpc_endpoint_service.foo().id())
- *             .principalArn(current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  */
 @ResourceType(type="aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple")
 public class VpcEndpointServiceAllowedPrinciple extends com.pulumi.resources.CustomResource {

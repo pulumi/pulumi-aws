@@ -52,6 +52,10 @@ export interface GetAssetResult {
      */
     readonly id: string;
     /**
+     * The position of an asset in a rack measured in rack units.
+     */
+    readonly rackElevation: number;
+    /**
      * The rack ID of the asset.
      */
     readonly rackId: string;

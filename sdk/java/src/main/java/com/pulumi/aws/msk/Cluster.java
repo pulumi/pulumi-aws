@@ -30,10 +30,49 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+ * import com.pulumi.aws.msk.Cluster;
+ * import com.pulumi.aws.msk.ClusterArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterEncryptionInfoArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterOpenMonitoringArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterOpenMonitoringPrometheusArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterOpenMonitoringPrometheusJmxExporterArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterOpenMonitoringPrometheusNodeExporterArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterLoggingInfoArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterLoggingInfoBrokerLogsArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterLoggingInfoBrokerLogsFirehoseArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterLoggingInfoBrokerLogsS3Args;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -45,24 +84,24 @@ import javax.annotation.Nullable;
  *             .cidrBlock(&#34;192.168.0.0/22&#34;)
  *             .build());
  * 
- *         final var azs = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+ *         final var azs = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
  *             .state(&#34;available&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var subnetAz1 = new Subnet(&#34;subnetAz1&#34;, SubnetArgs.builder()        
- *             .availabilityZone(azs.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+ *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
  *             .cidrBlock(&#34;192.168.0.0/24&#34;)
  *             .vpcId(vpc.id())
  *             .build());
  * 
  *         var subnetAz2 = new Subnet(&#34;subnetAz2&#34;, SubnetArgs.builder()        
- *             .availabilityZone(azs.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+ *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
  *             .cidrBlock(&#34;192.168.1.0/24&#34;)
  *             .vpcId(vpc.id())
  *             .build());
  * 
  *         var subnetAz3 = new Subnet(&#34;subnetAz3&#34;, SubnetArgs.builder()        
- *             .availabilityZone(azs.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[2]))
+ *             .availabilityZone(azs.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[2]))
  *             .cidrBlock(&#34;192.168.2.0/24&#34;)
  *             .vpcId(vpc.id())
  *             .build());
@@ -169,10 +208,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.msk.Cluster;
+ * import com.pulumi.aws.msk.ClusterArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

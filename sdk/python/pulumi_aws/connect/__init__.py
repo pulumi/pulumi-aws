@@ -19,6 +19,7 @@ from .get_queue import *
 from .get_quick_connect import *
 from .get_routing_profile import *
 from .get_security_profile import *
+from .get_user_hierarchy_group import *
 from .get_user_hierarchy_structure import *
 from .hours_of_operation import *
 from .instance import *
@@ -27,7 +28,9 @@ from .queue import *
 from .quick_connect import *
 from .routing_profile import *
 from .security_profile import *
+from .user import *
 from .user_hierarchy_group import *
 from .user_hierarchy_structure import *
+from .vocabulary import *
 from ._inputs import *
 from . import outputs

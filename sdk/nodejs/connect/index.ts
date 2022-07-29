@@ -19,6 +19,7 @@ export * from "./getQueue";
 export * from "./getQuickConnect";
 export * from "./getRoutingProfile";
 export * from "./getSecurityProfile";
+export * from "./getUserHierarchyGroup";
 export * from "./getUserHierarchyStructure";
 export * from "./hoursOfOperation";
 export * from "./instance";
@@ -27,8 +28,10 @@ export * from "./queue";
 export * from "./quickConnect";
 export * from "./routingProfile";
 export * from "./securityProfile";
+export * from "./user";
 export * from "./userHierarchyGroup";
 export * from "./userHierarchyStructure";
+export * from "./vocabulary";
 
 // Import resources to register:
 import { BotAssociation } from "./botAssociation";
@@ -41,8 +44,10 @@ import { Queue } from "./queue";
 import { QuickConnect } from "./quickConnect";
 import { RoutingProfile } from "./routingProfile";
 import { SecurityProfile } from "./securityProfile";
+import { User } from "./user";
 import { UserHierarchyGroup } from "./userHierarchyGroup";
 import { UserHierarchyStructure } from "./userHierarchyStructure";
+import { Vocabulary } from "./vocabulary";
 
 const _module = {
     version: utilities.getVersion(),
@@ -68,10 +73,14 @@ const _module = {
                 return new RoutingProfile(name, <any>undefined, { urn })
             case "aws:connect/securityProfile:SecurityProfile":
                 return new SecurityProfile(name, <any>undefined, { urn })
+            case "aws:connect/user:User":
+                return new User(name, <any>undefined, { urn })
             case "aws:connect/userHierarchyGroup:UserHierarchyGroup":
                 return new UserHierarchyGroup(name, <any>undefined, { urn })
             case "aws:connect/userHierarchyStructure:UserHierarchyStructure":
                 return new UserHierarchyStructure(name, <any>undefined, { urn })
+            case "aws:connect/vocabulary:Vocabulary":
+                return new Vocabulary(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -87,5 +96,7 @@ pulumi.runtime.registerResourceModule("aws", "connect/queue", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/quickConnect", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/routingProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/securityProfile", _module)
+pulumi.runtime.registerResourceModule("aws", "connect/user", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/userHierarchyGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/userHierarchyStructure", _module)
+pulumi.runtime.registerResourceModule("aws", "connect/vocabulary", _module)

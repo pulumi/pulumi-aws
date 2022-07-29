@@ -57,7 +57,7 @@ import (
 // 		var clusterInstances []*rds.ClusterInstance
 // 		for key0, val0 := range 2 {
 // 			__res, err := rds.NewClusterInstance(ctx, fmt.Sprintf("clusterInstances-%v", key0), &rds.ClusterInstanceArgs{
-// 				Identifier:        pulumi.String(fmt.Sprintf("%v%v", "aurora-cluster-demo-", val0)),
+// 				Identifier:        pulumi.String(fmt.Sprintf("aurora-cluster-demo-%v", val0)),
 // 				ClusterIdentifier: _default.ID(),
 // 				InstanceClass:     pulumi.String("db.r4.large"),
 // 				Engine:            _default.Engine,
@@ -134,7 +134,7 @@ type ClusterInstance struct {
 	PerformanceInsightsEnabled pulumi.BoolOutput `pulumi:"performanceInsightsEnabled"`
 	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId pulumi.StringOutput `pulumi:"performanceInsightsKmsKeyId"`
-	// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+	// Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
 	PerformanceInsightsRetentionPeriod pulumi.IntOutput `pulumi:"performanceInsightsRetentionPeriod"`
 	// The database port
 	Port pulumi.IntOutput `pulumi:"port"`
@@ -246,7 +246,7 @@ type clusterInstanceState struct {
 	PerformanceInsightsEnabled *bool `pulumi:"performanceInsightsEnabled"`
 	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
-	// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+	// Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
 	PerformanceInsightsRetentionPeriod *int `pulumi:"performanceInsightsRetentionPeriod"`
 	// The database port
 	Port *int `pulumi:"port"`
@@ -324,7 +324,7 @@ type ClusterInstanceState struct {
 	PerformanceInsightsEnabled pulumi.BoolPtrInput
 	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
-	// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+	// Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
 	PerformanceInsightsRetentionPeriod pulumi.IntPtrInput
 	// The database port
 	Port pulumi.IntPtrInput
@@ -396,7 +396,7 @@ type clusterInstanceArgs struct {
 	PerformanceInsightsEnabled *bool `pulumi:"performanceInsightsEnabled"`
 	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
-	// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+	// Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
 	PerformanceInsightsRetentionPeriod *int `pulumi:"performanceInsightsRetentionPeriod"`
 	// The daily time range during which automated backups are created if automated backups are enabled.
 	// Eg: "04:00-09:00"
@@ -457,7 +457,7 @@ type ClusterInstanceArgs struct {
 	PerformanceInsightsEnabled pulumi.BoolPtrInput
 	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
-	// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+	// Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
 	PerformanceInsightsRetentionPeriod pulumi.IntPtrInput
 	// The daily time range during which automated backups are created if automated backups are enabled.
 	// Eg: "04:00-09:00"
@@ -679,7 +679,7 @@ func (o ClusterInstanceOutput) PerformanceInsightsKmsKeyId() pulumi.StringOutput
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.PerformanceInsightsKmsKeyId }).(pulumi.StringOutput)
 }
 
-// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+// Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
 func (o ClusterInstanceOutput) PerformanceInsightsRetentionPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.IntOutput { return v.PerformanceInsightsRetentionPeriod }).(pulumi.IntOutput)
 }

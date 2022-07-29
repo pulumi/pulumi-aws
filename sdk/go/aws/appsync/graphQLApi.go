@@ -188,7 +188,14 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 // 			AuthenticationType: pulumi.String("AWS_IAM"),
-// 			Schema: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v", "schema {\n", "	query: Query\n", "}\n", "type Query {\n", "  test: Int\n", "}\n", "\n")),
+// 			Schema: pulumi.String(fmt.Sprintf(`schema {
+// 	query: Query
+// }
+// type Query {
+//   test: Int
+// }
+//
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -213,7 +220,19 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "        {\n", "        \"Effect\": \"Allow\",\n", "        \"Principal\": {\n", "            \"Service\": \"appsync.amazonaws.com\"\n", "        },\n", "        \"Action\": \"sts:AssumeRole\"\n", "        }\n", "    ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//     "Version": "2012-10-17",
+//     "Statement": [
+//         {
+//         "Effect": "Allow",
+//         "Principal": {
+//             "Service": "appsync.amazonaws.com"
+//         },
+//         "Action": "sts:AssumeRole"
+//         }
+//     ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -230,73 +249,6 @@ import (
 // 				CloudwatchLogsRoleArn: exampleRole.Arn,
 // 				FieldLogLevel:         pulumi.String("ERROR"),
 // 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-// ### Associate Web ACL (v2)
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
-// 			AuthenticationType: pulumi.String("API_KEY"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWebAcl, err := wafv2.NewWebAcl(ctx, "exampleWebAcl", &wafv2.WebAclArgs{
-// 			Description: pulumi.String("Example of a managed rule."),
-// 			Scope:       pulumi.String("REGIONAL"),
-// 			DefaultAction: &wafv2.WebAclDefaultActionArgs{
-// 				Allow: nil,
-// 			},
-// 			Rules: wafv2.WebAclRuleArray{
-// 				&wafv2.WebAclRuleArgs{
-// 					Name:     pulumi.String("rule-1"),
-// 					Priority: pulumi.Int(1),
-// 					OverrideAction: &wafv2.WebAclRuleOverrideActionArgs{
-// 						Block: []map[string]interface{}{
-// 							nil,
-// 						},
-// 					},
-// 					Statement: &wafv2.WebAclRuleStatementArgs{
-// 						ManagedRuleGroupStatement: &wafv2.WebAclRuleStatementManagedRuleGroupStatementArgs{
-// 							Name:       pulumi.String("AWSManagedRulesCommonRuleSet"),
-// 							VendorName: pulumi.String("AWS"),
-// 						},
-// 					},
-// 					VisibilityConfig: &wafv2.WebAclRuleVisibilityConfigArgs{
-// 						CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 						MetricName:               pulumi.String("friendly-rule-metric-name"),
-// 						SampledRequestsEnabled:   pulumi.Bool(false),
-// 					},
-// 				},
-// 			},
-// 			VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
-// 				CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 				MetricName:               pulumi.String("friendly-metric-name"),
-// 				SampledRequestsEnabled:   pulumi.Bool(false),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = wafv2.NewWebAclAssociation(ctx, "exampleWebAclAssociation", &wafv2.WebAclAssociationArgs{
-// 			ResourceArn: exampleGraphQLApi.Arn,
-// 			WebAclArn:   exampleWebAcl.Arn,
 // 		})
 // 		if err != nil {
 // 			return err

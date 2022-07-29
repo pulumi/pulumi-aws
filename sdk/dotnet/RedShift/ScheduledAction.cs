@@ -42,7 +42,7 @@ namespace Pulumi.Aws.RedShift
     ///         });
     ///         var examplePolicy = new Aws.Iam.Policy("examplePolicy", new Aws.Iam.PolicyArgs
     ///         {
-    ///             Policy = @"{
+    ///             PolicyDocument = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///       {

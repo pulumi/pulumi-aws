@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
+    /// Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
     /// interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
     /// 
     /// ## Example Usage
@@ -220,7 +220,19 @@ namespace Pulumi.Aws.Ec2
         /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         /// </summary>
         [Output("trafficType")]
-        public Output<string> TrafficType { get; private set; } = null!;
+        public Output<string?> TrafficType { get; private set; } = null!;
+
+        /// <summary>
+        /// Transit Gateway Attachment ID to attach to
+        /// </summary>
+        [Output("transitGatewayAttachmentId")]
+        public Output<string?> TransitGatewayAttachmentId { get; private set; } = null!;
+
+        /// <summary>
+        /// Transit Gateway ID to attach to
+        /// </summary>
+        [Output("transitGatewayId")]
+        public Output<string?> TransitGatewayId { get; private set; } = null!;
 
         /// <summary>
         /// VPC ID to attach to
@@ -236,7 +248,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public FlowLog(string name, FlowLogArgs args, CustomResourceOptions? options = null)
+        public FlowLog(string name, FlowLogArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:ec2/flowLog:FlowLog", name, args ?? new FlowLogArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -346,8 +358,20 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
         /// </summary>
-        [Input("trafficType", required: true)]
-        public Input<string> TrafficType { get; set; } = null!;
+        [Input("trafficType")]
+        public Input<string>? TrafficType { get; set; }
+
+        /// <summary>
+        /// Transit Gateway Attachment ID to attach to
+        /// </summary>
+        [Input("transitGatewayAttachmentId")]
+        public Input<string>? TransitGatewayAttachmentId { get; set; }
+
+        /// <summary>
+        /// Transit Gateway ID to attach to
+        /// </summary>
+        [Input("transitGatewayId")]
+        public Input<string>? TransitGatewayId { get; set; }
 
         /// <summary>
         /// VPC ID to attach to
@@ -454,6 +478,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("trafficType")]
         public Input<string>? TrafficType { get; set; }
+
+        /// <summary>
+        /// Transit Gateway Attachment ID to attach to
+        /// </summary>
+        [Input("transitGatewayAttachmentId")]
+        public Input<string>? TransitGatewayAttachmentId { get; set; }
+
+        /// <summary>
+        /// Transit Gateway ID to attach to
+        /// </summary>
+        [Input("transitGatewayId")]
+        public Input<string>? TransitGatewayId { get; set; }
 
         /// <summary>
         /// VPC ID to attach to

@@ -30,10 +30,17 @@ public final class WafregionalFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetIpsetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -41,9 +48,9 @@ public final class WafregionalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WafregionalFunctions.getIpset(GetIpsetArgs.builder()
+     *         final var example = WafregionalFunctions.getIpset(GetIpsetArgs.builder()
      *             .name(&#34;tfWAFRegionalIPSet&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -60,10 +67,17 @@ public final class WafregionalFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetIpsetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -71,9 +85,9 @@ public final class WafregionalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WafregionalFunctions.getIpset(GetIpsetArgs.builder()
+     *         final var example = WafregionalFunctions.getIpset(GetIpsetArgs.builder()
      *             .name(&#34;tfWAFRegionalIPSet&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -90,10 +104,17 @@ public final class WafregionalFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetIpsetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -101,9 +122,9 @@ public final class WafregionalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WafregionalFunctions.getIpset(GetIpsetArgs.builder()
+     *         final var example = WafregionalFunctions.getIpset(GetIpsetArgs.builder()
      *             .name(&#34;tfWAFRegionalIPSet&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -120,10 +141,17 @@ public final class WafregionalFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetIpsetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -131,9 +159,9 @@ public final class WafregionalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WafregionalFunctions.getIpset(GetIpsetArgs.builder()
+     *         final var example = WafregionalFunctions.getIpset(GetIpsetArgs.builder()
      *             .name(&#34;tfWAFRegionalIPSet&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -150,10 +178,17 @@ public final class WafregionalFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.wafregional.inputs.GetRateBasedModArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -161,9 +196,9 @@ public final class WafregionalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WafregionalFunctions.getRateBasedMod(GetRateBasedModArgs.builder()
+     *         final var example = WafregionalFunctions.getRateBasedMod(GetRateBasedModArgs.builder()
      *             .name(&#34;tfWAFRegionalRateBasedRule&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -180,10 +215,17 @@ public final class WafregionalFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.wafregional.inputs.GetRateBasedModArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -191,9 +233,9 @@ public final class WafregionalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WafregionalFunctions.getRateBasedMod(GetRateBasedModArgs.builder()
+     *         final var example = WafregionalFunctions.getRateBasedMod(GetRateBasedModArgs.builder()
      *             .name(&#34;tfWAFRegionalRateBasedRule&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -210,10 +252,17 @@ public final class WafregionalFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.wafregional.inputs.GetRateBasedModArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -221,9 +270,9 @@ public final class WafregionalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WafregionalFunctions.getRateBasedMod(GetRateBasedModArgs.builder()
+     *         final var example = WafregionalFunctions.getRateBasedMod(GetRateBasedModArgs.builder()
      *             .name(&#34;tfWAFRegionalRateBasedRule&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -240,10 +289,17 @@ public final class WafregionalFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.wafregional.inputs.GetRateBasedModArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -251,9 +307,9 @@ public final class WafregionalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WafregionalFunctions.getRateBasedMod(GetRateBasedModArgs.builder()
+     *         final var example = WafregionalFunctions.getRateBasedMod(GetRateBasedModArgs.builder()
      *             .name(&#34;tfWAFRegionalRateBasedRule&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -270,10 +326,17 @@ public final class WafregionalFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -281,9 +344,9 @@ public final class WafregionalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WafregionalFunctions.getRule(GetRuleArgs.builder()
+     *         final var example = WafregionalFunctions.getRule(GetRuleArgs.builder()
      *             .name(&#34;tfWAFRegionalRule&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -300,10 +363,17 @@ public final class WafregionalFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -311,9 +381,9 @@ public final class WafregionalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WafregionalFunctions.getRule(GetRuleArgs.builder()
+     *         final var example = WafregionalFunctions.getRule(GetRuleArgs.builder()
      *             .name(&#34;tfWAFRegionalRule&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -330,10 +400,17 @@ public final class WafregionalFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -341,9 +418,9 @@ public final class WafregionalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WafregionalFunctions.getRule(GetRuleArgs.builder()
+     *         final var example = WafregionalFunctions.getRule(GetRuleArgs.builder()
      *             .name(&#34;tfWAFRegionalRule&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -360,10 +437,17 @@ public final class WafregionalFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -371,9 +455,9 @@ public final class WafregionalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WafregionalFunctions.getRule(GetRuleArgs.builder()
+     *         final var example = WafregionalFunctions.getRule(GetRuleArgs.builder()
      *             .name(&#34;tfWAFRegionalRule&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -390,10 +474,17 @@ public final class WafregionalFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetWebAclArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -401,9 +492,9 @@ public final class WafregionalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WafregionalFunctions.getWebAcl(GetWebAclArgs.builder()
+     *         final var example = WafregionalFunctions.getWebAcl(GetWebAclArgs.builder()
      *             .name(&#34;tfWAFRegionalWebACL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -420,10 +511,17 @@ public final class WafregionalFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetWebAclArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -431,9 +529,9 @@ public final class WafregionalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WafregionalFunctions.getWebAcl(GetWebAclArgs.builder()
+     *         final var example = WafregionalFunctions.getWebAcl(GetWebAclArgs.builder()
      *             .name(&#34;tfWAFRegionalWebACL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -450,10 +548,17 @@ public final class WafregionalFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetWebAclArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -461,9 +566,9 @@ public final class WafregionalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WafregionalFunctions.getWebAcl(GetWebAclArgs.builder()
+     *         final var example = WafregionalFunctions.getWebAcl(GetWebAclArgs.builder()
      *             .name(&#34;tfWAFRegionalWebACL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -480,10 +585,17 @@ public final class WafregionalFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafregional.WafregionalFunctions;
+     * import com.pulumi.aws.waf.inputs.GetWebAclArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -491,9 +603,9 @@ public final class WafregionalFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WafregionalFunctions.getWebAcl(GetWebAclArgs.builder()
+     *         final var example = WafregionalFunctions.getWebAcl(GetWebAclArgs.builder()
      *             .name(&#34;tfWAFRegionalWebACL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

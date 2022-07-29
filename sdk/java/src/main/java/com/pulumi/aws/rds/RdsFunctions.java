@@ -48,10 +48,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -59,9 +66,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RdsFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = RdsFunctions.getCertificate(GetCertificateArgs.builder()
      *             .latestValidTill(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -78,10 +85,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -89,9 +103,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RdsFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = RdsFunctions.getCertificate(GetCertificateArgs.builder()
      *             .latestValidTill(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -108,10 +122,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -119,9 +140,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RdsFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = RdsFunctions.getCertificate(GetCertificateArgs.builder()
      *             .latestValidTill(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -138,10 +159,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -149,9 +177,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RdsFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = RdsFunctions.getCertificate(GetCertificateArgs.builder()
      *             .latestValidTill(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -168,10 +196,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -179,9 +214,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RdsFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = RdsFunctions.getCertificate(GetCertificateArgs.builder()
      *             .latestValidTill(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -198,10 +233,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -209,9 +251,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RdsFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = RdsFunctions.getCertificate(GetCertificateArgs.builder()
      *             .latestValidTill(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -228,10 +270,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -239,9 +288,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var clusterName = Output.of(RdsFunctions.getCluster(GetClusterArgs.builder()
+     *         final var clusterName = RdsFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterIdentifier(&#34;clusterName&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -258,10 +307,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -269,9 +325,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var clusterName = Output.of(RdsFunctions.getCluster(GetClusterArgs.builder()
+     *         final var clusterName = RdsFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterIdentifier(&#34;clusterName&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -288,10 +344,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -299,9 +362,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var clusterName = Output.of(RdsFunctions.getCluster(GetClusterArgs.builder()
+     *         final var clusterName = RdsFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterIdentifier(&#34;clusterName&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -318,10 +381,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -329,9 +399,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var clusterName = Output.of(RdsFunctions.getCluster(GetClusterArgs.builder()
+     *         final var clusterName = RdsFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterIdentifier(&#34;clusterName&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -351,10 +421,21 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetClusterSnapshotArgs;
+     * import com.pulumi.aws.rds.Cluster;
+     * import com.pulumi.aws.rds.ClusterArgs;
+     * import com.pulumi.aws.rds.ClusterInstance;
+     * import com.pulumi.aws.rds.ClusterInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -362,14 +443,14 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var developmentFinalSnapshot = Output.of(RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
+     *         final var developmentFinalSnapshot = RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
      *             .dbClusterIdentifier(&#34;development_cluster&#34;)
      *             .mostRecent(true)
-     *             .build()));
+     *             .build());
      * 
      *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
-     *             .snapshotIdentifier(developmentFinalSnapshot.apply(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
+     *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
@@ -397,10 +478,21 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetClusterSnapshotArgs;
+     * import com.pulumi.aws.rds.Cluster;
+     * import com.pulumi.aws.rds.ClusterArgs;
+     * import com.pulumi.aws.rds.ClusterInstance;
+     * import com.pulumi.aws.rds.ClusterInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -408,14 +500,14 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var developmentFinalSnapshot = Output.of(RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
+     *         final var developmentFinalSnapshot = RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
      *             .dbClusterIdentifier(&#34;development_cluster&#34;)
      *             .mostRecent(true)
-     *             .build()));
+     *             .build());
      * 
      *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
-     *             .snapshotIdentifier(developmentFinalSnapshot.apply(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
+     *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
@@ -443,10 +535,21 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetClusterSnapshotArgs;
+     * import com.pulumi.aws.rds.Cluster;
+     * import com.pulumi.aws.rds.ClusterArgs;
+     * import com.pulumi.aws.rds.ClusterInstance;
+     * import com.pulumi.aws.rds.ClusterInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -454,14 +557,14 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var developmentFinalSnapshot = Output.of(RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
+     *         final var developmentFinalSnapshot = RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
      *             .dbClusterIdentifier(&#34;development_cluster&#34;)
      *             .mostRecent(true)
-     *             .build()));
+     *             .build());
      * 
      *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
-     *             .snapshotIdentifier(developmentFinalSnapshot.apply(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
+     *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
@@ -489,10 +592,21 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetClusterSnapshotArgs;
+     * import com.pulumi.aws.rds.Cluster;
+     * import com.pulumi.aws.rds.ClusterArgs;
+     * import com.pulumi.aws.rds.ClusterInstance;
+     * import com.pulumi.aws.rds.ClusterInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -500,14 +614,14 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var developmentFinalSnapshot = Output.of(RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
+     *         final var developmentFinalSnapshot = RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
      *             .dbClusterIdentifier(&#34;development_cluster&#34;)
      *             .mostRecent(true)
-     *             .build()));
+     *             .build());
      * 
      *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
-     *             .snapshotIdentifier(developmentFinalSnapshot.apply(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
+     *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
@@ -535,10 +649,21 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetClusterSnapshotArgs;
+     * import com.pulumi.aws.rds.Cluster;
+     * import com.pulumi.aws.rds.ClusterArgs;
+     * import com.pulumi.aws.rds.ClusterInstance;
+     * import com.pulumi.aws.rds.ClusterInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -546,14 +671,14 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var developmentFinalSnapshot = Output.of(RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
+     *         final var developmentFinalSnapshot = RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
      *             .dbClusterIdentifier(&#34;development_cluster&#34;)
      *             .mostRecent(true)
-     *             .build()));
+     *             .build());
      * 
      *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
-     *             .snapshotIdentifier(developmentFinalSnapshot.apply(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
+     *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
@@ -581,10 +706,21 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetClusterSnapshotArgs;
+     * import com.pulumi.aws.rds.Cluster;
+     * import com.pulumi.aws.rds.ClusterArgs;
+     * import com.pulumi.aws.rds.ClusterInstance;
+     * import com.pulumi.aws.rds.ClusterInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -592,14 +728,14 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var developmentFinalSnapshot = Output.of(RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
+     *         final var developmentFinalSnapshot = RdsFunctions.getClusterSnapshot(GetClusterSnapshotArgs.builder()
      *             .dbClusterIdentifier(&#34;development_cluster&#34;)
      *             .mostRecent(true)
-     *             .build()));
+     *             .build());
      * 
      *         var auroraCluster = new Cluster(&#34;auroraCluster&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
-     *             .snapshotIdentifier(developmentFinalSnapshot.apply(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
+     *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
      *             .dbSubnetGroupName(&#34;my_db_subnet_group&#34;)
      *             .build());
      * 
@@ -624,10 +760,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -635,13 +778,13 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;mysql&#34;)
      *             .preferredVersions(            
      *                 &#34;5.7.42&#34;,
      *                 &#34;5.7.19&#34;,
      *                 &#34;5.7.17&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -658,10 +801,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -669,13 +819,13 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;mysql&#34;)
      *             .preferredVersions(            
      *                 &#34;5.7.42&#34;,
      *                 &#34;5.7.19&#34;,
      *                 &#34;5.7.17&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -692,10 +842,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -703,13 +860,13 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;mysql&#34;)
      *             .preferredVersions(            
      *                 &#34;5.7.42&#34;,
      *                 &#34;5.7.19&#34;,
      *                 &#34;5.7.17&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -726,10 +883,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -737,13 +901,13 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .engine(&#34;mysql&#34;)
      *             .preferredVersions(            
      *                 &#34;5.7.42&#34;,
      *                 &#34;5.7.19&#34;,
      *                 &#34;5.7.17&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -760,10 +924,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -771,9 +942,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = Output.of(RdsFunctions.getEventCategories());
+     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.apply(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -782,10 +953,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -793,11 +971,11 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = Output.of(RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.apply(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -813,10 +991,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -824,9 +1009,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = Output.of(RdsFunctions.getEventCategories());
+     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.apply(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -835,10 +1020,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -846,11 +1038,11 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = Output.of(RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.apply(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -866,10 +1058,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -877,9 +1076,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = Output.of(RdsFunctions.getEventCategories());
+     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.apply(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -888,10 +1087,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -899,11 +1105,11 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = Output.of(RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.apply(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -919,10 +1125,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -930,9 +1143,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = Output.of(RdsFunctions.getEventCategories());
+     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.apply(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -941,10 +1154,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -952,11 +1172,11 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = Output.of(RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.apply(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -972,10 +1192,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -983,9 +1210,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = Output.of(RdsFunctions.getEventCategories());
+     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.apply(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -994,10 +1221,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1005,11 +1239,11 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = Output.of(RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.apply(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -1025,10 +1259,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1036,9 +1277,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = Output.of(RdsFunctions.getEventCategories());
+     *         final var exampleEventCategories = RdsFunctions.getEventCategories();
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.apply(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -1047,10 +1288,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1058,11 +1306,11 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEventCategories = Output.of(RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
+     *         final var exampleEventCategories = RdsFunctions.getEventCategories(GetEventCategoriesArgs.builder()
      *             .sourceType(&#34;db-snapshot&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleEventCategories.apply(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
+     *         ctx.export(&#34;example&#34;, exampleEventCategories.applyValue(getEventCategoriesResult -&gt; getEventCategoriesResult.eventCategories()));
      *     }
      * }
      * ```
@@ -1078,10 +1326,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1089,9 +1344,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var database = Output.of(RdsFunctions.getInstance(GetInstanceArgs.builder()
+     *         final var database = RdsFunctions.getInstance(GetInstanceArgs.builder()
      *             .dbInstanceIdentifier(&#34;my-test-database&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1108,10 +1363,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1119,9 +1381,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var database = Output.of(RdsFunctions.getInstance(GetInstanceArgs.builder()
+     *         final var database = RdsFunctions.getInstance(GetInstanceArgs.builder()
      *             .dbInstanceIdentifier(&#34;my-test-database&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1138,10 +1400,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1149,9 +1418,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var database = Output.of(RdsFunctions.getInstance(GetInstanceArgs.builder()
+     *         final var database = RdsFunctions.getInstance(GetInstanceArgs.builder()
      *             .dbInstanceIdentifier(&#34;my-test-database&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1168,10 +1437,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1179,9 +1455,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var database = Output.of(RdsFunctions.getInstance(GetInstanceArgs.builder()
+     *         final var database = RdsFunctions.getInstance(GetInstanceArgs.builder()
      *             .dbInstanceIdentifier(&#34;my-test-database&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1198,10 +1474,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1209,7 +1492,7 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *         final var test = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.7.22&#34;)
      *             .licenseModel(&#34;general-public-license&#34;)
@@ -1218,7 +1501,7 @@ public final class RdsFunctions {
      *                 &#34;db.m4.large&#34;,
      *                 &#34;db.t3.small&#34;)
      *             .storageType(&#34;standard&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1228,10 +1511,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1239,7 +1529,7 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *         final var test = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
      *             .engine(&#34;mysql&#34;)
      *             .licenseModel(&#34;general-public-license&#34;)
      *             .preferredEngineVersions(            
@@ -1250,7 +1540,7 @@ public final class RdsFunctions {
      *                 &#34;db.t2.small&#34;,
      *                 &#34;db.t3.medium&#34;,
      *                 &#34;db.t3.large&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1267,10 +1557,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1278,7 +1575,7 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *         final var test = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.7.22&#34;)
      *             .licenseModel(&#34;general-public-license&#34;)
@@ -1287,7 +1584,7 @@ public final class RdsFunctions {
      *                 &#34;db.m4.large&#34;,
      *                 &#34;db.t3.small&#34;)
      *             .storageType(&#34;standard&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1297,10 +1594,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1308,7 +1612,7 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *         final var test = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
      *             .engine(&#34;mysql&#34;)
      *             .licenseModel(&#34;general-public-license&#34;)
      *             .preferredEngineVersions(            
@@ -1319,7 +1623,7 @@ public final class RdsFunctions {
      *                 &#34;db.t2.small&#34;,
      *                 &#34;db.t3.medium&#34;,
      *                 &#34;db.t3.large&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1336,10 +1640,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1347,7 +1658,7 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *         final var test = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.7.22&#34;)
      *             .licenseModel(&#34;general-public-license&#34;)
@@ -1356,7 +1667,7 @@ public final class RdsFunctions {
      *                 &#34;db.m4.large&#34;,
      *                 &#34;db.t3.small&#34;)
      *             .storageType(&#34;standard&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1366,10 +1677,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1377,7 +1695,7 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *         final var test = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
      *             .engine(&#34;mysql&#34;)
      *             .licenseModel(&#34;general-public-license&#34;)
      *             .preferredEngineVersions(            
@@ -1388,7 +1706,7 @@ public final class RdsFunctions {
      *                 &#34;db.t2.small&#34;,
      *                 &#34;db.t3.medium&#34;,
      *                 &#34;db.t3.large&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1405,10 +1723,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1416,7 +1741,7 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *         final var test = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.7.22&#34;)
      *             .licenseModel(&#34;general-public-license&#34;)
@@ -1425,7 +1750,7 @@ public final class RdsFunctions {
      *                 &#34;db.m4.large&#34;,
      *                 &#34;db.t3.small&#34;)
      *             .storageType(&#34;standard&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1435,10 +1760,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1446,7 +1778,7 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *         final var test = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
      *             .engine(&#34;mysql&#34;)
      *             .licenseModel(&#34;general-public-license&#34;)
      *             .preferredEngineVersions(            
@@ -1457,7 +1789,7 @@ public final class RdsFunctions {
      *                 &#34;db.t2.small&#34;,
      *                 &#34;db.t3.medium&#34;,
      *                 &#34;db.t3.large&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1474,10 +1806,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetProxyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1485,9 +1824,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var proxy = Output.of(RdsFunctions.getProxy(GetProxyArgs.builder()
+     *         final var proxy = RdsFunctions.getProxy(GetProxyArgs.builder()
      *             .name(&#34;my-test-db-proxy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1504,10 +1843,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetProxyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1515,9 +1861,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var proxy = Output.of(RdsFunctions.getProxy(GetProxyArgs.builder()
+     *         final var proxy = RdsFunctions.getProxy(GetProxyArgs.builder()
      *             .name(&#34;my-test-db-proxy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1534,10 +1880,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetProxyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1545,9 +1898,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var proxy = Output.of(RdsFunctions.getProxy(GetProxyArgs.builder()
+     *         final var proxy = RdsFunctions.getProxy(GetProxyArgs.builder()
      *             .name(&#34;my-test-db-proxy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1564,10 +1917,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetProxyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1575,9 +1935,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var proxy = Output.of(RdsFunctions.getProxy(GetProxyArgs.builder()
+     *         final var proxy = RdsFunctions.getProxy(GetProxyArgs.builder()
      *             .name(&#34;my-test-db-proxy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1597,10 +1957,19 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.Instance;
+     * import com.pulumi.aws.rds.InstanceArgs;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1628,7 +1997,7 @@ public final class RdsFunctions {
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
      *             .name(&#34;mydbdev&#34;)
-     *             .snapshotIdentifier(latestProdSnapshot.apply(getSnapshotResult -&gt; getSnapshotResult).apply(latestProdSnapshot -&gt; latestProdSnapshot.apply(getSnapshotResult -&gt; getSnapshotResult.id())))
+     *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 
      *     }
@@ -1649,10 +2018,19 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.Instance;
+     * import com.pulumi.aws.rds.InstanceArgs;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1680,7 +2058,7 @@ public final class RdsFunctions {
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
      *             .name(&#34;mydbdev&#34;)
-     *             .snapshotIdentifier(latestProdSnapshot.apply(getSnapshotResult -&gt; getSnapshotResult).apply(latestProdSnapshot -&gt; latestProdSnapshot.apply(getSnapshotResult -&gt; getSnapshotResult.id())))
+     *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 
      *     }
@@ -1701,10 +2079,19 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.Instance;
+     * import com.pulumi.aws.rds.InstanceArgs;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1732,7 +2119,7 @@ public final class RdsFunctions {
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
      *             .name(&#34;mydbdev&#34;)
-     *             .snapshotIdentifier(latestProdSnapshot.apply(getSnapshotResult -&gt; getSnapshotResult).apply(latestProdSnapshot -&gt; latestProdSnapshot.apply(getSnapshotResult -&gt; getSnapshotResult.id())))
+     *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 
      *     }
@@ -1753,10 +2140,19 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.Instance;
+     * import com.pulumi.aws.rds.InstanceArgs;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1784,7 +2180,7 @@ public final class RdsFunctions {
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
      *             .name(&#34;mydbdev&#34;)
-     *             .snapshotIdentifier(latestProdSnapshot.apply(getSnapshotResult -&gt; getSnapshotResult).apply(latestProdSnapshot -&gt; latestProdSnapshot.apply(getSnapshotResult -&gt; getSnapshotResult.id())))
+     *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 
      *     }
@@ -1805,10 +2201,19 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.Instance;
+     * import com.pulumi.aws.rds.InstanceArgs;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1836,7 +2241,7 @@ public final class RdsFunctions {
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
      *             .name(&#34;mydbdev&#34;)
-     *             .snapshotIdentifier(latestProdSnapshot.apply(getSnapshotResult -&gt; getSnapshotResult).apply(latestProdSnapshot -&gt; latestProdSnapshot.apply(getSnapshotResult -&gt; getSnapshotResult.id())))
+     *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 
      *     }
@@ -1857,10 +2262,19 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.Instance;
+     * import com.pulumi.aws.rds.InstanceArgs;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1888,7 +2302,7 @@ public final class RdsFunctions {
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
      *             .name(&#34;mydbdev&#34;)
-     *             .snapshotIdentifier(latestProdSnapshot.apply(getSnapshotResult -&gt; getSnapshotResult).apply(latestProdSnapshot -&gt; latestProdSnapshot.apply(getSnapshotResult -&gt; getSnapshotResult.id())))
+     *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 
      *     }
@@ -1906,10 +2320,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1917,9 +2338,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var database = Output.of(RdsFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
+     *         final var database = RdsFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
      *             .name(&#34;my-test-database-subnet-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1936,10 +2357,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1947,9 +2375,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var database = Output.of(RdsFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
+     *         final var database = RdsFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
      *             .name(&#34;my-test-database-subnet-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1966,10 +2394,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1977,9 +2412,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var database = Output.of(RdsFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
+     *         final var database = RdsFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
      *             .name(&#34;my-test-database-subnet-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1996,10 +2431,17 @@ public final class RdsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2007,9 +2449,9 @@ public final class RdsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var database = Output.of(RdsFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
+     *         final var database = RdsFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
      *             .name(&#34;my-test-database-subnet-group&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

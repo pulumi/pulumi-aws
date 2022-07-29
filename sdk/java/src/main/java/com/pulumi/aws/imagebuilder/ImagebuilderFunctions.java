@@ -57,10 +57,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -68,9 +75,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getComponent(GetComponentArgs.builder()
+     *         final var example = ImagebuilderFunctions.getComponent(GetComponentArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -87,10 +94,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -98,9 +112,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getComponent(GetComponentArgs.builder()
+     *         final var example = ImagebuilderFunctions.getComponent(GetComponentArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -117,10 +131,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -128,9 +149,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getComponent(GetComponentArgs.builder()
+     *         final var example = ImagebuilderFunctions.getComponent(GetComponentArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -147,10 +168,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -158,9 +186,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getComponent(GetComponentArgs.builder()
+     *         final var example = ImagebuilderFunctions.getComponent(GetComponentArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -177,10 +205,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -188,13 +223,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
      *             .filters(GetComponentsFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -211,10 +246,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -222,13 +264,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
      *             .filters(GetComponentsFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -245,10 +287,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -256,13 +305,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
      *             .filters(GetComponentsFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -279,10 +328,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -290,13 +346,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
      *             .filters(GetComponentsFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -313,10 +369,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -324,13 +387,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
      *             .filters(GetComponentsFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -347,10 +410,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -358,13 +428,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getComponents(GetComponentsArgs.builder()
      *             .filters(GetComponentsFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -381,10 +451,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -392,9 +469,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getContainerRecipe(GetContainerRecipeArgs.builder()
+     *         final var example = ImagebuilderFunctions.getContainerRecipe(GetContainerRecipeArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -411,10 +488,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -422,9 +506,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getContainerRecipe(GetContainerRecipeArgs.builder()
+     *         final var example = ImagebuilderFunctions.getContainerRecipe(GetContainerRecipeArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -441,10 +525,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -452,9 +543,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getContainerRecipe(GetContainerRecipeArgs.builder()
+     *         final var example = ImagebuilderFunctions.getContainerRecipe(GetContainerRecipeArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -471,10 +562,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -482,9 +580,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getContainerRecipe(GetContainerRecipeArgs.builder()
+     *         final var example = ImagebuilderFunctions.getContainerRecipe(GetContainerRecipeArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -501,10 +599,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -512,13 +617,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
      *             .filters(GetContainerRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -535,10 +640,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -546,13 +658,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
      *             .filters(GetContainerRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -569,10 +681,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -580,13 +699,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
      *             .filters(GetContainerRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -603,10 +722,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -614,13 +740,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
      *             .filters(GetContainerRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -637,10 +763,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -648,13 +781,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
      *             .filters(GetContainerRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -671,10 +804,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -682,13 +822,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getContainerRecipes(GetContainerRecipesArgs.builder()
      *             .filters(GetContainerRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -705,10 +845,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -716,9 +863,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getDistributionConfiguration(GetDistributionConfigurationArgs.builder()
+     *         final var example = ImagebuilderFunctions.getDistributionConfiguration(GetDistributionConfigurationArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -735,10 +882,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -746,9 +900,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getDistributionConfiguration(GetDistributionConfigurationArgs.builder()
+     *         final var example = ImagebuilderFunctions.getDistributionConfiguration(GetDistributionConfigurationArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -765,10 +919,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -776,9 +937,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getDistributionConfiguration(GetDistributionConfigurationArgs.builder()
+     *         final var example = ImagebuilderFunctions.getDistributionConfiguration(GetDistributionConfigurationArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -795,10 +956,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -806,9 +974,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getDistributionConfiguration(GetDistributionConfigurationArgs.builder()
+     *         final var example = ImagebuilderFunctions.getDistributionConfiguration(GetDistributionConfigurationArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -825,10 +993,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -836,12 +1011,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
      *             .filters(GetDistributionConfigurationsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -858,10 +1033,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -869,12 +1051,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
      *             .filters(GetDistributionConfigurationsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -891,10 +1073,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -902,12 +1091,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
      *             .filters(GetDistributionConfigurationsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -924,10 +1113,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -935,12 +1131,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
      *             .filters(GetDistributionConfigurationsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -957,10 +1153,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -968,12 +1171,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
      *             .filters(GetDistributionConfigurationsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -990,10 +1193,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1001,12 +1211,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getDistributionConfigurations(GetDistributionConfigurationsArgs.builder()
      *             .filters(GetDistributionConfigurationsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1024,10 +1234,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1035,9 +1252,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImage(GetImageArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImage(GetImageArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1055,10 +1272,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1066,9 +1290,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImage(GetImageArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImage(GetImageArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1086,10 +1310,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1097,9 +1328,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImage(GetImageArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImage(GetImageArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1117,10 +1348,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1128,9 +1366,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImage(GetImageArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImage(GetImageArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1147,10 +1385,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1158,9 +1403,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImagePipeline(GetImagePipelineArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImagePipeline(GetImagePipelineArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1177,10 +1422,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1188,9 +1440,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImagePipeline(GetImagePipelineArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImagePipeline(GetImagePipelineArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1207,10 +1459,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1218,9 +1477,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImagePipeline(GetImagePipelineArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImagePipeline(GetImagePipelineArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1237,10 +1496,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1248,9 +1514,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImagePipeline(GetImagePipelineArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImagePipeline(GetImagePipelineArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1267,10 +1533,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1278,12 +1551,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
      *             .filters(GetImagePipelinesFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1300,10 +1573,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1311,12 +1591,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
      *             .filters(GetImagePipelinesFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1333,10 +1613,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1344,12 +1631,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
      *             .filters(GetImagePipelinesFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1366,10 +1653,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1377,12 +1671,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
      *             .filters(GetImagePipelinesFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1399,10 +1693,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1410,12 +1711,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
      *             .filters(GetImagePipelinesFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1432,10 +1733,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1443,12 +1751,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImagePipelines(GetImagePipelinesArgs.builder()
      *             .filters(GetImagePipelinesFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1465,10 +1773,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1476,9 +1791,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImageRecipe(GetImageRecipeArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImageRecipe(GetImageRecipeArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1495,10 +1810,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1506,9 +1828,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImageRecipe(GetImageRecipeArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImageRecipe(GetImageRecipeArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1525,10 +1847,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1536,9 +1865,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImageRecipe(GetImageRecipeArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImageRecipe(GetImageRecipeArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1555,10 +1884,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1566,9 +1902,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImageRecipe(GetImageRecipeArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImageRecipe(GetImageRecipeArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1585,10 +1921,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1596,13 +1939,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
      *             .filters(GetImageRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1619,10 +1962,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1630,13 +1980,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
      *             .filters(GetImageRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1653,10 +2003,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1664,13 +2021,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
      *             .filters(GetImageRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1687,10 +2044,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1698,13 +2062,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
      *             .filters(GetImageRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1721,10 +2085,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1732,13 +2103,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
      *             .filters(GetImageRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1755,10 +2126,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1766,13 +2144,13 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
+     *         final var example = ImagebuilderFunctions.getImageRecipes(GetImageRecipesArgs.builder()
      *             .filters(GetImageRecipesFilterArgs.builder()
      *                 .name(&#34;platform&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1789,10 +2167,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1800,9 +2185,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getInfrastructureConfiguration(GetInfrastructureConfigurationArgs.builder()
+     *         final var example = ImagebuilderFunctions.getInfrastructureConfiguration(GetInfrastructureConfigurationArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1819,10 +2204,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1830,9 +2222,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getInfrastructureConfiguration(GetInfrastructureConfigurationArgs.builder()
+     *         final var example = ImagebuilderFunctions.getInfrastructureConfiguration(GetInfrastructureConfigurationArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1849,10 +2241,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1860,9 +2259,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getInfrastructureConfiguration(GetInfrastructureConfigurationArgs.builder()
+     *         final var example = ImagebuilderFunctions.getInfrastructureConfiguration(GetInfrastructureConfigurationArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1879,10 +2278,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1890,9 +2296,9 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getInfrastructureConfiguration(GetInfrastructureConfigurationArgs.builder()
+     *         final var example = ImagebuilderFunctions.getInfrastructureConfiguration(GetInfrastructureConfigurationArgs.builder()
      *             .arn(&#34;arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1909,10 +2315,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1920,12 +2333,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
      *             .filters(GetInfrastructureConfigurationsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1942,10 +2355,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1953,12 +2373,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
      *             .filters(GetInfrastructureConfigurationsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1975,10 +2395,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1986,12 +2413,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
      *             .filters(GetInfrastructureConfigurationsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2008,10 +2435,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2019,12 +2453,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
      *             .filters(GetInfrastructureConfigurationsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2041,10 +2475,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2052,12 +2493,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
      *             .filters(GetInfrastructureConfigurationsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2074,10 +2515,17 @@ public final class ImagebuilderFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2085,12 +2533,12 @@ public final class ImagebuilderFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
+     *         final var example = ImagebuilderFunctions.getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs.builder()
      *             .filters(GetInfrastructureConfigurationsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;example&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

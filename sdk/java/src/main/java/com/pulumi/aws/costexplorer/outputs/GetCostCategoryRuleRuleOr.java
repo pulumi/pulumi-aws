@@ -22,6 +22,10 @@ public final class GetCostCategoryRuleRuleOr {
      * 
      */
     private final List<GetCostCategoryRuleRuleOrDimension> dimensions;
+    /**
+     * @return Resource tags.
+     * 
+     */
     private final List<GetCostCategoryRuleRuleOrTag> tags;
 
     @CustomType.Constructor
@@ -48,6 +52,10 @@ public final class GetCostCategoryRuleRuleOr {
     public List<GetCostCategoryRuleRuleOrDimension> dimensions() {
         return this.dimensions;
     }
+    /**
+     * @return Resource tags.
+     * 
+     */
     public List<GetCostCategoryRuleRuleOrTag> tags() {
         return this.tags;
     }

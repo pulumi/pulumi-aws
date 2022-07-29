@@ -25,10 +25,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkfirewall.RuleGroup;
+ * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceRulesSourceListArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -58,13 +68,23 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Stateful Inspection for permitting packets from a source IP address
+ * 
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkfirewall.RuleGroup;
+ * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -95,10 +115,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkfirewall.RuleGroup;
+ * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -127,10 +156,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkfirewall.RuleGroup;
+ * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -141,7 +177,7 @@ import javax.annotation.Nullable;
  *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
  *             .capacity(100)
  *             .type(&#34;STATEFUL&#34;)
- *             .rules(Files.readString(&#34;example.rules&#34;))
+ *             .rules(Files.readString(Paths.get(&#34;example.rules&#34;)))
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
  *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
@@ -155,10 +191,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkfirewall.RuleGroup;
+ * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRuleVariablesArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -197,7 +243,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
- *                     .rulesString(Files.readString(&#34;suricata_rules_file&#34;))
+ *                     .rulesString(Files.readString(Paths.get(&#34;suricata_rules_file&#34;)))
  *                     .build())
  *                 .build())
  *             .tags(Map.ofEntries(
@@ -213,10 +259,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkfirewall.RuleGroup;
+ * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

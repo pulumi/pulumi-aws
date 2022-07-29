@@ -27,10 +27,17 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetDataLakeSettingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -38,9 +45,9 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
+     *         final var example = LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
      *             .catalogId(&#34;14916253649&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -57,10 +64,17 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetDataLakeSettingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -68,9 +82,9 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
+     *         final var example = LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
      *             .catalogId(&#34;14916253649&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -87,10 +101,17 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetDataLakeSettingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -98,9 +119,9 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
+     *         final var example = LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
      *             .catalogId(&#34;14916253649&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -117,10 +138,17 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetDataLakeSettingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -128,9 +156,9 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
+     *         final var example = LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
      *             .catalogId(&#34;14916253649&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -147,10 +175,17 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetDataLakeSettingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -158,9 +193,9 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
+     *         final var example = LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
      *             .catalogId(&#34;14916253649&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -177,10 +212,17 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetDataLakeSettingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -188,9 +230,9 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
+     *         final var example = LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
      *             .catalogId(&#34;14916253649&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -210,10 +252,18 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDataLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -221,12 +271,12 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .principal(aws_iam_role.workflow_role().arn())
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
      *                 .arn(aws_lakeformation_resource.test().arn())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -235,10 +285,18 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -246,13 +304,13 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .principal(aws_iam_role.workflow_role().arn())
      *             .database(GetPermissionsDatabaseArgs.builder()
      *                 .name(aws_glue_catalog_database.test().name())
      *                 .catalogId(&#34;110376042874&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -261,10 +319,18 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -272,7 +338,7 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .principal(aws_iam_role.workflow_role().arn())
      *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
      *                 .resourceType(&#34;DATABASE&#34;)
@@ -288,7 +354,7 @@ public final class LakeformationFunctions {
      *                             &#34;Production&#34;)
      *                         .build())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -308,10 +374,18 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDataLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -319,12 +393,12 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .principal(aws_iam_role.workflow_role().arn())
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
      *                 .arn(aws_lakeformation_resource.test().arn())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -333,10 +407,18 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -344,13 +426,13 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .principal(aws_iam_role.workflow_role().arn())
      *             .database(GetPermissionsDatabaseArgs.builder()
      *                 .name(aws_glue_catalog_database.test().name())
      *                 .catalogId(&#34;110376042874&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -359,10 +441,18 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -370,7 +460,7 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .principal(aws_iam_role.workflow_role().arn())
      *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
      *                 .resourceType(&#34;DATABASE&#34;)
@@ -386,7 +476,7 @@ public final class LakeformationFunctions {
      *                             &#34;Production&#34;)
      *                         .build())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -406,10 +496,18 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDataLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -417,12 +515,12 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .principal(aws_iam_role.workflow_role().arn())
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
      *                 .arn(aws_lakeformation_resource.test().arn())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -431,10 +529,18 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -442,13 +548,13 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .principal(aws_iam_role.workflow_role().arn())
      *             .database(GetPermissionsDatabaseArgs.builder()
      *                 .name(aws_glue_catalog_database.test().name())
      *                 .catalogId(&#34;110376042874&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -457,10 +563,18 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -468,7 +582,7 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .principal(aws_iam_role.workflow_role().arn())
      *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
      *                 .resourceType(&#34;DATABASE&#34;)
@@ -484,7 +598,7 @@ public final class LakeformationFunctions {
      *                             &#34;Production&#34;)
      *                         .build())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -504,10 +618,18 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDataLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -515,12 +637,12 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .principal(aws_iam_role.workflow_role().arn())
      *             .dataLocation(GetPermissionsDataLocationArgs.builder()
      *                 .arn(aws_lakeformation_resource.test().arn())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -529,10 +651,18 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -540,13 +670,13 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .principal(aws_iam_role.workflow_role().arn())
      *             .database(GetPermissionsDatabaseArgs.builder()
      *                 .name(aws_glue_catalog_database.test().name())
      *                 .catalogId(&#34;110376042874&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -555,10 +685,18 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -566,7 +704,7 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
      *             .principal(aws_iam_role.workflow_role().arn())
      *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
      *                 .resourceType(&#34;DATABASE&#34;)
@@ -582,7 +720,7 @@ public final class LakeformationFunctions {
      *                             &#34;Production&#34;)
      *                         .build())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -599,10 +737,17 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetResourceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -610,9 +755,9 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LakeformationFunctions.getResource(GetResourceArgs.builder()
+     *         final var example = LakeformationFunctions.getResource(GetResourceArgs.builder()
      *             .arn(&#34;arn:aws:s3:::tf-acc-test-9151654063908211878&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -629,10 +774,17 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetResourceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -640,9 +792,9 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LakeformationFunctions.getResource(GetResourceArgs.builder()
+     *         final var example = LakeformationFunctions.getResource(GetResourceArgs.builder()
      *             .arn(&#34;arn:aws:s3:::tf-acc-test-9151654063908211878&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -659,10 +811,17 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetResourceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -670,9 +829,9 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LakeformationFunctions.getResource(GetResourceArgs.builder()
+     *         final var example = LakeformationFunctions.getResource(GetResourceArgs.builder()
      *             .arn(&#34;arn:aws:s3:::tf-acc-test-9151654063908211878&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -689,10 +848,17 @@ public final class LakeformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetResourceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -700,9 +866,9 @@ public final class LakeformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LakeformationFunctions.getResource(GetResourceArgs.builder()
+     *         final var example = LakeformationFunctions.getResource(GetResourceArgs.builder()
      *             .arn(&#34;arn:aws:s3:::tf-acc-test-9151654063908211878&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

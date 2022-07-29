@@ -31,10 +31,17 @@ public final class EcsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -42,9 +49,9 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ecs-mongo = Output.of(EcsFunctions.getCluster(GetClusterArgs.builder()
+     *         final var ecs-mongo = EcsFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterName(&#34;ecs-mongo-production&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -62,10 +69,17 @@ public final class EcsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -73,9 +87,9 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ecs-mongo = Output.of(EcsFunctions.getCluster(GetClusterArgs.builder()
+     *         final var ecs-mongo = EcsFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterName(&#34;ecs-mongo-production&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -93,10 +107,17 @@ public final class EcsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -104,9 +125,9 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ecs-mongo = Output.of(EcsFunctions.getCluster(GetClusterArgs.builder()
+     *         final var ecs-mongo = EcsFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterName(&#34;ecs-mongo-production&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -124,10 +145,17 @@ public final class EcsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -135,9 +163,9 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ecs-mongo = Output.of(EcsFunctions.getCluster(GetClusterArgs.builder()
+     *         final var ecs-mongo = EcsFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterName(&#34;ecs-mongo-production&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -155,10 +183,17 @@ public final class EcsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetContainerDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -166,10 +201,10 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ecs-mongo = Output.of(EcsFunctions.getContainerDefinition(GetContainerDefinitionArgs.builder()
+     *         final var ecs-mongo = EcsFunctions.getContainerDefinition(GetContainerDefinitionArgs.builder()
      *             .taskDefinition(aws_ecs_task_definition.mongo().id())
      *             .containerName(&#34;mongodb&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -187,10 +222,17 @@ public final class EcsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetContainerDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -198,10 +240,10 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ecs-mongo = Output.of(EcsFunctions.getContainerDefinition(GetContainerDefinitionArgs.builder()
+     *         final var ecs-mongo = EcsFunctions.getContainerDefinition(GetContainerDefinitionArgs.builder()
      *             .taskDefinition(aws_ecs_task_definition.mongo().id())
      *             .containerName(&#34;mongodb&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -219,10 +261,17 @@ public final class EcsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetContainerDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -230,10 +279,10 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ecs-mongo = Output.of(EcsFunctions.getContainerDefinition(GetContainerDefinitionArgs.builder()
+     *         final var ecs-mongo = EcsFunctions.getContainerDefinition(GetContainerDefinitionArgs.builder()
      *             .taskDefinition(aws_ecs_task_definition.mongo().id())
      *             .containerName(&#34;mongodb&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -251,10 +300,17 @@ public final class EcsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetContainerDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -262,10 +318,10 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ecs-mongo = Output.of(EcsFunctions.getContainerDefinition(GetContainerDefinitionArgs.builder()
+     *         final var ecs-mongo = EcsFunctions.getContainerDefinition(GetContainerDefinitionArgs.builder()
      *             .taskDefinition(aws_ecs_task_definition.mongo().id())
      *             .containerName(&#34;mongodb&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -283,10 +339,17 @@ public final class EcsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -294,10 +357,10 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EcsFunctions.getService(GetServiceArgs.builder()
+     *         final var example = EcsFunctions.getService(GetServiceArgs.builder()
      *             .serviceName(&#34;example&#34;)
      *             .clusterArn(data.aws_ecs_cluster().example().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -315,10 +378,17 @@ public final class EcsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -326,10 +396,10 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EcsFunctions.getService(GetServiceArgs.builder()
+     *         final var example = EcsFunctions.getService(GetServiceArgs.builder()
      *             .serviceName(&#34;example&#34;)
      *             .clusterArn(data.aws_ecs_cluster().example().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -347,10 +417,17 @@ public final class EcsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -358,10 +435,10 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EcsFunctions.getService(GetServiceArgs.builder()
+     *         final var example = EcsFunctions.getService(GetServiceArgs.builder()
      *             .serviceName(&#34;example&#34;)
      *             .clusterArn(data.aws_ecs_cluster().example().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -379,10 +456,17 @@ public final class EcsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -390,10 +474,10 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EcsFunctions.getService(GetServiceArgs.builder()
+     *         final var example = EcsFunctions.getService(GetServiceArgs.builder()
      *             .serviceName(&#34;example&#34;)
      *             .clusterArn(data.aws_ecs_cluster().example().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -411,10 +495,22 @@ public final class EcsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetTaskDefinitionArgs;
+     * import com.pulumi.aws.ecs.Cluster;
+     * import com.pulumi.aws.ecs.TaskDefinition;
+     * import com.pulumi.aws.ecs.TaskDefinitionArgs;
+     * import com.pulumi.aws.ecs.Service;
+     * import com.pulumi.aws.ecs.ServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -422,9 +518,9 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var mongoTaskDefinition = Output.of(EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
+     *         final var mongoTaskDefinition = EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
      *             .taskDefinition(mongoEcs / taskDefinitionTaskDefinition.family())
-     *             .build()));
+     *             .build());
      * 
      *         var foo = new Cluster(&#34;foo&#34;);
      * 
@@ -470,10 +566,22 @@ public final class EcsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetTaskDefinitionArgs;
+     * import com.pulumi.aws.ecs.Cluster;
+     * import com.pulumi.aws.ecs.TaskDefinition;
+     * import com.pulumi.aws.ecs.TaskDefinitionArgs;
+     * import com.pulumi.aws.ecs.Service;
+     * import com.pulumi.aws.ecs.ServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -481,9 +589,9 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var mongoTaskDefinition = Output.of(EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
+     *         final var mongoTaskDefinition = EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
      *             .taskDefinition(mongoEcs / taskDefinitionTaskDefinition.family())
-     *             .build()));
+     *             .build());
      * 
      *         var foo = new Cluster(&#34;foo&#34;);
      * 
@@ -529,10 +637,22 @@ public final class EcsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetTaskDefinitionArgs;
+     * import com.pulumi.aws.ecs.Cluster;
+     * import com.pulumi.aws.ecs.TaskDefinition;
+     * import com.pulumi.aws.ecs.TaskDefinitionArgs;
+     * import com.pulumi.aws.ecs.Service;
+     * import com.pulumi.aws.ecs.ServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -540,9 +660,9 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var mongoTaskDefinition = Output.of(EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
+     *         final var mongoTaskDefinition = EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
      *             .taskDefinition(mongoEcs / taskDefinitionTaskDefinition.family())
-     *             .build()));
+     *             .build());
      * 
      *         var foo = new Cluster(&#34;foo&#34;);
      * 
@@ -588,10 +708,22 @@ public final class EcsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecs.EcsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetTaskDefinitionArgs;
+     * import com.pulumi.aws.ecs.Cluster;
+     * import com.pulumi.aws.ecs.TaskDefinition;
+     * import com.pulumi.aws.ecs.TaskDefinitionArgs;
+     * import com.pulumi.aws.ecs.Service;
+     * import com.pulumi.aws.ecs.ServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -599,9 +731,9 @@ public final class EcsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var mongoTaskDefinition = Output.of(EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
+     *         final var mongoTaskDefinition = EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
      *             .taskDefinition(mongoEcs / taskDefinitionTaskDefinition.family())
-     *             .build()));
+     *             .build());
      * 
      *         var foo = new Cluster(&#34;foo&#34;);
      * 

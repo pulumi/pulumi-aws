@@ -20,10 +20,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ses.DomainIdentity;
+ * import com.pulumi.aws.ses.DomainIdentityArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.ses.IdentityPolicy;
+ * import com.pulumi.aws.ses.IdentityPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -50,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleIdentityPolicy = new IdentityPolicy(&#34;exampleIdentityPolicy&#34;, IdentityPolicyArgs.builder()        
  *             .identity(exampleDomainIdentity.arn())
- *             .policy(examplePolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult).apply(examplePolicyDocument -&gt; examplePolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

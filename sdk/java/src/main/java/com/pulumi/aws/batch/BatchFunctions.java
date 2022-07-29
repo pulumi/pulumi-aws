@@ -28,10 +28,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetComputeEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -39,9 +46,9 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var batch-mongo = Output.of(BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
+     *         final var batch-mongo = BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
      *             .computeEnvironmentName(&#34;batch-mongo-production&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -59,10 +66,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetComputeEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -70,9 +84,9 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var batch-mongo = Output.of(BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
+     *         final var batch-mongo = BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
      *             .computeEnvironmentName(&#34;batch-mongo-production&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -90,10 +104,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetComputeEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -101,9 +122,9 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var batch-mongo = Output.of(BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
+     *         final var batch-mongo = BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
      *             .computeEnvironmentName(&#34;batch-mongo-production&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -121,10 +142,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetComputeEnvironmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -132,9 +160,9 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var batch-mongo = Output.of(BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
+     *         final var batch-mongo = BatchFunctions.getComputeEnvironment(GetComputeEnvironmentArgs.builder()
      *             .computeEnvironmentName(&#34;batch-mongo-production&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -152,10 +180,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetJobQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -163,9 +198,9 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test-queue = Output.of(BatchFunctions.getJobQueue(GetJobQueueArgs.builder()
+     *         final var test-queue = BatchFunctions.getJobQueue(GetJobQueueArgs.builder()
      *             .name(&#34;tf-test-batch-job-queue&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -183,10 +218,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetJobQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -194,9 +236,9 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test-queue = Output.of(BatchFunctions.getJobQueue(GetJobQueueArgs.builder()
+     *         final var test-queue = BatchFunctions.getJobQueue(GetJobQueueArgs.builder()
      *             .name(&#34;tf-test-batch-job-queue&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -214,10 +256,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetJobQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -225,9 +274,9 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test-queue = Output.of(BatchFunctions.getJobQueue(GetJobQueueArgs.builder()
+     *         final var test-queue = BatchFunctions.getJobQueue(GetJobQueueArgs.builder()
      *             .name(&#34;tf-test-batch-job-queue&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -245,10 +294,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetJobQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -256,9 +312,9 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test-queue = Output.of(BatchFunctions.getJobQueue(GetJobQueueArgs.builder()
+     *         final var test-queue = BatchFunctions.getJobQueue(GetJobQueueArgs.builder()
      *             .name(&#34;tf-test-batch-job-queue&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -275,10 +331,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetSchedulingPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -286,9 +349,9 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(BatchFunctions.getSchedulingPolicy(GetSchedulingPolicyArgs.builder()
+     *         final var test = BatchFunctions.getSchedulingPolicy(GetSchedulingPolicyArgs.builder()
      *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:scheduling-policy/example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -305,10 +368,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetSchedulingPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -316,9 +386,9 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(BatchFunctions.getSchedulingPolicy(GetSchedulingPolicyArgs.builder()
+     *         final var test = BatchFunctions.getSchedulingPolicy(GetSchedulingPolicyArgs.builder()
      *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:scheduling-policy/example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -335,10 +405,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetSchedulingPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -346,9 +423,9 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(BatchFunctions.getSchedulingPolicy(GetSchedulingPolicyArgs.builder()
+     *         final var test = BatchFunctions.getSchedulingPolicy(GetSchedulingPolicyArgs.builder()
      *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:scheduling-policy/example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -365,10 +442,17 @@ public final class BatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.batch.BatchFunctions;
+     * import com.pulumi.aws.batch.inputs.GetSchedulingPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -376,9 +460,9 @@ public final class BatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(BatchFunctions.getSchedulingPolicy(GetSchedulingPolicyArgs.builder()
+     *         final var test = BatchFunctions.getSchedulingPolicy(GetSchedulingPolicyArgs.builder()
      *             .arn(&#34;arn:aws:batch:us-east-1:012345678910:scheduling-policy/example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

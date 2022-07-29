@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CloudTrail
     /// ## Example Usage
     /// ### Basic
     /// 
-    /// The most simple event data store configuration requires us to only set the `name` and `retention_period` attributes. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
+    /// The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -31,7 +31,6 @@ namespace Pulumi.Aws.CloudTrail
     ///     {
     ///         var example = new Aws.CloudTrail.EventDataStore("example", new Aws.CloudTrail.EventDataStoreArgs
     ///         {
-    ///             RetentionPeriod = 7,
     ///         });
     ///     }
     /// 

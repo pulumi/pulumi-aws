@@ -28,12 +28,12 @@ namespace Pulumi.Aws.CodeArtifact
     ///         });
     ///         var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new Aws.CodeArtifact.DomainArgs
     ///         {
-    ///             Domain = "example",
+    ///             DomainName = "example",
     ///             EncryptionKey = exampleKey.Arn,
     ///         });
     ///         var test = new Aws.CodeArtifact.Repository("test", new Aws.CodeArtifact.RepositoryArgs
     ///         {
-    ///             Repository = "example",
+    ///             RepositoryName = "example",
     ///             Domain = exampleDomain.DomainName,
     ///         });
     ///     }
@@ -52,12 +52,12 @@ namespace Pulumi.Aws.CodeArtifact
     ///     {
     ///         var upstream = new Aws.CodeArtifact.Repository("upstream", new Aws.CodeArtifact.RepositoryArgs
     ///         {
-    ///             Repository = "upstream",
+    ///             RepositoryName = "upstream",
     ///             Domain = aws_codeartifact_domain.Test.Domain,
     ///         });
     ///         var test = new Aws.CodeArtifact.Repository("test", new Aws.CodeArtifact.RepositoryArgs
     ///         {
-    ///             Repository = "example",
+    ///             RepositoryName = "example",
     ///             Domain = aws_codeartifact_domain.Example.Domain,
     ///             Upstreams = 
     ///             {
@@ -83,12 +83,12 @@ namespace Pulumi.Aws.CodeArtifact
     ///     {
     ///         var upstream = new Aws.CodeArtifact.Repository("upstream", new Aws.CodeArtifact.RepositoryArgs
     ///         {
-    ///             Repository = "upstream",
+    ///             RepositoryName = "upstream",
     ///             Domain = aws_codeartifact_domain.Test.Domain,
     ///         });
     ///         var test = new Aws.CodeArtifact.Repository("test", new Aws.CodeArtifact.RepositoryArgs
     ///         {
-    ///             Repository = "example",
+    ///             RepositoryName = "example",
     ///             Domain = aws_codeartifact_domain.Example.Domain,
     ///             ExternalConnections = new Aws.CodeArtifact.Inputs.RepositoryExternalConnectionsArgs
     ///             {

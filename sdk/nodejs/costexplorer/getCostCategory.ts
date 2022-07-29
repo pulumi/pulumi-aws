@@ -27,6 +27,7 @@ export function getCostCategory(args: GetCostCategoryArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:costexplorer/getCostCategory:getCostCategory", {
         "costCategoryArn": args.costCategoryArn,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -38,6 +39,10 @@ export interface GetCostCategoryArgs {
      * Unique name for the Cost Category.
      */
     costCategoryArn: string;
+    /**
+     * Resource tags.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -70,6 +75,10 @@ export interface GetCostCategoryResult {
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      */
     readonly splitChargeRules: outputs.costexplorer.GetCostCategorySplitChargeRule[];
+    /**
+     * Resource tags.
+     */
+    readonly tags: {[key: string]: string};
 }
 
 export function getCostCategoryOutput(args: GetCostCategoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCostCategoryResult> {
@@ -84,4 +93,8 @@ export interface GetCostCategoryOutputArgs {
      * Unique name for the Cost Category.
      */
     costCategoryArn: pulumi.Input<string>;
+    /**
+     * Resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

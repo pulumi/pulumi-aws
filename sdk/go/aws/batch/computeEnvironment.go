@@ -37,7 +37,19 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		ecsInstanceRoleRole, err := iam.NewRole(ctx, "ecsInstanceRoleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "	{\n", "	    \"Action\": \"sts:AssumeRole\",\n", "	    \"Effect\": \"Allow\",\n", "	    \"Principal\": {\n", "	        \"Service\": \"ec2.amazonaws.com\"\n", "	    }\n", "	}\n", "    ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//     "Version": "2012-10-17",
+//     "Statement": [
+// 	{
+// 	    "Action": "sts:AssumeRole",
+// 	    "Effect": "Allow",
+// 	    "Principal": {
+// 	        "Service": "ec2.amazonaws.com"
+// 	    }
+// 	}
+//     ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -56,7 +68,19 @@ import (
 // 			return err
 // 		}
 // 		awsBatchServiceRoleRole, err := iam.NewRole(ctx, "awsBatchServiceRoleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "	{\n", "	    \"Action\": \"sts:AssumeRole\",\n", "	    \"Effect\": \"Allow\",\n", "	    \"Principal\": {\n", "		\"Service\": \"batch.amazonaws.com\"\n", "	    }\n", "	}\n", "    ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//     "Version": "2012-10-17",
+//     "Statement": [
+// 	{
+// 	    "Action": "sts:AssumeRole",
+// 	    "Effect": "Allow",
+// 	    "Principal": {
+// 		"Service": "batch.amazonaws.com"
+// 	    }
+// 	}
+//     ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

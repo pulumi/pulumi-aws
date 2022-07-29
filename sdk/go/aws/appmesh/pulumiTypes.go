@@ -1048,6 +1048,8 @@ func (o GatewayRouteSpecHttp2RoutePtrOutput) Match() GatewayRouteSpecHttp2RouteM
 }
 
 type GatewayRouteSpecHttp2RouteAction struct {
+	// The gateway route action to rewrite.
+	Rewrite *GatewayRouteSpecHttp2RouteActionRewrite `pulumi:"rewrite"`
 	// The target that traffic is routed to when a request matches the gateway route.
 	Target GatewayRouteSpecHttp2RouteActionTarget `pulumi:"target"`
 }
@@ -1064,6 +1066,8 @@ type GatewayRouteSpecHttp2RouteActionInput interface {
 }
 
 type GatewayRouteSpecHttp2RouteActionArgs struct {
+	// The gateway route action to rewrite.
+	Rewrite GatewayRouteSpecHttp2RouteActionRewritePtrInput `pulumi:"rewrite"`
 	// The target that traffic is routed to when a request matches the gateway route.
 	Target GatewayRouteSpecHttp2RouteActionTargetInput `pulumi:"target"`
 }
@@ -1145,6 +1149,11 @@ func (o GatewayRouteSpecHttp2RouteActionOutput) ToGatewayRouteSpecHttp2RouteActi
 	}).(GatewayRouteSpecHttp2RouteActionPtrOutput)
 }
 
+// The gateway route action to rewrite.
+func (o GatewayRouteSpecHttp2RouteActionOutput) Rewrite() GatewayRouteSpecHttp2RouteActionRewritePtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteAction) *GatewayRouteSpecHttp2RouteActionRewrite { return v.Rewrite }).(GatewayRouteSpecHttp2RouteActionRewritePtrOutput)
+}
+
 // The target that traffic is routed to when a request matches the gateway route.
 func (o GatewayRouteSpecHttp2RouteActionOutput) Target() GatewayRouteSpecHttp2RouteActionTargetOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteAction) GatewayRouteSpecHttp2RouteActionTarget { return v.Target }).(GatewayRouteSpecHttp2RouteActionTargetOutput)
@@ -1174,6 +1183,16 @@ func (o GatewayRouteSpecHttp2RouteActionPtrOutput) Elem() GatewayRouteSpecHttp2R
 	}).(GatewayRouteSpecHttp2RouteActionOutput)
 }
 
+// The gateway route action to rewrite.
+func (o GatewayRouteSpecHttp2RouteActionPtrOutput) Rewrite() GatewayRouteSpecHttp2RouteActionRewritePtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteAction) *GatewayRouteSpecHttp2RouteActionRewrite {
+		if v == nil {
+			return nil
+		}
+		return v.Rewrite
+	}).(GatewayRouteSpecHttp2RouteActionRewritePtrOutput)
+}
+
 // The target that traffic is routed to when a request matches the gateway route.
 func (o GatewayRouteSpecHttp2RouteActionPtrOutput) Target() GatewayRouteSpecHttp2RouteActionTargetPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteAction) *GatewayRouteSpecHttp2RouteActionTarget {
@@ -1182,6 +1201,459 @@ func (o GatewayRouteSpecHttp2RouteActionPtrOutput) Target() GatewayRouteSpecHttp
 		}
 		return &v.Target
 	}).(GatewayRouteSpecHttp2RouteActionTargetPtrOutput)
+}
+
+type GatewayRouteSpecHttp2RouteActionRewrite struct {
+	// The host name to rewrite.
+	Hostname *GatewayRouteSpecHttp2RouteActionRewriteHostname `pulumi:"hostname"`
+	// The specified beginning characters to rewrite.
+	Prefix *GatewayRouteSpecHttp2RouteActionRewritePrefix `pulumi:"prefix"`
+}
+
+// GatewayRouteSpecHttp2RouteActionRewriteInput is an input type that accepts GatewayRouteSpecHttp2RouteActionRewriteArgs and GatewayRouteSpecHttp2RouteActionRewriteOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttp2RouteActionRewriteInput` via:
+//
+//          GatewayRouteSpecHttp2RouteActionRewriteArgs{...}
+type GatewayRouteSpecHttp2RouteActionRewriteInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttp2RouteActionRewriteOutput() GatewayRouteSpecHttp2RouteActionRewriteOutput
+	ToGatewayRouteSpecHttp2RouteActionRewriteOutputWithContext(context.Context) GatewayRouteSpecHttp2RouteActionRewriteOutput
+}
+
+type GatewayRouteSpecHttp2RouteActionRewriteArgs struct {
+	// The host name to rewrite.
+	Hostname GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrInput `pulumi:"hostname"`
+	// The specified beginning characters to rewrite.
+	Prefix GatewayRouteSpecHttp2RouteActionRewritePrefixPtrInput `pulumi:"prefix"`
+}
+
+func (GatewayRouteSpecHttp2RouteActionRewriteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewrite)(nil)).Elem()
+}
+
+func (i GatewayRouteSpecHttp2RouteActionRewriteArgs) ToGatewayRouteSpecHttp2RouteActionRewriteOutput() GatewayRouteSpecHttp2RouteActionRewriteOutput {
+	return i.ToGatewayRouteSpecHttp2RouteActionRewriteOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttp2RouteActionRewriteArgs) ToGatewayRouteSpecHttp2RouteActionRewriteOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewriteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttp2RouteActionRewriteOutput)
+}
+
+func (i GatewayRouteSpecHttp2RouteActionRewriteArgs) ToGatewayRouteSpecHttp2RouteActionRewritePtrOutput() GatewayRouteSpecHttp2RouteActionRewritePtrOutput {
+	return i.ToGatewayRouteSpecHttp2RouteActionRewritePtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttp2RouteActionRewriteArgs) ToGatewayRouteSpecHttp2RouteActionRewritePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewritePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttp2RouteActionRewriteOutput).ToGatewayRouteSpecHttp2RouteActionRewritePtrOutputWithContext(ctx)
+}
+
+// GatewayRouteSpecHttp2RouteActionRewritePtrInput is an input type that accepts GatewayRouteSpecHttp2RouteActionRewriteArgs, GatewayRouteSpecHttp2RouteActionRewritePtr and GatewayRouteSpecHttp2RouteActionRewritePtrOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttp2RouteActionRewritePtrInput` via:
+//
+//          GatewayRouteSpecHttp2RouteActionRewriteArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteSpecHttp2RouteActionRewritePtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttp2RouteActionRewritePtrOutput() GatewayRouteSpecHttp2RouteActionRewritePtrOutput
+	ToGatewayRouteSpecHttp2RouteActionRewritePtrOutputWithContext(context.Context) GatewayRouteSpecHttp2RouteActionRewritePtrOutput
+}
+
+type gatewayRouteSpecHttp2RouteActionRewritePtrType GatewayRouteSpecHttp2RouteActionRewriteArgs
+
+func GatewayRouteSpecHttp2RouteActionRewritePtr(v *GatewayRouteSpecHttp2RouteActionRewriteArgs) GatewayRouteSpecHttp2RouteActionRewritePtrInput {
+	return (*gatewayRouteSpecHttp2RouteActionRewritePtrType)(v)
+}
+
+func (*gatewayRouteSpecHttp2RouteActionRewritePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttp2RouteActionRewrite)(nil)).Elem()
+}
+
+func (i *gatewayRouteSpecHttp2RouteActionRewritePtrType) ToGatewayRouteSpecHttp2RouteActionRewritePtrOutput() GatewayRouteSpecHttp2RouteActionRewritePtrOutput {
+	return i.ToGatewayRouteSpecHttp2RouteActionRewritePtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteSpecHttp2RouteActionRewritePtrType) ToGatewayRouteSpecHttp2RouteActionRewritePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewritePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttp2RouteActionRewritePtrOutput)
+}
+
+type GatewayRouteSpecHttp2RouteActionRewriteOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttp2RouteActionRewriteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewrite)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewriteOutput) ToGatewayRouteSpecHttp2RouteActionRewriteOutput() GatewayRouteSpecHttp2RouteActionRewriteOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewriteOutput) ToGatewayRouteSpecHttp2RouteActionRewriteOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewriteOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewriteOutput) ToGatewayRouteSpecHttp2RouteActionRewritePtrOutput() GatewayRouteSpecHttp2RouteActionRewritePtrOutput {
+	return o.ToGatewayRouteSpecHttp2RouteActionRewritePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewriteOutput) ToGatewayRouteSpecHttp2RouteActionRewritePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewritePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttp2RouteActionRewrite) *GatewayRouteSpecHttp2RouteActionRewrite {
+		return &v
+	}).(GatewayRouteSpecHttp2RouteActionRewritePtrOutput)
+}
+
+// The host name to rewrite.
+func (o GatewayRouteSpecHttp2RouteActionRewriteOutput) Hostname() GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionRewrite) *GatewayRouteSpecHttp2RouteActionRewriteHostname {
+		return v.Hostname
+	}).(GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput)
+}
+
+// The specified beginning characters to rewrite.
+func (o GatewayRouteSpecHttp2RouteActionRewriteOutput) Prefix() GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionRewrite) *GatewayRouteSpecHttp2RouteActionRewritePrefix {
+		return v.Prefix
+	}).(GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput)
+}
+
+type GatewayRouteSpecHttp2RouteActionRewritePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttp2RouteActionRewritePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttp2RouteActionRewrite)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePtrOutput) ToGatewayRouteSpecHttp2RouteActionRewritePtrOutput() GatewayRouteSpecHttp2RouteActionRewritePtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePtrOutput) ToGatewayRouteSpecHttp2RouteActionRewritePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewritePtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePtrOutput) Elem() GatewayRouteSpecHttp2RouteActionRewriteOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionRewrite) GatewayRouteSpecHttp2RouteActionRewrite {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttp2RouteActionRewrite
+		return ret
+	}).(GatewayRouteSpecHttp2RouteActionRewriteOutput)
+}
+
+// The host name to rewrite.
+func (o GatewayRouteSpecHttp2RouteActionRewritePtrOutput) Hostname() GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionRewrite) *GatewayRouteSpecHttp2RouteActionRewriteHostname {
+		if v == nil {
+			return nil
+		}
+		return v.Hostname
+	}).(GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput)
+}
+
+// The specified beginning characters to rewrite.
+func (o GatewayRouteSpecHttp2RouteActionRewritePtrOutput) Prefix() GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionRewrite) *GatewayRouteSpecHttp2RouteActionRewritePrefix {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput)
+}
+
+type GatewayRouteSpecHttp2RouteActionRewriteHostname struct {
+	// The default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
+	DefaultTargetHostname string `pulumi:"defaultTargetHostname"`
+}
+
+// GatewayRouteSpecHttp2RouteActionRewriteHostnameInput is an input type that accepts GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs and GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttp2RouteActionRewriteHostnameInput` via:
+//
+//          GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs{...}
+type GatewayRouteSpecHttp2RouteActionRewriteHostnameInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttp2RouteActionRewriteHostnameOutput() GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput
+	ToGatewayRouteSpecHttp2RouteActionRewriteHostnameOutputWithContext(context.Context) GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput
+}
+
+type GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs struct {
+	// The default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
+	DefaultTargetHostname pulumi.StringInput `pulumi:"defaultTargetHostname"`
+}
+
+func (GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewriteHostname)(nil)).Elem()
+}
+
+func (i GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs) ToGatewayRouteSpecHttp2RouteActionRewriteHostnameOutput() GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput {
+	return i.ToGatewayRouteSpecHttp2RouteActionRewriteHostnameOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs) ToGatewayRouteSpecHttp2RouteActionRewriteHostnameOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput)
+}
+
+func (i GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs) ToGatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput() GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput {
+	return i.ToGatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs) ToGatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput).ToGatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutputWithContext(ctx)
+}
+
+// GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrInput is an input type that accepts GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs, GatewayRouteSpecHttp2RouteActionRewriteHostnamePtr and GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrInput` via:
+//
+//          GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput() GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput
+	ToGatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutputWithContext(context.Context) GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput
+}
+
+type gatewayRouteSpecHttp2RouteActionRewriteHostnamePtrType GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs
+
+func GatewayRouteSpecHttp2RouteActionRewriteHostnamePtr(v *GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs) GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrInput {
+	return (*gatewayRouteSpecHttp2RouteActionRewriteHostnamePtrType)(v)
+}
+
+func (*gatewayRouteSpecHttp2RouteActionRewriteHostnamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttp2RouteActionRewriteHostname)(nil)).Elem()
+}
+
+func (i *gatewayRouteSpecHttp2RouteActionRewriteHostnamePtrType) ToGatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput() GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput {
+	return i.ToGatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteSpecHttp2RouteActionRewriteHostnamePtrType) ToGatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput)
+}
+
+type GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewriteHostname)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput) ToGatewayRouteSpecHttp2RouteActionRewriteHostnameOutput() GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput) ToGatewayRouteSpecHttp2RouteActionRewriteHostnameOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput) ToGatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput() GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput {
+	return o.ToGatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput) ToGatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttp2RouteActionRewriteHostname) *GatewayRouteSpecHttp2RouteActionRewriteHostname {
+		return &v
+	}).(GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput)
+}
+
+// The default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
+func (o GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput) DefaultTargetHostname() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionRewriteHostname) string { return v.DefaultTargetHostname }).(pulumi.StringOutput)
+}
+
+type GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttp2RouteActionRewriteHostname)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput) ToGatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput() GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput) ToGatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput) Elem() GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionRewriteHostname) GatewayRouteSpecHttp2RouteActionRewriteHostname {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttp2RouteActionRewriteHostname
+		return ret
+	}).(GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput)
+}
+
+// The default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
+func (o GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput) DefaultTargetHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionRewriteHostname) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultTargetHostname
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayRouteSpecHttp2RouteActionRewritePrefix struct {
+	// The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+	DefaultPrefix *string `pulumi:"defaultPrefix"`
+	// The value used to replace the incoming route prefix when rewritten.
+	Value *string `pulumi:"value"`
+}
+
+// GatewayRouteSpecHttp2RouteActionRewritePrefixInput is an input type that accepts GatewayRouteSpecHttp2RouteActionRewritePrefixArgs and GatewayRouteSpecHttp2RouteActionRewritePrefixOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttp2RouteActionRewritePrefixInput` via:
+//
+//          GatewayRouteSpecHttp2RouteActionRewritePrefixArgs{...}
+type GatewayRouteSpecHttp2RouteActionRewritePrefixInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttp2RouteActionRewritePrefixOutput() GatewayRouteSpecHttp2RouteActionRewritePrefixOutput
+	ToGatewayRouteSpecHttp2RouteActionRewritePrefixOutputWithContext(context.Context) GatewayRouteSpecHttp2RouteActionRewritePrefixOutput
+}
+
+type GatewayRouteSpecHttp2RouteActionRewritePrefixArgs struct {
+	// The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+	DefaultPrefix pulumi.StringPtrInput `pulumi:"defaultPrefix"`
+	// The value used to replace the incoming route prefix when rewritten.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (GatewayRouteSpecHttp2RouteActionRewritePrefixArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewritePrefix)(nil)).Elem()
+}
+
+func (i GatewayRouteSpecHttp2RouteActionRewritePrefixArgs) ToGatewayRouteSpecHttp2RouteActionRewritePrefixOutput() GatewayRouteSpecHttp2RouteActionRewritePrefixOutput {
+	return i.ToGatewayRouteSpecHttp2RouteActionRewritePrefixOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttp2RouteActionRewritePrefixArgs) ToGatewayRouteSpecHttp2RouteActionRewritePrefixOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewritePrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttp2RouteActionRewritePrefixOutput)
+}
+
+func (i GatewayRouteSpecHttp2RouteActionRewritePrefixArgs) ToGatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput() GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput {
+	return i.ToGatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttp2RouteActionRewritePrefixArgs) ToGatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttp2RouteActionRewritePrefixOutput).ToGatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutputWithContext(ctx)
+}
+
+// GatewayRouteSpecHttp2RouteActionRewritePrefixPtrInput is an input type that accepts GatewayRouteSpecHttp2RouteActionRewritePrefixArgs, GatewayRouteSpecHttp2RouteActionRewritePrefixPtr and GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttp2RouteActionRewritePrefixPtrInput` via:
+//
+//          GatewayRouteSpecHttp2RouteActionRewritePrefixArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteSpecHttp2RouteActionRewritePrefixPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput() GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput
+	ToGatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutputWithContext(context.Context) GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput
+}
+
+type gatewayRouteSpecHttp2RouteActionRewritePrefixPtrType GatewayRouteSpecHttp2RouteActionRewritePrefixArgs
+
+func GatewayRouteSpecHttp2RouteActionRewritePrefixPtr(v *GatewayRouteSpecHttp2RouteActionRewritePrefixArgs) GatewayRouteSpecHttp2RouteActionRewritePrefixPtrInput {
+	return (*gatewayRouteSpecHttp2RouteActionRewritePrefixPtrType)(v)
+}
+
+func (*gatewayRouteSpecHttp2RouteActionRewritePrefixPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttp2RouteActionRewritePrefix)(nil)).Elem()
+}
+
+func (i *gatewayRouteSpecHttp2RouteActionRewritePrefixPtrType) ToGatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput() GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput {
+	return i.ToGatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteSpecHttp2RouteActionRewritePrefixPtrType) ToGatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput)
+}
+
+type GatewayRouteSpecHttp2RouteActionRewritePrefixOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttp2RouteActionRewritePrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewritePrefix)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePrefixOutput) ToGatewayRouteSpecHttp2RouteActionRewritePrefixOutput() GatewayRouteSpecHttp2RouteActionRewritePrefixOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePrefixOutput) ToGatewayRouteSpecHttp2RouteActionRewritePrefixOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewritePrefixOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePrefixOutput) ToGatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput() GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput {
+	return o.ToGatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePrefixOutput) ToGatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttp2RouteActionRewritePrefix) *GatewayRouteSpecHttp2RouteActionRewritePrefix {
+		return &v
+	}).(GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput)
+}
+
+// The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+func (o GatewayRouteSpecHttp2RouteActionRewritePrefixOutput) DefaultPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionRewritePrefix) *string { return v.DefaultPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The value used to replace the incoming route prefix when rewritten.
+func (o GatewayRouteSpecHttp2RouteActionRewritePrefixOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionRewritePrefix) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttp2RouteActionRewritePrefix)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput) ToGatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput() GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput) ToGatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput) Elem() GatewayRouteSpecHttp2RouteActionRewritePrefixOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionRewritePrefix) GatewayRouteSpecHttp2RouteActionRewritePrefix {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttp2RouteActionRewritePrefix
+		return ret
+	}).(GatewayRouteSpecHttp2RouteActionRewritePrefixOutput)
+}
+
+// The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+func (o GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput) DefaultPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionRewritePrefix) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value used to replace the incoming route prefix when rewritten.
+func (o GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionRewritePrefix) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
 }
 
 type GatewayRouteSpecHttp2RouteActionTarget struct {
@@ -1461,8 +1933,10 @@ func (o GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutput) VirtualSe
 }
 
 type GatewayRouteSpecHttp2RouteMatch struct {
-	// Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
-	Prefix string `pulumi:"prefix"`
+	// The host name to rewrite.
+	Hostname *GatewayRouteSpecHttp2RouteMatchHostname `pulumi:"hostname"`
+	// The specified beginning characters to rewrite.
+	Prefix *string `pulumi:"prefix"`
 }
 
 // GatewayRouteSpecHttp2RouteMatchInput is an input type that accepts GatewayRouteSpecHttp2RouteMatchArgs and GatewayRouteSpecHttp2RouteMatchOutput values.
@@ -1477,8 +1951,10 @@ type GatewayRouteSpecHttp2RouteMatchInput interface {
 }
 
 type GatewayRouteSpecHttp2RouteMatchArgs struct {
-	// Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
-	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// The host name to rewrite.
+	Hostname GatewayRouteSpecHttp2RouteMatchHostnamePtrInput `pulumi:"hostname"`
+	// The specified beginning characters to rewrite.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
 func (GatewayRouteSpecHttp2RouteMatchArgs) ElementType() reflect.Type {
@@ -1558,9 +2034,14 @@ func (o GatewayRouteSpecHttp2RouteMatchOutput) ToGatewayRouteSpecHttp2RouteMatch
 	}).(GatewayRouteSpecHttp2RouteMatchPtrOutput)
 }
 
-// Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
-func (o GatewayRouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
+// The host name to rewrite.
+func (o GatewayRouteSpecHttp2RouteMatchOutput) Hostname() GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatch) *GatewayRouteSpecHttp2RouteMatchHostname { return v.Hostname }).(GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput)
+}
+
+// The specified beginning characters to rewrite.
+func (o GatewayRouteSpecHttp2RouteMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 type GatewayRouteSpecHttp2RouteMatchPtrOutput struct{ *pulumi.OutputState }
@@ -1587,13 +2068,179 @@ func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Elem() GatewayRouteSpecHttp2Ro
 	}).(GatewayRouteSpecHttp2RouteMatchOutput)
 }
 
-// Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+// The host name to rewrite.
+func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Hostname() GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatch) *GatewayRouteSpecHttp2RouteMatchHostname {
+		if v == nil {
+			return nil
+		}
+		return v.Hostname
+	}).(GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput)
+}
+
+// The specified beginning characters to rewrite.
 func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatch) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Prefix
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayRouteSpecHttp2RouteMatchHostname struct {
+	// The exact host name to match on.
+	Exact *string `pulumi:"exact"`
+	// The specified ending characters of the host name to match on.
+	Suffix *string `pulumi:"suffix"`
+}
+
+// GatewayRouteSpecHttp2RouteMatchHostnameInput is an input type that accepts GatewayRouteSpecHttp2RouteMatchHostnameArgs and GatewayRouteSpecHttp2RouteMatchHostnameOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttp2RouteMatchHostnameInput` via:
+//
+//          GatewayRouteSpecHttp2RouteMatchHostnameArgs{...}
+type GatewayRouteSpecHttp2RouteMatchHostnameInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttp2RouteMatchHostnameOutput() GatewayRouteSpecHttp2RouteMatchHostnameOutput
+	ToGatewayRouteSpecHttp2RouteMatchHostnameOutputWithContext(context.Context) GatewayRouteSpecHttp2RouteMatchHostnameOutput
+}
+
+type GatewayRouteSpecHttp2RouteMatchHostnameArgs struct {
+	// The exact host name to match on.
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
+	// The specified ending characters of the host name to match on.
+	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
+}
+
+func (GatewayRouteSpecHttp2RouteMatchHostnameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttp2RouteMatchHostname)(nil)).Elem()
+}
+
+func (i GatewayRouteSpecHttp2RouteMatchHostnameArgs) ToGatewayRouteSpecHttp2RouteMatchHostnameOutput() GatewayRouteSpecHttp2RouteMatchHostnameOutput {
+	return i.ToGatewayRouteSpecHttp2RouteMatchHostnameOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttp2RouteMatchHostnameArgs) ToGatewayRouteSpecHttp2RouteMatchHostnameOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteMatchHostnameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttp2RouteMatchHostnameOutput)
+}
+
+func (i GatewayRouteSpecHttp2RouteMatchHostnameArgs) ToGatewayRouteSpecHttp2RouteMatchHostnamePtrOutput() GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput {
+	return i.ToGatewayRouteSpecHttp2RouteMatchHostnamePtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttp2RouteMatchHostnameArgs) ToGatewayRouteSpecHttp2RouteMatchHostnamePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttp2RouteMatchHostnameOutput).ToGatewayRouteSpecHttp2RouteMatchHostnamePtrOutputWithContext(ctx)
+}
+
+// GatewayRouteSpecHttp2RouteMatchHostnamePtrInput is an input type that accepts GatewayRouteSpecHttp2RouteMatchHostnameArgs, GatewayRouteSpecHttp2RouteMatchHostnamePtr and GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttp2RouteMatchHostnamePtrInput` via:
+//
+//          GatewayRouteSpecHttp2RouteMatchHostnameArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteSpecHttp2RouteMatchHostnamePtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttp2RouteMatchHostnamePtrOutput() GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput
+	ToGatewayRouteSpecHttp2RouteMatchHostnamePtrOutputWithContext(context.Context) GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput
+}
+
+type gatewayRouteSpecHttp2RouteMatchHostnamePtrType GatewayRouteSpecHttp2RouteMatchHostnameArgs
+
+func GatewayRouteSpecHttp2RouteMatchHostnamePtr(v *GatewayRouteSpecHttp2RouteMatchHostnameArgs) GatewayRouteSpecHttp2RouteMatchHostnamePtrInput {
+	return (*gatewayRouteSpecHttp2RouteMatchHostnamePtrType)(v)
+}
+
+func (*gatewayRouteSpecHttp2RouteMatchHostnamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttp2RouteMatchHostname)(nil)).Elem()
+}
+
+func (i *gatewayRouteSpecHttp2RouteMatchHostnamePtrType) ToGatewayRouteSpecHttp2RouteMatchHostnamePtrOutput() GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput {
+	return i.ToGatewayRouteSpecHttp2RouteMatchHostnamePtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteSpecHttp2RouteMatchHostnamePtrType) ToGatewayRouteSpecHttp2RouteMatchHostnamePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput)
+}
+
+type GatewayRouteSpecHttp2RouteMatchHostnameOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttp2RouteMatchHostnameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttp2RouteMatchHostname)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttp2RouteMatchHostnameOutput) ToGatewayRouteSpecHttp2RouteMatchHostnameOutput() GatewayRouteSpecHttp2RouteMatchHostnameOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteMatchHostnameOutput) ToGatewayRouteSpecHttp2RouteMatchHostnameOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteMatchHostnameOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteMatchHostnameOutput) ToGatewayRouteSpecHttp2RouteMatchHostnamePtrOutput() GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput {
+	return o.ToGatewayRouteSpecHttp2RouteMatchHostnamePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteSpecHttp2RouteMatchHostnameOutput) ToGatewayRouteSpecHttp2RouteMatchHostnamePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttp2RouteMatchHostname) *GatewayRouteSpecHttp2RouteMatchHostname {
+		return &v
+	}).(GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput)
+}
+
+// The exact host name to match on.
+func (o GatewayRouteSpecHttp2RouteMatchHostnameOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatchHostname) *string { return v.Exact }).(pulumi.StringPtrOutput)
+}
+
+// The specified ending characters of the host name to match on.
+func (o GatewayRouteSpecHttp2RouteMatchHostnameOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatchHostname) *string { return v.Suffix }).(pulumi.StringPtrOutput)
+}
+
+type GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttp2RouteMatchHostname)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput) ToGatewayRouteSpecHttp2RouteMatchHostnamePtrOutput() GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput) ToGatewayRouteSpecHttp2RouteMatchHostnamePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput) Elem() GatewayRouteSpecHttp2RouteMatchHostnameOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatchHostname) GatewayRouteSpecHttp2RouteMatchHostname {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttp2RouteMatchHostname
+		return ret
+	}).(GatewayRouteSpecHttp2RouteMatchHostnameOutput)
+}
+
+// The exact host name to match on.
+func (o GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatchHostname) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Exact
+	}).(pulumi.StringPtrOutput)
+}
+
+// The specified ending characters of the host name to match on.
+func (o GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatchHostname) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Suffix
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1754,6 +2401,8 @@ func (o GatewayRouteSpecHttpRoutePtrOutput) Match() GatewayRouteSpecHttpRouteMat
 }
 
 type GatewayRouteSpecHttpRouteAction struct {
+	// The gateway route action to rewrite.
+	Rewrite *GatewayRouteSpecHttpRouteActionRewrite `pulumi:"rewrite"`
 	// The target that traffic is routed to when a request matches the gateway route.
 	Target GatewayRouteSpecHttpRouteActionTarget `pulumi:"target"`
 }
@@ -1770,6 +2419,8 @@ type GatewayRouteSpecHttpRouteActionInput interface {
 }
 
 type GatewayRouteSpecHttpRouteActionArgs struct {
+	// The gateway route action to rewrite.
+	Rewrite GatewayRouteSpecHttpRouteActionRewritePtrInput `pulumi:"rewrite"`
 	// The target that traffic is routed to when a request matches the gateway route.
 	Target GatewayRouteSpecHttpRouteActionTargetInput `pulumi:"target"`
 }
@@ -1851,6 +2502,11 @@ func (o GatewayRouteSpecHttpRouteActionOutput) ToGatewayRouteSpecHttpRouteAction
 	}).(GatewayRouteSpecHttpRouteActionPtrOutput)
 }
 
+// The gateway route action to rewrite.
+func (o GatewayRouteSpecHttpRouteActionOutput) Rewrite() GatewayRouteSpecHttpRouteActionRewritePtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttpRouteAction) *GatewayRouteSpecHttpRouteActionRewrite { return v.Rewrite }).(GatewayRouteSpecHttpRouteActionRewritePtrOutput)
+}
+
 // The target that traffic is routed to when a request matches the gateway route.
 func (o GatewayRouteSpecHttpRouteActionOutput) Target() GatewayRouteSpecHttpRouteActionTargetOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteAction) GatewayRouteSpecHttpRouteActionTarget { return v.Target }).(GatewayRouteSpecHttpRouteActionTargetOutput)
@@ -1880,6 +2536,16 @@ func (o GatewayRouteSpecHttpRouteActionPtrOutput) Elem() GatewayRouteSpecHttpRou
 	}).(GatewayRouteSpecHttpRouteActionOutput)
 }
 
+// The gateway route action to rewrite.
+func (o GatewayRouteSpecHttpRouteActionPtrOutput) Rewrite() GatewayRouteSpecHttpRouteActionRewritePtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteAction) *GatewayRouteSpecHttpRouteActionRewrite {
+		if v == nil {
+			return nil
+		}
+		return v.Rewrite
+	}).(GatewayRouteSpecHttpRouteActionRewritePtrOutput)
+}
+
 // The target that traffic is routed to when a request matches the gateway route.
 func (o GatewayRouteSpecHttpRouteActionPtrOutput) Target() GatewayRouteSpecHttpRouteActionTargetPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteAction) *GatewayRouteSpecHttpRouteActionTarget {
@@ -1888,6 +2554,459 @@ func (o GatewayRouteSpecHttpRouteActionPtrOutput) Target() GatewayRouteSpecHttpR
 		}
 		return &v.Target
 	}).(GatewayRouteSpecHttpRouteActionTargetPtrOutput)
+}
+
+type GatewayRouteSpecHttpRouteActionRewrite struct {
+	// The host name to rewrite.
+	Hostname *GatewayRouteSpecHttpRouteActionRewriteHostname `pulumi:"hostname"`
+	// The specified beginning characters to rewrite.
+	Prefix *GatewayRouteSpecHttpRouteActionRewritePrefix `pulumi:"prefix"`
+}
+
+// GatewayRouteSpecHttpRouteActionRewriteInput is an input type that accepts GatewayRouteSpecHttpRouteActionRewriteArgs and GatewayRouteSpecHttpRouteActionRewriteOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttpRouteActionRewriteInput` via:
+//
+//          GatewayRouteSpecHttpRouteActionRewriteArgs{...}
+type GatewayRouteSpecHttpRouteActionRewriteInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttpRouteActionRewriteOutput() GatewayRouteSpecHttpRouteActionRewriteOutput
+	ToGatewayRouteSpecHttpRouteActionRewriteOutputWithContext(context.Context) GatewayRouteSpecHttpRouteActionRewriteOutput
+}
+
+type GatewayRouteSpecHttpRouteActionRewriteArgs struct {
+	// The host name to rewrite.
+	Hostname GatewayRouteSpecHttpRouteActionRewriteHostnamePtrInput `pulumi:"hostname"`
+	// The specified beginning characters to rewrite.
+	Prefix GatewayRouteSpecHttpRouteActionRewritePrefixPtrInput `pulumi:"prefix"`
+}
+
+func (GatewayRouteSpecHttpRouteActionRewriteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewrite)(nil)).Elem()
+}
+
+func (i GatewayRouteSpecHttpRouteActionRewriteArgs) ToGatewayRouteSpecHttpRouteActionRewriteOutput() GatewayRouteSpecHttpRouteActionRewriteOutput {
+	return i.ToGatewayRouteSpecHttpRouteActionRewriteOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttpRouteActionRewriteArgs) ToGatewayRouteSpecHttpRouteActionRewriteOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewriteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttpRouteActionRewriteOutput)
+}
+
+func (i GatewayRouteSpecHttpRouteActionRewriteArgs) ToGatewayRouteSpecHttpRouteActionRewritePtrOutput() GatewayRouteSpecHttpRouteActionRewritePtrOutput {
+	return i.ToGatewayRouteSpecHttpRouteActionRewritePtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttpRouteActionRewriteArgs) ToGatewayRouteSpecHttpRouteActionRewritePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewritePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttpRouteActionRewriteOutput).ToGatewayRouteSpecHttpRouteActionRewritePtrOutputWithContext(ctx)
+}
+
+// GatewayRouteSpecHttpRouteActionRewritePtrInput is an input type that accepts GatewayRouteSpecHttpRouteActionRewriteArgs, GatewayRouteSpecHttpRouteActionRewritePtr and GatewayRouteSpecHttpRouteActionRewritePtrOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttpRouteActionRewritePtrInput` via:
+//
+//          GatewayRouteSpecHttpRouteActionRewriteArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteSpecHttpRouteActionRewritePtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttpRouteActionRewritePtrOutput() GatewayRouteSpecHttpRouteActionRewritePtrOutput
+	ToGatewayRouteSpecHttpRouteActionRewritePtrOutputWithContext(context.Context) GatewayRouteSpecHttpRouteActionRewritePtrOutput
+}
+
+type gatewayRouteSpecHttpRouteActionRewritePtrType GatewayRouteSpecHttpRouteActionRewriteArgs
+
+func GatewayRouteSpecHttpRouteActionRewritePtr(v *GatewayRouteSpecHttpRouteActionRewriteArgs) GatewayRouteSpecHttpRouteActionRewritePtrInput {
+	return (*gatewayRouteSpecHttpRouteActionRewritePtrType)(v)
+}
+
+func (*gatewayRouteSpecHttpRouteActionRewritePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttpRouteActionRewrite)(nil)).Elem()
+}
+
+func (i *gatewayRouteSpecHttpRouteActionRewritePtrType) ToGatewayRouteSpecHttpRouteActionRewritePtrOutput() GatewayRouteSpecHttpRouteActionRewritePtrOutput {
+	return i.ToGatewayRouteSpecHttpRouteActionRewritePtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteSpecHttpRouteActionRewritePtrType) ToGatewayRouteSpecHttpRouteActionRewritePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewritePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttpRouteActionRewritePtrOutput)
+}
+
+type GatewayRouteSpecHttpRouteActionRewriteOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttpRouteActionRewriteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewrite)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewriteOutput) ToGatewayRouteSpecHttpRouteActionRewriteOutput() GatewayRouteSpecHttpRouteActionRewriteOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewriteOutput) ToGatewayRouteSpecHttpRouteActionRewriteOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewriteOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewriteOutput) ToGatewayRouteSpecHttpRouteActionRewritePtrOutput() GatewayRouteSpecHttpRouteActionRewritePtrOutput {
+	return o.ToGatewayRouteSpecHttpRouteActionRewritePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewriteOutput) ToGatewayRouteSpecHttpRouteActionRewritePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewritePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttpRouteActionRewrite) *GatewayRouteSpecHttpRouteActionRewrite {
+		return &v
+	}).(GatewayRouteSpecHttpRouteActionRewritePtrOutput)
+}
+
+// The host name to rewrite.
+func (o GatewayRouteSpecHttpRouteActionRewriteOutput) Hostname() GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionRewrite) *GatewayRouteSpecHttpRouteActionRewriteHostname {
+		return v.Hostname
+	}).(GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput)
+}
+
+// The specified beginning characters to rewrite.
+func (o GatewayRouteSpecHttpRouteActionRewriteOutput) Prefix() GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionRewrite) *GatewayRouteSpecHttpRouteActionRewritePrefix {
+		return v.Prefix
+	}).(GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput)
+}
+
+type GatewayRouteSpecHttpRouteActionRewritePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttpRouteActionRewritePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttpRouteActionRewrite)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePtrOutput) ToGatewayRouteSpecHttpRouteActionRewritePtrOutput() GatewayRouteSpecHttpRouteActionRewritePtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePtrOutput) ToGatewayRouteSpecHttpRouteActionRewritePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewritePtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePtrOutput) Elem() GatewayRouteSpecHttpRouteActionRewriteOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionRewrite) GatewayRouteSpecHttpRouteActionRewrite {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttpRouteActionRewrite
+		return ret
+	}).(GatewayRouteSpecHttpRouteActionRewriteOutput)
+}
+
+// The host name to rewrite.
+func (o GatewayRouteSpecHttpRouteActionRewritePtrOutput) Hostname() GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionRewrite) *GatewayRouteSpecHttpRouteActionRewriteHostname {
+		if v == nil {
+			return nil
+		}
+		return v.Hostname
+	}).(GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput)
+}
+
+// The specified beginning characters to rewrite.
+func (o GatewayRouteSpecHttpRouteActionRewritePtrOutput) Prefix() GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionRewrite) *GatewayRouteSpecHttpRouteActionRewritePrefix {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput)
+}
+
+type GatewayRouteSpecHttpRouteActionRewriteHostname struct {
+	// The default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
+	DefaultTargetHostname string `pulumi:"defaultTargetHostname"`
+}
+
+// GatewayRouteSpecHttpRouteActionRewriteHostnameInput is an input type that accepts GatewayRouteSpecHttpRouteActionRewriteHostnameArgs and GatewayRouteSpecHttpRouteActionRewriteHostnameOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttpRouteActionRewriteHostnameInput` via:
+//
+//          GatewayRouteSpecHttpRouteActionRewriteHostnameArgs{...}
+type GatewayRouteSpecHttpRouteActionRewriteHostnameInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttpRouteActionRewriteHostnameOutput() GatewayRouteSpecHttpRouteActionRewriteHostnameOutput
+	ToGatewayRouteSpecHttpRouteActionRewriteHostnameOutputWithContext(context.Context) GatewayRouteSpecHttpRouteActionRewriteHostnameOutput
+}
+
+type GatewayRouteSpecHttpRouteActionRewriteHostnameArgs struct {
+	// The default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
+	DefaultTargetHostname pulumi.StringInput `pulumi:"defaultTargetHostname"`
+}
+
+func (GatewayRouteSpecHttpRouteActionRewriteHostnameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewriteHostname)(nil)).Elem()
+}
+
+func (i GatewayRouteSpecHttpRouteActionRewriteHostnameArgs) ToGatewayRouteSpecHttpRouteActionRewriteHostnameOutput() GatewayRouteSpecHttpRouteActionRewriteHostnameOutput {
+	return i.ToGatewayRouteSpecHttpRouteActionRewriteHostnameOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttpRouteActionRewriteHostnameArgs) ToGatewayRouteSpecHttpRouteActionRewriteHostnameOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewriteHostnameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttpRouteActionRewriteHostnameOutput)
+}
+
+func (i GatewayRouteSpecHttpRouteActionRewriteHostnameArgs) ToGatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput() GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput {
+	return i.ToGatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttpRouteActionRewriteHostnameArgs) ToGatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttpRouteActionRewriteHostnameOutput).ToGatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutputWithContext(ctx)
+}
+
+// GatewayRouteSpecHttpRouteActionRewriteHostnamePtrInput is an input type that accepts GatewayRouteSpecHttpRouteActionRewriteHostnameArgs, GatewayRouteSpecHttpRouteActionRewriteHostnamePtr and GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttpRouteActionRewriteHostnamePtrInput` via:
+//
+//          GatewayRouteSpecHttpRouteActionRewriteHostnameArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteSpecHttpRouteActionRewriteHostnamePtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput() GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput
+	ToGatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutputWithContext(context.Context) GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput
+}
+
+type gatewayRouteSpecHttpRouteActionRewriteHostnamePtrType GatewayRouteSpecHttpRouteActionRewriteHostnameArgs
+
+func GatewayRouteSpecHttpRouteActionRewriteHostnamePtr(v *GatewayRouteSpecHttpRouteActionRewriteHostnameArgs) GatewayRouteSpecHttpRouteActionRewriteHostnamePtrInput {
+	return (*gatewayRouteSpecHttpRouteActionRewriteHostnamePtrType)(v)
+}
+
+func (*gatewayRouteSpecHttpRouteActionRewriteHostnamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttpRouteActionRewriteHostname)(nil)).Elem()
+}
+
+func (i *gatewayRouteSpecHttpRouteActionRewriteHostnamePtrType) ToGatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput() GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput {
+	return i.ToGatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteSpecHttpRouteActionRewriteHostnamePtrType) ToGatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput)
+}
+
+type GatewayRouteSpecHttpRouteActionRewriteHostnameOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttpRouteActionRewriteHostnameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewriteHostname)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewriteHostnameOutput) ToGatewayRouteSpecHttpRouteActionRewriteHostnameOutput() GatewayRouteSpecHttpRouteActionRewriteHostnameOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewriteHostnameOutput) ToGatewayRouteSpecHttpRouteActionRewriteHostnameOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewriteHostnameOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewriteHostnameOutput) ToGatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput() GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput {
+	return o.ToGatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewriteHostnameOutput) ToGatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttpRouteActionRewriteHostname) *GatewayRouteSpecHttpRouteActionRewriteHostname {
+		return &v
+	}).(GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput)
+}
+
+// The default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
+func (o GatewayRouteSpecHttpRouteActionRewriteHostnameOutput) DefaultTargetHostname() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionRewriteHostname) string { return v.DefaultTargetHostname }).(pulumi.StringOutput)
+}
+
+type GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttpRouteActionRewriteHostname)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput) ToGatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput() GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput) ToGatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput) Elem() GatewayRouteSpecHttpRouteActionRewriteHostnameOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionRewriteHostname) GatewayRouteSpecHttpRouteActionRewriteHostname {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttpRouteActionRewriteHostname
+		return ret
+	}).(GatewayRouteSpecHttpRouteActionRewriteHostnameOutput)
+}
+
+// The default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
+func (o GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput) DefaultTargetHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionRewriteHostname) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultTargetHostname
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayRouteSpecHttpRouteActionRewritePrefix struct {
+	// The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+	DefaultPrefix *string `pulumi:"defaultPrefix"`
+	// The value used to replace the incoming route prefix when rewritten.
+	Value *string `pulumi:"value"`
+}
+
+// GatewayRouteSpecHttpRouteActionRewritePrefixInput is an input type that accepts GatewayRouteSpecHttpRouteActionRewritePrefixArgs and GatewayRouteSpecHttpRouteActionRewritePrefixOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttpRouteActionRewritePrefixInput` via:
+//
+//          GatewayRouteSpecHttpRouteActionRewritePrefixArgs{...}
+type GatewayRouteSpecHttpRouteActionRewritePrefixInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttpRouteActionRewritePrefixOutput() GatewayRouteSpecHttpRouteActionRewritePrefixOutput
+	ToGatewayRouteSpecHttpRouteActionRewritePrefixOutputWithContext(context.Context) GatewayRouteSpecHttpRouteActionRewritePrefixOutput
+}
+
+type GatewayRouteSpecHttpRouteActionRewritePrefixArgs struct {
+	// The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+	DefaultPrefix pulumi.StringPtrInput `pulumi:"defaultPrefix"`
+	// The value used to replace the incoming route prefix when rewritten.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (GatewayRouteSpecHttpRouteActionRewritePrefixArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewritePrefix)(nil)).Elem()
+}
+
+func (i GatewayRouteSpecHttpRouteActionRewritePrefixArgs) ToGatewayRouteSpecHttpRouteActionRewritePrefixOutput() GatewayRouteSpecHttpRouteActionRewritePrefixOutput {
+	return i.ToGatewayRouteSpecHttpRouteActionRewritePrefixOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttpRouteActionRewritePrefixArgs) ToGatewayRouteSpecHttpRouteActionRewritePrefixOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewritePrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttpRouteActionRewritePrefixOutput)
+}
+
+func (i GatewayRouteSpecHttpRouteActionRewritePrefixArgs) ToGatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput() GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput {
+	return i.ToGatewayRouteSpecHttpRouteActionRewritePrefixPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttpRouteActionRewritePrefixArgs) ToGatewayRouteSpecHttpRouteActionRewritePrefixPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttpRouteActionRewritePrefixOutput).ToGatewayRouteSpecHttpRouteActionRewritePrefixPtrOutputWithContext(ctx)
+}
+
+// GatewayRouteSpecHttpRouteActionRewritePrefixPtrInput is an input type that accepts GatewayRouteSpecHttpRouteActionRewritePrefixArgs, GatewayRouteSpecHttpRouteActionRewritePrefixPtr and GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttpRouteActionRewritePrefixPtrInput` via:
+//
+//          GatewayRouteSpecHttpRouteActionRewritePrefixArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteSpecHttpRouteActionRewritePrefixPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput() GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput
+	ToGatewayRouteSpecHttpRouteActionRewritePrefixPtrOutputWithContext(context.Context) GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput
+}
+
+type gatewayRouteSpecHttpRouteActionRewritePrefixPtrType GatewayRouteSpecHttpRouteActionRewritePrefixArgs
+
+func GatewayRouteSpecHttpRouteActionRewritePrefixPtr(v *GatewayRouteSpecHttpRouteActionRewritePrefixArgs) GatewayRouteSpecHttpRouteActionRewritePrefixPtrInput {
+	return (*gatewayRouteSpecHttpRouteActionRewritePrefixPtrType)(v)
+}
+
+func (*gatewayRouteSpecHttpRouteActionRewritePrefixPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttpRouteActionRewritePrefix)(nil)).Elem()
+}
+
+func (i *gatewayRouteSpecHttpRouteActionRewritePrefixPtrType) ToGatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput() GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput {
+	return i.ToGatewayRouteSpecHttpRouteActionRewritePrefixPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteSpecHttpRouteActionRewritePrefixPtrType) ToGatewayRouteSpecHttpRouteActionRewritePrefixPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput)
+}
+
+type GatewayRouteSpecHttpRouteActionRewritePrefixOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttpRouteActionRewritePrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewritePrefix)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePrefixOutput) ToGatewayRouteSpecHttpRouteActionRewritePrefixOutput() GatewayRouteSpecHttpRouteActionRewritePrefixOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePrefixOutput) ToGatewayRouteSpecHttpRouteActionRewritePrefixOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewritePrefixOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePrefixOutput) ToGatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput() GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput {
+	return o.ToGatewayRouteSpecHttpRouteActionRewritePrefixPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePrefixOutput) ToGatewayRouteSpecHttpRouteActionRewritePrefixPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttpRouteActionRewritePrefix) *GatewayRouteSpecHttpRouteActionRewritePrefix {
+		return &v
+	}).(GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput)
+}
+
+// The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+func (o GatewayRouteSpecHttpRouteActionRewritePrefixOutput) DefaultPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionRewritePrefix) *string { return v.DefaultPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The value used to replace the incoming route prefix when rewritten.
+func (o GatewayRouteSpecHttpRouteActionRewritePrefixOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionRewritePrefix) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttpRouteActionRewritePrefix)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput) ToGatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput() GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput) ToGatewayRouteSpecHttpRouteActionRewritePrefixPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput) Elem() GatewayRouteSpecHttpRouteActionRewritePrefixOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionRewritePrefix) GatewayRouteSpecHttpRouteActionRewritePrefix {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttpRouteActionRewritePrefix
+		return ret
+	}).(GatewayRouteSpecHttpRouteActionRewritePrefixOutput)
+}
+
+// The default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+func (o GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput) DefaultPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionRewritePrefix) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value used to replace the incoming route prefix when rewritten.
+func (o GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionRewritePrefix) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
 }
 
 type GatewayRouteSpecHttpRouteActionTarget struct {
@@ -2167,8 +3286,10 @@ func (o GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutput) VirtualSer
 }
 
 type GatewayRouteSpecHttpRouteMatch struct {
-	// Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
-	Prefix string `pulumi:"prefix"`
+	// The host name to rewrite.
+	Hostname *GatewayRouteSpecHttpRouteMatchHostname `pulumi:"hostname"`
+	// The specified beginning characters to rewrite.
+	Prefix *string `pulumi:"prefix"`
 }
 
 // GatewayRouteSpecHttpRouteMatchInput is an input type that accepts GatewayRouteSpecHttpRouteMatchArgs and GatewayRouteSpecHttpRouteMatchOutput values.
@@ -2183,8 +3304,10 @@ type GatewayRouteSpecHttpRouteMatchInput interface {
 }
 
 type GatewayRouteSpecHttpRouteMatchArgs struct {
-	// Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
-	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// The host name to rewrite.
+	Hostname GatewayRouteSpecHttpRouteMatchHostnamePtrInput `pulumi:"hostname"`
+	// The specified beginning characters to rewrite.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
 func (GatewayRouteSpecHttpRouteMatchArgs) ElementType() reflect.Type {
@@ -2264,9 +3387,14 @@ func (o GatewayRouteSpecHttpRouteMatchOutput) ToGatewayRouteSpecHttpRouteMatchPt
 	}).(GatewayRouteSpecHttpRouteMatchPtrOutput)
 }
 
-// Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
-func (o GatewayRouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatch) string { return v.Prefix }).(pulumi.StringOutput)
+// The host name to rewrite.
+func (o GatewayRouteSpecHttpRouteMatchOutput) Hostname() GatewayRouteSpecHttpRouteMatchHostnamePtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatch) *GatewayRouteSpecHttpRouteMatchHostname { return v.Hostname }).(GatewayRouteSpecHttpRouteMatchHostnamePtrOutput)
+}
+
+// The specified beginning characters to rewrite.
+func (o GatewayRouteSpecHttpRouteMatchOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatch) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
 type GatewayRouteSpecHttpRouteMatchPtrOutput struct{ *pulumi.OutputState }
@@ -2293,13 +3421,179 @@ func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Elem() GatewayRouteSpecHttpRout
 	}).(GatewayRouteSpecHttpRouteMatchOutput)
 }
 
-// Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+// The host name to rewrite.
+func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Hostname() GatewayRouteSpecHttpRouteMatchHostnamePtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatch) *GatewayRouteSpecHttpRouteMatchHostname {
+		if v == nil {
+			return nil
+		}
+		return v.Hostname
+	}).(GatewayRouteSpecHttpRouteMatchHostnamePtrOutput)
+}
+
+// The specified beginning characters to rewrite.
 func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatch) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Prefix
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayRouteSpecHttpRouteMatchHostname struct {
+	// The exact host name to match on.
+	Exact *string `pulumi:"exact"`
+	// The specified ending characters of the host name to match on.
+	Suffix *string `pulumi:"suffix"`
+}
+
+// GatewayRouteSpecHttpRouteMatchHostnameInput is an input type that accepts GatewayRouteSpecHttpRouteMatchHostnameArgs and GatewayRouteSpecHttpRouteMatchHostnameOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttpRouteMatchHostnameInput` via:
+//
+//          GatewayRouteSpecHttpRouteMatchHostnameArgs{...}
+type GatewayRouteSpecHttpRouteMatchHostnameInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttpRouteMatchHostnameOutput() GatewayRouteSpecHttpRouteMatchHostnameOutput
+	ToGatewayRouteSpecHttpRouteMatchHostnameOutputWithContext(context.Context) GatewayRouteSpecHttpRouteMatchHostnameOutput
+}
+
+type GatewayRouteSpecHttpRouteMatchHostnameArgs struct {
+	// The exact host name to match on.
+	Exact pulumi.StringPtrInput `pulumi:"exact"`
+	// The specified ending characters of the host name to match on.
+	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
+}
+
+func (GatewayRouteSpecHttpRouteMatchHostnameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttpRouteMatchHostname)(nil)).Elem()
+}
+
+func (i GatewayRouteSpecHttpRouteMatchHostnameArgs) ToGatewayRouteSpecHttpRouteMatchHostnameOutput() GatewayRouteSpecHttpRouteMatchHostnameOutput {
+	return i.ToGatewayRouteSpecHttpRouteMatchHostnameOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttpRouteMatchHostnameArgs) ToGatewayRouteSpecHttpRouteMatchHostnameOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteMatchHostnameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttpRouteMatchHostnameOutput)
+}
+
+func (i GatewayRouteSpecHttpRouteMatchHostnameArgs) ToGatewayRouteSpecHttpRouteMatchHostnamePtrOutput() GatewayRouteSpecHttpRouteMatchHostnamePtrOutput {
+	return i.ToGatewayRouteSpecHttpRouteMatchHostnamePtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttpRouteMatchHostnameArgs) ToGatewayRouteSpecHttpRouteMatchHostnamePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteMatchHostnamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttpRouteMatchHostnameOutput).ToGatewayRouteSpecHttpRouteMatchHostnamePtrOutputWithContext(ctx)
+}
+
+// GatewayRouteSpecHttpRouteMatchHostnamePtrInput is an input type that accepts GatewayRouteSpecHttpRouteMatchHostnameArgs, GatewayRouteSpecHttpRouteMatchHostnamePtr and GatewayRouteSpecHttpRouteMatchHostnamePtrOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttpRouteMatchHostnamePtrInput` via:
+//
+//          GatewayRouteSpecHttpRouteMatchHostnameArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayRouteSpecHttpRouteMatchHostnamePtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttpRouteMatchHostnamePtrOutput() GatewayRouteSpecHttpRouteMatchHostnamePtrOutput
+	ToGatewayRouteSpecHttpRouteMatchHostnamePtrOutputWithContext(context.Context) GatewayRouteSpecHttpRouteMatchHostnamePtrOutput
+}
+
+type gatewayRouteSpecHttpRouteMatchHostnamePtrType GatewayRouteSpecHttpRouteMatchHostnameArgs
+
+func GatewayRouteSpecHttpRouteMatchHostnamePtr(v *GatewayRouteSpecHttpRouteMatchHostnameArgs) GatewayRouteSpecHttpRouteMatchHostnamePtrInput {
+	return (*gatewayRouteSpecHttpRouteMatchHostnamePtrType)(v)
+}
+
+func (*gatewayRouteSpecHttpRouteMatchHostnamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttpRouteMatchHostname)(nil)).Elem()
+}
+
+func (i *gatewayRouteSpecHttpRouteMatchHostnamePtrType) ToGatewayRouteSpecHttpRouteMatchHostnamePtrOutput() GatewayRouteSpecHttpRouteMatchHostnamePtrOutput {
+	return i.ToGatewayRouteSpecHttpRouteMatchHostnamePtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteSpecHttpRouteMatchHostnamePtrType) ToGatewayRouteSpecHttpRouteMatchHostnamePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteMatchHostnamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttpRouteMatchHostnamePtrOutput)
+}
+
+type GatewayRouteSpecHttpRouteMatchHostnameOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttpRouteMatchHostnameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttpRouteMatchHostname)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttpRouteMatchHostnameOutput) ToGatewayRouteSpecHttpRouteMatchHostnameOutput() GatewayRouteSpecHttpRouteMatchHostnameOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteMatchHostnameOutput) ToGatewayRouteSpecHttpRouteMatchHostnameOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteMatchHostnameOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteMatchHostnameOutput) ToGatewayRouteSpecHttpRouteMatchHostnamePtrOutput() GatewayRouteSpecHttpRouteMatchHostnamePtrOutput {
+	return o.ToGatewayRouteSpecHttpRouteMatchHostnamePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteSpecHttpRouteMatchHostnameOutput) ToGatewayRouteSpecHttpRouteMatchHostnamePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteMatchHostnamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttpRouteMatchHostname) *GatewayRouteSpecHttpRouteMatchHostname {
+		return &v
+	}).(GatewayRouteSpecHttpRouteMatchHostnamePtrOutput)
+}
+
+// The exact host name to match on.
+func (o GatewayRouteSpecHttpRouteMatchHostnameOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatchHostname) *string { return v.Exact }).(pulumi.StringPtrOutput)
+}
+
+// The specified ending characters of the host name to match on.
+func (o GatewayRouteSpecHttpRouteMatchHostnameOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatchHostname) *string { return v.Suffix }).(pulumi.StringPtrOutput)
+}
+
+type GatewayRouteSpecHttpRouteMatchHostnamePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttpRouteMatchHostnamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttpRouteMatchHostname)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttpRouteMatchHostnamePtrOutput) ToGatewayRouteSpecHttpRouteMatchHostnamePtrOutput() GatewayRouteSpecHttpRouteMatchHostnamePtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteMatchHostnamePtrOutput) ToGatewayRouteSpecHttpRouteMatchHostnamePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteMatchHostnamePtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteMatchHostnamePtrOutput) Elem() GatewayRouteSpecHttpRouteMatchHostnameOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatchHostname) GatewayRouteSpecHttpRouteMatchHostname {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttpRouteMatchHostname
+		return ret
+	}).(GatewayRouteSpecHttpRouteMatchHostnameOutput)
+}
+
+// The exact host name to match on.
+func (o GatewayRouteSpecHttpRouteMatchHostnamePtrOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatchHostname) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Exact
+	}).(pulumi.StringPtrOutput)
+}
+
+// The specified ending characters of the host name to match on.
+func (o GatewayRouteSpecHttpRouteMatchHostnamePtrOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatchHostname) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Suffix
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -26932,22 +28226,38 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RoutePtrInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionPtrInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewriteInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionRewriteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewritePtrInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionRewriteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewriteHostnameInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewritePrefixInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionRewritePrefixArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewritePrefixPtrInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionRewritePrefixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionTargetInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionTargetPtrInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionTargetVirtualServiceInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteMatchInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteMatchPtrInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteMatchHostnameInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteMatchHostnameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteMatchHostnamePtrInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteMatchHostnameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteInput)(nil)).Elem(), GatewayRouteSpecHttpRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRoutePtrInput)(nil)).Elem(), GatewayRouteSpecHttpRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionPtrInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewriteInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionRewriteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewritePtrInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionRewriteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewriteHostnameInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionRewriteHostnameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewriteHostnamePtrInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionRewriteHostnameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewritePrefixInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionRewritePrefixArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewritePrefixPtrInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionRewritePrefixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionTargetInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionTargetPtrInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionTargetVirtualServiceInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteMatchInput)(nil)).Elem(), GatewayRouteSpecHttpRouteMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteMatchPtrInput)(nil)).Elem(), GatewayRouteSpecHttpRouteMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteMatchHostnameInput)(nil)).Elem(), GatewayRouteSpecHttpRouteMatchHostnameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteMatchHostnamePtrInput)(nil)).Elem(), GatewayRouteSpecHttpRouteMatchHostnameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshSpecInput)(nil)).Elem(), MeshSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshSpecPtrInput)(nil)).Elem(), MeshSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MeshSpecEgressFilterInput)(nil)).Elem(), MeshSpecEgressFilterArgs{})
@@ -27283,22 +28593,38 @@ func init() {
 	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RoutePtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionRewriteOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionRewritePtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionRewritePrefixOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionTargetOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionTargetPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteMatchOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteMatchPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteMatchHostnameOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttpRoutePtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionRewriteOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionRewritePtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionRewriteHostnameOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionRewritePrefixOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionTargetOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionTargetPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionTargetVirtualServiceOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteMatchOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteMatchPtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteMatchHostnameOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteMatchHostnamePtrOutput{})
 	pulumi.RegisterOutputType(MeshSpecOutput{})
 	pulumi.RegisterOutputType(MeshSpecPtrOutput{})
 	pulumi.RegisterOutputType(MeshSpecEgressFilterOutput{})

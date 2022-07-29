@@ -29,10 +29,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.Cluster;
+ * import com.pulumi.aws.ecs.ClusterArgs;
+ * import com.pulumi.aws.ecs.inputs.ClusterSettingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -54,10 +62,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.ecs.Cluster;
+ * import com.pulumi.aws.ecs.ClusterArgs;
+ * import com.pulumi.aws.ecs.inputs.ClusterConfigurationArgs;
+ * import com.pulumi.aws.ecs.inputs.ClusterConfigurationExecuteCommandConfigurationArgs;
+ * import com.pulumi.aws.ecs.inputs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -92,10 +113,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.Cluster;
+ * import com.pulumi.aws.ecs.CapacityProvider;
+ * import com.pulumi.aws.ecs.CapacityProviderArgs;
+ * import com.pulumi.aws.ecs.inputs.CapacityProviderAutoScalingGroupProviderArgs;
+ * import com.pulumi.aws.ecs.ClusterCapacityProviders;
+ * import com.pulumi.aws.ecs.ClusterCapacityProvidersArgs;
+ * import com.pulumi.aws.ecs.inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

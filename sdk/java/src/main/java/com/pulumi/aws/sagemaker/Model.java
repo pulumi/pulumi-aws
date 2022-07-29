@@ -30,10 +30,24 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.sagemaker.SagemakerFunctions;
+ * import com.pulumi.aws.sagemaker.inputs.GetPrebuiltEcrImageArgs;
+ * import com.pulumi.aws.sagemaker.Model;
+ * import com.pulumi.aws.sagemaker.ModelArgs;
+ * import com.pulumi.aws.sagemaker.inputs.ModelPrimaryContainerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -41,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var assumeRole = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -49,20 +63,20 @@ import javax.annotation.Nullable;
  *                     .identifiers(&#34;sagemaker.amazonaws.com&#34;)
  *                     .build())
  *                 .build())
- *             .build()));
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRole.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         final var test = Output.of(SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
+ *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .build());
+ * 
+ *         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
  *             .repositoryName(&#34;kmeans&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleModel = new Model(&#34;exampleModel&#34;, ModelArgs.builder()        
  *             .executionRoleArn(exampleRole.arn())
  *             .primaryContainer(ModelPrimaryContainerArgs.builder()
- *                 .image(test.apply(getPrebuiltEcrImageResult -&gt; getPrebuiltEcrImageResult.registryPath()))
+ *                 .image(test.applyValue(getPrebuiltEcrImageResult -&gt; getPrebuiltEcrImageResult.registryPath()))
  *                 .build())
  *             .build());
  * 

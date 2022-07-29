@@ -63,10 +63,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -74,7 +81,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers(&#34;self&#34;)
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -92,7 +99,7 @@ public final class AwsFunctions {
      *             .mostRecent(true)
      *             .nameRegex(&#34;^myami-\\d{3}&#34;)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -114,10 +121,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -125,7 +139,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers(&#34;self&#34;)
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -143,7 +157,7 @@ public final class AwsFunctions {
      *             .mostRecent(true)
      *             .nameRegex(&#34;^myami-\\d{3}&#34;)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -165,10 +179,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -176,7 +197,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers(&#34;self&#34;)
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -194,7 +215,7 @@ public final class AwsFunctions {
      *             .mostRecent(true)
      *             .nameRegex(&#34;^myami-\\d{3}&#34;)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -216,10 +237,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -227,7 +255,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers(&#34;self&#34;)
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -245,7 +273,7 @@ public final class AwsFunctions {
      *             .mostRecent(true)
      *             .nameRegex(&#34;^myami-\\d{3}&#34;)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -267,10 +295,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -278,7 +313,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers(&#34;self&#34;)
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -296,7 +331,7 @@ public final class AwsFunctions {
      *             .mostRecent(true)
      *             .nameRegex(&#34;^myami-\\d{3}&#34;)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -318,10 +353,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -329,7 +371,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers(&#34;self&#34;)
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -347,7 +389,7 @@ public final class AwsFunctions {
      *             .mostRecent(true)
      *             .nameRegex(&#34;^myami-\\d{3}&#34;)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -368,10 +410,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -379,13 +428,13 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ubuntu = Output.of(Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(GetAmiIdsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
      *                 .build())
      *             .owners(&#34;099720109477&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -406,10 +455,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -417,13 +473,13 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ubuntu = Output.of(Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(GetAmiIdsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
      *                 .build())
      *             .owners(&#34;099720109477&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -444,10 +500,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -455,13 +518,13 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ubuntu = Output.of(Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(GetAmiIdsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
      *                 .build())
      *             .owners(&#34;099720109477&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -482,10 +545,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -493,13 +563,13 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ubuntu = Output.of(Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(GetAmiIdsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
      *                 .build())
      *             .owners(&#34;099720109477&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -520,10 +590,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetArnArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -531,9 +608,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var dbInstance = Output.of(AwsFunctions.getArn(GetArnArgs.builder()
+     *         final var dbInstance = AwsFunctions.getArn(GetArnArgs.builder()
      *             .arn(&#34;arn:aws:rds:eu-west-1:123456789012:db:mysql-db&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -550,10 +627,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetArnArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -561,9 +645,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var dbInstance = Output.of(AwsFunctions.getArn(GetArnArgs.builder()
+     *         final var dbInstance = AwsFunctions.getArn(GetArnArgs.builder()
      *             .arn(&#34;arn:aws:rds:eu-west-1:123456789012:db:mysql-db&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -580,10 +664,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetArnArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -591,9 +682,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var dbInstance = Output.of(AwsFunctions.getArn(GetArnArgs.builder()
+     *         final var dbInstance = AwsFunctions.getArn(GetArnArgs.builder()
      *             .arn(&#34;arn:aws:rds:eu-west-1:123456789012:db:mysql-db&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -610,10 +701,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetArnArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -621,9 +719,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var dbInstance = Output.of(AwsFunctions.getArn(GetArnArgs.builder()
+     *         final var dbInstance = AwsFunctions.getArn(GetArnArgs.builder()
      *             .arn(&#34;arn:aws:rds:eu-west-1:123456789012:db:mysql-db&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -641,10 +739,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -652,7 +759,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var groups = Output.of(AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
      *                     .name(&#34;tag:Team&#34;)
@@ -662,10 +769,10 @@ public final class AwsFunctions {
      *                     .name(&#34;tag-key&#34;)
      *                     .values(&#34;Environment&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.apply(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
      *             .notifications(            
      *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
      *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
@@ -694,10 +801,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -705,7 +821,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var groups = Output.of(AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
      *                     .name(&#34;tag:Team&#34;)
@@ -715,10 +831,10 @@ public final class AwsFunctions {
      *                     .name(&#34;tag-key&#34;)
      *                     .values(&#34;Environment&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.apply(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
      *             .notifications(            
      *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
      *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
@@ -747,10 +863,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -758,7 +883,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var groups = Output.of(AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
      *                     .name(&#34;tag:Team&#34;)
@@ -768,10 +893,10 @@ public final class AwsFunctions {
      *                     .name(&#34;tag-key&#34;)
      *                     .values(&#34;Environment&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.apply(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
      *             .notifications(            
      *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
      *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
@@ -800,10 +925,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -811,7 +945,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var groups = Output.of(AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
      *                     .name(&#34;tag:Team&#34;)
@@ -821,10 +955,10 @@ public final class AwsFunctions {
      *                     .name(&#34;tag-key&#34;)
      *                     .values(&#34;Environment&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.apply(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
      *             .notifications(            
      *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
      *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
@@ -853,10 +987,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -864,7 +1007,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var groups = Output.of(AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
      *                     .name(&#34;tag:Team&#34;)
@@ -874,10 +1017,10 @@ public final class AwsFunctions {
      *                     .name(&#34;tag-key&#34;)
      *                     .values(&#34;Environment&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.apply(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
      *             .notifications(            
      *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
      *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
@@ -906,10 +1049,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -917,7 +1069,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var groups = Output.of(AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
      *                     .name(&#34;tag:Team&#34;)
@@ -927,10 +1079,10 @@ public final class AwsFunctions {
      *                     .name(&#34;tag-key&#34;)
      *                     .values(&#34;Environment&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.apply(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
      *             .notifications(            
      *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
      *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
@@ -1068,10 +1220,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1079,16 +1240,16 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state(&#34;available&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
      *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
      *     }
@@ -1100,10 +1261,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1111,7 +1279,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
@@ -1119,7 +1287,7 @@ public final class AwsFunctions {
      *                     &#34;not-opted-in&#34;,
      *                     &#34;opted-in&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1129,10 +1297,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1140,12 +1315,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
      *                 .values(&#34;opt-in-not-required&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1170,10 +1345,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1181,16 +1365,16 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state(&#34;available&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
      *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
      *     }
@@ -1202,10 +1386,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1213,7 +1404,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
@@ -1221,7 +1412,7 @@ public final class AwsFunctions {
      *                     &#34;not-opted-in&#34;,
      *                     &#34;opted-in&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1231,10 +1422,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1242,12 +1440,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
      *                 .values(&#34;opt-in-not-required&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1272,10 +1470,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1283,16 +1490,16 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state(&#34;available&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
      *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
      *     }
@@ -1304,10 +1511,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1315,7 +1529,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
@@ -1323,7 +1537,7 @@ public final class AwsFunctions {
      *                     &#34;not-opted-in&#34;,
      *                     &#34;opted-in&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1333,10 +1547,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1344,12 +1565,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
      *                 .values(&#34;opt-in-not-required&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1374,10 +1595,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1385,16 +1615,16 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state(&#34;available&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
      *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
      *     }
@@ -1406,10 +1636,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1417,7 +1654,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
@@ -1425,7 +1662,7 @@ public final class AwsFunctions {
      *                     &#34;not-opted-in&#34;,
      *                     &#34;opted-in&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1435,10 +1672,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1446,12 +1690,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
      *                 .values(&#34;opt-in-not-required&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1476,10 +1720,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1487,16 +1740,16 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state(&#34;available&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
      *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
      *     }
@@ -1508,10 +1761,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1519,7 +1779,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
@@ -1527,7 +1787,7 @@ public final class AwsFunctions {
      *                     &#34;not-opted-in&#34;,
      *                     &#34;opted-in&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1537,10 +1797,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1548,12 +1815,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
      *                 .values(&#34;opt-in-not-required&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1578,10 +1845,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1589,16 +1865,16 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state(&#34;available&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
      *             .build());
      * 
      *         var secondary = new Subnet(&#34;secondary&#34;, SubnetArgs.builder()        
-     *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+     *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
      *             .build());
      * 
      *     }
@@ -1610,10 +1886,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1621,7 +1904,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
@@ -1629,7 +1912,7 @@ public final class AwsFunctions {
      *                     &#34;not-opted-in&#34;,
      *                     &#34;opted-in&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1639,10 +1922,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1650,12 +1940,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+     *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
      *                 .values(&#34;opt-in-not-required&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1669,68 +1959,6 @@ public final class AwsFunctions {
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = Output.of(AwsFunctions.getBillingServiceAccount());
-     * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
-     * 
-     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
-     *             .bucket(billingLogs.id())
-     *             .acl(&#34;private&#34;)
-     *             .build());
-     * 
-     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(billingLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     },
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.apply(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.apply(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetBillingServiceAccountResult> getBillingServiceAccount() {
@@ -1740,68 +1968,6 @@ public final class AwsFunctions {
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = Output.of(AwsFunctions.getBillingServiceAccount());
-     * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
-     * 
-     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
-     *             .bucket(billingLogs.id())
-     *             .acl(&#34;private&#34;)
-     *             .build());
-     * 
-     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(billingLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     },
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.apply(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.apply(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain() {
@@ -1811,68 +1977,6 @@ public final class AwsFunctions {
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = Output.of(AwsFunctions.getBillingServiceAccount());
-     * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
-     * 
-     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
-     *             .bucket(billingLogs.id())
-     *             .acl(&#34;private&#34;)
-     *             .build());
-     * 
-     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(billingLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     },
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.apply(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.apply(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetBillingServiceAccountResult> getBillingServiceAccount(InvokeArgs args) {
@@ -1882,68 +1986,6 @@ public final class AwsFunctions {
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = Output.of(AwsFunctions.getBillingServiceAccount());
-     * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
-     * 
-     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
-     *             .bucket(billingLogs.id())
-     *             .acl(&#34;private&#34;)
-     *             .build());
-     * 
-     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(billingLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     },
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.apply(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.apply(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain(InvokeArgs args) {
@@ -1953,68 +1995,6 @@ public final class AwsFunctions {
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = Output.of(AwsFunctions.getBillingServiceAccount());
-     * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
-     * 
-     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
-     *             .bucket(billingLogs.id())
-     *             .acl(&#34;private&#34;)
-     *             .build());
-     * 
-     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(billingLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     },
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.apply(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.apply(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetBillingServiceAccountResult> getBillingServiceAccount(InvokeArgs args, InvokeOptions options) {
@@ -2024,68 +2004,6 @@ public final class AwsFunctions {
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var main = Output.of(AwsFunctions.getBillingServiceAccount());
-     * 
-     *         var billingLogs = new BucketV2(&#34;billingLogs&#34;);
-     * 
-     *         var billingLogsAcl = new BucketAclV2(&#34;billingLogsAcl&#34;, BucketAclV2Args.builder()        
-     *             .bucket(billingLogs.id())
-     *             .acl(&#34;private&#34;)
-     *             .build());
-     * 
-     *         var allowBillingLogging = new BucketPolicy(&#34;allowBillingLogging&#34;, BucketPolicyArgs.builder()        
-     *             .bucket(billingLogs.id())
-     *             .policy(&#34;&#34;&#34;
-     * {
-     *   &#34;Id&#34;: &#34;Policy&#34;,
-     *   &#34;Version&#34;: &#34;2012-10-17&#34;,
-     *   &#34;Statement&#34;: [
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:GetBucketAcl&#34;, &#34;s3:GetBucketPolicy&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     },
-     *     {
-     *       &#34;Action&#34;: [
-     *         &#34;s3:PutObject&#34;
-     *       ],
-     *       &#34;Effect&#34;: &#34;Allow&#34;,
-     *       &#34;Resource&#34;: &#34;arn:aws:s3:::my-billing-tf-test-bucket/*&#34;,
-     *       &#34;Principal&#34;: {
-     *         &#34;AWS&#34;: [
-     *           &#34;%s&#34;
-     *         ]
-     *       }
-     *     }
-     *   ]
-     * }
-     * &#34;, main.apply(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn()),main.apply(getBillingServiceAccountResult -&gt; getBillingServiceAccountResult.arn())))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain(InvokeArgs args, InvokeOptions options) {
@@ -2096,28 +2014,6 @@ public final class AwsFunctions {
      * which this provider is authorized.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getCallerIdentity());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
-     *         ctx.export(&#34;callerArn&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
-     *         ctx.export(&#34;callerUser&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetCallerIdentityResult> getCallerIdentity() {
@@ -2128,28 +2024,6 @@ public final class AwsFunctions {
      * which this provider is authorized.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getCallerIdentity());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
-     *         ctx.export(&#34;callerArn&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
-     *         ctx.export(&#34;callerUser&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain() {
@@ -2160,28 +2034,6 @@ public final class AwsFunctions {
      * which this provider is authorized.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getCallerIdentity());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
-     *         ctx.export(&#34;callerArn&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
-     *         ctx.export(&#34;callerUser&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetCallerIdentityResult> getCallerIdentity(InvokeArgs args) {
@@ -2192,28 +2044,6 @@ public final class AwsFunctions {
      * which this provider is authorized.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getCallerIdentity());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
-     *         ctx.export(&#34;callerArn&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
-     *         ctx.export(&#34;callerUser&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain(InvokeArgs args) {
@@ -2224,28 +2054,6 @@ public final class AwsFunctions {
      * which this provider is authorized.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getCallerIdentity());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
-     *         ctx.export(&#34;callerArn&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
-     *         ctx.export(&#34;callerUser&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetCallerIdentityResult> getCallerIdentity(InvokeArgs args, InvokeOptions options) {
@@ -2256,28 +2064,6 @@ public final class AwsFunctions {
      * which this provider is authorized.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getCallerIdentity());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
-     *         ctx.export(&#34;callerArn&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()));
-     *         ctx.export(&#34;callerUser&#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.userId()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain(InvokeArgs args, InvokeOptions options) {
@@ -2290,26 +2076,6 @@ public final class AwsFunctions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(S3Functions.getCanonicalUserId());
-     * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.apply(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
@@ -2326,26 +2092,6 @@ public final class AwsFunctions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(S3Functions.getCanonicalUserId());
-     * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.apply(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
@@ -2362,26 +2108,6 @@ public final class AwsFunctions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(S3Functions.getCanonicalUserId());
-     * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.apply(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
@@ -2398,26 +2124,6 @@ public final class AwsFunctions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(S3Functions.getCanonicalUserId());
-     * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.apply(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
@@ -2434,26 +2140,6 @@ public final class AwsFunctions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(S3Functions.getCanonicalUserId());
-     * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.apply(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
@@ -2470,26 +2156,6 @@ public final class AwsFunctions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(S3Functions.getCanonicalUserId());
-     * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.apply(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
-     *     }
-     * }
-     * ```
      * 
      * @deprecated
      * aws.getCanonicalUserId has been deprecated in favor of aws.s3.getCanonicalUserId
@@ -2505,10 +2171,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2516,7 +2189,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getDefaultTags());
+     *         final var example = AwsFunctions.getDefaultTags();
      * 
      *     }
      * }
@@ -2526,10 +2199,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import com.pulumi.aws.autoscaling.Group;
+     * import com.pulumi.aws.autoscaling.GroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2537,7 +2219,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = Output.of(AwsFunctions.getDefaultTags());
+     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
      * 
      *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
      *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
@@ -2557,10 +2239,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2568,7 +2257,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getDefaultTags());
+     *         final var example = AwsFunctions.getDefaultTags();
      * 
      *     }
      * }
@@ -2578,10 +2267,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import com.pulumi.aws.autoscaling.Group;
+     * import com.pulumi.aws.autoscaling.GroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2589,7 +2287,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = Output.of(AwsFunctions.getDefaultTags());
+     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
      * 
      *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
      *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
@@ -2609,10 +2307,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2620,7 +2325,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getDefaultTags());
+     *         final var example = AwsFunctions.getDefaultTags();
      * 
      *     }
      * }
@@ -2630,10 +2335,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import com.pulumi.aws.autoscaling.Group;
+     * import com.pulumi.aws.autoscaling.GroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2641,7 +2355,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = Output.of(AwsFunctions.getDefaultTags());
+     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
      * 
      *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
      *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
@@ -2661,10 +2375,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2672,7 +2393,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getDefaultTags());
+     *         final var example = AwsFunctions.getDefaultTags();
      * 
      *     }
      * }
@@ -2682,10 +2403,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import com.pulumi.aws.autoscaling.Group;
+     * import com.pulumi.aws.autoscaling.GroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2693,7 +2423,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = Output.of(AwsFunctions.getDefaultTags());
+     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
      * 
      *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
      *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
@@ -2713,10 +2443,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2724,7 +2461,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getDefaultTags());
+     *         final var example = AwsFunctions.getDefaultTags();
      * 
      *     }
      * }
@@ -2734,10 +2471,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import com.pulumi.aws.autoscaling.Group;
+     * import com.pulumi.aws.autoscaling.GroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2745,7 +2491,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = Output.of(AwsFunctions.getDefaultTags());
+     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
      * 
      *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
      *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
@@ -2765,10 +2511,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2776,7 +2529,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AwsFunctions.getDefaultTags());
+     *         final var example = AwsFunctions.getDefaultTags();
      * 
      *     }
      * }
@@ -2786,10 +2539,19 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetDefaultTagsArgs;
+     * import com.pulumi.aws.autoscaling.Group;
+     * import com.pulumi.aws.autoscaling.GroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2797,7 +2559,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleDefaultTags = Output.of(AwsFunctions.getDefaultTags());
+     *         final var exampleDefaultTags = AwsFunctions.getDefaultTags();
      * 
      *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
      *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
@@ -2819,10 +2581,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2830,9 +2599,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2841,10 +2610,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2852,12 +2628,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byFilter = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2866,10 +2642,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2877,9 +2660,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2888,10 +2671,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2899,9 +2689,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byTags = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2923,10 +2713,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2934,9 +2731,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2945,10 +2742,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2956,12 +2760,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byFilter = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2970,10 +2774,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2981,9 +2792,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2992,10 +2803,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3003,9 +2821,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byTags = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3027,10 +2845,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3038,9 +2863,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3049,10 +2874,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3060,12 +2892,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byFilter = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3074,10 +2906,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3085,9 +2924,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3096,10 +2935,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3107,9 +2953,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byTags = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3131,10 +2977,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3142,9 +2995,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3153,10 +3006,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3164,12 +3024,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byFilter = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3178,10 +3038,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3189,9 +3056,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3200,10 +3067,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3211,9 +3085,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byTags = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3235,10 +3109,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3246,9 +3127,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3257,10 +3138,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3268,12 +3156,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byFilter = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3282,10 +3170,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3293,9 +3188,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3304,10 +3199,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3315,9 +3217,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byTags = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3339,10 +3241,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3350,9 +3259,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3361,10 +3270,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3372,12 +3288,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byFilter = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3386,10 +3302,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3397,9 +3320,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3408,10 +3331,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3419,9 +3349,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byTags = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3442,10 +3372,20 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetIpRangesArgs;
+     * import com.pulumi.aws.ec2.SecurityGroup;
+     * import com.pulumi.aws.ec2.SecurityGroupArgs;
+     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3453,24 +3393,24 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var europeanEc2 = Output.of(AwsFunctions.getIpRanges(GetIpRangesArgs.builder()
+     *         final var europeanEc2 = AwsFunctions.getIpRanges(GetIpRangesArgs.builder()
      *             .regions(            
      *                 &#34;eu-west-1&#34;,
      *                 &#34;eu-central-1&#34;)
      *             .services(&#34;ec2&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(&#34;443&#34;)
      *                 .toPort(&#34;443&#34;)
      *                 .protocol(&#34;tcp&#34;)
-     *                 .cidrBlocks(europeanEc2.apply(getIpRangesResult -&gt; getIpRangesResult.cidrBlocks()))
-     *                 .ipv6CidrBlocks(europeanEc2.apply(getIpRangesResult -&gt; getIpRangesResult.ipv6CidrBlocks()))
+     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.cidrBlocks()))
+     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.ipv6CidrBlocks()))
      *                 .build())
      *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;CreateDate&#34;, europeanEc2.apply(getIpRangesResult -&gt; getIpRangesResult.createDate())),
-     *                 Map.entry(&#34;SyncToken&#34;, europeanEc2.apply(getIpRangesResult -&gt; getIpRangesResult.syncToken()))
+     *                 Map.entry(&#34;CreateDate&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.createDate())),
+     *                 Map.entry(&#34;SyncToken&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.syncToken()))
      *             ))
      *             .build());
      * 
@@ -3489,10 +3429,20 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetIpRangesArgs;
+     * import com.pulumi.aws.ec2.SecurityGroup;
+     * import com.pulumi.aws.ec2.SecurityGroupArgs;
+     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3500,24 +3450,24 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var europeanEc2 = Output.of(AwsFunctions.getIpRanges(GetIpRangesArgs.builder()
+     *         final var europeanEc2 = AwsFunctions.getIpRanges(GetIpRangesArgs.builder()
      *             .regions(            
      *                 &#34;eu-west-1&#34;,
      *                 &#34;eu-central-1&#34;)
      *             .services(&#34;ec2&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(&#34;443&#34;)
      *                 .toPort(&#34;443&#34;)
      *                 .protocol(&#34;tcp&#34;)
-     *                 .cidrBlocks(europeanEc2.apply(getIpRangesResult -&gt; getIpRangesResult.cidrBlocks()))
-     *                 .ipv6CidrBlocks(europeanEc2.apply(getIpRangesResult -&gt; getIpRangesResult.ipv6CidrBlocks()))
+     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.cidrBlocks()))
+     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.ipv6CidrBlocks()))
      *                 .build())
      *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;CreateDate&#34;, europeanEc2.apply(getIpRangesResult -&gt; getIpRangesResult.createDate())),
-     *                 Map.entry(&#34;SyncToken&#34;, europeanEc2.apply(getIpRangesResult -&gt; getIpRangesResult.syncToken()))
+     *                 Map.entry(&#34;CreateDate&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.createDate())),
+     *                 Map.entry(&#34;SyncToken&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.syncToken()))
      *             ))
      *             .build());
      * 
@@ -3536,10 +3486,20 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetIpRangesArgs;
+     * import com.pulumi.aws.ec2.SecurityGroup;
+     * import com.pulumi.aws.ec2.SecurityGroupArgs;
+     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3547,24 +3507,24 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var europeanEc2 = Output.of(AwsFunctions.getIpRanges(GetIpRangesArgs.builder()
+     *         final var europeanEc2 = AwsFunctions.getIpRanges(GetIpRangesArgs.builder()
      *             .regions(            
      *                 &#34;eu-west-1&#34;,
      *                 &#34;eu-central-1&#34;)
      *             .services(&#34;ec2&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(&#34;443&#34;)
      *                 .toPort(&#34;443&#34;)
      *                 .protocol(&#34;tcp&#34;)
-     *                 .cidrBlocks(europeanEc2.apply(getIpRangesResult -&gt; getIpRangesResult.cidrBlocks()))
-     *                 .ipv6CidrBlocks(europeanEc2.apply(getIpRangesResult -&gt; getIpRangesResult.ipv6CidrBlocks()))
+     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.cidrBlocks()))
+     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.ipv6CidrBlocks()))
      *                 .build())
      *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;CreateDate&#34;, europeanEc2.apply(getIpRangesResult -&gt; getIpRangesResult.createDate())),
-     *                 Map.entry(&#34;SyncToken&#34;, europeanEc2.apply(getIpRangesResult -&gt; getIpRangesResult.syncToken()))
+     *                 Map.entry(&#34;CreateDate&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.createDate())),
+     *                 Map.entry(&#34;SyncToken&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.syncToken()))
      *             ))
      *             .build());
      * 
@@ -3583,10 +3543,20 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetIpRangesArgs;
+     * import com.pulumi.aws.ec2.SecurityGroup;
+     * import com.pulumi.aws.ec2.SecurityGroupArgs;
+     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3594,24 +3564,24 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var europeanEc2 = Output.of(AwsFunctions.getIpRanges(GetIpRangesArgs.builder()
+     *         final var europeanEc2 = AwsFunctions.getIpRanges(GetIpRangesArgs.builder()
      *             .regions(            
      *                 &#34;eu-west-1&#34;,
      *                 &#34;eu-central-1&#34;)
      *             .services(&#34;ec2&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var fromEurope = new SecurityGroup(&#34;fromEurope&#34;, SecurityGroupArgs.builder()        
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(&#34;443&#34;)
      *                 .toPort(&#34;443&#34;)
      *                 .protocol(&#34;tcp&#34;)
-     *                 .cidrBlocks(europeanEc2.apply(getIpRangesResult -&gt; getIpRangesResult.cidrBlocks()))
-     *                 .ipv6CidrBlocks(europeanEc2.apply(getIpRangesResult -&gt; getIpRangesResult.ipv6CidrBlocks()))
+     *                 .cidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.cidrBlocks()))
+     *                 .ipv6CidrBlocks(europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.ipv6CidrBlocks()))
      *                 .build())
      *             .tags(Map.ofEntries(
-     *                 Map.entry(&#34;CreateDate&#34;, europeanEc2.apply(getIpRangesResult -&gt; getIpRangesResult.createDate())),
-     *                 Map.entry(&#34;SyncToken&#34;, europeanEc2.apply(getIpRangesResult -&gt; getIpRangesResult.syncToken()))
+     *                 Map.entry(&#34;CreateDate&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.createDate())),
+     *                 Map.entry(&#34;SyncToken&#34;, europeanEc2.applyValue(getIpRangesResult -&gt; getIpRangesResult.syncToken()))
      *             ))
      *             .build());
      * 
@@ -3627,33 +3597,6 @@ public final class AwsFunctions {
      * Use this data source to lookup current AWS partition in which this provider is working
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getPartition());
-     * 
-     *         final var s3Policy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(&#34;s3:ListBucket&#34;)
-     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.apply(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
-     *                 .build())
-     *             .build()));
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetPartitionResult> getPartition() {
@@ -3663,33 +3606,6 @@ public final class AwsFunctions {
      * Use this data source to lookup current AWS partition in which this provider is working
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getPartition());
-     * 
-     *         final var s3Policy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(&#34;s3:ListBucket&#34;)
-     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.apply(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
-     *                 .build())
-     *             .build()));
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPartitionResult> getPartitionPlain() {
@@ -3699,33 +3615,6 @@ public final class AwsFunctions {
      * Use this data source to lookup current AWS partition in which this provider is working
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getPartition());
-     * 
-     *         final var s3Policy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(&#34;s3:ListBucket&#34;)
-     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.apply(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
-     *                 .build())
-     *             .build()));
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetPartitionResult> getPartition(InvokeArgs args) {
@@ -3735,33 +3624,6 @@ public final class AwsFunctions {
      * Use this data source to lookup current AWS partition in which this provider is working
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getPartition());
-     * 
-     *         final var s3Policy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(&#34;s3:ListBucket&#34;)
-     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.apply(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
-     *                 .build())
-     *             .build()));
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPartitionResult> getPartitionPlain(InvokeArgs args) {
@@ -3771,33 +3633,6 @@ public final class AwsFunctions {
      * Use this data source to lookup current AWS partition in which this provider is working
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getPartition());
-     * 
-     *         final var s3Policy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(&#34;s3:ListBucket&#34;)
-     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.apply(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
-     *                 .build())
-     *             .build()));
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetPartitionResult> getPartition(InvokeArgs args, InvokeOptions options) {
@@ -3807,33 +3642,6 @@ public final class AwsFunctions {
      * Use this data source to lookup current AWS partition in which this provider is working
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getPartition());
-     * 
-     *         final var s3Policy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(&#34;s3:ListBucket&#34;)
-     *                 .resources(String.format(&#34;arn:%s:s3:::my-bucket&#34;, current.apply(getPartitionResult -&gt; getPartitionResult.partition())))
-     *                 .sid(&#34;1&#34;)
-     *                 .build())
-     *             .build()));
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetPartitionResult> getPartitionPlain(InvokeArgs args, InvokeOptions options) {
@@ -3844,10 +3652,23 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3874,7 +3695,7 @@ public final class AwsFunctions {
      *             .egress(false)
      *             .protocol(&#34;tcp&#34;)
      *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult).apply(privateS3PrefixList -&gt; privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -3886,10 +3707,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3897,12 +3725,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-id&#34;)
      *                 .values(&#34;pl-68a54001&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3921,10 +3749,23 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3951,7 +3792,7 @@ public final class AwsFunctions {
      *             .egress(false)
      *             .protocol(&#34;tcp&#34;)
      *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult).apply(privateS3PrefixList -&gt; privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -3963,10 +3804,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3974,12 +3822,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-id&#34;)
      *                 .values(&#34;pl-68a54001&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3998,10 +3846,23 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4028,7 +3889,7 @@ public final class AwsFunctions {
      *             .egress(false)
      *             .protocol(&#34;tcp&#34;)
      *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult).apply(privateS3PrefixList -&gt; privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -4040,10 +3901,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4051,12 +3919,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-id&#34;)
      *                 .values(&#34;pl-68a54001&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4075,10 +3943,23 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4105,7 +3986,7 @@ public final class AwsFunctions {
      *             .egress(false)
      *             .protocol(&#34;tcp&#34;)
      *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult).apply(privateS3PrefixList -&gt; privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -4117,10 +3998,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4128,12 +4016,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-id&#34;)
      *                 .values(&#34;pl-68a54001&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4152,10 +4040,23 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4182,7 +4083,7 @@ public final class AwsFunctions {
      *             .egress(false)
      *             .protocol(&#34;tcp&#34;)
      *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult).apply(privateS3PrefixList -&gt; privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -4194,10 +4095,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4205,12 +4113,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-id&#34;)
      *                 .values(&#34;pl-68a54001&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4229,10 +4137,23 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4259,7 +4180,7 @@ public final class AwsFunctions {
      *             .egress(false)
      *             .protocol(&#34;tcp&#34;)
      *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult).apply(privateS3PrefixList -&gt; privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -4271,10 +4192,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4282,12 +4210,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-id&#34;)
      *                 .values(&#34;pl-68a54001&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4316,10 +4244,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4327,7 +4262,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
      *     }
      * }
@@ -4352,10 +4287,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4363,7 +4305,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
      *     }
      * }
@@ -4388,10 +4330,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4399,7 +4348,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
      *     }
      * }
@@ -4424,10 +4373,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4435,7 +4391,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
      *     }
      * }
@@ -4460,10 +4416,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4471,7 +4434,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
      *     }
      * }
@@ -4496,10 +4459,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4507,7 +4477,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
      *     }
      * }
@@ -4526,10 +4496,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4537,7 +4514,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions());
+     *         final var current = AwsFunctions.getRegions();
      * 
      *     }
      * }
@@ -4547,10 +4524,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4558,9 +4542,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4570,10 +4554,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4581,13 +4572,13 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
      *                 .values(&#34;not-opted-in&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4606,10 +4597,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4617,7 +4615,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions());
+     *         final var current = AwsFunctions.getRegions();
      * 
      *     }
      * }
@@ -4627,10 +4625,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4638,9 +4643,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4650,10 +4655,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4661,13 +4673,13 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
      *                 .values(&#34;not-opted-in&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4686,10 +4698,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4697,7 +4716,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions());
+     *         final var current = AwsFunctions.getRegions();
      * 
      *     }
      * }
@@ -4707,10 +4726,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4718,9 +4744,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4730,10 +4756,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4741,13 +4774,13 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
      *                 .values(&#34;not-opted-in&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4766,10 +4799,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4777,7 +4817,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions());
+     *         final var current = AwsFunctions.getRegions();
      * 
      *     }
      * }
@@ -4787,10 +4827,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4798,9 +4845,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4810,10 +4857,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4821,13 +4875,13 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
      *                 .values(&#34;not-opted-in&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4846,10 +4900,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4857,7 +4918,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions());
+     *         final var current = AwsFunctions.getRegions();
      * 
      *     }
      * }
@@ -4867,10 +4928,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4878,9 +4946,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4890,10 +4958,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4901,13 +4976,13 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
      *                 .values(&#34;not-opted-in&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4926,10 +5001,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4937,7 +5019,7 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions());
+     *         final var current = AwsFunctions.getRegions();
      * 
      *     }
      * }
@@ -4947,10 +5029,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4958,9 +5047,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4970,10 +5059,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4981,13 +5077,13 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegions(GetRegionsArgs.builder()
+     *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
      *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
      *                 .name(&#34;opt-in-status&#34;)
      *                 .values(&#34;not-opted-in&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5005,10 +5101,18 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5016,12 +5120,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var test = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.apply(getRegionResult -&gt; getRegionResult.name()))
+     *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
      *             .serviceId(&#34;ec2&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5030,10 +5134,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5041,9 +5152,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
      *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5052,10 +5163,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5063,9 +5181,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
      *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5083,10 +5201,18 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5094,12 +5220,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var test = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.apply(getRegionResult -&gt; getRegionResult.name()))
+     *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
      *             .serviceId(&#34;ec2&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5108,10 +5234,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5119,9 +5252,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
      *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5130,10 +5263,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5141,9 +5281,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
      *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5161,10 +5301,18 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5172,12 +5320,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var test = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.apply(getRegionResult -&gt; getRegionResult.name()))
+     *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
      *             .serviceId(&#34;ec2&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5186,10 +5334,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5197,9 +5352,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
      *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5208,10 +5363,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5219,9 +5381,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
      *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5239,10 +5401,18 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5250,12 +5420,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var test = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.apply(getRegionResult -&gt; getRegionResult.name()))
+     *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
      *             .serviceId(&#34;ec2&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5264,10 +5434,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5275,9 +5452,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
      *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5286,10 +5463,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5297,9 +5481,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
      *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5317,10 +5501,18 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5328,12 +5520,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var test = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.apply(getRegionResult -&gt; getRegionResult.name()))
+     *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
      *             .serviceId(&#34;ec2&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5342,10 +5534,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5353,9 +5552,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
      *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5364,10 +5563,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5375,9 +5581,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
      *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5395,10 +5601,18 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5406,12 +5620,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var test = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.apply(getRegionResult -&gt; getRegionResult.name()))
+     *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
+     *             .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
      *             .serviceId(&#34;ec2&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5420,10 +5634,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5431,9 +5652,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
      *             .reverseDnsName(&#34;cn.com.amazonaws.cn-north-1.s3&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5442,10 +5663,17 @@ public final class AwsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.ecs.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5453,9 +5681,9 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(AwsFunctions.getService(GetServiceArgs.builder()
+     *         final var s3 = AwsFunctions.getService(GetServiceArgs.builder()
      *             .reverseDnsName(&#34;com.amazonaws.us-gov-west-1.waf&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

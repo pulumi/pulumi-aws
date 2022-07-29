@@ -27,10 +27,17 @@ public final class CloudformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
+     * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -38,10 +45,10 @@ public final class CloudformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
+     *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
      *             .type(&#34;RESOURCE&#34;)
      *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -58,10 +65,17 @@ public final class CloudformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
+     * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -69,10 +83,10 @@ public final class CloudformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
+     *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
      *             .type(&#34;RESOURCE&#34;)
      *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -89,10 +103,17 @@ public final class CloudformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
+     * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -100,10 +121,10 @@ public final class CloudformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
+     *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
      *             .type(&#34;RESOURCE&#34;)
      *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -120,10 +141,17 @@ public final class CloudformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
+     * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -131,10 +159,10 @@ public final class CloudformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
+     *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
      *             .type(&#34;RESOURCE&#34;)
      *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -151,10 +179,17 @@ public final class CloudformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
+     * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -162,10 +197,10 @@ public final class CloudformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
+     *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
      *             .type(&#34;RESOURCE&#34;)
      *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -182,10 +217,17 @@ public final class CloudformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
+     * import com.pulumi.aws.cloudformation.inputs.GetCloudFormationTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -193,10 +235,10 @@ public final class CloudformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
+     *         final var example = CloudformationFunctions.getCloudFormationType(GetCloudFormationTypeArgs.builder()
      *             .type(&#34;RESOURCE&#34;)
      *             .typeName(&#34;AWS::Athena::WorkGroup&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -216,10 +258,19 @@ public final class CloudformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -227,14 +278,14 @@ public final class CloudformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var subnetId = Output.of(CloudformationFunctions.getExport(GetExportArgs.builder()
+     *         final var subnetId = CloudformationFunctions.getExport(GetExportArgs.builder()
      *             .name(&#34;mySubnetIdExportName&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
      *             .ami(&#34;ami-abb07bcb&#34;)
      *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(subnetId.apply(getExportResult -&gt; getExportResult.value()))
+     *             .subnetId(subnetId.applyValue(getExportResult -&gt; getExportResult.value()))
      *             .build());
      * 
      *     }
@@ -255,10 +306,19 @@ public final class CloudformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -266,14 +326,14 @@ public final class CloudformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var subnetId = Output.of(CloudformationFunctions.getExport(GetExportArgs.builder()
+     *         final var subnetId = CloudformationFunctions.getExport(GetExportArgs.builder()
      *             .name(&#34;mySubnetIdExportName&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
      *             .ami(&#34;ami-abb07bcb&#34;)
      *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(subnetId.apply(getExportResult -&gt; getExportResult.value()))
+     *             .subnetId(subnetId.applyValue(getExportResult -&gt; getExportResult.value()))
      *             .build());
      * 
      *     }
@@ -294,10 +354,19 @@ public final class CloudformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -305,14 +374,14 @@ public final class CloudformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var subnetId = Output.of(CloudformationFunctions.getExport(GetExportArgs.builder()
+     *         final var subnetId = CloudformationFunctions.getExport(GetExportArgs.builder()
      *             .name(&#34;mySubnetIdExportName&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
      *             .ami(&#34;ami-abb07bcb&#34;)
      *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(subnetId.apply(getExportResult -&gt; getExportResult.value()))
+     *             .subnetId(subnetId.applyValue(getExportResult -&gt; getExportResult.value()))
      *             .build());
      * 
      *     }
@@ -333,10 +402,19 @@ public final class CloudformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -344,14 +422,14 @@ public final class CloudformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var subnetId = Output.of(CloudformationFunctions.getExport(GetExportArgs.builder()
+     *         final var subnetId = CloudformationFunctions.getExport(GetExportArgs.builder()
      *             .name(&#34;mySubnetIdExportName&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
      *             .ami(&#34;ami-abb07bcb&#34;)
      *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(subnetId.apply(getExportResult -&gt; getExportResult.value()))
+     *             .subnetId(subnetId.applyValue(getExportResult -&gt; getExportResult.value()))
      *             .build());
      * 
      *     }
@@ -370,10 +448,19 @@ public final class CloudformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
+     * import com.pulumi.aws.cloudformation.inputs.GetStackArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -381,14 +468,14 @@ public final class CloudformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var network = Output.of(CloudformationFunctions.getStack(GetStackArgs.builder()
+     *         final var network = CloudformationFunctions.getStack(GetStackArgs.builder()
      *             .name(&#34;my-network-stack&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
      *             .ami(&#34;ami-abb07bcb&#34;)
      *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(network.apply(getStackResult -&gt; getStackResult.outputs().SubnetId()))
+     *             .subnetId(network.applyValue(getStackResult -&gt; getStackResult.outputs().SubnetId()))
      *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
      *             .build());
      * 
@@ -408,10 +495,19 @@ public final class CloudformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
+     * import com.pulumi.aws.cloudformation.inputs.GetStackArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -419,14 +515,14 @@ public final class CloudformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var network = Output.of(CloudformationFunctions.getStack(GetStackArgs.builder()
+     *         final var network = CloudformationFunctions.getStack(GetStackArgs.builder()
      *             .name(&#34;my-network-stack&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
      *             .ami(&#34;ami-abb07bcb&#34;)
      *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(network.apply(getStackResult -&gt; getStackResult.outputs().SubnetId()))
+     *             .subnetId(network.applyValue(getStackResult -&gt; getStackResult.outputs().SubnetId()))
      *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
      *             .build());
      * 
@@ -446,10 +542,19 @@ public final class CloudformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
+     * import com.pulumi.aws.cloudformation.inputs.GetStackArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -457,14 +562,14 @@ public final class CloudformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var network = Output.of(CloudformationFunctions.getStack(GetStackArgs.builder()
+     *         final var network = CloudformationFunctions.getStack(GetStackArgs.builder()
      *             .name(&#34;my-network-stack&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
      *             .ami(&#34;ami-abb07bcb&#34;)
      *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(network.apply(getStackResult -&gt; getStackResult.outputs().SubnetId()))
+     *             .subnetId(network.applyValue(getStackResult -&gt; getStackResult.outputs().SubnetId()))
      *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
      *             .build());
      * 
@@ -484,10 +589,19 @@ public final class CloudformationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudformation.CloudformationFunctions;
+     * import com.pulumi.aws.cloudformation.inputs.GetStackArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -495,14 +609,14 @@ public final class CloudformationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var network = Output.of(CloudformationFunctions.getStack(GetStackArgs.builder()
+     *         final var network = CloudformationFunctions.getStack(GetStackArgs.builder()
      *             .name(&#34;my-network-stack&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
      *             .ami(&#34;ami-abb07bcb&#34;)
      *             .instanceType(&#34;t2.micro&#34;)
-     *             .subnetId(network.apply(getStackResult -&gt; getStackResult.outputs().SubnetId()))
+     *             .subnetId(network.applyValue(getStackResult -&gt; getStackResult.outputs().SubnetId()))
      *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
      *             .build());
      * 

@@ -49,10 +49,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -60,12 +67,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .filters(GetConnectFilterArgs.builder()
      *                 .name(&#34;transport-transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -74,10 +81,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -85,9 +99,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .transitGatewayConnectId(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -105,10 +119,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -116,12 +137,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .filters(GetConnectFilterArgs.builder()
      *                 .name(&#34;transport-transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -130,10 +151,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -141,9 +169,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .transitGatewayConnectId(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -161,10 +189,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -172,12 +207,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .filters(GetConnectFilterArgs.builder()
      *                 .name(&#34;transport-transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -186,10 +221,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -197,9 +239,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .transitGatewayConnectId(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -217,10 +259,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -228,12 +277,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .filters(GetConnectFilterArgs.builder()
      *                 .name(&#34;transport-transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -242,10 +291,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -253,9 +309,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .transitGatewayConnectId(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -273,10 +329,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -284,12 +347,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .filters(GetConnectFilterArgs.builder()
      *                 .name(&#34;transport-transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -298,10 +361,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -309,9 +379,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .transitGatewayConnectId(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -329,10 +399,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -340,12 +417,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .filters(GetConnectFilterArgs.builder()
      *                 .name(&#34;transport-transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -354,10 +431,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -365,9 +449,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnect(GetConnectArgs.builder()
      *             .transitGatewayConnectId(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -385,10 +469,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -396,12 +487,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .filters(GetConnectPeerFilterArgs.builder()
      *                 .name(&#34;transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -410,10 +501,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -421,9 +519,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .transitGatewayConnectPeerId(&#34;tgw-connect-peer-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -441,10 +539,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -452,12 +557,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .filters(GetConnectPeerFilterArgs.builder()
      *                 .name(&#34;transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -466,10 +571,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -477,9 +589,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .transitGatewayConnectPeerId(&#34;tgw-connect-peer-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -497,10 +609,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -508,12 +627,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .filters(GetConnectPeerFilterArgs.builder()
      *                 .name(&#34;transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -522,10 +641,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -533,9 +659,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .transitGatewayConnectPeerId(&#34;tgw-connect-peer-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -553,10 +679,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -564,12 +697,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .filters(GetConnectPeerFilterArgs.builder()
      *                 .name(&#34;transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -578,10 +711,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -589,9 +729,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .transitGatewayConnectPeerId(&#34;tgw-connect-peer-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -609,10 +749,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -620,12 +767,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .filters(GetConnectPeerFilterArgs.builder()
      *                 .name(&#34;transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -634,10 +781,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -645,9 +799,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .transitGatewayConnectPeerId(&#34;tgw-connect-peer-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -665,10 +819,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -676,12 +837,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .filters(GetConnectPeerFilterArgs.builder()
      *                 .name(&#34;transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -690,10 +851,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetConnectPeerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -701,9 +869,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getConnectPeer(GetConnectPeerArgs.builder()
      *             .transitGatewayConnectPeerId(&#34;tgw-connect-peer-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -721,10 +889,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetDirectConnectGatewayAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -732,10 +907,10 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
      *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
      *             .dxGatewayId(aws_dx_gateway.example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -753,10 +928,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetDirectConnectGatewayAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -764,10 +946,10 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
      *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
      *             .dxGatewayId(aws_dx_gateway.example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -785,10 +967,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetDirectConnectGatewayAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -796,10 +985,10 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
      *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
      *             .dxGatewayId(aws_dx_gateway.example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -817,10 +1006,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetDirectConnectGatewayAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -828,10 +1024,10 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
      *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
      *             .dxGatewayId(aws_dx_gateway.example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -849,10 +1045,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetDirectConnectGatewayAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -860,10 +1063,10 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
      *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
      *             .dxGatewayId(aws_dx_gateway.example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -881,10 +1084,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetDirectConnectGatewayAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -892,10 +1102,10 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
      *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
      *             .dxGatewayId(aws_dx_gateway.example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -913,10 +1123,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -924,12 +1141,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .filters(GetMulticastDomainFilterArgs.builder()
      *                 .name(&#34;transit-gateway-multicast-domain-id&#34;)
      *                 .values(&#34;tgw-mcast-domain-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -938,10 +1155,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -949,9 +1173,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .transitGatewayMulticastDomainId(&#34;tgw-mcast-domain-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -969,10 +1193,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -980,12 +1211,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .filters(GetMulticastDomainFilterArgs.builder()
      *                 .name(&#34;transit-gateway-multicast-domain-id&#34;)
      *                 .values(&#34;tgw-mcast-domain-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -994,10 +1225,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1005,9 +1243,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .transitGatewayMulticastDomainId(&#34;tgw-mcast-domain-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1025,10 +1263,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1036,12 +1281,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .filters(GetMulticastDomainFilterArgs.builder()
      *                 .name(&#34;transit-gateway-multicast-domain-id&#34;)
      *                 .values(&#34;tgw-mcast-domain-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1050,10 +1295,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1061,9 +1313,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .transitGatewayMulticastDomainId(&#34;tgw-mcast-domain-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1081,10 +1333,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1092,12 +1351,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .filters(GetMulticastDomainFilterArgs.builder()
      *                 .name(&#34;transit-gateway-multicast-domain-id&#34;)
      *                 .values(&#34;tgw-mcast-domain-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1106,10 +1365,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1117,9 +1383,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .transitGatewayMulticastDomainId(&#34;tgw-mcast-domain-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1137,10 +1403,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1148,12 +1421,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .filters(GetMulticastDomainFilterArgs.builder()
      *                 .name(&#34;transit-gateway-multicast-domain-id&#34;)
      *                 .values(&#34;tgw-mcast-domain-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1162,10 +1435,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1173,9 +1453,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .transitGatewayMulticastDomainId(&#34;tgw-mcast-domain-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1193,10 +1473,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1204,12 +1491,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .filters(GetMulticastDomainFilterArgs.builder()
      *                 .name(&#34;transit-gateway-multicast-domain-id&#34;)
      *                 .values(&#34;tgw-mcast-domain-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1218,10 +1505,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1229,9 +1523,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getMulticastDomain(GetMulticastDomainArgs.builder()
      *             .transitGatewayMulticastDomainId(&#34;tgw-mcast-domain-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1249,10 +1543,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1260,12 +1561,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .filters(GetPeeringAttachmentFilterArgs.builder()
      *                 .name(&#34;transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1274,10 +1575,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1285,9 +1593,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var attachment = Output.of(Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
+     *         final var attachment = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .id(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1305,10 +1613,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1316,12 +1631,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .filters(GetPeeringAttachmentFilterArgs.builder()
      *                 .name(&#34;transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1330,10 +1645,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1341,9 +1663,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var attachment = Output.of(Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
+     *         final var attachment = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .id(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1361,10 +1683,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1372,12 +1701,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .filters(GetPeeringAttachmentFilterArgs.builder()
      *                 .name(&#34;transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1386,10 +1715,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1397,9 +1733,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var attachment = Output.of(Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
+     *         final var attachment = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .id(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1417,10 +1753,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1428,12 +1771,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .filters(GetPeeringAttachmentFilterArgs.builder()
      *                 .name(&#34;transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1442,10 +1785,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1453,9 +1803,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var attachment = Output.of(Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
+     *         final var attachment = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .id(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1473,10 +1823,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1484,12 +1841,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .filters(GetPeeringAttachmentFilterArgs.builder()
      *                 .name(&#34;transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1498,10 +1855,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1509,9 +1873,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var attachment = Output.of(Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
+     *         final var attachment = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .id(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1529,10 +1893,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1540,12 +1911,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .filters(GetPeeringAttachmentFilterArgs.builder()
      *                 .name(&#34;transit-gateway-attachment-id&#34;)
      *                 .values(&#34;tgw-attach-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1554,10 +1925,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1565,9 +1943,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var attachment = Output.of(Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
+     *         final var attachment = Ec2transitgatewayFunctions.getPeeringAttachment(GetPeeringAttachmentArgs.builder()
      *             .id(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1585,10 +1963,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1596,7 +1981,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .filters(            
      *                 GetRouteTableFilterArgs.builder()
      *                     .name(&#34;default-association-route-table&#34;)
@@ -1606,7 +1991,7 @@ public final class Ec2transitgatewayFunctions {
      *                     .name(&#34;transit-gateway-id&#34;)
      *                     .values(&#34;tgw-12345678&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1615,10 +2000,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1626,9 +2018,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .id(&#34;tgw-rtb-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1646,10 +2038,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1657,7 +2056,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .filters(            
      *                 GetRouteTableFilterArgs.builder()
      *                     .name(&#34;default-association-route-table&#34;)
@@ -1667,7 +2066,7 @@ public final class Ec2transitgatewayFunctions {
      *                     .name(&#34;transit-gateway-id&#34;)
      *                     .values(&#34;tgw-12345678&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1676,10 +2075,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1687,9 +2093,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .id(&#34;tgw-rtb-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1707,10 +2113,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1718,7 +2131,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .filters(            
      *                 GetRouteTableFilterArgs.builder()
      *                     .name(&#34;default-association-route-table&#34;)
@@ -1728,7 +2141,7 @@ public final class Ec2transitgatewayFunctions {
      *                     .name(&#34;transit-gateway-id&#34;)
      *                     .values(&#34;tgw-12345678&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1737,10 +2150,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1748,9 +2168,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .id(&#34;tgw-rtb-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1768,10 +2188,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1779,7 +2206,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .filters(            
      *                 GetRouteTableFilterArgs.builder()
      *                     .name(&#34;default-association-route-table&#34;)
@@ -1789,7 +2216,7 @@ public final class Ec2transitgatewayFunctions {
      *                     .name(&#34;transit-gateway-id&#34;)
      *                     .values(&#34;tgw-12345678&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1798,10 +2225,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1809,9 +2243,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .id(&#34;tgw-rtb-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1829,10 +2263,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1840,7 +2281,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .filters(            
      *                 GetRouteTableFilterArgs.builder()
      *                     .name(&#34;default-association-route-table&#34;)
@@ -1850,7 +2291,7 @@ public final class Ec2transitgatewayFunctions {
      *                     .name(&#34;transit-gateway-id&#34;)
      *                     .values(&#34;tgw-12345678&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1859,10 +2300,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1870,9 +2318,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .id(&#34;tgw-rtb-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1890,10 +2338,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1901,7 +2356,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .filters(            
      *                 GetRouteTableFilterArgs.builder()
      *                     .name(&#34;default-association-route-table&#34;)
@@ -1911,7 +2366,7 @@ public final class Ec2transitgatewayFunctions {
      *                     .name(&#34;transit-gateway-id&#34;)
      *                     .values(&#34;tgw-12345678&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1920,10 +2375,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1931,9 +2393,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getRouteTable(GetRouteTableArgs.builder()
      *             .id(&#34;tgw-rtb-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1951,10 +2413,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1962,12 +2431,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .filters(GetTransitGatewayFilterArgs.builder()
      *                 .name(&#34;options.amazon-side-asn&#34;)
      *                 .values(&#34;64512&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1976,10 +2445,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1987,9 +2463,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .id(&#34;tgw-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2007,10 +2483,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2018,12 +2501,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .filters(GetTransitGatewayFilterArgs.builder()
      *                 .name(&#34;options.amazon-side-asn&#34;)
      *                 .values(&#34;64512&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2032,10 +2515,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2043,9 +2533,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .id(&#34;tgw-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2063,10 +2553,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2074,12 +2571,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .filters(GetTransitGatewayFilterArgs.builder()
      *                 .name(&#34;options.amazon-side-asn&#34;)
      *                 .values(&#34;64512&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2088,10 +2585,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2099,9 +2603,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .id(&#34;tgw-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2119,10 +2623,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2130,12 +2641,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .filters(GetTransitGatewayFilterArgs.builder()
      *                 .name(&#34;options.amazon-side-asn&#34;)
      *                 .values(&#34;64512&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2144,10 +2655,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2155,9 +2673,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .id(&#34;tgw-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2175,10 +2693,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2186,12 +2711,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .filters(GetTransitGatewayFilterArgs.builder()
      *                 .name(&#34;options.amazon-side-asn&#34;)
      *                 .values(&#34;64512&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2200,10 +2725,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2211,9 +2743,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .id(&#34;tgw-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2231,10 +2763,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2242,12 +2781,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .filters(GetTransitGatewayFilterArgs.builder()
      *                 .name(&#34;options.amazon-side-asn&#34;)
      *                 .values(&#34;64512&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2256,10 +2795,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2267,9 +2813,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getTransitGateway(GetTransitGatewayArgs.builder()
      *             .id(&#34;tgw-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2287,10 +2833,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2298,12 +2851,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .filters(GetVpcAttachmentFilterArgs.builder()
      *                 .name(&#34;vpc-id&#34;)
      *                 .values(&#34;vpc-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2312,10 +2865,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2323,9 +2883,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .id(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2343,10 +2903,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2354,12 +2921,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .filters(GetVpcAttachmentFilterArgs.builder()
      *                 .name(&#34;vpc-id&#34;)
      *                 .values(&#34;vpc-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2368,10 +2935,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2379,9 +2953,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .id(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2399,10 +2973,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2410,12 +2991,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .filters(GetVpcAttachmentFilterArgs.builder()
      *                 .name(&#34;vpc-id&#34;)
      *                 .values(&#34;vpc-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2424,10 +3005,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2435,9 +3023,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .id(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2455,10 +3043,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2466,12 +3061,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .filters(GetVpcAttachmentFilterArgs.builder()
      *                 .name(&#34;vpc-id&#34;)
      *                 .values(&#34;vpc-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2480,10 +3075,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2491,9 +3093,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .id(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2511,10 +3113,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2522,12 +3131,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .filters(GetVpcAttachmentFilterArgs.builder()
      *                 .name(&#34;vpc-id&#34;)
      *                 .values(&#34;vpc-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2536,10 +3145,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2547,9 +3163,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .id(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2567,10 +3183,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2578,12 +3201,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .filters(GetVpcAttachmentFilterArgs.builder()
      *                 .name(&#34;vpc-id&#34;)
      *                 .values(&#34;vpc-12345678&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2592,10 +3215,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2603,9 +3233,9 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpcAttachment(GetVpcAttachmentArgs.builder()
      *             .id(&#34;tgw-attach-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2679,10 +3309,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2690,10 +3327,10 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
      *             .vpnConnectionId(aws_vpn_connection.example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2702,10 +3339,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2713,12 +3357,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
+     *         final var test = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .filters(GetVpnAttachmentFilterArgs.builder()
      *                 .name(&#34;resource-id&#34;)
      *                 .values(&#34;some-resource&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2738,10 +3382,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2749,10 +3400,10 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
      *             .vpnConnectionId(aws_vpn_connection.example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2761,10 +3412,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2772,12 +3430,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
+     *         final var test = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .filters(GetVpnAttachmentFilterArgs.builder()
      *                 .name(&#34;resource-id&#34;)
      *                 .values(&#34;some-resource&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2797,10 +3455,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2808,10 +3473,10 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
      *             .vpnConnectionId(aws_vpn_connection.example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2820,10 +3485,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2831,12 +3503,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
+     *         final var test = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .filters(GetVpnAttachmentFilterArgs.builder()
      *                 .name(&#34;resource-id&#34;)
      *                 .values(&#34;some-resource&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2856,10 +3528,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2867,10 +3546,10 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
      *             .vpnConnectionId(aws_vpn_connection.example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2879,10 +3558,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2890,12 +3576,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
+     *         final var test = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .filters(GetVpnAttachmentFilterArgs.builder()
      *                 .name(&#34;resource-id&#34;)
      *                 .values(&#34;some-resource&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2915,10 +3601,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2926,10 +3619,10 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
      *             .vpnConnectionId(aws_vpn_connection.example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2938,10 +3631,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2949,12 +3649,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
+     *         final var test = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .filters(GetVpnAttachmentFilterArgs.builder()
      *                 .name(&#34;resource-id&#34;)
      *                 .values(&#34;some-resource&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2974,10 +3674,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2985,10 +3692,10 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
+     *         final var example = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
      *             .vpnConnectionId(aws_vpn_connection.example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2997,10 +3704,17 @@ public final class Ec2transitgatewayFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetVpnAttachmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3008,12 +3722,12 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
+     *         final var test = Ec2transitgatewayFunctions.getVpnAttachment(GetVpnAttachmentArgs.builder()
      *             .filters(GetVpnAttachmentFilterArgs.builder()
      *                 .name(&#34;resource-id&#34;)
      *                 .values(&#34;some-resource&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

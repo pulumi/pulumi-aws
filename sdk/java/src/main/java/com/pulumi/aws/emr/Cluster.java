@@ -36,10 +36,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.emr.Cluster;
+ * import com.pulumi.aws.emr.ClusterArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterEc2AttributesArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceGroupArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterBootstrapActionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -164,10 +175,24 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.emr.Cluster;
+ * import com.pulumi.aws.emr.ClusterArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceFleetArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceFleetArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceFleetLaunchSpecificationsArgs;
+ * import com.pulumi.aws.emr.InstanceFleet;
+ * import com.pulumi.aws.emr.InstanceFleetArgs;
+ * import com.pulumi.aws.emr.inputs.InstanceFleetInstanceTypeConfigArgs;
+ * import com.pulumi.aws.emr.inputs.InstanceFleetLaunchSpecificationsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -272,10 +297,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.emr.Cluster;
+ * import com.pulumi.aws.emr.ClusterArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterStepArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterStepHadoopJarStepArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -303,10 +337,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.emr.Cluster;
+ * import com.pulumi.aws.emr.ClusterArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterEc2AttributesArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -339,11 +385,43 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+ * import com.pulumi.aws.ec2.inputs.SecurityGroupEgressArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.InstanceProfile;
+ * import com.pulumi.aws.iam.InstanceProfileArgs;
+ * import com.pulumi.aws.emr.Cluster;
+ * import com.pulumi.aws.emr.ClusterArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterEc2AttributesArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceGroupArgs;
+ * import com.pulumi.aws.emr.inputs.ClusterBootstrapActionArgs;
+ * import com.pulumi.aws.ec2.InternetGateway;
+ * import com.pulumi.aws.ec2.InternetGatewayArgs;
+ * import com.pulumi.aws.ec2.RouteTable;
+ * import com.pulumi.aws.ec2.RouteTableArgs;
+ * import com.pulumi.aws.ec2.inputs.RouteTableRouteArgs;
+ * import com.pulumi.aws.ec2.MainRouteTableAssociation;
+ * import com.pulumi.aws.ec2.MainRouteTableAssociationArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

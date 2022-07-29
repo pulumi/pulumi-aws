@@ -64,7 +64,7 @@ import (
 // 			Workgroup: testWorkgroup.ID(),
 // 			Database:  hogeDatabase.Name,
 // 			Query: hogeDatabase.Name.ApplyT(func(name string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v", "SELECT * FROM ", name, " limit 10;"), nil
+// 				return fmt.Sprintf("SELECT * FROM %v limit 10;", name), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

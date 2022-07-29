@@ -34,7 +34,13 @@ import (
 // 			Applications: pulumi.StringArray{
 // 				pulumi.String("Spark"),
 // 			},
-// 			AdditionalInfo:              pulumi.String(fmt.Sprintf("%v%v%v%v%v%v", "{\n", "  \"instanceAwsClientConfiguration\": {\n", "    \"proxyPort\": 8099,\n", "    \"proxyHost\": \"myproxy.example.com\"\n", "  }\n", "}\n")),
+// 			AdditionalInfo: pulumi.String(fmt.Sprintf(`{
+//   "instanceAwsClientConfiguration": {
+//     "proxyPort": 8099,
+//     "proxyHost": "myproxy.example.com"
+//   }
+// }
+// `)),
 // 			TerminationProtection:       pulumi.Bool(false),
 // 			KeepJobFlowAliveWhenNoSteps: pulumi.Bool(true),
 // 			Ec2Attributes: &emr.ClusterEc2AttributesArgs{
@@ -56,8 +62,39 @@ import (
 // 						VolumesPerInstance: pulumi.Int(1),
 // 					},
 // 				},
-// 				BidPrice:          pulumi.String("0.30"),
-// 				AutoscalingPolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "\"Constraints\": {\n", "  \"MinCapacity\": 1,\n", "  \"MaxCapacity\": 2\n", "},\n", "\"Rules\": [\n", "  {\n", "    \"Name\": \"ScaleOutMemoryPercentage\",\n", "    \"Description\": \"Scale out if YARNMemoryAvailablePercentage is less than 15\",\n", "    \"Action\": {\n", "      \"SimpleScalingPolicyConfiguration\": {\n", "        \"AdjustmentType\": \"CHANGE_IN_CAPACITY\",\n", "        \"ScalingAdjustment\": 1,\n", "        \"CoolDown\": 300\n", "      }\n", "    },\n", "    \"Trigger\": {\n", "      \"CloudWatchAlarmDefinition\": {\n", "        \"ComparisonOperator\": \"LESS_THAN\",\n", "        \"EvaluationPeriods\": 1,\n", "        \"MetricName\": \"YARNMemoryAvailablePercentage\",\n", "        \"Namespace\": \"AWS/ElasticMapReduce\",\n", "        \"Period\": 300,\n", "        \"Statistic\": \"AVERAGE\",\n", "        \"Threshold\": 15.0,\n", "        \"Unit\": \"PERCENT\"\n", "      }\n", "    }\n", "  }\n", "]\n", "}\n")),
+// 				BidPrice: pulumi.String("0.30"),
+// 				AutoscalingPolicy: pulumi.String(fmt.Sprintf(`{
+// "Constraints": {
+//   "MinCapacity": 1,
+//   "MaxCapacity": 2
+// },
+// "Rules": [
+//   {
+//     "Name": "ScaleOutMemoryPercentage",
+//     "Description": "Scale out if YARNMemoryAvailablePercentage is less than 15",
+//     "Action": {
+//       "SimpleScalingPolicyConfiguration": {
+//         "AdjustmentType": "CHANGE_IN_CAPACITY",
+//         "ScalingAdjustment": 1,
+//         "CoolDown": 300
+//       }
+//     },
+//     "Trigger": {
+//       "CloudWatchAlarmDefinition": {
+//         "ComparisonOperator": "LESS_THAN",
+//         "EvaluationPeriods": 1,
+//         "MetricName": "YARNMemoryAvailablePercentage",
+//         "Namespace": "AWS/ElasticMapReduce",
+//         "Period": 300,
+//         "Statistic": "AVERAGE",
+//         "Threshold": 15.0,
+//         "Unit": "PERCENT"
+//       }
+//     }
+//   }
+// ]
+// }
+// `)),
 // 			},
 // 			EbsRootVolumeSize: pulumi.Int(100),
 // 			Tags: pulumi.StringMap{
@@ -74,8 +111,34 @@ import (
 // 					},
 // 				},
 // 			},
-// 			ConfigurationsJson: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "  [\n", "    {\n", "      \"Classification\": \"hadoop-env\",\n", "      \"Configurations\": [\n", "        {\n", "          \"Classification\": \"export\",\n", "          \"Properties\": {\n", "            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n", "          }\n", "        }\n", "      ],\n", "      \"Properties\": {}\n", "    },\n", "    {\n", "      \"Classification\": \"spark-env\",\n", "      \"Configurations\": [\n", "        {\n", "          \"Classification\": \"export\",\n", "          \"Properties\": {\n", "            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n", "          }\n", "        }\n", "      ],\n", "      \"Properties\": {}\n", "    }\n", "  ]\n")),
-// 			ServiceRole:        pulumi.Any(aws_iam_role.Iam_emr_service_role.Arn),
+// 			ConfigurationsJson: pulumi.String(fmt.Sprintf(`  [
+//     {
+//       "Classification": "hadoop-env",
+//       "Configurations": [
+//         {
+//           "Classification": "export",
+//           "Properties": {
+//             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+//           }
+//         }
+//       ],
+//       "Properties": {}
+//     },
+//     {
+//       "Classification": "spark-env",
+//       "Configurations": [
+//         {
+//           "Classification": "export",
+//           "Properties": {
+//             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+//           }
+//         }
+//       ],
+//       "Properties": {}
+//     }
+//   ]
+// `)),
+// 			ServiceRole: pulumi.Any(aws_iam_role.Iam_emr_service_role.Arn),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -357,13 +420,39 @@ import (
 // 			return err
 // 		}
 // 		iamEmrServiceRole, err := iam.NewRole(ctx, "iamEmrServiceRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2008-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"elasticmapreduce.amazonaws.com\"\n", "      },\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2008-10-17",
+//   "Statement": [
+//     {
+//       "Sid": "",
+//       "Effect": "Allow",
+//       "Principal": {
+//         "Service": "elasticmapreduce.amazonaws.com"
+//       },
+//       "Action": "sts:AssumeRole"
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		iamEmrProfileRole, err := iam.NewRole(ctx, "iamEmrProfileRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2008-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"ec2.amazonaws.com\"\n", "      },\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2008-10-17",
+//   "Statement": [
+//     {
+//       "Sid": "",
+//       "Effect": "Allow",
+//       "Principal": {
+//         "Service": "ec2.amazonaws.com"
+//       },
+//       "Action": "sts:AssumeRole"
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -408,8 +497,34 @@ import (
 // 					},
 // 				},
 // 			},
-// 			ConfigurationsJson: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "  [\n", "    {\n", "      \"Classification\": \"hadoop-env\",\n", "      \"Configurations\": [\n", "        {\n", "          \"Classification\": \"export\",\n", "          \"Properties\": {\n", "            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n", "          }\n", "        }\n", "      ],\n", "      \"Properties\": {}\n", "    },\n", "    {\n", "      \"Classification\": \"spark-env\",\n", "      \"Configurations\": [\n", "        {\n", "          \"Classification\": \"export\",\n", "          \"Properties\": {\n", "            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n", "          }\n", "        }\n", "      ],\n", "      \"Properties\": {}\n", "    }\n", "  ]\n")),
-// 			ServiceRole:        iamEmrServiceRole.Arn,
+// 			ConfigurationsJson: pulumi.String(fmt.Sprintf(`  [
+//     {
+//       "Classification": "hadoop-env",
+//       "Configurations": [
+//         {
+//           "Classification": "export",
+//           "Properties": {
+//             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+//           }
+//         }
+//       ],
+//       "Properties": {}
+//     },
+//     {
+//       "Classification": "spark-env",
+//       "Configurations": [
+//         {
+//           "Classification": "export",
+//           "Properties": {
+//             "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+//           }
+//         }
+//       ],
+//       "Properties": {}
+//     }
+//   ]
+// `)),
+// 			ServiceRole: iamEmrServiceRole.Arn,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -440,15 +555,108 @@ import (
 // 			return err
 // 		}
 // 		_, err = iam.NewRolePolicy(ctx, "iamEmrServicePolicy", &iam.RolePolicyArgs{
-// 			Role:   iamEmrServiceRole.ID(),
-// 			Policy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [{\n", "        \"Effect\": \"Allow\",\n", "        \"Resource\": \"*\",\n", "        \"Action\": [\n", "            \"ec2:AuthorizeSecurityGroupEgress\",\n", "            \"ec2:AuthorizeSecurityGroupIngress\",\n", "            \"ec2:CancelSpotInstanceRequests\",\n", "            \"ec2:CreateNetworkInterface\",\n", "            \"ec2:CreateSecurityGroup\",\n", "            \"ec2:CreateTags\",\n", "            \"ec2:DeleteNetworkInterface\",\n", "            \"ec2:DeleteSecurityGroup\",\n", "            \"ec2:DeleteTags\",\n", "            \"ec2:DescribeAvailabilityZones\",\n", "            \"ec2:DescribeAccountAttributes\",\n", "            \"ec2:DescribeDhcpOptions\",\n", "            \"ec2:DescribeInstanceStatus\",\n", "            \"ec2:DescribeInstances\",\n", "            \"ec2:DescribeKeyPairs\",\n", "            \"ec2:DescribeNetworkAcls\",\n", "            \"ec2:DescribeNetworkInterfaces\",\n", "            \"ec2:DescribePrefixLists\",\n", "            \"ec2:DescribeRouteTables\",\n", "            \"ec2:DescribeSecurityGroups\",\n", "            \"ec2:DescribeSpotInstanceRequests\",\n", "            \"ec2:DescribeSpotPriceHistory\",\n", "            \"ec2:DescribeSubnets\",\n", "            \"ec2:DescribeVpcAttribute\",\n", "            \"ec2:DescribeVpcEndpoints\",\n", "            \"ec2:DescribeVpcEndpointServices\",\n", "            \"ec2:DescribeVpcs\",\n", "            \"ec2:DetachNetworkInterface\",\n", "            \"ec2:ModifyImageAttribute\",\n", "            \"ec2:ModifyInstanceAttribute\",\n", "            \"ec2:RequestSpotInstances\",\n", "            \"ec2:RevokeSecurityGroupEgress\",\n", "            \"ec2:RunInstances\",\n", "            \"ec2:TerminateInstances\",\n", "            \"ec2:DeleteVolume\",\n", "            \"ec2:DescribeVolumeStatus\",\n", "            \"ec2:DescribeVolumes\",\n", "            \"ec2:DetachVolume\",\n", "            \"iam:GetRole\",\n", "            \"iam:GetRolePolicy\",\n", "            \"iam:ListInstanceProfiles\",\n", "            \"iam:ListRolePolicies\",\n", "            \"iam:PassRole\",\n", "            \"s3:CreateBucket\",\n", "            \"s3:Get*\",\n", "            \"s3:List*\",\n", "            \"sdb:BatchPutAttributes\",\n", "            \"sdb:Select\",\n", "            \"sqs:CreateQueue\",\n", "            \"sqs:Delete*\",\n", "            \"sqs:GetQueue*\",\n", "            \"sqs:PurgeQueue\",\n", "            \"sqs:ReceiveMessage\"\n", "        ]\n", "    }]\n", "}\n")),
+// 			Role: iamEmrServiceRole.ID(),
+// 			Policy: pulumi.Any(fmt.Sprintf(`{
+//     "Version": "2012-10-17",
+//     "Statement": [{
+//         "Effect": "Allow",
+//         "Resource": "*",
+//         "Action": [
+//             "ec2:AuthorizeSecurityGroupEgress",
+//             "ec2:AuthorizeSecurityGroupIngress",
+//             "ec2:CancelSpotInstanceRequests",
+//             "ec2:CreateNetworkInterface",
+//             "ec2:CreateSecurityGroup",
+//             "ec2:CreateTags",
+//             "ec2:DeleteNetworkInterface",
+//             "ec2:DeleteSecurityGroup",
+//             "ec2:DeleteTags",
+//             "ec2:DescribeAvailabilityZones",
+//             "ec2:DescribeAccountAttributes",
+//             "ec2:DescribeDhcpOptions",
+//             "ec2:DescribeInstanceStatus",
+//             "ec2:DescribeInstances",
+//             "ec2:DescribeKeyPairs",
+//             "ec2:DescribeNetworkAcls",
+//             "ec2:DescribeNetworkInterfaces",
+//             "ec2:DescribePrefixLists",
+//             "ec2:DescribeRouteTables",
+//             "ec2:DescribeSecurityGroups",
+//             "ec2:DescribeSpotInstanceRequests",
+//             "ec2:DescribeSpotPriceHistory",
+//             "ec2:DescribeSubnets",
+//             "ec2:DescribeVpcAttribute",
+//             "ec2:DescribeVpcEndpoints",
+//             "ec2:DescribeVpcEndpointServices",
+//             "ec2:DescribeVpcs",
+//             "ec2:DetachNetworkInterface",
+//             "ec2:ModifyImageAttribute",
+//             "ec2:ModifyInstanceAttribute",
+//             "ec2:RequestSpotInstances",
+//             "ec2:RevokeSecurityGroupEgress",
+//             "ec2:RunInstances",
+//             "ec2:TerminateInstances",
+//             "ec2:DeleteVolume",
+//             "ec2:DescribeVolumeStatus",
+//             "ec2:DescribeVolumes",
+//             "ec2:DetachVolume",
+//             "iam:GetRole",
+//             "iam:GetRolePolicy",
+//             "iam:ListInstanceProfiles",
+//             "iam:ListRolePolicies",
+//             "iam:PassRole",
+//             "s3:CreateBucket",
+//             "s3:Get*",
+//             "s3:List*",
+//             "sdb:BatchPutAttributes",
+//             "sdb:Select",
+//             "sqs:CreateQueue",
+//             "sqs:Delete*",
+//             "sqs:GetQueue*",
+//             "sqs:PurgeQueue",
+//             "sqs:ReceiveMessage"
+//         ]
+//     }]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = iam.NewRolePolicy(ctx, "iamEmrProfilePolicy", &iam.RolePolicyArgs{
-// 			Role:   iamEmrProfileRole.ID(),
-// 			Policy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [{\n", "        \"Effect\": \"Allow\",\n", "        \"Resource\": \"*\",\n", "        \"Action\": [\n", "            \"cloudwatch:*\",\n", "            \"dynamodb:*\",\n", "            \"ec2:Describe*\",\n", "            \"elasticmapreduce:Describe*\",\n", "            \"elasticmapreduce:ListBootstrapActions\",\n", "            \"elasticmapreduce:ListClusters\",\n", "            \"elasticmapreduce:ListInstanceGroups\",\n", "            \"elasticmapreduce:ListInstances\",\n", "            \"elasticmapreduce:ListSteps\",\n", "            \"kinesis:CreateStream\",\n", "            \"kinesis:DeleteStream\",\n", "            \"kinesis:DescribeStream\",\n", "            \"kinesis:GetRecords\",\n", "            \"kinesis:GetShardIterator\",\n", "            \"kinesis:MergeShards\",\n", "            \"kinesis:PutRecord\",\n", "            \"kinesis:SplitShard\",\n", "            \"rds:Describe*\",\n", "            \"s3:*\",\n", "            \"sdb:*\",\n", "            \"sns:*\",\n", "            \"sqs:*\"\n", "        ]\n", "    }]\n", "}\n")),
+// 			Role: iamEmrProfileRole.ID(),
+// 			Policy: pulumi.Any(fmt.Sprintf(`{
+//     "Version": "2012-10-17",
+//     "Statement": [{
+//         "Effect": "Allow",
+//         "Resource": "*",
+//         "Action": [
+//             "cloudwatch:*",
+//             "dynamodb:*",
+//             "ec2:Describe*",
+//             "elasticmapreduce:Describe*",
+//             "elasticmapreduce:ListBootstrapActions",
+//             "elasticmapreduce:ListClusters",
+//             "elasticmapreduce:ListInstanceGroups",
+//             "elasticmapreduce:ListInstances",
+//             "elasticmapreduce:ListSteps",
+//             "kinesis:CreateStream",
+//             "kinesis:DeleteStream",
+//             "kinesis:DescribeStream",
+//             "kinesis:GetRecords",
+//             "kinesis:GetShardIterator",
+//             "kinesis:MergeShards",
+//             "kinesis:PutRecord",
+//             "kinesis:SplitShard",
+//             "rds:Describe*",
+//             "s3:*",
+//             "sdb:*",
+//             "sns:*",
+//             "sqs:*"
+//         ]
+//     }]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

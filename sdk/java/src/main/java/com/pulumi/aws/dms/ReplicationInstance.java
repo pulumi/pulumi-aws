@@ -27,11 +27,24 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.dms.ReplicationInstance;
+ * import com.pulumi.aws.dms.ReplicationInstanceArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -39,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var dmsAssumeRole = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var dmsAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -47,10 +60,10 @@ import javax.annotation.Nullable;
  *                     .type(&#34;Service&#34;)
  *                     .build())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var dms_access_for_endpoint = new Role(&#34;dms-access-for-endpoint&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(dmsAssumeRole.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var dms_access_for_endpoint_AmazonDMSRedshiftS3Role = new RolePolicyAttachment(&#34;dms-access-for-endpoint-AmazonDMSRedshiftS3Role&#34;, RolePolicyAttachmentArgs.builder()        
@@ -59,7 +72,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dms_cloudwatch_logs_role = new Role(&#34;dms-cloudwatch-logs-role&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(dmsAssumeRole.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole = new RolePolicyAttachment(&#34;dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole&#34;, RolePolicyAttachmentArgs.builder()        
@@ -68,7 +81,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dms_vpc_role = new Role(&#34;dms-vpc-role&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(dmsAssumeRole.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var dms_vpc_role_AmazonDMSVPCManagementRole = new RolePolicyAttachment(&#34;dms-vpc-role-AmazonDMSVPCManagementRole&#34;, RolePolicyAttachmentArgs.builder()        

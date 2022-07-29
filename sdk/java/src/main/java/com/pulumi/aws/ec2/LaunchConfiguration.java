@@ -27,10 +27,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+ * import com.pulumi.aws.ec2.LaunchConfiguration;
+ * import com.pulumi.aws.ec2.LaunchConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -38,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var ubuntu = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+ *         final var ubuntu = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
  *             .filters(            
  *                 GetAmiFilterArgs.builder()
@@ -50,10 +59,10 @@ import javax.annotation.Nullable;
  *                     .values(&#34;hvm&#34;)
  *                     .build())
  *             .owners(&#34;099720109477&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var asConf = new LaunchConfiguration(&#34;asConf&#34;, LaunchConfigurationArgs.builder()        
- *             .imageId(ubuntu.apply(getAmiResult -&gt; getAmiResult.id()))
+ *             .imageId(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
  *             .instanceType(&#34;t2.micro&#34;)
  *             .build());
  * 
@@ -72,10 +81,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+ * import com.pulumi.aws.ec2.LaunchConfiguration;
+ * import com.pulumi.aws.ec2.LaunchConfigurationArgs;
+ * import com.pulumi.aws.autoscaling.Group;
+ * import com.pulumi.aws.autoscaling.GroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -83,7 +103,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var ubuntu = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+ *         final var ubuntu = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
  *             .filters(            
  *                 GetAmiFilterArgs.builder()
@@ -95,11 +115,11 @@ import javax.annotation.Nullable;
  *                     .values(&#34;hvm&#34;)
  *                     .build())
  *             .owners(&#34;099720109477&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var asConf = new LaunchConfiguration(&#34;asConf&#34;, LaunchConfigurationArgs.builder()        
  *             .namePrefix(&#34;lc-example-&#34;)
- *             .imageId(ubuntu.apply(getAmiResult -&gt; getAmiResult.id()))
+ *             .imageId(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
  *             .instanceType(&#34;t2.micro&#34;)
  *             .build());
  * 
@@ -128,10 +148,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+ * import com.pulumi.aws.ec2.LaunchConfiguration;
+ * import com.pulumi.aws.ec2.LaunchConfigurationArgs;
+ * import com.pulumi.aws.autoscaling.Group;
+ * import com.pulumi.aws.autoscaling.GroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -139,7 +170,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var ubuntu = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+ *         final var ubuntu = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
  *             .filters(            
  *                 GetAmiFilterArgs.builder()
@@ -151,10 +182,10 @@ import javax.annotation.Nullable;
  *                     .values(&#34;hvm&#34;)
  *                     .build())
  *             .owners(&#34;099720109477&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var asConf = new LaunchConfiguration(&#34;asConf&#34;, LaunchConfigurationArgs.builder()        
- *             .imageId(ubuntu.apply(getAmiResult -&gt; getAmiResult.id()))
+ *             .imageId(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
  *             .instanceType(&#34;m4.large&#34;)
  *             .spotPrice(&#34;0.001&#34;)
  *             .build());

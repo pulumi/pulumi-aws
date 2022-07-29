@@ -11,7 +11,7 @@ import (
 )
 
 type MapConfiguration struct {
-	// Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location-maps/latest/APIReference/API_CreateMap.html).
+	// Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
 	Style string `pulumi:"style"`
 }
 
@@ -27,7 +27,7 @@ type MapConfigurationInput interface {
 }
 
 type MapConfigurationArgs struct {
-	// Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location-maps/latest/APIReference/API_CreateMap.html).
+	// Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
 	Style pulumi.StringInput `pulumi:"style"`
 }
 
@@ -108,7 +108,7 @@ func (o MapConfigurationOutput) ToMapConfigurationPtrOutputWithContext(ctx conte
 	}).(MapConfigurationPtrOutput)
 }
 
-// Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location-maps/latest/APIReference/API_CreateMap.html).
+// Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
 func (o MapConfigurationOutput) Style() pulumi.StringOutput {
 	return o.ApplyT(func(v MapConfiguration) string { return v.Style }).(pulumi.StringOutput)
 }
@@ -137,7 +137,7 @@ func (o MapConfigurationPtrOutput) Elem() MapConfigurationOutput {
 	}).(MapConfigurationOutput)
 }
 
-// Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location-maps/latest/APIReference/API_CreateMap.html).
+// Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
 func (o MapConfigurationPtrOutput) Style() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MapConfiguration) *string {
 		if v == nil {

@@ -111,7 +111,7 @@ import (
 // 					},
 // 				},
 // 			},
-// 			UserData: filebase64OrPanic(fmt.Sprintf("%v%v", path.Module, "/example.sh")),
+// 			UserData: filebase64OrPanic(fmt.Sprintf("%v/example.sh", path.Module)),
 // 		})
 // 		if err != nil {
 // 			return err

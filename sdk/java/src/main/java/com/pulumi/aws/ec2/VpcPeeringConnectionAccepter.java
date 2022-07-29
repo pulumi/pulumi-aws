@@ -29,57 +29,6 @@ import javax.annotation.Nullable;
  * connection into management.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * import com.pulumi.resources.CustomResourceOptions;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var peer = new Provider(&#34;peer&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-west-2&#34;)
- *             .build());
- * 
- *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
- *             .build());
- * 
- *         var peerVpc = new Vpc(&#34;peerVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.1.0.0/16&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.peer())
- *                 .build());
- * 
- *         final var peerCallerIdentity = Output.of(AwsFunctions.getCallerIdentity());
- * 
- *         var peerVpcPeeringConnection = new VpcPeeringConnection(&#34;peerVpcPeeringConnection&#34;, VpcPeeringConnectionArgs.builder()        
- *             .vpcId(main.id())
- *             .peerVpcId(peerVpc.id())
- *             .peerOwnerId(peerCallerIdentity.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *             .peerRegion(&#34;us-west-2&#34;)
- *             .autoAccept(false)
- *             .tags(Map.of(&#34;Side&#34;, &#34;Requester&#34;))
- *             .build());
- * 
- *         var peerVpcPeeringConnectionAccepter = new VpcPeeringConnectionAccepter(&#34;peerVpcPeeringConnectionAccepter&#34;, VpcPeeringConnectionAccepterArgs.builder()        
- *             .vpcPeeringConnectionId(peerVpcPeeringConnection.id())
- *             .autoAccept(true)
- *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.peer())
- *                 .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

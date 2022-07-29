@@ -30,10 +30,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetAccessPointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -41,9 +48,9 @@ public final class EfsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(EfsFunctions.getAccessPoint(GetAccessPointArgs.builder()
+     *         final var test = EfsFunctions.getAccessPoint(GetAccessPointArgs.builder()
      *             .accessPointId(&#34;fsap-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -60,10 +67,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetAccessPointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -71,9 +85,9 @@ public final class EfsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(EfsFunctions.getAccessPoint(GetAccessPointArgs.builder()
+     *         final var test = EfsFunctions.getAccessPoint(GetAccessPointArgs.builder()
      *             .accessPointId(&#34;fsap-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -90,10 +104,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetAccessPointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -101,9 +122,9 @@ public final class EfsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(EfsFunctions.getAccessPoint(GetAccessPointArgs.builder()
+     *         final var test = EfsFunctions.getAccessPoint(GetAccessPointArgs.builder()
      *             .accessPointId(&#34;fsap-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -120,10 +141,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetAccessPointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -131,9 +159,9 @@ public final class EfsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(EfsFunctions.getAccessPoint(GetAccessPointArgs.builder()
+     *         final var test = EfsFunctions.getAccessPoint(GetAccessPointArgs.builder()
      *             .accessPointId(&#34;fsap-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -150,10 +178,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetAccessPointsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -161,9 +196,9 @@ public final class EfsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(EfsFunctions.getAccessPoints(GetAccessPointsArgs.builder()
+     *         final var test = EfsFunctions.getAccessPoints(GetAccessPointsArgs.builder()
      *             .fileSystemId(&#34;fs-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -180,10 +215,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetAccessPointsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -191,9 +233,9 @@ public final class EfsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(EfsFunctions.getAccessPoints(GetAccessPointsArgs.builder()
+     *         final var test = EfsFunctions.getAccessPoints(GetAccessPointsArgs.builder()
      *             .fileSystemId(&#34;fs-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -210,10 +252,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetAccessPointsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -221,9 +270,9 @@ public final class EfsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(EfsFunctions.getAccessPoints(GetAccessPointsArgs.builder()
+     *         final var test = EfsFunctions.getAccessPoints(GetAccessPointsArgs.builder()
      *             .fileSystemId(&#34;fs-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -240,10 +289,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetAccessPointsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -251,9 +307,9 @@ public final class EfsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(EfsFunctions.getAccessPoints(GetAccessPointsArgs.builder()
+     *         final var test = EfsFunctions.getAccessPoints(GetAccessPointsArgs.builder()
      *             .fileSystemId(&#34;fs-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -270,10 +326,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetFileSystemArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -283,13 +346,13 @@ public final class EfsFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var fileSystemId = config.get(&#34;fileSystemId&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
+     *         final var byId = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .fileSystemId(fileSystemId)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byTag = Output.of(EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
+     *         final var byTag = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .tags(Map.of(&#34;Environment&#34;, &#34;dev&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -306,10 +369,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetFileSystemArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -319,13 +389,13 @@ public final class EfsFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var fileSystemId = config.get(&#34;fileSystemId&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
+     *         final var byId = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .fileSystemId(fileSystemId)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byTag = Output.of(EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
+     *         final var byTag = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .tags(Map.of(&#34;Environment&#34;, &#34;dev&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -342,10 +412,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetFileSystemArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -355,13 +432,13 @@ public final class EfsFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var fileSystemId = config.get(&#34;fileSystemId&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
+     *         final var byId = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .fileSystemId(fileSystemId)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byTag = Output.of(EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
+     *         final var byTag = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .tags(Map.of(&#34;Environment&#34;, &#34;dev&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -378,10 +455,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetFileSystemArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -391,13 +475,13 @@ public final class EfsFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var fileSystemId = config.get(&#34;fileSystemId&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
+     *         final var byId = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .fileSystemId(fileSystemId)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byTag = Output.of(EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
+     *         final var byTag = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .tags(Map.of(&#34;Environment&#34;, &#34;dev&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -414,10 +498,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetFileSystemArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -427,13 +518,13 @@ public final class EfsFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var fileSystemId = config.get(&#34;fileSystemId&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
+     *         final var byId = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .fileSystemId(fileSystemId)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byTag = Output.of(EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
+     *         final var byTag = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .tags(Map.of(&#34;Environment&#34;, &#34;dev&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -450,10 +541,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetFileSystemArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -463,13 +561,13 @@ public final class EfsFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var fileSystemId = config.get(&#34;fileSystemId&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
+     *         final var byId = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .fileSystemId(fileSystemId)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byTag = Output.of(EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
+     *         final var byTag = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
      *             .tags(Map.of(&#34;Environment&#34;, &#34;dev&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -486,10 +584,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetMountTargetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -499,9 +604,9 @@ public final class EfsFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var mountTargetId = config.get(&#34;mountTargetId&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
+     *         final var byId = EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
      *             .mountTargetId(mountTargetId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -518,10 +623,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetMountTargetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -531,9 +643,9 @@ public final class EfsFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var mountTargetId = config.get(&#34;mountTargetId&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
+     *         final var byId = EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
      *             .mountTargetId(mountTargetId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -550,10 +662,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetMountTargetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -563,9 +682,9 @@ public final class EfsFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var mountTargetId = config.get(&#34;mountTargetId&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
+     *         final var byId = EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
      *             .mountTargetId(mountTargetId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -582,10 +701,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetMountTargetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -595,9 +721,9 @@ public final class EfsFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var mountTargetId = config.get(&#34;mountTargetId&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
+     *         final var byId = EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
      *             .mountTargetId(mountTargetId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -614,10 +740,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetMountTargetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -627,9 +760,9 @@ public final class EfsFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var mountTargetId = config.get(&#34;mountTargetId&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
+     *         final var byId = EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
      *             .mountTargetId(mountTargetId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -646,10 +779,17 @@ public final class EfsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetMountTargetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -659,9 +799,9 @@ public final class EfsFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var mountTargetId = config.get(&#34;mountTargetId&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
+     *         final var byId = EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
      *             .mountTargetId(mountTargetId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

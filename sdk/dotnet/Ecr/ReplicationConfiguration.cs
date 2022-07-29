@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ecr
     ///         var exampleRegions = Output.Create(Aws.GetRegions.InvokeAsync());
     ///         var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new Aws.Ecr.ReplicationConfigurationArgs
     ///         {
-    ///             ReplicationConfiguration = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
+    ///             ReplicationConfigurationDetails = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
     ///             {
     ///                 Rules = 
     ///                 {
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Ecr
     ///         var exampleRegions = Output.Create(Aws.GetRegions.InvokeAsync());
     ///         var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new Aws.Ecr.ReplicationConfigurationArgs
     ///         {
-    ///             ReplicationConfiguration = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
+    ///             ReplicationConfigurationDetails = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
     ///             {
     ///                 Rules = 
     ///                 {
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Ecr
     ///         var exampleRegions = Output.Create(Aws.GetRegions.InvokeAsync());
     ///         var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new Aws.Ecr.ReplicationConfigurationArgs
     ///         {
-    ///             ReplicationConfiguration = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
+    ///             ReplicationConfigurationDetails = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
     ///             {
     ///                 Rules = 
     ///                 {

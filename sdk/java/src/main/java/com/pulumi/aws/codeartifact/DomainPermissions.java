@@ -20,10 +20,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.codeartifact.Domain;
+ * import com.pulumi.aws.codeartifact.DomainArgs;
+ * import com.pulumi.aws.codeartifact.DomainPermissions;
+ * import com.pulumi.aws.codeartifact.DomainPermissionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -42,7 +53,7 @@ import javax.annotation.Nullable;
  * 
  *         var test = new DomainPermissions(&#34;test&#34;, DomainPermissionsArgs.builder()        
  *             .domain(exampleDomain.domain())
- *             .policyDocument(exampleDomain.arn().apply(arn -&gt; &#34;&#34;&#34;
+ *             .policyDocument(exampleDomain.arn().applyValue(arn -&gt; &#34;&#34;&#34;
  * {
  *     &#34;Version&#34;: &#34;2012-10-17&#34;,
  *     &#34;Statement&#34;: [

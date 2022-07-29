@@ -45,10 +45,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -56,9 +63,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -75,10 +82,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -86,9 +100,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -105,10 +119,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -116,9 +137,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -135,10 +156,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -146,9 +174,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -165,10 +193,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -176,9 +211,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -195,10 +230,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetCachePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -206,9 +248,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getCachePolicy(GetCachePolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -225,10 +267,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetDistributionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -236,9 +285,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(CloudfrontFunctions.getDistribution(GetDistributionArgs.builder()
+     *         final var test = CloudfrontFunctions.getDistribution(GetDistributionArgs.builder()
      *             .id(&#34;EDFDVBD632BHDS5&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -255,10 +304,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetDistributionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -266,9 +322,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(CloudfrontFunctions.getDistribution(GetDistributionArgs.builder()
+     *         final var test = CloudfrontFunctions.getDistribution(GetDistributionArgs.builder()
      *             .id(&#34;EDFDVBD632BHDS5&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -285,10 +341,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetDistributionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -296,9 +359,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(CloudfrontFunctions.getDistribution(GetDistributionArgs.builder()
+     *         final var test = CloudfrontFunctions.getDistribution(GetDistributionArgs.builder()
      *             .id(&#34;EDFDVBD632BHDS5&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -315,10 +378,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetDistributionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -326,9 +396,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(CloudfrontFunctions.getDistribution(GetDistributionArgs.builder()
+     *         final var test = CloudfrontFunctions.getDistribution(GetDistributionArgs.builder()
      *             .id(&#34;EDFDVBD632BHDS5&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -345,10 +415,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -358,9 +435,9 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var functionName = config.get(&#34;functionName&#34;);
-     *         final var existing = Output.of(CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
+     *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -377,10 +454,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -390,9 +474,9 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var functionName = config.get(&#34;functionName&#34;);
-     *         final var existing = Output.of(CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
+     *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -409,10 +493,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -422,9 +513,9 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var functionName = config.get(&#34;functionName&#34;);
-     *         final var existing = Output.of(CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
+     *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -441,10 +532,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -454,9 +552,9 @@ public final class CloudfrontFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var functionName = config.get(&#34;functionName&#34;);
-     *         final var existing = Output.of(CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
+     *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -474,10 +572,21 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -485,7 +594,7 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLogDeliveryCanonicalUserId = Output.of(CloudfrontFunctions.getLogDeliveryCanonicalUserId());
+     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
      *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
      * 
@@ -494,7 +603,7 @@ public final class CloudfrontFunctions {
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(exampleLogDeliveryCanonicalUserId.apply(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
      *                         .type(&#34;CanonicalUser&#34;)
      *                         .build())
      *                     .permission(&#34;FULL_CONTROL&#34;)
@@ -518,10 +627,21 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -529,7 +649,7 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLogDeliveryCanonicalUserId = Output.of(CloudfrontFunctions.getLogDeliveryCanonicalUserId());
+     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
      *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
      * 
@@ -538,7 +658,7 @@ public final class CloudfrontFunctions {
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(exampleLogDeliveryCanonicalUserId.apply(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
      *                         .type(&#34;CanonicalUser&#34;)
      *                         .build())
      *                     .permission(&#34;FULL_CONTROL&#34;)
@@ -562,10 +682,21 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -573,7 +704,7 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLogDeliveryCanonicalUserId = Output.of(CloudfrontFunctions.getLogDeliveryCanonicalUserId());
+     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
      *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
      * 
@@ -582,7 +713,7 @@ public final class CloudfrontFunctions {
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(exampleLogDeliveryCanonicalUserId.apply(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
      *                         .type(&#34;CanonicalUser&#34;)
      *                         .build())
      *                     .permission(&#34;FULL_CONTROL&#34;)
@@ -606,10 +737,21 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -617,7 +759,7 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLogDeliveryCanonicalUserId = Output.of(CloudfrontFunctions.getLogDeliveryCanonicalUserId());
+     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
      *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
      * 
@@ -626,7 +768,7 @@ public final class CloudfrontFunctions {
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(exampleLogDeliveryCanonicalUserId.apply(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
      *                         .type(&#34;CanonicalUser&#34;)
      *                         .build())
      *                     .permission(&#34;FULL_CONTROL&#34;)
@@ -650,10 +792,21 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -661,7 +814,7 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLogDeliveryCanonicalUserId = Output.of(CloudfrontFunctions.getLogDeliveryCanonicalUserId());
+     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
      *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
      * 
@@ -670,7 +823,7 @@ public final class CloudfrontFunctions {
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(exampleLogDeliveryCanonicalUserId.apply(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
      *                         .type(&#34;CanonicalUser&#34;)
      *                         .build())
      *                     .permission(&#34;FULL_CONTROL&#34;)
@@ -694,10 +847,21 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -705,7 +869,7 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLogDeliveryCanonicalUserId = Output.of(CloudfrontFunctions.getLogDeliveryCanonicalUserId());
+     *         final var exampleLogDeliveryCanonicalUserId = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
      *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
      * 
@@ -714,7 +878,7 @@ public final class CloudfrontFunctions {
      *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
      *                 .grants(BucketAclV2AccessControlPolicyGrantArgs.builder()
      *                     .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
-     *                         .id(exampleLogDeliveryCanonicalUserId.apply(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
+     *                         .id(exampleLogDeliveryCanonicalUserId.applyValue(getLogDeliveryCanonicalUserIdResult -&gt; getLogDeliveryCanonicalUserIdResult.id()))
      *                         .type(&#34;CanonicalUser&#34;)
      *                         .build())
      *                     .permission(&#34;FULL_CONTROL&#34;)
@@ -738,10 +902,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -749,7 +920,7 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginAccessIdentities());
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
      * 
      *     }
      * }
@@ -760,10 +931,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -771,11 +949,11 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
      *             .comments(            
      *                 &#34;example-comment1&#34;,
      *                 &#34;example-comment2&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -793,10 +971,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -804,7 +989,7 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginAccessIdentities());
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
      * 
      *     }
      * }
@@ -815,10 +1000,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -826,11 +1018,11 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
      *             .comments(            
      *                 &#34;example-comment1&#34;,
      *                 &#34;example-comment2&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -848,10 +1040,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -859,7 +1058,7 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginAccessIdentities());
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
      * 
      *     }
      * }
@@ -870,10 +1069,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -881,11 +1087,11 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
      *             .comments(            
      *                 &#34;example-comment1&#34;,
      *                 &#34;example-comment2&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -903,10 +1109,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -914,7 +1127,7 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginAccessIdentities());
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
      * 
      *     }
      * }
@@ -925,10 +1138,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -936,11 +1156,11 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
      *             .comments(            
      *                 &#34;example-comment1&#34;,
      *                 &#34;example-comment2&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -958,10 +1178,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -969,7 +1196,7 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginAccessIdentities());
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
      * 
      *     }
      * }
@@ -980,10 +1207,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -991,11 +1225,11 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
      *             .comments(            
      *                 &#34;example-comment1&#34;,
      *                 &#34;example-comment2&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1013,10 +1247,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1024,7 +1265,7 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginAccessIdentities());
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities();
      * 
      *     }
      * }
@@ -1035,10 +1276,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1046,11 +1294,11 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
+     *         final var example = CloudfrontFunctions.getOriginAccessIdentities(GetOriginAccessIdentitiesArgs.builder()
      *             .comments(            
      *                 &#34;example-comment1&#34;,
      *                 &#34;example-comment2&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1079,10 +1327,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1090,9 +1345,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1109,10 +1364,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1120,9 +1382,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1139,10 +1401,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1150,9 +1419,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1169,10 +1438,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1180,9 +1456,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1199,10 +1475,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1210,9 +1493,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1229,10 +1512,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginRequestPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1240,9 +1530,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getOriginRequestPolicy(GetOriginRequestPolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1259,10 +1549,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetRealtimeLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1270,9 +1567,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getRealtimeLogConfig(GetRealtimeLogConfigArgs.builder()
+     *         final var example = CloudfrontFunctions.getRealtimeLogConfig(GetRealtimeLogConfigArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1289,10 +1586,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetRealtimeLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1300,9 +1604,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getRealtimeLogConfig(GetRealtimeLogConfigArgs.builder()
+     *         final var example = CloudfrontFunctions.getRealtimeLogConfig(GetRealtimeLogConfigArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1319,10 +1623,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetRealtimeLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1330,9 +1641,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getRealtimeLogConfig(GetRealtimeLogConfigArgs.builder()
+     *         final var example = CloudfrontFunctions.getRealtimeLogConfig(GetRealtimeLogConfigArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1349,10 +1660,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetRealtimeLogConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1360,9 +1678,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getRealtimeLogConfig(GetRealtimeLogConfigArgs.builder()
+     *         final var example = CloudfrontFunctions.getRealtimeLogConfig(GetRealtimeLogConfigArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1379,10 +1697,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1390,9 +1715,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1409,10 +1734,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1420,9 +1752,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1439,10 +1771,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1450,9 +1789,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1469,10 +1808,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1480,9 +1826,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1499,10 +1845,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1510,9 +1863,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1529,10 +1882,17 @@ public final class CloudfrontFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetResponseHeadersPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1540,9 +1900,9 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
+     *         final var example = CloudfrontFunctions.getResponseHeadersPolicy(GetResponseHeadersPolicyArgs.builder()
      *             .name(&#34;example-policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

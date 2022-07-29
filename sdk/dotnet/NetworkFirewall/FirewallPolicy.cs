@@ -24,7 +24,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///     {
     ///         var example = new Aws.NetworkFirewall.FirewallPolicy("example", new Aws.NetworkFirewall.FirewallPolicyArgs
     ///         {
-    ///             FirewallPolicy = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
+    ///             FirewallPolicyConfiguration = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
     ///             {
     ///                 StatelessDefaultActions = 
     ///                 {
@@ -47,55 +47,6 @@ namespace Pulumi.Aws.NetworkFirewall
     ///             {
     ///                 { "Tag1", "Value1" },
     ///                 { "Tag2", "Value2" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ## Policy with a Custom Action for Stateless Inspection
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var test = new Aws.NetworkFirewall.FirewallPolicy("test", new Aws.NetworkFirewall.FirewallPolicyArgs
-    ///         {
-    ///             FirewallPolicy = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyArgs
-    ///             {
-    ///                 StatelessCustomActions = 
-    ///                 {
-    ///                     new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionArgs
-    ///                     {
-    ///                         ActionDefinition = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs
-    ///                         {
-    ///                             PublishMetricAction = new Aws.NetworkFirewall.Inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs
-    ///                             {
-    ///                                 Dimension = 
-    ///                                 {
-    ///                                     
-    ///                                     {
-    ///                                         { "value", "1" },
-    ///                                     },
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                         ActionName = "ExampleCustomAction",
-    ///                     },
-    ///                 },
-    ///                 StatelessDefaultActions = 
-    ///                 {
-    ///                     "aws:pass",
-    ///                     "ExampleCustomAction",
-    ///                 },
-    ///                 StatelessFragmentDefaultActions = 
-    ///                 {
-    ///                     "aws:drop",
-    ///                 },
     ///             },
     ///         });
     ///     }

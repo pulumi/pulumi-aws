@@ -23,10 +23,36 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafregional.IpSet;
+ * import com.pulumi.aws.wafregional.IpSetArgs;
+ * import com.pulumi.aws.wafregional.inputs.IpSetIpSetDescriptorArgs;
+ * import com.pulumi.aws.wafregional.Rule;
+ * import com.pulumi.aws.wafregional.RuleArgs;
+ * import com.pulumi.aws.wafregional.inputs.RulePredicateArgs;
+ * import com.pulumi.aws.wafregional.WebAcl;
+ * import com.pulumi.aws.wafregional.WebAclArgs;
+ * import com.pulumi.aws.wafregional.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
+ * import com.pulumi.aws.wafregional.inputs.WebAclRuleActionArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.alb.LoadBalancer;
+ * import com.pulumi.aws.alb.LoadBalancerArgs;
+ * import com.pulumi.aws.wafregional.WebAclAssociation;
+ * import com.pulumi.aws.wafregional.WebAclAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -68,18 +94,18 @@ import javax.annotation.Nullable;
  *             .cidrBlock(&#34;10.1.0.0/16&#34;)
  *             .build());
  * 
- *         final var available = Output.of(AwsFunctions.getAvailabilityZones());
+ *         final var available = AwsFunctions.getAvailabilityZones();
  * 
  *         var fooSubnet = new Subnet(&#34;fooSubnet&#34;, SubnetArgs.builder()        
  *             .vpcId(fooVpc.id())
  *             .cidrBlock(&#34;10.1.1.0/24&#34;)
- *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+ *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
  *             .build());
  * 
  *         var bar = new Subnet(&#34;bar&#34;, SubnetArgs.builder()        
  *             .vpcId(fooVpc.id())
  *             .cidrBlock(&#34;10.1.2.0/24&#34;)
- *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+ *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
  *             .build());
  * 
  *         var fooLoadBalancer = new LoadBalancer(&#34;fooLoadBalancer&#34;, LoadBalancerArgs.builder()        
@@ -101,11 +127,35 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafregional.IpSet;
+ * import com.pulumi.aws.wafregional.IpSetArgs;
+ * import com.pulumi.aws.wafregional.inputs.IpSetIpSetDescriptorArgs;
+ * import com.pulumi.aws.wafregional.Rule;
+ * import com.pulumi.aws.wafregional.RuleArgs;
+ * import com.pulumi.aws.wafregional.inputs.RulePredicateArgs;
+ * import com.pulumi.aws.wafregional.WebAcl;
+ * import com.pulumi.aws.wafregional.WebAclArgs;
+ * import com.pulumi.aws.wafregional.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
+ * import com.pulumi.aws.wafregional.inputs.WebAclRuleActionArgs;
+ * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
+ * import com.pulumi.aws.apigateway.Deployment;
+ * import com.pulumi.aws.apigateway.DeploymentArgs;
+ * import com.pulumi.aws.apigateway.Stage;
+ * import com.pulumi.aws.apigateway.StageArgs;
+ * import com.pulumi.aws.wafregional.WebAclAssociation;
+ * import com.pulumi.aws.wafregional.WebAclAssociationArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -168,8 +218,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
  *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().apply(body -&gt; serializeJson(
- *                 body)).apply(toJSON -&gt; computeSHA1(toJSON))))
+ *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
+ *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
  *             .build());
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        

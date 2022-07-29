@@ -36,7 +36,32 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := connect.NewContactFlow(ctx, "test", &connect.ContactFlowArgs{
-// 			Content: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "	{\n", "		\"Version\": \"2019-10-30\",\n", "		\"StartAction\": \"12345678-1234-1234-1234-123456789012\",\n", "		\"Actions\": [\n", "			{\n", "				\"Identifier\": \"12345678-1234-1234-1234-123456789012\",\n", "				\"Type\": \"MessageParticipant\",\n", "				\"Transitions\": {\n", "					\"NextAction\": \"abcdef-abcd-abcd-abcd-abcdefghijkl\",\n", "					\"Errors\": [],\n", "					\"Conditions\": []\n", "				},\n", "				\"Parameters\": {\n", "					\"Text\": \"Thanks for calling the sample flow!\"\n", "				}\n", "			},\n", "			{\n", "				\"Identifier\": \"abcdef-abcd-abcd-abcd-abcdefghijkl\",\n", "				\"Type\": \"DisconnectParticipant\",\n", "				\"Transitions\": {},\n", "				\"Parameters\": {}\n", "			}\n", "		]\n", "	}\n", "	\n")),
+// 			Content: pulumi.String(fmt.Sprintf(`	{
+// 		"Version": "2019-10-30",
+// 		"StartAction": "12345678-1234-1234-1234-123456789012",
+// 		"Actions": [
+// 			{
+// 				"Identifier": "12345678-1234-1234-1234-123456789012",
+// 				"Type": "MessageParticipant",
+// 				"Transitions": {
+// 					"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+// 					"Errors": [],
+// 					"Conditions": []
+// 				},
+// 				"Parameters": {
+// 					"Text": "Thanks for calling the sample flow!"
+// 				}
+// 			},
+// 			{
+// 				"Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+// 				"Type": "DisconnectParticipant",
+// 				"Transitions": {},
+// 				"Parameters": {}
+// 			}
+// 		]
+// 	}
+//
+// `)),
 // 			Description: pulumi.String("Test Contact Flow Description"),
 // 			InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
 // 			Tags: pulumi.StringMap{

@@ -27,10 +27,17 @@ public final class ElasticacheFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -38,9 +45,9 @@ public final class ElasticacheFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var myCluster = Output.of(ElasticacheFunctions.getCluster(GetClusterArgs.builder()
+     *         final var myCluster = ElasticacheFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterId(&#34;my-cluster-id&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -57,10 +64,17 @@ public final class ElasticacheFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -68,9 +82,9 @@ public final class ElasticacheFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var myCluster = Output.of(ElasticacheFunctions.getCluster(GetClusterArgs.builder()
+     *         final var myCluster = ElasticacheFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterId(&#34;my-cluster-id&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -87,10 +101,17 @@ public final class ElasticacheFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -98,9 +119,9 @@ public final class ElasticacheFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var myCluster = Output.of(ElasticacheFunctions.getCluster(GetClusterArgs.builder()
+     *         final var myCluster = ElasticacheFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterId(&#34;my-cluster-id&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -117,10 +138,17 @@ public final class ElasticacheFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -128,9 +156,9 @@ public final class ElasticacheFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var myCluster = Output.of(ElasticacheFunctions.getCluster(GetClusterArgs.builder()
+     *         final var myCluster = ElasticacheFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterId(&#34;my-cluster-id&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -147,10 +175,17 @@ public final class ElasticacheFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetReplicationGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -158,9 +193,9 @@ public final class ElasticacheFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = Output.of(ElasticacheFunctions.getReplicationGroup(GetReplicationGroupArgs.builder()
+     *         final var bar = ElasticacheFunctions.getReplicationGroup(GetReplicationGroupArgs.builder()
      *             .replicationGroupId(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -177,10 +212,17 @@ public final class ElasticacheFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetReplicationGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -188,9 +230,9 @@ public final class ElasticacheFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = Output.of(ElasticacheFunctions.getReplicationGroup(GetReplicationGroupArgs.builder()
+     *         final var bar = ElasticacheFunctions.getReplicationGroup(GetReplicationGroupArgs.builder()
      *             .replicationGroupId(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -207,10 +249,17 @@ public final class ElasticacheFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetReplicationGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -218,9 +267,9 @@ public final class ElasticacheFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = Output.of(ElasticacheFunctions.getReplicationGroup(GetReplicationGroupArgs.builder()
+     *         final var bar = ElasticacheFunctions.getReplicationGroup(GetReplicationGroupArgs.builder()
      *             .replicationGroupId(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -237,10 +286,17 @@ public final class ElasticacheFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetReplicationGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -248,9 +304,9 @@ public final class ElasticacheFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = Output.of(ElasticacheFunctions.getReplicationGroup(GetReplicationGroupArgs.builder()
+     *         final var bar = ElasticacheFunctions.getReplicationGroup(GetReplicationGroupArgs.builder()
      *             .replicationGroupId(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -267,10 +323,17 @@ public final class ElasticacheFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -278,9 +341,9 @@ public final class ElasticacheFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = Output.of(ElasticacheFunctions.getUser(GetUserArgs.builder()
+     *         final var bar = ElasticacheFunctions.getUser(GetUserArgs.builder()
      *             .userId(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -297,10 +360,17 @@ public final class ElasticacheFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -308,9 +378,9 @@ public final class ElasticacheFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = Output.of(ElasticacheFunctions.getUser(GetUserArgs.builder()
+     *         final var bar = ElasticacheFunctions.getUser(GetUserArgs.builder()
      *             .userId(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -327,10 +397,17 @@ public final class ElasticacheFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -338,9 +415,9 @@ public final class ElasticacheFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = Output.of(ElasticacheFunctions.getUser(GetUserArgs.builder()
+     *         final var bar = ElasticacheFunctions.getUser(GetUserArgs.builder()
      *             .userId(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -357,10 +434,17 @@ public final class ElasticacheFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -368,9 +452,9 @@ public final class ElasticacheFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = Output.of(ElasticacheFunctions.getUser(GetUserArgs.builder()
+     *         final var bar = ElasticacheFunctions.getUser(GetUserArgs.builder()
      *             .userId(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

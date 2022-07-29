@@ -11,49 +11,6 @@ import * as utilities from "../utilities";
  * > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2.
  *
  * ## Example Usage
- * ### OpenAPI Specification
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as crypto from "crypto";
- *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {
- *     body: JSON.stringify({
- *         openapi: "3.0.1",
- *         info: {
- *             title: "example",
- *             version: "1.0",
- *         },
- *         paths: {
- *             "/path1": {
- *                 get: {
- *                     "x-amazon-apigateway-integration": {
- *                         httpMethod: "GET",
- *                         payloadFormatVersion: "1.0",
- *                         type: "HTTP_PROXY",
- *                         uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
- *                     },
- *                 },
- *             },
- *         },
- *     }),
- *     endpointConfiguration: {
- *         types: ["REGIONAL"],
- *     },
- * });
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
- *     restApi: exampleRestApi.id,
- *     triggers: {
- *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
- *     },
- * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
- *     deployment: exampleDeployment.id,
- *     restApi: exampleRestApi.id,
- *     stageName: "example",
- * });
- * ```
  * ### Resources
  *
  * ```typescript

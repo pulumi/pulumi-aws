@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./geofenceCollection";
+export * from "./getGeofenceCollection";
 export * from "./getMap";
 export * from "./getPlaceIndex";
 export * from "./getRouteCalculator";
@@ -15,6 +17,7 @@ export * from "./routeCalculation";
 export * from "./tracker";
 
 // Import resources to register:
+import { GeofenceCollection } from "./geofenceCollection";
 import { Map } from "./map";
 import { PlaceIndex } from "./placeIndex";
 import { RouteCalculation } from "./routeCalculation";
@@ -24,6 +27,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:location/geofenceCollection:GeofenceCollection":
+                return new GeofenceCollection(name, <any>undefined, { urn })
             case "aws:location/map:Map":
                 return new Map(name, <any>undefined, { urn })
             case "aws:location/placeIndex:PlaceIndex":
@@ -37,6 +42,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "location/geofenceCollection", _module)
 pulumi.runtime.registerResourceModule("aws", "location/map", _module)
 pulumi.runtime.registerResourceModule("aws", "location/placeIndex", _module)
 pulumi.runtime.registerResourceModule("aws", "location/routeCalculation", _module)

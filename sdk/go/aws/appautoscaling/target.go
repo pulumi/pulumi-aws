@@ -33,7 +33,7 @@ import (
 // 		_, err := appautoscaling.NewTarget(ctx, "dynamodbTableReadTarget", &appautoscaling.TargetArgs{
 // 			MaxCapacity:       pulumi.Int(100),
 // 			MinCapacity:       pulumi.Int(5),
-// 			ResourceId:        pulumi.String(fmt.Sprintf("%v%v", "table/", aws_dynamodb_table.Example.Name)),
+// 			ResourceId:        pulumi.String(fmt.Sprintf("table/%v", aws_dynamodb_table.Example.Name)),
 // 			ScalableDimension: pulumi.String("dynamodb:table:ReadCapacityUnits"),
 // 			ServiceNamespace:  pulumi.String("dynamodb"),
 // 		})
@@ -61,7 +61,7 @@ import (
 // 		_, err := appautoscaling.NewTarget(ctx, "dynamodbIndexReadTarget", &appautoscaling.TargetArgs{
 // 			MaxCapacity:       pulumi.Int(100),
 // 			MinCapacity:       pulumi.Int(5),
-// 			ResourceId:        pulumi.String(fmt.Sprintf("%v%v%v%v", "table/", aws_dynamodb_table.Example.Name, "/index/", _var.Index_name)),
+// 			ResourceId:        pulumi.String(fmt.Sprintf("table/%v/index/%v", aws_dynamodb_table.Example.Name, _var.Index_name)),
 // 			ScalableDimension: pulumi.String("dynamodb:index:ReadCapacityUnits"),
 // 			ServiceNamespace:  pulumi.String("dynamodb"),
 // 		})
@@ -89,7 +89,7 @@ import (
 // 		_, err := appautoscaling.NewTarget(ctx, "ecsTarget", &appautoscaling.TargetArgs{
 // 			MaxCapacity:       pulumi.Int(4),
 // 			MinCapacity:       pulumi.Int(1),
-// 			ResourceId:        pulumi.String(fmt.Sprintf("%v%v%v%v", "service/", aws_ecs_cluster.Example.Name, "/", aws_ecs_service.Example.Name)),
+// 			ResourceId:        pulumi.String(fmt.Sprintf("service/%v/%v", aws_ecs_cluster.Example.Name, aws_ecs_service.Example.Name)),
 // 			ScalableDimension: pulumi.String("ecs:service:DesiredCount"),
 // 			ServiceNamespace:  pulumi.String("ecs"),
 // 		})
@@ -117,7 +117,7 @@ import (
 // 		_, err := appautoscaling.NewTarget(ctx, "replicas", &appautoscaling.TargetArgs{
 // 			MaxCapacity:       pulumi.Int(15),
 // 			MinCapacity:       pulumi.Int(1),
-// 			ResourceId:        pulumi.String(fmt.Sprintf("%v%v", "cluster:", aws_rds_cluster.Example.Id)),
+// 			ResourceId:        pulumi.String(fmt.Sprintf("cluster:%v", aws_rds_cluster.Example.Id)),
 // 			ScalableDimension: pulumi.String("rds:cluster:ReadReplicaCount"),
 // 			ServiceNamespace:  pulumi.String("rds"),
 // 		})

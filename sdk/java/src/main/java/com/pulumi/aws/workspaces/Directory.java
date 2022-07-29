@@ -28,11 +28,34 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.workspaces.Directory;
+ * import com.pulumi.aws.workspaces.DirectoryArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectorySelfServicePermissionsArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceCreationPropertiesArgs;
+ * import com.pulumi.aws.directoryservice.Directory;
+ * import com.pulumi.aws.directoryservice.DirectoryArgs;
+ * import com.pulumi.aws.directoryservice.inputs.DirectoryVpcSettingsArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -40,7 +63,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var workspaces = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var workspaces = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -48,10 +71,10 @@ import javax.annotation.Nullable;
  *                     .identifiers(&#34;workspaces.amazonaws.com&#34;)
  *                     .build())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var workspacesDefault = new Role(&#34;workspacesDefault&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(workspaces.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(workspaces.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var workspacesDefaultServiceAccess = new RolePolicyAttachment(&#34;workspacesDefaultServiceAccess&#34;, RolePolicyAttachmentArgs.builder()        
@@ -147,10 +170,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.workspaces.IpGroup;
+ * import com.pulumi.aws.workspaces.Directory;
+ * import com.pulumi.aws.workspaces.DirectoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

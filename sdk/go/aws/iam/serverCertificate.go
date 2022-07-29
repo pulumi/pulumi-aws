@@ -73,8 +73,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := iam.NewServerCertificate(ctx, "testCertAlt", &iam.ServerCertificateArgs{
-// 			CertificateBody: pulumi.String(fmt.Sprintf("%v%v%v%v", "-----BEGIN CERTIFICATE-----\n", "[......] # cert contents\n", "-----END CERTIFICATE-----\n", "\n")),
-// 			PrivateKey:      pulumi.String(fmt.Sprintf("%v%v%v%v", "-----BEGIN RSA PRIVATE KEY-----\n", "[......] # cert contents\n", "-----END RSA PRIVATE KEY-----\n", "\n")),
+// 			CertificateBody: pulumi.String(fmt.Sprintf("-----BEGIN CERTIFICATE-----\n[......] # cert contents\n-----END CERTIFICATE-----\n\n")),
+// 			PrivateKey:      pulumi.String(fmt.Sprintf("-----BEGIN RSA PRIVATE KEY-----\n[......] # cert contents\n-----END RSA PRIVATE KEY-----\n\n")),
 // 		})
 // 		if err != nil {
 // 			return err

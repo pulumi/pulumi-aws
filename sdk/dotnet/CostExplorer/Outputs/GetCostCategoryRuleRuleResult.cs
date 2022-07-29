@@ -33,6 +33,9 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// Return results that match both `Dimension` object.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleOrResult> Ors;
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleTagResult> Tags;
 
         [OutputConstructor]

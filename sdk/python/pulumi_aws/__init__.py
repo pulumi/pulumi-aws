@@ -183,6 +183,8 @@ if typing.TYPE_CHECKING:
     emrcontainers = __emrcontainers
     import pulumi_aws.emrserverless as __emrserverless
     emrserverless = __emrserverless
+    import pulumi_aws.fis as __fis
+    fis = __fis
     import pulumi_aws.fms as __fms
     fms = __fms
     import pulumi_aws.fsx as __fsx
@@ -283,10 +285,14 @@ if typing.TYPE_CHECKING:
     redshift = __redshift
     import pulumi_aws.redshiftdata as __redshiftdata
     redshiftdata = __redshiftdata
+    import pulumi_aws.redshiftserverless as __redshiftserverless
+    redshiftserverless = __redshiftserverless
     import pulumi_aws.resourcegroups as __resourcegroups
     resourcegroups = __resourcegroups
     import pulumi_aws.resourcegroupstaggingapi as __resourcegroupstaggingapi
     resourcegroupstaggingapi = __resourcegroupstaggingapi
+    import pulumi_aws.rolesanywhere as __rolesanywhere
+    rolesanywhere = __rolesanywhere
     import pulumi_aws.route53 as __route53
     route53 = __route53
     import pulumi_aws.route53domains as __route53domains
@@ -439,6 +445,7 @@ else:
     emr = _utilities.lazy_import('pulumi_aws.emr')
     emrcontainers = _utilities.lazy_import('pulumi_aws.emrcontainers')
     emrserverless = _utilities.lazy_import('pulumi_aws.emrserverless')
+    fis = _utilities.lazy_import('pulumi_aws.fis')
     fms = _utilities.lazy_import('pulumi_aws.fms')
     fsx = _utilities.lazy_import('pulumi_aws.fsx')
     gamelift = _utilities.lazy_import('pulumi_aws.gamelift')
@@ -489,8 +496,10 @@ else:
     rds = _utilities.lazy_import('pulumi_aws.rds')
     redshift = _utilities.lazy_import('pulumi_aws.redshift')
     redshiftdata = _utilities.lazy_import('pulumi_aws.redshiftdata')
+    redshiftserverless = _utilities.lazy_import('pulumi_aws.redshiftserverless')
     resourcegroups = _utilities.lazy_import('pulumi_aws.resourcegroups')
     resourcegroupstaggingapi = _utilities.lazy_import('pulumi_aws.resourcegroupstaggingapi')
+    rolesanywhere = _utilities.lazy_import('pulumi_aws.rolesanywhere')
     route53 = _utilities.lazy_import('pulumi_aws.route53')
     route53domains = _utilities.lazy_import('pulumi_aws.route53domains')
     route53recoverycontrol = _utilities.lazy_import('pulumi_aws.route53recoverycontrol')
@@ -2462,6 +2471,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "connect/user",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/user:User": "User"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "connect/userHierarchyGroup",
   "fqn": "pulumi_aws.connect",
   "classes": {
@@ -2474,6 +2491,14 @@ _utilities.register(
   "fqn": "pulumi_aws.connect",
   "classes": {
    "aws:connect/userHierarchyStructure:UserHierarchyStructure": "UserHierarchyStructure"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "connect/vocabulary",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/vocabulary:Vocabulary": "Vocabulary"
   }
  },
  {
@@ -4598,6 +4623,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "fis/experimentTemplate",
+  "fqn": "pulumi_aws.fis",
+  "classes": {
+   "aws:fis/experimentTemplate:ExperimentTemplate": "ExperimentTemplate"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "fms/adminAccount",
   "fqn": "pulumi_aws.fms",
   "classes": {
@@ -5902,6 +5935,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "location/geofenceCollection",
+  "fqn": "pulumi_aws.location",
+  "classes": {
+   "aws:location/geofenceCollection:GeofenceCollection": "GeofenceCollection"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "location/map",
   "fqn": "pulumi_aws.location",
   "classes": {
@@ -7014,10 +7055,34 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "redshiftserverless/namespace",
+  "fqn": "pulumi_aws.redshiftserverless",
+  "classes": {
+   "aws:redshiftserverless/namespace:Namespace": "Namespace"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "resourcegroups/group",
   "fqn": "pulumi_aws.resourcegroups",
   "classes": {
    "aws:resourcegroups/group:Group": "Group"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "rolesanywhere/profile",
+  "fqn": "pulumi_aws.rolesanywhere",
+  "classes": {
+   "aws:rolesanywhere/profile:Profile": "Profile"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "rolesanywhere/trustAnchor",
+  "fqn": "pulumi_aws.rolesanywhere",
+  "classes": {
+   "aws:rolesanywhere/trustAnchor:TrustAnchor": "TrustAnchor"
   }
  },
  {
@@ -8522,6 +8587,22 @@ _utilities.register(
   "fqn": "pulumi_aws.transcribe",
   "classes": {
    "aws:transcribe/medicalVocabulary:MedicalVocabulary": "MedicalVocabulary"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "transcribe/vocabulary",
+  "fqn": "pulumi_aws.transcribe",
+  "classes": {
+   "aws:transcribe/vocabulary:Vocabulary": "Vocabulary"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "transcribe/vocabularyFilter",
+  "fqn": "pulumi_aws.transcribe",
+  "classes": {
+   "aws:transcribe/vocabularyFilter:VocabularyFilter": "VocabularyFilter"
   }
  },
  {

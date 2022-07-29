@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> PerformanceInsightsKmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        /// Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         /// </summary>
         [Output("performanceInsightsRetentionPeriod")]
         public Output<int> PerformanceInsightsRetentionPeriod { get; private set; } = null!;
@@ -437,7 +437,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
 
         /// <summary>
-        /// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        /// Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         /// </summary>
         [Input("performanceInsightsRetentionPeriod")]
         public Input<int>? PerformanceInsightsRetentionPeriod { get; set; }
@@ -629,7 +629,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
 
         /// <summary>
-        /// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        /// Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         /// </summary>
         [Input("performanceInsightsRetentionPeriod")]
         public Input<int>? PerformanceInsightsRetentionPeriod { get; set; }

@@ -37,11 +37,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.Cluster;
+ * import com.pulumi.aws.rds.ClusterArgs;
+ * import com.pulumi.aws.rds.ClusterInstance;
+ * import com.pulumi.aws.rds.ClusterInstanceArgs;
  * import com.pulumi.codegen.internal.KeyedValue;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -409,14 +418,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.performanceInsightsKmsKeyId;
     }
     /**
-     * Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
+     * Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
     @Export(name="performanceInsightsRetentionPeriod", type=Integer.class, parameters={})
     private Output<Integer> performanceInsightsRetentionPeriod;
 
     /**
-     * @return Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
+     * @return Amount of time in days to retain Performance Insights data. Valida values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
     public Output<Integer> performanceInsightsRetentionPeriod() {

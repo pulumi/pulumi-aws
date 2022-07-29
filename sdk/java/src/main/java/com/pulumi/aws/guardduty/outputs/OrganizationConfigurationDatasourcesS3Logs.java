@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class OrganizationConfigurationDatasourcesS3Logs {
     /**
-     * @return When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * @return Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
      * 
      */
     private final Boolean autoEnable;
@@ -21,7 +21,7 @@ public final class OrganizationConfigurationDatasourcesS3Logs {
     }
 
     /**
-     * @return When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * @return Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
      * 
      */
     public Boolean autoEnable() {

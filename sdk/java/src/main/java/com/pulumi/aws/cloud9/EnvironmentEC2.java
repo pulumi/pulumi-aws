@@ -25,10 +25,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloud9.EnvironmentEC2;
+ * import com.pulumi.aws.cloud9.EnvironmentEC2Args;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -48,10 +55,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloud9.EnvironmentEC2;
+ * import com.pulumi.aws.cloud9.EnvironmentEC2Args;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -67,7 +83,7 @@ import javax.annotation.Nullable;
  *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
- *         ctx.export(&#34;cloud9Url&#34;, example.id().apply(id -&gt; String.format(&#34;https://%s.console.aws.amazon.com/cloud9/ide/%s&#34;, var_.region(),id)));
+ *         ctx.export(&#34;cloud9Url&#34;, example.id().applyValue(id -&gt; String.format(&#34;https://%s.console.aws.amazon.com/cloud9/ide/%s&#34;, var_.region(),id)));
  *     }
  * }
  * ```
@@ -76,10 +92,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloud9.EnvironmentEC2;
+ * import com.pulumi.aws.cloud9.EnvironmentEC2Args;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+ * import com.pulumi.aws.ec2.Eip;
+ * import com.pulumi.aws.ec2.EipArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -96,7 +123,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var cloud9Eip = new Eip(&#34;cloud9Eip&#34;, EipArgs.builder()        
- *             .instance(cloud9Instance.apply(getInstanceResult -&gt; getInstanceResult).apply(cloud9Instance -&gt; cloud9Instance.apply(getInstanceResult -&gt; getInstanceResult.id())))
+ *             .instance(cloud9Instance.applyValue(getInstanceResult -&gt; getInstanceResult).applyValue(cloud9Instance -&gt; cloud9Instance.applyValue(getInstanceResult -&gt; getInstanceResult.id())))
  *             .vpc(true)
  *             .build());
  * 

@@ -23,10 +23,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iot.Authorizer;
+ * import com.pulumi.aws.iot.AuthorizerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -39,7 +46,7 @@ import javax.annotation.Nullable;
  *             .signingDisabled(false)
  *             .status(&#34;ACTIVE&#34;)
  *             .tokenKeyName(&#34;Token-Header&#34;)
- *             .tokenSigningPublicKeys(Map.of(&#34;Key1&#34;, Files.readString(&#34;test-fixtures/iot-authorizer-signing-key.pem&#34;)))
+ *             .tokenSigningPublicKeys(Map.of(&#34;Key1&#34;, Files.readString(Paths.get(&#34;test-fixtures/iot-authorizer-signing-key.pem&#34;))))
  *             .build());
  * 
  *     }

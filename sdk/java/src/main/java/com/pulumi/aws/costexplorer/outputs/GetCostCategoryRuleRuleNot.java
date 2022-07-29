@@ -22,6 +22,10 @@ public final class GetCostCategoryRuleRuleNot {
      * 
      */
     private final List<GetCostCategoryRuleRuleNotDimension> dimensions;
+    /**
+     * @return Resource tags.
+     * 
+     */
     private final List<GetCostCategoryRuleRuleNotTag> tags;
 
     @CustomType.Constructor
@@ -48,6 +52,10 @@ public final class GetCostCategoryRuleRuleNot {
     public List<GetCostCategoryRuleRuleNotDimension> dimensions() {
         return this.dimensions;
     }
+    /**
+     * @return Resource tags.
+     * 
+     */
     public List<GetCostCategoryRuleRuleNotTag> tags() {
         return this.tags;
     }

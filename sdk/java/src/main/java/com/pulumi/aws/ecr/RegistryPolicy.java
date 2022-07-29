@@ -17,46 +17,6 @@ import javax.annotation.Nullable;
  * Provides an Elastic Container Registry Policy.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var currentCallerIdentity = Output.of(AwsFunctions.getCallerIdentity());
- * 
- *         final var currentRegion = Output.of(AwsFunctions.getRegion());
- * 
- *         final var currentPartition = Output.of(AwsFunctions.getPartition());
- * 
- *         var example = new RegistryPolicy(&#34;example&#34;, RegistryPolicyArgs.builder()        
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;testpolicy&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:%s:iam::%s:root&#34;, currentPartition.apply(getPartitionResult -&gt; getPartitionResult.partition()),currentCallerIdentity.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
- *                         )),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;ecr:ReplicateImage&#34;)),
- *                         jsonProperty(&#34;Resource&#34;, jsonArray(String.format(&#34;arn:%s:ecr:%s:%s:repository/*&#34;, currentPartition.apply(getPartitionResult -&gt; getPartitionResult.partition()),currentRegion.apply(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))))
- *                     )))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

@@ -20,10 +20,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dynamodb.Table;
+ * import com.pulumi.aws.dynamodb.TableArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
+ * import com.pulumi.aws.kinesis.Stream;
+ * import com.pulumi.aws.kinesis.StreamArgs;
+ * import com.pulumi.aws.dynamodb.KinesisStreamingDestination;
+ * import com.pulumi.aws.dynamodb.KinesisStreamingDestinationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

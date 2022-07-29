@@ -33,10 +33,21 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+     * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -44,9 +55,9 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedshiftFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = RedshiftFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterIdentifier(&#34;example-cluster&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var exampleStream = new FirehoseDeliveryStream(&#34;exampleStream&#34;, FirehoseDeliveryStreamArgs.builder()        
      *             .destination(&#34;redshift&#34;)
@@ -59,7 +70,7 @@ public final class RedshiftFunctions {
      *                 .build())
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .roleArn(aws_iam_role.firehose_role().arn())
-     *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.apply(getClusterResult -&gt; getClusterResult.endpoint()),example.apply(getClusterResult -&gt; getClusterResult.databaseName())))
+     *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()),example.applyValue(getClusterResult -&gt; getClusterResult.databaseName())))
      *                 .username(&#34;exampleuser&#34;)
      *                 .password(&#34;Exampl3Pass&#34;)
      *                 .dataTableName(&#34;example-table&#34;)
@@ -83,10 +94,21 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+     * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -94,9 +116,9 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedshiftFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = RedshiftFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterIdentifier(&#34;example-cluster&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var exampleStream = new FirehoseDeliveryStream(&#34;exampleStream&#34;, FirehoseDeliveryStreamArgs.builder()        
      *             .destination(&#34;redshift&#34;)
@@ -109,7 +131,7 @@ public final class RedshiftFunctions {
      *                 .build())
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .roleArn(aws_iam_role.firehose_role().arn())
-     *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.apply(getClusterResult -&gt; getClusterResult.endpoint()),example.apply(getClusterResult -&gt; getClusterResult.databaseName())))
+     *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()),example.applyValue(getClusterResult -&gt; getClusterResult.databaseName())))
      *                 .username(&#34;exampleuser&#34;)
      *                 .password(&#34;Exampl3Pass&#34;)
      *                 .dataTableName(&#34;example-table&#34;)
@@ -133,10 +155,21 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+     * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -144,9 +177,9 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedshiftFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = RedshiftFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterIdentifier(&#34;example-cluster&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var exampleStream = new FirehoseDeliveryStream(&#34;exampleStream&#34;, FirehoseDeliveryStreamArgs.builder()        
      *             .destination(&#34;redshift&#34;)
@@ -159,7 +192,7 @@ public final class RedshiftFunctions {
      *                 .build())
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .roleArn(aws_iam_role.firehose_role().arn())
-     *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.apply(getClusterResult -&gt; getClusterResult.endpoint()),example.apply(getClusterResult -&gt; getClusterResult.databaseName())))
+     *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()),example.applyValue(getClusterResult -&gt; getClusterResult.databaseName())))
      *                 .username(&#34;exampleuser&#34;)
      *                 .password(&#34;Exampl3Pass&#34;)
      *                 .dataTableName(&#34;example-table&#34;)
@@ -183,10 +216,21 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+     * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -194,9 +238,9 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedshiftFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = RedshiftFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterIdentifier(&#34;example-cluster&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var exampleStream = new FirehoseDeliveryStream(&#34;exampleStream&#34;, FirehoseDeliveryStreamArgs.builder()        
      *             .destination(&#34;redshift&#34;)
@@ -209,7 +253,7 @@ public final class RedshiftFunctions {
      *                 .build())
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .roleArn(aws_iam_role.firehose_role().arn())
-     *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.apply(getClusterResult -&gt; getClusterResult.endpoint()),example.apply(getClusterResult -&gt; getClusterResult.databaseName())))
+     *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()),example.applyValue(getClusterResult -&gt; getClusterResult.databaseName())))
      *                 .username(&#34;exampleuser&#34;)
      *                 .password(&#34;Exampl3Pass&#34;)
      *                 .dataTableName(&#34;example-table&#34;)
@@ -230,13 +274,21 @@ public final class RedshiftFunctions {
      * Provides redshift subnet group.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetClusterCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -244,9 +296,9 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
+     *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
      *             .name(aws_redshift_cluster_credentials.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -260,13 +312,21 @@ public final class RedshiftFunctions {
      * Provides redshift subnet group.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetClusterCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -274,9 +334,9 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
+     *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
      *             .name(aws_redshift_cluster_credentials.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -290,13 +350,21 @@ public final class RedshiftFunctions {
      * Provides redshift subnet group.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetClusterCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -304,9 +372,9 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
+     *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
      *             .name(aws_redshift_cluster_credentials.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -320,13 +388,21 @@ public final class RedshiftFunctions {
      * Provides redshift subnet group.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetClusterCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -334,9 +410,9 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
+     *         final var example = RedshiftFunctions.getClusterCredentials(GetClusterCredentialsArgs.builder()
      *             .name(aws_redshift_cluster_credentials.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -353,10 +429,17 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -364,12 +447,12 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
+     *         final var test = RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
      *             .clusterType(&#34;multi-node&#34;)
      *             .preferredNodeTypes(            
      *                 &#34;dc2.large&#34;,
      *                 &#34;ds2.xlarge&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -386,10 +469,17 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -397,12 +487,12 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
+     *         final var test = RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
      *             .clusterType(&#34;multi-node&#34;)
      *             .preferredNodeTypes(            
      *                 &#34;dc2.large&#34;,
      *                 &#34;ds2.xlarge&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -419,10 +509,17 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -430,12 +527,12 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
+     *         final var test = RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
      *             .clusterType(&#34;multi-node&#34;)
      *             .preferredNodeTypes(            
      *                 &#34;dc2.large&#34;,
      *                 &#34;ds2.xlarge&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -452,10 +549,17 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -463,12 +567,12 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
+     *         final var test = RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
      *             .clusterType(&#34;multi-node&#34;)
      *             .preferredNodeTypes(            
      *                 &#34;dc2.large&#34;,
      *                 &#34;ds2.xlarge&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -485,10 +589,17 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -496,12 +607,12 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
+     *         final var test = RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
      *             .clusterType(&#34;multi-node&#34;)
      *             .preferredNodeTypes(            
      *                 &#34;dc2.large&#34;,
      *                 &#34;ds2.xlarge&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -518,10 +629,17 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -529,12 +647,12 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
+     *         final var test = RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
      *             .clusterType(&#34;multi-node&#34;)
      *             .preferredNodeTypes(            
      *                 &#34;dc2.large&#34;,
      *                 &#34;ds2.xlarge&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -552,10 +670,21 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -563,7 +692,7 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(RedshiftFunctions.getServiceAccount());
+     *         final var main = RedshiftFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
      *             .forceDestroy(true)
@@ -595,7 +724,7 @@ public final class RedshiftFunctions {
      *         }
      * 	]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *     }
@@ -614,10 +743,21 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -625,7 +765,7 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(RedshiftFunctions.getServiceAccount());
+     *         final var main = RedshiftFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
      *             .forceDestroy(true)
@@ -657,7 +797,7 @@ public final class RedshiftFunctions {
      *         }
      * 	]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *     }
@@ -676,10 +816,21 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -687,7 +838,7 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(RedshiftFunctions.getServiceAccount());
+     *         final var main = RedshiftFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
      *             .forceDestroy(true)
@@ -719,7 +870,7 @@ public final class RedshiftFunctions {
      *         }
      * 	]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *     }
@@ -738,10 +889,21 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -749,7 +911,7 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(RedshiftFunctions.getServiceAccount());
+     *         final var main = RedshiftFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
      *             .forceDestroy(true)
@@ -781,7 +943,7 @@ public final class RedshiftFunctions {
      *         }
      * 	]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *     }
@@ -800,10 +962,21 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -811,7 +984,7 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(RedshiftFunctions.getServiceAccount());
+     *         final var main = RedshiftFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
      *             .forceDestroy(true)
@@ -843,7 +1016,7 @@ public final class RedshiftFunctions {
      *         }
      * 	]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *     }
@@ -862,10 +1035,21 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -873,7 +1057,7 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(RedshiftFunctions.getServiceAccount());
+     *         final var main = RedshiftFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
      *             .forceDestroy(true)
@@ -905,7 +1089,7 @@ public final class RedshiftFunctions {
      *         }
      * 	]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *     }
@@ -923,10 +1107,17 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -934,9 +1125,9 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
+     *         final var example = RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
      *             .name(aws_redshift_subnet_group.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -953,10 +1144,17 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -964,9 +1162,9 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
+     *         final var example = RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
      *             .name(aws_redshift_subnet_group.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -983,10 +1181,17 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -994,9 +1199,9 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
+     *         final var example = RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
      *             .name(aws_redshift_subnet_group.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1013,10 +1218,17 @@ public final class RedshiftFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.memorydb.inputs.GetSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1024,9 +1236,9 @@ public final class RedshiftFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
+     *         final var example = RedshiftFunctions.getSubnetGroup(GetSubnetGroupArgs.builder()
      *             .name(aws_redshift_subnet_group.example().name())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

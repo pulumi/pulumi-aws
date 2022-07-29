@@ -34,7 +34,7 @@ import (
 // 			AlarmName:        pulumi.String("example-composite-alarm"),
 // 			AlarmActions:     pulumi.Any(aws_sns_topic.Example.Arn),
 // 			OkActions:        pulumi.Any(aws_sns_topic.Example.Arn),
-// 			AlarmRule:        pulumi.String(fmt.Sprintf("%v%v%v%v%v%v", "ALARM(", aws_cloudwatch_metric_alarm.Alpha.Alarm_name, ") OR\n", "ALARM(", aws_cloudwatch_metric_alarm.Bravo.Alarm_name, ")\n")),
+// 			AlarmRule:        pulumi.String(fmt.Sprintf("ALARM(%v) OR\nALARM(%v)\n", aws_cloudwatch_metric_alarm.Alpha.Alarm_name, aws_cloudwatch_metric_alarm.Bravo.Alarm_name)),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -45,7 +45,7 @@ import (
 // 			},
 // 			TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
 // 				AutomationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs{
-// 					DocumentVersion: pulumi.String(fmt.Sprintf("%v%v", "$", "LATEST")),
+// 					DocumentVersion: pulumi.String(fmt.Sprintf("$LATEST")),
 // 					Parameters: ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArray{
 // 						&ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs{
 // 							Name: pulumi.String("InstanceId"),

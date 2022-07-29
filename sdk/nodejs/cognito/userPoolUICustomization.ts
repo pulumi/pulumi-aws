@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
  * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("exampleUserPoolDomain", {
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
  * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("exampleUserPoolDomain", {

@@ -107,7 +107,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := cloudwatch.NewMetricAlarm(ctx, "foobar", &cloudwatch.MetricAlarmArgs{
-// 			AlarmDescription:        pulumi.String(fmt.Sprintf("%v%v", "Request error rate has exceeded 10", "%")),
+// 			AlarmDescription:        pulumi.String(fmt.Sprintf("Request error rate has exceeded 10%v", "%")),
 // 			ComparisonOperator:      pulumi.String("GreaterThanOrEqualToThreshold"),
 // 			EvaluationPeriods:       pulumi.Int(2),
 // 			InsufficientDataActions: pulumi.AnyArray{},

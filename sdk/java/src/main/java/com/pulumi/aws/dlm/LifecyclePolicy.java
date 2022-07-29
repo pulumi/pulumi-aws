@@ -21,13 +21,26 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic
+ * 
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import com.pulumi.aws.dlm.LifecyclePolicy;
+ * import com.pulumi.aws.dlm.LifecyclePolicyArgs;
+ * import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -101,83 +114,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .tagsToAdd(Map.of(&#34;SnapshotCreator&#34;, &#34;DLM&#34;))
  *                     .copyTags(false)
- *                     .build())
- *                 .targetTags(Map.of(&#34;Snapshot&#34;, &#34;true&#34;))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Example Cross-Region Snapshot Copy Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * import com.pulumi.resources.CustomResourceOptions;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(AwsFunctions.getCallerIdentity());
- * 
- *         var dlmCrossRegionCopyCmk = new Key(&#34;dlmCrossRegionCopyCmk&#34;, KeyArgs.builder()        
- *             .description(&#34;Example Alternate Region KMS Key&#34;)
- *             .policy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Id&#34;: &#34;dlm-cross-region-copy-cmk&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;Enable IAM User Permissions&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;AWS&#34;: &#34;arn:aws:iam::%s:root&#34;
- *       },
- *       &#34;Action&#34;: &#34;kms:*&#34;,
- *       &#34;Resource&#34;: &#34;*&#34;
- *     }
- *   ]
- * }
- * &#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.alternate())
- *                 .build());
- * 
- *         var example = new LifecyclePolicy(&#34;example&#34;, LifecyclePolicyArgs.builder()        
- *             .description(&#34;example DLM lifecycle policy&#34;)
- *             .executionRoleArn(aws_iam_role.dlm_lifecycle_role().arn())
- *             .state(&#34;ENABLED&#34;)
- *             .policyDetails(LifecyclePolicyPolicyDetailsArgs.builder()
- *                 .resourceTypes(&#34;VOLUME&#34;)
- *                 .schedules(LifecyclePolicyPolicyDetailsScheduleArgs.builder()
- *                     .name(&#34;2 weeks of daily snapshots&#34;)
- *                     .createRule(LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.builder()
- *                         .interval(24)
- *                         .intervalUnit(&#34;HOURS&#34;)
- *                         .times(&#34;23:45&#34;)
- *                         .build())
- *                     .retainRule(LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs.builder()
- *                         .count(14)
- *                         .build())
- *                     .tagsToAdd(Map.of(&#34;SnapshotCreator&#34;, &#34;DLM&#34;))
- *                     .copyTags(false)
- *                     .crossRegionCopyRules(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs.builder()
- *                         .target(&#34;us-west-2&#34;)
- *                         .encrypted(true)
- *                         .cmkArn(dlmCrossRegionCopyCmk.arn())
- *                         .copyTags(true)
- *                         .retainRule(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs.builder()
- *                             .interval(30)
- *                             .intervalUnit(&#34;DAYS&#34;)
- *                             .build())
- *                         .build())
  *                     .build())
  *                 .targetTags(Map.of(&#34;Snapshot&#34;, &#34;true&#34;))
  *                 .build())

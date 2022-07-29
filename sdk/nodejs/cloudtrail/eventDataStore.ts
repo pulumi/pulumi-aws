@@ -15,15 +15,13 @@ import * as utilities from "../utilities";
  * ## Example Usage
  * ### Basic
  *
- * The most simple event data store configuration requires us to only set the `name` and `retentionPeriod` attributes. The event data store will automatically capture all management events. To capture management events from all the regions, `multiRegionEnabled` must be `true`.
+ * The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multiRegionEnabled` must be `true`.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cloudtrail.EventDataStore("example", {
- *     retentionPeriod: 7,
- * });
+ * const example = new aws.cloudtrail.EventDataStore("example", {});
  * ```
  * ### Data Event Logging
  *

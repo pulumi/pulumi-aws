@@ -13,7 +13,13 @@ namespace Pulumi.Aws.GuardDuty.Inputs
     public sealed class OrganizationConfigurationDatasourcesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for the builds to store logs to S3.
+        /// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+        /// </summary>
+        [Input("kubernetes")]
+        public Input<Inputs.OrganizationConfigurationDatasourcesKubernetesGetArgs>? Kubernetes { get; set; }
+
+        /// <summary>
+        /// Enable S3 Protection automatically for new member accounts.
         /// </summary>
         [Input("s3Logs")]
         public Input<Inputs.OrganizationConfigurationDatasourcesS3LogsGetArgs>? S3Logs { get; set; }

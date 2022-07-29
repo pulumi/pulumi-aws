@@ -164,7 +164,7 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly string KmsKeyArn;
         /// <summary>
-        /// The weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
+        /// The weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
         /// </summary>
         public readonly string MaintenanceWindow;
         /// <summary>

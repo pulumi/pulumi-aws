@@ -22,10 +22,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -33,7 +40,7 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources());
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources();
      * 
      *     }
      * }
@@ -42,10 +49,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -53,14 +67,14 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .tagFilters(GetResourcesTagFilterArgs.builder()
      *                 .key(&#34;tag-key&#34;)
      *                 .values(                
      *                     &#34;tag-value-1&#34;,
      *                     &#34;tag-value-2&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -69,10 +83,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -80,9 +101,9 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .resourceTypeFilters(&#34;ec2:instance&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -100,10 +121,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -111,7 +139,7 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources());
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources();
      * 
      *     }
      * }
@@ -120,10 +148,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -131,14 +166,14 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .tagFilters(GetResourcesTagFilterArgs.builder()
      *                 .key(&#34;tag-key&#34;)
      *                 .values(                
      *                     &#34;tag-value-1&#34;,
      *                     &#34;tag-value-2&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -147,10 +182,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -158,9 +200,9 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .resourceTypeFilters(&#34;ec2:instance&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -178,10 +220,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -189,7 +238,7 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources());
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources();
      * 
      *     }
      * }
@@ -198,10 +247,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -209,14 +265,14 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .tagFilters(GetResourcesTagFilterArgs.builder()
      *                 .key(&#34;tag-key&#34;)
      *                 .values(                
      *                     &#34;tag-value-1&#34;,
      *                     &#34;tag-value-2&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -225,10 +281,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -236,9 +299,9 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .resourceTypeFilters(&#34;ec2:instance&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -256,10 +319,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -267,7 +337,7 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources());
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources();
      * 
      *     }
      * }
@@ -276,10 +346,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -287,14 +364,14 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .tagFilters(GetResourcesTagFilterArgs.builder()
      *                 .key(&#34;tag-key&#34;)
      *                 .values(                
      *                     &#34;tag-value-1&#34;,
      *                     &#34;tag-value-2&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -303,10 +380,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -314,9 +398,9 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .resourceTypeFilters(&#34;ec2:instance&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -334,10 +418,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -345,7 +436,7 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources());
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources();
      * 
      *     }
      * }
@@ -354,10 +445,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -365,14 +463,14 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .tagFilters(GetResourcesTagFilterArgs.builder()
      *                 .key(&#34;tag-key&#34;)
      *                 .values(                
      *                     &#34;tag-value-1&#34;,
      *                     &#34;tag-value-2&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -381,10 +479,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -392,9 +497,9 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .resourceTypeFilters(&#34;ec2:instance&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -412,10 +517,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -423,7 +535,7 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources());
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources();
      * 
      *     }
      * }
@@ -432,10 +544,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -443,14 +562,14 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .tagFilters(GetResourcesTagFilterArgs.builder()
      *                 .key(&#34;tag-key&#34;)
      *                 .values(                
      *                     &#34;tag-value-1&#34;,
      *                     &#34;tag-value-2&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -459,10 +578,17 @@ public final class ResourcegroupstaggingapiFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -470,9 +596,9 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
+     *         final var test = ResourcegroupstaggingapiFunctions.getResources(GetResourcesArgs.builder()
      *             .resourceTypeFilters(&#34;ec2:instance&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

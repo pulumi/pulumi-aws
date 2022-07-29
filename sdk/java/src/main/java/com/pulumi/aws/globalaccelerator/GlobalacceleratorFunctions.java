@@ -21,10 +21,17 @@ public final class GlobalacceleratorFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.globalaccelerator.GlobalacceleratorFunctions;
+     * import com.pulumi.aws.globalaccelerator.inputs.GetAcceleratorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -35,10 +42,10 @@ public final class GlobalacceleratorFunctions {
      *         final var config = ctx.config();
      *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
      *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
-     *         final var example = Output.of(GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
+     *         final var example = GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -55,10 +62,17 @@ public final class GlobalacceleratorFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.globalaccelerator.GlobalacceleratorFunctions;
+     * import com.pulumi.aws.globalaccelerator.inputs.GetAcceleratorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -69,10 +83,10 @@ public final class GlobalacceleratorFunctions {
      *         final var config = ctx.config();
      *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
      *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
-     *         final var example = Output.of(GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
+     *         final var example = GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -89,10 +103,17 @@ public final class GlobalacceleratorFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.globalaccelerator.GlobalacceleratorFunctions;
+     * import com.pulumi.aws.globalaccelerator.inputs.GetAcceleratorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -103,10 +124,10 @@ public final class GlobalacceleratorFunctions {
      *         final var config = ctx.config();
      *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
      *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
-     *         final var example = Output.of(GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
+     *         final var example = GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -123,10 +144,17 @@ public final class GlobalacceleratorFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.globalaccelerator.GlobalacceleratorFunctions;
+     * import com.pulumi.aws.globalaccelerator.inputs.GetAcceleratorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -137,10 +165,10 @@ public final class GlobalacceleratorFunctions {
      *         final var config = ctx.config();
      *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
      *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
-     *         final var example = Output.of(GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
+     *         final var example = GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -157,10 +185,17 @@ public final class GlobalacceleratorFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.globalaccelerator.GlobalacceleratorFunctions;
+     * import com.pulumi.aws.globalaccelerator.inputs.GetAcceleratorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -171,10 +206,10 @@ public final class GlobalacceleratorFunctions {
      *         final var config = ctx.config();
      *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
      *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
-     *         final var example = Output.of(GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
+     *         final var example = GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -191,10 +226,17 @@ public final class GlobalacceleratorFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.globalaccelerator.GlobalacceleratorFunctions;
+     * import com.pulumi.aws.globalaccelerator.inputs.GetAcceleratorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -205,10 +247,10 @@ public final class GlobalacceleratorFunctions {
      *         final var config = ctx.config();
      *         final var acceleratorArn = config.get(&#34;acceleratorArn&#34;).orElse(&#34;&#34;);
      *         final var acceleratorName = config.get(&#34;acceleratorName&#34;).orElse(&#34;&#34;);
-     *         final var example = Output.of(GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
+     *         final var example = GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
      *             .arn(acceleratorArn)
      *             .name(acceleratorName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

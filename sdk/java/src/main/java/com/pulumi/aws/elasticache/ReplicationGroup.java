@@ -49,10 +49,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticache.ReplicationGroup;
+ * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -64,7 +71,7 @@ import javax.annotation.Nullable;
  *             .automaticFailoverEnabled(true)
  *             .description(&#34;example description&#34;)
  *             .nodeType(&#34;cache.m4.large&#34;)
- *             .numberCacheClusters(2)
+ *             .numCacheClusters(2)
  *             .parameterGroupName(&#34;default.redis3.2&#34;)
  *             .port(6379)
  *             .preferredCacheClusterAzs(            
@@ -83,11 +90,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticache.ReplicationGroup;
+ * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
+ * import com.pulumi.aws.elasticache.Cluster;
+ * import com.pulumi.aws.elasticache.ClusterArgs;
  * import com.pulumi.codegen.internal.KeyedValue;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -102,7 +118,7 @@ import javax.annotation.Nullable;
  *                 &#34;us-west-2b&#34;)
  *             .description(&#34;example description&#34;)
  *             .nodeType(&#34;cache.m4.large&#34;)
- *             .numberCacheClusters(2)
+ *             .numCacheClusters(2)
  *             .parameterGroupName(&#34;default.redis3.2&#34;)
  *             .port(6379)
  *             .build());
@@ -123,10 +139,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticache.ReplicationGroup;
+ * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -151,10 +174,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticache.ReplicationGroup;
+ * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
+ * import com.pulumi.aws.elasticache.inputs.ReplicationGroupLogDeliveryConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -163,7 +194,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ReplicationGroup(&#34;test&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupDescription(&#34;test description&#34;)
+ *             .description(&#34;test description&#34;)
  *             .nodeType(&#34;cache.t3.small&#34;)
  *             .port(6379)
  *             .applyImmediately(true)
@@ -200,11 +231,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticache.ReplicationGroup;
+ * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
+ * import com.pulumi.aws.elasticache.GlobalReplicationGroup;
+ * import com.pulumi.aws.elasticache.GlobalReplicationGroupArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -217,7 +257,7 @@ import javax.annotation.Nullable;
  *             .engine(&#34;redis&#34;)
  *             .engineVersion(&#34;5.0.6&#34;)
  *             .nodeType(&#34;cache.m5.large&#34;)
- *             .numberCacheClusters(1)
+ *             .numCacheClusters(1)
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.other_region())
  *                 .build());
@@ -232,7 +272,7 @@ import javax.annotation.Nullable;
  *         var secondary = new ReplicationGroup(&#34;secondary&#34;, ReplicationGroupArgs.builder()        
  *             .description(&#34;secondary replication group&#34;)
  *             .globalReplicationGroupId(example.globalReplicationGroupId())
- *             .numberCacheClusters(1)
+ *             .numCacheClusters(1)
  *             .build());
  * 
  *     }
@@ -325,14 +365,14 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return this.autoMinorVersionUpgrade;
     }
     /**
-     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `number_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      * 
      */
     @Export(name="automaticFailoverEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> automaticFailoverEnabled;
 
     /**
-     * @return Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `number_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+     * @return Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> automaticFailoverEnabled() {

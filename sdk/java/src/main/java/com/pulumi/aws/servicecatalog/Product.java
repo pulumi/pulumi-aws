@@ -26,13 +26,22 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic Usage
+ * 
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.servicecatalog.Product;
+ * import com.pulumi.aws.servicecatalog.ProductArgs;
+ * import com.pulumi.aws.servicecatalog.inputs.ProductProvisioningArtifactParametersArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

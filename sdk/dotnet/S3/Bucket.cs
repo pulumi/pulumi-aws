@@ -342,7 +342,7 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var replicationPolicy = new Aws.Iam.Policy("replicationPolicy", new Aws.Iam.PolicyArgs
     ///         {
-    ///             Policy = Output.Tuple(source.Arn, source.Arn, destination.Arn).Apply(values =&gt;
+    ///             PolicyDocument = Output.Tuple(source.Arn, source.Arn, destination.Arn).Apply(values =&gt;
     ///             {
     ///                 var sourceArn = values.Item1;
     ///                 var sourceArn1 = values.Item2;

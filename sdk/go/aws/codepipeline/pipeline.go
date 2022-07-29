@@ -42,7 +42,19 @@ import (
 // 			return err
 // 		}
 // 		codepipelineRole, err := iam.NewRole(ctx, "codepipelineRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"codepipeline.amazonaws.com\"\n", "      },\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Effect": "Allow",
+//       "Principal": {
+//         "Service": "codepipeline.amazonaws.com"
+//       },
+//       "Action": "sts:AssumeRole"
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -147,7 +159,41 @@ import (
 // 				codepipelineBucketArn := _args[0].(string)
 // 				codepipelineBucketArn1 := _args[1].(string)
 // 				exampleArn := _args[2].(string)
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\":\"Allow\",\n", "      \"Action\": [\n", "        \"s3:GetObject\",\n", "        \"s3:GetObjectVersion\",\n", "        \"s3:GetBucketVersioning\",\n", "        \"s3:PutObjectAcl\",\n", "        \"s3:PutObject\"\n", "      ],\n", "      \"Resource\": [\n", "        \"", codepipelineBucketArn, "\",\n", "        \"", codepipelineBucketArn1, "/*\"\n", "      ]\n", "    },\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"codestar-connections:UseConnection\"\n", "      ],\n", "      \"Resource\": \"", exampleArn, "\"\n", "    },\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"codebuild:BatchGetBuilds\",\n", "        \"codebuild:StartBuild\"\n", "      ],\n", "      \"Resource\": \"*\"\n", "    }\n", "  ]\n", "}\n"), nil
+// 				return fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Effect":"Allow",
+//       "Action": [
+//         "s3:GetObject",
+//         "s3:GetObjectVersion",
+//         "s3:GetBucketVersioning",
+//         "s3:PutObjectAcl",
+//         "s3:PutObject"
+//       ],
+//       "Resource": [
+//         "%v",
+//         "%v/*"
+//       ]
+//     },
+//     {
+//       "Effect": "Allow",
+//       "Action": [
+//         "codestar-connections:UseConnection"
+//       ],
+//       "Resource": "%v"
+//     },
+//     {
+//       "Effect": "Allow",
+//       "Action": [
+//         "codebuild:BatchGetBuilds",
+//         "codebuild:StartBuild"
+//       ],
+//       "Resource": "*"
+//     }
+//   ]
+// }
+// `, codepipelineBucketArn, codepipelineBucketArn1, exampleArn), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

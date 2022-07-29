@@ -27,10 +27,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glacier.Vault;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.glacier.VaultLock;
+ * import com.pulumi.aws.glacier.VaultLockArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -55,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVaultLock = new VaultLock(&#34;exampleVaultLock&#34;, VaultLockArgs.builder()        
  *             .completeLock(false)
- *             .policy(examplePolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult).apply(examplePolicyDocument -&gt; examplePolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .vaultName(exampleVault.name())
  *             .build());
  * 
@@ -66,10 +76,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glacier.VaultLock;
+ * import com.pulumi.aws.glacier.VaultLockArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

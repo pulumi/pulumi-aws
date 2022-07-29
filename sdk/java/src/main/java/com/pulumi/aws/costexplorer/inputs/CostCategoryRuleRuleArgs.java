@@ -96,9 +96,17 @@ public final class CostCategoryRuleRuleArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.ors);
     }
 
+    /**
+     * Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<CostCategoryRuleRuleTagsArgs> tags;
 
+    /**
+     * @return Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<CostCategoryRuleRuleTagsArgs>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -257,11 +265,23 @@ public final class CostCategoryRuleRuleArgs extends com.pulumi.resources.Resourc
             return ors(List.of(ors));
         }
 
+        /**
+         * @param tags Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<CostCategoryRuleRuleTagsArgs> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(CostCategoryRuleRuleTagsArgs tags) {
             return tags(Output.of(tags));
         }

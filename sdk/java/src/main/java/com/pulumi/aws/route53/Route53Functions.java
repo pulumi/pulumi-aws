@@ -40,10 +40,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -51,9 +58,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var dset = Output.of(Route53Functions.getDelegationSet(GetDelegationSetArgs.builder()
+     *         final var dset = Route53Functions.getDelegationSet(GetDelegationSetArgs.builder()
      *             .id(&#34;MQWGHCBFAKEID&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -74,10 +81,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -85,9 +99,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var dset = Output.of(Route53Functions.getDelegationSet(GetDelegationSetArgs.builder()
+     *         final var dset = Route53Functions.getDelegationSet(GetDelegationSetArgs.builder()
      *             .id(&#34;MQWGHCBFAKEID&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -108,10 +122,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -119,9 +140,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var dset = Output.of(Route53Functions.getDelegationSet(GetDelegationSetArgs.builder()
+     *         final var dset = Route53Functions.getDelegationSet(GetDelegationSetArgs.builder()
      *             .id(&#34;MQWGHCBFAKEID&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -142,10 +163,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetDelegationSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -153,9 +181,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var dset = Output.of(Route53Functions.getDelegationSet(GetDelegationSetArgs.builder()
+     *         final var dset = Route53Functions.getDelegationSet(GetDelegationSetArgs.builder()
      *             .id(&#34;MQWGHCBFAKEID&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -174,10 +202,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -185,9 +220,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
+     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -195,10 +230,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -206,12 +248,12 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
+     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .filters(GetResolverEndpointFilterArgs.builder()
      *                 .name(&#34;NAME&#34;)
      *                 .values(&#34;MyResolverExampleName&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -230,10 +272,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -241,9 +290,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
+     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -251,10 +300,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -262,12 +318,12 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
+     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .filters(GetResolverEndpointFilterArgs.builder()
      *                 .name(&#34;NAME&#34;)
      *                 .values(&#34;MyResolverExampleName&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -286,10 +342,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -297,9 +360,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
+     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -307,10 +370,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -318,12 +388,12 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
+     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .filters(GetResolverEndpointFilterArgs.builder()
      *                 .name(&#34;NAME&#34;)
      *                 .values(&#34;MyResolverExampleName&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -342,10 +412,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -353,9 +430,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
+     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -363,10 +440,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -374,12 +458,12 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
+     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .filters(GetResolverEndpointFilterArgs.builder()
      *                 .name(&#34;NAME&#34;)
      *                 .values(&#34;MyResolverExampleName&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -398,10 +482,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -409,9 +500,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
+     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -419,10 +510,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -430,12 +528,12 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
+     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .filters(GetResolverEndpointFilterArgs.builder()
      *                 .name(&#34;NAME&#34;)
      *                 .values(&#34;MyResolverExampleName&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -454,10 +552,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -465,9 +570,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
+     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .resolverEndpointId(&#34;rslvr-in-1abc2345ef678g91h&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -475,10 +580,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -486,12 +598,12 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
+     *         final var example = Route53Functions.getResolverEndpoint(GetResolverEndpointArgs.builder()
      *             .filters(GetResolverEndpointFilterArgs.builder()
      *                 .name(&#34;NAME&#34;)
      *                 .values(&#34;MyResolverExampleName&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -510,10 +622,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -521,10 +640,10 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
+     *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
      *             .domainName(&#34;subdomain.example.com&#34;)
      *             .ruleType(&#34;SYSTEM&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -543,10 +662,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -554,10 +680,10 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
+     *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
      *             .domainName(&#34;subdomain.example.com&#34;)
      *             .ruleType(&#34;SYSTEM&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -576,10 +702,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -587,10 +720,10 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
+     *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
      *             .domainName(&#34;subdomain.example.com&#34;)
      *             .ruleType(&#34;SYSTEM&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -609,10 +742,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -620,10 +760,10 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
+     *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
      *             .domainName(&#34;subdomain.example.com&#34;)
      *             .ruleType(&#34;SYSTEM&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -642,10 +782,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -653,10 +800,10 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
+     *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
      *             .domainName(&#34;subdomain.example.com&#34;)
      *             .ruleType(&#34;SYSTEM&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -675,10 +822,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -686,10 +840,10 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
+     *         final var example = Route53Functions.getResolverRule(GetResolverRuleArgs.builder()
      *             .domainName(&#34;subdomain.example.com&#34;)
      *             .ruleType(&#34;SYSTEM&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -707,10 +861,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -718,11 +879,11 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .ownerId(&#34;Route 53 Resolver&#34;)
      *             .ruleType(&#34;RECURSIVE&#34;)
      *             .shareStatus(&#34;NOT_SHARED&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -731,10 +892,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -742,10 +910,10 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .ruleType(&#34;FORWARD&#34;)
      *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -756,10 +924,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -767,9 +942,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -787,10 +962,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -798,11 +980,11 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .ownerId(&#34;Route 53 Resolver&#34;)
      *             .ruleType(&#34;RECURSIVE&#34;)
      *             .shareStatus(&#34;NOT_SHARED&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -811,10 +993,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -822,10 +1011,10 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .ruleType(&#34;FORWARD&#34;)
      *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -836,10 +1025,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -847,9 +1043,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -867,10 +1063,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -878,11 +1081,11 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .ownerId(&#34;Route 53 Resolver&#34;)
      *             .ruleType(&#34;RECURSIVE&#34;)
      *             .shareStatus(&#34;NOT_SHARED&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -891,10 +1094,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -902,10 +1112,10 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .ruleType(&#34;FORWARD&#34;)
      *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -916,10 +1126,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -927,9 +1144,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -947,10 +1164,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -958,11 +1182,11 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .ownerId(&#34;Route 53 Resolver&#34;)
      *             .ruleType(&#34;RECURSIVE&#34;)
      *             .shareStatus(&#34;NOT_SHARED&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -971,10 +1195,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -982,10 +1213,10 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .ruleType(&#34;FORWARD&#34;)
      *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -996,10 +1227,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1007,9 +1245,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1027,10 +1265,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1038,11 +1283,11 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .ownerId(&#34;Route 53 Resolver&#34;)
      *             .ruleType(&#34;RECURSIVE&#34;)
      *             .shareStatus(&#34;NOT_SHARED&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1051,10 +1296,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1062,10 +1314,10 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .ruleType(&#34;FORWARD&#34;)
      *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1076,10 +1328,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1087,9 +1346,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1107,10 +1366,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1118,11 +1384,11 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .ownerId(&#34;Route 53 Resolver&#34;)
      *             .ruleType(&#34;RECURSIVE&#34;)
      *             .shareStatus(&#34;NOT_SHARED&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1131,10 +1397,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1142,10 +1415,10 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .ruleType(&#34;FORWARD&#34;)
      *             .shareStatus(&#34;SHARED_WITH_ME&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1156,10 +1429,17 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetResolverRulesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1167,9 +1447,9 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
+     *         final var example = Route53Functions.getResolverRules(GetResolverRulesArgs.builder()
      *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1187,10 +1467,21 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.TrafficPolicy;
+     * import com.pulumi.aws.route53.TrafficPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1198,21 +1489,21 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var exampleTrafficPolicyDocument = Output.of(Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;site_switch&#34;)
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id(&#34;my_elb&#34;)
      *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.apply(getRegionResult -&gt; getRegionResult.name())))
+     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id(&#34;site_down_banner&#34;)
      *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.apply(getRegionResult -&gt; getRegionResult.name()))
+     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
      *                     .value(&#34;www.example.com&#34;)
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
@@ -1225,11 +1516,11 @@ public final class Route53Functions {
      *                     .endpointReference(&#34;site_down_banner&#34;)
      *                     .build())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.apply(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -1248,10 +1539,21 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.TrafficPolicy;
+     * import com.pulumi.aws.route53.TrafficPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1259,21 +1561,21 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var exampleTrafficPolicyDocument = Output.of(Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;site_switch&#34;)
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id(&#34;my_elb&#34;)
      *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.apply(getRegionResult -&gt; getRegionResult.name())))
+     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id(&#34;site_down_banner&#34;)
      *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.apply(getRegionResult -&gt; getRegionResult.name()))
+     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
      *                     .value(&#34;www.example.com&#34;)
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
@@ -1286,11 +1588,11 @@ public final class Route53Functions {
      *                     .endpointReference(&#34;site_down_banner&#34;)
      *                     .build())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.apply(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -1309,10 +1611,21 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.TrafficPolicy;
+     * import com.pulumi.aws.route53.TrafficPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1320,21 +1633,21 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var exampleTrafficPolicyDocument = Output.of(Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;site_switch&#34;)
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id(&#34;my_elb&#34;)
      *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.apply(getRegionResult -&gt; getRegionResult.name())))
+     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id(&#34;site_down_banner&#34;)
      *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.apply(getRegionResult -&gt; getRegionResult.name()))
+     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
      *                     .value(&#34;www.example.com&#34;)
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
@@ -1347,11 +1660,11 @@ public final class Route53Functions {
      *                     .endpointReference(&#34;site_down_banner&#34;)
      *                     .build())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.apply(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -1370,10 +1683,21 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.TrafficPolicy;
+     * import com.pulumi.aws.route53.TrafficPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1381,21 +1705,21 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var exampleTrafficPolicyDocument = Output.of(Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;site_switch&#34;)
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id(&#34;my_elb&#34;)
      *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.apply(getRegionResult -&gt; getRegionResult.name())))
+     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id(&#34;site_down_banner&#34;)
      *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.apply(getRegionResult -&gt; getRegionResult.name()))
+     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
      *                     .value(&#34;www.example.com&#34;)
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
@@ -1408,11 +1732,11 @@ public final class Route53Functions {
      *                     .endpointReference(&#34;site_down_banner&#34;)
      *                     .build())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.apply(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -1431,10 +1755,21 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.TrafficPolicy;
+     * import com.pulumi.aws.route53.TrafficPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1442,21 +1777,21 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var exampleTrafficPolicyDocument = Output.of(Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;site_switch&#34;)
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id(&#34;my_elb&#34;)
      *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.apply(getRegionResult -&gt; getRegionResult.name())))
+     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id(&#34;site_down_banner&#34;)
      *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.apply(getRegionResult -&gt; getRegionResult.name()))
+     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
      *                     .value(&#34;www.example.com&#34;)
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
@@ -1469,11 +1804,11 @@ public final class Route53Functions {
      *                     .endpointReference(&#34;site_down_banner&#34;)
      *                     .build())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.apply(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -1492,10 +1827,21 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.TrafficPolicy;
+     * import com.pulumi.aws.route53.TrafficPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1503,21 +1849,21 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var exampleTrafficPolicyDocument = Output.of(Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
+     *         final var exampleTrafficPolicyDocument = Route53Functions.getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs.builder()
      *             .recordType(&#34;A&#34;)
      *             .startRule(&#34;site_switch&#34;)
      *             .endpoints(            
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id(&#34;my_elb&#34;)
      *                     .type(&#34;elastic-load-balancer&#34;)
-     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.apply(getRegionResult -&gt; getRegionResult.name())))
+     *                     .value(String.format(&#34;elb-111111.%s.elb.amazonaws.com&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
      *                     .build(),
      *                 GetTrafficPolicyDocumentEndpointArgs.builder()
      *                     .id(&#34;site_down_banner&#34;)
      *                     .type(&#34;s3-website&#34;)
-     *                     .region(current.apply(getRegionResult -&gt; getRegionResult.name()))
+     *                     .region(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
      *                     .value(&#34;www.example.com&#34;)
      *                     .build())
      *             .rules(GetTrafficPolicyDocumentRuleArgs.builder()
@@ -1530,11 +1876,11 @@ public final class Route53Functions {
      *                     .endpointReference(&#34;site_down_banner&#34;)
      *                     .build())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var exampleTrafficPolicy = new TrafficPolicy(&#34;exampleTrafficPolicy&#34;, TrafficPolicyArgs.builder()        
      *             .comment(&#34;example comment&#34;)
-     *             .document(exampleTrafficPolicyDocument.apply(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
+     *             .document(exampleTrafficPolicyDocument.applyValue(getTrafficPolicyDocumentResult -&gt; getTrafficPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -1556,10 +1902,19 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1567,14 +1922,14 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Route53Functions.getZone(GetZoneArgs.builder()
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
      *             .name(&#34;test.com.&#34;)
      *             .privateZone(true)
-     *             .build()));
+     *             .build());
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.apply(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.apply(getZoneResult -&gt; getZoneResult.name())))
+     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
+     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
      *             .type(&#34;A&#34;)
      *             .ttl(&#34;300&#34;)
      *             .records(&#34;10.0.0.1&#34;)
@@ -1599,10 +1954,19 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1610,14 +1974,14 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Route53Functions.getZone(GetZoneArgs.builder()
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
      *             .name(&#34;test.com.&#34;)
      *             .privateZone(true)
-     *             .build()));
+     *             .build());
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.apply(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.apply(getZoneResult -&gt; getZoneResult.name())))
+     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
+     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
      *             .type(&#34;A&#34;)
      *             .ttl(&#34;300&#34;)
      *             .records(&#34;10.0.0.1&#34;)
@@ -1642,10 +2006,19 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1653,14 +2026,14 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Route53Functions.getZone(GetZoneArgs.builder()
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
      *             .name(&#34;test.com.&#34;)
      *             .privateZone(true)
-     *             .build()));
+     *             .build());
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.apply(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.apply(getZoneResult -&gt; getZoneResult.name())))
+     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
+     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
      *             .type(&#34;A&#34;)
      *             .ttl(&#34;300&#34;)
      *             .records(&#34;10.0.0.1&#34;)
@@ -1685,10 +2058,19 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1696,14 +2078,14 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Route53Functions.getZone(GetZoneArgs.builder()
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
      *             .name(&#34;test.com.&#34;)
      *             .privateZone(true)
-     *             .build()));
+     *             .build());
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.apply(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.apply(getZoneResult -&gt; getZoneResult.name())))
+     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
+     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
      *             .type(&#34;A&#34;)
      *             .ttl(&#34;300&#34;)
      *             .records(&#34;10.0.0.1&#34;)
@@ -1728,10 +2110,19 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1739,14 +2130,14 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Route53Functions.getZone(GetZoneArgs.builder()
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
      *             .name(&#34;test.com.&#34;)
      *             .privateZone(true)
-     *             .build()));
+     *             .build());
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.apply(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.apply(getZoneResult -&gt; getZoneResult.name())))
+     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
+     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
      *             .type(&#34;A&#34;)
      *             .ttl(&#34;300&#34;)
      *             .records(&#34;10.0.0.1&#34;)
@@ -1771,10 +2162,19 @@ public final class Route53Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1782,14 +2182,14 @@ public final class Route53Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Route53Functions.getZone(GetZoneArgs.builder()
+     *         final var selected = Route53Functions.getZone(GetZoneArgs.builder()
      *             .name(&#34;test.com.&#34;)
      *             .privateZone(true)
-     *             .build()));
+     *             .build());
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
-     *             .zoneId(selected.apply(getZoneResult -&gt; getZoneResult.zoneId()))
-     *             .name(String.format(&#34;www.%s&#34;, selected.apply(getZoneResult -&gt; getZoneResult.name())))
+     *             .zoneId(selected.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
+     *             .name(String.format(&#34;www.%s&#34;, selected.applyValue(getZoneResult -&gt; getZoneResult.name())))
      *             .type(&#34;A&#34;)
      *             .ttl(&#34;300&#34;)
      *             .records(&#34;10.0.0.1&#34;)

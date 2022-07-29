@@ -28,11 +28,29 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.CatalogDatabase;
+ * import com.pulumi.aws.glue.CatalogDatabaseArgs;
+ * import com.pulumi.aws.glue.CatalogTable;
+ * import com.pulumi.aws.glue.CatalogTableArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorSerDeInfoArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorSkewedInfoArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTablePartitionKeyArgs;
+ * import com.pulumi.aws.glue.MLTransform;
+ * import com.pulumi.aws.glue.MLTransformArgs;
+ * import com.pulumi.aws.glue.inputs.MLTransformInputRecordTableArgs;
+ * import com.pulumi.aws.glue.inputs.MLTransformParametersArgs;
+ * import com.pulumi.aws.glue.inputs.MLTransformParametersFindMatchesParametersArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

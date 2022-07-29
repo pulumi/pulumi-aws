@@ -20,50 +20,6 @@ import javax.annotation.Nullable;
  * This resource accepts ownership of a private virtual interface created by another AWS account.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * import com.pulumi.resources.CustomResourceOptions;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var accepter = new Provider(&#34;accepter&#34;);
- * 
- *         final var accepterCallerIdentity = Output.of(AwsFunctions.getCallerIdentity());
- * 
- *         var vpnGw = new VpnGateway(&#34;vpnGw&#34;, VpnGatewayArgs.Empty, CustomResourceOptions.builder()
- *             .provider(aws.accepter())
- *             .build());
- * 
- *         var creator = new HostedPrivateVirtualInterface(&#34;creator&#34;, HostedPrivateVirtualInterfaceArgs.builder()        
- *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
- *             .ownerAccountId(accepterCallerIdentity.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *             .vlan(4094)
- *             .addressFamily(&#34;ipv4&#34;)
- *             .bgpAsn(65352)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(vpnGw)
- *                 .build());
- * 
- *         var accepterHostedPrivateVirtualInterfaceAccepter = new HostedPrivateVirtualInterfaceAccepter(&#34;accepterHostedPrivateVirtualInterfaceAccepter&#34;, HostedPrivateVirtualInterfaceAccepterArgs.builder()        
- *             .virtualInterfaceId(creator.id())
- *             .vpnGatewayId(vpnGw.id())
- *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.accepter())
- *                 .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

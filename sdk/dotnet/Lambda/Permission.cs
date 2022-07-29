@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Lambda
     ///             Code = new FileArchive("lambdatest.zip"),
     ///             Role = defaultRole.Arn,
     ///             Handler = "exports.handler",
-    ///             Runtime = "python3.6",
+    ///             Runtime = "python3.7",
     ///         });
     ///         var withSns = new Aws.Lambda.Permission("withSns", new Aws.Lambda.PermissionArgs
     ///         {
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Lambda
     ///             Code = new FileArchive("lamba_logging.zip"),
     ///             Handler = "exports.handler",
     ///             Role = defaultRole.Arn,
-    ///             Runtime = "python3.6",
+    ///             Runtime = "python3.7",
     ///         });
     ///         var loggingPermission = new Aws.Lambda.Permission("loggingPermission", new Aws.Lambda.PermissionArgs
     ///         {

@@ -100,7 +100,7 @@ export class Webhook extends pulumi.CustomResource {
     }
 
     /**
-     * A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
+     * A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
      */
     public readonly branchFilter!: pulumi.Output<string | undefined>;
     /**
@@ -171,7 +171,7 @@ export class Webhook extends pulumi.CustomResource {
  */
 export interface WebhookState {
     /**
-     * A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
+     * A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
      */
     branchFilter?: pulumi.Input<string>;
     /**
@@ -205,7 +205,7 @@ export interface WebhookState {
  */
 export interface WebhookArgs {
     /**
-     * A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
+     * A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
      */
     branchFilter?: pulumi.Input<string>;
     /**

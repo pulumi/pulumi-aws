@@ -120,7 +120,7 @@ import (
 // 			return err
 // 		}
 // 		s3, err := ec2.GetPrefixList(ctx, &ec2.GetPrefixListArgs{
-// 			Name: pulumi.StringRef(fmt.Sprintf("%v%v%v", "com.amazonaws.", current.Name, ".s3")),
+// 			Name: pulumi.StringRef(fmt.Sprintf("com.amazonaws.%v.s3", current.Name)),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

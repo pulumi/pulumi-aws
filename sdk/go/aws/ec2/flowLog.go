@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
+// Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
 // interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
 //
 // ## Example Usage
@@ -36,7 +35,20 @@ import (
 // 			return err
 // 		}
 // 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"vpc-flow-logs.amazonaws.com\"\n", "      },\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Sid": "",
+//       "Effect": "Allow",
+//       "Principal": {
+//         "Service": "vpc-flow-logs.amazonaws.com"
+//       },
+//       "Action": "sts:AssumeRole"
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -51,8 +63,24 @@ import (
 // 			return err
 // 		}
 // 		_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
-// 			Role:   exampleRole.ID(),
-// 			Policy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"logs:CreateLogGroup\",\n", "        \"logs:CreateLogStream\",\n", "        \"logs:PutLogEvents\",\n", "        \"logs:DescribeLogGroups\",\n", "        \"logs:DescribeLogStreams\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"*\"\n", "    }\n", "  ]\n", "}\n")),
+// 			Role: exampleRole.ID(),
+// 			Policy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": [
+//         "logs:CreateLogGroup",
+//         "logs:CreateLogStream",
+//         "logs:PutLogEvents",
+//         "logs:DescribeLogGroups",
+//         "logs:DescribeLogStreams"
+//       ],
+//       "Effect": "Allow",
+//       "Resource": "*"
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -166,7 +194,11 @@ type FlowLog struct {
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
-	TrafficType pulumi.StringOutput `pulumi:"trafficType"`
+	TrafficType pulumi.StringPtrOutput `pulumi:"trafficType"`
+	// Transit Gateway Attachment ID to attach to
+	TransitGatewayAttachmentId pulumi.StringPtrOutput `pulumi:"transitGatewayAttachmentId"`
+	// Transit Gateway ID to attach to
+	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
 	// VPC ID to attach to
 	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 }
@@ -175,12 +207,9 @@ type FlowLog struct {
 func NewFlowLog(ctx *pulumi.Context,
 	name string, args *FlowLogArgs, opts ...pulumi.ResourceOption) (*FlowLog, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &FlowLogArgs{}
 	}
 
-	if args.TrafficType == nil {
-		return nil, errors.New("invalid value for required argument 'TrafficType'")
-	}
 	var resource FlowLog
 	err := ctx.RegisterResource("aws:ec2/flowLog:FlowLog", name, args, &resource, opts...)
 	if err != nil {
@@ -234,6 +263,10 @@ type flowLogState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType *string `pulumi:"trafficType"`
+	// Transit Gateway Attachment ID to attach to
+	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
+	// Transit Gateway ID to attach to
+	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// VPC ID to attach to
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -270,6 +303,10 @@ type FlowLogState struct {
 	TagsAll pulumi.StringMapInput
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
 	TrafficType pulumi.StringPtrInput
+	// Transit Gateway Attachment ID to attach to
+	TransitGatewayAttachmentId pulumi.StringPtrInput
+	// Transit Gateway ID to attach to
+	TransitGatewayId pulumi.StringPtrInput
 	// VPC ID to attach to
 	VpcId pulumi.StringPtrInput
 }
@@ -305,7 +342,11 @@ type flowLogArgs struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
-	TrafficType string `pulumi:"trafficType"`
+	TrafficType *string `pulumi:"trafficType"`
+	// Transit Gateway Attachment ID to attach to
+	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
+	// Transit Gateway ID to attach to
+	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// VPC ID to attach to
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -338,7 +379,11 @@ type FlowLogArgs struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
-	TrafficType pulumi.StringInput
+	TrafficType pulumi.StringPtrInput
+	// Transit Gateway Attachment ID to attach to
+	TransitGatewayAttachmentId pulumi.StringPtrInput
+	// Transit Gateway ID to attach to
+	TransitGatewayId pulumi.StringPtrInput
 	// VPC ID to attach to
 	VpcId pulumi.StringPtrInput
 }
@@ -496,8 +541,18 @@ func (o FlowLogOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
-func (o FlowLogOutput) TrafficType() pulumi.StringOutput {
-	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.TrafficType }).(pulumi.StringOutput)
+func (o FlowLogOutput) TrafficType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.TrafficType }).(pulumi.StringPtrOutput)
+}
+
+// Transit Gateway Attachment ID to attach to
+func (o FlowLogOutput) TransitGatewayAttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringPtrOutput)
+}
+
+// Transit Gateway ID to attach to
+func (o FlowLogOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
 }
 
 // VPC ID to attach to

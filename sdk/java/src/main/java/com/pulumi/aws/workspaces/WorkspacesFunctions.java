@@ -31,10 +31,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -42,9 +49,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getBundle(GetBundleArgs.builder()
+     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
      *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -53,10 +60,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -64,10 +78,10 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getBundle(GetBundleArgs.builder()
+     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
      *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -85,10 +99,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -96,9 +117,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getBundle(GetBundleArgs.builder()
+     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
      *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -107,10 +128,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -118,10 +146,10 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getBundle(GetBundleArgs.builder()
+     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
      *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -139,10 +167,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -150,9 +185,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getBundle(GetBundleArgs.builder()
+     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
      *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -161,10 +196,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -172,10 +214,10 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getBundle(GetBundleArgs.builder()
+     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
      *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -193,10 +235,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -204,9 +253,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getBundle(GetBundleArgs.builder()
+     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
      *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -215,10 +264,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -226,10 +282,10 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getBundle(GetBundleArgs.builder()
+     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
      *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -247,10 +303,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -258,9 +321,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getBundle(GetBundleArgs.builder()
+     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
      *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -269,10 +332,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -280,10 +350,10 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getBundle(GetBundleArgs.builder()
+     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
      *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -301,10 +371,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -312,9 +389,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getBundle(GetBundleArgs.builder()
+     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
      *             .bundleId(&#34;wsb-b0s22j3d7&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -323,10 +400,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -334,10 +418,10 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getBundle(GetBundleArgs.builder()
+     *         final var example = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
      *             .name(&#34;Value with Windows 10 and Office 2016&#34;)
      *             .owner(&#34;AMAZON&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -354,10 +438,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.directoryservice.inputs.GetDirectoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -365,9 +456,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getDirectory(GetDirectoryArgs.builder()
+     *         final var example = WorkspacesFunctions.getDirectory(GetDirectoryArgs.builder()
      *             .directoryId(&#34;d-9067783251&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -384,10 +475,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.directoryservice.inputs.GetDirectoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -395,9 +493,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getDirectory(GetDirectoryArgs.builder()
+     *         final var example = WorkspacesFunctions.getDirectory(GetDirectoryArgs.builder()
      *             .directoryId(&#34;d-9067783251&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -414,10 +512,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.directoryservice.inputs.GetDirectoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -425,9 +530,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getDirectory(GetDirectoryArgs.builder()
+     *         final var example = WorkspacesFunctions.getDirectory(GetDirectoryArgs.builder()
      *             .directoryId(&#34;d-9067783251&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -444,10 +549,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.directoryservice.inputs.GetDirectoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -455,9 +567,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getDirectory(GetDirectoryArgs.builder()
+     *         final var example = WorkspacesFunctions.getDirectory(GetDirectoryArgs.builder()
      *             .directoryId(&#34;d-9067783251&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -474,10 +586,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -485,9 +604,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getImage(GetImageArgs.builder()
+     *         final var example = WorkspacesFunctions.getImage(GetImageArgs.builder()
      *             .imageId(&#34;wsi-ten5h0y19&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -504,10 +623,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -515,9 +641,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getImage(GetImageArgs.builder()
+     *         final var example = WorkspacesFunctions.getImage(GetImageArgs.builder()
      *             .imageId(&#34;wsi-ten5h0y19&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -534,10 +660,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -545,9 +678,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getImage(GetImageArgs.builder()
+     *         final var example = WorkspacesFunctions.getImage(GetImageArgs.builder()
      *             .imageId(&#34;wsi-ten5h0y19&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -564,10 +697,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetImageArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -575,9 +715,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getImage(GetImageArgs.builder()
+     *         final var example = WorkspacesFunctions.getImage(GetImageArgs.builder()
      *             .imageId(&#34;wsi-ten5h0y19&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -595,10 +735,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -606,9 +753,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -617,10 +764,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -628,10 +782,10 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .directoryId(&#34;d-9967252f57&#34;)
      *             .userName(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -649,10 +803,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -660,9 +821,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -671,10 +832,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -682,10 +850,10 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .directoryId(&#34;d-9967252f57&#34;)
      *             .userName(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -703,10 +871,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -714,9 +889,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -725,10 +900,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -736,10 +918,10 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .directoryId(&#34;d-9967252f57&#34;)
      *             .userName(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -757,10 +939,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -768,9 +957,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -779,10 +968,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -790,10 +986,10 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .directoryId(&#34;d-9967252f57&#34;)
      *             .userName(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -811,10 +1007,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -822,9 +1025,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -833,10 +1036,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -844,10 +1054,10 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .directoryId(&#34;d-9967252f57&#34;)
      *             .userName(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -865,10 +1075,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -876,9 +1093,9 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .workspaceId(&#34;ws-cj5xcxsz5&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -887,10 +1104,17 @@ public final class WorkspacesFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+     * import com.pulumi.aws.grafana.inputs.GetWorkspaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -898,10 +1122,10 @@ public final class WorkspacesFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
+     *         final var example = WorkspacesFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .directoryId(&#34;d-9967252f57&#34;)
      *             .userName(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

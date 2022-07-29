@@ -49,7 +49,7 @@ namespace Pulumi.Aws.ElastiCache
     ///             AutomaticFailoverEnabled = true,
     ///             Description = "example description",
     ///             NodeType = "cache.m4.large",
-    ///             NumberCacheClusters = 2,
+    ///             NumCacheClusters = 2,
     ///             ParameterGroupName = "default.redis3.2",
     ///             Port = 6379,
     ///             PreferredCacheClusterAzs = 
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.ElastiCache
     ///             },
     ///             Description = "example description",
     ///             NodeType = "cache.m4.large",
-    ///             NumberCacheClusters = 2,
+    ///             NumCacheClusters = 2,
     ///             ParameterGroupName = "default.redis3.2",
     ///             Port = 6379,
     ///         });
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.ElastiCache
     ///     {
     ///         var test = new Aws.ElastiCache.ReplicationGroup("test", new Aws.ElastiCache.ReplicationGroupArgs
     ///         {
-    ///             ReplicationGroupDescription = "test description",
+    ///             Description = "test description",
     ///             NodeType = "cache.t3.small",
     ///             Port = 6379,
     ///             ApplyImmediately = true,
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.ElastiCache
     ///             Engine = "redis",
     ///             EngineVersion = "5.0.6",
     ///             NodeType = "cache.m5.large",
-    ///             NumberCacheClusters = 1,
+    ///             NumCacheClusters = 1,
     ///         }, new CustomResourceOptions
     ///         {
     ///             Provider = aws.Other_region,
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.ElastiCache
     ///         {
     ///             Description = "secondary replication group",
     ///             GlobalReplicationGroupId = example.GlobalReplicationGroupId,
-    ///             NumberCacheClusters = 1,
+    ///             NumCacheClusters = 1,
     ///         });
     ///     }
     /// 
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool> AutoMinorVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `number_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         /// </summary>
         [Output("automaticFailoverEnabled")]
         public Output<bool?> AutomaticFailoverEnabled { get; private set; } = null!;
@@ -579,7 +579,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
 
         /// <summary>
-        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `number_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         /// </summary>
         [Input("automaticFailoverEnabled")]
         public Input<bool>? AutomaticFailoverEnabled { get; set; }
@@ -870,7 +870,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
 
         /// <summary>
-        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `number_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+        /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         /// </summary>
         [Input("automaticFailoverEnabled")]
         public Input<bool>? AutomaticFailoverEnabled { get; set; }

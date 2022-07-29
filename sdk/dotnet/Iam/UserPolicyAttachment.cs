@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Iam
     ///         var policy = new Aws.Iam.Policy("policy", new Aws.Iam.PolicyArgs
     ///         {
     ///             Description = "A test policy",
-    ///             Policy = "{ ... policy JSON ... }",
+    ///             PolicyDocument = "{ ... policy JSON ... }",
     ///         });
     ///         var test_attach = new Aws.Iam.UserPolicyAttachment("test-attach", new Aws.Iam.UserPolicyAttachmentArgs
     ///         {

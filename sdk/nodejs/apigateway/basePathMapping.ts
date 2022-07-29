@@ -16,7 +16,7 @@ import {RestApi} from "./index";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const exampleStage = new aws.apigateway.Stage("exampleStage", {
  *     deployment: aws_api_gateway_deployment.example.id,

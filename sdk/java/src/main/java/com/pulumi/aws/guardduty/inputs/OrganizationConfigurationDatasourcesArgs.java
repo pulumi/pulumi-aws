@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.guardduty.inputs;
 
+import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesKubernetesArgs;
 import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesS3LogsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -16,14 +17,29 @@ public final class OrganizationConfigurationDatasourcesArgs extends com.pulumi.r
     public static final OrganizationConfigurationDatasourcesArgs Empty = new OrganizationConfigurationDatasourcesArgs();
 
     /**
-     * Configuration for the builds to store logs to S3.
+     * Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+     * 
+     */
+    @Import(name="kubernetes")
+    private @Nullable Output<OrganizationConfigurationDatasourcesKubernetesArgs> kubernetes;
+
+    /**
+     * @return Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+     * 
+     */
+    public Optional<Output<OrganizationConfigurationDatasourcesKubernetesArgs>> kubernetes() {
+        return Optional.ofNullable(this.kubernetes);
+    }
+
+    /**
+     * Enable S3 Protection automatically for new member accounts.
      * 
      */
     @Import(name="s3Logs")
     private @Nullable Output<OrganizationConfigurationDatasourcesS3LogsArgs> s3Logs;
 
     /**
-     * @return Configuration for the builds to store logs to S3.
+     * @return Enable S3 Protection automatically for new member accounts.
      * 
      */
     public Optional<Output<OrganizationConfigurationDatasourcesS3LogsArgs>> s3Logs() {
@@ -33,6 +49,7 @@ public final class OrganizationConfigurationDatasourcesArgs extends com.pulumi.r
     private OrganizationConfigurationDatasourcesArgs() {}
 
     private OrganizationConfigurationDatasourcesArgs(OrganizationConfigurationDatasourcesArgs $) {
+        this.kubernetes = $.kubernetes;
         this.s3Logs = $.s3Logs;
     }
 
@@ -55,7 +72,28 @@ public final class OrganizationConfigurationDatasourcesArgs extends com.pulumi.r
         }
 
         /**
-         * @param s3Logs Configuration for the builds to store logs to S3.
+         * @param kubernetes Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kubernetes(@Nullable Output<OrganizationConfigurationDatasourcesKubernetesArgs> kubernetes) {
+            $.kubernetes = kubernetes;
+            return this;
+        }
+
+        /**
+         * @param kubernetes Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kubernetes(OrganizationConfigurationDatasourcesKubernetesArgs kubernetes) {
+            return kubernetes(Output.of(kubernetes));
+        }
+
+        /**
+         * @param s3Logs Enable S3 Protection automatically for new member accounts.
          * 
          * @return builder
          * 
@@ -66,7 +104,7 @@ public final class OrganizationConfigurationDatasourcesArgs extends com.pulumi.r
         }
 
         /**
-         * @param s3Logs Configuration for the builds to store logs to S3.
+         * @param s3Logs Enable S3 Protection automatically for new member accounts.
          * 
          * @return builder
          * 

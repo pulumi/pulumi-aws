@@ -297,12 +297,14 @@ public final class Endpoints {
     private @Nullable String redshift;
     private @Nullable String redshiftdata;
     private @Nullable String redshiftdataapiservice;
+    private @Nullable String redshiftserverless;
     private @Nullable String rekognition;
     private @Nullable String resiliencehub;
     private @Nullable String resourcegroups;
     private @Nullable String resourcegroupstagging;
     private @Nullable String resourcegroupstaggingapi;
     private @Nullable String robomaker;
+    private @Nullable String rolesanywhere;
     private @Nullable String route53;
     private @Nullable String route53domains;
     private @Nullable String route53recoverycluster;
@@ -667,12 +669,14 @@ public final class Endpoints {
         this.redshift = null;
         this.redshiftdata = null;
         this.redshiftdataapiservice = null;
+        this.redshiftserverless = null;
         this.rekognition = null;
         this.resiliencehub = null;
         this.resourcegroups = null;
         this.resourcegroupstagging = null;
         this.resourcegroupstaggingapi = null;
         this.robomaker = null;
+        this.rolesanywhere = null;
         this.route53 = null;
         this.route53domains = null;
         this.route53recoverycluster = null;
@@ -1606,6 +1610,9 @@ public final class Endpoints {
     public Optional<String> redshiftdataapiservice() {
         return Optional.ofNullable(this.redshiftdataapiservice);
     }
+    public Optional<String> redshiftserverless() {
+        return Optional.ofNullable(this.redshiftserverless);
+    }
     public Optional<String> rekognition() {
         return Optional.ofNullable(this.rekognition);
     }
@@ -1623,6 +1630,9 @@ public final class Endpoints {
     }
     public Optional<String> robomaker() {
         return Optional.ofNullable(this.robomaker);
+    }
+    public Optional<String> rolesanywhere() {
+        return Optional.ofNullable(this.rolesanywhere);
     }
     public Optional<String> route53() {
         return Optional.ofNullable(this.route53);
@@ -2142,12 +2152,14 @@ public final class Endpoints {
         private @Nullable String redshift;
         private @Nullable String redshiftdata;
         private @Nullable String redshiftdataapiservice;
+        private @Nullable String redshiftserverless;
         private @Nullable String rekognition;
         private @Nullable String resiliencehub;
         private @Nullable String resourcegroups;
         private @Nullable String resourcegroupstagging;
         private @Nullable String resourcegroupstaggingapi;
         private @Nullable String robomaker;
+        private @Nullable String rolesanywhere;
         private @Nullable String route53;
         private @Nullable String route53domains;
         private @Nullable String route53recoverycluster;
@@ -2515,12 +2527,14 @@ public final class Endpoints {
     	      this.redshift = defaults.redshift;
     	      this.redshiftdata = defaults.redshiftdata;
     	      this.redshiftdataapiservice = defaults.redshiftdataapiservice;
+    	      this.redshiftserverless = defaults.redshiftserverless;
     	      this.rekognition = defaults.rekognition;
     	      this.resiliencehub = defaults.resiliencehub;
     	      this.resourcegroups = defaults.resourcegroups;
     	      this.resourcegroupstagging = defaults.resourcegroupstagging;
     	      this.resourcegroupstaggingapi = defaults.resourcegroupstaggingapi;
     	      this.robomaker = defaults.robomaker;
+    	      this.rolesanywhere = defaults.rolesanywhere;
     	      this.route53 = defaults.route53;
     	      this.route53domains = defaults.route53domains;
     	      this.route53recoverycluster = defaults.route53recoverycluster;
@@ -3741,6 +3755,10 @@ public final class Endpoints {
             this.redshiftdataapiservice = redshiftdataapiservice;
             return this;
         }
+        public Builder redshiftserverless(@Nullable String redshiftserverless) {
+            this.redshiftserverless = redshiftserverless;
+            return this;
+        }
         public Builder rekognition(@Nullable String rekognition) {
             this.rekognition = rekognition;
             return this;
@@ -3763,6 +3781,10 @@ public final class Endpoints {
         }
         public Builder robomaker(@Nullable String robomaker) {
             this.robomaker = robomaker;
+            return this;
+        }
+        public Builder rolesanywhere(@Nullable String rolesanywhere) {
+            this.rolesanywhere = rolesanywhere;
             return this;
         }
         public Builder route53(@Nullable String route53) {
@@ -4349,12 +4371,14 @@ public final class Endpoints {
             built.redshift = redshift;
             built.redshiftdata = redshiftdata;
             built.redshiftdataapiservice = redshiftdataapiservice;
+            built.redshiftserverless = redshiftserverless;
             built.rekognition = rekognition;
             built.resiliencehub = resiliencehub;
             built.resourcegroups = resourcegroups;
             built.resourcegroupstagging = resourcegroupstagging;
             built.resourcegroupstaggingapi = resourcegroupstaggingapi;
             built.robomaker = robomaker;
+            built.rolesanywhere = rolesanywhere;
             built.route53 = route53;
             built.route53domains = route53domains;
             built.route53recoverycluster = route53recoverycluster;

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Iam
     ///         {
     ///             Path = "/",
     ///             Description = "My test policy",
-    ///             Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///             {
     ///                 { "Version", "2012-10-17" },
     ///                 { "Statement", new[]

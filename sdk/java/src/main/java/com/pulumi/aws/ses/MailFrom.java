@@ -24,10 +24,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ses.DomainIdentity;
+ * import com.pulumi.aws.ses.DomainIdentityArgs;
+ * import com.pulumi.aws.ses.MailFrom;
+ * import com.pulumi.aws.ses.MailFromArgs;
+ * import com.pulumi.aws.route53.Record;
+ * import com.pulumi.aws.route53.RecordArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -41,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleMailFrom = new MailFrom(&#34;exampleMailFrom&#34;, MailFromArgs.builder()        
  *             .domain(exampleDomainIdentity.domain())
- *             .mailFromDomain(exampleDomainIdentity.domain().apply(domain -&gt; String.format(&#34;bounce.%s&#34;, domain)))
+ *             .mailFromDomain(exampleDomainIdentity.domain().applyValue(domain -&gt; String.format(&#34;bounce.%s&#34;, domain)))
  *             .build());
  * 
  *         var exampleSesDomainMailFromMx = new Record(&#34;exampleSesDomainMailFromMx&#34;, RecordArgs.builder()        
@@ -67,10 +78,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ses.EmailIdentity;
+ * import com.pulumi.aws.ses.EmailIdentityArgs;
+ * import com.pulumi.aws.ses.MailFrom;
+ * import com.pulumi.aws.ses.MailFromArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

@@ -31,7 +31,19 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		examplePolicy, err := iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
 // 			Description: pulumi.String("My example policy"),
-// 			Policy:      pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"ec2:Describe*\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"*\"\n", "    }\n", "  ]\n", "}\n")),
+// 			Policy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": [
+//         "ec2:Describe*"
+//       ],
+//       "Effect": "Allow",
+//       "Resource": "*"
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -41,7 +53,23 @@ import (
 // 			return err
 // 		}
 // 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": [\n", "          \"budgets.", current.DnsSuffix, "\"\n", "        ]\n", "      },\n", "      \"Action\": [\n", "        \"sts:AssumeRole\"\n", "      ]\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Effect": "Allow",
+//       "Principal": {
+//         "Service": [
+//           "budgets.%v"
+//         ]
+//       },
+//       "Action": [
+//         "sts:AssumeRole"
+//       ]
+//     }
+//   ]
+// }
+// `, current.DnsSuffix)),
 // 		})
 // 		if err != nil {
 // 			return err

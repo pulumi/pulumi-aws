@@ -51,10 +51,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -62,10 +69,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getConnection(GetConnectionArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getConnection(GetConnectionArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .connectionId(var_.connection_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -82,10 +89,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -93,10 +107,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getConnection(GetConnectionArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getConnection(GetConnectionArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .connectionId(var_.connection_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -113,10 +127,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -124,10 +145,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getConnection(GetConnectionArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getConnection(GetConnectionArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .connectionId(var_.connection_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -144,10 +165,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -155,10 +183,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getConnection(GetConnectionArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getConnection(GetConnectionArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .connectionId(var_.connection_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -175,10 +203,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetConnectionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -186,10 +221,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getConnections(GetConnectionsArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getConnections(GetConnectionsArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -206,10 +241,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetConnectionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -217,10 +259,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getConnections(GetConnectionsArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getConnections(GetConnectionsArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -237,10 +279,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetConnectionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -248,10 +297,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getConnections(GetConnectionsArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getConnections(GetConnectionsArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -268,10 +317,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetConnectionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -279,10 +335,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getConnections(GetConnectionsArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getConnections(GetConnectionsArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -298,10 +354,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -309,7 +372,7 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+     *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
      *             .attachmentPolicies(            
      *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
      *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
@@ -369,7 +432,7 @@ public final class NetworkmanagerFunctions {
      *                     .name(&#34;prod&#34;)
      *                     .requireAttachmentAcceptance(true)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -379,10 +442,15 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -404,10 +472,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -415,7 +490,7 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+     *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
      *             .attachmentPolicies(            
      *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
      *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
@@ -475,7 +550,7 @@ public final class NetworkmanagerFunctions {
      *                     .name(&#34;prod&#34;)
      *                     .requireAttachmentAcceptance(true)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -485,10 +560,15 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -510,10 +590,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -521,7 +608,7 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+     *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
      *             .attachmentPolicies(            
      *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
      *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
@@ -581,7 +668,7 @@ public final class NetworkmanagerFunctions {
      *                     .name(&#34;prod&#34;)
      *                     .requireAttachmentAcceptance(true)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -591,10 +678,15 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -616,10 +708,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -627,7 +726,7 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+     *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
      *             .attachmentPolicies(            
      *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
      *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
@@ -687,7 +786,7 @@ public final class NetworkmanagerFunctions {
      *                     .name(&#34;prod&#34;)
      *                     .requireAttachmentAcceptance(true)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -697,10 +796,15 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -720,13 +824,21 @@ public final class NetworkmanagerFunctions {
      * Retrieve information about a device.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -734,10 +846,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
      *             .globalNetworkIdId(var_.global_network_id())
      *             .deviceId(var_.device_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -751,13 +863,21 @@ public final class NetworkmanagerFunctions {
      * Retrieve information about a device.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -765,10 +885,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
      *             .globalNetworkIdId(var_.global_network_id())
      *             .deviceId(var_.device_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -782,13 +902,21 @@ public final class NetworkmanagerFunctions {
      * Retrieve information about a device.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -796,10 +924,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
      *             .globalNetworkIdId(var_.global_network_id())
      *             .deviceId(var_.device_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -813,13 +941,21 @@ public final class NetworkmanagerFunctions {
      * Retrieve information about a device.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetDeviceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -827,10 +963,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getDevice(GetDeviceArgs.builder()
      *             .globalNetworkIdId(var_.global_network_id())
      *             .deviceId(var_.device_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -847,10 +983,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetDevicesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -858,10 +1001,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getDevices(GetDevicesArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getDevices(GetDevicesArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -878,10 +1021,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetDevicesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -889,10 +1039,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getDevices(GetDevicesArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getDevices(GetDevicesArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -909,10 +1059,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetDevicesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -920,10 +1077,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getDevices(GetDevicesArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getDevices(GetDevicesArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -940,10 +1097,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetDevicesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -951,10 +1115,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getDevices(GetDevicesArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getDevices(GetDevicesArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -971,10 +1135,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -982,9 +1153,9 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getGlobalNetwork(GetGlobalNetworkArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getGlobalNetwork(GetGlobalNetworkArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1001,10 +1172,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1012,9 +1190,9 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getGlobalNetwork(GetGlobalNetworkArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getGlobalNetwork(GetGlobalNetworkArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1031,10 +1209,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1042,9 +1227,9 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getGlobalNetwork(GetGlobalNetworkArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getGlobalNetwork(GetGlobalNetworkArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1061,10 +1246,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1072,9 +1264,9 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getGlobalNetwork(GetGlobalNetworkArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getGlobalNetwork(GetGlobalNetworkArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1091,10 +1283,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1102,9 +1301,9 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1121,10 +1320,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1132,9 +1338,9 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1151,10 +1357,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1162,9 +1375,9 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1181,10 +1394,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1192,9 +1412,9 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1211,10 +1431,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1222,9 +1449,9 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1241,10 +1468,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetGlobalNetworksArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1252,9 +1486,9 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getGlobalNetworks(GetGlobalNetworksArgs.builder()
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1271,10 +1505,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1282,10 +1523,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getLink(GetLinkArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getLink(GetLinkArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .linkId(var_.link_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1302,10 +1543,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1313,10 +1561,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getLink(GetLinkArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getLink(GetLinkArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .linkId(var_.link_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1333,10 +1581,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1344,10 +1599,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getLink(GetLinkArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getLink(GetLinkArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .linkId(var_.link_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1364,10 +1619,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1375,10 +1637,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getLink(GetLinkArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getLink(GetLinkArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .linkId(var_.link_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1395,10 +1657,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetLinksArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1406,10 +1675,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getLinks(GetLinksArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getLinks(GetLinksArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1426,10 +1695,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetLinksArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1437,10 +1713,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getLinks(GetLinksArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getLinks(GetLinksArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1457,10 +1733,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetLinksArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1468,10 +1751,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getLinks(GetLinksArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getLinks(GetLinksArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1488,10 +1771,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetLinksArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1499,10 +1789,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getLinks(GetLinksArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getLinks(GetLinksArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1519,10 +1809,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1530,10 +1827,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getSite(GetSiteArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getSite(GetSiteArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .siteId(var_.site_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1550,10 +1847,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1561,10 +1865,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getSite(GetSiteArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getSite(GetSiteArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .siteId(var_.site_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1581,10 +1885,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1592,10 +1903,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getSite(GetSiteArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getSite(GetSiteArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .siteId(var_.site_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1612,10 +1923,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1623,10 +1941,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getSite(GetSiteArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getSite(GetSiteArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .siteId(var_.site_id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1643,10 +1961,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1654,10 +1979,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getSites(GetSitesArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getSites(GetSitesArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1674,10 +1999,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1685,10 +2017,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getSites(GetSitesArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getSites(GetSitesArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1705,10 +2037,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1716,10 +2055,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getSites(GetSitesArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getSites(GetSitesArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1736,10 +2075,17 @@ public final class NetworkmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1747,10 +2093,10 @@ public final class NetworkmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(NetworkmanagerFunctions.getSites(GetSitesArgs.builder()
+     *         final var example = NetworkmanagerFunctions.getSites(GetSitesArgs.builder()
      *             .globalNetworkId(var_.global_network_id())
      *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

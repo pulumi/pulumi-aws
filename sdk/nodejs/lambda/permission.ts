@@ -68,7 +68,7 @@ import {Function} from "./index";
  *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
  *     role: defaultRole.arn,
  *     handler: "exports.handler",
- *     runtime: "python3.6",
+ *     runtime: "python3.7",
  * });
  * const withSns = new aws.lambda.Permission("withSns", {
  *     action: "lambda:InvokeFunction",
@@ -123,7 +123,7 @@ import {Function} from "./index";
  *     code: new pulumi.asset.FileArchive("lamba_logging.zip"),
  *     handler: "exports.handler",
  *     role: defaultRole.arn,
- *     runtime: "python3.6",
+ *     runtime: "python3.7",
  * });
  * const loggingPermission = new aws.lambda.Permission("loggingPermission", {
  *     action: "lambda:InvokeFunction",

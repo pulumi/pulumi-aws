@@ -20,39 +20,6 @@ import javax.annotation.Nullable;
  * The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
  * 
  * ## Example Usage
- * ### Create protection
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var available = Output.of(AwsFunctions.getAvailabilityZones());
- * 
- *         final var currentRegion = Output.of(AwsFunctions.getRegion());
- * 
- *         final var currentCallerIdentity = Output.of(AwsFunctions.getCallerIdentity());
- * 
- *         var exampleEip = new Eip(&#34;exampleEip&#34;, EipArgs.builder()        
- *             .vpc(true)
- *             .build());
- * 
- *         var exampleProtection = new Protection(&#34;exampleProtection&#34;, ProtectionArgs.builder()        
- *             .resourceArn(exampleEip.id().apply(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, currentRegion.apply(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Dev&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

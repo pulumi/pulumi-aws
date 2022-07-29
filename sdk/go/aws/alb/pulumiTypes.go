@@ -4451,7 +4451,7 @@ type TargetGroupHealthCheck struct {
 	Port *string `pulumi:"port"`
 	// Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
 	Protocol *string `pulumi:"protocol"`
-	// Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
+	// Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 5 seconds for HTTP health checks.
 	Timeout *int `pulumi:"timeout"`
 	// Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
 	UnhealthyThreshold *int `pulumi:"unhealthyThreshold"`
@@ -4483,7 +4483,7 @@ type TargetGroupHealthCheckArgs struct {
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// Protocol to use to connect with the target. Defaults to `HTTP`. Not applicable when `targetType` is `lambda`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
+	// Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 5 seconds for HTTP health checks.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 	// Number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the `healthyThreshold`. Defaults to 3.
 	UnhealthyThreshold pulumi.IntPtrInput `pulumi:"unhealthyThreshold"`
@@ -4601,7 +4601,7 @@ func (o TargetGroupHealthCheckOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
+// Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 5 seconds for HTTP health checks.
 func (o TargetGroupHealthCheckOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -4705,7 +4705,7 @@ func (o TargetGroupHealthCheckPtrOutput) Protocol() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.
+// Amount of time, in seconds, during which no response means a failed health check. For Application Load Balancers, the range is 2 to 120 seconds, and the default is 5 seconds for the `instance` target type and 30 seconds for the `lambda` target type. For Network Load Balancers, you cannot set a custom value, and the default is 10 seconds for TCP and HTTPS health checks and 5 seconds for HTTP health checks.
 func (o TargetGroupHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *int {
 		if v == nil {

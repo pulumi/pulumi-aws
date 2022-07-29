@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Acmpca
     ///         var example = new Aws.Acmpca.Policy("example", new Aws.Acmpca.PolicyArgs
     ///         {
     ///             ResourceArn = aws_acmpca_certificate_authority.Example.Arn,
-    ///             Policy = @$"{{                        
+    ///             PolicyDetails = @$"{{                        
     ///    ""Version"":""2012-10-17"",
     ///    ""Statement"":[
     ///       {{    

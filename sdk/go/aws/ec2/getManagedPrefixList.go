@@ -34,7 +34,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = ec2.LookupManagedPrefixList(ctx, &ec2.LookupManagedPrefixListArgs{
-// 			Name: pulumi.StringRef(fmt.Sprintf("%v%v%v", "com.amazonaws.", current.Name, ".dynamodb")),
+// 			Name: pulumi.StringRef(fmt.Sprintf("com.amazonaws.%v.dynamodb", current.Name)),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

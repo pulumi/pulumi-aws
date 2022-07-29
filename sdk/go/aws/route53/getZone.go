@@ -39,7 +39,7 @@ import (
 // 		}
 // 		_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
 // 			ZoneId: pulumi.String(selected.ZoneId),
-// 			Name:   pulumi.String(fmt.Sprintf("%v%v", "www.", selected.Name)),
+// 			Name:   pulumi.String(fmt.Sprintf("www.%v", selected.Name)),
 // 			Type:   pulumi.String("A"),
 // 			Ttl:    pulumi.Int(300),
 // 			Records: pulumi.StringArray{

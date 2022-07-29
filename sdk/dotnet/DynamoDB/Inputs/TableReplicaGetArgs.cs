@@ -19,10 +19,16 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Whether to enable Point In Time Recovery for the replica.
+        /// Whether to enable Point In Time Recovery for the replica. Default is `false`.
         /// </summary>
         [Input("pointInTimeRecovery")]
         public Input<bool>? PointInTimeRecovery { get; set; }
+
+        /// <summary>
+        /// Whether to propagate the main table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from main to replica. In other words, tag drift on a replica will not trigger an update. Tag changes on the main table, whether from drift or configuration changes, are propagated to replicas.
+        /// </summary>
+        [Input("propagateTags")]
+        public Input<bool>? PropagateTags { get; set; }
 
         /// <summary>
         /// Region name of the replica.

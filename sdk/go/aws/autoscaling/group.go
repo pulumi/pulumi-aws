@@ -44,7 +44,7 @@ import (
 // 			MinSize:         pulumi.Int(1),
 // 			LaunchTemplate: &autoscaling.GroupLaunchTemplateArgs{
 // 				Id:      foobar.ID(),
-// 				Version: pulumi.String(fmt.Sprintf("%v%v", "$", "Latest")),
+// 				Version: pulumi.String(fmt.Sprintf("$Latest")),
 // 			},
 // 		})
 // 		if err != nil {
@@ -555,7 +555,7 @@ type Group struct {
 	ProtectFromScaleIn pulumi.BoolPtrOutput `pulumi:"protectFromScaleIn"`
 	// The ARN of the service-linked role that the ASG will use to call other AWS services
 	ServiceLinkedRoleArn pulumi.StringOutput `pulumi:"serviceLinkedRoleArn"`
-	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
+	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses pulumi.StringArrayOutput `pulumi:"suspendedProcesses"`
 	// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
@@ -700,7 +700,7 @@ type groupState struct {
 	ProtectFromScaleIn *bool `pulumi:"protectFromScaleIn"`
 	// The ARN of the service-linked role that the ASG will use to call other AWS services
 	ServiceLinkedRoleArn *string `pulumi:"serviceLinkedRoleArn"`
-	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
+	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses []string `pulumi:"suspendedProcesses"`
 	// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
@@ -811,7 +811,7 @@ type GroupState struct {
 	ProtectFromScaleIn pulumi.BoolPtrInput
 	// The ARN of the service-linked role that the ASG will use to call other AWS services
 	ServiceLinkedRoleArn pulumi.StringPtrInput
-	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
+	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses pulumi.StringArrayInput
 	// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
@@ -924,7 +924,7 @@ type groupArgs struct {
 	ProtectFromScaleIn *bool `pulumi:"protectFromScaleIn"`
 	// The ARN of the service-linked role that the ASG will use to call other AWS services
 	ServiceLinkedRoleArn *string `pulumi:"serviceLinkedRoleArn"`
-	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
+	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses []string `pulumi:"suspendedProcesses"`
 	// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
@@ -1034,7 +1034,7 @@ type GroupArgs struct {
 	ProtectFromScaleIn pulumi.BoolPtrInput
 	// The ARN of the service-linked role that the ASG will use to call other AWS services
 	ServiceLinkedRoleArn pulumi.StringPtrInput
-	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
+	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses pulumi.StringArrayInput
 	// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
@@ -1315,7 +1315,7 @@ func (o GroupOutput) ServiceLinkedRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.ServiceLinkedRoleArn }).(pulumi.StringOutput)
 }
 
-// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
+// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
 // Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 func (o GroupOutput) SuspendedProcesses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.SuspendedProcesses }).(pulumi.StringArrayOutput)

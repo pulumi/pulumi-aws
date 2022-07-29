@@ -82,6 +82,10 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The position of an asset in a rack measured in rack units.
+        /// </summary>
+        public readonly int RackElevation;
+        /// <summary>
         /// The rack ID of the asset.
         /// </summary>
         public readonly string RackId;
@@ -98,6 +102,8 @@ namespace Pulumi.Aws.Outposts
 
             string id,
 
+            int rackElevation,
+
             string rackId)
         {
             Arn = arn;
@@ -105,6 +111,7 @@ namespace Pulumi.Aws.Outposts
             AssetType = assetType;
             HostId = hostId;
             Id = id;
+            RackElevation = rackElevation;
             RackId = rackId;
         }
     }

@@ -92,6 +92,21 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs
     }
 
     /**
+     * For GP3 volumes only. The throughput in MiB/s that the volume supports.
+     * 
+     */
+    @Import(name="throughput")
+    private @Nullable Output<Integer> throughput;
+
+    /**
+     * @return For GP3 volumes only. The throughput in MiB/s that the volume supports.
+     * 
+     */
+    public Optional<Output<Integer>> throughput() {
+        return Optional.ofNullable(this.throughput);
+    }
+
+    /**
      * Size of the volume, in GiB.
      * 
      */
@@ -129,6 +144,7 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs
         this.iops = $.iops;
         this.kmsKeyId = $.kmsKeyId;
         this.snapshotId = $.snapshotId;
+        this.throughput = $.throughput;
         this.volumeSize = $.volumeSize;
         this.volumeType = $.volumeType;
     }
@@ -254,6 +270,27 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs
          */
         public Builder snapshotId(String snapshotId) {
             return snapshotId(Output.of(snapshotId));
+        }
+
+        /**
+         * @param throughput For GP3 volumes only. The throughput in MiB/s that the volume supports.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder throughput(@Nullable Output<Integer> throughput) {
+            $.throughput = throughput;
+            return this;
+        }
+
+        /**
+         * @param throughput For GP3 volumes only. The throughput in MiB/s that the volume supports.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder throughput(Integer throughput) {
+            return throughput(Output.of(throughput));
         }
 
         /**

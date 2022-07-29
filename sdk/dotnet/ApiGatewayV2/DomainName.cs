@@ -29,7 +29,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///     {
     ///         var example = new Aws.ApiGatewayV2.DomainName("example", new Aws.ApiGatewayV2.DomainNameArgs
     ///         {
-    ///             DomainName = "ws-api.example.com",
+    ///             Domain = "ws-api.example.com",
     ///             DomainNameConfiguration = new Aws.ApiGatewayV2.Inputs.DomainNameDomainNameConfigurationArgs
     ///             {
     ///                 CertificateArn = aws_acm_certificate.Example.Arn,
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///     {
     ///         var exampleDomainName = new Aws.ApiGatewayV2.DomainName("exampleDomainName", new Aws.ApiGatewayV2.DomainNameArgs
     ///         {
-    ///             DomainName = "http-api.example.com",
+    ///             Domain = "http-api.example.com",
     ///             DomainNameConfiguration = new Aws.ApiGatewayV2.Inputs.DomainNameDomainNameConfigurationArgs
     ///             {
     ///                 CertificateArn = aws_acm_certificate.Example.Arn,

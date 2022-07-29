@@ -29,10 +29,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.acmpca.CertificateAuthority;
+ * import com.pulumi.aws.acmpca.CertificateAuthorityArgs;
+ * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs;
+ * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -58,11 +67,27 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.s3.BucketPolicy;
+ * import com.pulumi.aws.s3.BucketPolicyArgs;
+ * import com.pulumi.aws.acmpca.CertificateAuthority;
+ * import com.pulumi.aws.acmpca.CertificateAuthorityArgs;
+ * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs;
+ * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
+ * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityRevocationConfigurationArgs;
+ * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -81,7 +106,7 @@ import javax.annotation.Nullable;
  *                     &#34;s3:PutObjectAcl&#34;)
  *                 .resources(                
  *                     exampleBucketV2.arn(),
- *                     exampleBucketV2.arn().apply(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                     exampleBucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers(&#34;acm-pca.amazonaws.com&#34;)
  *                     .type(&#34;Service&#34;)
@@ -91,7 +116,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleBucketPolicy = new BucketPolicy(&#34;exampleBucketPolicy&#34;, BucketPolicyArgs.builder()        
  *             .bucket(exampleBucketV2.id())
- *             .policy(acmpcaBucketAccess.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult).apply(acmpcaBucketAccess -&gt; acmpcaBucketAccess.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(acmpcaBucketAccess.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(acmpcaBucketAccess -&gt; acmpcaBucketAccess.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *         var exampleCertificateAuthority = new CertificateAuthority(&#34;exampleCertificateAuthority&#34;, CertificateAuthorityArgs.builder()        

@@ -15,7 +15,7 @@ import {Policy} from "./index";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const pubsub = new aws.iot.Policy("pubsub", {policy: `{
  *   "Version": "2012-10-17",

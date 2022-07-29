@@ -29,7 +29,7 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var exampleBucketCorsConfigurationV2 = new Aws.S3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2", new Aws.S3.BucketCorsConfigurationV2Args
     ///         {
-    ///             Bucket = exampleBucketV2.Bucket,
+    ///             Bucket = exampleBucketV2.Id,
     ///             CorsRules = 
     ///             {
     ///                 new Aws.S3.Inputs.BucketCorsConfigurationV2CorsRuleArgs

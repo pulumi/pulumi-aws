@@ -50,7 +50,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         var exampleBucket = new Aws.S3Control.Bucket("exampleBucket", new Aws.S3Control.BucketArgs
     ///         {
-    ///             Bucket = "example",
+    ///             BucketName = "example",
     ///         });
     ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
     ///         {

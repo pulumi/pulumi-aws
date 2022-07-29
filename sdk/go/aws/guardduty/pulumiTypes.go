@@ -882,7 +882,9 @@ func (o FilterFindingCriteriaCriterionArrayOutput) Index(i pulumi.IntInput) Filt
 }
 
 type OrganizationConfigurationDatasources struct {
-	// Configuration for the builds to store logs to S3.
+	// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+	Kubernetes *OrganizationConfigurationDatasourcesKubernetes `pulumi:"kubernetes"`
+	// Enable S3 Protection automatically for new member accounts.
 	S3Logs *OrganizationConfigurationDatasourcesS3Logs `pulumi:"s3Logs"`
 }
 
@@ -898,7 +900,9 @@ type OrganizationConfigurationDatasourcesInput interface {
 }
 
 type OrganizationConfigurationDatasourcesArgs struct {
-	// Configuration for the builds to store logs to S3.
+	// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+	Kubernetes OrganizationConfigurationDatasourcesKubernetesPtrInput `pulumi:"kubernetes"`
+	// Enable S3 Protection automatically for new member accounts.
 	S3Logs OrganizationConfigurationDatasourcesS3LogsPtrInput `pulumi:"s3Logs"`
 }
 
@@ -979,7 +983,14 @@ func (o OrganizationConfigurationDatasourcesOutput) ToOrganizationConfigurationD
 	}).(OrganizationConfigurationDatasourcesPtrOutput)
 }
 
-// Configuration for the builds to store logs to S3.
+// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+func (o OrganizationConfigurationDatasourcesOutput) Kubernetes() OrganizationConfigurationDatasourcesKubernetesPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigurationDatasources) *OrganizationConfigurationDatasourcesKubernetes {
+		return v.Kubernetes
+	}).(OrganizationConfigurationDatasourcesKubernetesPtrOutput)
+}
+
+// Enable S3 Protection automatically for new member accounts.
 func (o OrganizationConfigurationDatasourcesOutput) S3Logs() OrganizationConfigurationDatasourcesS3LogsPtrOutput {
 	return o.ApplyT(func(v OrganizationConfigurationDatasources) *OrganizationConfigurationDatasourcesS3Logs {
 		return v.S3Logs
@@ -1010,7 +1021,17 @@ func (o OrganizationConfigurationDatasourcesPtrOutput) Elem() OrganizationConfig
 	}).(OrganizationConfigurationDatasourcesOutput)
 }
 
-// Configuration for the builds to store logs to S3.
+// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+func (o OrganizationConfigurationDatasourcesPtrOutput) Kubernetes() OrganizationConfigurationDatasourcesKubernetesPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationDatasources) *OrganizationConfigurationDatasourcesKubernetes {
+		if v == nil {
+			return nil
+		}
+		return v.Kubernetes
+	}).(OrganizationConfigurationDatasourcesKubernetesPtrOutput)
+}
+
+// Enable S3 Protection automatically for new member accounts.
 func (o OrganizationConfigurationDatasourcesPtrOutput) S3Logs() OrganizationConfigurationDatasourcesS3LogsPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasources) *OrganizationConfigurationDatasourcesS3Logs {
 		if v == nil {
@@ -1020,8 +1041,292 @@ func (o OrganizationConfigurationDatasourcesPtrOutput) S3Logs() OrganizationConf
 	}).(OrganizationConfigurationDatasourcesS3LogsPtrOutput)
 }
 
+type OrganizationConfigurationDatasourcesKubernetes struct {
+	// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// See Kubernetes Audit Logs below for more details.
+	AuditLogs OrganizationConfigurationDatasourcesKubernetesAuditLogs `pulumi:"auditLogs"`
+}
+
+// OrganizationConfigurationDatasourcesKubernetesInput is an input type that accepts OrganizationConfigurationDatasourcesKubernetesArgs and OrganizationConfigurationDatasourcesKubernetesOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationDatasourcesKubernetesInput` via:
+//
+//          OrganizationConfigurationDatasourcesKubernetesArgs{...}
+type OrganizationConfigurationDatasourcesKubernetesInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationDatasourcesKubernetesOutput() OrganizationConfigurationDatasourcesKubernetesOutput
+	ToOrganizationConfigurationDatasourcesKubernetesOutputWithContext(context.Context) OrganizationConfigurationDatasourcesKubernetesOutput
+}
+
+type OrganizationConfigurationDatasourcesKubernetesArgs struct {
+	// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// See Kubernetes Audit Logs below for more details.
+	AuditLogs OrganizationConfigurationDatasourcesKubernetesAuditLogsInput `pulumi:"auditLogs"`
+}
+
+func (OrganizationConfigurationDatasourcesKubernetesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationDatasourcesKubernetes)(nil)).Elem()
+}
+
+func (i OrganizationConfigurationDatasourcesKubernetesArgs) ToOrganizationConfigurationDatasourcesKubernetesOutput() OrganizationConfigurationDatasourcesKubernetesOutput {
+	return i.ToOrganizationConfigurationDatasourcesKubernetesOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationDatasourcesKubernetesArgs) ToOrganizationConfigurationDatasourcesKubernetesOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesKubernetesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesKubernetesOutput)
+}
+
+func (i OrganizationConfigurationDatasourcesKubernetesArgs) ToOrganizationConfigurationDatasourcesKubernetesPtrOutput() OrganizationConfigurationDatasourcesKubernetesPtrOutput {
+	return i.ToOrganizationConfigurationDatasourcesKubernetesPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationDatasourcesKubernetesArgs) ToOrganizationConfigurationDatasourcesKubernetesPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesKubernetesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesKubernetesOutput).ToOrganizationConfigurationDatasourcesKubernetesPtrOutputWithContext(ctx)
+}
+
+// OrganizationConfigurationDatasourcesKubernetesPtrInput is an input type that accepts OrganizationConfigurationDatasourcesKubernetesArgs, OrganizationConfigurationDatasourcesKubernetesPtr and OrganizationConfigurationDatasourcesKubernetesPtrOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationDatasourcesKubernetesPtrInput` via:
+//
+//          OrganizationConfigurationDatasourcesKubernetesArgs{...}
+//
+//  or:
+//
+//          nil
+type OrganizationConfigurationDatasourcesKubernetesPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationDatasourcesKubernetesPtrOutput() OrganizationConfigurationDatasourcesKubernetesPtrOutput
+	ToOrganizationConfigurationDatasourcesKubernetesPtrOutputWithContext(context.Context) OrganizationConfigurationDatasourcesKubernetesPtrOutput
+}
+
+type organizationConfigurationDatasourcesKubernetesPtrType OrganizationConfigurationDatasourcesKubernetesArgs
+
+func OrganizationConfigurationDatasourcesKubernetesPtr(v *OrganizationConfigurationDatasourcesKubernetesArgs) OrganizationConfigurationDatasourcesKubernetesPtrInput {
+	return (*organizationConfigurationDatasourcesKubernetesPtrType)(v)
+}
+
+func (*organizationConfigurationDatasourcesKubernetesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationDatasourcesKubernetes)(nil)).Elem()
+}
+
+func (i *organizationConfigurationDatasourcesKubernetesPtrType) ToOrganizationConfigurationDatasourcesKubernetesPtrOutput() OrganizationConfigurationDatasourcesKubernetesPtrOutput {
+	return i.ToOrganizationConfigurationDatasourcesKubernetesPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationConfigurationDatasourcesKubernetesPtrType) ToOrganizationConfigurationDatasourcesKubernetesPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesKubernetesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesKubernetesPtrOutput)
+}
+
+type OrganizationConfigurationDatasourcesKubernetesOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationDatasourcesKubernetesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationDatasourcesKubernetes)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationDatasourcesKubernetesOutput) ToOrganizationConfigurationDatasourcesKubernetesOutput() OrganizationConfigurationDatasourcesKubernetesOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesKubernetesOutput) ToOrganizationConfigurationDatasourcesKubernetesOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesKubernetesOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesKubernetesOutput) ToOrganizationConfigurationDatasourcesKubernetesPtrOutput() OrganizationConfigurationDatasourcesKubernetesPtrOutput {
+	return o.ToOrganizationConfigurationDatasourcesKubernetesPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationDatasourcesKubernetesOutput) ToOrganizationConfigurationDatasourcesKubernetesPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesKubernetesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigurationDatasourcesKubernetes) *OrganizationConfigurationDatasourcesKubernetes {
+		return &v
+	}).(OrganizationConfigurationDatasourcesKubernetesPtrOutput)
+}
+
+// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// See Kubernetes Audit Logs below for more details.
+func (o OrganizationConfigurationDatasourcesKubernetesOutput) AuditLogs() OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput {
+	return o.ApplyT(func(v OrganizationConfigurationDatasourcesKubernetes) OrganizationConfigurationDatasourcesKubernetesAuditLogs {
+		return v.AuditLogs
+	}).(OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput)
+}
+
+type OrganizationConfigurationDatasourcesKubernetesPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationDatasourcesKubernetesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationDatasourcesKubernetes)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationDatasourcesKubernetesPtrOutput) ToOrganizationConfigurationDatasourcesKubernetesPtrOutput() OrganizationConfigurationDatasourcesKubernetesPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesKubernetesPtrOutput) ToOrganizationConfigurationDatasourcesKubernetesPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesKubernetesPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesKubernetesPtrOutput) Elem() OrganizationConfigurationDatasourcesKubernetesOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesKubernetes) OrganizationConfigurationDatasourcesKubernetes {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfigurationDatasourcesKubernetes
+		return ret
+	}).(OrganizationConfigurationDatasourcesKubernetesOutput)
+}
+
+// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// See Kubernetes Audit Logs below for more details.
+func (o OrganizationConfigurationDatasourcesKubernetesPtrOutput) AuditLogs() OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesKubernetes) *OrganizationConfigurationDatasourcesKubernetesAuditLogs {
+		if v == nil {
+			return nil
+		}
+		return &v.AuditLogs
+	}).(OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput)
+}
+
+type OrganizationConfigurationDatasourcesKubernetesAuditLogs struct {
+	// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// Defaults to `true`.
+	Enable bool `pulumi:"enable"`
+}
+
+// OrganizationConfigurationDatasourcesKubernetesAuditLogsInput is an input type that accepts OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs and OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationDatasourcesKubernetesAuditLogsInput` via:
+//
+//          OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs{...}
+type OrganizationConfigurationDatasourcesKubernetesAuditLogsInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationDatasourcesKubernetesAuditLogsOutput() OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput
+	ToOrganizationConfigurationDatasourcesKubernetesAuditLogsOutputWithContext(context.Context) OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput
+}
+
+type OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs struct {
+	// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// Defaults to `true`.
+	Enable pulumi.BoolInput `pulumi:"enable"`
+}
+
+func (OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationDatasourcesKubernetesAuditLogs)(nil)).Elem()
+}
+
+func (i OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs) ToOrganizationConfigurationDatasourcesKubernetesAuditLogsOutput() OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput {
+	return i.ToOrganizationConfigurationDatasourcesKubernetesAuditLogsOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs) ToOrganizationConfigurationDatasourcesKubernetesAuditLogsOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput)
+}
+
+func (i OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs) ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput() OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput {
+	return i.ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs) ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput).ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutputWithContext(ctx)
+}
+
+// OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrInput is an input type that accepts OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs, OrganizationConfigurationDatasourcesKubernetesAuditLogsPtr and OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrInput` via:
+//
+//          OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs{...}
+//
+//  or:
+//
+//          nil
+type OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput() OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput
+	ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutputWithContext(context.Context) OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput
+}
+
+type organizationConfigurationDatasourcesKubernetesAuditLogsPtrType OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs
+
+func OrganizationConfigurationDatasourcesKubernetesAuditLogsPtr(v *OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs) OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrInput {
+	return (*organizationConfigurationDatasourcesKubernetesAuditLogsPtrType)(v)
+}
+
+func (*organizationConfigurationDatasourcesKubernetesAuditLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationDatasourcesKubernetesAuditLogs)(nil)).Elem()
+}
+
+func (i *organizationConfigurationDatasourcesKubernetesAuditLogsPtrType) ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput() OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput {
+	return i.ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationConfigurationDatasourcesKubernetesAuditLogsPtrType) ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput)
+}
+
+type OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationDatasourcesKubernetesAuditLogs)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput) ToOrganizationConfigurationDatasourcesKubernetesAuditLogsOutput() OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput) ToOrganizationConfigurationDatasourcesKubernetesAuditLogsOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput) ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput() OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput {
+	return o.ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput) ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigurationDatasourcesKubernetesAuditLogs) *OrganizationConfigurationDatasourcesKubernetesAuditLogs {
+		return &v
+	}).(OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput)
+}
+
+// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// Defaults to `true`.
+func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v OrganizationConfigurationDatasourcesKubernetesAuditLogs) bool { return v.Enable }).(pulumi.BoolOutput)
+}
+
+type OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationDatasourcesKubernetesAuditLogs)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput) ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput() OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput) ToOrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput) Elem() OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesKubernetesAuditLogs) OrganizationConfigurationDatasourcesKubernetesAuditLogs {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfigurationDatasourcesKubernetesAuditLogs
+		return ret
+	}).(OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput)
+}
+
+// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// Defaults to `true`.
+func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesKubernetesAuditLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
 type OrganizationConfigurationDatasourcesS3Logs struct {
-	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+	// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
 	AutoEnable bool `pulumi:"autoEnable"`
 }
 
@@ -1037,7 +1342,7 @@ type OrganizationConfigurationDatasourcesS3LogsInput interface {
 }
 
 type OrganizationConfigurationDatasourcesS3LogsArgs struct {
-	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+	// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
 	AutoEnable pulumi.BoolInput `pulumi:"autoEnable"`
 }
 
@@ -1118,7 +1423,7 @@ func (o OrganizationConfigurationDatasourcesS3LogsOutput) ToOrganizationConfigur
 	}).(OrganizationConfigurationDatasourcesS3LogsPtrOutput)
 }
 
-// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
 func (o OrganizationConfigurationDatasourcesS3LogsOutput) AutoEnable() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrganizationConfigurationDatasourcesS3Logs) bool { return v.AutoEnable }).(pulumi.BoolOutput)
 }
@@ -1147,7 +1452,7 @@ func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) Elem() Organization
 	}).(OrganizationConfigurationDatasourcesS3LogsOutput)
 }
 
-// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
 func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) AutoEnable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesS3Logs) *bool {
 		if v == nil {
@@ -1172,6 +1477,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaCriterionArrayInput)(nil)).Elem(), FilterFindingCriteriaCriterionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesInput)(nil)).Elem(), OrganizationConfigurationDatasourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesKubernetesInput)(nil)).Elem(), OrganizationConfigurationDatasourcesKubernetesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesKubernetesPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesKubernetesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesKubernetesAuditLogsInput)(nil)).Elem(), OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesS3LogsInput)(nil)).Elem(), OrganizationConfigurationDatasourcesS3LogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesS3LogsPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesS3LogsArgs{})
 	pulumi.RegisterOutputType(DetectorDatasourcesOutput{})
@@ -1188,6 +1497,10 @@ func init() {
 	pulumi.RegisterOutputType(FilterFindingCriteriaCriterionArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesKubernetesOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesKubernetesPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesS3LogsOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesS3LogsPtrOutput{})
 }

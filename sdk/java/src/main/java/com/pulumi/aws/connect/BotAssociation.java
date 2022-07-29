@@ -25,10 +25,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.connect.BotAssociation;
+ * import com.pulumi.aws.connect.BotAssociationArgs;
+ * import com.pulumi.aws.connect.inputs.BotAssociationLexBotArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -51,10 +59,28 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.lex.Intent;
+ * import com.pulumi.aws.lex.IntentArgs;
+ * import com.pulumi.aws.lex.inputs.IntentFulfillmentActivityArgs;
+ * import com.pulumi.aws.lex.Bot;
+ * import com.pulumi.aws.lex.BotArgs;
+ * import com.pulumi.aws.lex.inputs.BotAbortStatementArgs;
+ * import com.pulumi.aws.lex.inputs.BotClarificationPromptArgs;
+ * import com.pulumi.aws.lex.inputs.BotIntentArgs;
+ * import com.pulumi.aws.connect.BotAssociation;
+ * import com.pulumi.aws.connect.BotAssociationArgs;
+ * import com.pulumi.aws.connect.inputs.BotAssociationLexBotArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -62,7 +88,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = Output.of(AwsFunctions.getRegion());
+ *         final var current = AwsFunctions.getRegion();
  * 
  *         var exampleIntent = new Intent(&#34;exampleIntent&#34;, IntentArgs.builder()        
  *             .createVersion(true)
@@ -99,7 +125,7 @@ import javax.annotation.Nullable;
  *         var exampleBotAssociation = new BotAssociation(&#34;exampleBotAssociation&#34;, BotAssociationArgs.builder()        
  *             .instanceId(aws_connect_instance.example().id())
  *             .lexBot(BotAssociationLexBotArgs.builder()
- *                 .lexRegion(current.apply(getRegionResult -&gt; getRegionResult.name()))
+ *                 .lexRegion(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *                 .name(exampleBot.name())
  *                 .build())
  *             .build());

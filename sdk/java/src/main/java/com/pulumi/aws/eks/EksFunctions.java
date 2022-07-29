@@ -38,10 +38,17 @@ public final class EksFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.eks.inputs.GetAddonArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -49,10 +56,10 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EksFunctions.getAddon(GetAddonArgs.builder()
+     *         final var example = EksFunctions.getAddon(GetAddonArgs.builder()
      *             .addonName(&#34;vpc-cni&#34;)
      *             .clusterName(aws_eks_cluster.example().name())
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;eksAddonOutputs&#34;, aws_eks_addon.example());
      *     }
@@ -70,10 +77,17 @@ public final class EksFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.eks.inputs.GetAddonArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -81,10 +95,10 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EksFunctions.getAddon(GetAddonArgs.builder()
+     *         final var example = EksFunctions.getAddon(GetAddonArgs.builder()
      *             .addonName(&#34;vpc-cni&#34;)
      *             .clusterName(aws_eks_cluster.example().name())
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;eksAddonOutputs&#34;, aws_eks_addon.example());
      *     }
@@ -102,10 +116,17 @@ public final class EksFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.eks.inputs.GetAddonArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -113,10 +134,10 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EksFunctions.getAddon(GetAddonArgs.builder()
+     *         final var example = EksFunctions.getAddon(GetAddonArgs.builder()
      *             .addonName(&#34;vpc-cni&#34;)
      *             .clusterName(aws_eks_cluster.example().name())
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;eksAddonOutputs&#34;, aws_eks_addon.example());
      *     }
@@ -134,10 +155,17 @@ public final class EksFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.eks.inputs.GetAddonArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -145,10 +173,10 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EksFunctions.getAddon(GetAddonArgs.builder()
+     *         final var example = EksFunctions.getAddon(GetAddonArgs.builder()
      *             .addonName(&#34;vpc-cni&#34;)
      *             .clusterName(aws_eks_cluster.example().name())
-     *             .build()));
+     *             .build());
      * 
      *         ctx.export(&#34;eksAddonOutputs&#34;, aws_eks_addon.example());
      *     }
@@ -166,10 +194,19 @@ public final class EksFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.eks.inputs.GetAddonVersionArgs;
+     * import com.pulumi.aws.eks.Addon;
+     * import com.pulumi.aws.eks.AddonArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -177,25 +214,25 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var defaultAddonVersion = Output.of(EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
+     *         final var defaultAddonVersion = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName(&#34;vpc-cni&#34;)
      *             .kubernetesVersion(aws_eks_cluster.example().version())
-     *             .build()));
+     *             .build());
      * 
-     *         final var latestAddonVersion = Output.of(EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
+     *         final var latestAddonVersion = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName(&#34;vpc-cni&#34;)
      *             .kubernetesVersion(aws_eks_cluster.example().version())
      *             .mostRecent(true)
-     *             .build()));
+     *             .build());
      * 
      *         var vpcCni = new Addon(&#34;vpcCni&#34;, AddonArgs.builder()        
      *             .clusterName(aws_eks_cluster.example().name())
      *             .addonName(&#34;vpc-cni&#34;)
-     *             .addonVersion(latestAddonVersion.apply(getAddonVersionResult -&gt; getAddonVersionResult.version()))
+     *             .addonVersion(latestAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()))
      *             .build());
      * 
-     *         ctx.export(&#34;default&#34;, defaultAddonVersion.apply(getAddonVersionResult -&gt; getAddonVersionResult.version()));
-     *         ctx.export(&#34;latest&#34;, latestAddonVersion.apply(getAddonVersionResult -&gt; getAddonVersionResult.version()));
+     *         ctx.export(&#34;default&#34;, defaultAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()));
+     *         ctx.export(&#34;latest&#34;, latestAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()));
      *     }
      * }
      * ```
@@ -211,10 +248,19 @@ public final class EksFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.eks.inputs.GetAddonVersionArgs;
+     * import com.pulumi.aws.eks.Addon;
+     * import com.pulumi.aws.eks.AddonArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -222,25 +268,25 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var defaultAddonVersion = Output.of(EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
+     *         final var defaultAddonVersion = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName(&#34;vpc-cni&#34;)
      *             .kubernetesVersion(aws_eks_cluster.example().version())
-     *             .build()));
+     *             .build());
      * 
-     *         final var latestAddonVersion = Output.of(EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
+     *         final var latestAddonVersion = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName(&#34;vpc-cni&#34;)
      *             .kubernetesVersion(aws_eks_cluster.example().version())
      *             .mostRecent(true)
-     *             .build()));
+     *             .build());
      * 
      *         var vpcCni = new Addon(&#34;vpcCni&#34;, AddonArgs.builder()        
      *             .clusterName(aws_eks_cluster.example().name())
      *             .addonName(&#34;vpc-cni&#34;)
-     *             .addonVersion(latestAddonVersion.apply(getAddonVersionResult -&gt; getAddonVersionResult.version()))
+     *             .addonVersion(latestAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()))
      *             .build());
      * 
-     *         ctx.export(&#34;default&#34;, defaultAddonVersion.apply(getAddonVersionResult -&gt; getAddonVersionResult.version()));
-     *         ctx.export(&#34;latest&#34;, latestAddonVersion.apply(getAddonVersionResult -&gt; getAddonVersionResult.version()));
+     *         ctx.export(&#34;default&#34;, defaultAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()));
+     *         ctx.export(&#34;latest&#34;, latestAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()));
      *     }
      * }
      * ```
@@ -256,10 +302,19 @@ public final class EksFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.eks.inputs.GetAddonVersionArgs;
+     * import com.pulumi.aws.eks.Addon;
+     * import com.pulumi.aws.eks.AddonArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -267,25 +322,25 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var defaultAddonVersion = Output.of(EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
+     *         final var defaultAddonVersion = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName(&#34;vpc-cni&#34;)
      *             .kubernetesVersion(aws_eks_cluster.example().version())
-     *             .build()));
+     *             .build());
      * 
-     *         final var latestAddonVersion = Output.of(EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
+     *         final var latestAddonVersion = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName(&#34;vpc-cni&#34;)
      *             .kubernetesVersion(aws_eks_cluster.example().version())
      *             .mostRecent(true)
-     *             .build()));
+     *             .build());
      * 
      *         var vpcCni = new Addon(&#34;vpcCni&#34;, AddonArgs.builder()        
      *             .clusterName(aws_eks_cluster.example().name())
      *             .addonName(&#34;vpc-cni&#34;)
-     *             .addonVersion(latestAddonVersion.apply(getAddonVersionResult -&gt; getAddonVersionResult.version()))
+     *             .addonVersion(latestAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()))
      *             .build());
      * 
-     *         ctx.export(&#34;default&#34;, defaultAddonVersion.apply(getAddonVersionResult -&gt; getAddonVersionResult.version()));
-     *         ctx.export(&#34;latest&#34;, latestAddonVersion.apply(getAddonVersionResult -&gt; getAddonVersionResult.version()));
+     *         ctx.export(&#34;default&#34;, defaultAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()));
+     *         ctx.export(&#34;latest&#34;, latestAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()));
      *     }
      * }
      * ```
@@ -301,10 +356,19 @@ public final class EksFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.eks.inputs.GetAddonVersionArgs;
+     * import com.pulumi.aws.eks.Addon;
+     * import com.pulumi.aws.eks.AddonArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -312,25 +376,25 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var defaultAddonVersion = Output.of(EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
+     *         final var defaultAddonVersion = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName(&#34;vpc-cni&#34;)
      *             .kubernetesVersion(aws_eks_cluster.example().version())
-     *             .build()));
+     *             .build());
      * 
-     *         final var latestAddonVersion = Output.of(EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
+     *         final var latestAddonVersion = EksFunctions.getAddonVersion(GetAddonVersionArgs.builder()
      *             .addonName(&#34;vpc-cni&#34;)
      *             .kubernetesVersion(aws_eks_cluster.example().version())
      *             .mostRecent(true)
-     *             .build()));
+     *             .build());
      * 
      *         var vpcCni = new Addon(&#34;vpcCni&#34;, AddonArgs.builder()        
      *             .clusterName(aws_eks_cluster.example().name())
      *             .addonName(&#34;vpc-cni&#34;)
-     *             .addonVersion(latestAddonVersion.apply(getAddonVersionResult -&gt; getAddonVersionResult.version()))
+     *             .addonVersion(latestAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()))
      *             .build());
      * 
-     *         ctx.export(&#34;default&#34;, defaultAddonVersion.apply(getAddonVersionResult -&gt; getAddonVersionResult.version()));
-     *         ctx.export(&#34;latest&#34;, latestAddonVersion.apply(getAddonVersionResult -&gt; getAddonVersionResult.version()));
+     *         ctx.export(&#34;default&#34;, defaultAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()));
+     *         ctx.export(&#34;latest&#34;, latestAddonVersion.applyValue(getAddonVersionResult -&gt; getAddonVersionResult.version()));
      *     }
      * }
      * ```
@@ -346,10 +410,17 @@ public final class EksFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -357,13 +428,13 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EksFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = EksFunctions.getCluster(GetClusterArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;endpoint&#34;, example.apply(getClusterResult -&gt; getClusterResult.endpoint()));
-     *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.apply(getClusterResult -&gt; getClusterResult.certificateAuthorities()[0].data()));
-     *         ctx.export(&#34;identity-oidc-issuer&#34;, example.apply(getClusterResult -&gt; getClusterResult.identities()[0].oidcs()[0].issuer()));
+     *         ctx.export(&#34;endpoint&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()));
+     *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.certificateAuthorities()[0].data()));
+     *         ctx.export(&#34;identity-oidc-issuer&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.identities()[0].oidcs()[0].issuer()));
      *     }
      * }
      * ```
@@ -379,10 +450,17 @@ public final class EksFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -390,13 +468,13 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EksFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = EksFunctions.getCluster(GetClusterArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;endpoint&#34;, example.apply(getClusterResult -&gt; getClusterResult.endpoint()));
-     *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.apply(getClusterResult -&gt; getClusterResult.certificateAuthorities()[0].data()));
-     *         ctx.export(&#34;identity-oidc-issuer&#34;, example.apply(getClusterResult -&gt; getClusterResult.identities()[0].oidcs()[0].issuer()));
+     *         ctx.export(&#34;endpoint&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()));
+     *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.certificateAuthorities()[0].data()));
+     *         ctx.export(&#34;identity-oidc-issuer&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.identities()[0].oidcs()[0].issuer()));
      *     }
      * }
      * ```
@@ -412,10 +490,17 @@ public final class EksFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -423,13 +508,13 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EksFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = EksFunctions.getCluster(GetClusterArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;endpoint&#34;, example.apply(getClusterResult -&gt; getClusterResult.endpoint()));
-     *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.apply(getClusterResult -&gt; getClusterResult.certificateAuthorities()[0].data()));
-     *         ctx.export(&#34;identity-oidc-issuer&#34;, example.apply(getClusterResult -&gt; getClusterResult.identities()[0].oidcs()[0].issuer()));
+     *         ctx.export(&#34;endpoint&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()));
+     *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.certificateAuthorities()[0].data()));
+     *         ctx.export(&#34;identity-oidc-issuer&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.identities()[0].oidcs()[0].issuer()));
      *     }
      * }
      * ```
@@ -445,10 +530,17 @@ public final class EksFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -456,13 +548,13 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EksFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = EksFunctions.getCluster(GetClusterArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;endpoint&#34;, example.apply(getClusterResult -&gt; getClusterResult.endpoint()));
-     *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.apply(getClusterResult -&gt; getClusterResult.certificateAuthorities()[0].data()));
-     *         ctx.export(&#34;identity-oidc-issuer&#34;, example.apply(getClusterResult -&gt; getClusterResult.identities()[0].oidcs()[0].issuer()));
+     *         ctx.export(&#34;endpoint&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()));
+     *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.certificateAuthorities()[0].data()));
+     *         ctx.export(&#34;identity-oidc-issuer&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.identities()[0].oidcs()[0].issuer()));
      *     }
      * }
      * ```
@@ -568,10 +660,17 @@ public final class EksFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.eks.inputs.GetNodeGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -579,10 +678,10 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EksFunctions.getNodeGroup(GetNodeGroupArgs.builder()
+     *         final var example = EksFunctions.getNodeGroup(GetNodeGroupArgs.builder()
      *             .clusterName(&#34;example&#34;)
      *             .nodeGroupName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -599,10 +698,17 @@ public final class EksFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.eks.inputs.GetNodeGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -610,10 +716,10 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EksFunctions.getNodeGroup(GetNodeGroupArgs.builder()
+     *         final var example = EksFunctions.getNodeGroup(GetNodeGroupArgs.builder()
      *             .clusterName(&#34;example&#34;)
      *             .nodeGroupName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -630,10 +736,17 @@ public final class EksFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.eks.inputs.GetNodeGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -641,10 +754,10 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EksFunctions.getNodeGroup(GetNodeGroupArgs.builder()
+     *         final var example = EksFunctions.getNodeGroup(GetNodeGroupArgs.builder()
      *             .clusterName(&#34;example&#34;)
      *             .nodeGroupName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -661,10 +774,17 @@ public final class EksFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.eks.EksFunctions;
+     * import com.pulumi.aws.eks.inputs.GetNodeGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -672,10 +792,10 @@ public final class EksFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(EksFunctions.getNodeGroup(GetNodeGroupArgs.builder()
+     *         final var example = EksFunctions.getNodeGroup(GetNodeGroupArgs.builder()
      *             .clusterName(&#34;example&#34;)
      *             .nodeGroupName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

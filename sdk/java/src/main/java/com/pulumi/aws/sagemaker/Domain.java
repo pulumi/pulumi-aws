@@ -26,10 +26,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sagemaker.Domain;
+ * import com.pulumi.aws.sagemaker.DomainArgs;
+ * import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -47,7 +59,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var examplePolicyDocument = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -55,11 +67,11 @@ import javax.annotation.Nullable;
  *                     .identifiers(&#34;sagemaker.amazonaws.com&#34;)
  *                     .build())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
  *             .path(&#34;/&#34;)
- *             .assumeRolePolicy(examplePolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
@@ -69,10 +81,27 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sagemaker.Image;
+ * import com.pulumi.aws.sagemaker.ImageArgs;
+ * import com.pulumi.aws.sagemaker.AppImageConfig;
+ * import com.pulumi.aws.sagemaker.AppImageConfigArgs;
+ * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
+ * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs;
+ * import com.pulumi.aws.sagemaker.ImageVersion;
+ * import com.pulumi.aws.sagemaker.ImageVersionArgs;
+ * import com.pulumi.aws.sagemaker.Domain;
+ * import com.pulumi.aws.sagemaker.DomainArgs;
+ * import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsArgs;
+ * import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

@@ -6,3 +6,5 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .medical_vocabulary import *
+from .vocabulary import *
+from .vocabulary_filter import *

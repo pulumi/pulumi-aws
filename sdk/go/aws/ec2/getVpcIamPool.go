@@ -77,8 +77,9 @@ type GetVpcIamPoolArgs struct {
 	AllocationResourceTags map[string]string `pulumi:"allocationResourceTags"`
 	// Custom filter block as described below.
 	Filters []GetVpcIamPoolFilter `pulumi:"filters"`
-	// -
-	Id         *string `pulumi:"id"`
+	// The ID of the IPAM pool.
+	Id *string `pulumi:"id"`
+	// The ID of the IPAM pool you would like information on.
 	IpamPoolId *string `pulumi:"ipamPoolId"`
 	// A map of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -105,8 +106,9 @@ type GetVpcIamPoolResult struct {
 	// A description for the IPAM pool.
 	Description string                `pulumi:"description"`
 	Filters     []GetVpcIamPoolFilter `pulumi:"filters"`
-	Id          *string               `pulumi:"id"`
-	IpamPoolId  *string               `pulumi:"ipamPoolId"`
+	// The ID of the IPAM pool.
+	Id         *string `pulumi:"id"`
+	IpamPoolId *string `pulumi:"ipamPoolId"`
 	// The ID of the scope the pool belongs to.
 	IpamScopeId   string `pulumi:"ipamScopeId"`
 	IpamScopeType string `pulumi:"ipamScopeType"`
@@ -141,8 +143,9 @@ type GetVpcIamPoolOutputArgs struct {
 	AllocationResourceTags pulumi.StringMapInput `pulumi:"allocationResourceTags"`
 	// Custom filter block as described below.
 	Filters GetVpcIamPoolFilterArrayInput `pulumi:"filters"`
-	// -
-	Id         pulumi.StringPtrInput `pulumi:"id"`
+	// The ID of the IPAM pool.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The ID of the IPAM pool you would like information on.
 	IpamPoolId pulumi.StringPtrInput `pulumi:"ipamPoolId"`
 	// A map of tags to assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -216,6 +219,7 @@ func (o GetVpcIamPoolResultOutput) Filters() GetVpcIamPoolFilterArrayOutput {
 	return o.ApplyT(func(v GetVpcIamPoolResult) []GetVpcIamPoolFilter { return v.Filters }).(GetVpcIamPoolFilterArrayOutput)
 }
 
+// The ID of the IPAM pool.
 func (o GetVpcIamPoolResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetVpcIamPoolResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

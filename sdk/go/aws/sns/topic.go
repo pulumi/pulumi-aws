@@ -48,7 +48,25 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := sns.NewTopic(ctx, "userUpdates", &sns.TopicArgs{
-// 			DeliveryPolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"http\": {\n", "    \"defaultHealthyRetryPolicy\": {\n", "      \"minDelayTarget\": 20,\n", "      \"maxDelayTarget\": 20,\n", "      \"numRetries\": 3,\n", "      \"numMaxDelayRetries\": 0,\n", "      \"numNoDelayRetries\": 0,\n", "      \"numMinDelayRetries\": 0,\n", "      \"backoffFunction\": \"linear\"\n", "    },\n", "    \"disableSubscriptionOverrides\": false,\n", "    \"defaultThrottlePolicy\": {\n", "      \"maxReceivesPerSecond\": 1\n", "    }\n", "  }\n", "}\n", "\n")),
+// 			DeliveryPolicy: pulumi.String(fmt.Sprintf(`{
+//   "http": {
+//     "defaultHealthyRetryPolicy": {
+//       "minDelayTarget": 20,
+//       "maxDelayTarget": 20,
+//       "numRetries": 3,
+//       "numMaxDelayRetries": 0,
+//       "numNoDelayRetries": 0,
+//       "numMinDelayRetries": 0,
+//       "backoffFunction": "linear"
+//     },
+//     "disableSubscriptionOverrides": false,
+//     "defaultThrottlePolicy": {
+//       "maxReceivesPerSecond": 1
+//     }
+//   }
+// }
+//
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

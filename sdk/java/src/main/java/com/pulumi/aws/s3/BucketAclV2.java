@@ -21,10 +21,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -37,52 +45,6 @@ import javax.annotation.Nullable;
  *         var exampleBucketAcl = new BucketAclV2(&#34;exampleBucketAcl&#34;, BucketAclV2Args.builder()        
  *             .bucket(example.id())
  *             .acl(&#34;private&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Grants
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(S3Functions.getCanonicalUserId());
- * 
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
- * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
- *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
- *                 .grants(                
- *                     BucketAclV2AccessControlPolicyGrantArgs.builder()
- *                         .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
- *                             .id(current.apply(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()))
- *                             .type(&#34;CanonicalUser&#34;)
- *                             .build())
- *                         .permission(&#34;READ&#34;)
- *                         .build(),
- *                     BucketAclV2AccessControlPolicyGrantArgs.builder()
- *                         .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
- *                             .type(&#34;Group&#34;)
- *                             .uri(&#34;http://acs.amazonaws.com/groups/s3/LogDelivery&#34;)
- *                             .build())
- *                         .permission(&#34;READ_ACP&#34;)
- *                         .build())
- *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
- *                     .id(current.apply(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()))
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *     }

@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Glue
     ///         {
     ///             DatabaseName = exampleCatalogDatabase.Name,
     ///             TableName = exampleCatalogTable.Name,
-    ///             PartitionIndex = new Aws.Glue.Inputs.PartitionIndexPartitionIndexArgs
+    ///             PartitionIndexConfig = new Aws.Glue.Inputs.PartitionIndexPartitionIndexArgs
     ///             {
     ///                 IndexName = "example",
     ///                 Keys = 

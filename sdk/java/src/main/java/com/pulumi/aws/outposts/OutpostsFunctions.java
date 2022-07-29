@@ -69,10 +69,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -80,9 +87,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
      *             .arn(data.aws_outposts_outpost().example().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -99,10 +106,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -110,9 +124,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
      *             .arn(data.aws_outposts_outpost().example().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -129,10 +143,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -140,9 +161,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
      *             .arn(data.aws_outposts_outpost().example().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -159,10 +180,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -170,9 +198,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *         final var example = OutpostsFunctions.getAssets(GetAssetsArgs.builder()
      *             .arn(data.aws_outposts_outpost().example().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -189,10 +217,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -200,9 +235,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
+     *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -219,10 +254,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -230,9 +272,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
+     *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -249,10 +291,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -260,9 +309,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
+     *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -279,10 +328,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -290,9 +346,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
+     *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -309,10 +365,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -320,9 +383,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
+     *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -339,10 +402,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -350,9 +420,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
+     *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -397,10 +467,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -408,9 +485,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
+     *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
      *             .arn(data.aws_outposts_outpost().example().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -427,10 +504,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -438,9 +522,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
+     *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
      *             .arn(data.aws_outposts_outpost().example().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -457,10 +541,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -468,9 +559,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
+     *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
      *             .arn(data.aws_outposts_outpost().example().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -487,10 +578,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -498,9 +596,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
+     *         final var example = OutpostsFunctions.getOutpostInstanceTypes(GetOutpostInstanceTypesArgs.builder()
      *             .arn(data.aws_outposts_outpost().example().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -517,10 +615,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -528,9 +633,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
+     *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
      *             .siteId(data.aws_outposts_site().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -547,10 +652,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -558,9 +670,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
+     *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
      *             .siteId(data.aws_outposts_site().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -577,10 +689,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -588,9 +707,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
+     *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
      *             .siteId(data.aws_outposts_site().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -607,10 +726,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -618,9 +744,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
+     *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
      *             .siteId(data.aws_outposts_site().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -637,10 +763,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -648,9 +781,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
+     *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
      *             .siteId(data.aws_outposts_site().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -667,10 +800,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -678,9 +818,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
+     *         final var example = OutpostsFunctions.getOutposts(GetOutpostsArgs.builder()
      *             .siteId(data.aws_outposts_site().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -697,10 +837,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -708,9 +855,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getSite(GetSiteArgs.builder()
+     *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -727,10 +874,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -738,9 +892,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getSite(GetSiteArgs.builder()
+     *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -757,10 +911,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -768,9 +929,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getSite(GetSiteArgs.builder()
+     *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -787,10 +948,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -798,9 +966,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getSite(GetSiteArgs.builder()
+     *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -817,10 +985,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -828,9 +1003,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getSite(GetSiteArgs.builder()
+     *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -847,10 +1022,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSiteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -858,9 +1040,9 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(OutpostsFunctions.getSite(GetSiteArgs.builder()
+     *         final var example = OutpostsFunctions.getSite(GetSiteArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -877,10 +1059,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -888,7 +1077,7 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Output.of(OutpostsFunctions.getSites());
+     *         final var all = OutpostsFunctions.getSites();
      * 
      *     }
      * }
@@ -905,10 +1094,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -916,7 +1112,7 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Output.of(OutpostsFunctions.getSites());
+     *         final var all = OutpostsFunctions.getSites();
      * 
      *     }
      * }
@@ -933,10 +1129,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -944,7 +1147,7 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Output.of(OutpostsFunctions.getSites());
+     *         final var all = OutpostsFunctions.getSites();
      * 
      *     }
      * }
@@ -961,10 +1164,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -972,7 +1182,7 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Output.of(OutpostsFunctions.getSites());
+     *         final var all = OutpostsFunctions.getSites();
      * 
      *     }
      * }
@@ -989,10 +1199,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1000,7 +1217,7 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Output.of(OutpostsFunctions.getSites());
+     *         final var all = OutpostsFunctions.getSites();
      * 
      *     }
      * }
@@ -1017,10 +1234,17 @@ public final class OutpostsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.outposts.OutpostsFunctions;
+     * import com.pulumi.aws.networkmanager.inputs.GetSitesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1028,7 +1252,7 @@ public final class OutpostsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Output.of(OutpostsFunctions.getSites());
+     *         final var all = OutpostsFunctions.getSites();
      * 
      *     }
      * }

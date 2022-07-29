@@ -27,10 +27,33 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketPolicy;
+ * import com.pulumi.aws.s3.BucketPolicyArgs;
+ * import com.pulumi.aws.s3.BucketObjectv2;
+ * import com.pulumi.aws.s3.BucketObjectv2Args;
+ * import com.pulumi.aws.appflow.Flow;
+ * import com.pulumi.aws.appflow.FlowArgs;
+ * import com.pulumi.aws.appflow.inputs.FlowSourceFlowConfigArgs;
+ * import com.pulumi.aws.appflow.inputs.FlowSourceFlowConfigSourceConnectorPropertiesArgs;
+ * import com.pulumi.aws.appflow.inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3Args;
+ * import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigArgs;
+ * import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesArgs;
+ * import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args;
+ * import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs;
+ * import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs;
+ * import com.pulumi.aws.appflow.inputs.FlowTaskArgs;
+ * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
+ * import com.pulumi.asset.FileAsset;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

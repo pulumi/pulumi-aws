@@ -13,10 +13,16 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class GatewayRouteSpecHttp2RouteMatchArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+        /// The host name to rewrite.
         /// </summary>
-        [Input("prefix", required: true)]
-        public Input<string> Prefix { get; set; } = null!;
+        [Input("hostname")]
+        public Input<Inputs.GatewayRouteSpecHttp2RouteMatchHostnameArgs>? Hostname { get; set; }
+
+        /// <summary>
+        /// The specified beginning characters to rewrite.
+        /// </summary>
+        [Input("prefix")]
+        public Input<string>? Prefix { get; set; }
 
         public GatewayRouteSpecHttp2RouteMatchArgs()
         {

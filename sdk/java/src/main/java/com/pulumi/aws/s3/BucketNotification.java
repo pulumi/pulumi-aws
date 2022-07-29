@@ -29,10 +29,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
+ * import com.pulumi.aws.s3.BucketNotification;
+ * import com.pulumi.aws.s3.BucketNotificationArgs;
+ * import com.pulumi.aws.s3.inputs.BucketNotificationTopicArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -43,7 +54,7 @@ import javax.annotation.Nullable;
  *         var bucket = new BucketV2(&#34;bucket&#34;);
  * 
  *         var topic = new Topic(&#34;topic&#34;, TopicArgs.builder()        
- *             .policy(bucket.arn().apply(arn -&gt; &#34;&#34;&#34;
+ *             .policy(bucket.arn().applyValue(arn -&gt; &#34;&#34;&#34;
  * {
  *     &#34;Version&#34;:&#34;2012-10-17&#34;,
  *     &#34;Statement&#34;:[{
@@ -75,10 +86,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.sqs.Queue;
+ * import com.pulumi.aws.sqs.QueueArgs;
+ * import com.pulumi.aws.s3.BucketNotification;
+ * import com.pulumi.aws.s3.BucketNotificationArgs;
+ * import com.pulumi.aws.s3.inputs.BucketNotificationQueueArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -89,7 +111,7 @@ import javax.annotation.Nullable;
  *         var bucket = new BucketV2(&#34;bucket&#34;);
  * 
  *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
- *             .policy(bucket.arn().apply(arn -&gt; &#34;&#34;&#34;
+ *             .policy(bucket.arn().applyValue(arn -&gt; &#34;&#34;&#34;
  * {
  *   &#34;Version&#34;: &#34;2012-10-17&#34;,
  *   &#34;Statement&#34;: [
@@ -123,11 +145,27 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.lambda.Permission;
+ * import com.pulumi.aws.lambda.PermissionArgs;
+ * import com.pulumi.aws.s3.BucketNotification;
+ * import com.pulumi.aws.s3.BucketNotificationArgs;
+ * import com.pulumi.aws.s3.inputs.BucketNotificationLambdaFunctionArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.asset.FileArchive;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -187,11 +225,27 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.lambda.Permission;
+ * import com.pulumi.aws.lambda.PermissionArgs;
+ * import com.pulumi.aws.s3.BucketNotification;
+ * import com.pulumi.aws.s3.BucketNotificationArgs;
+ * import com.pulumi.aws.s3.inputs.BucketNotificationLambdaFunctionArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.asset.FileArchive;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -273,10 +327,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.sqs.Queue;
+ * import com.pulumi.aws.sqs.QueueArgs;
+ * import com.pulumi.aws.s3.BucketNotification;
+ * import com.pulumi.aws.s3.BucketNotificationArgs;
+ * import com.pulumi.aws.s3.inputs.BucketNotificationQueueArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -287,7 +352,7 @@ import javax.annotation.Nullable;
  *         var bucket = new BucketV2(&#34;bucket&#34;);
  * 
  *         var queue = new Queue(&#34;queue&#34;, QueueArgs.builder()        
- *             .policy(bucket.arn().apply(arn -&gt; &#34;&#34;&#34;
+ *             .policy(bucket.arn().applyValue(arn -&gt; &#34;&#34;&#34;
  * {
  *   &#34;Version&#34;: &#34;2012-10-17&#34;,
  *   &#34;Statement&#34;: [

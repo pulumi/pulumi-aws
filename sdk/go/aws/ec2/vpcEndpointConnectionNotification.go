@@ -30,7 +30,18 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		topic, err := sns.NewTopic(ctx, "topic", &sns.TopicArgs{
-// 			Policy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\":\"2012-10-17\",\n", "    \"Statement\":[{\n", "        \"Effect\": \"Allow\",\n", "        \"Principal\": {\n", "            \"Service\": \"vpce.amazonaws.com\"\n", "        },\n", "        \"Action\": \"SNS:Publish\",\n", "        \"Resource\": \"arn:aws:sns:*:*:vpce-notification-topic\"\n", "    }]\n", "}\n")),
+// 			Policy: pulumi.String(fmt.Sprintf(`{
+//     "Version":"2012-10-17",
+//     "Statement":[{
+//         "Effect": "Allow",
+//         "Principal": {
+//             "Service": "vpce.amazonaws.com"
+//         },
+//         "Action": "SNS:Publish",
+//         "Resource": "arn:aws:sns:*:*:vpce-notification-topic"
+//     }]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

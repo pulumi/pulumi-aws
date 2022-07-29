@@ -14,13 +14,21 @@ namespace Pulumi.Aws.GuardDuty.Outputs
     public sealed class OrganizationConfigurationDatasources
     {
         /// <summary>
-        /// Configuration for the builds to store logs to S3.
+        /// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+        /// </summary>
+        public readonly Outputs.OrganizationConfigurationDatasourcesKubernetes? Kubernetes;
+        /// <summary>
+        /// Enable S3 Protection automatically for new member accounts.
         /// </summary>
         public readonly Outputs.OrganizationConfigurationDatasourcesS3Logs? S3Logs;
 
         [OutputConstructor]
-        private OrganizationConfigurationDatasources(Outputs.OrganizationConfigurationDatasourcesS3Logs? s3Logs)
+        private OrganizationConfigurationDatasources(
+            Outputs.OrganizationConfigurationDatasourcesKubernetes? kubernetes,
+
+            Outputs.OrganizationConfigurationDatasourcesS3Logs? s3Logs)
         {
+            Kubernetes = kubernetes;
             S3Logs = s3Logs;
         }
     }

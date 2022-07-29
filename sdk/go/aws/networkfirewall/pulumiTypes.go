@@ -4397,6 +4397,828 @@ func (o RuleGroupRuleGroupStatefulRuleOptionsPtrOutput) RuleOrder() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetFirewallPolicyFirewallPolicy struct {
+	StatefulDefaultActions          []string                                                     `pulumi:"statefulDefaultActions"`
+	StatefulEngineOptions           []GetFirewallPolicyFirewallPolicyStatefulEngineOption        `pulumi:"statefulEngineOptions"`
+	StatefulRuleGroupReferences     []GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference  `pulumi:"statefulRuleGroupReferences"`
+	StatelessCustomActions          []GetFirewallPolicyFirewallPolicyStatelessCustomAction       `pulumi:"statelessCustomActions"`
+	StatelessDefaultActions         []string                                                     `pulumi:"statelessDefaultActions"`
+	StatelessFragmentDefaultActions []string                                                     `pulumi:"statelessFragmentDefaultActions"`
+	StatelessRuleGroupReferences    []GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference `pulumi:"statelessRuleGroupReferences"`
+}
+
+// GetFirewallPolicyFirewallPolicyInput is an input type that accepts GetFirewallPolicyFirewallPolicyArgs and GetFirewallPolicyFirewallPolicyOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyInput` via:
+//
+//          GetFirewallPolicyFirewallPolicyArgs{...}
+type GetFirewallPolicyFirewallPolicyInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyOutput() GetFirewallPolicyFirewallPolicyOutput
+	ToGetFirewallPolicyFirewallPolicyOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyOutput
+}
+
+type GetFirewallPolicyFirewallPolicyArgs struct {
+	StatefulDefaultActions          pulumi.StringArrayInput                                              `pulumi:"statefulDefaultActions"`
+	StatefulEngineOptions           GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayInput        `pulumi:"statefulEngineOptions"`
+	StatefulRuleGroupReferences     GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayInput  `pulumi:"statefulRuleGroupReferences"`
+	StatelessCustomActions          GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayInput       `pulumi:"statelessCustomActions"`
+	StatelessDefaultActions         pulumi.StringArrayInput                                              `pulumi:"statelessDefaultActions"`
+	StatelessFragmentDefaultActions pulumi.StringArrayInput                                              `pulumi:"statelessFragmentDefaultActions"`
+	StatelessRuleGroupReferences    GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayInput `pulumi:"statelessRuleGroupReferences"`
+}
+
+func (GetFirewallPolicyFirewallPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicy)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyArgs) ToGetFirewallPolicyFirewallPolicyOutput() GetFirewallPolicyFirewallPolicyOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyArgs) ToGetFirewallPolicyFirewallPolicyOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyOutput)
+}
+
+// GetFirewallPolicyFirewallPolicyArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyArray and GetFirewallPolicyFirewallPolicyArrayOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyArrayInput` via:
+//
+//          GetFirewallPolicyFirewallPolicyArray{ GetFirewallPolicyFirewallPolicyArgs{...} }
+type GetFirewallPolicyFirewallPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyArrayOutput() GetFirewallPolicyFirewallPolicyArrayOutput
+	ToGetFirewallPolicyFirewallPolicyArrayOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyArrayOutput
+}
+
+type GetFirewallPolicyFirewallPolicyArray []GetFirewallPolicyFirewallPolicyInput
+
+func (GetFirewallPolicyFirewallPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicy)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyArray) ToGetFirewallPolicyFirewallPolicyArrayOutput() GetFirewallPolicyFirewallPolicyArrayOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyArray) ToGetFirewallPolicyFirewallPolicyArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicy)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyOutput) ToGetFirewallPolicyFirewallPolicyOutput() GetFirewallPolicyFirewallPolicyOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyOutput) ToGetFirewallPolicyFirewallPolicyOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyOutput) StatefulDefaultActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicy) []string { return v.StatefulDefaultActions }).(pulumi.StringArrayOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyOutput) StatefulEngineOptions() GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicy) []GetFirewallPolicyFirewallPolicyStatefulEngineOption {
+		return v.StatefulEngineOptions
+	}).(GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyOutput) StatefulRuleGroupReferences() GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicy) []GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
+		return v.StatefulRuleGroupReferences
+	}).(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyOutput) StatelessCustomActions() GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicy) []GetFirewallPolicyFirewallPolicyStatelessCustomAction {
+		return v.StatelessCustomActions
+	}).(GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyOutput) StatelessDefaultActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicy) []string { return v.StatelessDefaultActions }).(pulumi.StringArrayOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyOutput) StatelessFragmentDefaultActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicy) []string { return v.StatelessFragmentDefaultActions }).(pulumi.StringArrayOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyOutput) StatelessRuleGroupReferences() GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicy) []GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference {
+		return v.StatelessRuleGroupReferences
+	}).(GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicy)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyArrayOutput) ToGetFirewallPolicyFirewallPolicyArrayOutput() GetFirewallPolicyFirewallPolicyArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyArrayOutput) ToGetFirewallPolicyFirewallPolicyArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicy {
+		return vs[0].([]GetFirewallPolicyFirewallPolicy)[vs[1].(int)]
+	}).(GetFirewallPolicyFirewallPolicyOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulEngineOption struct {
+	RuleOrder string `pulumi:"ruleOrder"`
+}
+
+// GetFirewallPolicyFirewallPolicyStatefulEngineOptionInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs and GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatefulEngineOptionInput` via:
+//
+//          GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs{...}
+type GetFirewallPolicyFirewallPolicyStatefulEngineOptionInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput() GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput
+	ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs struct {
+	RuleOrder pulumi.StringInput `pulumi:"ruleOrder"`
+}
+
+func (GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulEngineOption)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput() GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput)
+}
+
+// GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulEngineOptionArray and GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayInput` via:
+//
+//          GetFirewallPolicyFirewallPolicyStatefulEngineOptionArray{ GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs{...} }
+type GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput() GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput
+	ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulEngineOptionArray []GetFirewallPolicyFirewallPolicyStatefulEngineOptionInput
+
+func (GetFirewallPolicyFirewallPolicyStatefulEngineOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatefulEngineOption)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulEngineOptionArray) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput() GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulEngineOptionArray) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulEngineOption)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput() GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) RuleOrder() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulEngineOption) string { return v.RuleOrder }).(pulumi.StringOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatefulEngineOption)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput() GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput) ToGetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicyStatefulEngineOption {
+		return vs[0].([]GetFirewallPolicyFirewallPolicyStatefulEngineOption)[vs[1].(int)]
+	}).(GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference struct {
+	Priority    int    `pulumi:"priority"`
+	ResourceArn string `pulumi:"resourceArn"`
+}
+
+// GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs and GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput` via:
+//
+//          GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs{...}
+type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput() GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput
+	ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs struct {
+	Priority    pulumi.IntInput    `pulumi:"priority"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+}
+
+func (GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput() GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput)
+}
+
+// GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray and GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayInput` via:
+//
+//          GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray{ GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs{...} }
+type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput() GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput
+	ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray []GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput
+
+func (GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput() GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput() GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference) string { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput() GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
+		return vs[0].([]GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference)[vs[1].(int)]
+	}).(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomAction struct {
+	ActionDefinitions []GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition `pulumi:"actionDefinitions"`
+	ActionName        string                                                                 `pulumi:"actionName"`
+}
+
+// GetFirewallPolicyFirewallPolicyStatelessCustomActionInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessCustomActionArgs and GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatelessCustomActionInput` via:
+//
+//          GetFirewallPolicyFirewallPolicyStatelessCustomActionArgs{...}
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatelessCustomActionOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput
+	ToGetFirewallPolicyFirewallPolicyStatelessCustomActionOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionArgs struct {
+	ActionDefinitions GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayInput `pulumi:"actionDefinitions"`
+	ActionName        pulumi.StringInput                                                             `pulumi:"actionName"`
+}
+
+func (GetFirewallPolicyFirewallPolicyStatelessCustomActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomAction)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionArgs) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatelessCustomActionOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionArgs) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput)
+}
+
+// GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessCustomActionArray and GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayInput` via:
+//
+//          GetFirewallPolicyFirewallPolicyStatelessCustomActionArray{ GetFirewallPolicyFirewallPolicyStatelessCustomActionArgs{...} }
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput
+	ToGetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionArray []GetFirewallPolicyFirewallPolicyStatelessCustomActionInput
+
+func (GetFirewallPolicyFirewallPolicyStatelessCustomActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatelessCustomAction)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionArray) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionArray) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomAction)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput) ActionDefinitions() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatelessCustomAction) []GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition {
+		return v.ActionDefinitions
+	}).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput) ActionName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatelessCustomAction) string { return v.ActionName }).(pulumi.StringOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatelessCustomAction)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicyStatelessCustomAction {
+		return vs[0].([]GetFirewallPolicyFirewallPolicyStatelessCustomAction)[vs[1].(int)]
+	}).(GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition struct {
+	PublishMetricActions []GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction `pulumi:"publishMetricActions"`
+}
+
+// GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs and GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionInput` via:
+//
+//          GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs{...}
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput
+	ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs struct {
+	PublishMetricActions GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayInput `pulumi:"publishMetricActions"`
+}
+
+func (GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput)
+}
+
+// GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArray and GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayInput` via:
+//
+//          GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArray{ GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs{...} }
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput
+	ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArray []GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionInput
+
+func (GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArray) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArray) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput) PublishMetricActions() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition) []GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction {
+		return v.PublishMetricActions
+	}).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition {
+		return vs[0].([]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinition)[vs[1].(int)]
+	}).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction struct {
+	Dimensions []GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension `pulumi:"dimensions"`
+}
+
+// GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs and GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionInput` via:
+//
+//          GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs{...}
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput
+	ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs struct {
+	Dimensions GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayInput `pulumi:"dimensions"`
+}
+
+func (GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput)
+}
+
+// GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArray and GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayInput` via:
+//
+//          GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArray{ GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs{...} }
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput
+	ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArray []GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionInput
+
+func (GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArray) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArray) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput) Dimensions() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction) []GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension {
+		return v.Dimensions
+	}).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction {
+		return vs[0].([]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricAction)[vs[1].(int)]
+	}).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension struct {
+	Value string `pulumi:"value"`
+}
+
+// GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs and GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionInput` via:
+//
+//          GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs{...}
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput
+	ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs struct {
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput)
+}
+
+// GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArray and GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayInput` via:
+//
+//          GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArray{ GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs{...} }
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput
+	ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArray []GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionInput
+
+func (GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArray) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArray) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput() GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput) ToGetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension {
+		return vs[0].([]GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimension)[vs[1].(int)]
+	}).(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference struct {
+	Priority    int    `pulumi:"priority"`
+	ResourceArn string `pulumi:"resourceArn"`
+}
+
+// GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs and GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceInput` via:
+//
+//          GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{...}
+type GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput() GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput
+	ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs struct {
+	Priority    pulumi.IntInput    `pulumi:"priority"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+}
+
+func (GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs) ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput() GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs) ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput)
+}
+
+// GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray and GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayInput` via:
+//
+//          GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{ GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{...} }
+type GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput() GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput
+	ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray []GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceInput
+
+func (GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray) ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput() GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray) ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput() GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference) string { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput) ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput() GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput) ToGetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference {
+		return vs[0].([]GetFirewallPolicyFirewallPolicyStatelessRuleGroupReference)[vs[1].(int)]
+	}).(GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusInput)(nil)).Elem(), FirewallFirewallStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusArrayInput)(nil)).Elem(), FirewallFirewallStatusArray{})
@@ -4467,6 +5289,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArrayInput)(nil)).Elem(), RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupStatefulRuleOptionsInput)(nil)).Elem(), RuleGroupRuleGroupStatefulRuleOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupStatefulRuleOptionsPtrInput)(nil)).Elem(), RuleGroupRuleGroupStatefulRuleOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulEngineOptionInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulEngineOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatelessCustomActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatelessCustomActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{})
 	pulumi.RegisterOutputType(FirewallFirewallStatusOutput{})
 	pulumi.RegisterOutputType(FirewallFirewallStatusArrayOutput{})
 	pulumi.RegisterOutputType(FirewallFirewallStatusSyncStateOutput{})
@@ -4536,4 +5374,20 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleGroupStatefulRuleOptionsOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleGroupStatefulRuleOptionsPtrOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput{})
 }

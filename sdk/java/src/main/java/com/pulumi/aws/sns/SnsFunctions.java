@@ -23,10 +23,17 @@ public final class SnsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sns.SnsFunctions;
+     * import com.pulumi.aws.sns.inputs.GetTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -34,9 +41,9 @@ public final class SnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SnsFunctions.getTopic(GetTopicArgs.builder()
+     *         final var example = SnsFunctions.getTopic(GetTopicArgs.builder()
      *             .name(&#34;an_example_topic&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -55,10 +62,17 @@ public final class SnsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sns.SnsFunctions;
+     * import com.pulumi.aws.sns.inputs.GetTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -66,9 +80,9 @@ public final class SnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SnsFunctions.getTopic(GetTopicArgs.builder()
+     *         final var example = SnsFunctions.getTopic(GetTopicArgs.builder()
      *             .name(&#34;an_example_topic&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -87,10 +101,17 @@ public final class SnsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sns.SnsFunctions;
+     * import com.pulumi.aws.sns.inputs.GetTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -98,9 +119,9 @@ public final class SnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SnsFunctions.getTopic(GetTopicArgs.builder()
+     *         final var example = SnsFunctions.getTopic(GetTopicArgs.builder()
      *             .name(&#34;an_example_topic&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -119,10 +140,17 @@ public final class SnsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sns.SnsFunctions;
+     * import com.pulumi.aws.sns.inputs.GetTopicArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -130,9 +158,9 @@ public final class SnsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SnsFunctions.getTopic(GetTopicArgs.builder()
+     *         final var example = SnsFunctions.getTopic(GetTopicArgs.builder()
      *             .name(&#34;an_example_topic&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

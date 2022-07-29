@@ -26,10 +26,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.cloudwatch.EventBusPolicy;
+ * import com.pulumi.aws.cloudwatch.EventBusPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -37,7 +46,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var testPolicyDocument = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;DevAccountAccess&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -48,10 +57,10 @@ import javax.annotation.Nullable;
  *                     .identifiers(&#34;123456789012&#34;)
  *                     .build())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var testEventBusPolicy = new EventBusPolicy(&#34;testEventBusPolicy&#34;, EventBusPolicyArgs.builder()        
- *             .policy(testPolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .eventBusName(aws_cloudwatch_event_bus.test().name())
  *             .build());
  * 
@@ -62,10 +71,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.cloudwatch.EventBusPolicy;
+ * import com.pulumi.aws.cloudwatch.EventBusPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -73,7 +91,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var testPolicyDocument = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;OrganizationAccess&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -95,10 +113,10 @@ import javax.annotation.Nullable;
  *                     .values(aws_organizations_organization.example().id())
  *                     .build())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var testEventBusPolicy = new EventBusPolicy(&#34;testEventBusPolicy&#34;, EventBusPolicyArgs.builder()        
- *             .policy(testPolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .eventBusName(aws_cloudwatch_event_bus.test().name())
  *             .build());
  * 
@@ -109,10 +127,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.cloudwatch.EventBusPolicy;
+ * import com.pulumi.aws.cloudwatch.EventBusPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -120,7 +147,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var testPolicyDocument = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .sid(&#34;DevAccountAccess&#34;)
@@ -153,10 +180,10 @@ import javax.annotation.Nullable;
  *                         .values(aws_organizations_organization.example().id())
  *                         .build())
  *                     .build())
- *             .build()));
+ *             .build());
  * 
  *         var testEventBusPolicy = new EventBusPolicy(&#34;testEventBusPolicy&#34;, EventBusPolicyArgs.builder()        
- *             .policy(testPolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .eventBusName(aws_cloudwatch_event_bus.test().name())
  *             .build());
  * 

@@ -18,31 +18,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * Basic usage:
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var delegated = Output.of(AwsFunctions.getCallerIdentity());
- * 
- *         var example = new VpcIpamOrganizationAdminAccount(&#34;example&#34;, VpcIpamOrganizationAdminAccountArgs.builder()        
- *             .delegatedAdminAccountId(delegated.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * IPAMs can be imported using the `delegate account id`, e.g.

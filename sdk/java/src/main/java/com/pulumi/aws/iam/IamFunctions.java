@@ -60,26 +60,6 @@ public final class IamFunctions {
      * for the effective account in which this provider is working.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(IamFunctions.getAccountAlias());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetAccountAliasResult> getAccountAlias() {
@@ -90,26 +70,6 @@ public final class IamFunctions {
      * for the effective account in which this provider is working.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(IamFunctions.getAccountAlias());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAccountAliasResult> getAccountAliasPlain() {
@@ -120,26 +80,6 @@ public final class IamFunctions {
      * for the effective account in which this provider is working.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(IamFunctions.getAccountAlias());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetAccountAliasResult> getAccountAlias(InvokeArgs args) {
@@ -150,26 +90,6 @@ public final class IamFunctions {
      * for the effective account in which this provider is working.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(IamFunctions.getAccountAlias());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAccountAliasResult> getAccountAliasPlain(InvokeArgs args) {
@@ -180,26 +100,6 @@ public final class IamFunctions {
      * for the effective account in which this provider is working.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(IamFunctions.getAccountAlias());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetAccountAliasResult> getAccountAlias(InvokeArgs args, InvokeOptions options) {
@@ -210,26 +110,6 @@ public final class IamFunctions {
      * for the effective account in which this provider is working.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(IamFunctions.getAccountAlias());
-     * 
-     *         ctx.export(&#34;accountId&#34;, current.apply(getAccountAliasResult -&gt; getAccountAliasResult.accountAlias()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetAccountAliasResult> getAccountAliasPlain(InvokeArgs args, InvokeOptions options) {
@@ -244,10 +124,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -255,9 +142,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getGroup(GetTargetGroupArgs.builder()
+     *         final var example = IamFunctions.getGroup(GetTargetGroupArgs.builder()
      *             .groupName(&#34;an_example_group_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -276,10 +163,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -287,9 +181,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getGroup(GetTargetGroupArgs.builder()
+     *         final var example = IamFunctions.getGroup(GetTargetGroupArgs.builder()
      *             .groupName(&#34;an_example_group_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -308,10 +202,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -319,9 +220,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getGroup(GetTargetGroupArgs.builder()
+     *         final var example = IamFunctions.getGroup(GetTargetGroupArgs.builder()
      *             .groupName(&#34;an_example_group_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -340,10 +241,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -351,9 +259,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getGroup(GetTargetGroupArgs.builder()
+     *         final var example = IamFunctions.getGroup(GetTargetGroupArgs.builder()
      *             .groupName(&#34;an_example_group_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -372,10 +280,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetInstanceProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -383,9 +298,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getInstanceProfile(GetInstanceProfileArgs.builder()
+     *         final var example = IamFunctions.getInstanceProfile(GetInstanceProfileArgs.builder()
      *             .name(&#34;an_example_instance_profile_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -404,10 +319,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetInstanceProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -415,9 +337,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getInstanceProfile(GetInstanceProfileArgs.builder()
+     *         final var example = IamFunctions.getInstanceProfile(GetInstanceProfileArgs.builder()
      *             .name(&#34;an_example_instance_profile_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -436,10 +358,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetInstanceProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -447,9 +376,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getInstanceProfile(GetInstanceProfileArgs.builder()
+     *         final var example = IamFunctions.getInstanceProfile(GetInstanceProfileArgs.builder()
      *             .name(&#34;an_example_instance_profile_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -468,10 +397,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetInstanceProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -479,9 +415,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getInstanceProfile(GetInstanceProfileArgs.builder()
+     *         final var example = IamFunctions.getInstanceProfile(GetInstanceProfileArgs.builder()
      *             .name(&#34;an_example_instance_profile_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -500,10 +436,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetInstanceProfilesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -511,9 +454,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getInstanceProfiles(GetInstanceProfilesArgs.builder()
+     *         final var example = IamFunctions.getInstanceProfiles(GetInstanceProfilesArgs.builder()
      *             .roleName(&#34;an_example_iam_role_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -532,10 +475,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetInstanceProfilesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -543,9 +493,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getInstanceProfiles(GetInstanceProfilesArgs.builder()
+     *         final var example = IamFunctions.getInstanceProfiles(GetInstanceProfilesArgs.builder()
      *             .roleName(&#34;an_example_iam_role_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -564,10 +514,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetInstanceProfilesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -575,9 +532,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getInstanceProfiles(GetInstanceProfilesArgs.builder()
+     *         final var example = IamFunctions.getInstanceProfiles(GetInstanceProfilesArgs.builder()
      *             .roleName(&#34;an_example_iam_role_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -596,10 +553,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetInstanceProfilesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -607,9 +571,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getInstanceProfiles(GetInstanceProfilesArgs.builder()
+     *         final var example = IamFunctions.getInstanceProfiles(GetInstanceProfilesArgs.builder()
      *             .roleName(&#34;an_example_iam_role_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -628,10 +592,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -639,9 +610,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -649,10 +620,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -660,9 +638,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
      *             .url(&#34;https://accounts.google.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -681,10 +659,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -692,9 +677,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -702,10 +687,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -713,9 +705,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
      *             .url(&#34;https://accounts.google.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -734,10 +726,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -745,9 +744,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -755,10 +754,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -766,9 +772,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
      *             .url(&#34;https://accounts.google.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -787,10 +793,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -798,9 +811,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -808,10 +821,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -819,9 +839,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
      *             .url(&#34;https://accounts.google.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -840,10 +860,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -851,9 +878,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -861,10 +888,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -872,9 +906,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
      *             .url(&#34;https://accounts.google.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -893,10 +927,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -904,9 +945,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -914,10 +955,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -925,9 +973,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
      *             .url(&#34;https://accounts.google.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -946,10 +994,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -957,9 +1012,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getPolicy(GetPolicyArgs.builder()
+     *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:policy/UsersManageOwnCredentials&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -968,10 +1023,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -979,9 +1041,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getPolicy(GetPolicyArgs.builder()
+     *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
      *             .name(&#34;test_policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1000,10 +1062,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1011,9 +1080,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getPolicy(GetPolicyArgs.builder()
+     *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:policy/UsersManageOwnCredentials&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1022,10 +1091,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1033,9 +1109,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getPolicy(GetPolicyArgs.builder()
+     *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
      *             .name(&#34;test_policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1054,10 +1130,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1065,9 +1148,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getPolicy(GetPolicyArgs.builder()
+     *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:policy/UsersManageOwnCredentials&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1076,10 +1159,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1087,9 +1177,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getPolicy(GetPolicyArgs.builder()
+     *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
      *             .name(&#34;test_policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1108,10 +1198,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1119,9 +1216,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getPolicy(GetPolicyArgs.builder()
+     *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:policy/UsersManageOwnCredentials&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1130,10 +1227,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1141,9 +1245,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getPolicy(GetPolicyArgs.builder()
+     *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
      *             .name(&#34;test_policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1162,10 +1266,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1173,9 +1284,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getPolicy(GetPolicyArgs.builder()
+     *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:policy/UsersManageOwnCredentials&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1184,10 +1295,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1195,9 +1313,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getPolicy(GetPolicyArgs.builder()
+     *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
      *             .name(&#34;test_policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1216,10 +1334,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1227,9 +1352,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getPolicy(GetPolicyArgs.builder()
+     *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:policy/UsersManageOwnCredentials&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1238,10 +1363,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1249,9 +1381,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getPolicy(GetPolicyArgs.builder()
+     *         final var example = IamFunctions.getPolicy(GetPolicyArgs.builder()
      *             .name(&#34;test_policy&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1271,10 +1403,19 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.Policy;
+     * import com.pulumi.aws.iam.PolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1282,7 +1423,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplePolicyDocument = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;1&#34;)
@@ -1309,11 +1450,11 @@ public final class IamFunctions {
      *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, var_.s3_bucket_name()),
      *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, var_.s3_bucket_name()))
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
      *             .path(&#34;/&#34;)
-     *             .policy(examplePolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -1325,10 +1466,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1336,7 +1484,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleMultipleConditionKeysAndValues = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(                
      *                     &#34;kms:Decrypt&#34;,
@@ -1361,7 +1509,7 @@ public final class IamFunctions {
      *                         .build())
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1371,10 +1519,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1391,10 +1544,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1402,7 +1562,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var eventStreamBucketRoleAssumeRolePolicy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(&#34;sts:AssumeRole&#34;)
      *                 .principals(                
@@ -1421,7 +1581,7 @@ public final class IamFunctions {
      *                             &#34;cognito-identity.amazonaws.com&#34;)
      *                         .build())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1430,10 +1590,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1441,7 +1608,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var source = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -1452,10 +1619,10 @@ public final class IamFunctions {
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var sourceDocumentExample = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;SidToOverride&#34;)
      *                 .actions(&#34;s3:*&#34;)
@@ -1463,7 +1630,7 @@ public final class IamFunctions {
      *                     &#34;arn:aws:s3:::somebucket&#34;,
      *                     &#34;arn:aws:s3:::somebucket/*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1473,10 +1640,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1491,10 +1663,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1502,16 +1681,16 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var override = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;SidToOverride&#34;)
      *                 .actions(&#34;s3:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var overridePolicyDocumentExample = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -1524,7 +1703,7 @@ public final class IamFunctions {
      *                         &#34;arn:aws:s3:::somebucket&#34;,
      *                         &#34;arn:aws:s3:::somebucket/*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1534,10 +1713,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1554,10 +1738,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1565,26 +1756,26 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var source = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceholder&#34;)
      *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var override = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceholder&#34;)
      *                 .actions(&#34;s3:GetObject&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var politik = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build()));
+     *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .build());
      * 
      *     }
      * }
@@ -1594,10 +1785,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1614,10 +1810,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1625,7 +1828,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var sourceOne = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -1636,9 +1839,9 @@ public final class IamFunctions {
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var sourceTwo = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;UniqueSidTwo&#34;)
@@ -1649,13 +1852,13 @@ public final class IamFunctions {
      *                     .actions(&#34;lambda:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var combined = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build()));
+     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .build());
      * 
      *     }
      * }
@@ -1665,10 +1868,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1683,10 +1891,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1694,16 +1909,16 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policyOne = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderOne&#34;)
      *                 .effect(&#34;Allow&#34;)
      *                 .actions(&#34;s3:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var policyTwo = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -1716,29 +1931,29 @@ public final class IamFunctions {
      *                     .actions(&#34;iam:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var policyThree = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderOne&#34;)
      *                 .effect(&#34;Deny&#34;)
      *                 .actions(&#34;logs:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var combined = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
      *                 .effect(&#34;Deny&#34;)
      *                 .actions(&#34;*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1748,10 +1963,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1777,10 +1997,19 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.Policy;
+     * import com.pulumi.aws.iam.PolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1788,7 +2017,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplePolicyDocument = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;1&#34;)
@@ -1815,11 +2044,11 @@ public final class IamFunctions {
      *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, var_.s3_bucket_name()),
      *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, var_.s3_bucket_name()))
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
      *             .path(&#34;/&#34;)
-     *             .policy(examplePolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -1831,10 +2060,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1842,7 +2078,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleMultipleConditionKeysAndValues = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(                
      *                     &#34;kms:Decrypt&#34;,
@@ -1867,7 +2103,7 @@ public final class IamFunctions {
      *                         .build())
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1877,10 +2113,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1897,10 +2138,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1908,7 +2156,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var eventStreamBucketRoleAssumeRolePolicy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(&#34;sts:AssumeRole&#34;)
      *                 .principals(                
@@ -1927,7 +2175,7 @@ public final class IamFunctions {
      *                             &#34;cognito-identity.amazonaws.com&#34;)
      *                         .build())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1936,10 +2184,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1947,7 +2202,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var source = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -1958,10 +2213,10 @@ public final class IamFunctions {
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var sourceDocumentExample = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;SidToOverride&#34;)
      *                 .actions(&#34;s3:*&#34;)
@@ -1969,7 +2224,7 @@ public final class IamFunctions {
      *                     &#34;arn:aws:s3:::somebucket&#34;,
      *                     &#34;arn:aws:s3:::somebucket/*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1979,10 +2234,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1997,10 +2257,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2008,16 +2275,16 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var override = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;SidToOverride&#34;)
      *                 .actions(&#34;s3:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var overridePolicyDocumentExample = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -2030,7 +2297,7 @@ public final class IamFunctions {
      *                         &#34;arn:aws:s3:::somebucket&#34;,
      *                         &#34;arn:aws:s3:::somebucket/*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2040,10 +2307,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2060,10 +2332,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2071,26 +2350,26 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var source = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceholder&#34;)
      *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var override = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceholder&#34;)
      *                 .actions(&#34;s3:GetObject&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var politik = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build()));
+     *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .build());
      * 
      *     }
      * }
@@ -2100,10 +2379,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2120,10 +2404,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2131,7 +2422,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var sourceOne = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -2142,9 +2433,9 @@ public final class IamFunctions {
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var sourceTwo = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;UniqueSidTwo&#34;)
@@ -2155,13 +2446,13 @@ public final class IamFunctions {
      *                     .actions(&#34;lambda:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var combined = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build()));
+     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .build());
      * 
      *     }
      * }
@@ -2171,10 +2462,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2189,10 +2485,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2200,16 +2503,16 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policyOne = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderOne&#34;)
      *                 .effect(&#34;Allow&#34;)
      *                 .actions(&#34;s3:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var policyTwo = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -2222,29 +2525,29 @@ public final class IamFunctions {
      *                     .actions(&#34;iam:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var policyThree = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderOne&#34;)
      *                 .effect(&#34;Deny&#34;)
      *                 .actions(&#34;logs:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var combined = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
      *                 .effect(&#34;Deny&#34;)
      *                 .actions(&#34;*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2254,10 +2557,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2283,10 +2591,19 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.Policy;
+     * import com.pulumi.aws.iam.PolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2294,7 +2611,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplePolicyDocument = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;1&#34;)
@@ -2321,11 +2638,11 @@ public final class IamFunctions {
      *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, var_.s3_bucket_name()),
      *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, var_.s3_bucket_name()))
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
      *             .path(&#34;/&#34;)
-     *             .policy(examplePolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -2337,10 +2654,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2348,7 +2672,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleMultipleConditionKeysAndValues = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(                
      *                     &#34;kms:Decrypt&#34;,
@@ -2373,7 +2697,7 @@ public final class IamFunctions {
      *                         .build())
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2383,10 +2707,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2403,10 +2732,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2414,7 +2750,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var eventStreamBucketRoleAssumeRolePolicy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(&#34;sts:AssumeRole&#34;)
      *                 .principals(                
@@ -2433,7 +2769,7 @@ public final class IamFunctions {
      *                             &#34;cognito-identity.amazonaws.com&#34;)
      *                         .build())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2442,10 +2778,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2453,7 +2796,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var source = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -2464,10 +2807,10 @@ public final class IamFunctions {
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var sourceDocumentExample = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;SidToOverride&#34;)
      *                 .actions(&#34;s3:*&#34;)
@@ -2475,7 +2818,7 @@ public final class IamFunctions {
      *                     &#34;arn:aws:s3:::somebucket&#34;,
      *                     &#34;arn:aws:s3:::somebucket/*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2485,10 +2828,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2503,10 +2851,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2514,16 +2869,16 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var override = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;SidToOverride&#34;)
      *                 .actions(&#34;s3:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var overridePolicyDocumentExample = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -2536,7 +2891,7 @@ public final class IamFunctions {
      *                         &#34;arn:aws:s3:::somebucket&#34;,
      *                         &#34;arn:aws:s3:::somebucket/*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2546,10 +2901,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2566,10 +2926,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2577,26 +2944,26 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var source = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceholder&#34;)
      *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var override = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceholder&#34;)
      *                 .actions(&#34;s3:GetObject&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var politik = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build()));
+     *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .build());
      * 
      *     }
      * }
@@ -2606,10 +2973,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2626,10 +2998,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2637,7 +3016,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var sourceOne = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -2648,9 +3027,9 @@ public final class IamFunctions {
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var sourceTwo = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;UniqueSidTwo&#34;)
@@ -2661,13 +3040,13 @@ public final class IamFunctions {
      *                     .actions(&#34;lambda:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var combined = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build()));
+     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .build());
      * 
      *     }
      * }
@@ -2677,10 +3056,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2695,10 +3079,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2706,16 +3097,16 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policyOne = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderOne&#34;)
      *                 .effect(&#34;Allow&#34;)
      *                 .actions(&#34;s3:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var policyTwo = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -2728,29 +3119,29 @@ public final class IamFunctions {
      *                     .actions(&#34;iam:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var policyThree = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderOne&#34;)
      *                 .effect(&#34;Deny&#34;)
      *                 .actions(&#34;logs:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var combined = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
      *                 .effect(&#34;Deny&#34;)
      *                 .actions(&#34;*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2760,10 +3151,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2789,10 +3185,19 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.Policy;
+     * import com.pulumi.aws.iam.PolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2800,7 +3205,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplePolicyDocument = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;1&#34;)
@@ -2827,11 +3232,11 @@ public final class IamFunctions {
      *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, var_.s3_bucket_name()),
      *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, var_.s3_bucket_name()))
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
      *             .path(&#34;/&#34;)
-     *             .policy(examplePolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -2843,10 +3248,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2854,7 +3266,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleMultipleConditionKeysAndValues = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(                
      *                     &#34;kms:Decrypt&#34;,
@@ -2879,7 +3291,7 @@ public final class IamFunctions {
      *                         .build())
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2889,10 +3301,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2909,10 +3326,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2920,7 +3344,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var eventStreamBucketRoleAssumeRolePolicy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(&#34;sts:AssumeRole&#34;)
      *                 .principals(                
@@ -2939,7 +3363,7 @@ public final class IamFunctions {
      *                             &#34;cognito-identity.amazonaws.com&#34;)
      *                         .build())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2948,10 +3372,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2959,7 +3390,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var source = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -2970,10 +3401,10 @@ public final class IamFunctions {
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var sourceDocumentExample = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;SidToOverride&#34;)
      *                 .actions(&#34;s3:*&#34;)
@@ -2981,7 +3412,7 @@ public final class IamFunctions {
      *                     &#34;arn:aws:s3:::somebucket&#34;,
      *                     &#34;arn:aws:s3:::somebucket/*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2991,10 +3422,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3009,10 +3445,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3020,16 +3463,16 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var override = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;SidToOverride&#34;)
      *                 .actions(&#34;s3:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var overridePolicyDocumentExample = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -3042,7 +3485,7 @@ public final class IamFunctions {
      *                         &#34;arn:aws:s3:::somebucket&#34;,
      *                         &#34;arn:aws:s3:::somebucket/*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3052,10 +3495,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3072,10 +3520,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3083,26 +3538,26 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var source = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceholder&#34;)
      *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var override = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceholder&#34;)
      *                 .actions(&#34;s3:GetObject&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var politik = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build()));
+     *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .build());
      * 
      *     }
      * }
@@ -3112,10 +3567,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3132,10 +3592,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3143,7 +3610,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var sourceOne = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -3154,9 +3621,9 @@ public final class IamFunctions {
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var sourceTwo = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;UniqueSidTwo&#34;)
@@ -3167,13 +3634,13 @@ public final class IamFunctions {
      *                     .actions(&#34;lambda:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var combined = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build()));
+     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .build());
      * 
      *     }
      * }
@@ -3183,10 +3650,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3201,10 +3673,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3212,16 +3691,16 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policyOne = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderOne&#34;)
      *                 .effect(&#34;Allow&#34;)
      *                 .actions(&#34;s3:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var policyTwo = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -3234,29 +3713,29 @@ public final class IamFunctions {
      *                     .actions(&#34;iam:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var policyThree = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderOne&#34;)
      *                 .effect(&#34;Deny&#34;)
      *                 .actions(&#34;logs:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var combined = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
      *                 .effect(&#34;Deny&#34;)
      *                 .actions(&#34;*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3266,10 +3745,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3295,10 +3779,19 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.Policy;
+     * import com.pulumi.aws.iam.PolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3306,7 +3799,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplePolicyDocument = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;1&#34;)
@@ -3333,11 +3826,11 @@ public final class IamFunctions {
      *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, var_.s3_bucket_name()),
      *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, var_.s3_bucket_name()))
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
      *             .path(&#34;/&#34;)
-     *             .policy(examplePolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -3349,10 +3842,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3360,7 +3860,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleMultipleConditionKeysAndValues = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(                
      *                     &#34;kms:Decrypt&#34;,
@@ -3385,7 +3885,7 @@ public final class IamFunctions {
      *                         .build())
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3395,10 +3895,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3415,10 +3920,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3426,7 +3938,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var eventStreamBucketRoleAssumeRolePolicy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(&#34;sts:AssumeRole&#34;)
      *                 .principals(                
@@ -3445,7 +3957,7 @@ public final class IamFunctions {
      *                             &#34;cognito-identity.amazonaws.com&#34;)
      *                         .build())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3454,10 +3966,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3465,7 +3984,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var source = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -3476,10 +3995,10 @@ public final class IamFunctions {
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var sourceDocumentExample = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;SidToOverride&#34;)
      *                 .actions(&#34;s3:*&#34;)
@@ -3487,7 +4006,7 @@ public final class IamFunctions {
      *                     &#34;arn:aws:s3:::somebucket&#34;,
      *                     &#34;arn:aws:s3:::somebucket/*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3497,10 +4016,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3515,10 +4039,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3526,16 +4057,16 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var override = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;SidToOverride&#34;)
      *                 .actions(&#34;s3:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var overridePolicyDocumentExample = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -3548,7 +4079,7 @@ public final class IamFunctions {
      *                         &#34;arn:aws:s3:::somebucket&#34;,
      *                         &#34;arn:aws:s3:::somebucket/*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3558,10 +4089,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3578,10 +4114,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3589,26 +4132,26 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var source = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceholder&#34;)
      *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var override = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceholder&#34;)
      *                 .actions(&#34;s3:GetObject&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var politik = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build()));
+     *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .build());
      * 
      *     }
      * }
@@ -3618,10 +4161,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3638,10 +4186,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3649,7 +4204,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var sourceOne = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -3660,9 +4215,9 @@ public final class IamFunctions {
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var sourceTwo = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;UniqueSidTwo&#34;)
@@ -3673,13 +4228,13 @@ public final class IamFunctions {
      *                     .actions(&#34;lambda:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var combined = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build()));
+     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .build());
      * 
      *     }
      * }
@@ -3689,10 +4244,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3707,10 +4267,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3718,16 +4285,16 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policyOne = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderOne&#34;)
      *                 .effect(&#34;Allow&#34;)
      *                 .actions(&#34;s3:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var policyTwo = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -3740,29 +4307,29 @@ public final class IamFunctions {
      *                     .actions(&#34;iam:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var policyThree = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderOne&#34;)
      *                 .effect(&#34;Deny&#34;)
      *                 .actions(&#34;logs:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var combined = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
      *                 .effect(&#34;Deny&#34;)
      *                 .actions(&#34;*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3772,10 +4339,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3801,10 +4373,19 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.Policy;
+     * import com.pulumi.aws.iam.PolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3812,7 +4393,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplePolicyDocument = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;1&#34;)
@@ -3839,11 +4420,11 @@ public final class IamFunctions {
      *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}&#34;, var_.s3_bucket_name()),
      *                         String.format(&#34;arn:aws:s3:::%s/home/&amp;{{aws:username}}/*&#34;, var_.s3_bucket_name()))
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
      *             .path(&#34;/&#34;)
-     *             .policy(examplePolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .build());
      * 
      *     }
@@ -3855,10 +4436,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3866,7 +4454,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleMultipleConditionKeysAndValues = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(                
      *                     &#34;kms:Decrypt&#34;,
@@ -3891,7 +4479,7 @@ public final class IamFunctions {
      *                         .build())
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3901,10 +4489,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3921,10 +4514,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3932,7 +4532,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var eventStreamBucketRoleAssumeRolePolicy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .actions(&#34;sts:AssumeRole&#34;)
      *                 .principals(                
@@ -3951,7 +4551,7 @@ public final class IamFunctions {
      *                             &#34;cognito-identity.amazonaws.com&#34;)
      *                         .build())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3960,10 +4560,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3971,7 +4578,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var source = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -3982,10 +4589,10 @@ public final class IamFunctions {
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var sourceDocumentExample = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;SidToOverride&#34;)
      *                 .actions(&#34;s3:*&#34;)
@@ -3993,7 +4600,7 @@ public final class IamFunctions {
      *                     &#34;arn:aws:s3:::somebucket&#34;,
      *                     &#34;arn:aws:s3:::somebucket/*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4003,10 +4610,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4021,10 +4633,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4032,16 +4651,16 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var override = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;SidToOverride&#34;)
      *                 .actions(&#34;s3:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var overridePolicyDocumentExample = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -4054,7 +4673,7 @@ public final class IamFunctions {
      *                         &#34;arn:aws:s3:::somebucket&#34;,
      *                         &#34;arn:aws:s3:::somebucket/*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4064,10 +4683,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4084,10 +4708,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4095,26 +4726,26 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var source = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var source = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceholder&#34;)
      *                 .actions(&#34;ec2:DescribeAccountAttributes&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var override = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var override = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceholder&#34;)
      *                 .actions(&#34;s3:GetObject&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var politik = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .overridePolicyDocuments(override.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build()));
+     *         final var politik = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .sourcePolicyDocuments(source.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .overridePolicyDocuments(override.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .build());
      * 
      *     }
      * }
@@ -4124,10 +4755,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4144,10 +4780,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4155,7 +4798,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var sourceOne = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var sourceOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions(&#34;ec2:*&#34;)
@@ -4166,9 +4809,9 @@ public final class IamFunctions {
      *                     .actions(&#34;s3:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var sourceTwo = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var sourceTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .sid(&#34;UniqueSidTwo&#34;)
@@ -4179,13 +4822,13 @@ public final class IamFunctions {
      *                     .actions(&#34;lambda:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var combined = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .sourcePolicyDocuments(            
-     *                 sourceOne.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 sourceTwo.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
-     *             .build()));
+     *                 sourceOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 sourceTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *             .build());
      * 
      *     }
      * }
@@ -4195,10 +4838,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4213,10 +4861,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4224,16 +4879,16 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var policyOne = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyOne = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderOne&#34;)
      *                 .effect(&#34;Allow&#34;)
      *                 .actions(&#34;s3:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var policyTwo = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyTwo = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .effect(&#34;Allow&#34;)
@@ -4246,29 +4901,29 @@ public final class IamFunctions {
      *                     .actions(&#34;iam:*&#34;)
      *                     .resources(&#34;*&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var policyThree = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var policyThree = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderOne&#34;)
      *                 .effect(&#34;Deny&#34;)
      *                 .actions(&#34;logs:*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         final var combined = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .overridePolicyDocuments(            
-     *                 policyOne.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyTwo.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
-     *                 policyThree.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+     *                 policyOne.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 policyTwo.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()),
+     *                 policyThree.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid(&#34;OverridePlaceHolderTwo&#34;)
      *                 .effect(&#34;Deny&#34;)
      *                 .actions(&#34;*&#34;)
      *                 .resources(&#34;*&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4278,10 +4933,15 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4306,10 +4966,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4317,9 +4984,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getRole(GetRoleArgs.builder()
+     *         final var example = IamFunctions.getRole(GetRoleArgs.builder()
      *             .name(&#34;an_example_role_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4338,10 +5005,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4349,9 +5023,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getRole(GetRoleArgs.builder()
+     *         final var example = IamFunctions.getRole(GetRoleArgs.builder()
      *             .name(&#34;an_example_role_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4370,10 +5044,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4381,9 +5062,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getRole(GetRoleArgs.builder()
+     *         final var example = IamFunctions.getRole(GetRoleArgs.builder()
      *             .name(&#34;an_example_role_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4402,10 +5083,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRoleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4413,9 +5101,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getRole(GetRoleArgs.builder()
+     *         final var example = IamFunctions.getRole(GetRoleArgs.builder()
      *             .name(&#34;an_example_role_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4433,10 +5121,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4444,7 +5139,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles());
+     *         final var roles = IamFunctions.getRoles();
      * 
      *     }
      * }
@@ -4455,10 +5150,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4466,9 +5168,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .nameRegex(&#34;.*project.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4477,10 +5179,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4488,9 +5197,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .pathPrefix(&#34;/custom-path&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4501,10 +5210,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4512,9 +5228,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4524,10 +5240,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4535,10 +5258,10 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .nameRegex(&#34;AWSReservedSSO_permission_set_name_.*&#34;)
      *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4556,10 +5279,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4567,7 +5297,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles());
+     *         final var roles = IamFunctions.getRoles();
      * 
      *     }
      * }
@@ -4578,10 +5308,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4589,9 +5326,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .nameRegex(&#34;.*project.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4600,10 +5337,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4611,9 +5355,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .pathPrefix(&#34;/custom-path&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4624,10 +5368,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4635,9 +5386,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4647,10 +5398,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4658,10 +5416,10 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .nameRegex(&#34;AWSReservedSSO_permission_set_name_.*&#34;)
      *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4679,10 +5437,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4690,7 +5455,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles());
+     *         final var roles = IamFunctions.getRoles();
      * 
      *     }
      * }
@@ -4701,10 +5466,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4712,9 +5484,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .nameRegex(&#34;.*project.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4723,10 +5495,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4734,9 +5513,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .pathPrefix(&#34;/custom-path&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4747,10 +5526,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4758,9 +5544,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4770,10 +5556,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4781,10 +5574,10 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .nameRegex(&#34;AWSReservedSSO_permission_set_name_.*&#34;)
      *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4802,10 +5595,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4813,7 +5613,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles());
+     *         final var roles = IamFunctions.getRoles();
      * 
      *     }
      * }
@@ -4824,10 +5624,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4835,9 +5642,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .nameRegex(&#34;.*project.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4846,10 +5653,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4857,9 +5671,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .pathPrefix(&#34;/custom-path&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4870,10 +5684,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4881,9 +5702,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4893,10 +5714,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4904,10 +5732,10 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .nameRegex(&#34;AWSReservedSSO_permission_set_name_.*&#34;)
      *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4925,10 +5753,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4936,7 +5771,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles());
+     *         final var roles = IamFunctions.getRoles();
      * 
      *     }
      * }
@@ -4947,10 +5782,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4958,9 +5800,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .nameRegex(&#34;.*project.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4969,10 +5811,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4980,9 +5829,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .pathPrefix(&#34;/custom-path&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4993,10 +5842,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5004,9 +5860,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5016,10 +5872,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5027,10 +5890,10 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .nameRegex(&#34;AWSReservedSSO_permission_set_name_.*&#34;)
      *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5048,10 +5911,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5059,7 +5929,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles());
+     *         final var roles = IamFunctions.getRoles();
      * 
      *     }
      * }
@@ -5070,10 +5940,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5081,9 +5958,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .nameRegex(&#34;.*project.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5092,10 +5969,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5103,9 +5987,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .pathPrefix(&#34;/custom-path&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5116,10 +6000,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5127,9 +6018,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5139,10 +6030,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetRolesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5150,10 +6048,10 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var roles = Output.of(IamFunctions.getRoles(GetRolesArgs.builder()
+     *         final var roles = IamFunctions.getRoles(GetRolesArgs.builder()
      *             .nameRegex(&#34;AWSReservedSSO_permission_set_name_.*&#34;)
      *             .pathPrefix(&#34;/aws-reserved/sso.amazonaws.com/&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5172,10 +6070,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetSamlProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5183,9 +6088,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getSamlProvider(GetSamlProviderArgs.builder()
+     *         final var example = IamFunctions.getSamlProvider(GetSamlProviderArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789:saml-provider/myprovider&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5204,10 +6109,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetSamlProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5215,9 +6127,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getSamlProvider(GetSamlProviderArgs.builder()
+     *         final var example = IamFunctions.getSamlProvider(GetSamlProviderArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789:saml-provider/myprovider&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5236,10 +6148,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetSamlProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5247,9 +6166,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getSamlProvider(GetSamlProviderArgs.builder()
+     *         final var example = IamFunctions.getSamlProvider(GetSamlProviderArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789:saml-provider/myprovider&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5268,10 +6187,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetSamlProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5279,9 +6205,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getSamlProvider(GetSamlProviderArgs.builder()
+     *         final var example = IamFunctions.getSamlProvider(GetSamlProviderArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789:saml-provider/myprovider&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5298,10 +6224,20 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetServerCertificateArgs;
+     * import com.pulumi.aws.elb.LoadBalancer;
+     * import com.pulumi.aws.elb.LoadBalancerArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5309,10 +6245,10 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var my-domain = Output.of(IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
+     *         final var my-domain = IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
      *             .namePrefix(&#34;my-domain.org&#34;)
      *             .latest(true)
-     *             .build()));
+     *             .build());
      * 
      *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
      *             .listeners(LoadBalancerListenerArgs.builder()
@@ -5339,10 +6275,20 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetServerCertificateArgs;
+     * import com.pulumi.aws.elb.LoadBalancer;
+     * import com.pulumi.aws.elb.LoadBalancerArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5350,10 +6296,10 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var my-domain = Output.of(IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
+     *         final var my-domain = IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
      *             .namePrefix(&#34;my-domain.org&#34;)
      *             .latest(true)
-     *             .build()));
+     *             .build());
      * 
      *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
      *             .listeners(LoadBalancerListenerArgs.builder()
@@ -5380,10 +6326,20 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetServerCertificateArgs;
+     * import com.pulumi.aws.elb.LoadBalancer;
+     * import com.pulumi.aws.elb.LoadBalancerArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5391,10 +6347,10 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var my-domain = Output.of(IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
+     *         final var my-domain = IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
      *             .namePrefix(&#34;my-domain.org&#34;)
      *             .latest(true)
-     *             .build()));
+     *             .build());
      * 
      *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
      *             .listeners(LoadBalancerListenerArgs.builder()
@@ -5421,10 +6377,20 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetServerCertificateArgs;
+     * import com.pulumi.aws.elb.LoadBalancer;
+     * import com.pulumi.aws.elb.LoadBalancerArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5432,10 +6398,10 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var my-domain = Output.of(IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
+     *         final var my-domain = IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
      *             .namePrefix(&#34;my-domain.org&#34;)
      *             .latest(true)
-     *             .build()));
+     *             .build());
      * 
      *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
      *             .listeners(LoadBalancerListenerArgs.builder()
@@ -5462,10 +6428,20 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetServerCertificateArgs;
+     * import com.pulumi.aws.elb.LoadBalancer;
+     * import com.pulumi.aws.elb.LoadBalancerArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5473,10 +6449,10 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var my-domain = Output.of(IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
+     *         final var my-domain = IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
      *             .namePrefix(&#34;my-domain.org&#34;)
      *             .latest(true)
-     *             .build()));
+     *             .build());
      * 
      *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
      *             .listeners(LoadBalancerListenerArgs.builder()
@@ -5503,10 +6479,20 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetServerCertificateArgs;
+     * import com.pulumi.aws.elb.LoadBalancer;
+     * import com.pulumi.aws.elb.LoadBalancerArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5514,10 +6500,10 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var my-domain = Output.of(IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
+     *         final var my-domain = IamFunctions.getServerCertificate(GetServerCertificateArgs.builder()
      *             .namePrefix(&#34;my-domain.org&#34;)
      *             .latest(true)
-     *             .build()));
+     *             .build());
      * 
      *         var elb = new LoadBalancer(&#34;elb&#34;, LoadBalancerArgs.builder()        
      *             .listeners(LoadBalancerListenerArgs.builder()
@@ -5558,10 +6544,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5569,9 +6562,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getUser(GetUserArgs.builder()
+     *         final var example = IamFunctions.getUser(GetUserArgs.builder()
      *             .userName(&#34;an_example_user_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5590,10 +6583,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5601,9 +6601,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getUser(GetUserArgs.builder()
+     *         final var example = IamFunctions.getUser(GetUserArgs.builder()
      *             .userName(&#34;an_example_user_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5622,10 +6622,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5633,9 +6640,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getUser(GetUserArgs.builder()
+     *         final var example = IamFunctions.getUser(GetUserArgs.builder()
      *             .userName(&#34;an_example_user_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5654,10 +6661,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetUserArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5665,9 +6679,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getUser(GetUserArgs.builder()
+     *         final var example = IamFunctions.getUser(GetUserArgs.builder()
      *             .userName(&#34;an_example_user_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5684,10 +6698,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUserSshKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5695,11 +6716,11 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getUserSshKey(GetUserSshKeyArgs.builder()
+     *         final var example = IamFunctions.getUserSshKey(GetUserSshKeyArgs.builder()
      *             .encoding(&#34;SSH&#34;)
      *             .sshPublicKeyId(&#34;APKARUZ32GUTKIGARLXE&#34;)
      *             .username(&#34;test-user&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5716,10 +6737,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUserSshKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5727,11 +6755,11 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getUserSshKey(GetUserSshKeyArgs.builder()
+     *         final var example = IamFunctions.getUserSshKey(GetUserSshKeyArgs.builder()
      *             .encoding(&#34;SSH&#34;)
      *             .sshPublicKeyId(&#34;APKARUZ32GUTKIGARLXE&#34;)
      *             .username(&#34;test-user&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5748,10 +6776,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUserSshKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5759,11 +6794,11 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getUserSshKey(GetUserSshKeyArgs.builder()
+     *         final var example = IamFunctions.getUserSshKey(GetUserSshKeyArgs.builder()
      *             .encoding(&#34;SSH&#34;)
      *             .sshPublicKeyId(&#34;APKARUZ32GUTKIGARLXE&#34;)
      *             .username(&#34;test-user&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5780,10 +6815,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUserSshKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5791,11 +6833,11 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(IamFunctions.getUserSshKey(GetUserSshKeyArgs.builder()
+     *         final var example = IamFunctions.getUserSshKey(GetUserSshKeyArgs.builder()
      *             .encoding(&#34;SSH&#34;)
      *             .sshPublicKeyId(&#34;APKARUZ32GUTKIGARLXE&#34;)
      *             .username(&#34;test-user&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5813,10 +6855,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5824,7 +6873,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers());
+     *         final var users = IamFunctions.getUsers();
      * 
      *     }
      * }
@@ -5835,10 +6884,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5846,9 +6902,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers(GetUsersArgs.builder()
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
      *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5857,10 +6913,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5868,9 +6931,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers(GetUsersArgs.builder()
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
      *             .pathPrefix(&#34;/custom-path&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5888,10 +6951,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5899,7 +6969,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers());
+     *         final var users = IamFunctions.getUsers();
      * 
      *     }
      * }
@@ -5910,10 +6980,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5921,9 +6998,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers(GetUsersArgs.builder()
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
      *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5932,10 +7009,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5943,9 +7027,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers(GetUsersArgs.builder()
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
      *             .pathPrefix(&#34;/custom-path&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5963,10 +7047,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5974,7 +7065,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers());
+     *         final var users = IamFunctions.getUsers();
      * 
      *     }
      * }
@@ -5985,10 +7076,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5996,9 +7094,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers(GetUsersArgs.builder()
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
      *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6007,10 +7105,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6018,9 +7123,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers(GetUsersArgs.builder()
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
      *             .pathPrefix(&#34;/custom-path&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6038,10 +7143,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6049,7 +7161,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers());
+     *         final var users = IamFunctions.getUsers();
      * 
      *     }
      * }
@@ -6060,10 +7172,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6071,9 +7190,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers(GetUsersArgs.builder()
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
      *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6082,10 +7201,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6093,9 +7219,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers(GetUsersArgs.builder()
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
      *             .pathPrefix(&#34;/custom-path&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6113,10 +7239,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6124,7 +7257,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers());
+     *         final var users = IamFunctions.getUsers();
      * 
      *     }
      * }
@@ -6135,10 +7268,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6146,9 +7286,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers(GetUsersArgs.builder()
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
      *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6157,10 +7297,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6168,9 +7315,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers(GetUsersArgs.builder()
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
      *             .pathPrefix(&#34;/custom-path&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6188,10 +7335,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6199,7 +7353,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers());
+     *         final var users = IamFunctions.getUsers();
      * 
      *     }
      * }
@@ -6210,10 +7364,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6221,9 +7382,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers(GetUsersArgs.builder()
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
      *             .nameRegex(&#34;.*abc.*&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6232,10 +7393,17 @@ public final class IamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetUsersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6243,9 +7411,9 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var users = Output.of(IamFunctions.getUsers(GetUsersArgs.builder()
+     *         final var users = IamFunctions.getUsers(GetUsersArgs.builder()
      *             .pathPrefix(&#34;/custom-path&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

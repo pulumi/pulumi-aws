@@ -44,10 +44,32 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.LaunchTemplate;
+ * import com.pulumi.aws.ec2.LaunchTemplateArgs;
+ * import com.pulumi.aws.ec2.inputs.LaunchTemplateBlockDeviceMappingArgs;
+ * import com.pulumi.aws.ec2.inputs.LaunchTemplateBlockDeviceMappingEbsArgs;
+ * import com.pulumi.aws.ec2.inputs.LaunchTemplateCapacityReservationSpecificationArgs;
+ * import com.pulumi.aws.ec2.inputs.LaunchTemplateCpuOptionsArgs;
+ * import com.pulumi.aws.ec2.inputs.LaunchTemplateCreditSpecificationArgs;
+ * import com.pulumi.aws.ec2.inputs.LaunchTemplateElasticGpuSpecificationArgs;
+ * import com.pulumi.aws.ec2.inputs.LaunchTemplateElasticInferenceAcceleratorArgs;
+ * import com.pulumi.aws.ec2.inputs.LaunchTemplateIamInstanceProfileArgs;
+ * import com.pulumi.aws.ec2.inputs.LaunchTemplateInstanceMarketOptionsArgs;
+ * import com.pulumi.aws.ec2.inputs.LaunchTemplateLicenseSpecificationArgs;
+ * import com.pulumi.aws.ec2.inputs.LaunchTemplateMetadataOptionsArgs;
+ * import com.pulumi.aws.ec2.inputs.LaunchTemplateMonitoringArgs;
+ * import com.pulumi.aws.ec2.inputs.LaunchTemplateNetworkInterfaceArgs;
+ * import com.pulumi.aws.ec2.inputs.LaunchTemplatePlacementArgs;
+ * import com.pulumi.aws.ec2.inputs.LaunchTemplateTagSpecificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

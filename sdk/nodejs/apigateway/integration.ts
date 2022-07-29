@@ -88,7 +88,7 @@ import {RestApi} from "./index";
  *     code: new pulumi.asset.FileArchive("lambda.zip"),
  *     role: role.arn,
  *     handler: "lambda.lambda_handler",
- *     runtime: "python3.6",
+ *     runtime: "python3.7",
  * });
  * const integration = new aws.apigateway.Integration("integration", {
  *     restApi: api.id,
@@ -104,59 +104,6 @@ import {RestApi} from "./index";
  *     "function": lambda.name,
  *     principal: "apigateway.amazonaws.com",
  *     sourceArn: pulumi.interpolate`arn:aws:execute-api:${myregion}:${accountId}:${api.id}/*&#47;${method.httpMethod}${resource.path}`,
- * });
- * ```
- *
- * ## VPC Link
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const name = config.requireObject("name");
- * const subnetId = config.requireObject("subnetId");
- * const testLoadBalancer = new aws.lb.LoadBalancer("testLoadBalancer", {
- *     internal: true,
- *     loadBalancerType: "network",
- *     subnets: [subnetId],
- * });
- * const testVpcLink = new aws.apigateway.VpcLink("testVpcLink", {targetArn: [testLoadBalancer.arn]});
- * const testRestApi = new aws.apigateway.RestApi("testRestApi", {});
- * const testResource = new aws.apigateway.Resource("testResource", {
- *     restApi: testRestApi.id,
- *     parentId: testRestApi.rootResourceId,
- *     pathPart: "test",
- * });
- * const testMethod = new aws.apigateway.Method("testMethod", {
- *     restApi: testRestApi.id,
- *     resourceId: testResource.id,
- *     httpMethod: "GET",
- *     authorization: "NONE",
- *     requestModels: {
- *         "application/json": "Error",
- *     },
- * });
- * const testIntegration = new aws.apigateway.Integration("testIntegration", {
- *     restApi: testRestApi.id,
- *     resourceId: testResource.id,
- *     httpMethod: testMethod.httpMethod,
- *     requestTemplates: {
- *         "application/json": "",
- *         "application/xml": `#set($inputRoot = $input.path('$'))
- * { }`,
- *     },
- *     requestParameters: {
- *         "integration.request.header.X-Authorization": "'static'",
- *         "integration.request.header.X-Foo": "'Bar'",
- *     },
- *     type: "HTTP",
- *     uri: "https://www.google.de",
- *     integrationHttpMethod: "GET",
- *     passthroughBehavior: "WHEN_NO_MATCH",
- *     contentHandling: "CONVERT_TO_TEXT",
- *     connectionType: "VPC_LINK",
- *     connectionId: testVpcLink.id,
  * });
  * ```
  *

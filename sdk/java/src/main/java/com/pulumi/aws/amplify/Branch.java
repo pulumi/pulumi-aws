@@ -24,10 +24,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.amplify.App;
+ * import com.pulumi.aws.amplify.Branch;
+ * import com.pulumi.aws.amplify.BranchArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -48,44 +56,35 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Basic Authentication
- * 
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;);
- * 
- *         var master = new Branch(&#34;master&#34;, BranchArgs.builder()        
- *             .appId(example.id())
- *             .branchName(&#34;master&#34;)
- *             .basicAuthConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Notifications
  * 
  * Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `aws.amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.amplify.App;
+ * import com.pulumi.aws.amplify.Branch;
+ * import com.pulumi.aws.amplify.BranchArgs;
+ * import com.pulumi.aws.cloudwatch.EventRule;
+ * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+ * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.cloudwatch.EventTarget;
+ * import com.pulumi.aws.cloudwatch.EventTargetArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventTargetInputTransformerArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.sns.TopicPolicy;
+ * import com.pulumi.aws.sns.TopicPolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -102,8 +101,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var amplifyAppMasterEventRule = new EventRule(&#34;amplifyAppMasterEventRule&#34;, EventRuleArgs.builder()        
- *             .description(master.branchName().apply(branchName -&gt; String.format(&#34;AWS Amplify build notifications for :  App: %s Branch: %s&#34;, aws_amplify_app.app().id(),branchName)))
- *             .eventPattern(Output.tuple(example.id(), master.branchName()).apply(values -&gt; {
+ *             .description(master.branchName().applyValue(branchName -&gt; String.format(&#34;AWS Amplify build notifications for :  App: %s Branch: %s&#34;, aws_amplify_app.app().id(),branchName)))
+ *             .eventPattern(Output.tuple(example.id(), master.branchName()).applyValue(values -&gt; {
  *                 var id = values.t1;
  *                 var branchName = values.t2;
  *                 return serializeJson(
@@ -142,7 +141,7 @@ import javax.annotation.Nullable;
  * 
  *         final var amplifyAppMasterPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(master.arn().apply(arn -&gt; String.format(&#34;Allow_Publish_Events %s&#34;, arn)))
+ *                 .sid(master.arn().applyValue(arn -&gt; String.format(&#34;Allow_Publish_Events %s&#34;, arn)))
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;SNS:Publish&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -155,7 +154,7 @@ import javax.annotation.Nullable;
  * 
  *         var amplifyAppMasterTopicPolicy = new TopicPolicy(&#34;amplifyAppMasterTopicPolicy&#34;, TopicPolicyArgs.builder()        
  *             .arn(amplifyAppMasterTopic.arn())
- *             .policy(amplifyAppMasterPolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult).apply(amplifyAppMasterPolicyDocument -&gt; amplifyAppMasterPolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(amplifyAppMasterPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(amplifyAppMasterPolicyDocument -&gt; amplifyAppMasterPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

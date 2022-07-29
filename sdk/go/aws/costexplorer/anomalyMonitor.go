@@ -54,7 +54,22 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := costexplorer.NewAnomalyMonitor(ctx, "test", &costexplorer.AnomalyMonitorArgs{
-// 			MonitorSpecification: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "	\"And\": null,\n", "	\"CostCategories\": null,\n", "	\"Dimensions\": null,\n", "	\"Not\": null,\n", "	\"Or\": null,\n", "	\"Tags\": {\n", "		\"Key\": \"CostCenter\",\n", "		\"MatchOptions\": null,\n", "		\"Values\": [\n", "			\"10000\"\n", "		]\n", "	}\n", "}\n", "\n")),
+// 			MonitorSpecification: pulumi.String(fmt.Sprintf(`{
+// 	"And": null,
+// 	"CostCategories": null,
+// 	"Dimensions": null,
+// 	"Not": null,
+// 	"Or": null,
+// 	"Tags": {
+// 		"Key": "CostCenter",
+// 		"MatchOptions": null,
+// 		"Values": [
+// 			"10000"
+// 		]
+// 	}
+// }
+//
+// `)),
 // 			MonitorType: pulumi.String("CUSTOM"),
 // 		})
 // 		if err != nil {

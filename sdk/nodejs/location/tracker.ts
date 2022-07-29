@@ -81,7 +81,7 @@ export class Tracker extends pulumi.CustomResource {
      */
     public readonly trackerName!: pulumi.Output<string>;
     /**
-     * The timestamp for when the tracker resource was last update in ISO 8601 format.
+     * The timestamp for when the tracker resource was last updated in ISO 8601 format.
      */
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
@@ -158,7 +158,7 @@ export interface TrackerState {
      */
     trackerName?: pulumi.Input<string>;
     /**
-     * The timestamp for when the tracker resource was last update in ISO 8601 format.
+     * The timestamp for when the tracker resource was last updated in ISO 8601 format.
      */
     updateTime?: pulumi.Input<string>;
 }

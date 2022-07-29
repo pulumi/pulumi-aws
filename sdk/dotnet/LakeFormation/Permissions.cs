@@ -24,7 +24,7 @@ namespace Pulumi.Aws.LakeFormation
     ///         var example = new Aws.LakeFormation.Permissions("example", new Aws.LakeFormation.PermissionsArgs
     ///         {
     ///             Principal = aws_iam_role.Workflow_role.Arn,
-    ///             Permissions = 
+    ///             PermissionDetails = 
     ///             {
     ///                 "ALL",
     ///             },
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.LakeFormation
     ///         var example = new Aws.LakeFormation.Permissions("example", new Aws.LakeFormation.PermissionsArgs
     ///         {
     ///             Principal = aws_iam_role.Workflow_role.Arn,
-    ///             Permissions = 
+    ///             PermissionDetails = 
     ///             {
     ///                 "CREATE_TABLE",
     ///                 "ALTER",
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.LakeFormation
     ///         var test = new Aws.LakeFormation.Permissions("test", new Aws.LakeFormation.PermissionsArgs
     ///         {
     ///             Principal = aws_iam_role.Sales_role.Arn,
-    ///             Permissions = 
+    ///             PermissionDetails = 
     ///             {
     ///                 "CREATE_TABLE",
     ///                 "ALTER",

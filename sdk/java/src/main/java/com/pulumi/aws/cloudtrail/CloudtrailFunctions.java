@@ -24,10 +24,17 @@ public final class CloudtrailFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -37,9 +44,9 @@ public final class CloudtrailFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var functionName = config.get(&#34;functionName&#34;);
-     *         final var existing = Output.of(CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
+     *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -60,10 +67,17 @@ public final class CloudtrailFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -73,9 +87,9 @@ public final class CloudtrailFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var functionName = config.get(&#34;functionName&#34;);
-     *         final var existing = Output.of(CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
+     *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -96,10 +110,17 @@ public final class CloudtrailFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -109,9 +130,9 @@ public final class CloudtrailFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var functionName = config.get(&#34;functionName&#34;);
-     *         final var existing = Output.of(CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
+     *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -132,10 +153,17 @@ public final class CloudtrailFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -145,9 +173,9 @@ public final class CloudtrailFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var functionName = config.get(&#34;functionName&#34;);
-     *         final var existing = Output.of(CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
+     *         final var existing = CloudfrontFunctions.getFunction(GetFunctionArgs.builder()
      *             .name(functionName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -169,10 +197,21 @@ public final class CloudtrailFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudtrail.CloudtrailFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -180,7 +219,7 @@ public final class CloudtrailFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(CloudtrailFunctions.getServiceAccount());
+     *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
      *             .forceDestroy(true)
@@ -212,7 +251,7 @@ public final class CloudtrailFunctions {
      *     }
      *   ]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *     }
@@ -231,10 +270,21 @@ public final class CloudtrailFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudtrail.CloudtrailFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -242,7 +292,7 @@ public final class CloudtrailFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(CloudtrailFunctions.getServiceAccount());
+     *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
      *             .forceDestroy(true)
@@ -274,7 +324,7 @@ public final class CloudtrailFunctions {
      *     }
      *   ]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *     }
@@ -293,10 +343,21 @@ public final class CloudtrailFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudtrail.CloudtrailFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -304,7 +365,7 @@ public final class CloudtrailFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(CloudtrailFunctions.getServiceAccount());
+     *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
      *             .forceDestroy(true)
@@ -336,7 +397,7 @@ public final class CloudtrailFunctions {
      *     }
      *   ]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *     }
@@ -355,10 +416,21 @@ public final class CloudtrailFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudtrail.CloudtrailFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -366,7 +438,7 @@ public final class CloudtrailFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(CloudtrailFunctions.getServiceAccount());
+     *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
      *             .forceDestroy(true)
@@ -398,7 +470,7 @@ public final class CloudtrailFunctions {
      *     }
      *   ]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *     }
@@ -417,10 +489,21 @@ public final class CloudtrailFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudtrail.CloudtrailFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -428,7 +511,7 @@ public final class CloudtrailFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(CloudtrailFunctions.getServiceAccount());
+     *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
      *             .forceDestroy(true)
@@ -460,7 +543,7 @@ public final class CloudtrailFunctions {
      *     }
      *   ]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *     }
@@ -479,10 +562,21 @@ public final class CloudtrailFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudtrail.CloudtrailFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -490,7 +584,7 @@ public final class CloudtrailFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(CloudtrailFunctions.getServiceAccount());
+     *         final var main = CloudtrailFunctions.getServiceAccount();
      * 
      *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
      *             .forceDestroy(true)
@@ -522,7 +616,7 @@ public final class CloudtrailFunctions {
      *     }
      *   ]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn()),main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *     }

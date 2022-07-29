@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Iam
     ///     {
     ///         var policyOne = new Aws.Iam.Policy("policyOne", new Aws.Iam.PolicyArgs
     ///         {
-    ///             Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///             {
     ///                 { "Version", "2012-10-17" },
     ///                 { "Statement", new[]
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Iam
     ///         });
     ///         var policyTwo = new Aws.Iam.Policy("policyTwo", new Aws.Iam.PolicyArgs
     ///         {
-    ///             Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///             {
     ///                 { "Version", "2012-10-17" },
     ///                 { "Statement", new[]

@@ -23,10 +23,17 @@ public final class AcmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.acm.AcmFunctions;
+     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -34,21 +41,21 @@ public final class AcmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var issued = Output.of(AcmFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var issued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
      *             .statuses(&#34;ISSUED&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var amazonIssued = Output.of(AcmFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
      *             .mostRecent(true)
      *             .types(&#34;AMAZON_ISSUED&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var rsa4096 = Output.of(AcmFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
      *             .keyTypes(&#34;RSA_4096&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -67,10 +74,17 @@ public final class AcmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.acm.AcmFunctions;
+     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -78,21 +92,21 @@ public final class AcmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var issued = Output.of(AcmFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var issued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
      *             .statuses(&#34;ISSUED&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var amazonIssued = Output.of(AcmFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
      *             .mostRecent(true)
      *             .types(&#34;AMAZON_ISSUED&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var rsa4096 = Output.of(AcmFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
      *             .keyTypes(&#34;RSA_4096&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -111,10 +125,17 @@ public final class AcmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.acm.AcmFunctions;
+     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -122,21 +143,21 @@ public final class AcmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var issued = Output.of(AcmFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var issued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
      *             .statuses(&#34;ISSUED&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var amazonIssued = Output.of(AcmFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
      *             .mostRecent(true)
      *             .types(&#34;AMAZON_ISSUED&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var rsa4096 = Output.of(AcmFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
      *             .keyTypes(&#34;RSA_4096&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -155,10 +176,17 @@ public final class AcmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.acm.AcmFunctions;
+     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -166,21 +194,21 @@ public final class AcmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var issued = Output.of(AcmFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var issued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
      *             .statuses(&#34;ISSUED&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var amazonIssued = Output.of(AcmFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var amazonIssued = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
      *             .mostRecent(true)
      *             .types(&#34;AMAZON_ISSUED&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var rsa4096 = Output.of(AcmFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var rsa4096 = AcmFunctions.getCertificate(GetCertificateArgs.builder()
      *             .domain(&#34;tf.example.com&#34;)
      *             .keyTypes(&#34;RSA_4096&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

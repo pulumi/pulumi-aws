@@ -57,9 +57,7 @@ export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Prom
  */
 export interface GetUsersArgs {
     /**
-     * A regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API.
-     * This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. It is recommended to combine this with other
-     * options to narrow down the list AWS returns.
+     * Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
      */
     nameRegex?: string;
     /**
@@ -97,9 +95,7 @@ export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOp
  */
 export interface GetUsersOutputArgs {
     /**
-     * A regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API.
-     * This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. It is recommended to combine this with other
-     * options to narrow down the list AWS returns.
+     * Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
      */
     nameRegex?: pulumi.Input<string>;
     /**

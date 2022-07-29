@@ -32,10 +32,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2transitgateway.TransitGateway;
+ * import com.pulumi.aws.ec2.CustomerGateway;
+ * import com.pulumi.aws.ec2.CustomerGatewayArgs;
+ * import com.pulumi.aws.ec2.VpnConnection;
+ * import com.pulumi.aws.ec2.VpnConnectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -64,10 +74,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.VpnGateway;
+ * import com.pulumi.aws.ec2.VpnGatewayArgs;
+ * import com.pulumi.aws.ec2.CustomerGateway;
+ * import com.pulumi.aws.ec2.CustomerGatewayArgs;
+ * import com.pulumi.aws.ec2.VpnConnection;
+ * import com.pulumi.aws.ec2.VpnConnectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -103,10 +126,27 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.directconnect.Gateway;
+ * import com.pulumi.aws.directconnect.GatewayArgs;
+ * import com.pulumi.aws.ec2transitgateway.TransitGateway;
+ * import com.pulumi.aws.ec2transitgateway.TransitGatewayArgs;
+ * import com.pulumi.aws.ec2.CustomerGateway;
+ * import com.pulumi.aws.ec2.CustomerGatewayArgs;
+ * import com.pulumi.aws.directconnect.GatewayAssociation;
+ * import com.pulumi.aws.directconnect.GatewayAssociationArgs;
+ * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+ * import com.pulumi.aws.ec2transitgateway.inputs.GetDirectConnectGatewayAttachmentArgs;
+ * import com.pulumi.aws.ec2.VpnConnection;
+ * import com.pulumi.aws.ec2.VpnConnectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -146,7 +186,7 @@ import javax.annotation.Nullable;
  *             .customerGatewayId(exampleCustomerGateway.id())
  *             .outsideIpAddressType(&#34;PrivateIpv4&#34;)
  *             .transitGatewayId(exampleTransitGateway.id())
- *             .transportTransitGatewayAttachmentId(exampleDirectConnectGatewayAttachment.apply(getDirectConnectGatewayAttachmentResult -&gt; getDirectConnectGatewayAttachmentResult).apply(exampleDirectConnectGatewayAttachment -&gt; exampleDirectConnectGatewayAttachment.apply(getDirectConnectGatewayAttachmentResult -&gt; getDirectConnectGatewayAttachmentResult.id())))
+ *             .transportTransitGatewayAttachmentId(exampleDirectConnectGatewayAttachment.applyValue(getDirectConnectGatewayAttachmentResult -&gt; getDirectConnectGatewayAttachmentResult).applyValue(exampleDirectConnectGatewayAttachment -&gt; exampleDirectConnectGatewayAttachment.applyValue(getDirectConnectGatewayAttachmentResult -&gt; getDirectConnectGatewayAttachmentResult.id())))
  *             .type(&#34;ipsec.1&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;terraform_ipsec_vpn_example&#34;))
  *             .build());

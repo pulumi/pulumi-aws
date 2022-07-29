@@ -32,7 +32,7 @@ import (
 // 			ExternalId:    pulumi.String("S-1-1-12-1234567890-123456789-1234567890-1234"),
 // 			ServerId:      pulumi.Any(aws_transfer_server.Example.Id),
 // 			Role:          pulumi.Any(aws_iam_role.Example.Arn),
-// 			HomeDirectory: pulumi.String(fmt.Sprintf("%v%v%v", "/", aws_s3_bucket.Example.Id, "/")),
+// 			HomeDirectory: pulumi.String(fmt.Sprintf("/%v/", aws_s3_bucket.Example.Id)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -59,7 +59,7 @@ import (
 // 			ExternalId:    pulumi.String("S-1-1-12-1234567890-123456789-1234567890-1234"),
 // 			ServerId:      pulumi.Any(aws_transfer_server.Test.Id),
 // 			Role:          pulumi.Any(aws_iam_role.Test.Arn),
-// 			HomeDirectory: pulumi.String(fmt.Sprintf("%v%v%v", "/", aws_efs_file_system.Test.Id, "/")),
+// 			HomeDirectory: pulumi.String(fmt.Sprintf("/%v/", aws_efs_file_system.Test.Id)),
 // 			PosixProfile: &transfer.AccessPosixProfileArgs{
 // 				Gid: pulumi.Int(1000),
 // 				Uid: pulumi.Int(1000),

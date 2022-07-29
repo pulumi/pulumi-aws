@@ -50,7 +50,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := networkfirewall.NewResourcePolicy(ctx, "example", &networkfirewall.ResourcePolicyArgs{
+// 		_, err = networkfirewall.NewResourcePolicy(ctx, "example", &networkfirewall.ResourcePolicyArgs{
 // 			ResourceArn: pulumi.Any(aws_networkfirewall_firewall_policy.Example.Arn),
 // 			Policy:      pulumi.String(json0),
 // 		})
@@ -96,7 +96,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := networkfirewall.NewResourcePolicy(ctx, "example", &networkfirewall.ResourcePolicyArgs{
+// 		_, err = networkfirewall.NewResourcePolicy(ctx, "example", &networkfirewall.ResourcePolicyArgs{
 // 			ResourceArn: pulumi.Any(aws_networkfirewall_rule_group.Example.Arn),
 // 			Policy:      pulumi.String(json0),
 // 		})

@@ -24,10 +24,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.guardduty.Detector;
+ * import com.pulumi.aws.guardduty.DetectorArgs;
+ * import com.pulumi.aws.guardduty.OrganizationConfiguration;
+ * import com.pulumi.aws.guardduty.OrganizationConfigurationArgs;
+ * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesArgs;
+ * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesS3LogsArgs;
+ * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesKubernetesArgs;
+ * import com.pulumi.aws.guardduty.inputs.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -45,6 +58,11 @@ import javax.annotation.Nullable;
  *             .datasources(OrganizationConfigurationDatasourcesArgs.builder()
  *                 .s3Logs(OrganizationConfigurationDatasourcesS3LogsArgs.builder()
  *                     .autoEnable(true)
+ *                     .build())
+ *                 .kubernetes(OrganizationConfigurationDatasourcesKubernetesArgs.builder()
+ *                     .auditLogs(OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs.builder()
+ *                         .enable(true)
+ *                         .build())
  *                     .build())
  *                 .build())
  *             .build());
@@ -65,14 +83,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:guardduty/organizationConfiguration:OrganizationConfiguration")
 public class OrganizationConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
      * 
      */
     @Export(name="autoEnable", type=Boolean.class, parameters={})
     private Output<Boolean> autoEnable;
 
     /**
-     * @return When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * @return Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
      * 
      */
     public Output<Boolean> autoEnable() {

@@ -79,7 +79,19 @@ import (
 // 		_, err = secretsmanager.NewSecretPolicy(ctx, "exampleSecretPolicy", &secretsmanager.SecretPolicyArgs{
 // 			SecretArn: exampleSecret.Arn,
 // 			Policy: exampleSecret.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\" : \"2012-10-17\",\n", "  \"Statement\" : [ {\n", "    \"Sid\": \"AWSKafkaResourcePolicy\",\n", "    \"Effect\" : \"Allow\",\n", "    \"Principal\" : {\n", "      \"Service\" : \"kafka.amazonaws.com\"\n", "    },\n", "    \"Action\" : \"secretsmanager:getSecretValue\",\n", "    \"Resource\" : \"", arn, "\"\n", "  } ]\n", "}\n"), nil
+// 				return fmt.Sprintf(`{
+//   "Version" : "2012-10-17",
+//   "Statement" : [ {
+//     "Sid": "AWSKafkaResourcePolicy",
+//     "Effect" : "Allow",
+//     "Principal" : {
+//       "Service" : "kafka.amazonaws.com"
+//     },
+//     "Action" : "secretsmanager:getSecretValue",
+//     "Resource" : "%v"
+//   } ]
+// }
+// `, arn), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

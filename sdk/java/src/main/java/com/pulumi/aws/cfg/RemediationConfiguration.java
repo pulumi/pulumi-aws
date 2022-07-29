@@ -30,10 +30,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cfg.Rule;
+ * import com.pulumi.aws.cfg.RuleArgs;
+ * import com.pulumi.aws.cfg.inputs.RuleSourceArgs;
+ * import com.pulumi.aws.cfg.RemediationConfiguration;
+ * import com.pulumi.aws.cfg.RemediationConfigurationArgs;
+ * import com.pulumi.aws.cfg.inputs.RemediationConfigurationParameterArgs;
+ * import com.pulumi.aws.cfg.inputs.RemediationConfigurationExecutionControlsArgs;
+ * import com.pulumi.aws.cfg.inputs.RemediationConfigurationExecutionControlsSsmControlsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

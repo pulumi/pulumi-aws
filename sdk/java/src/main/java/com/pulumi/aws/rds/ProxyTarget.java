@@ -22,10 +22,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.Proxy;
+ * import com.pulumi.aws.rds.ProxyArgs;
+ * import com.pulumi.aws.rds.inputs.ProxyAuthArgs;
+ * import com.pulumi.aws.rds.ProxyDefaultTargetGroup;
+ * import com.pulumi.aws.rds.ProxyDefaultTargetGroupArgs;
+ * import com.pulumi.aws.rds.inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs;
+ * import com.pulumi.aws.rds.ProxyTarget;
+ * import com.pulumi.aws.rds.ProxyTargetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

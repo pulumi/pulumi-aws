@@ -27,10 +27,26 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafregional.IpSet;
+ * import com.pulumi.aws.wafregional.IpSetArgs;
+ * import com.pulumi.aws.wafregional.inputs.IpSetIpSetDescriptorArgs;
+ * import com.pulumi.aws.wafregional.Rule;
+ * import com.pulumi.aws.wafregional.RuleArgs;
+ * import com.pulumi.aws.wafregional.inputs.RulePredicateArgs;
+ * import com.pulumi.aws.wafregional.WebAcl;
+ * import com.pulumi.aws.wafregional.WebAclArgs;
+ * import com.pulumi.aws.wafregional.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
+ * import com.pulumi.aws.wafregional.inputs.WebAclRuleActionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -76,10 +92,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafregional.WebAcl;
+ * import com.pulumi.aws.wafregional.WebAclArgs;
+ * import com.pulumi.aws.wafregional.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafregional.inputs.WebAclRuleArgs;
+ * import com.pulumi.aws.wafregional.inputs.WebAclRuleOverrideActionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -111,10 +137,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafregional.WebAcl;
+ * import com.pulumi.aws.wafregional.WebAclArgs;
+ * import com.pulumi.aws.wafregional.inputs.WebAclLoggingConfigurationArgs;
+ * import com.pulumi.aws.wafregional.inputs.WebAclLoggingConfigurationRedactedFieldsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

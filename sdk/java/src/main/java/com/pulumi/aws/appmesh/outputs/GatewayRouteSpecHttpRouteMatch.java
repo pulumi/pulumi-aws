@@ -3,29 +3,47 @@
 
 package com.pulumi.aws.appmesh.outputs;
 
+import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttpRouteMatchHostname;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GatewayRouteSpecHttpRouteMatch {
     /**
-     * @return Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+     * @return The host name to rewrite.
      * 
      */
-    private final String prefix;
+    private final @Nullable GatewayRouteSpecHttpRouteMatchHostname hostname;
+    /**
+     * @return The specified beginning characters to rewrite.
+     * 
+     */
+    private final @Nullable String prefix;
 
     @CustomType.Constructor
-    private GatewayRouteSpecHttpRouteMatch(@CustomType.Parameter("prefix") String prefix) {
+    private GatewayRouteSpecHttpRouteMatch(
+        @CustomType.Parameter("hostname") @Nullable GatewayRouteSpecHttpRouteMatchHostname hostname,
+        @CustomType.Parameter("prefix") @Nullable String prefix) {
+        this.hostname = hostname;
         this.prefix = prefix;
     }
 
     /**
-     * @return Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+     * @return The host name to rewrite.
      * 
      */
-    public String prefix() {
-        return this.prefix;
+    public Optional<GatewayRouteSpecHttpRouteMatchHostname> hostname() {
+        return Optional.ofNullable(this.hostname);
+    }
+    /**
+     * @return The specified beginning characters to rewrite.
+     * 
+     */
+    public Optional<String> prefix() {
+        return Optional.ofNullable(this.prefix);
     }
 
     public static Builder builder() {
@@ -37,7 +55,8 @@ public final class GatewayRouteSpecHttpRouteMatch {
     }
 
     public static final class Builder {
-        private String prefix;
+        private @Nullable GatewayRouteSpecHttpRouteMatchHostname hostname;
+        private @Nullable String prefix;
 
         public Builder() {
     	      // Empty
@@ -45,14 +64,19 @@ public final class GatewayRouteSpecHttpRouteMatch {
 
         public Builder(GatewayRouteSpecHttpRouteMatch defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.hostname = defaults.hostname;
     	      this.prefix = defaults.prefix;
         }
 
-        public Builder prefix(String prefix) {
-            this.prefix = Objects.requireNonNull(prefix);
+        public Builder hostname(@Nullable GatewayRouteSpecHttpRouteMatchHostname hostname) {
+            this.hostname = hostname;
+            return this;
+        }
+        public Builder prefix(@Nullable String prefix) {
+            this.prefix = prefix;
             return this;
         }        public GatewayRouteSpecHttpRouteMatch build() {
-            return new GatewayRouteSpecHttpRouteMatch(prefix);
+            return new GatewayRouteSpecHttpRouteMatch(hostname, prefix);
         }
     }
 }

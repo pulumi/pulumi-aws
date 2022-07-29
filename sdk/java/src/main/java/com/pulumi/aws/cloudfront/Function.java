@@ -27,10 +27,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudfront.Function;
+ * import com.pulumi.aws.cloudfront.FunctionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -42,7 +49,7 @@ import javax.annotation.Nullable;
  *             .runtime(&#34;cloudfront-js-1.0&#34;)
  *             .comment(&#34;my function&#34;)
  *             .publish(true)
- *             .code(Files.readString(String.format(&#34;%s/function.js&#34;, path.module())))
+ *             .code(Files.readString(Paths.get(String.format(&#34;%s/function.js&#34;, path.module()))))
  *             .build());
  * 
  *     }

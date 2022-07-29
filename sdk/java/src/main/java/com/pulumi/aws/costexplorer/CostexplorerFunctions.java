@@ -24,10 +24,17 @@ public final class CostexplorerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.costexplorer.CostexplorerFunctions;
+     * import com.pulumi.aws.costexplorer.inputs.GetCostCategoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -35,9 +42,9 @@ public final class CostexplorerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CostexplorerFunctions.getCostCategory(GetCostCategoryArgs.builder()
+     *         final var example = CostexplorerFunctions.getCostCategory(GetCostCategoryArgs.builder()
      *             .costCategoryArn(&#34;costCategoryARN&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -54,10 +61,17 @@ public final class CostexplorerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.costexplorer.CostexplorerFunctions;
+     * import com.pulumi.aws.costexplorer.inputs.GetCostCategoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -65,9 +79,9 @@ public final class CostexplorerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CostexplorerFunctions.getCostCategory(GetCostCategoryArgs.builder()
+     *         final var example = CostexplorerFunctions.getCostCategory(GetCostCategoryArgs.builder()
      *             .costCategoryArn(&#34;costCategoryARN&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -84,10 +98,17 @@ public final class CostexplorerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.costexplorer.CostexplorerFunctions;
+     * import com.pulumi.aws.costexplorer.inputs.GetCostCategoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -95,9 +116,9 @@ public final class CostexplorerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CostexplorerFunctions.getCostCategory(GetCostCategoryArgs.builder()
+     *         final var example = CostexplorerFunctions.getCostCategory(GetCostCategoryArgs.builder()
      *             .costCategoryArn(&#34;costCategoryARN&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -114,10 +135,17 @@ public final class CostexplorerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.costexplorer.CostexplorerFunctions;
+     * import com.pulumi.aws.costexplorer.inputs.GetCostCategoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -125,9 +153,9 @@ public final class CostexplorerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CostexplorerFunctions.getCostCategory(GetCostCategoryArgs.builder()
+     *         final var example = CostexplorerFunctions.getCostCategory(GetCostCategoryArgs.builder()
      *             .costCategoryArn(&#34;costCategoryARN&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -144,10 +172,18 @@ public final class CostexplorerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.costexplorer.CostexplorerFunctions;
+     * import com.pulumi.aws.costexplorer.inputs.GetTagsArgs;
+     * import com.pulumi.aws.costexplorer.inputs.GetTagsTimePeriodArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -155,12 +191,12 @@ public final class CostexplorerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(CostexplorerFunctions.getTags(GetTagsArgs.builder()
+     *         final var test = CostexplorerFunctions.getTags(GetTagsArgs.builder()
      *             .timePeriod(GetTagsTimePeriodArgs.builder()
      *                 .end(&#34;2022-12-01&#34;)
      *                 .start(&#34;2021-01-01&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -177,10 +213,18 @@ public final class CostexplorerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.costexplorer.CostexplorerFunctions;
+     * import com.pulumi.aws.costexplorer.inputs.GetTagsArgs;
+     * import com.pulumi.aws.costexplorer.inputs.GetTagsTimePeriodArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -188,12 +232,12 @@ public final class CostexplorerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(CostexplorerFunctions.getTags(GetTagsArgs.builder()
+     *         final var test = CostexplorerFunctions.getTags(GetTagsArgs.builder()
      *             .timePeriod(GetTagsTimePeriodArgs.builder()
      *                 .end(&#34;2022-12-01&#34;)
      *                 .start(&#34;2021-01-01&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -210,10 +254,18 @@ public final class CostexplorerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.costexplorer.CostexplorerFunctions;
+     * import com.pulumi.aws.costexplorer.inputs.GetTagsArgs;
+     * import com.pulumi.aws.costexplorer.inputs.GetTagsTimePeriodArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -221,12 +273,12 @@ public final class CostexplorerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(CostexplorerFunctions.getTags(GetTagsArgs.builder()
+     *         final var test = CostexplorerFunctions.getTags(GetTagsArgs.builder()
      *             .timePeriod(GetTagsTimePeriodArgs.builder()
      *                 .end(&#34;2022-12-01&#34;)
      *                 .start(&#34;2021-01-01&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -243,10 +295,18 @@ public final class CostexplorerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.costexplorer.CostexplorerFunctions;
+     * import com.pulumi.aws.costexplorer.inputs.GetTagsArgs;
+     * import com.pulumi.aws.costexplorer.inputs.GetTagsTimePeriodArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -254,12 +314,12 @@ public final class CostexplorerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(CostexplorerFunctions.getTags(GetTagsArgs.builder()
+     *         final var test = CostexplorerFunctions.getTags(GetTagsArgs.builder()
      *             .timePeriod(GetTagsTimePeriodArgs.builder()
      *                 .end(&#34;2022-12-01&#34;)
      *                 .start(&#34;2021-01-01&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

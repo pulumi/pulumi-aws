@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Iot
     ///     {
     ///         var pubsub = new Aws.Iot.Policy("pubsub", new Aws.Iot.PolicyArgs
     ///         {
-    ///             Policy = @"{
+    ///             PolicyDocument = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {

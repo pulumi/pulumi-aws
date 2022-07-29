@@ -109,7 +109,7 @@ namespace Pulumi.Aws.CodeBuild
     public partial class Webhook : Pulumi.CustomResource
     {
         /// <summary>
-        /// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
+        /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         /// </summary>
         [Output("branchFilter")]
         public Output<string?> BranchFilter { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.CodeBuild
     public sealed class WebhookArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
+        /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         /// </summary>
         [Input("branchFilter")]
         public Input<string>? BranchFilter { get; set; }
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.CodeBuild
     public sealed class WebhookState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
+        /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
         /// </summary>
         [Input("branchFilter")]
         public Input<string>? BranchFilter { get; set; }

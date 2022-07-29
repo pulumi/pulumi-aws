@@ -195,7 +195,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+// 		_, err = lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
 // 			EventSourceArn: pulumi.Any(aws_sqs_queue.Sqs_queue_test.Arn),
 // 			FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
 // 			FilterCriteria: &lambda.EventSourceMappingFilterCriteriaArgs{

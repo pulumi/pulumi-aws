@@ -17,33 +17,6 @@ namespace Pulumi.Aws.Ec2
         /// This data source can prove useful when a module accepts a coip pool id as
         /// an input variable and needs to, for example, determine the CIDR block of that
         /// COIP Pool.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following example returns a specific coip pool ID
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var config = new Config();
-        ///         var coipPoolId = config.RequireObject&lt;dynamic&gt;("coipPoolId");
-        ///         var selected = Output.Create(Aws.Ec2.GetCoipPool.InvokeAsync(new Aws.Ec2.GetCoipPoolArgs
-        ///         {
-        ///             Id = coipPoolId,
-        ///         }));
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCoipPoolResult> InvokeAsync(GetCoipPoolArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCoipPoolResult>("aws:ec2/getCoipPool:getCoipPool", args ?? new GetCoipPoolArgs(), options.WithDefaults());
@@ -54,33 +27,6 @@ namespace Pulumi.Aws.Ec2
         /// This data source can prove useful when a module accepts a coip pool id as
         /// an input variable and needs to, for example, determine the CIDR block of that
         /// COIP Pool.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following example returns a specific coip pool ID
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var config = new Config();
-        ///         var coipPoolId = config.RequireObject&lt;dynamic&gt;("coipPoolId");
-        ///         var selected = Output.Create(Aws.Ec2.GetCoipPool.InvokeAsync(new Aws.Ec2.GetCoipPoolArgs
-        ///         {
-        ///             Id = coipPoolId,
-        ///         }));
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCoipPoolResult> Invoke(GetCoipPoolInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetCoipPoolResult>("aws:ec2/getCoipPool:getCoipPool", args ?? new GetCoipPoolInvokeArgs(), options.WithDefaults());

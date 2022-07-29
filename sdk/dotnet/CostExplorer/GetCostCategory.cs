@@ -79,6 +79,18 @@ namespace Pulumi.Aws.CostExplorer
         [Input("costCategoryArn", required: true)]
         public string CostCategoryArn { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetCostCategoryArgs()
         {
         }
@@ -91,6 +103,18 @@ namespace Pulumi.Aws.CostExplorer
         /// </summary>
         [Input("costCategoryArn", required: true)]
         public Input<string> CostCategoryArn { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public GetCostCategoryInvokeArgs()
         {
@@ -127,6 +151,10 @@ namespace Pulumi.Aws.CostExplorer
         /// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategorySplitChargeRuleResult> SplitChargeRules;
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetCostCategoryResult(
@@ -144,7 +172,9 @@ namespace Pulumi.Aws.CostExplorer
 
             ImmutableArray<Outputs.GetCostCategoryRuleResult> rules,
 
-            ImmutableArray<Outputs.GetCostCategorySplitChargeRuleResult> splitChargeRules)
+            ImmutableArray<Outputs.GetCostCategorySplitChargeRuleResult> splitChargeRules,
+
+            ImmutableDictionary<string, string> tags)
         {
             CostCategoryArn = costCategoryArn;
             EffectiveEnd = effectiveEnd;
@@ -154,6 +184,7 @@ namespace Pulumi.Aws.CostExplorer
             RuleVersion = ruleVersion;
             Rules = rules;
             SplitChargeRules = splitChargeRules;
+            Tags = tags;
         }
     }
 }

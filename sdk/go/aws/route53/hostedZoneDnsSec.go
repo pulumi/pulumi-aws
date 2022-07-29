@@ -77,7 +77,7 @@ import (
 // 					"Action": "kms:*",
 // 					"Effect": "Allow",
 // 					"Principal": map[string]interface{}{
-// 						"AWS": fmt.Sprintf("%v%v%v", "arn:aws:iam::", current.AccountId, ":root"),
+// 						"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
 // 					},
 // 					"Resource": "*",
 // 					"Sid":      "Enable IAM User Permissions",

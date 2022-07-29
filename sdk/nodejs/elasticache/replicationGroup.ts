@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     automaticFailoverEnabled: true,
  *     description: "example description",
  *     nodeType: "cache.m4.large",
- *     numberCacheClusters: 2,
+ *     numCacheClusters: 2,
  *     parameterGroupName: "default.redis3.2",
  *     port: 6379,
  *     preferredCacheClusterAzs: [
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *     ],
  *     description: "example description",
  *     nodeType: "cache.m4.large",
- *     numberCacheClusters: 2,
+ *     numCacheClusters: 2,
  *     parameterGroupName: "default.redis3.2",
  *     port: 6379,
  * });
@@ -101,7 +101,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.elasticache.ReplicationGroup("test", {
- *     replicationGroupDescription: "test description",
+ *     description: "test description",
  *     nodeType: "cache.t3.small",
  *     port: 6379,
  *     applyImmediately: true,
@@ -143,7 +143,7 @@ import * as utilities from "../utilities";
  *     engine: "redis",
  *     engineVersion: "5.0.6",
  *     nodeType: "cache.m5.large",
- *     numberCacheClusters: 1,
+ *     numCacheClusters: 1,
  * }, {
  *     provider: aws.other_region,
  * });
@@ -156,7 +156,7 @@ import * as utilities from "../utilities";
  * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
  *     description: "secondary replication group",
  *     globalReplicationGroupId: example.globalReplicationGroupId,
- *     numberCacheClusters: 1,
+ *     numCacheClusters: 1,
  * });
  * ```
  *
@@ -219,7 +219,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean>;
     /**
-     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      */
     public readonly automaticFailoverEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -527,7 +527,7 @@ export interface ReplicationGroupState {
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
-     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      */
     automaticFailoverEnabled?: pulumi.Input<boolean>;
     /**
@@ -719,7 +719,7 @@ export interface ReplicationGroupArgs {
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
-     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      */
     automaticFailoverEnabled?: pulumi.Input<boolean>;
     /**

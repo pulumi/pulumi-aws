@@ -241,7 +241,7 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             Path = "/",
     ///             Description = "IAM policy for logging from a lambda",
-    ///             Policy = @"{
+    ///             PolicyDocument = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {

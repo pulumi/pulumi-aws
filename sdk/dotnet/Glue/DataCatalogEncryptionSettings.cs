@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Glue
     ///     {
     ///         var example = new Aws.Glue.DataCatalogEncryptionSettings("example", new Aws.Glue.DataCatalogEncryptionSettingsArgs
     ///         {
-    ///             DataCatalogEncryptionSettings = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs
+    ///             DataCatalogEncryptionSettingsConfig = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs
     ///             {
     ///                 ConnectionPasswordEncryption = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs
     ///                 {

@@ -40,15 +40,26 @@ import javax.annotation.Nullable;
  * The DynamoDB API expects attribute structure (name and type) to be passed along when creating or updating GSI/LSIs or creating the initial table. In these cases it expects the Hash / Range keys to be provided. Because these get re-used in numerous places (i.e the table&#39;s range key could be a part of one or more GSIs), they are stored on the table object to prevent duplication and increase consistency. If you add attributes here that are not used in these scenarios it can cause an infinite loop in planning.
  * 
  * ## Example Usage
+ * ### Basic Example
  * 
  * The following dynamodb table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dynamodb.Table;
+ * import com.pulumi.aws.dynamodb.TableArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableTtlArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -103,10 +114,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dynamodb.Table;
+ * import com.pulumi.aws.dynamodb.TableArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableReplicaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -246,14 +266,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Whether to enable Point In Time Recovery for the replica.
+     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
      * 
      */
     @Export(name="pointInTimeRecovery", type=TablePointInTimeRecovery.class, parameters={})
     private Output<TablePointInTimeRecovery> pointInTimeRecovery;
 
     /**
-     * @return Whether to enable Point In Time Recovery for the replica.
+     * @return Whether to enable Point In Time Recovery for the replica. Default is `false`.
      * 
      */
     public Output<TablePointInTimeRecovery> pointInTimeRecovery() {

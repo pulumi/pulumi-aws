@@ -3289,6 +3289,375 @@ func (o UserHierarchyStructureHierarchyStructureLevelTwoPtrOutput) Name() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserIdentityInfo struct {
+	// The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+	Email *string `pulumi:"email"`
+	// The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
+	FirstName *string `pulumi:"firstName"`
+	// The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
+	LastName *string `pulumi:"lastName"`
+}
+
+// UserIdentityInfoInput is an input type that accepts UserIdentityInfoArgs and UserIdentityInfoOutput values.
+// You can construct a concrete instance of `UserIdentityInfoInput` via:
+//
+//          UserIdentityInfoArgs{...}
+type UserIdentityInfoInput interface {
+	pulumi.Input
+
+	ToUserIdentityInfoOutput() UserIdentityInfoOutput
+	ToUserIdentityInfoOutputWithContext(context.Context) UserIdentityInfoOutput
+}
+
+type UserIdentityInfoArgs struct {
+	// The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
+	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
+	// The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
+	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+}
+
+func (UserIdentityInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentityInfo)(nil)).Elem()
+}
+
+func (i UserIdentityInfoArgs) ToUserIdentityInfoOutput() UserIdentityInfoOutput {
+	return i.ToUserIdentityInfoOutputWithContext(context.Background())
+}
+
+func (i UserIdentityInfoArgs) ToUserIdentityInfoOutputWithContext(ctx context.Context) UserIdentityInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityInfoOutput)
+}
+
+func (i UserIdentityInfoArgs) ToUserIdentityInfoPtrOutput() UserIdentityInfoPtrOutput {
+	return i.ToUserIdentityInfoPtrOutputWithContext(context.Background())
+}
+
+func (i UserIdentityInfoArgs) ToUserIdentityInfoPtrOutputWithContext(ctx context.Context) UserIdentityInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityInfoOutput).ToUserIdentityInfoPtrOutputWithContext(ctx)
+}
+
+// UserIdentityInfoPtrInput is an input type that accepts UserIdentityInfoArgs, UserIdentityInfoPtr and UserIdentityInfoPtrOutput values.
+// You can construct a concrete instance of `UserIdentityInfoPtrInput` via:
+//
+//          UserIdentityInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type UserIdentityInfoPtrInput interface {
+	pulumi.Input
+
+	ToUserIdentityInfoPtrOutput() UserIdentityInfoPtrOutput
+	ToUserIdentityInfoPtrOutputWithContext(context.Context) UserIdentityInfoPtrOutput
+}
+
+type userIdentityInfoPtrType UserIdentityInfoArgs
+
+func UserIdentityInfoPtr(v *UserIdentityInfoArgs) UserIdentityInfoPtrInput {
+	return (*userIdentityInfoPtrType)(v)
+}
+
+func (*userIdentityInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserIdentityInfo)(nil)).Elem()
+}
+
+func (i *userIdentityInfoPtrType) ToUserIdentityInfoPtrOutput() UserIdentityInfoPtrOutput {
+	return i.ToUserIdentityInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *userIdentityInfoPtrType) ToUserIdentityInfoPtrOutputWithContext(ctx context.Context) UserIdentityInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityInfoPtrOutput)
+}
+
+type UserIdentityInfoOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentityInfo)(nil)).Elem()
+}
+
+func (o UserIdentityInfoOutput) ToUserIdentityInfoOutput() UserIdentityInfoOutput {
+	return o
+}
+
+func (o UserIdentityInfoOutput) ToUserIdentityInfoOutputWithContext(ctx context.Context) UserIdentityInfoOutput {
+	return o
+}
+
+func (o UserIdentityInfoOutput) ToUserIdentityInfoPtrOutput() UserIdentityInfoPtrOutput {
+	return o.ToUserIdentityInfoPtrOutputWithContext(context.Background())
+}
+
+func (o UserIdentityInfoOutput) ToUserIdentityInfoPtrOutputWithContext(ctx context.Context) UserIdentityInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserIdentityInfo) *UserIdentityInfo {
+		return &v
+	}).(UserIdentityInfoPtrOutput)
+}
+
+// The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+func (o UserIdentityInfoOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserIdentityInfo) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
+func (o UserIdentityInfoOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserIdentityInfo) *string { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
+func (o UserIdentityInfoOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserIdentityInfo) *string { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+type UserIdentityInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserIdentityInfo)(nil)).Elem()
+}
+
+func (o UserIdentityInfoPtrOutput) ToUserIdentityInfoPtrOutput() UserIdentityInfoPtrOutput {
+	return o
+}
+
+func (o UserIdentityInfoPtrOutput) ToUserIdentityInfoPtrOutputWithContext(ctx context.Context) UserIdentityInfoPtrOutput {
+	return o
+}
+
+func (o UserIdentityInfoPtrOutput) Elem() UserIdentityInfoOutput {
+	return o.ApplyT(func(v *UserIdentityInfo) UserIdentityInfo {
+		if v != nil {
+			return *v
+		}
+		var ret UserIdentityInfo
+		return ret
+	}).(UserIdentityInfoOutput)
+}
+
+// The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+func (o UserIdentityInfoPtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserIdentityInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
+func (o UserIdentityInfoPtrOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserIdentityInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirstName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
+func (o UserIdentityInfoPtrOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserIdentityInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPhoneConfig struct {
+	// The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
+	AfterContactWorkTimeLimit *int `pulumi:"afterContactWorkTimeLimit"`
+	// When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
+	AutoAccept *bool `pulumi:"autoAccept"`
+	// The phone number for the user's desk phone. Required if `phoneType` is set as `DESK_PHONE`.
+	DeskPhoneNumber *string `pulumi:"deskPhoneNumber"`
+	// The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
+	PhoneType string `pulumi:"phoneType"`
+}
+
+// UserPhoneConfigInput is an input type that accepts UserPhoneConfigArgs and UserPhoneConfigOutput values.
+// You can construct a concrete instance of `UserPhoneConfigInput` via:
+//
+//          UserPhoneConfigArgs{...}
+type UserPhoneConfigInput interface {
+	pulumi.Input
+
+	ToUserPhoneConfigOutput() UserPhoneConfigOutput
+	ToUserPhoneConfigOutputWithContext(context.Context) UserPhoneConfigOutput
+}
+
+type UserPhoneConfigArgs struct {
+	// The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
+	AfterContactWorkTimeLimit pulumi.IntPtrInput `pulumi:"afterContactWorkTimeLimit"`
+	// When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
+	AutoAccept pulumi.BoolPtrInput `pulumi:"autoAccept"`
+	// The phone number for the user's desk phone. Required if `phoneType` is set as `DESK_PHONE`.
+	DeskPhoneNumber pulumi.StringPtrInput `pulumi:"deskPhoneNumber"`
+	// The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
+	PhoneType pulumi.StringInput `pulumi:"phoneType"`
+}
+
+func (UserPhoneConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPhoneConfig)(nil)).Elem()
+}
+
+func (i UserPhoneConfigArgs) ToUserPhoneConfigOutput() UserPhoneConfigOutput {
+	return i.ToUserPhoneConfigOutputWithContext(context.Background())
+}
+
+func (i UserPhoneConfigArgs) ToUserPhoneConfigOutputWithContext(ctx context.Context) UserPhoneConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneConfigOutput)
+}
+
+func (i UserPhoneConfigArgs) ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput {
+	return i.ToUserPhoneConfigPtrOutputWithContext(context.Background())
+}
+
+func (i UserPhoneConfigArgs) ToUserPhoneConfigPtrOutputWithContext(ctx context.Context) UserPhoneConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneConfigOutput).ToUserPhoneConfigPtrOutputWithContext(ctx)
+}
+
+// UserPhoneConfigPtrInput is an input type that accepts UserPhoneConfigArgs, UserPhoneConfigPtr and UserPhoneConfigPtrOutput values.
+// You can construct a concrete instance of `UserPhoneConfigPtrInput` via:
+//
+//          UserPhoneConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type UserPhoneConfigPtrInput interface {
+	pulumi.Input
+
+	ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput
+	ToUserPhoneConfigPtrOutputWithContext(context.Context) UserPhoneConfigPtrOutput
+}
+
+type userPhoneConfigPtrType UserPhoneConfigArgs
+
+func UserPhoneConfigPtr(v *UserPhoneConfigArgs) UserPhoneConfigPtrInput {
+	return (*userPhoneConfigPtrType)(v)
+}
+
+func (*userPhoneConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPhoneConfig)(nil)).Elem()
+}
+
+func (i *userPhoneConfigPtrType) ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput {
+	return i.ToUserPhoneConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *userPhoneConfigPtrType) ToUserPhoneConfigPtrOutputWithContext(ctx context.Context) UserPhoneConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneConfigPtrOutput)
+}
+
+type UserPhoneConfigOutput struct{ *pulumi.OutputState }
+
+func (UserPhoneConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPhoneConfig)(nil)).Elem()
+}
+
+func (o UserPhoneConfigOutput) ToUserPhoneConfigOutput() UserPhoneConfigOutput {
+	return o
+}
+
+func (o UserPhoneConfigOutput) ToUserPhoneConfigOutputWithContext(ctx context.Context) UserPhoneConfigOutput {
+	return o
+}
+
+func (o UserPhoneConfigOutput) ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput {
+	return o.ToUserPhoneConfigPtrOutputWithContext(context.Background())
+}
+
+func (o UserPhoneConfigOutput) ToUserPhoneConfigPtrOutputWithContext(ctx context.Context) UserPhoneConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPhoneConfig) *UserPhoneConfig {
+		return &v
+	}).(UserPhoneConfigPtrOutput)
+}
+
+// The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
+func (o UserPhoneConfigOutput) AfterContactWorkTimeLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserPhoneConfig) *int { return v.AfterContactWorkTimeLimit }).(pulumi.IntPtrOutput)
+}
+
+// When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
+func (o UserPhoneConfigOutput) AutoAccept() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UserPhoneConfig) *bool { return v.AutoAccept }).(pulumi.BoolPtrOutput)
+}
+
+// The phone number for the user's desk phone. Required if `phoneType` is set as `DESK_PHONE`.
+func (o UserPhoneConfigOutput) DeskPhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPhoneConfig) *string { return v.DeskPhoneNumber }).(pulumi.StringPtrOutput)
+}
+
+// The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
+func (o UserPhoneConfigOutput) PhoneType() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPhoneConfig) string { return v.PhoneType }).(pulumi.StringOutput)
+}
+
+type UserPhoneConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPhoneConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPhoneConfig)(nil)).Elem()
+}
+
+func (o UserPhoneConfigPtrOutput) ToUserPhoneConfigPtrOutput() UserPhoneConfigPtrOutput {
+	return o
+}
+
+func (o UserPhoneConfigPtrOutput) ToUserPhoneConfigPtrOutputWithContext(ctx context.Context) UserPhoneConfigPtrOutput {
+	return o
+}
+
+func (o UserPhoneConfigPtrOutput) Elem() UserPhoneConfigOutput {
+	return o.ApplyT(func(v *UserPhoneConfig) UserPhoneConfig {
+		if v != nil {
+			return *v
+		}
+		var ret UserPhoneConfig
+		return ret
+	}).(UserPhoneConfigOutput)
+}
+
+// The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
+func (o UserPhoneConfigPtrOutput) AfterContactWorkTimeLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPhoneConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AfterContactWorkTimeLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
+func (o UserPhoneConfigPtrOutput) AutoAccept() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserPhoneConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoAccept
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The phone number for the user's desk phone. Required if `phoneType` is set as `DESK_PHONE`.
+func (o UserPhoneConfigPtrOutput) DeskPhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPhoneConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeskPhoneNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
+func (o UserPhoneConfigPtrOutput) PhoneType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPhoneConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PhoneType
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetBotAssociationLexBot struct {
 	// The Region that the Amazon Lex (V1) bot was created in.
 	LexRegion string `pulumi:"lexRegion"`
@@ -4479,6 +4848,724 @@ func (o GetRoutingProfileQueueConfigArrayOutput) Index(i pulumi.IntInput) GetRou
 	}).(GetRoutingProfileQueueConfigOutput)
 }
 
+type GetUserHierarchyGroupHierarchyPath struct {
+	// A block that defines the details of level five. The level block is documented below.
+	LevelFives []GetUserHierarchyGroupHierarchyPathLevelFife `pulumi:"levelFives"`
+	// A block that defines the details of level four. The level block is documented below.
+	LevelFours []GetUserHierarchyGroupHierarchyPathLevelFour `pulumi:"levelFours"`
+	// A block that defines the details of level one. The level block is documented below.
+	LevelOnes []GetUserHierarchyGroupHierarchyPathLevelOne `pulumi:"levelOnes"`
+	// A block that defines the details of level three. The level block is documented below.
+	LevelThrees []GetUserHierarchyGroupHierarchyPathLevelThree `pulumi:"levelThrees"`
+	// A block that defines the details of level two. The level block is documented below.
+	LevelTwos []GetUserHierarchyGroupHierarchyPathLevelTwo `pulumi:"levelTwos"`
+}
+
+// GetUserHierarchyGroupHierarchyPathInput is an input type that accepts GetUserHierarchyGroupHierarchyPathArgs and GetUserHierarchyGroupHierarchyPathOutput values.
+// You can construct a concrete instance of `GetUserHierarchyGroupHierarchyPathInput` via:
+//
+//          GetUserHierarchyGroupHierarchyPathArgs{...}
+type GetUserHierarchyGroupHierarchyPathInput interface {
+	pulumi.Input
+
+	ToGetUserHierarchyGroupHierarchyPathOutput() GetUserHierarchyGroupHierarchyPathOutput
+	ToGetUserHierarchyGroupHierarchyPathOutputWithContext(context.Context) GetUserHierarchyGroupHierarchyPathOutput
+}
+
+type GetUserHierarchyGroupHierarchyPathArgs struct {
+	// A block that defines the details of level five. The level block is documented below.
+	LevelFives GetUserHierarchyGroupHierarchyPathLevelFifeArrayInput `pulumi:"levelFives"`
+	// A block that defines the details of level four. The level block is documented below.
+	LevelFours GetUserHierarchyGroupHierarchyPathLevelFourArrayInput `pulumi:"levelFours"`
+	// A block that defines the details of level one. The level block is documented below.
+	LevelOnes GetUserHierarchyGroupHierarchyPathLevelOneArrayInput `pulumi:"levelOnes"`
+	// A block that defines the details of level three. The level block is documented below.
+	LevelThrees GetUserHierarchyGroupHierarchyPathLevelThreeArrayInput `pulumi:"levelThrees"`
+	// A block that defines the details of level two. The level block is documented below.
+	LevelTwos GetUserHierarchyGroupHierarchyPathLevelTwoArrayInput `pulumi:"levelTwos"`
+}
+
+func (GetUserHierarchyGroupHierarchyPathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserHierarchyGroupHierarchyPath)(nil)).Elem()
+}
+
+func (i GetUserHierarchyGroupHierarchyPathArgs) ToGetUserHierarchyGroupHierarchyPathOutput() GetUserHierarchyGroupHierarchyPathOutput {
+	return i.ToGetUserHierarchyGroupHierarchyPathOutputWithContext(context.Background())
+}
+
+func (i GetUserHierarchyGroupHierarchyPathArgs) ToGetUserHierarchyGroupHierarchyPathOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserHierarchyGroupHierarchyPathOutput)
+}
+
+// GetUserHierarchyGroupHierarchyPathArrayInput is an input type that accepts GetUserHierarchyGroupHierarchyPathArray and GetUserHierarchyGroupHierarchyPathArrayOutput values.
+// You can construct a concrete instance of `GetUserHierarchyGroupHierarchyPathArrayInput` via:
+//
+//          GetUserHierarchyGroupHierarchyPathArray{ GetUserHierarchyGroupHierarchyPathArgs{...} }
+type GetUserHierarchyGroupHierarchyPathArrayInput interface {
+	pulumi.Input
+
+	ToGetUserHierarchyGroupHierarchyPathArrayOutput() GetUserHierarchyGroupHierarchyPathArrayOutput
+	ToGetUserHierarchyGroupHierarchyPathArrayOutputWithContext(context.Context) GetUserHierarchyGroupHierarchyPathArrayOutput
+}
+
+type GetUserHierarchyGroupHierarchyPathArray []GetUserHierarchyGroupHierarchyPathInput
+
+func (GetUserHierarchyGroupHierarchyPathArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserHierarchyGroupHierarchyPath)(nil)).Elem()
+}
+
+func (i GetUserHierarchyGroupHierarchyPathArray) ToGetUserHierarchyGroupHierarchyPathArrayOutput() GetUserHierarchyGroupHierarchyPathArrayOutput {
+	return i.ToGetUserHierarchyGroupHierarchyPathArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserHierarchyGroupHierarchyPathArray) ToGetUserHierarchyGroupHierarchyPathArrayOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserHierarchyGroupHierarchyPathArrayOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathOutput struct{ *pulumi.OutputState }
+
+func (GetUserHierarchyGroupHierarchyPathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserHierarchyGroupHierarchyPath)(nil)).Elem()
+}
+
+func (o GetUserHierarchyGroupHierarchyPathOutput) ToGetUserHierarchyGroupHierarchyPathOutput() GetUserHierarchyGroupHierarchyPathOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathOutput) ToGetUserHierarchyGroupHierarchyPathOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathOutput {
+	return o
+}
+
+// A block that defines the details of level five. The level block is documented below.
+func (o GetUserHierarchyGroupHierarchyPathOutput) LevelFives() GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPath) []GetUserHierarchyGroupHierarchyPathLevelFife {
+		return v.LevelFives
+	}).(GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput)
+}
+
+// A block that defines the details of level four. The level block is documented below.
+func (o GetUserHierarchyGroupHierarchyPathOutput) LevelFours() GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPath) []GetUserHierarchyGroupHierarchyPathLevelFour {
+		return v.LevelFours
+	}).(GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput)
+}
+
+// A block that defines the details of level one. The level block is documented below.
+func (o GetUserHierarchyGroupHierarchyPathOutput) LevelOnes() GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPath) []GetUserHierarchyGroupHierarchyPathLevelOne {
+		return v.LevelOnes
+	}).(GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput)
+}
+
+// A block that defines the details of level three. The level block is documented below.
+func (o GetUserHierarchyGroupHierarchyPathOutput) LevelThrees() GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPath) []GetUserHierarchyGroupHierarchyPathLevelThree {
+		return v.LevelThrees
+	}).(GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput)
+}
+
+// A block that defines the details of level two. The level block is documented below.
+func (o GetUserHierarchyGroupHierarchyPathOutput) LevelTwos() GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPath) []GetUserHierarchyGroupHierarchyPathLevelTwo {
+		return v.LevelTwos
+	}).(GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserHierarchyGroupHierarchyPathArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserHierarchyGroupHierarchyPath)(nil)).Elem()
+}
+
+func (o GetUserHierarchyGroupHierarchyPathArrayOutput) ToGetUserHierarchyGroupHierarchyPathArrayOutput() GetUserHierarchyGroupHierarchyPathArrayOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathArrayOutput) ToGetUserHierarchyGroupHierarchyPathArrayOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathArrayOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathArrayOutput) Index(i pulumi.IntInput) GetUserHierarchyGroupHierarchyPathOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserHierarchyGroupHierarchyPath {
+		return vs[0].([]GetUserHierarchyGroupHierarchyPath)[vs[1].(int)]
+	}).(GetUserHierarchyGroupHierarchyPathOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelFife struct {
+	// The Amazon Resource Name (ARN) of the hierarchy group.
+	Arn string `pulumi:"arn"`
+	// The identifier of the hierarchy group.
+	Id string `pulumi:"id"`
+	// Returns information on a specific hierarchy group by name
+	Name string `pulumi:"name"`
+}
+
+// GetUserHierarchyGroupHierarchyPathLevelFifeInput is an input type that accepts GetUserHierarchyGroupHierarchyPathLevelFifeArgs and GetUserHierarchyGroupHierarchyPathLevelFifeOutput values.
+// You can construct a concrete instance of `GetUserHierarchyGroupHierarchyPathLevelFifeInput` via:
+//
+//          GetUserHierarchyGroupHierarchyPathLevelFifeArgs{...}
+type GetUserHierarchyGroupHierarchyPathLevelFifeInput interface {
+	pulumi.Input
+
+	ToGetUserHierarchyGroupHierarchyPathLevelFifeOutput() GetUserHierarchyGroupHierarchyPathLevelFifeOutput
+	ToGetUserHierarchyGroupHierarchyPathLevelFifeOutputWithContext(context.Context) GetUserHierarchyGroupHierarchyPathLevelFifeOutput
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelFifeArgs struct {
+	// The Amazon Resource Name (ARN) of the hierarchy group.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The identifier of the hierarchy group.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Returns information on a specific hierarchy group by name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetUserHierarchyGroupHierarchyPathLevelFifeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelFife)(nil)).Elem()
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelFifeArgs) ToGetUserHierarchyGroupHierarchyPathLevelFifeOutput() GetUserHierarchyGroupHierarchyPathLevelFifeOutput {
+	return i.ToGetUserHierarchyGroupHierarchyPathLevelFifeOutputWithContext(context.Background())
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelFifeArgs) ToGetUserHierarchyGroupHierarchyPathLevelFifeOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelFifeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserHierarchyGroupHierarchyPathLevelFifeOutput)
+}
+
+// GetUserHierarchyGroupHierarchyPathLevelFifeArrayInput is an input type that accepts GetUserHierarchyGroupHierarchyPathLevelFifeArray and GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput values.
+// You can construct a concrete instance of `GetUserHierarchyGroupHierarchyPathLevelFifeArrayInput` via:
+//
+//          GetUserHierarchyGroupHierarchyPathLevelFifeArray{ GetUserHierarchyGroupHierarchyPathLevelFifeArgs{...} }
+type GetUserHierarchyGroupHierarchyPathLevelFifeArrayInput interface {
+	pulumi.Input
+
+	ToGetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput() GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput
+	ToGetUserHierarchyGroupHierarchyPathLevelFifeArrayOutputWithContext(context.Context) GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelFifeArray []GetUserHierarchyGroupHierarchyPathLevelFifeInput
+
+func (GetUserHierarchyGroupHierarchyPathLevelFifeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserHierarchyGroupHierarchyPathLevelFife)(nil)).Elem()
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelFifeArray) ToGetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput() GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput {
+	return i.ToGetUserHierarchyGroupHierarchyPathLevelFifeArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelFifeArray) ToGetUserHierarchyGroupHierarchyPathLevelFifeArrayOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelFifeOutput struct{ *pulumi.OutputState }
+
+func (GetUserHierarchyGroupHierarchyPathLevelFifeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelFife)(nil)).Elem()
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelFifeOutput) ToGetUserHierarchyGroupHierarchyPathLevelFifeOutput() GetUserHierarchyGroupHierarchyPathLevelFifeOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelFifeOutput) ToGetUserHierarchyGroupHierarchyPathLevelFifeOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelFifeOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the hierarchy group.
+func (o GetUserHierarchyGroupHierarchyPathLevelFifeOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFife) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The identifier of the hierarchy group.
+func (o GetUserHierarchyGroupHierarchyPathLevelFifeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFife) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Returns information on a specific hierarchy group by name
+func (o GetUserHierarchyGroupHierarchyPathLevelFifeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFife) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserHierarchyGroupHierarchyPathLevelFife)(nil)).Elem()
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput) ToGetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput() GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput) ToGetUserHierarchyGroupHierarchyPathLevelFifeArrayOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput) Index(i pulumi.IntInput) GetUserHierarchyGroupHierarchyPathLevelFifeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserHierarchyGroupHierarchyPathLevelFife {
+		return vs[0].([]GetUserHierarchyGroupHierarchyPathLevelFife)[vs[1].(int)]
+	}).(GetUserHierarchyGroupHierarchyPathLevelFifeOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelFour struct {
+	// The Amazon Resource Name (ARN) of the hierarchy group.
+	Arn string `pulumi:"arn"`
+	// The identifier of the hierarchy group.
+	Id string `pulumi:"id"`
+	// Returns information on a specific hierarchy group by name
+	Name string `pulumi:"name"`
+}
+
+// GetUserHierarchyGroupHierarchyPathLevelFourInput is an input type that accepts GetUserHierarchyGroupHierarchyPathLevelFourArgs and GetUserHierarchyGroupHierarchyPathLevelFourOutput values.
+// You can construct a concrete instance of `GetUserHierarchyGroupHierarchyPathLevelFourInput` via:
+//
+//          GetUserHierarchyGroupHierarchyPathLevelFourArgs{...}
+type GetUserHierarchyGroupHierarchyPathLevelFourInput interface {
+	pulumi.Input
+
+	ToGetUserHierarchyGroupHierarchyPathLevelFourOutput() GetUserHierarchyGroupHierarchyPathLevelFourOutput
+	ToGetUserHierarchyGroupHierarchyPathLevelFourOutputWithContext(context.Context) GetUserHierarchyGroupHierarchyPathLevelFourOutput
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelFourArgs struct {
+	// The Amazon Resource Name (ARN) of the hierarchy group.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The identifier of the hierarchy group.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Returns information on a specific hierarchy group by name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetUserHierarchyGroupHierarchyPathLevelFourArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelFour)(nil)).Elem()
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelFourArgs) ToGetUserHierarchyGroupHierarchyPathLevelFourOutput() GetUserHierarchyGroupHierarchyPathLevelFourOutput {
+	return i.ToGetUserHierarchyGroupHierarchyPathLevelFourOutputWithContext(context.Background())
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelFourArgs) ToGetUserHierarchyGroupHierarchyPathLevelFourOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelFourOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserHierarchyGroupHierarchyPathLevelFourOutput)
+}
+
+// GetUserHierarchyGroupHierarchyPathLevelFourArrayInput is an input type that accepts GetUserHierarchyGroupHierarchyPathLevelFourArray and GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput values.
+// You can construct a concrete instance of `GetUserHierarchyGroupHierarchyPathLevelFourArrayInput` via:
+//
+//          GetUserHierarchyGroupHierarchyPathLevelFourArray{ GetUserHierarchyGroupHierarchyPathLevelFourArgs{...} }
+type GetUserHierarchyGroupHierarchyPathLevelFourArrayInput interface {
+	pulumi.Input
+
+	ToGetUserHierarchyGroupHierarchyPathLevelFourArrayOutput() GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput
+	ToGetUserHierarchyGroupHierarchyPathLevelFourArrayOutputWithContext(context.Context) GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelFourArray []GetUserHierarchyGroupHierarchyPathLevelFourInput
+
+func (GetUserHierarchyGroupHierarchyPathLevelFourArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserHierarchyGroupHierarchyPathLevelFour)(nil)).Elem()
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelFourArray) ToGetUserHierarchyGroupHierarchyPathLevelFourArrayOutput() GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput {
+	return i.ToGetUserHierarchyGroupHierarchyPathLevelFourArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelFourArray) ToGetUserHierarchyGroupHierarchyPathLevelFourArrayOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelFourOutput struct{ *pulumi.OutputState }
+
+func (GetUserHierarchyGroupHierarchyPathLevelFourOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelFour)(nil)).Elem()
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelFourOutput) ToGetUserHierarchyGroupHierarchyPathLevelFourOutput() GetUserHierarchyGroupHierarchyPathLevelFourOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelFourOutput) ToGetUserHierarchyGroupHierarchyPathLevelFourOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelFourOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the hierarchy group.
+func (o GetUserHierarchyGroupHierarchyPathLevelFourOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFour) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The identifier of the hierarchy group.
+func (o GetUserHierarchyGroupHierarchyPathLevelFourOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFour) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Returns information on a specific hierarchy group by name
+func (o GetUserHierarchyGroupHierarchyPathLevelFourOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelFour) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserHierarchyGroupHierarchyPathLevelFour)(nil)).Elem()
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput) ToGetUserHierarchyGroupHierarchyPathLevelFourArrayOutput() GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput) ToGetUserHierarchyGroupHierarchyPathLevelFourArrayOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput) Index(i pulumi.IntInput) GetUserHierarchyGroupHierarchyPathLevelFourOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserHierarchyGroupHierarchyPathLevelFour {
+		return vs[0].([]GetUserHierarchyGroupHierarchyPathLevelFour)[vs[1].(int)]
+	}).(GetUserHierarchyGroupHierarchyPathLevelFourOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelOne struct {
+	// The Amazon Resource Name (ARN) of the hierarchy group.
+	Arn string `pulumi:"arn"`
+	// The identifier of the hierarchy group.
+	Id string `pulumi:"id"`
+	// Returns information on a specific hierarchy group by name
+	Name string `pulumi:"name"`
+}
+
+// GetUserHierarchyGroupHierarchyPathLevelOneInput is an input type that accepts GetUserHierarchyGroupHierarchyPathLevelOneArgs and GetUserHierarchyGroupHierarchyPathLevelOneOutput values.
+// You can construct a concrete instance of `GetUserHierarchyGroupHierarchyPathLevelOneInput` via:
+//
+//          GetUserHierarchyGroupHierarchyPathLevelOneArgs{...}
+type GetUserHierarchyGroupHierarchyPathLevelOneInput interface {
+	pulumi.Input
+
+	ToGetUserHierarchyGroupHierarchyPathLevelOneOutput() GetUserHierarchyGroupHierarchyPathLevelOneOutput
+	ToGetUserHierarchyGroupHierarchyPathLevelOneOutputWithContext(context.Context) GetUserHierarchyGroupHierarchyPathLevelOneOutput
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelOneArgs struct {
+	// The Amazon Resource Name (ARN) of the hierarchy group.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The identifier of the hierarchy group.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Returns information on a specific hierarchy group by name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetUserHierarchyGroupHierarchyPathLevelOneArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelOne)(nil)).Elem()
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelOneArgs) ToGetUserHierarchyGroupHierarchyPathLevelOneOutput() GetUserHierarchyGroupHierarchyPathLevelOneOutput {
+	return i.ToGetUserHierarchyGroupHierarchyPathLevelOneOutputWithContext(context.Background())
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelOneArgs) ToGetUserHierarchyGroupHierarchyPathLevelOneOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelOneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserHierarchyGroupHierarchyPathLevelOneOutput)
+}
+
+// GetUserHierarchyGroupHierarchyPathLevelOneArrayInput is an input type that accepts GetUserHierarchyGroupHierarchyPathLevelOneArray and GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput values.
+// You can construct a concrete instance of `GetUserHierarchyGroupHierarchyPathLevelOneArrayInput` via:
+//
+//          GetUserHierarchyGroupHierarchyPathLevelOneArray{ GetUserHierarchyGroupHierarchyPathLevelOneArgs{...} }
+type GetUserHierarchyGroupHierarchyPathLevelOneArrayInput interface {
+	pulumi.Input
+
+	ToGetUserHierarchyGroupHierarchyPathLevelOneArrayOutput() GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput
+	ToGetUserHierarchyGroupHierarchyPathLevelOneArrayOutputWithContext(context.Context) GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelOneArray []GetUserHierarchyGroupHierarchyPathLevelOneInput
+
+func (GetUserHierarchyGroupHierarchyPathLevelOneArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserHierarchyGroupHierarchyPathLevelOne)(nil)).Elem()
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelOneArray) ToGetUserHierarchyGroupHierarchyPathLevelOneArrayOutput() GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput {
+	return i.ToGetUserHierarchyGroupHierarchyPathLevelOneArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelOneArray) ToGetUserHierarchyGroupHierarchyPathLevelOneArrayOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelOneOutput struct{ *pulumi.OutputState }
+
+func (GetUserHierarchyGroupHierarchyPathLevelOneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelOne)(nil)).Elem()
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelOneOutput) ToGetUserHierarchyGroupHierarchyPathLevelOneOutput() GetUserHierarchyGroupHierarchyPathLevelOneOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelOneOutput) ToGetUserHierarchyGroupHierarchyPathLevelOneOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelOneOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the hierarchy group.
+func (o GetUserHierarchyGroupHierarchyPathLevelOneOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelOne) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The identifier of the hierarchy group.
+func (o GetUserHierarchyGroupHierarchyPathLevelOneOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelOne) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Returns information on a specific hierarchy group by name
+func (o GetUserHierarchyGroupHierarchyPathLevelOneOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelOne) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserHierarchyGroupHierarchyPathLevelOne)(nil)).Elem()
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput) ToGetUserHierarchyGroupHierarchyPathLevelOneArrayOutput() GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput) ToGetUserHierarchyGroupHierarchyPathLevelOneArrayOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput) Index(i pulumi.IntInput) GetUserHierarchyGroupHierarchyPathLevelOneOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserHierarchyGroupHierarchyPathLevelOne {
+		return vs[0].([]GetUserHierarchyGroupHierarchyPathLevelOne)[vs[1].(int)]
+	}).(GetUserHierarchyGroupHierarchyPathLevelOneOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelThree struct {
+	// The Amazon Resource Name (ARN) of the hierarchy group.
+	Arn string `pulumi:"arn"`
+	// The identifier of the hierarchy group.
+	Id string `pulumi:"id"`
+	// Returns information on a specific hierarchy group by name
+	Name string `pulumi:"name"`
+}
+
+// GetUserHierarchyGroupHierarchyPathLevelThreeInput is an input type that accepts GetUserHierarchyGroupHierarchyPathLevelThreeArgs and GetUserHierarchyGroupHierarchyPathLevelThreeOutput values.
+// You can construct a concrete instance of `GetUserHierarchyGroupHierarchyPathLevelThreeInput` via:
+//
+//          GetUserHierarchyGroupHierarchyPathLevelThreeArgs{...}
+type GetUserHierarchyGroupHierarchyPathLevelThreeInput interface {
+	pulumi.Input
+
+	ToGetUserHierarchyGroupHierarchyPathLevelThreeOutput() GetUserHierarchyGroupHierarchyPathLevelThreeOutput
+	ToGetUserHierarchyGroupHierarchyPathLevelThreeOutputWithContext(context.Context) GetUserHierarchyGroupHierarchyPathLevelThreeOutput
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelThreeArgs struct {
+	// The Amazon Resource Name (ARN) of the hierarchy group.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The identifier of the hierarchy group.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Returns information on a specific hierarchy group by name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetUserHierarchyGroupHierarchyPathLevelThreeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelThree)(nil)).Elem()
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelThreeArgs) ToGetUserHierarchyGroupHierarchyPathLevelThreeOutput() GetUserHierarchyGroupHierarchyPathLevelThreeOutput {
+	return i.ToGetUserHierarchyGroupHierarchyPathLevelThreeOutputWithContext(context.Background())
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelThreeArgs) ToGetUserHierarchyGroupHierarchyPathLevelThreeOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelThreeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserHierarchyGroupHierarchyPathLevelThreeOutput)
+}
+
+// GetUserHierarchyGroupHierarchyPathLevelThreeArrayInput is an input type that accepts GetUserHierarchyGroupHierarchyPathLevelThreeArray and GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput values.
+// You can construct a concrete instance of `GetUserHierarchyGroupHierarchyPathLevelThreeArrayInput` via:
+//
+//          GetUserHierarchyGroupHierarchyPathLevelThreeArray{ GetUserHierarchyGroupHierarchyPathLevelThreeArgs{...} }
+type GetUserHierarchyGroupHierarchyPathLevelThreeArrayInput interface {
+	pulumi.Input
+
+	ToGetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput() GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput
+	ToGetUserHierarchyGroupHierarchyPathLevelThreeArrayOutputWithContext(context.Context) GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelThreeArray []GetUserHierarchyGroupHierarchyPathLevelThreeInput
+
+func (GetUserHierarchyGroupHierarchyPathLevelThreeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserHierarchyGroupHierarchyPathLevelThree)(nil)).Elem()
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelThreeArray) ToGetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput() GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput {
+	return i.ToGetUserHierarchyGroupHierarchyPathLevelThreeArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelThreeArray) ToGetUserHierarchyGroupHierarchyPathLevelThreeArrayOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelThreeOutput struct{ *pulumi.OutputState }
+
+func (GetUserHierarchyGroupHierarchyPathLevelThreeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelThree)(nil)).Elem()
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelThreeOutput) ToGetUserHierarchyGroupHierarchyPathLevelThreeOutput() GetUserHierarchyGroupHierarchyPathLevelThreeOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelThreeOutput) ToGetUserHierarchyGroupHierarchyPathLevelThreeOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelThreeOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the hierarchy group.
+func (o GetUserHierarchyGroupHierarchyPathLevelThreeOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelThree) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The identifier of the hierarchy group.
+func (o GetUserHierarchyGroupHierarchyPathLevelThreeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelThree) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Returns information on a specific hierarchy group by name
+func (o GetUserHierarchyGroupHierarchyPathLevelThreeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelThree) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserHierarchyGroupHierarchyPathLevelThree)(nil)).Elem()
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput) ToGetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput() GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput) ToGetUserHierarchyGroupHierarchyPathLevelThreeArrayOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput) Index(i pulumi.IntInput) GetUserHierarchyGroupHierarchyPathLevelThreeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserHierarchyGroupHierarchyPathLevelThree {
+		return vs[0].([]GetUserHierarchyGroupHierarchyPathLevelThree)[vs[1].(int)]
+	}).(GetUserHierarchyGroupHierarchyPathLevelThreeOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelTwo struct {
+	// The Amazon Resource Name (ARN) of the hierarchy group.
+	Arn string `pulumi:"arn"`
+	// The identifier of the hierarchy group.
+	Id string `pulumi:"id"`
+	// Returns information on a specific hierarchy group by name
+	Name string `pulumi:"name"`
+}
+
+// GetUserHierarchyGroupHierarchyPathLevelTwoInput is an input type that accepts GetUserHierarchyGroupHierarchyPathLevelTwoArgs and GetUserHierarchyGroupHierarchyPathLevelTwoOutput values.
+// You can construct a concrete instance of `GetUserHierarchyGroupHierarchyPathLevelTwoInput` via:
+//
+//          GetUserHierarchyGroupHierarchyPathLevelTwoArgs{...}
+type GetUserHierarchyGroupHierarchyPathLevelTwoInput interface {
+	pulumi.Input
+
+	ToGetUserHierarchyGroupHierarchyPathLevelTwoOutput() GetUserHierarchyGroupHierarchyPathLevelTwoOutput
+	ToGetUserHierarchyGroupHierarchyPathLevelTwoOutputWithContext(context.Context) GetUserHierarchyGroupHierarchyPathLevelTwoOutput
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelTwoArgs struct {
+	// The Amazon Resource Name (ARN) of the hierarchy group.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The identifier of the hierarchy group.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Returns information on a specific hierarchy group by name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetUserHierarchyGroupHierarchyPathLevelTwoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelTwo)(nil)).Elem()
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelTwoArgs) ToGetUserHierarchyGroupHierarchyPathLevelTwoOutput() GetUserHierarchyGroupHierarchyPathLevelTwoOutput {
+	return i.ToGetUserHierarchyGroupHierarchyPathLevelTwoOutputWithContext(context.Background())
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelTwoArgs) ToGetUserHierarchyGroupHierarchyPathLevelTwoOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelTwoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserHierarchyGroupHierarchyPathLevelTwoOutput)
+}
+
+// GetUserHierarchyGroupHierarchyPathLevelTwoArrayInput is an input type that accepts GetUserHierarchyGroupHierarchyPathLevelTwoArray and GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput values.
+// You can construct a concrete instance of `GetUserHierarchyGroupHierarchyPathLevelTwoArrayInput` via:
+//
+//          GetUserHierarchyGroupHierarchyPathLevelTwoArray{ GetUserHierarchyGroupHierarchyPathLevelTwoArgs{...} }
+type GetUserHierarchyGroupHierarchyPathLevelTwoArrayInput interface {
+	pulumi.Input
+
+	ToGetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput() GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput
+	ToGetUserHierarchyGroupHierarchyPathLevelTwoArrayOutputWithContext(context.Context) GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelTwoArray []GetUserHierarchyGroupHierarchyPathLevelTwoInput
+
+func (GetUserHierarchyGroupHierarchyPathLevelTwoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserHierarchyGroupHierarchyPathLevelTwo)(nil)).Elem()
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelTwoArray) ToGetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput() GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput {
+	return i.ToGetUserHierarchyGroupHierarchyPathLevelTwoArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserHierarchyGroupHierarchyPathLevelTwoArray) ToGetUserHierarchyGroupHierarchyPathLevelTwoArrayOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelTwoOutput struct{ *pulumi.OutputState }
+
+func (GetUserHierarchyGroupHierarchyPathLevelTwoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelTwo)(nil)).Elem()
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelTwoOutput) ToGetUserHierarchyGroupHierarchyPathLevelTwoOutput() GetUserHierarchyGroupHierarchyPathLevelTwoOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelTwoOutput) ToGetUserHierarchyGroupHierarchyPathLevelTwoOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelTwoOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the hierarchy group.
+func (o GetUserHierarchyGroupHierarchyPathLevelTwoOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelTwo) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The identifier of the hierarchy group.
+func (o GetUserHierarchyGroupHierarchyPathLevelTwoOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelTwo) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Returns information on a specific hierarchy group by name
+func (o GetUserHierarchyGroupHierarchyPathLevelTwoOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserHierarchyGroupHierarchyPathLevelTwo) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserHierarchyGroupHierarchyPathLevelTwo)(nil)).Elem()
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput) ToGetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput() GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput) ToGetUserHierarchyGroupHierarchyPathLevelTwoArrayOutputWithContext(ctx context.Context) GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput {
+	return o
+}
+
+func (o GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput) Index(i pulumi.IntInput) GetUserHierarchyGroupHierarchyPathLevelTwoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserHierarchyGroupHierarchyPathLevelTwo {
+		return vs[0].([]GetUserHierarchyGroupHierarchyPathLevelTwo)[vs[1].(int)]
+	}).(GetUserHierarchyGroupHierarchyPathLevelTwoOutput)
+}
+
 type GetUserHierarchyStructureHierarchyStructure struct {
 	// A block that defines the details of level five. The level block is documented below.
 	LevelFives []GetUserHierarchyStructureHierarchyStructureLevelFife `pulumi:"levelFives"`
@@ -5244,6 +6331,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructureHierarchyStructureLevelThreePtrInput)(nil)).Elem(), UserHierarchyStructureHierarchyStructureLevelThreeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructureHierarchyStructureLevelTwoInput)(nil)).Elem(), UserHierarchyStructureHierarchyStructureLevelTwoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyStructureHierarchyStructureLevelTwoPtrInput)(nil)).Elem(), UserHierarchyStructureHierarchyStructureLevelTwoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoInput)(nil)).Elem(), UserIdentityInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoPtrInput)(nil)).Elem(), UserIdentityInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneConfigInput)(nil)).Elem(), UserPhoneConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneConfigPtrInput)(nil)).Elem(), UserPhoneConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBotAssociationLexBotInput)(nil)).Elem(), GetBotAssociationLexBotArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHoursOfOperationConfigInput)(nil)).Elem(), GetHoursOfOperationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHoursOfOperationConfigArrayInput)(nil)).Elem(), GetHoursOfOperationConfigArray{})
@@ -5265,6 +6356,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoutingProfileMediaConcurrencyArrayInput)(nil)).Elem(), GetRoutingProfileMediaConcurrencyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoutingProfileQueueConfigInput)(nil)).Elem(), GetRoutingProfileQueueConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoutingProfileQueueConfigArrayInput)(nil)).Elem(), GetRoutingProfileQueueConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathInput)(nil)).Elem(), GetUserHierarchyGroupHierarchyPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathArrayInput)(nil)).Elem(), GetUserHierarchyGroupHierarchyPathArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelFifeInput)(nil)).Elem(), GetUserHierarchyGroupHierarchyPathLevelFifeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelFifeArrayInput)(nil)).Elem(), GetUserHierarchyGroupHierarchyPathLevelFifeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelFourInput)(nil)).Elem(), GetUserHierarchyGroupHierarchyPathLevelFourArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelFourArrayInput)(nil)).Elem(), GetUserHierarchyGroupHierarchyPathLevelFourArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelOneInput)(nil)).Elem(), GetUserHierarchyGroupHierarchyPathLevelOneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelOneArrayInput)(nil)).Elem(), GetUserHierarchyGroupHierarchyPathLevelOneArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelThreeInput)(nil)).Elem(), GetUserHierarchyGroupHierarchyPathLevelThreeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelThreeArrayInput)(nil)).Elem(), GetUserHierarchyGroupHierarchyPathLevelThreeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelTwoInput)(nil)).Elem(), GetUserHierarchyGroupHierarchyPathLevelTwoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyGroupHierarchyPathLevelTwoArrayInput)(nil)).Elem(), GetUserHierarchyGroupHierarchyPathLevelTwoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyStructureHierarchyStructureInput)(nil)).Elem(), GetUserHierarchyStructureHierarchyStructureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyStructureHierarchyStructureArrayInput)(nil)).Elem(), GetUserHierarchyStructureHierarchyStructureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyStructureHierarchyStructureLevelFifeInput)(nil)).Elem(), GetUserHierarchyStructureHierarchyStructureLevelFifeArgs{})
@@ -5323,6 +6426,10 @@ func init() {
 	pulumi.RegisterOutputType(UserHierarchyStructureHierarchyStructureLevelThreePtrOutput{})
 	pulumi.RegisterOutputType(UserHierarchyStructureHierarchyStructureLevelTwoOutput{})
 	pulumi.RegisterOutputType(UserHierarchyStructureHierarchyStructureLevelTwoPtrOutput{})
+	pulumi.RegisterOutputType(UserIdentityInfoOutput{})
+	pulumi.RegisterOutputType(UserIdentityInfoPtrOutput{})
+	pulumi.RegisterOutputType(UserPhoneConfigOutput{})
+	pulumi.RegisterOutputType(UserPhoneConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetBotAssociationLexBotOutput{})
 	pulumi.RegisterOutputType(GetHoursOfOperationConfigOutput{})
 	pulumi.RegisterOutputType(GetHoursOfOperationConfigArrayOutput{})
@@ -5344,6 +6451,18 @@ func init() {
 	pulumi.RegisterOutputType(GetRoutingProfileMediaConcurrencyArrayOutput{})
 	pulumi.RegisterOutputType(GetRoutingProfileQueueConfigOutput{})
 	pulumi.RegisterOutputType(GetRoutingProfileQueueConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetUserHierarchyGroupHierarchyPathOutput{})
+	pulumi.RegisterOutputType(GetUserHierarchyGroupHierarchyPathArrayOutput{})
+	pulumi.RegisterOutputType(GetUserHierarchyGroupHierarchyPathLevelFifeOutput{})
+	pulumi.RegisterOutputType(GetUserHierarchyGroupHierarchyPathLevelFifeArrayOutput{})
+	pulumi.RegisterOutputType(GetUserHierarchyGroupHierarchyPathLevelFourOutput{})
+	pulumi.RegisterOutputType(GetUserHierarchyGroupHierarchyPathLevelFourArrayOutput{})
+	pulumi.RegisterOutputType(GetUserHierarchyGroupHierarchyPathLevelOneOutput{})
+	pulumi.RegisterOutputType(GetUserHierarchyGroupHierarchyPathLevelOneArrayOutput{})
+	pulumi.RegisterOutputType(GetUserHierarchyGroupHierarchyPathLevelThreeOutput{})
+	pulumi.RegisterOutputType(GetUserHierarchyGroupHierarchyPathLevelThreeArrayOutput{})
+	pulumi.RegisterOutputType(GetUserHierarchyGroupHierarchyPathLevelTwoOutput{})
+	pulumi.RegisterOutputType(GetUserHierarchyGroupHierarchyPathLevelTwoArrayOutput{})
 	pulumi.RegisterOutputType(GetUserHierarchyStructureHierarchyStructureOutput{})
 	pulumi.RegisterOutputType(GetUserHierarchyStructureHierarchyStructureArrayOutput{})
 	pulumi.RegisterOutputType(GetUserHierarchyStructureHierarchyStructureLevelFifeOutput{})
