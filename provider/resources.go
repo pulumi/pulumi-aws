@@ -1552,7 +1552,8 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_ecr_lifecycle_policy": {
-				Tok: awsResource(ecrMod, "LifecyclePolicy"),
+				Tok:                 awsResource(ecrMod, "LifecyclePolicy"),
+				DeleteBeforeReplace: true,
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
