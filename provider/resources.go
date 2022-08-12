@@ -281,6 +281,16 @@ func stringRef(s string) *string {
 // configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
 // before passing control to the TF provider to ensure we can report actionable errors.
 func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) error {
+	// we should have an explicit check to make sure that the user has a region available before we do
+	// anything with the provider
+	region := stringValue(vars, "region", []string{"AWS_REGION", "AWS_DEFAULT_REGION"})
+	if region == "" {
+		return fmt.Errorf("unable to find a configured AWS Region. Region can be set in the following ways: \n\n" +
+			" \t • As part of your stack, e.g. `pulumi config set aws:region us-west-2`\n" +
+			" \t • As part of your AWS Profile \n" +
+			" \t • Using the environment variables, `AWS_REGION` or `AWS_DEFAULT` \n\n")
+	}
+
 	var skipCredentialsValidation bool
 	if val, ok := vars["skipCredentialsValidation"]; ok {
 		if val.IsBool() {
@@ -299,7 +309,7 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 		SecretKey: stringValue(vars, "secretKey", []string{"AWS_SECRET_ACCESS_KEY"}),
 		Profile:   stringValue(vars, "profile", []string{"AWS_PROFILE"}),
 		Token:     stringValue(vars, "token", []string{"AWS_SESSION_TOKEN"}),
-		Region:    stringValue(vars, "region", []string{"AWS_REGION", "AWS_DEFAULT_REGION"}),
+		Region:    region,
 	}
 
 	if details, ok := vars["assumeRole"]; ok {
