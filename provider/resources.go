@@ -285,10 +285,10 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 	// anything with the provider
 	region := stringValue(vars, "region", []string{"AWS_REGION", "AWS_DEFAULT_REGION"})
 	if region == "" {
-		return fmt.Errorf("unable to find a configured AWS Region. Region can be set in the following ways: \n\n" +
-			" \t • As part of your stack, e.g. `pulumi config set aws:region us-west-2`\n" +
-			" \t • As part of your AWS Profile \n" +
-			" \t • Using the environment variables, `AWS_REGION` or `AWS_DEFAULT` \n\n")
+		return fmt.Errorf("unable to find a AWS Region config. Set the Region by using: \n\n" +
+			" \t • `pulumi config set aws:region us-west-2` or \n" +
+			" \t • An AWS Profile or \n" +
+			" \t • Environment variables:`AWS_REGION` or `AWS_DEFAULT` \n\n")
 	}
 
 	var skipCredentialsValidation bool
