@@ -664,7 +664,10 @@ func Provider() tfbridge.ProviderInfo {
 			// API Gateway v2
 			"aws_apigatewayv2_api":         {Tok: awsResource(apigatewayv2Mod, "Api")},
 			"aws_apigatewayv2_authorizer":  {Tok: awsResource(apigatewayv2Mod, "Authorizer")},
-			"aws_apigatewayv2_integration": {Tok: awsResource(apigatewayv2Mod, "Integration")},
+			"aws_apigatewayv2_integration": {
+			    Tok: awsResource(apigatewayv2Mod, "Integration"),
+			    DeleteBeforeReplace: true,
+			    },
 			"aws_apigatewayv2_model":       {Tok: awsResource(apigatewayv2Mod, "Model")},
 			"aws_apigatewayv2_deployment":  {Tok: awsResource(apigatewayv2Mod, "Deployment")},
 			"aws_apigatewayv2_domain_name": {
