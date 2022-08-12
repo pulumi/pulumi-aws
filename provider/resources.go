@@ -1540,7 +1540,20 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway_multicast_group_member":       {Tok: awsResource(ec2TransitGatewayMod, "MulticastGroupMember")},
 			"aws_ec2_transit_gateway_multicast_group_source":       {Tok: awsResource(ec2TransitGatewayMod, "MulticastGroupSource")},
 			// Elastic Container Registry
-			"aws_ecr_repository": {Tok: awsResource(ecrMod, "Repository")},
+			"aws_ecr_repository": {
+				Tok: awsResource(ecrMod, "Repository"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// In https://github.com/hashicorp/terraform-provider-aws/pull/9913 the value of this changed
+					// to be false because of the optional value. We want to ensure that we can have the same user
+					// experience as before for this so we are defaulting this to true as before and a user can opt-in
+					// to setting the value to false.
+					"force_delete": {
+						Default: &tfbridge.DefaultInfo{
+							Value: true,
+						},
+					},
+				},
+			},
 			"aws_ecr_repository_policy": {
 				Tok: awsResource(ecrMod, "RepositoryPolicy"),
 				Fields: map[string]*tfbridge.SchemaInfo{

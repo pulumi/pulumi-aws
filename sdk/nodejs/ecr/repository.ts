@@ -70,7 +70,7 @@ export class Repository extends pulumi.CustomResource {
      * If `true`, will delete the repository even if it contains images.
      * Defaults to `false`.
      */
-    public readonly forceDelete!: pulumi.Output<boolean | undefined>;
+    public readonly forceDelete!: pulumi.Output<boolean>;
     /**
      * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
      */
@@ -126,7 +126,7 @@ export class Repository extends pulumi.CustomResource {
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
             resourceInputs["encryptionConfigurations"] = args ? args.encryptionConfigurations : undefined;
-            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
+            resourceInputs["forceDelete"] = (args ? args.forceDelete : undefined) ?? true;
             resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
             resourceInputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
             resourceInputs["name"] = args ? args.name : undefined;

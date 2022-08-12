@@ -101,15 +101,15 @@ public class Repository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="forceDelete", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> forceDelete;
+    private Output<Boolean> forceDelete;
 
     /**
      * @return If `true`, will delete the repository even if it contains images.
      * Defaults to `false`.
      * 
      */
-    public Output<Optional<Boolean>> forceDelete() {
-        return Codegen.optional(this.forceDelete);
+    public Output<Boolean> forceDelete() {
+        return this.forceDelete;
     }
     /**
      * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.

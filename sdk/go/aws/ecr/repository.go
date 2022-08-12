@@ -54,7 +54,7 @@ type Repository struct {
 	EncryptionConfigurations RepositoryEncryptionConfigurationArrayOutput `pulumi:"encryptionConfigurations"`
 	// If `true`, will delete the repository even if it contains images.
 	// Defaults to `false`.
-	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
+	ForceDelete pulumi.BoolOutput `pulumi:"forceDelete"`
 	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrOutput `pulumi:"imageScanningConfiguration"`
 	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
@@ -78,6 +78,9 @@ func NewRepository(ctx *pulumi.Context,
 		args = &RepositoryArgs{}
 	}
 
+	if isZero(args.ForceDelete) {
+		args.ForceDelete = pulumi.BoolPtr(true)
+	}
 	var resource Repository
 	err := ctx.RegisterResource("aws:ecr/repository:Repository", name, args, &resource, opts...)
 	if err != nil {
@@ -283,8 +286,8 @@ func (o RepositoryOutput) EncryptionConfigurations() RepositoryEncryptionConfigu
 
 // If `true`, will delete the repository even if it contains images.
 // Defaults to `false`.
-func (o RepositoryOutput) ForceDelete() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.ForceDelete }).(pulumi.BoolPtrOutput)
+func (o RepositoryOutput) ForceDelete() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolOutput { return v.ForceDelete }).(pulumi.BoolOutput)
 }
 
 // Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.

@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Ecr
         /// Defaults to `false`.
         /// </summary>
         [Output("forceDelete")]
-        public Output<bool?> ForceDelete { get; private set; } = null!;
+        public Output<bool> ForceDelete { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
@@ -204,6 +204,7 @@ namespace Pulumi.Aws.Ecr
 
         public RepositoryArgs()
         {
+            ForceDelete = true;
         }
     }
 
@@ -290,6 +291,7 @@ namespace Pulumi.Aws.Ecr
 
         public RepositoryState()
         {
+            ForceDelete = true;
         }
     }
 }

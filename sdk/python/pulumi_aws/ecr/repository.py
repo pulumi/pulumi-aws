@@ -34,6 +34,8 @@ class RepositoryArgs:
         """
         if encryption_configurations is not None:
             pulumi.set(__self__, "encryption_configurations", encryption_configurations)
+        if force_delete is None:
+            force_delete = True
         if force_delete is not None:
             pulumi.set(__self__, "force_delete", force_delete)
         if image_scanning_configuration is not None:
@@ -150,6 +152,8 @@ class _RepositoryState:
             pulumi.set(__self__, "arn", arn)
         if encryption_configurations is not None:
             pulumi.set(__self__, "encryption_configurations", encryption_configurations)
+        if force_delete is None:
+            force_delete = True
         if force_delete is not None:
             pulumi.set(__self__, "force_delete", force_delete)
         if image_scanning_configuration is not None:
@@ -396,6 +400,8 @@ class Repository(pulumi.CustomResource):
             __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
             __props__.__dict__["encryption_configurations"] = encryption_configurations
+            if force_delete is None:
+                force_delete = True
             __props__.__dict__["force_delete"] = force_delete
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
             __props__.__dict__["image_tag_mutability"] = image_tag_mutability
@@ -478,7 +484,7 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forceDelete")
-    def force_delete(self) -> pulumi.Output[Optional[bool]]:
+    def force_delete(self) -> pulumi.Output[bool]:
         """
         If `true`, will delete the repository even if it contains images.
         Defaults to `false`.
