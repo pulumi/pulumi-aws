@@ -147,7 +147,7 @@ export interface SecurityGroupState {
      */
     egress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupEgress>[]>;
     /**
-     * Configuration block for egress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
+     * Configuration block for inress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below.
      */
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupIngress>[]>;
     /**
