@@ -572,6 +572,7 @@ func Provider() tfbridge.ProviderInfo {
 						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
 				},
+				DeleteBeforeReplace: true,
 			},
 			"aws_api_gateway_integration_response": {
 				Tok: awsResource(apigatewayMod, "IntegrationResponse"),
