@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationGetArgs()
         {
         }
+        public static new FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationGetArgs Empty => new FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationGetArgs();
     }
 }

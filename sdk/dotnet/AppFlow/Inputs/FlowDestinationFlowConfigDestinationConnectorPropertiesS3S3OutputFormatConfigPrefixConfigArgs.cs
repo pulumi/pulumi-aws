@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs()
         {
         }
+        public static new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs Empty => new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs();
     }
 }

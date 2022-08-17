@@ -20,28 +20,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		fs, err := efs.NewFileSystem(ctx, "fs", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = efs.NewBackupPolicy(ctx, "policy", &efs.BackupPolicyArgs{
-// 			FileSystemId: fs.ID(),
-// 			BackupPolicy: &efs.BackupPolicyBackupPolicyArgs{
-// 				Status: pulumi.String("ENABLED"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			fs, err := efs.NewFileSystem(ctx, "fs", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = efs.NewBackupPolicy(ctx, "policy", &efs.BackupPolicyArgs{
+//				FileSystemId: fs.ID(),
+//				BackupPolicy: &efs.BackupPolicyBackupPolicyArgs{
+//					Status: pulumi.String("ENABLED"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // The EFS backup policies can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
+//
+//	$ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
+//
 // ```
 type BackupPolicy struct {
 	pulumi.CustomResourceState
@@ -153,7 +158,7 @@ func (i *BackupPolicy) ToBackupPolicyOutputWithContext(ctx context.Context) Back
 // BackupPolicyArrayInput is an input type that accepts BackupPolicyArray and BackupPolicyArrayOutput values.
 // You can construct a concrete instance of `BackupPolicyArrayInput` via:
 //
-//          BackupPolicyArray{ BackupPolicyArgs{...} }
+//	BackupPolicyArray{ BackupPolicyArgs{...} }
 type BackupPolicyArrayInput interface {
 	pulumi.Input
 
@@ -178,7 +183,7 @@ func (i BackupPolicyArray) ToBackupPolicyArrayOutputWithContext(ctx context.Cont
 // BackupPolicyMapInput is an input type that accepts BackupPolicyMap and BackupPolicyMapOutput values.
 // You can construct a concrete instance of `BackupPolicyMapInput` via:
 //
-//          BackupPolicyMap{ "key": BackupPolicyArgs{...} }
+//	BackupPolicyMap{ "key": BackupPolicyArgs{...} }
 type BackupPolicyMapInput interface {
 	pulumi.Input
 

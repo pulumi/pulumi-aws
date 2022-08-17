@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cfg.Inputs
 {
 
-    public sealed class RemediationConfigurationParameterGetArgs : Pulumi.ResourceArgs
+    public sealed class RemediationConfigurationParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the attribute.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Cfg.Inputs
         public RemediationConfigurationParameterGetArgs()
         {
         }
+        public static new RemediationConfigurationParameterGetArgs Empty => new RemediationConfigurationParameterGetArgs();
     }
 }

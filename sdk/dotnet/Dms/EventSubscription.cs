@@ -15,35 +15,33 @@ namespace Pulumi.Aws.Dms
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Dms.EventSubscription("example", new()
     ///     {
-    ///         var example = new Aws.Dms.EventSubscription("example", new Aws.Dms.EventSubscriptionArgs
+    ///         Enabled = true,
+    ///         EventCategories = new[]
     ///         {
-    ///             Enabled = true,
-    ///             EventCategories = 
-    ///             {
-    ///                 "creation",
-    ///                 "failure",
-    ///             },
-    ///             SnsTopicArn = aws_sns_topic.Example.Arn,
-    ///             SourceIds = 
-    ///             {
-    ///                 aws_dms_replication_task.Example.Replication_task_id,
-    ///             },
-    ///             SourceType = "replication-task",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example" },
-    ///             },
-    ///         });
-    ///     }
+    ///             "creation",
+    ///             "failure",
+    ///         },
+    ///         SnsTopicArn = aws_sns_topic.Example.Arn,
+    ///         SourceIds = new[]
+    ///         {
+    ///             aws_dms_replication_task.Example.Replication_task_id,
+    ///         },
+    ///         SourceType = "replication-task",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +53,7 @@ namespace Pulumi.Aws.Dms
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/eventSubscription:EventSubscription")]
-    public partial class EventSubscription : Pulumi.CustomResource
+    public partial class EventSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DMS Event Subscription.
@@ -100,13 +98,13 @@ namespace Pulumi.Aws.Dms
         public Output<string?> SourceType { get; private set; } = null!;
 
         /// <summary>
-        /// Map of resource tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -155,7 +153,7 @@ namespace Pulumi.Aws.Dms
         }
     }
 
-    public sealed class EventSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the event subscription should be enabled.
@@ -209,7 +207,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -220,9 +218,10 @@ namespace Pulumi.Aws.Dms
         public EventSubscriptionArgs()
         {
         }
+        public static new EventSubscriptionArgs Empty => new EventSubscriptionArgs();
     }
 
-    public sealed class EventSubscriptionState : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DMS Event Subscription.
@@ -282,7 +281,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -294,7 +293,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -305,5 +304,6 @@ namespace Pulumi.Aws.Dms
         public EventSubscriptionState()
         {
         }
+        public static new EventSubscriptionState Empty => new EventSubscriptionState();
     }
 }

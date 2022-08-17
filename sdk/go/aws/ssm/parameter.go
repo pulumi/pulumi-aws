@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssm.NewParameter(ctx, "foo", &ssm.ParameterArgs{
-// 			Type:  pulumi.String("String"),
-// 			Value: pulumi.String("bar"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.NewParameter(ctx, "foo", &ssm.ParameterArgs{
+//				Type:  pulumi.String("String"),
+//				Value: pulumi.String("bar"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Encrypted string using default SSM KMS key
 //
@@ -43,42 +46,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
-// 			AllocatedStorage:   pulumi.Int(10),
-// 			StorageType:        pulumi.String("gp2"),
-// 			Engine:             pulumi.String("mysql"),
-// 			EngineVersion:      pulumi.String("5.7.16"),
-// 			InstanceClass:      pulumi.String("db.t2.micro"),
-// 			Name:               pulumi.String("mydb"),
-// 			Username:           pulumi.String("foo"),
-// 			Password:           pulumi.Any(_var.Database_master_password),
-// 			DbSubnetGroupName:  pulumi.String("my_database_subnet_group"),
-// 			ParameterGroupName: pulumi.String("default.mysql5.7"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ssm.NewParameter(ctx, "secret", &ssm.ParameterArgs{
-// 			Description: pulumi.String("The parameter description"),
-// 			Type:        pulumi.String("SecureString"),
-// 			Value:       pulumi.Any(_var.Database_master_password),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
+//				AllocatedStorage:   pulumi.Int(10),
+//				StorageType:        pulumi.String("gp2"),
+//				Engine:             pulumi.String("mysql"),
+//				EngineVersion:      pulumi.String("5.7.16"),
+//				InstanceClass:      pulumi.String("db.t2.micro"),
+//				Name:               pulumi.String("mydb"),
+//				Username:           pulumi.String("foo"),
+//				Password:           pulumi.Any(_var.Database_master_password),
+//				DbSubnetGroupName:  pulumi.String("my_database_subnet_group"),
+//				ParameterGroupName: pulumi.String("default.mysql5.7"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssm.NewParameter(ctx, "secret", &ssm.ParameterArgs{
+//				Description: pulumi.String("The parameter description"),
+//				Type:        pulumi.String("SecureString"),
+//				Value:       pulumi.Any(_var.Database_master_password),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -86,7 +92,9 @@ import (
 // SSM Parameters can be imported using the `parameter store name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
+//
+//	$ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
+//
 // ```
 type Parameter struct {
 	pulumi.CustomResourceState
@@ -294,7 +302,7 @@ func (i *Parameter) ToParameterOutputWithContext(ctx context.Context) ParameterO
 // ParameterArrayInput is an input type that accepts ParameterArray and ParameterArrayOutput values.
 // You can construct a concrete instance of `ParameterArrayInput` via:
 //
-//          ParameterArray{ ParameterArgs{...} }
+//	ParameterArray{ ParameterArgs{...} }
 type ParameterArrayInput interface {
 	pulumi.Input
 
@@ -319,7 +327,7 @@ func (i ParameterArray) ToParameterArrayOutputWithContext(ctx context.Context) P
 // ParameterMapInput is an input type that accepts ParameterMap and ParameterMapOutput values.
 // You can construct a concrete instance of `ParameterMapInput` via:
 //
-//          ParameterMap{ "key": ParameterArgs{...} }
+//	ParameterMap{ "key": ParameterArgs{...} }
 type ParameterMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Workspaces.Inputs
 {
 
-    public sealed class DirectorySelfServicePermissionsArgs : Pulumi.ResourceArgs
+    public sealed class DirectorySelfServicePermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Workspaces.Inputs
         public DirectorySelfServicePermissionsArgs()
         {
         }
+        public static new DirectorySelfServicePermissionsArgs Empty => new DirectorySelfServicePermissionsArgs();
     }
 }

@@ -71,7 +71,7 @@ export class Cell extends pulumi.CustomResource {
      */
     public /*out*/ readonly parentReadinessScopes!: pulumi.Output<string[]>;
     /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -136,7 +136,7 @@ export interface CellState {
      */
     parentReadinessScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -158,7 +158,7 @@ export interface CellArgs {
      */
     cells?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

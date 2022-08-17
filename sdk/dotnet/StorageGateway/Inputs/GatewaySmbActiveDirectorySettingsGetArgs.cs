@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.StorageGateway.Inputs
 {
 
-    public sealed class GatewaySmbActiveDirectorySettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class GatewaySmbActiveDirectorySettingsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("activeDirectoryStatus")]
         public Input<string>? ActiveDirectoryStatus { get; set; }
@@ -62,5 +62,6 @@ namespace Pulumi.Aws.StorageGateway.Inputs
         public GatewaySmbActiveDirectorySettingsGetArgs()
         {
         }
+        public static new GatewaySmbActiveDirectorySettingsGetArgs Empty => new GatewaySmbActiveDirectorySettingsGetArgs();
     }
 }

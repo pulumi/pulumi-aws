@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean which indicates if this criteria is enabled.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsGetArgs()
         {
         }
+        public static new BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsGetArgs Empty => new BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsGetArgs();
     }
 }

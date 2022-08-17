@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Organizations
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var account = Aws.Organizations.GetResourceTags.Invoke(new()
         ///     {
-        ///         var account = Output.Create(Aws.Organizations.GetResourceTags.InvokeAsync(new Aws.Organizations.GetResourceTagsArgs
-        ///         {
-        ///             ResourceId = "123456123846",
-        ///         }));
-        ///     }
+        ///         ResourceId = "123456123846",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Organizations
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var account = Aws.Organizations.GetResourceTags.Invoke(new()
         ///     {
-        ///         var account = Output.Create(Aws.Organizations.GetResourceTags.InvokeAsync(new Aws.Organizations.GetResourceTagsArgs
-        ///         {
-        ///             ResourceId = "123456123846",
-        ///         }));
-        ///     }
+        ///         ResourceId = "123456123846",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Organizations
     }
 
 
-    public sealed class GetResourceTagsArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceTagsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the resource with the tags to list. See details below.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.Organizations
         public GetResourceTagsArgs()
         {
         }
+        public static new GetResourceTagsArgs Empty => new GetResourceTagsArgs();
     }
 
-    public sealed class GetResourceTagsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceTagsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the resource with the tags to list. See details below.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.Organizations
         public GetResourceTagsInvokeArgs()
         {
         }
+        public static new GetResourceTagsInvokeArgs Empty => new GetResourceTagsInvokeArgs();
     }
 
 

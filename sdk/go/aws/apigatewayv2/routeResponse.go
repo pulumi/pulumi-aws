@@ -21,25 +21,28 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apigatewayv2.NewRouteResponse(ctx, "example", &apigatewayv2.RouteResponseArgs{
-// 			ApiId:            pulumi.Any(aws_apigatewayv2_api.Example.Id),
-// 			RouteId:          pulumi.Any(aws_apigatewayv2_route.Example.Id),
-// 			RouteResponseKey: pulumi.String(fmt.Sprintf("$default")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigatewayv2.NewRouteResponse(ctx, "example", &apigatewayv2.RouteResponseArgs{
+//				ApiId:            pulumi.Any(aws_apigatewayv2_api.Example.Id),
+//				RouteId:          pulumi.Any(aws_apigatewayv2_route.Example.Id),
+//				RouteResponseKey: pulumi.String(fmt.Sprintf("$default")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // `aws_apigatewayv2_route_response` can be imported by using the API identifier, route identifier and route response identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
+//
+//	$ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
+//
 // ```
 type RouteResponse struct {
 	pulumi.CustomResourceState
@@ -184,7 +189,7 @@ func (i *RouteResponse) ToRouteResponseOutputWithContext(ctx context.Context) Ro
 // RouteResponseArrayInput is an input type that accepts RouteResponseArray and RouteResponseArrayOutput values.
 // You can construct a concrete instance of `RouteResponseArrayInput` via:
 //
-//          RouteResponseArray{ RouteResponseArgs{...} }
+//	RouteResponseArray{ RouteResponseArgs{...} }
 type RouteResponseArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +214,7 @@ func (i RouteResponseArray) ToRouteResponseArrayOutputWithContext(ctx context.Co
 // RouteResponseMapInput is an input type that accepts RouteResponseMap and RouteResponseMapOutput values.
 // You can construct a concrete instance of `RouteResponseMapInput` via:
 //
-//          RouteResponseMap{ "key": RouteResponseArgs{...} }
+//	RouteResponseMap{ "key": RouteResponseArgs{...} }
 type RouteResponseMapInput interface {
 	pulumi.Input
 

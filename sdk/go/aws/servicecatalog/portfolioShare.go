@@ -28,23 +28,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicecatalog.NewPortfolioShare(ctx, "example", &servicecatalog.PortfolioShareArgs{
-// 			PrincipalId: pulumi.String("012128675309"),
-// 			PortfolioId: pulumi.Any(aws_servicecatalog_portfolio.Example.Id),
-// 			Type:        pulumi.String("ACCOUNT"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicecatalog.NewPortfolioShare(ctx, "example", &servicecatalog.PortfolioShareArgs{
+//				PrincipalId: pulumi.String("012128675309"),
+//				PortfolioId: pulumi.Any(aws_servicecatalog_portfolio.Example.Id),
+//				Type:        pulumi.String("ACCOUNT"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // `aws_servicecatalog_portfolio_share` can be imported using the portfolio share ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
+//
+//	$ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
+//
 // ```
 type PortfolioShare struct {
 	pulumi.CustomResourceState
@@ -205,7 +210,7 @@ func (i *PortfolioShare) ToPortfolioShareOutputWithContext(ctx context.Context) 
 // PortfolioShareArrayInput is an input type that accepts PortfolioShareArray and PortfolioShareArrayOutput values.
 // You can construct a concrete instance of `PortfolioShareArrayInput` via:
 //
-//          PortfolioShareArray{ PortfolioShareArgs{...} }
+//	PortfolioShareArray{ PortfolioShareArgs{...} }
 type PortfolioShareArrayInput interface {
 	pulumi.Input
 
@@ -230,7 +235,7 @@ func (i PortfolioShareArray) ToPortfolioShareArrayOutputWithContext(ctx context.
 // PortfolioShareMapInput is an input type that accepts PortfolioShareMap and PortfolioShareMapOutput values.
 // You can construct a concrete instance of `PortfolioShareMapInput` via:
 //
-//          PortfolioShareMap{ "key": PortfolioShareArgs{...} }
+//	PortfolioShareMap{ "key": PortfolioShareArgs{...} }
 type PortfolioShareMapInput interface {
 	pulumi.Input
 

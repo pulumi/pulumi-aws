@@ -18,27 +18,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := route53.NewResolverFirewallRuleGroup(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53.NewResolverFirewallRuleGroup(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-//  Route 53 Resolver DNS Firewall rule groups can be imported using the Route 53 Resolver DNS Firewall rule group ID, e.g.,
+//	Route 53 Resolver DNS Firewall rule groups can be imported using the Route 53 Resolver DNS Firewall rule group ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup example rslvr-frg-0123456789abcdef
+//
+//	$ pulumi import aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup example rslvr-frg-0123456789abcdef
+//
 // ```
 type ResolverFirewallRuleGroup struct {
 	pulumi.CustomResourceState
@@ -53,7 +58,7 @@ type ResolverFirewallRuleGroup struct {
 	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -96,7 +101,7 @@ type resolverFirewallRuleGroupState struct {
 	ShareStatus *string `pulumi:"shareStatus"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -111,7 +116,7 @@ type ResolverFirewallRuleGroupState struct {
 	ShareStatus pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -160,7 +165,7 @@ func (i *ResolverFirewallRuleGroup) ToResolverFirewallRuleGroupOutputWithContext
 // ResolverFirewallRuleGroupArrayInput is an input type that accepts ResolverFirewallRuleGroupArray and ResolverFirewallRuleGroupArrayOutput values.
 // You can construct a concrete instance of `ResolverFirewallRuleGroupArrayInput` via:
 //
-//          ResolverFirewallRuleGroupArray{ ResolverFirewallRuleGroupArgs{...} }
+//	ResolverFirewallRuleGroupArray{ ResolverFirewallRuleGroupArgs{...} }
 type ResolverFirewallRuleGroupArrayInput interface {
 	pulumi.Input
 
@@ -185,7 +190,7 @@ func (i ResolverFirewallRuleGroupArray) ToResolverFirewallRuleGroupArrayOutputWi
 // ResolverFirewallRuleGroupMapInput is an input type that accepts ResolverFirewallRuleGroupMap and ResolverFirewallRuleGroupMapOutput values.
 // You can construct a concrete instance of `ResolverFirewallRuleGroupMapInput` via:
 //
-//          ResolverFirewallRuleGroupMap{ "key": ResolverFirewallRuleGroupArgs{...} }
+//	ResolverFirewallRuleGroupMap{ "key": ResolverFirewallRuleGroupArgs{...} }
 type ResolverFirewallRuleGroupMapInput interface {
 	pulumi.Input
 
@@ -246,7 +251,7 @@ func (o ResolverFirewallRuleGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResolverFirewallRuleGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

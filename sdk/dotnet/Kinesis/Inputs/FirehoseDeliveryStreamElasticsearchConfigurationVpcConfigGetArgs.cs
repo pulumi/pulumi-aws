@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
@@ -48,5 +48,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigGetArgs()
         {
         }
+        public static new FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigGetArgs Empty => new FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigGetArgs();
     }
 }

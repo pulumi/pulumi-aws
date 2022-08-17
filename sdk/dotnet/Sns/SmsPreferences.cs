@@ -15,23 +15,19 @@ namespace Pulumi.Aws.Sns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var updateSmsPrefs = new Aws.Sns.SmsPreferences("updateSmsPrefs", new Aws.Sns.SmsPreferencesArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var updateSmsPrefs = new Aws.Sns.SmsPreferences("updateSmsPrefs");
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:sns/smsPreferences:SmsPreferences")]
-    public partial class SmsPreferences : Pulumi.CustomResource
+    public partial class SmsPreferences : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A string, such as your business brand, that is displayed as the sender on the receiving device.
@@ -113,7 +109,7 @@ namespace Pulumi.Aws.Sns
         }
     }
 
-    public sealed class SmsPreferencesArgs : Pulumi.ResourceArgs
+    public sealed class SmsPreferencesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A string, such as your business brand, that is displayed as the sender on the receiving device.
@@ -154,9 +150,10 @@ namespace Pulumi.Aws.Sns
         public SmsPreferencesArgs()
         {
         }
+        public static new SmsPreferencesArgs Empty => new SmsPreferencesArgs();
     }
 
-    public sealed class SmsPreferencesState : Pulumi.ResourceArgs
+    public sealed class SmsPreferencesState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A string, such as your business brand, that is displayed as the sender on the receiving device.
@@ -197,5 +194,6 @@ namespace Pulumi.Aws.Sns
         public SmsPreferencesState()
         {
         }
+        public static new SmsPreferencesState Empty => new SmsPreferencesState();
     }
 }

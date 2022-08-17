@@ -15,22 +15,20 @@ namespace Pulumi.Aws.ApiGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ApiGateway.RequestValidator("example", new()
     ///     {
-    ///         var example = new Aws.ApiGateway.RequestValidator("example", new Aws.ApiGateway.RequestValidatorArgs
-    ///         {
-    ///             RestApi = aws_api_gateway_rest_api.Example.Id,
-    ///             ValidateRequestBody = true,
-    ///             ValidateRequestParameters = true,
-    ///         });
-    ///     }
+    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
+    ///         ValidateRequestBody = true,
+    ///         ValidateRequestParameters = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/requestValidator:RequestValidator")]
-    public partial class RequestValidator : Pulumi.CustomResource
+    public partial class RequestValidator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the request validator
@@ -112,7 +110,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class RequestValidatorArgs : Pulumi.ResourceArgs
+    public sealed class RequestValidatorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the request validator
@@ -141,9 +139,10 @@ namespace Pulumi.Aws.ApiGateway
         public RequestValidatorArgs()
         {
         }
+        public static new RequestValidatorArgs Empty => new RequestValidatorArgs();
     }
 
-    public sealed class RequestValidatorState : Pulumi.ResourceArgs
+    public sealed class RequestValidatorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the request validator
@@ -172,5 +171,6 @@ namespace Pulumi.Aws.ApiGateway
         public RequestValidatorState()
         {
         }
+        public static new RequestValidatorState Empty => new RequestValidatorState();
     }
 }

@@ -19,21 +19,19 @@ namespace Pulumi.Aws.Lex
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var orderFlowers = Aws.Lex.GetIntent.Invoke(new()
         ///     {
-        ///         var orderFlowers = Output.Create(Aws.Lex.GetIntent.InvokeAsync(new Aws.Lex.GetIntentArgs
-        ///         {
-        ///             Name = "OrderFlowers",
-        ///             Version = "$LATEST",
-        ///         }));
-        ///     }
+        ///         Name = "OrderFlowers",
+        ///         Version = "$LATEST",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.Lex
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var orderFlowers = Aws.Lex.GetIntent.Invoke(new()
         ///     {
-        ///         var orderFlowers = Output.Create(Aws.Lex.GetIntent.InvokeAsync(new Aws.Lex.GetIntentArgs
-        ///         {
-        ///             Name = "OrderFlowers",
-        ///             Version = "$LATEST",
-        ///         }));
-        ///     }
+        ///         Name = "OrderFlowers",
+        ///         Version = "$LATEST",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Lex
     }
 
 
-    public sealed class GetIntentArgs : Pulumi.InvokeArgs
+    public sealed class GetIntentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the intent. The name is case sensitive.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.Lex
         public GetIntentArgs()
         {
         }
+        public static new GetIntentArgs Empty => new GetIntentArgs();
     }
 
-    public sealed class GetIntentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIntentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the intent. The name is case sensitive.
@@ -109,6 +106,7 @@ namespace Pulumi.Aws.Lex
         public GetIntentInvokeArgs()
         {
         }
+        public static new GetIntentInvokeArgs Empty => new GetIntentInvokeArgs();
     }
 
 

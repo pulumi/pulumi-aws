@@ -19,20 +19,18 @@ namespace Pulumi.Aws.CloudHsmV2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var cluster = Aws.CloudHsmV2.GetCluster.Invoke(new()
         ///     {
-        ///         var cluster = Output.Create(Aws.CloudHsmV2.GetCluster.InvokeAsync(new Aws.CloudHsmV2.GetClusterArgs
-        ///         {
-        ///             ClusterId = "cluster-testclusterid",
-        ///         }));
-        ///     }
+        ///         ClusterId = "cluster-testclusterid",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.CloudHsmV2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var cluster = Aws.CloudHsmV2.GetCluster.Invoke(new()
         ///     {
-        ///         var cluster = Output.Create(Aws.CloudHsmV2.GetCluster.InvokeAsync(new Aws.CloudHsmV2.GetClusterArgs
-        ///         {
-        ///             ClusterId = "cluster-testclusterid",
-        ///         }));
-        ///     }
+        ///         ClusterId = "cluster-testclusterid",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.CloudHsmV2
     }
 
 
-    public sealed class GetClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of Cloud HSM v2 cluster.
@@ -88,9 +84,10 @@ namespace Pulumi.Aws.CloudHsmV2
         public GetClusterArgs()
         {
         }
+        public static new GetClusterArgs Empty => new GetClusterArgs();
     }
 
-    public sealed class GetClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of Cloud HSM v2 cluster.
@@ -107,6 +104,7 @@ namespace Pulumi.Aws.CloudHsmV2
         public GetClusterInvokeArgs()
         {
         }
+        public static new GetClusterInvokeArgs Empty => new GetClusterInvokeArgs();
     }
 
 

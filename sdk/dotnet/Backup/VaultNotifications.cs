@@ -15,65 +15,64 @@ namespace Pulumi.Aws.Backup
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testTopic = new Aws.Sns.Topic("testTopic");
+    /// 
+    ///     var testPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var testTopic = new Aws.Sns.Topic("testTopic", new Aws.Sns.TopicArgs
+    ///         PolicyId = "__default_policy_ID",
+    ///         Statements = new[]
     ///         {
-    ///         });
-    ///         var testPolicyDocument = testTopic.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
-    ///         {
-    ///             PolicyId = "__default_policy_ID",
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "SNS:Publish",
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "SNS:Publish",
-    ///                     },
-    ///                     Effect = "Allow",
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Type = "Service",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "backup.amazonaws.com",
-    ///                             },
+    ///                             "backup.amazonaws.com",
     ///                         },
     ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         arn,
-    ///                     },
-    ///                     Sid = "__default_statement_ID",
     ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     testTopic.Arn,
+    ///                 },
+    ///                 Sid = "__default_statement_ID",
     ///             },
-    ///         }));
-    ///         var testTopicPolicy = new Aws.Sns.TopicPolicy("testTopicPolicy", new Aws.Sns.TopicPolicyArgs
-    ///         {
-    ///             Arn = testTopic.Arn,
-    ///             Policy = testPolicyDocument.Apply(testPolicyDocument =&gt; testPolicyDocument.Json),
-    ///         });
-    ///         var testVaultNotifications = new Aws.Backup.VaultNotifications("testVaultNotifications", new Aws.Backup.VaultNotificationsArgs
-    ///         {
-    ///             BackupVaultName = "example_backup_vault",
-    ///             SnsTopicArn = testTopic.Arn,
-    ///             BackupVaultEvents = 
-    ///             {
-    ///                 "BACKUP_JOB_STARTED",
-    ///                 "RESTORE_JOB_COMPLETED",
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var testTopicPolicy = new Aws.Sns.TopicPolicy("testTopicPolicy", new()
+    ///     {
+    ///         Arn = testTopic.Arn,
+    ///         Policy = testPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var testVaultNotifications = new Aws.Backup.VaultNotifications("testVaultNotifications", new()
+    ///     {
+    ///         BackupVaultName = "example_backup_vault",
+    ///         SnsTopicArn = testTopic.Arn,
+    ///         BackupVaultEvents = new[]
+    ///         {
+    ///             "BACKUP_JOB_STARTED",
+    ///             "RESTORE_JOB_COMPLETED",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -85,7 +84,7 @@ namespace Pulumi.Aws.Backup
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/vaultNotifications:VaultNotifications")]
-    public partial class VaultNotifications : Pulumi.CustomResource
+    public partial class VaultNotifications : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the vault.
@@ -155,7 +154,7 @@ namespace Pulumi.Aws.Backup
         }
     }
 
-    public sealed class VaultNotificationsArgs : Pulumi.ResourceArgs
+    public sealed class VaultNotificationsArgs : global::Pulumi.ResourceArgs
     {
         [Input("backupVaultEvents", required: true)]
         private InputList<string>? _backupVaultEvents;
@@ -184,9 +183,10 @@ namespace Pulumi.Aws.Backup
         public VaultNotificationsArgs()
         {
         }
+        public static new VaultNotificationsArgs Empty => new VaultNotificationsArgs();
     }
 
-    public sealed class VaultNotificationsState : Pulumi.ResourceArgs
+    public sealed class VaultNotificationsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the vault.
@@ -221,5 +221,6 @@ namespace Pulumi.Aws.Backup
         public VaultNotificationsState()
         {
         }
+        public static new VaultNotificationsState Empty => new VaultNotificationsState();
     }
 }

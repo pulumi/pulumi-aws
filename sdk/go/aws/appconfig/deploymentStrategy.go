@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appconfig.NewDeploymentStrategy(ctx, "example", &appconfig.DeploymentStrategyArgs{
-// 			DeploymentDurationInMinutes: pulumi.Int(3),
-// 			Description:                 pulumi.String("Example Deployment Strategy"),
-// 			FinalBakeTimeInMinutes:      pulumi.Int(4),
-// 			GrowthFactor:                pulumi.Float64(10),
-// 			GrowthType:                  pulumi.String("LINEAR"),
-// 			ReplicateTo:                 pulumi.String("NONE"),
-// 			Tags: pulumi.StringMap{
-// 				"Type": pulumi.String("AppConfig Deployment Strategy"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appconfig.NewDeploymentStrategy(ctx, "example", &appconfig.DeploymentStrategyArgs{
+//				DeploymentDurationInMinutes: pulumi.Int(3),
+//				Description:                 pulumi.String("Example Deployment Strategy"),
+//				FinalBakeTimeInMinutes:      pulumi.Int(4),
+//				GrowthFactor:                pulumi.Float64(10),
+//				GrowthType:                  pulumi.String("LINEAR"),
+//				ReplicateTo:                 pulumi.String("NONE"),
+//				Tags: pulumi.StringMap{
+//					"Type": pulumi.String("AppConfig Deployment Strategy"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // AppConfig Deployment Strategies can be imported by using their deployment strategy ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
+//
+//	$ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
+//
 // ```
 type DeploymentStrategy struct {
 	pulumi.CustomResourceState
@@ -228,7 +233,7 @@ func (i *DeploymentStrategy) ToDeploymentStrategyOutputWithContext(ctx context.C
 // DeploymentStrategyArrayInput is an input type that accepts DeploymentStrategyArray and DeploymentStrategyArrayOutput values.
 // You can construct a concrete instance of `DeploymentStrategyArrayInput` via:
 //
-//          DeploymentStrategyArray{ DeploymentStrategyArgs{...} }
+//	DeploymentStrategyArray{ DeploymentStrategyArgs{...} }
 type DeploymentStrategyArrayInput interface {
 	pulumi.Input
 
@@ -253,7 +258,7 @@ func (i DeploymentStrategyArray) ToDeploymentStrategyArrayOutputWithContext(ctx 
 // DeploymentStrategyMapInput is an input type that accepts DeploymentStrategyMap and DeploymentStrategyMapOutput values.
 // You can construct a concrete instance of `DeploymentStrategyMapInput` via:
 //
-//          DeploymentStrategyMap{ "key": DeploymentStrategyArgs{...} }
+//	DeploymentStrategyMap{ "key": DeploymentStrategyArgs{...} }
 type DeploymentStrategyMapInput interface {
 	pulumi.Input
 

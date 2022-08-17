@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class AnalyticsApplicationReferenceDataSourcesSchemaArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsApplicationReferenceDataSourcesSchemaArgs : global::Pulumi.ResourceArgs
     {
         [Input("recordColumns", required: true)]
         private InputList<Inputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs>? _recordColumns;
@@ -41,5 +41,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public AnalyticsApplicationReferenceDataSourcesSchemaArgs()
         {
         }
+        public static new AnalyticsApplicationReferenceDataSourcesSchemaArgs Empty => new AnalyticsApplicationReferenceDataSourcesSchemaArgs();
     }
 }

@@ -19,20 +19,18 @@ namespace Pulumi.Aws.CloudFront
         /// The following example below creates a CloudFront origin request policy.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudFront.GetOriginRequestPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudFront.GetOriginRequestPolicy.InvokeAsync(new Aws.CloudFront.GetOriginRequestPolicyArgs
-        ///         {
-        ///             Name = "example-policy",
-        ///         }));
-        ///     }
+        ///         Name = "example-policy",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.CloudFront
         /// The following example below creates a CloudFront origin request policy.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudFront.GetOriginRequestPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudFront.GetOriginRequestPolicy.InvokeAsync(new Aws.CloudFront.GetOriginRequestPolicyArgs
-        ///         {
-        ///             Name = "example-policy",
-        ///         }));
-        ///     }
+        ///         Name = "example-policy",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.CloudFront
     }
 
 
-    public sealed class GetOriginRequestPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetOriginRequestPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the origin request policy.
@@ -88,9 +84,10 @@ namespace Pulumi.Aws.CloudFront
         public GetOriginRequestPolicyArgs()
         {
         }
+        public static new GetOriginRequestPolicyArgs Empty => new GetOriginRequestPolicyArgs();
     }
 
-    public sealed class GetOriginRequestPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOriginRequestPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the origin request policy.
@@ -107,6 +104,7 @@ namespace Pulumi.Aws.CloudFront
         public GetOriginRequestPolicyInvokeArgs()
         {
         }
+        public static new GetOriginRequestPolicyInvokeArgs Empty => new GetOriginRequestPolicyInvokeArgs();
     }
 
 

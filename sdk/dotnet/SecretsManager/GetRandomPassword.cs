@@ -19,21 +19,19 @@ namespace Pulumi.Aws.SecretsManager
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.SecretsManager.GetRandomPassword.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.SecretsManager.GetRandomPassword.InvokeAsync(new Aws.SecretsManager.GetRandomPasswordArgs
-        ///         {
-        ///             ExcludeNumbers = true,
-        ///             PasswordLength = 50,
-        ///         }));
-        ///     }
+        ///         ExcludeNumbers = true,
+        ///         PasswordLength = 50,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.SecretsManager
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.SecretsManager.GetRandomPassword.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.SecretsManager.GetRandomPassword.InvokeAsync(new Aws.SecretsManager.GetRandomPasswordArgs
-        ///         {
-        ///             ExcludeNumbers = true,
-        ///             PasswordLength = 50,
-        ///         }));
-        ///     }
+        ///         ExcludeNumbers = true,
+        ///         PasswordLength = 50,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.SecretsManager
     }
 
 
-    public sealed class GetRandomPasswordArgs : Pulumi.InvokeArgs
+    public sealed class GetRandomPasswordArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A string of the characters that you don't want in the password.
@@ -132,9 +128,10 @@ namespace Pulumi.Aws.SecretsManager
         public GetRandomPasswordArgs()
         {
         }
+        public static new GetRandomPasswordArgs Empty => new GetRandomPasswordArgs();
     }
 
-    public sealed class GetRandomPasswordInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRandomPasswordInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A string of the characters that you don't want in the password.
@@ -193,6 +190,7 @@ namespace Pulumi.Aws.SecretsManager
         public GetRandomPasswordInvokeArgs()
         {
         }
+        public static new GetRandomPasswordInvokeArgs Empty => new GetRandomPasswordInvokeArgs();
     }
 
 

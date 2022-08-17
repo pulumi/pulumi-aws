@@ -20,19 +20,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lightsail.NewStaticIp(ctx, "test", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lightsail.NewStaticIp(ctx, "test", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type StaticIp struct {
 	pulumi.CustomResourceState
@@ -138,7 +141,7 @@ func (i *StaticIp) ToStaticIpOutputWithContext(ctx context.Context) StaticIpOutp
 // StaticIpArrayInput is an input type that accepts StaticIpArray and StaticIpArrayOutput values.
 // You can construct a concrete instance of `StaticIpArrayInput` via:
 //
-//          StaticIpArray{ StaticIpArgs{...} }
+//	StaticIpArray{ StaticIpArgs{...} }
 type StaticIpArrayInput interface {
 	pulumi.Input
 
@@ -163,7 +166,7 @@ func (i StaticIpArray) ToStaticIpArrayOutputWithContext(ctx context.Context) Sta
 // StaticIpMapInput is an input type that accepts StaticIpMap and StaticIpMapOutput values.
 // You can construct a concrete instance of `StaticIpMapInput` via:
 //
-//          StaticIpMap{ "key": StaticIpArgs{...} }
+//	StaticIpMap{ "key": StaticIpArgs{...} }
 type StaticIpMapInput interface {
 	pulumi.Input
 

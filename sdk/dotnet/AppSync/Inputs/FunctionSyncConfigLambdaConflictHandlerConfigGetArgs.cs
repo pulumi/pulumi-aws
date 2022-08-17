@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppSync.Inputs
 {
 
-    public sealed class FunctionSyncConfigLambdaConflictHandlerConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class FunctionSyncConfigLambdaConflictHandlerConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppSync.Inputs
         public FunctionSyncConfigLambdaConflictHandlerConfigGetArgs()
         {
         }
+        public static new FunctionSyncConfigLambdaConflictHandlerConfigGetArgs Empty => new FunctionSyncConfigLambdaConflictHandlerConfigGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class IdentityPoolRoleAttachmentRoleMappingGetArgs : Pulumi.ResourceArgs
+    public sealed class IdentityPoolRoleAttachmentRoleMappingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public IdentityPoolRoleAttachmentRoleMappingGetArgs()
         {
         }
+        public static new IdentityPoolRoleAttachmentRoleMappingGetArgs Empty => new IdentityPoolRoleAttachmentRoleMappingGetArgs();
     }
 }

@@ -15,29 +15,26 @@ namespace Pulumi.Aws.Amp
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var demoWorkspace = new Aws.Amp.Workspace("demoWorkspace");
+    /// 
+    ///     var demoAlertManagerDefinition = new Aws.Amp.AlertManagerDefinition("demoAlertManagerDefinition", new()
     ///     {
-    ///         var demoWorkspace = new Aws.Amp.Workspace("demoWorkspace", new Aws.Amp.WorkspaceArgs
-    ///         {
-    ///         });
-    ///         var demoAlertManagerDefinition = new Aws.Amp.AlertManagerDefinition("demoAlertManagerDefinition", new Aws.Amp.AlertManagerDefinitionArgs
-    ///         {
-    ///             WorkspaceId = demoWorkspace.Id,
-    ///             Definition = @"alertmanager_config: |
+    ///         WorkspaceId = demoWorkspace.Id,
+    ///         Definition = @"alertmanager_config: |
     ///   route:
     ///     receiver: 'default'
     ///   receivers:
     ///     - name: 'default'
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +46,7 @@ namespace Pulumi.Aws.Amp
     /// ```
     /// </summary>
     [AwsResourceType("aws:amp/alertManagerDefinition:AlertManagerDefinition")]
-    public partial class AlertManagerDefinition : Pulumi.CustomResource
+    public partial class AlertManagerDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
@@ -107,7 +104,7 @@ namespace Pulumi.Aws.Amp
         }
     }
 
-    public sealed class AlertManagerDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class AlertManagerDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
@@ -124,9 +121,10 @@ namespace Pulumi.Aws.Amp
         public AlertManagerDefinitionArgs()
         {
         }
+        public static new AlertManagerDefinitionArgs Empty => new AlertManagerDefinitionArgs();
     }
 
-    public sealed class AlertManagerDefinitionState : Pulumi.ResourceArgs
+    public sealed class AlertManagerDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
@@ -143,5 +141,6 @@ namespace Pulumi.Aws.Amp
         public AlertManagerDefinitionState()
         {
         }
+        public static new AlertManagerDefinitionState Empty => new AlertManagerDefinitionState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda.Inputs
 {
 
-    public sealed class EventSourceMappingDestinationConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class EventSourceMappingDestinationConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The destination configuration for failed invocations. Detailed below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Lambda.Inputs
         public EventSourceMappingDestinationConfigGetArgs()
         {
         }
+        public static new EventSourceMappingDestinationConfigGetArgs Empty => new EventSourceMappingDestinationConfigGetArgs();
     }
 }

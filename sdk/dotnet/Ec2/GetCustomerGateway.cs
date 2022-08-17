@@ -19,42 +19,42 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Aws.Ec2.GetCustomerGateway.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Aws.Ec2.GetCustomerGateway.InvokeAsync(new Aws.Ec2.GetCustomerGatewayArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetCustomerGatewayFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetCustomerGatewayFilterArgs
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "tag:Name",
-        ///                     Values = 
-        ///                     {
-        ///                         "foo-prod",
-        ///                     },
+        ///                     "foo-prod",
         ///                 },
         ///             },
-        ///         }));
-        ///         var main = new Aws.Ec2.VpnGateway("main", new Aws.Ec2.VpnGatewayArgs
-        ///         {
-        ///             VpcId = aws_vpc.Main.Id,
-        ///             AmazonSideAsn = "7224",
-        ///         });
-        ///         var transit = new Aws.Ec2.VpnConnection("transit", new Aws.Ec2.VpnConnectionArgs
-        ///         {
-        ///             VpnGatewayId = main.Id,
-        ///             CustomerGatewayId = foo.Apply(foo =&gt; foo.Id),
-        ///             Type = foo.Apply(foo =&gt; foo.Type),
-        ///             StaticRoutesOnly = false,
-        ///         });
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var main = new Aws.Ec2.VpnGateway("main", new()
+        ///     {
+        ///         VpcId = aws_vpc.Main.Id,
+        ///         AmazonSideAsn = "7224",
+        ///     });
+        /// 
+        ///     var transit = new Aws.Ec2.VpnConnection("transit", new()
+        ///     {
+        ///         VpnGatewayId = main.Id,
+        ///         CustomerGatewayId = foo.Apply(getCustomerGatewayResult =&gt; getCustomerGatewayResult.Id),
+        ///         Type = foo.Apply(getCustomerGatewayResult =&gt; getCustomerGatewayResult.Type),
+        ///         StaticRoutesOnly = false,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -70,42 +70,42 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Aws.Ec2.GetCustomerGateway.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Aws.Ec2.GetCustomerGateway.InvokeAsync(new Aws.Ec2.GetCustomerGatewayArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetCustomerGatewayFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetCustomerGatewayFilterArgs
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "tag:Name",
-        ///                     Values = 
-        ///                     {
-        ///                         "foo-prod",
-        ///                     },
+        ///                     "foo-prod",
         ///                 },
         ///             },
-        ///         }));
-        ///         var main = new Aws.Ec2.VpnGateway("main", new Aws.Ec2.VpnGatewayArgs
-        ///         {
-        ///             VpcId = aws_vpc.Main.Id,
-        ///             AmazonSideAsn = "7224",
-        ///         });
-        ///         var transit = new Aws.Ec2.VpnConnection("transit", new Aws.Ec2.VpnConnectionArgs
-        ///         {
-        ///             VpnGatewayId = main.Id,
-        ///             CustomerGatewayId = foo.Apply(foo =&gt; foo.Id),
-        ///             Type = foo.Apply(foo =&gt; foo.Type),
-        ///             StaticRoutesOnly = false,
-        ///         });
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var main = new Aws.Ec2.VpnGateway("main", new()
+        ///     {
+        ///         VpcId = aws_vpc.Main.Id,
+        ///         AmazonSideAsn = "7224",
+        ///     });
+        /// 
+        ///     var transit = new Aws.Ec2.VpnConnection("transit", new()
+        ///     {
+        ///         VpnGatewayId = main.Id,
+        ///         CustomerGatewayId = foo.Apply(getCustomerGatewayResult =&gt; getCustomerGatewayResult.Id),
+        ///         Type = foo.Apply(getCustomerGatewayResult =&gt; getCustomerGatewayResult.Type),
+        ///         StaticRoutesOnly = false,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetCustomerGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomerGatewayArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetCustomerGatewayFilterArgs>? _filters;
@@ -150,9 +150,10 @@ namespace Pulumi.Aws.Ec2
         public GetCustomerGatewayArgs()
         {
         }
+        public static new GetCustomerGatewayArgs Empty => new GetCustomerGatewayArgs();
     }
 
-    public sealed class GetCustomerGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomerGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetCustomerGatewayFilterInputArgs>? _filters;
@@ -187,6 +188,7 @@ namespace Pulumi.Aws.Ec2
         public GetCustomerGatewayInvokeArgs()
         {
         }
+        public static new GetCustomerGatewayInvokeArgs Empty => new GetCustomerGatewayInvokeArgs();
     }
 
 

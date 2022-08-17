@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("statements", required: true)]
         private InputList<Inputs.WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementGetArgs>? _statements;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementGetArgs()
         {
         }
+        public static new WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementGetArgs Empty => new WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementGetArgs();
     }
 }

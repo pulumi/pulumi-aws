@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cfg.Inputs
 {
 
-    public sealed class RuleSourceSourceDetailGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleSourceSourceDetailGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Cfg.Inputs
         public RuleSourceSourceDetailGetArgs()
         {
         }
+        public static new RuleSourceSourceDetailGetArgs Empty => new RuleSourceSourceDetailGetArgs();
     }
 }

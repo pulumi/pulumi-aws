@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs : Pulumi.ResourceArgs
+    public sealed class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs : global::Pulumi.ResourceArgs
     {
         [Input("items")]
         private InputList<string>? _items;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs()
         {
         }
+        public static new CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs Empty => new CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs();
     }
 }

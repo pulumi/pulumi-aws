@@ -15,23 +15,22 @@ namespace Pulumi.Aws.Pinpoint
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var app = new Aws.Pinpoint.App("app");
+    /// 
+    ///     var testStream = new Aws.Kinesis.Stream("testStream", new()
     ///     {
-    ///         var app = new Aws.Pinpoint.App("app", new Aws.Pinpoint.AppArgs
-    ///         {
-    ///         });
-    ///         var testStream = new Aws.Kinesis.Stream("testStream", new Aws.Kinesis.StreamArgs
-    ///         {
-    ///             ShardCount = 1,
-    ///         });
-    ///         var testRole = new Aws.Iam.Role("testRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         ShardCount = 1,
+    ///     });
+    /// 
+    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -45,17 +44,19 @@ namespace Pulumi.Aws.Pinpoint
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var stream = new Aws.Pinpoint.EventStream("stream", new Aws.Pinpoint.EventStreamArgs
-    ///         {
-    ///             ApplicationId = app.ApplicationId,
-    ///             DestinationStreamArn = testStream.Arn,
-    ///             RoleArn = testRole.Arn,
-    ///         });
-    ///         var testRolePolicy = new Aws.Iam.RolePolicy("testRolePolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = testRole.Id,
-    ///             Policy = @"{
+    ///     });
+    /// 
+    ///     var stream = new Aws.Pinpoint.EventStream("stream", new()
+    ///     {
+    ///         ApplicationId = app.ApplicationId,
+    ///         DestinationStreamArn = testStream.Arn,
+    ///         RoleArn = testRole.Arn,
+    ///     });
+    /// 
+    ///     var testRolePolicy = new Aws.Iam.RolePolicy("testRolePolicy", new()
+    ///     {
+    ///         Role = testRole.Id,
+    ///         Policy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": {
     ///     ""Action"": [
@@ -69,10 +70,9 @@ namespace Pulumi.Aws.Pinpoint
     ///   }
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Pinpoint
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/eventStream:EventStream")]
-    public partial class EventStream : Pulumi.CustomResource
+    public partial class EventStream : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application ID.
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Pinpoint
         }
     }
 
-    public sealed class EventStreamArgs : Pulumi.ResourceArgs
+    public sealed class EventStreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -171,9 +171,10 @@ namespace Pulumi.Aws.Pinpoint
         public EventStreamArgs()
         {
         }
+        public static new EventStreamArgs Empty => new EventStreamArgs();
     }
 
-    public sealed class EventStreamState : Pulumi.ResourceArgs
+    public sealed class EventStreamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -196,5 +197,6 @@ namespace Pulumi.Aws.Pinpoint
         public EventStreamState()
         {
         }
+        public static new EventStreamState Empty => new EventStreamState();
     }
 }

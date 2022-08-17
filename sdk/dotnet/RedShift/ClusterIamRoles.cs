@@ -17,24 +17,22 @@ namespace Pulumi.Aws.RedShift
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.RedShift.ClusterIamRoles("example", new()
     ///     {
-    ///         var example = new Aws.RedShift.ClusterIamRoles("example", new Aws.RedShift.ClusterIamRolesArgs
+    ///         ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
+    ///         IamRoleArns = new[]
     ///         {
-    ///             ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
-    ///             IamRoleArns = 
-    ///             {
-    ///                 aws_iam_role.Example.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_iam_role.Example.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Aws.RedShift
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/clusterIamRoles:ClusterIamRoles")]
-    public partial class ClusterIamRoles : Pulumi.CustomResource
+    public partial class ClusterIamRoles : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Redshift Cluster IAM Roles.
@@ -110,7 +108,7 @@ namespace Pulumi.Aws.RedShift
         }
     }
 
-    public sealed class ClusterIamRolesArgs : Pulumi.ResourceArgs
+    public sealed class ClusterIamRolesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Redshift Cluster IAM Roles.
@@ -139,9 +137,10 @@ namespace Pulumi.Aws.RedShift
         public ClusterIamRolesArgs()
         {
         }
+        public static new ClusterIamRolesArgs Empty => new ClusterIamRolesArgs();
     }
 
-    public sealed class ClusterIamRolesState : Pulumi.ResourceArgs
+    public sealed class ClusterIamRolesState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Redshift Cluster IAM Roles.
@@ -170,5 +169,6 @@ namespace Pulumi.Aws.RedShift
         public ClusterIamRolesState()
         {
         }
+        public static new ClusterIamRolesState Empty => new ClusterIamRolesState();
     }
 }

@@ -15,45 +15,42 @@ namespace Pulumi.Aws.Macie
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Macie2.Account("example");
+    /// 
+    ///     var test = new Aws.Macie.FindingsFilter("test", new()
     ///     {
-    ///         var example = new Aws.Macie2.Account("example", new Aws.Macie2.AccountArgs
+    ///         Description = "DESCRIPTION",
+    ///         Position = 1,
+    ///         Action = "ARCHIVE",
+    ///         FindingCriteria = new Aws.Macie.Inputs.FindingsFilterFindingCriteriaArgs
     ///         {
-    ///         });
-    ///         var test = new Aws.Macie.FindingsFilter("test", new Aws.Macie.FindingsFilterArgs
-    ///         {
-    ///             Description = "DESCRIPTION",
-    ///             Position = 1,
-    ///             Action = "ARCHIVE",
-    ///             FindingCriteria = new Aws.Macie.Inputs.FindingsFilterFindingCriteriaArgs
+    ///             Criterions = new[]
     ///             {
-    ///                 Criterions = 
+    ///                 new Aws.Macie.Inputs.FindingsFilterFindingCriteriaCriterionArgs
     ///                 {
-    ///                     new Aws.Macie.Inputs.FindingsFilterFindingCriteriaCriterionArgs
+    ///                     Field = "region",
+    ///                     Eqs = new[]
     ///                     {
-    ///                         Field = "region",
-    ///                         Eqs = 
-    ///                         {
-    ///                             data.Aws_region.Current.Name,
-    ///                         },
+    ///                         data.Aws_region.Current.Name,
     ///                     },
     ///                 },
     ///             },
-    ///         }, new CustomResourceOptions
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 aws_macie2_account.Test,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_macie2_account.Test,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +62,7 @@ namespace Pulumi.Aws.Macie
     /// ```
     /// </summary>
     [AwsResourceType("aws:macie/findingsFilter:FindingsFilter")]
-    public partial class FindingsFilter : Pulumi.CustomResource
+    public partial class FindingsFilter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
@@ -159,7 +156,7 @@ namespace Pulumi.Aws.Macie
         }
     }
 
-    public sealed class FindingsFilterArgs : Pulumi.ResourceArgs
+    public sealed class FindingsFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
@@ -209,9 +206,10 @@ namespace Pulumi.Aws.Macie
         public FindingsFilterArgs()
         {
         }
+        public static new FindingsFilterArgs Empty => new FindingsFilterArgs();
     }
 
-    public sealed class FindingsFilterState : Pulumi.ResourceArgs
+    public sealed class FindingsFilterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
@@ -275,5 +273,6 @@ namespace Pulumi.Aws.Macie
         public FindingsFilterState()
         {
         }
+        public static new FindingsFilterState Empty => new FindingsFilterState();
     }
 }

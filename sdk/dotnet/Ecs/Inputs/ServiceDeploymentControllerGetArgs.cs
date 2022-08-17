@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class ServiceDeploymentControllerGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceDeploymentControllerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public ServiceDeploymentControllerGetArgs()
         {
         }
+        public static new ServiceDeploymentControllerGetArgs Empty => new ServiceDeploymentControllerGetArgs();
     }
 }

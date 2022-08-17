@@ -16,53 +16,49 @@ namespace Pulumi.Aws.Sagemaker
     /// ### Basic usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Sagemaker.AppImageConfig("test", new()
     ///     {
-    ///         var test = new Aws.Sagemaker.AppImageConfig("test", new Aws.Sagemaker.AppImageConfigArgs
+    ///         AppImageConfigName = "example",
+    ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
     ///         {
-    ///             AppImageConfigName = "example",
-    ///             KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
+    ///             KernelSpec = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
     ///             {
-    ///                 KernelSpec = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
-    ///                 {
-    ///                     Name = "example",
-    ///                 },
+    ///                 Name = "example",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Default File System Config
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Sagemaker.AppImageConfig("test", new()
     ///     {
-    ///         var test = new Aws.Sagemaker.AppImageConfig("test", new Aws.Sagemaker.AppImageConfigArgs
+    ///         AppImageConfigName = "example",
+    ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
     ///         {
-    ///             AppImageConfigName = "example",
-    ///             KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
+    ///             FileSystemConfig = ,
+    ///             KernelSpec = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
     ///             {
-    ///                 FileSystemConfig = ,
-    ///                 KernelSpec = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
-    ///                 {
-    ///                     Name = "example",
-    ///                 },
+    ///                 Name = "example",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +70,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/appImageConfig:AppImageConfig")]
-    public partial class AppImageConfig : Pulumi.CustomResource
+    public partial class AppImageConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the App Image Config.
@@ -150,7 +146,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class AppImageConfigArgs : Pulumi.ResourceArgs
+    public sealed class AppImageConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the App Image Config.
@@ -179,9 +175,10 @@ namespace Pulumi.Aws.Sagemaker
         public AppImageConfigArgs()
         {
         }
+        public static new AppImageConfigArgs Empty => new AppImageConfigArgs();
     }
 
-    public sealed class AppImageConfigState : Pulumi.ResourceArgs
+    public sealed class AppImageConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the App Image Config.
@@ -228,5 +225,6 @@ namespace Pulumi.Aws.Sagemaker
         public AppImageConfigState()
         {
         }
+        public static new AppImageConfigState Empty => new AppImageConfigState();
     }
 }

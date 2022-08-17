@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecr.Inputs
 {
 
-    public sealed class RepositoryImageScanningConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryImageScanningConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ecr.Inputs
         public RepositoryImageScanningConfigurationGetArgs()
         {
         }
+        public static new RepositoryImageScanningConfigurationGetArgs Empty => new RepositoryImageScanningConfigurationGetArgs();
     }
 }

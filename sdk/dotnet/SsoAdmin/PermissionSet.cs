@@ -23,7 +23,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssoadmin/permissionSet:PermissionSet")]
-    public partial class PermissionSet : Pulumi.CustomResource
+    public partial class PermissionSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Permission Set.
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.SsoAdmin
         }
     }
 
-    public sealed class PermissionSetArgs : Pulumi.ResourceArgs
+    public sealed class PermissionSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the Permission Set.
@@ -170,9 +170,10 @@ namespace Pulumi.Aws.SsoAdmin
         public PermissionSetArgs()
         {
         }
+        public static new PermissionSetArgs Empty => new PermissionSetArgs();
     }
 
-    public sealed class PermissionSetState : Pulumi.ResourceArgs
+    public sealed class PermissionSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Permission Set.
@@ -232,7 +233,7 @@ namespace Pulumi.Aws.SsoAdmin
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -243,5 +244,6 @@ namespace Pulumi.Aws.SsoAdmin
         public PermissionSetState()
         {
         }
+        public static new PermissionSetState Empty => new PermissionSetState();
     }
 }

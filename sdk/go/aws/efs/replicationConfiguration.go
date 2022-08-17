@@ -23,28 +23,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleFileSystem, err := efs.NewFileSystem(ctx, "exampleFileSystem", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = efs.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &efs.ReplicationConfigurationArgs{
-// 			SourceFileSystemId: exampleFileSystem.ID(),
-// 			Destination: &efs.ReplicationConfigurationDestinationArgs{
-// 				Region: pulumi.String("us-west-2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleFileSystem, err := efs.NewFileSystem(ctx, "exampleFileSystem", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = efs.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &efs.ReplicationConfigurationArgs{
+//				SourceFileSystemId: exampleFileSystem.ID(),
+//				Destination: &efs.ReplicationConfigurationDestinationArgs{
+//					Region: pulumi.String("us-west-2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
@@ -53,29 +56,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleFileSystem, err := efs.NewFileSystem(ctx, "exampleFileSystem", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = efs.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &efs.ReplicationConfigurationArgs{
-// 			SourceFileSystemId: exampleFileSystem.ID(),
-// 			Destination: &efs.ReplicationConfigurationDestinationArgs{
-// 				AvailabilityZoneName: pulumi.String("us-west-2b"),
-// 				KmsKeyId:             pulumi.String("1234abcd-12ab-34cd-56ef-1234567890ab"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleFileSystem, err := efs.NewFileSystem(ctx, "exampleFileSystem", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = efs.NewReplicationConfiguration(ctx, "exampleReplicationConfiguration", &efs.ReplicationConfigurationArgs{
+//				SourceFileSystemId: exampleFileSystem.ID(),
+//				Destination: &efs.ReplicationConfigurationDestinationArgs{
+//					AvailabilityZoneName: pulumi.String("us-west-2b"),
+//					KmsKeyId:             pulumi.String("1234abcd-12ab-34cd-56ef-1234567890ab"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -83,7 +89,9 @@ import (
 // EFS Replication Configurations can be imported using the file system ID of either the source or destination file system. When importing, the `availability_zone_name` and `kms_key_id` attributes must **not** be set in the configuration. The AWS API does not return these values when querying the replication configuration and their presence will therefore show as a diff in a subsequent plan.
 //
 // ```sh
-//  $ pulumi import aws:efs/replicationConfiguration:ReplicationConfiguration example fs-id
+//
+//	$ pulumi import aws:efs/replicationConfiguration:ReplicationConfiguration example fs-id
+//
 // ```
 type ReplicationConfiguration struct {
 	pulumi.CustomResourceState
@@ -217,7 +225,7 @@ func (i *ReplicationConfiguration) ToReplicationConfigurationOutputWithContext(c
 // ReplicationConfigurationArrayInput is an input type that accepts ReplicationConfigurationArray and ReplicationConfigurationArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationArrayInput` via:
 //
-//          ReplicationConfigurationArray{ ReplicationConfigurationArgs{...} }
+//	ReplicationConfigurationArray{ ReplicationConfigurationArgs{...} }
 type ReplicationConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -242,7 +250,7 @@ func (i ReplicationConfigurationArray) ToReplicationConfigurationArrayOutputWith
 // ReplicationConfigurationMapInput is an input type that accepts ReplicationConfigurationMap and ReplicationConfigurationMapOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationMapInput` via:
 //
-//          ReplicationConfigurationMap{ "key": ReplicationConfigurationArgs{...} }
+//	ReplicationConfigurationMap{ "key": ReplicationConfigurationArgs{...} }
 type ReplicationConfigurationMapInput interface {
 	pulumi.Input
 

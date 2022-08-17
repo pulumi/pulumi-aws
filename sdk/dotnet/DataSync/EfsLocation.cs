@@ -17,28 +17,26 @@ namespace Pulumi.Aws.DataSync
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DataSync.EfsLocation("example", new()
     ///     {
-    ///         var example = new Aws.DataSync.EfsLocation("example", new Aws.DataSync.EfsLocationArgs
+    ///         EfsFileSystemArn = aws_efs_mount_target.Example.File_system_arn,
+    ///         Ec2Config = new Aws.DataSync.Inputs.EfsLocationEc2ConfigArgs
     ///         {
-    ///             EfsFileSystemArn = aws_efs_mount_target.Example.File_system_arn,
-    ///             Ec2Config = new Aws.DataSync.Inputs.EfsLocationEc2ConfigArgs
+    ///             SecurityGroupArns = new[]
     ///             {
-    ///                 SecurityGroupArns = 
-    ///                 {
-    ///                     aws_security_group.Example.Arn,
-    ///                 },
-    ///                 SubnetArn = aws_subnet.Example.Arn,
+    ///                 aws_security_group.Example.Arn,
     ///             },
-    ///         });
-    ///     }
+    ///             SubnetArn = aws_subnet.Example.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.DataSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/efsLocation:EfsLocation")]
-    public partial class EfsLocation : Pulumi.CustomResource
+    public partial class EfsLocation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
@@ -101,7 +99,7 @@ namespace Pulumi.Aws.DataSync
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -153,7 +151,7 @@ namespace Pulumi.Aws.DataSync
         }
     }
 
-    public sealed class EfsLocationArgs : Pulumi.ResourceArgs
+    public sealed class EfsLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
@@ -206,9 +204,10 @@ namespace Pulumi.Aws.DataSync
         public EfsLocationArgs()
         {
         }
+        public static new EfsLocationArgs Empty => new EfsLocationArgs();
     }
 
-    public sealed class EfsLocationState : Pulumi.ResourceArgs
+    public sealed class EfsLocationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
@@ -268,7 +267,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -282,5 +281,6 @@ namespace Pulumi.Aws.DataSync
         public EfsLocationState()
         {
         }
+        public static new EfsLocationState Empty => new EfsLocationState();
     }
 }

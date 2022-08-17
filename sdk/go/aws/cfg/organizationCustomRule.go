@@ -23,46 +23,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplePermission, err := lambda.NewPermission(ctx, "examplePermission", &lambda.PermissionArgs{
-// 			Action:    pulumi.String("lambda:InvokeFunction"),
-// 			Function:  pulumi.Any(aws_lambda_function.Example.Arn),
-// 			Principal: pulumi.String("config.amazonaws.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
-// 			AwsServiceAccessPrincipals: pulumi.StringArray{
-// 				pulumi.String("config-multiaccountsetup.amazonaws.com"),
-// 			},
-// 			FeatureSet: pulumi.String("ALL"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cfg.NewOrganizationCustomRule(ctx, "exampleOrganizationCustomRule", &cfg.OrganizationCustomRuleArgs{
-// 			LambdaFunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
-// 			TriggerTypes: pulumi.StringArray{
-// 				pulumi.String("ConfigurationItemChangeNotification"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			examplePermission,
-// 			exampleOrganization,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplePermission, err := lambda.NewPermission(ctx, "examplePermission", &lambda.PermissionArgs{
+//				Action:    pulumi.String("lambda:InvokeFunction"),
+//				Function:  pulumi.Any(aws_lambda_function.Example.Arn),
+//				Principal: pulumi.String("config.amazonaws.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
+//				AwsServiceAccessPrincipals: pulumi.StringArray{
+//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
+//				},
+//				FeatureSet: pulumi.String("ALL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cfg.NewOrganizationCustomRule(ctx, "exampleOrganizationCustomRule", &cfg.OrganizationCustomRuleArgs{
+//				LambdaFunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
+//				TriggerTypes: pulumi.StringArray{
+//					pulumi.String("ConfigurationItemChangeNotification"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				examplePermission,
+//				exampleOrganization,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +73,9 @@ import (
 // Config Organization Custom Rules can be imported using the name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
+//
+//	$ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
+//
 // ```
 type OrganizationCustomRule struct {
 	pulumi.CustomResourceState
@@ -270,7 +275,7 @@ func (i *OrganizationCustomRule) ToOrganizationCustomRuleOutputWithContext(ctx c
 // OrganizationCustomRuleArrayInput is an input type that accepts OrganizationCustomRuleArray and OrganizationCustomRuleArrayOutput values.
 // You can construct a concrete instance of `OrganizationCustomRuleArrayInput` via:
 //
-//          OrganizationCustomRuleArray{ OrganizationCustomRuleArgs{...} }
+//	OrganizationCustomRuleArray{ OrganizationCustomRuleArgs{...} }
 type OrganizationCustomRuleArrayInput interface {
 	pulumi.Input
 
@@ -295,7 +300,7 @@ func (i OrganizationCustomRuleArray) ToOrganizationCustomRuleArrayOutputWithCont
 // OrganizationCustomRuleMapInput is an input type that accepts OrganizationCustomRuleMap and OrganizationCustomRuleMapOutput values.
 // You can construct a concrete instance of `OrganizationCustomRuleMapInput` via:
 //
-//          OrganizationCustomRuleMap{ "key": OrganizationCustomRuleArgs{...} }
+//	OrganizationCustomRuleMap{ "key": OrganizationCustomRuleArgs{...} }
 type OrganizationCustomRuleMapInput interface {
 	pulumi.Input
 

@@ -18,97 +18,89 @@ namespace Pulumi.Aws.Glue
     /// ### Csv Classifier
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Classifier("example", new()
     ///     {
-    ///         var example = new Aws.Glue.Classifier("example", new Aws.Glue.ClassifierArgs
+    ///         CsvClassifier = new Aws.Glue.Inputs.ClassifierCsvClassifierArgs
     ///         {
-    ///             CsvClassifier = new Aws.Glue.Inputs.ClassifierCsvClassifierArgs
+    ///             AllowSingleColumn = false,
+    ///             ContainsHeader = "PRESENT",
+    ///             Delimiter = ",",
+    ///             DisableValueTrimming = false,
+    ///             Headers = new[]
     ///             {
-    ///                 AllowSingleColumn = false,
-    ///                 ContainsHeader = "PRESENT",
-    ///                 Delimiter = ",",
-    ///                 DisableValueTrimming = false,
-    ///                 Headers = 
-    ///                 {
-    ///                     "example1",
-    ///                     "example2",
-    ///                 },
-    ///                 QuoteSymbol = "'",
+    ///                 "example1",
+    ///                 "example2",
     ///             },
-    ///         });
-    ///     }
+    ///             QuoteSymbol = "'",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Grok Classifier
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Classifier("example", new()
     ///     {
-    ///         var example = new Aws.Glue.Classifier("example", new Aws.Glue.ClassifierArgs
+    ///         GrokClassifier = new Aws.Glue.Inputs.ClassifierGrokClassifierArgs
     ///         {
-    ///             GrokClassifier = new Aws.Glue.Inputs.ClassifierGrokClassifierArgs
-    ///             {
-    ///                 Classification = "example",
-    ///                 GrokPattern = "example",
-    ///             },
-    ///         });
-    ///     }
+    ///             Classification = "example",
+    ///             GrokPattern = "example",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### JSON Classifier
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Classifier("example", new()
     ///     {
-    ///         var example = new Aws.Glue.Classifier("example", new Aws.Glue.ClassifierArgs
+    ///         JsonClassifier = new Aws.Glue.Inputs.ClassifierJsonClassifierArgs
     ///         {
-    ///             JsonClassifier = new Aws.Glue.Inputs.ClassifierJsonClassifierArgs
-    ///             {
-    ///                 JsonPath = "example",
-    ///             },
-    ///         });
-    ///     }
+    ///             JsonPath = "example",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### XML Classifier
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Classifier("example", new()
     ///     {
-    ///         var example = new Aws.Glue.Classifier("example", new Aws.Glue.ClassifierArgs
+    ///         XmlClassifier = new Aws.Glue.Inputs.ClassifierXmlClassifierArgs
     ///         {
-    ///             XmlClassifier = new Aws.Glue.Inputs.ClassifierXmlClassifierArgs
-    ///             {
-    ///                 Classification = "example",
-    ///                 RowTag = "example",
-    ///             },
-    ///         });
-    ///     }
+    ///             Classification = "example",
+    ///             RowTag = "example",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -120,7 +112,7 @@ namespace Pulumi.Aws.Glue
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/classifier:Classifier")]
-    public partial class Classifier : Pulumi.CustomResource
+    public partial class Classifier : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A classifier for Csv content. Defined below.
@@ -196,7 +188,7 @@ namespace Pulumi.Aws.Glue
         }
     }
 
-    public sealed class ClassifierArgs : Pulumi.ResourceArgs
+    public sealed class ClassifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A classifier for Csv content. Defined below.
@@ -231,9 +223,10 @@ namespace Pulumi.Aws.Glue
         public ClassifierArgs()
         {
         }
+        public static new ClassifierArgs Empty => new ClassifierArgs();
     }
 
-    public sealed class ClassifierState : Pulumi.ResourceArgs
+    public sealed class ClassifierState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A classifier for Csv content. Defined below.
@@ -268,5 +261,6 @@ namespace Pulumi.Aws.Glue
         public ClassifierState()
         {
         }
+        public static new ClassifierState Empty => new ClassifierState();
     }
 }

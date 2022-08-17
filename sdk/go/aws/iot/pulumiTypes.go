@@ -22,7 +22,7 @@ type IndexingConfigurationThingGroupIndexingConfiguration struct {
 // IndexingConfigurationThingGroupIndexingConfigurationInput is an input type that accepts IndexingConfigurationThingGroupIndexingConfigurationArgs and IndexingConfigurationThingGroupIndexingConfigurationOutput values.
 // You can construct a concrete instance of `IndexingConfigurationThingGroupIndexingConfigurationInput` via:
 //
-//          IndexingConfigurationThingGroupIndexingConfigurationArgs{...}
+//	IndexingConfigurationThingGroupIndexingConfigurationArgs{...}
 type IndexingConfigurationThingGroupIndexingConfigurationInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i IndexingConfigurationThingGroupIndexingConfigurationArgs) ToIndexingConf
 // IndexingConfigurationThingGroupIndexingConfigurationPtrInput is an input type that accepts IndexingConfigurationThingGroupIndexingConfigurationArgs, IndexingConfigurationThingGroupIndexingConfigurationPtr and IndexingConfigurationThingGroupIndexingConfigurationPtrOutput values.
 // You can construct a concrete instance of `IndexingConfigurationThingGroupIndexingConfigurationPtrInput` via:
 //
-//          IndexingConfigurationThingGroupIndexingConfigurationArgs{...}
+//	        IndexingConfigurationThingGroupIndexingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IndexingConfigurationThingGroupIndexingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -199,7 +199,7 @@ type IndexingConfigurationThingGroupIndexingConfigurationCustomField struct {
 // IndexingConfigurationThingGroupIndexingConfigurationCustomFieldInput is an input type that accepts IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs and IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput values.
 // You can construct a concrete instance of `IndexingConfigurationThingGroupIndexingConfigurationCustomFieldInput` via:
 //
-//          IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs{...}
+//	IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs{...}
 type IndexingConfigurationThingGroupIndexingConfigurationCustomFieldInput interface {
 	pulumi.Input
 
@@ -229,7 +229,7 @@ func (i IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs) ToI
 // IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayInput is an input type that accepts IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArray and IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayOutput values.
 // You can construct a concrete instance of `IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayInput` via:
 //
-//          IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArray{ IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs{...} }
+//	IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArray{ IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs{...} }
 type IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrayInput interface {
 	pulumi.Input
 
@@ -305,7 +305,7 @@ type IndexingConfigurationThingGroupIndexingConfigurationManagedField struct {
 // IndexingConfigurationThingGroupIndexingConfigurationManagedFieldInput is an input type that accepts IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs and IndexingConfigurationThingGroupIndexingConfigurationManagedFieldOutput values.
 // You can construct a concrete instance of `IndexingConfigurationThingGroupIndexingConfigurationManagedFieldInput` via:
 //
-//          IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs{...}
+//	IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs{...}
 type IndexingConfigurationThingGroupIndexingConfigurationManagedFieldInput interface {
 	pulumi.Input
 
@@ -335,7 +335,7 @@ func (i IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs) To
 // IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayInput is an input type that accepts IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArray and IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayOutput values.
 // You can construct a concrete instance of `IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayInput` via:
 //
-//          IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArray{ IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs{...} }
+//	IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArray{ IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs{...} }
 type IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrayInput interface {
 	pulumi.Input
 
@@ -419,7 +419,7 @@ type IndexingConfigurationThingIndexingConfiguration struct {
 // IndexingConfigurationThingIndexingConfigurationInput is an input type that accepts IndexingConfigurationThingIndexingConfigurationArgs and IndexingConfigurationThingIndexingConfigurationOutput values.
 // You can construct a concrete instance of `IndexingConfigurationThingIndexingConfigurationInput` via:
 //
-//          IndexingConfigurationThingIndexingConfigurationArgs{...}
+//	IndexingConfigurationThingIndexingConfigurationArgs{...}
 type IndexingConfigurationThingIndexingConfigurationInput interface {
 	pulumi.Input
 
@@ -465,11 +465,11 @@ func (i IndexingConfigurationThingIndexingConfigurationArgs) ToIndexingConfigura
 // IndexingConfigurationThingIndexingConfigurationPtrInput is an input type that accepts IndexingConfigurationThingIndexingConfigurationArgs, IndexingConfigurationThingIndexingConfigurationPtr and IndexingConfigurationThingIndexingConfigurationPtrOutput values.
 // You can construct a concrete instance of `IndexingConfigurationThingIndexingConfigurationPtrInput` via:
 //
-//          IndexingConfigurationThingIndexingConfigurationArgs{...}
+//	        IndexingConfigurationThingIndexingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IndexingConfigurationThingIndexingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -649,7 +649,7 @@ type IndexingConfigurationThingIndexingConfigurationCustomField struct {
 // IndexingConfigurationThingIndexingConfigurationCustomFieldInput is an input type that accepts IndexingConfigurationThingIndexingConfigurationCustomFieldArgs and IndexingConfigurationThingIndexingConfigurationCustomFieldOutput values.
 // You can construct a concrete instance of `IndexingConfigurationThingIndexingConfigurationCustomFieldInput` via:
 //
-//          IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{...}
+//	IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{...}
 type IndexingConfigurationThingIndexingConfigurationCustomFieldInput interface {
 	pulumi.Input
 
@@ -679,7 +679,7 @@ func (i IndexingConfigurationThingIndexingConfigurationCustomFieldArgs) ToIndexi
 // IndexingConfigurationThingIndexingConfigurationCustomFieldArrayInput is an input type that accepts IndexingConfigurationThingIndexingConfigurationCustomFieldArray and IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput values.
 // You can construct a concrete instance of `IndexingConfigurationThingIndexingConfigurationCustomFieldArrayInput` via:
 //
-//          IndexingConfigurationThingIndexingConfigurationCustomFieldArray{ IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{...} }
+//	IndexingConfigurationThingIndexingConfigurationCustomFieldArray{ IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{...} }
 type IndexingConfigurationThingIndexingConfigurationCustomFieldArrayInput interface {
 	pulumi.Input
 
@@ -755,7 +755,7 @@ type IndexingConfigurationThingIndexingConfigurationManagedField struct {
 // IndexingConfigurationThingIndexingConfigurationManagedFieldInput is an input type that accepts IndexingConfigurationThingIndexingConfigurationManagedFieldArgs and IndexingConfigurationThingIndexingConfigurationManagedFieldOutput values.
 // You can construct a concrete instance of `IndexingConfigurationThingIndexingConfigurationManagedFieldInput` via:
 //
-//          IndexingConfigurationThingIndexingConfigurationManagedFieldArgs{...}
+//	IndexingConfigurationThingIndexingConfigurationManagedFieldArgs{...}
 type IndexingConfigurationThingIndexingConfigurationManagedFieldInput interface {
 	pulumi.Input
 
@@ -785,7 +785,7 @@ func (i IndexingConfigurationThingIndexingConfigurationManagedFieldArgs) ToIndex
 // IndexingConfigurationThingIndexingConfigurationManagedFieldArrayInput is an input type that accepts IndexingConfigurationThingIndexingConfigurationManagedFieldArray and IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput values.
 // You can construct a concrete instance of `IndexingConfigurationThingIndexingConfigurationManagedFieldArrayInput` via:
 //
-//          IndexingConfigurationThingIndexingConfigurationManagedFieldArray{ IndexingConfigurationThingIndexingConfigurationManagedFieldArgs{...} }
+//	IndexingConfigurationThingIndexingConfigurationManagedFieldArray{ IndexingConfigurationThingIndexingConfigurationManagedFieldArgs{...} }
 type IndexingConfigurationThingIndexingConfigurationManagedFieldArrayInput interface {
 	pulumi.Input
 
@@ -860,7 +860,7 @@ type ProvisioningTemplatePreProvisioningHook struct {
 // ProvisioningTemplatePreProvisioningHookInput is an input type that accepts ProvisioningTemplatePreProvisioningHookArgs and ProvisioningTemplatePreProvisioningHookOutput values.
 // You can construct a concrete instance of `ProvisioningTemplatePreProvisioningHookInput` via:
 //
-//          ProvisioningTemplatePreProvisioningHookArgs{...}
+//	ProvisioningTemplatePreProvisioningHookArgs{...}
 type ProvisioningTemplatePreProvisioningHookInput interface {
 	pulumi.Input
 
@@ -897,11 +897,11 @@ func (i ProvisioningTemplatePreProvisioningHookArgs) ToProvisioningTemplatePrePr
 // ProvisioningTemplatePreProvisioningHookPtrInput is an input type that accepts ProvisioningTemplatePreProvisioningHookArgs, ProvisioningTemplatePreProvisioningHookPtr and ProvisioningTemplatePreProvisioningHookPtrOutput values.
 // You can construct a concrete instance of `ProvisioningTemplatePreProvisioningHookPtrInput` via:
 //
-//          ProvisioningTemplatePreProvisioningHookArgs{...}
+//	        ProvisioningTemplatePreProvisioningHookArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProvisioningTemplatePreProvisioningHookPtrInput interface {
 	pulumi.Input
 
@@ -1013,7 +1013,7 @@ type ThingGroupMetadata struct {
 // ThingGroupMetadataInput is an input type that accepts ThingGroupMetadataArgs and ThingGroupMetadataOutput values.
 // You can construct a concrete instance of `ThingGroupMetadataInput` via:
 //
-//          ThingGroupMetadataArgs{...}
+//	ThingGroupMetadataArgs{...}
 type ThingGroupMetadataInput interface {
 	pulumi.Input
 
@@ -1043,7 +1043,7 @@ func (i ThingGroupMetadataArgs) ToThingGroupMetadataOutputWithContext(ctx contex
 // ThingGroupMetadataArrayInput is an input type that accepts ThingGroupMetadataArray and ThingGroupMetadataArrayOutput values.
 // You can construct a concrete instance of `ThingGroupMetadataArrayInput` via:
 //
-//          ThingGroupMetadataArray{ ThingGroupMetadataArgs{...} }
+//	ThingGroupMetadataArray{ ThingGroupMetadataArgs{...} }
 type ThingGroupMetadataArrayInput interface {
 	pulumi.Input
 
@@ -1120,7 +1120,7 @@ type ThingGroupMetadataRootToParentGroup struct {
 // ThingGroupMetadataRootToParentGroupInput is an input type that accepts ThingGroupMetadataRootToParentGroupArgs and ThingGroupMetadataRootToParentGroupOutput values.
 // You can construct a concrete instance of `ThingGroupMetadataRootToParentGroupInput` via:
 //
-//          ThingGroupMetadataRootToParentGroupArgs{...}
+//	ThingGroupMetadataRootToParentGroupArgs{...}
 type ThingGroupMetadataRootToParentGroupInput interface {
 	pulumi.Input
 
@@ -1148,7 +1148,7 @@ func (i ThingGroupMetadataRootToParentGroupArgs) ToThingGroupMetadataRootToParen
 // ThingGroupMetadataRootToParentGroupArrayInput is an input type that accepts ThingGroupMetadataRootToParentGroupArray and ThingGroupMetadataRootToParentGroupArrayOutput values.
 // You can construct a concrete instance of `ThingGroupMetadataRootToParentGroupArrayInput` via:
 //
-//          ThingGroupMetadataRootToParentGroupArray{ ThingGroupMetadataRootToParentGroupArgs{...} }
+//	ThingGroupMetadataRootToParentGroupArray{ ThingGroupMetadataRootToParentGroupArgs{...} }
 type ThingGroupMetadataRootToParentGroupArrayInput interface {
 	pulumi.Input
 
@@ -1222,7 +1222,7 @@ type ThingGroupProperties struct {
 // ThingGroupPropertiesInput is an input type that accepts ThingGroupPropertiesArgs and ThingGroupPropertiesOutput values.
 // You can construct a concrete instance of `ThingGroupPropertiesInput` via:
 //
-//          ThingGroupPropertiesArgs{...}
+//	ThingGroupPropertiesArgs{...}
 type ThingGroupPropertiesInput interface {
 	pulumi.Input
 
@@ -1260,11 +1260,11 @@ func (i ThingGroupPropertiesArgs) ToThingGroupPropertiesPtrOutputWithContext(ctx
 // ThingGroupPropertiesPtrInput is an input type that accepts ThingGroupPropertiesArgs, ThingGroupPropertiesPtr and ThingGroupPropertiesPtrOutput values.
 // You can construct a concrete instance of `ThingGroupPropertiesPtrInput` via:
 //
-//          ThingGroupPropertiesArgs{...}
+//	        ThingGroupPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThingGroupPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1376,7 +1376,7 @@ type ThingGroupPropertiesAttributePayload struct {
 // ThingGroupPropertiesAttributePayloadInput is an input type that accepts ThingGroupPropertiesAttributePayloadArgs and ThingGroupPropertiesAttributePayloadOutput values.
 // You can construct a concrete instance of `ThingGroupPropertiesAttributePayloadInput` via:
 //
-//          ThingGroupPropertiesAttributePayloadArgs{...}
+//	ThingGroupPropertiesAttributePayloadArgs{...}
 type ThingGroupPropertiesAttributePayloadInput interface {
 	pulumi.Input
 
@@ -1412,11 +1412,11 @@ func (i ThingGroupPropertiesAttributePayloadArgs) ToThingGroupPropertiesAttribut
 // ThingGroupPropertiesAttributePayloadPtrInput is an input type that accepts ThingGroupPropertiesAttributePayloadArgs, ThingGroupPropertiesAttributePayloadPtr and ThingGroupPropertiesAttributePayloadPtrOutput values.
 // You can construct a concrete instance of `ThingGroupPropertiesAttributePayloadPtrInput` via:
 //
-//          ThingGroupPropertiesAttributePayloadArgs{...}
+//	        ThingGroupPropertiesAttributePayloadArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThingGroupPropertiesAttributePayloadPtrInput interface {
 	pulumi.Input
 
@@ -1515,7 +1515,7 @@ type ThingTypeProperties struct {
 // ThingTypePropertiesInput is an input type that accepts ThingTypePropertiesArgs and ThingTypePropertiesOutput values.
 // You can construct a concrete instance of `ThingTypePropertiesInput` via:
 //
-//          ThingTypePropertiesArgs{...}
+//	ThingTypePropertiesArgs{...}
 type ThingTypePropertiesInput interface {
 	pulumi.Input
 
@@ -1553,11 +1553,11 @@ func (i ThingTypePropertiesArgs) ToThingTypePropertiesPtrOutputWithContext(ctx c
 // ThingTypePropertiesPtrInput is an input type that accepts ThingTypePropertiesArgs, ThingTypePropertiesPtr and ThingTypePropertiesPtrOutput values.
 // You can construct a concrete instance of `ThingTypePropertiesPtrInput` via:
 //
-//          ThingTypePropertiesArgs{...}
+//	        ThingTypePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThingTypePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1675,7 +1675,7 @@ type TopicRuleCloudwatchAlarm struct {
 // TopicRuleCloudwatchAlarmInput is an input type that accepts TopicRuleCloudwatchAlarmArgs and TopicRuleCloudwatchAlarmOutput values.
 // You can construct a concrete instance of `TopicRuleCloudwatchAlarmInput` via:
 //
-//          TopicRuleCloudwatchAlarmArgs{...}
+//	TopicRuleCloudwatchAlarmArgs{...}
 type TopicRuleCloudwatchAlarmInput interface {
 	pulumi.Input
 
@@ -1717,11 +1717,11 @@ func (i TopicRuleCloudwatchAlarmArgs) ToTopicRuleCloudwatchAlarmPtrOutputWithCon
 // TopicRuleCloudwatchAlarmPtrInput is an input type that accepts TopicRuleCloudwatchAlarmArgs, TopicRuleCloudwatchAlarmPtr and TopicRuleCloudwatchAlarmPtrOutput values.
 // You can construct a concrete instance of `TopicRuleCloudwatchAlarmPtrInput` via:
 //
-//          TopicRuleCloudwatchAlarmArgs{...}
+//	        TopicRuleCloudwatchAlarmArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleCloudwatchAlarmPtrInput interface {
 	pulumi.Input
 
@@ -1865,7 +1865,7 @@ type TopicRuleCloudwatchLog struct {
 // TopicRuleCloudwatchLogInput is an input type that accepts TopicRuleCloudwatchLogArgs and TopicRuleCloudwatchLogOutput values.
 // You can construct a concrete instance of `TopicRuleCloudwatchLogInput` via:
 //
-//          TopicRuleCloudwatchLogArgs{...}
+//	TopicRuleCloudwatchLogArgs{...}
 type TopicRuleCloudwatchLogInput interface {
 	pulumi.Input
 
@@ -1895,7 +1895,7 @@ func (i TopicRuleCloudwatchLogArgs) ToTopicRuleCloudwatchLogOutputWithContext(ct
 // TopicRuleCloudwatchLogArrayInput is an input type that accepts TopicRuleCloudwatchLogArray and TopicRuleCloudwatchLogArrayOutput values.
 // You can construct a concrete instance of `TopicRuleCloudwatchLogArrayInput` via:
 //
-//          TopicRuleCloudwatchLogArray{ TopicRuleCloudwatchLogArgs{...} }
+//	TopicRuleCloudwatchLogArray{ TopicRuleCloudwatchLogArgs{...} }
 type TopicRuleCloudwatchLogArrayInput interface {
 	pulumi.Input
 
@@ -1979,7 +1979,7 @@ type TopicRuleCloudwatchMetric struct {
 // TopicRuleCloudwatchMetricInput is an input type that accepts TopicRuleCloudwatchMetricArgs and TopicRuleCloudwatchMetricOutput values.
 // You can construct a concrete instance of `TopicRuleCloudwatchMetricInput` via:
 //
-//          TopicRuleCloudwatchMetricArgs{...}
+//	TopicRuleCloudwatchMetricArgs{...}
 type TopicRuleCloudwatchMetricInput interface {
 	pulumi.Input
 
@@ -2025,11 +2025,11 @@ func (i TopicRuleCloudwatchMetricArgs) ToTopicRuleCloudwatchMetricPtrOutputWithC
 // TopicRuleCloudwatchMetricPtrInput is an input type that accepts TopicRuleCloudwatchMetricArgs, TopicRuleCloudwatchMetricPtr and TopicRuleCloudwatchMetricPtrOutput values.
 // You can construct a concrete instance of `TopicRuleCloudwatchMetricPtrInput` via:
 //
-//          TopicRuleCloudwatchMetricArgs{...}
+//	        TopicRuleCloudwatchMetricArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleCloudwatchMetricPtrInput interface {
 	pulumi.Input
 
@@ -2207,7 +2207,7 @@ type TopicRuleDestinationVpcConfiguration struct {
 // TopicRuleDestinationVpcConfigurationInput is an input type that accepts TopicRuleDestinationVpcConfigurationArgs and TopicRuleDestinationVpcConfigurationOutput values.
 // You can construct a concrete instance of `TopicRuleDestinationVpcConfigurationInput` via:
 //
-//          TopicRuleDestinationVpcConfigurationArgs{...}
+//	TopicRuleDestinationVpcConfigurationArgs{...}
 type TopicRuleDestinationVpcConfigurationInput interface {
 	pulumi.Input
 
@@ -2249,11 +2249,11 @@ func (i TopicRuleDestinationVpcConfigurationArgs) ToTopicRuleDestinationVpcConfi
 // TopicRuleDestinationVpcConfigurationPtrInput is an input type that accepts TopicRuleDestinationVpcConfigurationArgs, TopicRuleDestinationVpcConfigurationPtr and TopicRuleDestinationVpcConfigurationPtrOutput values.
 // You can construct a concrete instance of `TopicRuleDestinationVpcConfigurationPtrInput` via:
 //
-//          TopicRuleDestinationVpcConfigurationArgs{...}
+//	        TopicRuleDestinationVpcConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleDestinationVpcConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2413,7 +2413,7 @@ type TopicRuleDynamodb struct {
 // TopicRuleDynamodbInput is an input type that accepts TopicRuleDynamodbArgs and TopicRuleDynamodbOutput values.
 // You can construct a concrete instance of `TopicRuleDynamodbInput` via:
 //
-//          TopicRuleDynamodbArgs{...}
+//	TopicRuleDynamodbArgs{...}
 type TopicRuleDynamodbInput interface {
 	pulumi.Input
 
@@ -2467,11 +2467,11 @@ func (i TopicRuleDynamodbArgs) ToTopicRuleDynamodbPtrOutputWithContext(ctx conte
 // TopicRuleDynamodbPtrInput is an input type that accepts TopicRuleDynamodbArgs, TopicRuleDynamodbPtr and TopicRuleDynamodbPtrOutput values.
 // You can construct a concrete instance of `TopicRuleDynamodbPtrInput` via:
 //
-//          TopicRuleDynamodbArgs{...}
+//	        TopicRuleDynamodbArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleDynamodbPtrInput interface {
 	pulumi.Input
 
@@ -2705,7 +2705,7 @@ type TopicRuleDynamodbv2 struct {
 // TopicRuleDynamodbv2Input is an input type that accepts TopicRuleDynamodbv2Args and TopicRuleDynamodbv2Output values.
 // You can construct a concrete instance of `TopicRuleDynamodbv2Input` via:
 //
-//          TopicRuleDynamodbv2Args{...}
+//	TopicRuleDynamodbv2Args{...}
 type TopicRuleDynamodbv2Input interface {
 	pulumi.Input
 
@@ -2735,7 +2735,7 @@ func (i TopicRuleDynamodbv2Args) ToTopicRuleDynamodbv2OutputWithContext(ctx cont
 // TopicRuleDynamodbv2ArrayInput is an input type that accepts TopicRuleDynamodbv2Array and TopicRuleDynamodbv2ArrayOutput values.
 // You can construct a concrete instance of `TopicRuleDynamodbv2ArrayInput` via:
 //
-//          TopicRuleDynamodbv2Array{ TopicRuleDynamodbv2Args{...} }
+//	TopicRuleDynamodbv2Array{ TopicRuleDynamodbv2Args{...} }
 type TopicRuleDynamodbv2ArrayInput interface {
 	pulumi.Input
 
@@ -2809,7 +2809,7 @@ type TopicRuleDynamodbv2PutItem struct {
 // TopicRuleDynamodbv2PutItemInput is an input type that accepts TopicRuleDynamodbv2PutItemArgs and TopicRuleDynamodbv2PutItemOutput values.
 // You can construct a concrete instance of `TopicRuleDynamodbv2PutItemInput` via:
 //
-//          TopicRuleDynamodbv2PutItemArgs{...}
+//	TopicRuleDynamodbv2PutItemArgs{...}
 type TopicRuleDynamodbv2PutItemInput interface {
 	pulumi.Input
 
@@ -2845,11 +2845,11 @@ func (i TopicRuleDynamodbv2PutItemArgs) ToTopicRuleDynamodbv2PutItemPtrOutputWit
 // TopicRuleDynamodbv2PutItemPtrInput is an input type that accepts TopicRuleDynamodbv2PutItemArgs, TopicRuleDynamodbv2PutItemPtr and TopicRuleDynamodbv2PutItemPtrOutput values.
 // You can construct a concrete instance of `TopicRuleDynamodbv2PutItemPtrInput` via:
 //
-//          TopicRuleDynamodbv2PutItemArgs{...}
+//	        TopicRuleDynamodbv2PutItemArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleDynamodbv2PutItemPtrInput interface {
 	pulumi.Input
 
@@ -2954,7 +2954,7 @@ type TopicRuleElasticsearch struct {
 // TopicRuleElasticsearchInput is an input type that accepts TopicRuleElasticsearchArgs and TopicRuleElasticsearchOutput values.
 // You can construct a concrete instance of `TopicRuleElasticsearchInput` via:
 //
-//          TopicRuleElasticsearchArgs{...}
+//	TopicRuleElasticsearchArgs{...}
 type TopicRuleElasticsearchInput interface {
 	pulumi.Input
 
@@ -2998,11 +2998,11 @@ func (i TopicRuleElasticsearchArgs) ToTopicRuleElasticsearchPtrOutputWithContext
 // TopicRuleElasticsearchPtrInput is an input type that accepts TopicRuleElasticsearchArgs, TopicRuleElasticsearchPtr and TopicRuleElasticsearchPtrOutput values.
 // You can construct a concrete instance of `TopicRuleElasticsearchPtrInput` via:
 //
-//          TopicRuleElasticsearchArgs{...}
+//	        TopicRuleElasticsearchArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleElasticsearchPtrInput interface {
 	pulumi.Input
 
@@ -3176,7 +3176,7 @@ type TopicRuleErrorAction struct {
 // TopicRuleErrorActionInput is an input type that accepts TopicRuleErrorActionArgs and TopicRuleErrorActionOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionInput` via:
 //
-//          TopicRuleErrorActionArgs{...}
+//	TopicRuleErrorActionArgs{...}
 type TopicRuleErrorActionInput interface {
 	pulumi.Input
 
@@ -3229,11 +3229,11 @@ func (i TopicRuleErrorActionArgs) ToTopicRuleErrorActionPtrOutputWithContext(ctx
 // TopicRuleErrorActionPtrInput is an input type that accepts TopicRuleErrorActionArgs, TopicRuleErrorActionPtr and TopicRuleErrorActionPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionPtrInput` via:
 //
-//          TopicRuleErrorActionArgs{...}
+//	        TopicRuleErrorActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionPtrInput interface {
 	pulumi.Input
 
@@ -3568,7 +3568,7 @@ type TopicRuleErrorActionCloudwatchAlarm struct {
 // TopicRuleErrorActionCloudwatchAlarmInput is an input type that accepts TopicRuleErrorActionCloudwatchAlarmArgs and TopicRuleErrorActionCloudwatchAlarmOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionCloudwatchAlarmInput` via:
 //
-//          TopicRuleErrorActionCloudwatchAlarmArgs{...}
+//	TopicRuleErrorActionCloudwatchAlarmArgs{...}
 type TopicRuleErrorActionCloudwatchAlarmInput interface {
 	pulumi.Input
 
@@ -3610,11 +3610,11 @@ func (i TopicRuleErrorActionCloudwatchAlarmArgs) ToTopicRuleErrorActionCloudwatc
 // TopicRuleErrorActionCloudwatchAlarmPtrInput is an input type that accepts TopicRuleErrorActionCloudwatchAlarmArgs, TopicRuleErrorActionCloudwatchAlarmPtr and TopicRuleErrorActionCloudwatchAlarmPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionCloudwatchAlarmPtrInput` via:
 //
-//          TopicRuleErrorActionCloudwatchAlarmArgs{...}
+//	        TopicRuleErrorActionCloudwatchAlarmArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionCloudwatchAlarmPtrInput interface {
 	pulumi.Input
 
@@ -3758,7 +3758,7 @@ type TopicRuleErrorActionCloudwatchLogs struct {
 // TopicRuleErrorActionCloudwatchLogsInput is an input type that accepts TopicRuleErrorActionCloudwatchLogsArgs and TopicRuleErrorActionCloudwatchLogsOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionCloudwatchLogsInput` via:
 //
-//          TopicRuleErrorActionCloudwatchLogsArgs{...}
+//	TopicRuleErrorActionCloudwatchLogsArgs{...}
 type TopicRuleErrorActionCloudwatchLogsInput interface {
 	pulumi.Input
 
@@ -3796,11 +3796,11 @@ func (i TopicRuleErrorActionCloudwatchLogsArgs) ToTopicRuleErrorActionCloudwatch
 // TopicRuleErrorActionCloudwatchLogsPtrInput is an input type that accepts TopicRuleErrorActionCloudwatchLogsArgs, TopicRuleErrorActionCloudwatchLogsPtr and TopicRuleErrorActionCloudwatchLogsPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionCloudwatchLogsPtrInput` via:
 //
-//          TopicRuleErrorActionCloudwatchLogsArgs{...}
+//	        TopicRuleErrorActionCloudwatchLogsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionCloudwatchLogsPtrInput interface {
 	pulumi.Input
 
@@ -3922,7 +3922,7 @@ type TopicRuleErrorActionCloudwatchMetric struct {
 // TopicRuleErrorActionCloudwatchMetricInput is an input type that accepts TopicRuleErrorActionCloudwatchMetricArgs and TopicRuleErrorActionCloudwatchMetricOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionCloudwatchMetricInput` via:
 //
-//          TopicRuleErrorActionCloudwatchMetricArgs{...}
+//	TopicRuleErrorActionCloudwatchMetricArgs{...}
 type TopicRuleErrorActionCloudwatchMetricInput interface {
 	pulumi.Input
 
@@ -3968,11 +3968,11 @@ func (i TopicRuleErrorActionCloudwatchMetricArgs) ToTopicRuleErrorActionCloudwat
 // TopicRuleErrorActionCloudwatchMetricPtrInput is an input type that accepts TopicRuleErrorActionCloudwatchMetricArgs, TopicRuleErrorActionCloudwatchMetricPtr and TopicRuleErrorActionCloudwatchMetricPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionCloudwatchMetricPtrInput` via:
 //
-//          TopicRuleErrorActionCloudwatchMetricArgs{...}
+//	        TopicRuleErrorActionCloudwatchMetricArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionCloudwatchMetricPtrInput interface {
 	pulumi.Input
 
@@ -4162,7 +4162,7 @@ type TopicRuleErrorActionDynamodb struct {
 // TopicRuleErrorActionDynamodbInput is an input type that accepts TopicRuleErrorActionDynamodbArgs and TopicRuleErrorActionDynamodbOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionDynamodbInput` via:
 //
-//          TopicRuleErrorActionDynamodbArgs{...}
+//	TopicRuleErrorActionDynamodbArgs{...}
 type TopicRuleErrorActionDynamodbInput interface {
 	pulumi.Input
 
@@ -4216,11 +4216,11 @@ func (i TopicRuleErrorActionDynamodbArgs) ToTopicRuleErrorActionDynamodbPtrOutpu
 // TopicRuleErrorActionDynamodbPtrInput is an input type that accepts TopicRuleErrorActionDynamodbArgs, TopicRuleErrorActionDynamodbPtr and TopicRuleErrorActionDynamodbPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionDynamodbPtrInput` via:
 //
-//          TopicRuleErrorActionDynamodbArgs{...}
+//	        TopicRuleErrorActionDynamodbArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionDynamodbPtrInput interface {
 	pulumi.Input
 
@@ -4454,7 +4454,7 @@ type TopicRuleErrorActionDynamodbv2 struct {
 // TopicRuleErrorActionDynamodbv2Input is an input type that accepts TopicRuleErrorActionDynamodbv2Args and TopicRuleErrorActionDynamodbv2Output values.
 // You can construct a concrete instance of `TopicRuleErrorActionDynamodbv2Input` via:
 //
-//          TopicRuleErrorActionDynamodbv2Args{...}
+//	TopicRuleErrorActionDynamodbv2Args{...}
 type TopicRuleErrorActionDynamodbv2Input interface {
 	pulumi.Input
 
@@ -4492,11 +4492,11 @@ func (i TopicRuleErrorActionDynamodbv2Args) ToTopicRuleErrorActionDynamodbv2PtrO
 // TopicRuleErrorActionDynamodbv2PtrInput is an input type that accepts TopicRuleErrorActionDynamodbv2Args, TopicRuleErrorActionDynamodbv2Ptr and TopicRuleErrorActionDynamodbv2PtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionDynamodbv2PtrInput` via:
 //
-//          TopicRuleErrorActionDynamodbv2Args{...}
+//	        TopicRuleErrorActionDynamodbv2Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionDynamodbv2PtrInput interface {
 	pulumi.Input
 
@@ -4608,7 +4608,7 @@ type TopicRuleErrorActionDynamodbv2PutItem struct {
 // TopicRuleErrorActionDynamodbv2PutItemInput is an input type that accepts TopicRuleErrorActionDynamodbv2PutItemArgs and TopicRuleErrorActionDynamodbv2PutItemOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionDynamodbv2PutItemInput` via:
 //
-//          TopicRuleErrorActionDynamodbv2PutItemArgs{...}
+//	TopicRuleErrorActionDynamodbv2PutItemArgs{...}
 type TopicRuleErrorActionDynamodbv2PutItemInput interface {
 	pulumi.Input
 
@@ -4644,11 +4644,11 @@ func (i TopicRuleErrorActionDynamodbv2PutItemArgs) ToTopicRuleErrorActionDynamod
 // TopicRuleErrorActionDynamodbv2PutItemPtrInput is an input type that accepts TopicRuleErrorActionDynamodbv2PutItemArgs, TopicRuleErrorActionDynamodbv2PutItemPtr and TopicRuleErrorActionDynamodbv2PutItemPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionDynamodbv2PutItemPtrInput` via:
 //
-//          TopicRuleErrorActionDynamodbv2PutItemArgs{...}
+//	        TopicRuleErrorActionDynamodbv2PutItemArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionDynamodbv2PutItemPtrInput interface {
 	pulumi.Input
 
@@ -4753,7 +4753,7 @@ type TopicRuleErrorActionElasticsearch struct {
 // TopicRuleErrorActionElasticsearchInput is an input type that accepts TopicRuleErrorActionElasticsearchArgs and TopicRuleErrorActionElasticsearchOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionElasticsearchInput` via:
 //
-//          TopicRuleErrorActionElasticsearchArgs{...}
+//	TopicRuleErrorActionElasticsearchArgs{...}
 type TopicRuleErrorActionElasticsearchInput interface {
 	pulumi.Input
 
@@ -4797,11 +4797,11 @@ func (i TopicRuleErrorActionElasticsearchArgs) ToTopicRuleErrorActionElasticsear
 // TopicRuleErrorActionElasticsearchPtrInput is an input type that accepts TopicRuleErrorActionElasticsearchArgs, TopicRuleErrorActionElasticsearchPtr and TopicRuleErrorActionElasticsearchPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionElasticsearchPtrInput` via:
 //
-//          TopicRuleErrorActionElasticsearchArgs{...}
+//	        TopicRuleErrorActionElasticsearchArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionElasticsearchPtrInput interface {
 	pulumi.Input
 
@@ -4962,7 +4962,7 @@ type TopicRuleErrorActionFirehose struct {
 // TopicRuleErrorActionFirehoseInput is an input type that accepts TopicRuleErrorActionFirehoseArgs and TopicRuleErrorActionFirehoseOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionFirehoseInput` via:
 //
-//          TopicRuleErrorActionFirehoseArgs{...}
+//	TopicRuleErrorActionFirehoseArgs{...}
 type TopicRuleErrorActionFirehoseInput interface {
 	pulumi.Input
 
@@ -5002,11 +5002,11 @@ func (i TopicRuleErrorActionFirehoseArgs) ToTopicRuleErrorActionFirehosePtrOutpu
 // TopicRuleErrorActionFirehosePtrInput is an input type that accepts TopicRuleErrorActionFirehoseArgs, TopicRuleErrorActionFirehosePtr and TopicRuleErrorActionFirehosePtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionFirehosePtrInput` via:
 //
-//          TopicRuleErrorActionFirehoseArgs{...}
+//	        TopicRuleErrorActionFirehoseArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionFirehosePtrInput interface {
 	pulumi.Input
 
@@ -5137,7 +5137,7 @@ type TopicRuleErrorActionHttp struct {
 // TopicRuleErrorActionHttpInput is an input type that accepts TopicRuleErrorActionHttpArgs and TopicRuleErrorActionHttpOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionHttpInput` via:
 //
-//          TopicRuleErrorActionHttpArgs{...}
+//	TopicRuleErrorActionHttpArgs{...}
 type TopicRuleErrorActionHttpInput interface {
 	pulumi.Input
 
@@ -5177,11 +5177,11 @@ func (i TopicRuleErrorActionHttpArgs) ToTopicRuleErrorActionHttpPtrOutputWithCon
 // TopicRuleErrorActionHttpPtrInput is an input type that accepts TopicRuleErrorActionHttpArgs, TopicRuleErrorActionHttpPtr and TopicRuleErrorActionHttpPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionHttpPtrInput` via:
 //
-//          TopicRuleErrorActionHttpArgs{...}
+//	        TopicRuleErrorActionHttpArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionHttpPtrInput interface {
 	pulumi.Input
 
@@ -5310,7 +5310,7 @@ type TopicRuleErrorActionHttpHttpHeader struct {
 // TopicRuleErrorActionHttpHttpHeaderInput is an input type that accepts TopicRuleErrorActionHttpHttpHeaderArgs and TopicRuleErrorActionHttpHttpHeaderOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionHttpHttpHeaderInput` via:
 //
-//          TopicRuleErrorActionHttpHttpHeaderArgs{...}
+//	TopicRuleErrorActionHttpHttpHeaderArgs{...}
 type TopicRuleErrorActionHttpHttpHeaderInput interface {
 	pulumi.Input
 
@@ -5340,7 +5340,7 @@ func (i TopicRuleErrorActionHttpHttpHeaderArgs) ToTopicRuleErrorActionHttpHttpHe
 // TopicRuleErrorActionHttpHttpHeaderArrayInput is an input type that accepts TopicRuleErrorActionHttpHttpHeaderArray and TopicRuleErrorActionHttpHttpHeaderArrayOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionHttpHttpHeaderArrayInput` via:
 //
-//          TopicRuleErrorActionHttpHttpHeaderArray{ TopicRuleErrorActionHttpHttpHeaderArgs{...} }
+//	TopicRuleErrorActionHttpHttpHeaderArray{ TopicRuleErrorActionHttpHttpHeaderArgs{...} }
 type TopicRuleErrorActionHttpHttpHeaderArrayInput interface {
 	pulumi.Input
 
@@ -5416,7 +5416,7 @@ type TopicRuleErrorActionIotAnalytics struct {
 // TopicRuleErrorActionIotAnalyticsInput is an input type that accepts TopicRuleErrorActionIotAnalyticsArgs and TopicRuleErrorActionIotAnalyticsOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionIotAnalyticsInput` via:
 //
-//          TopicRuleErrorActionIotAnalyticsArgs{...}
+//	TopicRuleErrorActionIotAnalyticsArgs{...}
 type TopicRuleErrorActionIotAnalyticsInput interface {
 	pulumi.Input
 
@@ -5454,11 +5454,11 @@ func (i TopicRuleErrorActionIotAnalyticsArgs) ToTopicRuleErrorActionIotAnalytics
 // TopicRuleErrorActionIotAnalyticsPtrInput is an input type that accepts TopicRuleErrorActionIotAnalyticsArgs, TopicRuleErrorActionIotAnalyticsPtr and TopicRuleErrorActionIotAnalyticsPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionIotAnalyticsPtrInput` via:
 //
-//          TopicRuleErrorActionIotAnalyticsArgs{...}
+//	        TopicRuleErrorActionIotAnalyticsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionIotAnalyticsPtrInput interface {
 	pulumi.Input
 
@@ -5574,7 +5574,7 @@ type TopicRuleErrorActionIotEvents struct {
 // TopicRuleErrorActionIotEventsInput is an input type that accepts TopicRuleErrorActionIotEventsArgs and TopicRuleErrorActionIotEventsOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionIotEventsInput` via:
 //
-//          TopicRuleErrorActionIotEventsArgs{...}
+//	TopicRuleErrorActionIotEventsArgs{...}
 type TopicRuleErrorActionIotEventsInput interface {
 	pulumi.Input
 
@@ -5614,11 +5614,11 @@ func (i TopicRuleErrorActionIotEventsArgs) ToTopicRuleErrorActionIotEventsPtrOut
 // TopicRuleErrorActionIotEventsPtrInput is an input type that accepts TopicRuleErrorActionIotEventsArgs, TopicRuleErrorActionIotEventsPtr and TopicRuleErrorActionIotEventsPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionIotEventsPtrInput` via:
 //
-//          TopicRuleErrorActionIotEventsArgs{...}
+//	        TopicRuleErrorActionIotEventsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionIotEventsPtrInput interface {
 	pulumi.Input
 
@@ -5753,7 +5753,7 @@ type TopicRuleErrorActionKafka struct {
 // TopicRuleErrorActionKafkaInput is an input type that accepts TopicRuleErrorActionKafkaArgs and TopicRuleErrorActionKafkaOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionKafkaInput` via:
 //
-//          TopicRuleErrorActionKafkaArgs{...}
+//	TopicRuleErrorActionKafkaArgs{...}
 type TopicRuleErrorActionKafkaInput interface {
 	pulumi.Input
 
@@ -5797,11 +5797,11 @@ func (i TopicRuleErrorActionKafkaArgs) ToTopicRuleErrorActionKafkaPtrOutputWithC
 // TopicRuleErrorActionKafkaPtrInput is an input type that accepts TopicRuleErrorActionKafkaArgs, TopicRuleErrorActionKafkaPtr and TopicRuleErrorActionKafkaPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionKafkaPtrInput` via:
 //
-//          TopicRuleErrorActionKafkaArgs{...}
+//	        TopicRuleErrorActionKafkaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionKafkaPtrInput interface {
 	pulumi.Input
 
@@ -5962,7 +5962,7 @@ type TopicRuleErrorActionKinesis struct {
 // TopicRuleErrorActionKinesisInput is an input type that accepts TopicRuleErrorActionKinesisArgs and TopicRuleErrorActionKinesisOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionKinesisInput` via:
 //
-//          TopicRuleErrorActionKinesisArgs{...}
+//	TopicRuleErrorActionKinesisArgs{...}
 type TopicRuleErrorActionKinesisInput interface {
 	pulumi.Input
 
@@ -6002,11 +6002,11 @@ func (i TopicRuleErrorActionKinesisArgs) ToTopicRuleErrorActionKinesisPtrOutputW
 // TopicRuleErrorActionKinesisPtrInput is an input type that accepts TopicRuleErrorActionKinesisArgs, TopicRuleErrorActionKinesisPtr and TopicRuleErrorActionKinesisPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionKinesisPtrInput` via:
 //
-//          TopicRuleErrorActionKinesisArgs{...}
+//	        TopicRuleErrorActionKinesisArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionKinesisPtrInput interface {
 	pulumi.Input
 
@@ -6133,7 +6133,7 @@ type TopicRuleErrorActionLambda struct {
 // TopicRuleErrorActionLambdaInput is an input type that accepts TopicRuleErrorActionLambdaArgs and TopicRuleErrorActionLambdaOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionLambdaInput` via:
 //
-//          TopicRuleErrorActionLambdaArgs{...}
+//	TopicRuleErrorActionLambdaArgs{...}
 type TopicRuleErrorActionLambdaInput interface {
 	pulumi.Input
 
@@ -6169,11 +6169,11 @@ func (i TopicRuleErrorActionLambdaArgs) ToTopicRuleErrorActionLambdaPtrOutputWit
 // TopicRuleErrorActionLambdaPtrInput is an input type that accepts TopicRuleErrorActionLambdaArgs, TopicRuleErrorActionLambdaPtr and TopicRuleErrorActionLambdaPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionLambdaPtrInput` via:
 //
-//          TopicRuleErrorActionLambdaArgs{...}
+//	        TopicRuleErrorActionLambdaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionLambdaPtrInput interface {
 	pulumi.Input
 
@@ -6274,7 +6274,7 @@ type TopicRuleErrorActionRepublish struct {
 // TopicRuleErrorActionRepublishInput is an input type that accepts TopicRuleErrorActionRepublishArgs and TopicRuleErrorActionRepublishOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionRepublishInput` via:
 //
-//          TopicRuleErrorActionRepublishArgs{...}
+//	TopicRuleErrorActionRepublishArgs{...}
 type TopicRuleErrorActionRepublishInput interface {
 	pulumi.Input
 
@@ -6314,11 +6314,11 @@ func (i TopicRuleErrorActionRepublishArgs) ToTopicRuleErrorActionRepublishPtrOut
 // TopicRuleErrorActionRepublishPtrInput is an input type that accepts TopicRuleErrorActionRepublishArgs, TopicRuleErrorActionRepublishPtr and TopicRuleErrorActionRepublishPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionRepublishPtrInput` via:
 //
-//          TopicRuleErrorActionRepublishArgs{...}
+//	        TopicRuleErrorActionRepublishArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionRepublishPtrInput interface {
 	pulumi.Input
 
@@ -6451,7 +6451,7 @@ type TopicRuleErrorActionS3 struct {
 // TopicRuleErrorActionS3Input is an input type that accepts TopicRuleErrorActionS3Args and TopicRuleErrorActionS3Output values.
 // You can construct a concrete instance of `TopicRuleErrorActionS3Input` via:
 //
-//          TopicRuleErrorActionS3Args{...}
+//	TopicRuleErrorActionS3Args{...}
 type TopicRuleErrorActionS3Input interface {
 	pulumi.Input
 
@@ -6493,11 +6493,11 @@ func (i TopicRuleErrorActionS3Args) ToTopicRuleErrorActionS3PtrOutputWithContext
 // TopicRuleErrorActionS3PtrInput is an input type that accepts TopicRuleErrorActionS3Args, TopicRuleErrorActionS3Ptr and TopicRuleErrorActionS3PtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionS3PtrInput` via:
 //
-//          TopicRuleErrorActionS3Args{...}
+//	        TopicRuleErrorActionS3Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionS3PtrInput interface {
 	pulumi.Input
 
@@ -6643,7 +6643,7 @@ type TopicRuleErrorActionSns struct {
 // TopicRuleErrorActionSnsInput is an input type that accepts TopicRuleErrorActionSnsArgs and TopicRuleErrorActionSnsOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionSnsInput` via:
 //
-//          TopicRuleErrorActionSnsArgs{...}
+//	TopicRuleErrorActionSnsArgs{...}
 type TopicRuleErrorActionSnsInput interface {
 	pulumi.Input
 
@@ -6683,11 +6683,11 @@ func (i TopicRuleErrorActionSnsArgs) ToTopicRuleErrorActionSnsPtrOutputWithConte
 // TopicRuleErrorActionSnsPtrInput is an input type that accepts TopicRuleErrorActionSnsArgs, TopicRuleErrorActionSnsPtr and TopicRuleErrorActionSnsPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionSnsPtrInput` via:
 //
-//          TopicRuleErrorActionSnsArgs{...}
+//	        TopicRuleErrorActionSnsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionSnsPtrInput interface {
 	pulumi.Input
 
@@ -6818,7 +6818,7 @@ type TopicRuleErrorActionSqs struct {
 // TopicRuleErrorActionSqsInput is an input type that accepts TopicRuleErrorActionSqsArgs and TopicRuleErrorActionSqsOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionSqsInput` via:
 //
-//          TopicRuleErrorActionSqsArgs{...}
+//	TopicRuleErrorActionSqsArgs{...}
 type TopicRuleErrorActionSqsInput interface {
 	pulumi.Input
 
@@ -6858,11 +6858,11 @@ func (i TopicRuleErrorActionSqsArgs) ToTopicRuleErrorActionSqsPtrOutputWithConte
 // TopicRuleErrorActionSqsPtrInput is an input type that accepts TopicRuleErrorActionSqsArgs, TopicRuleErrorActionSqsPtr and TopicRuleErrorActionSqsPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionSqsPtrInput` via:
 //
-//          TopicRuleErrorActionSqsArgs{...}
+//	        TopicRuleErrorActionSqsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionSqsPtrInput interface {
 	pulumi.Input
 
@@ -6993,7 +6993,7 @@ type TopicRuleErrorActionStepFunctions struct {
 // TopicRuleErrorActionStepFunctionsInput is an input type that accepts TopicRuleErrorActionStepFunctionsArgs and TopicRuleErrorActionStepFunctionsOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionStepFunctionsInput` via:
 //
-//          TopicRuleErrorActionStepFunctionsArgs{...}
+//	TopicRuleErrorActionStepFunctionsArgs{...}
 type TopicRuleErrorActionStepFunctionsInput interface {
 	pulumi.Input
 
@@ -7033,11 +7033,11 @@ func (i TopicRuleErrorActionStepFunctionsArgs) ToTopicRuleErrorActionStepFunctio
 // TopicRuleErrorActionStepFunctionsPtrInput is an input type that accepts TopicRuleErrorActionStepFunctionsArgs, TopicRuleErrorActionStepFunctionsPtr and TopicRuleErrorActionStepFunctionsPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionStepFunctionsPtrInput` via:
 //
-//          TopicRuleErrorActionStepFunctionsArgs{...}
+//	        TopicRuleErrorActionStepFunctionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionStepFunctionsPtrInput interface {
 	pulumi.Input
 
@@ -7172,7 +7172,7 @@ type TopicRuleErrorActionTimestream struct {
 // TopicRuleErrorActionTimestreamInput is an input type that accepts TopicRuleErrorActionTimestreamArgs and TopicRuleErrorActionTimestreamOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionTimestreamInput` via:
 //
-//          TopicRuleErrorActionTimestreamArgs{...}
+//	TopicRuleErrorActionTimestreamArgs{...}
 type TopicRuleErrorActionTimestreamInput interface {
 	pulumi.Input
 
@@ -7216,11 +7216,11 @@ func (i TopicRuleErrorActionTimestreamArgs) ToTopicRuleErrorActionTimestreamPtrO
 // TopicRuleErrorActionTimestreamPtrInput is an input type that accepts TopicRuleErrorActionTimestreamArgs, TopicRuleErrorActionTimestreamPtr and TopicRuleErrorActionTimestreamPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionTimestreamPtrInput` via:
 //
-//          TopicRuleErrorActionTimestreamArgs{...}
+//	        TopicRuleErrorActionTimestreamArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionTimestreamPtrInput interface {
 	pulumi.Input
 
@@ -7379,7 +7379,7 @@ type TopicRuleErrorActionTimestreamDimension struct {
 // TopicRuleErrorActionTimestreamDimensionInput is an input type that accepts TopicRuleErrorActionTimestreamDimensionArgs and TopicRuleErrorActionTimestreamDimensionOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionTimestreamDimensionInput` via:
 //
-//          TopicRuleErrorActionTimestreamDimensionArgs{...}
+//	TopicRuleErrorActionTimestreamDimensionArgs{...}
 type TopicRuleErrorActionTimestreamDimensionInput interface {
 	pulumi.Input
 
@@ -7409,7 +7409,7 @@ func (i TopicRuleErrorActionTimestreamDimensionArgs) ToTopicRuleErrorActionTimes
 // TopicRuleErrorActionTimestreamDimensionArrayInput is an input type that accepts TopicRuleErrorActionTimestreamDimensionArray and TopicRuleErrorActionTimestreamDimensionArrayOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionTimestreamDimensionArrayInput` via:
 //
-//          TopicRuleErrorActionTimestreamDimensionArray{ TopicRuleErrorActionTimestreamDimensionArgs{...} }
+//	TopicRuleErrorActionTimestreamDimensionArray{ TopicRuleErrorActionTimestreamDimensionArgs{...} }
 type TopicRuleErrorActionTimestreamDimensionArrayInput interface {
 	pulumi.Input
 
@@ -7485,7 +7485,7 @@ type TopicRuleErrorActionTimestreamTimestamp struct {
 // TopicRuleErrorActionTimestreamTimestampInput is an input type that accepts TopicRuleErrorActionTimestreamTimestampArgs and TopicRuleErrorActionTimestreamTimestampOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionTimestreamTimestampInput` via:
 //
-//          TopicRuleErrorActionTimestreamTimestampArgs{...}
+//	TopicRuleErrorActionTimestreamTimestampArgs{...}
 type TopicRuleErrorActionTimestreamTimestampInput interface {
 	pulumi.Input
 
@@ -7523,11 +7523,11 @@ func (i TopicRuleErrorActionTimestreamTimestampArgs) ToTopicRuleErrorActionTimes
 // TopicRuleErrorActionTimestreamTimestampPtrInput is an input type that accepts TopicRuleErrorActionTimestreamTimestampArgs, TopicRuleErrorActionTimestreamTimestampPtr and TopicRuleErrorActionTimestreamTimestampPtrOutput values.
 // You can construct a concrete instance of `TopicRuleErrorActionTimestreamTimestampPtrInput` via:
 //
-//          TopicRuleErrorActionTimestreamTimestampArgs{...}
+//	        TopicRuleErrorActionTimestreamTimestampArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleErrorActionTimestreamTimestampPtrInput interface {
 	pulumi.Input
 
@@ -7643,7 +7643,7 @@ type TopicRuleFirehose struct {
 // TopicRuleFirehoseInput is an input type that accepts TopicRuleFirehoseArgs and TopicRuleFirehoseOutput values.
 // You can construct a concrete instance of `TopicRuleFirehoseInput` via:
 //
-//          TopicRuleFirehoseArgs{...}
+//	TopicRuleFirehoseArgs{...}
 type TopicRuleFirehoseInput interface {
 	pulumi.Input
 
@@ -7683,11 +7683,11 @@ func (i TopicRuleFirehoseArgs) ToTopicRuleFirehosePtrOutputWithContext(ctx conte
 // TopicRuleFirehosePtrInput is an input type that accepts TopicRuleFirehoseArgs, TopicRuleFirehosePtr and TopicRuleFirehosePtrOutput values.
 // You can construct a concrete instance of `TopicRuleFirehosePtrInput` via:
 //
-//          TopicRuleFirehoseArgs{...}
+//	        TopicRuleFirehoseArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleFirehosePtrInput interface {
 	pulumi.Input
 
@@ -7818,7 +7818,7 @@ type TopicRuleHttp struct {
 // TopicRuleHttpInput is an input type that accepts TopicRuleHttpArgs and TopicRuleHttpOutput values.
 // You can construct a concrete instance of `TopicRuleHttpInput` via:
 //
-//          TopicRuleHttpArgs{...}
+//	TopicRuleHttpArgs{...}
 type TopicRuleHttpInput interface {
 	pulumi.Input
 
@@ -7850,7 +7850,7 @@ func (i TopicRuleHttpArgs) ToTopicRuleHttpOutputWithContext(ctx context.Context)
 // TopicRuleHttpArrayInput is an input type that accepts TopicRuleHttpArray and TopicRuleHttpArrayOutput values.
 // You can construct a concrete instance of `TopicRuleHttpArrayInput` via:
 //
-//          TopicRuleHttpArray{ TopicRuleHttpArgs{...} }
+//	TopicRuleHttpArray{ TopicRuleHttpArgs{...} }
 type TopicRuleHttpArrayInput interface {
 	pulumi.Input
 
@@ -7931,7 +7931,7 @@ type TopicRuleHttpHttpHeader struct {
 // TopicRuleHttpHttpHeaderInput is an input type that accepts TopicRuleHttpHttpHeaderArgs and TopicRuleHttpHttpHeaderOutput values.
 // You can construct a concrete instance of `TopicRuleHttpHttpHeaderInput` via:
 //
-//          TopicRuleHttpHttpHeaderArgs{...}
+//	TopicRuleHttpHttpHeaderArgs{...}
 type TopicRuleHttpHttpHeaderInput interface {
 	pulumi.Input
 
@@ -7961,7 +7961,7 @@ func (i TopicRuleHttpHttpHeaderArgs) ToTopicRuleHttpHttpHeaderOutputWithContext(
 // TopicRuleHttpHttpHeaderArrayInput is an input type that accepts TopicRuleHttpHttpHeaderArray and TopicRuleHttpHttpHeaderArrayOutput values.
 // You can construct a concrete instance of `TopicRuleHttpHttpHeaderArrayInput` via:
 //
-//          TopicRuleHttpHttpHeaderArray{ TopicRuleHttpHttpHeaderArgs{...} }
+//	TopicRuleHttpHttpHeaderArray{ TopicRuleHttpHttpHeaderArgs{...} }
 type TopicRuleHttpHttpHeaderArrayInput interface {
 	pulumi.Input
 
@@ -8037,7 +8037,7 @@ type TopicRuleIotAnalytic struct {
 // TopicRuleIotAnalyticInput is an input type that accepts TopicRuleIotAnalyticArgs and TopicRuleIotAnalyticOutput values.
 // You can construct a concrete instance of `TopicRuleIotAnalyticInput` via:
 //
-//          TopicRuleIotAnalyticArgs{...}
+//	TopicRuleIotAnalyticArgs{...}
 type TopicRuleIotAnalyticInput interface {
 	pulumi.Input
 
@@ -8067,7 +8067,7 @@ func (i TopicRuleIotAnalyticArgs) ToTopicRuleIotAnalyticOutputWithContext(ctx co
 // TopicRuleIotAnalyticArrayInput is an input type that accepts TopicRuleIotAnalyticArray and TopicRuleIotAnalyticArrayOutput values.
 // You can construct a concrete instance of `TopicRuleIotAnalyticArrayInput` via:
 //
-//          TopicRuleIotAnalyticArray{ TopicRuleIotAnalyticArgs{...} }
+//	TopicRuleIotAnalyticArray{ TopicRuleIotAnalyticArgs{...} }
 type TopicRuleIotAnalyticArrayInput interface {
 	pulumi.Input
 
@@ -8145,7 +8145,7 @@ type TopicRuleIotEvent struct {
 // TopicRuleIotEventInput is an input type that accepts TopicRuleIotEventArgs and TopicRuleIotEventOutput values.
 // You can construct a concrete instance of `TopicRuleIotEventInput` via:
 //
-//          TopicRuleIotEventArgs{...}
+//	TopicRuleIotEventArgs{...}
 type TopicRuleIotEventInput interface {
 	pulumi.Input
 
@@ -8177,7 +8177,7 @@ func (i TopicRuleIotEventArgs) ToTopicRuleIotEventOutputWithContext(ctx context.
 // TopicRuleIotEventArrayInput is an input type that accepts TopicRuleIotEventArray and TopicRuleIotEventArrayOutput values.
 // You can construct a concrete instance of `TopicRuleIotEventArrayInput` via:
 //
-//          TopicRuleIotEventArray{ TopicRuleIotEventArgs{...} }
+//	TopicRuleIotEventArray{ TopicRuleIotEventArgs{...} }
 type TopicRuleIotEventArrayInput interface {
 	pulumi.Input
 
@@ -8264,7 +8264,7 @@ type TopicRuleKafka struct {
 // TopicRuleKafkaInput is an input type that accepts TopicRuleKafkaArgs and TopicRuleKafkaOutput values.
 // You can construct a concrete instance of `TopicRuleKafkaInput` via:
 //
-//          TopicRuleKafkaArgs{...}
+//	TopicRuleKafkaArgs{...}
 type TopicRuleKafkaInput interface {
 	pulumi.Input
 
@@ -8300,7 +8300,7 @@ func (i TopicRuleKafkaArgs) ToTopicRuleKafkaOutputWithContext(ctx context.Contex
 // TopicRuleKafkaArrayInput is an input type that accepts TopicRuleKafkaArray and TopicRuleKafkaArrayOutput values.
 // You can construct a concrete instance of `TopicRuleKafkaArrayInput` via:
 //
-//          TopicRuleKafkaArray{ TopicRuleKafkaArgs{...} }
+//	TopicRuleKafkaArray{ TopicRuleKafkaArgs{...} }
 type TopicRuleKafkaArrayInput interface {
 	pulumi.Input
 
@@ -8393,7 +8393,7 @@ type TopicRuleKinesis struct {
 // TopicRuleKinesisInput is an input type that accepts TopicRuleKinesisArgs and TopicRuleKinesisOutput values.
 // You can construct a concrete instance of `TopicRuleKinesisInput` via:
 //
-//          TopicRuleKinesisArgs{...}
+//	TopicRuleKinesisArgs{...}
 type TopicRuleKinesisInput interface {
 	pulumi.Input
 
@@ -8433,11 +8433,11 @@ func (i TopicRuleKinesisArgs) ToTopicRuleKinesisPtrOutputWithContext(ctx context
 // TopicRuleKinesisPtrInput is an input type that accepts TopicRuleKinesisArgs, TopicRuleKinesisPtr and TopicRuleKinesisPtrOutput values.
 // You can construct a concrete instance of `TopicRuleKinesisPtrInput` via:
 //
-//          TopicRuleKinesisArgs{...}
+//	        TopicRuleKinesisArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleKinesisPtrInput interface {
 	pulumi.Input
 
@@ -8564,7 +8564,7 @@ type TopicRuleLambda struct {
 // TopicRuleLambdaInput is an input type that accepts TopicRuleLambdaArgs and TopicRuleLambdaOutput values.
 // You can construct a concrete instance of `TopicRuleLambdaInput` via:
 //
-//          TopicRuleLambdaArgs{...}
+//	TopicRuleLambdaArgs{...}
 type TopicRuleLambdaInput interface {
 	pulumi.Input
 
@@ -8600,11 +8600,11 @@ func (i TopicRuleLambdaArgs) ToTopicRuleLambdaPtrOutputWithContext(ctx context.C
 // TopicRuleLambdaPtrInput is an input type that accepts TopicRuleLambdaArgs, TopicRuleLambdaPtr and TopicRuleLambdaPtrOutput values.
 // You can construct a concrete instance of `TopicRuleLambdaPtrInput` via:
 //
-//          TopicRuleLambdaArgs{...}
+//	        TopicRuleLambdaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleLambdaPtrInput interface {
 	pulumi.Input
 
@@ -8705,7 +8705,7 @@ type TopicRuleRepublish struct {
 // TopicRuleRepublishInput is an input type that accepts TopicRuleRepublishArgs and TopicRuleRepublishOutput values.
 // You can construct a concrete instance of `TopicRuleRepublishInput` via:
 //
-//          TopicRuleRepublishArgs{...}
+//	TopicRuleRepublishArgs{...}
 type TopicRuleRepublishInput interface {
 	pulumi.Input
 
@@ -8745,11 +8745,11 @@ func (i TopicRuleRepublishArgs) ToTopicRuleRepublishPtrOutputWithContext(ctx con
 // TopicRuleRepublishPtrInput is an input type that accepts TopicRuleRepublishArgs, TopicRuleRepublishPtr and TopicRuleRepublishPtrOutput values.
 // You can construct a concrete instance of `TopicRuleRepublishPtrInput` via:
 //
-//          TopicRuleRepublishArgs{...}
+//	        TopicRuleRepublishArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleRepublishPtrInput interface {
 	pulumi.Input
 
@@ -8882,7 +8882,7 @@ type TopicRuleS3 struct {
 // TopicRuleS3Input is an input type that accepts TopicRuleS3Args and TopicRuleS3Output values.
 // You can construct a concrete instance of `TopicRuleS3Input` via:
 //
-//          TopicRuleS3Args{...}
+//	TopicRuleS3Args{...}
 type TopicRuleS3Input interface {
 	pulumi.Input
 
@@ -8924,11 +8924,11 @@ func (i TopicRuleS3Args) ToTopicRuleS3PtrOutputWithContext(ctx context.Context) 
 // TopicRuleS3PtrInput is an input type that accepts TopicRuleS3Args, TopicRuleS3Ptr and TopicRuleS3PtrOutput values.
 // You can construct a concrete instance of `TopicRuleS3PtrInput` via:
 //
-//          TopicRuleS3Args{...}
+//	        TopicRuleS3Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleS3PtrInput interface {
 	pulumi.Input
 
@@ -9074,7 +9074,7 @@ type TopicRuleSns struct {
 // TopicRuleSnsInput is an input type that accepts TopicRuleSnsArgs and TopicRuleSnsOutput values.
 // You can construct a concrete instance of `TopicRuleSnsInput` via:
 //
-//          TopicRuleSnsArgs{...}
+//	TopicRuleSnsArgs{...}
 type TopicRuleSnsInput interface {
 	pulumi.Input
 
@@ -9114,11 +9114,11 @@ func (i TopicRuleSnsArgs) ToTopicRuleSnsPtrOutputWithContext(ctx context.Context
 // TopicRuleSnsPtrInput is an input type that accepts TopicRuleSnsArgs, TopicRuleSnsPtr and TopicRuleSnsPtrOutput values.
 // You can construct a concrete instance of `TopicRuleSnsPtrInput` via:
 //
-//          TopicRuleSnsArgs{...}
+//	        TopicRuleSnsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleSnsPtrInput interface {
 	pulumi.Input
 
@@ -9249,7 +9249,7 @@ type TopicRuleSqs struct {
 // TopicRuleSqsInput is an input type that accepts TopicRuleSqsArgs and TopicRuleSqsOutput values.
 // You can construct a concrete instance of `TopicRuleSqsInput` via:
 //
-//          TopicRuleSqsArgs{...}
+//	TopicRuleSqsArgs{...}
 type TopicRuleSqsInput interface {
 	pulumi.Input
 
@@ -9289,11 +9289,11 @@ func (i TopicRuleSqsArgs) ToTopicRuleSqsPtrOutputWithContext(ctx context.Context
 // TopicRuleSqsPtrInput is an input type that accepts TopicRuleSqsArgs, TopicRuleSqsPtr and TopicRuleSqsPtrOutput values.
 // You can construct a concrete instance of `TopicRuleSqsPtrInput` via:
 //
-//          TopicRuleSqsArgs{...}
+//	        TopicRuleSqsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleSqsPtrInput interface {
 	pulumi.Input
 
@@ -9424,7 +9424,7 @@ type TopicRuleStepFunction struct {
 // TopicRuleStepFunctionInput is an input type that accepts TopicRuleStepFunctionArgs and TopicRuleStepFunctionOutput values.
 // You can construct a concrete instance of `TopicRuleStepFunctionInput` via:
 //
-//          TopicRuleStepFunctionArgs{...}
+//	TopicRuleStepFunctionArgs{...}
 type TopicRuleStepFunctionInput interface {
 	pulumi.Input
 
@@ -9456,7 +9456,7 @@ func (i TopicRuleStepFunctionArgs) ToTopicRuleStepFunctionOutputWithContext(ctx 
 // TopicRuleStepFunctionArrayInput is an input type that accepts TopicRuleStepFunctionArray and TopicRuleStepFunctionArrayOutput values.
 // You can construct a concrete instance of `TopicRuleStepFunctionArrayInput` via:
 //
-//          TopicRuleStepFunctionArray{ TopicRuleStepFunctionArgs{...} }
+//	TopicRuleStepFunctionArray{ TopicRuleStepFunctionArgs{...} }
 type TopicRuleStepFunctionArrayInput interface {
 	pulumi.Input
 
@@ -9543,7 +9543,7 @@ type TopicRuleTimestream struct {
 // TopicRuleTimestreamInput is an input type that accepts TopicRuleTimestreamArgs and TopicRuleTimestreamOutput values.
 // You can construct a concrete instance of `TopicRuleTimestreamInput` via:
 //
-//          TopicRuleTimestreamArgs{...}
+//	TopicRuleTimestreamArgs{...}
 type TopicRuleTimestreamInput interface {
 	pulumi.Input
 
@@ -9579,7 +9579,7 @@ func (i TopicRuleTimestreamArgs) ToTopicRuleTimestreamOutputWithContext(ctx cont
 // TopicRuleTimestreamArrayInput is an input type that accepts TopicRuleTimestreamArray and TopicRuleTimestreamArrayOutput values.
 // You can construct a concrete instance of `TopicRuleTimestreamArrayInput` via:
 //
-//          TopicRuleTimestreamArray{ TopicRuleTimestreamArgs{...} }
+//	TopicRuleTimestreamArray{ TopicRuleTimestreamArgs{...} }
 type TopicRuleTimestreamArrayInput interface {
 	pulumi.Input
 
@@ -9670,7 +9670,7 @@ type TopicRuleTimestreamDimension struct {
 // TopicRuleTimestreamDimensionInput is an input type that accepts TopicRuleTimestreamDimensionArgs and TopicRuleTimestreamDimensionOutput values.
 // You can construct a concrete instance of `TopicRuleTimestreamDimensionInput` via:
 //
-//          TopicRuleTimestreamDimensionArgs{...}
+//	TopicRuleTimestreamDimensionArgs{...}
 type TopicRuleTimestreamDimensionInput interface {
 	pulumi.Input
 
@@ -9700,7 +9700,7 @@ func (i TopicRuleTimestreamDimensionArgs) ToTopicRuleTimestreamDimensionOutputWi
 // TopicRuleTimestreamDimensionArrayInput is an input type that accepts TopicRuleTimestreamDimensionArray and TopicRuleTimestreamDimensionArrayOutput values.
 // You can construct a concrete instance of `TopicRuleTimestreamDimensionArrayInput` via:
 //
-//          TopicRuleTimestreamDimensionArray{ TopicRuleTimestreamDimensionArgs{...} }
+//	TopicRuleTimestreamDimensionArray{ TopicRuleTimestreamDimensionArgs{...} }
 type TopicRuleTimestreamDimensionArrayInput interface {
 	pulumi.Input
 
@@ -9776,7 +9776,7 @@ type TopicRuleTimestreamTimestamp struct {
 // TopicRuleTimestreamTimestampInput is an input type that accepts TopicRuleTimestreamTimestampArgs and TopicRuleTimestreamTimestampOutput values.
 // You can construct a concrete instance of `TopicRuleTimestreamTimestampInput` via:
 //
-//          TopicRuleTimestreamTimestampArgs{...}
+//	TopicRuleTimestreamTimestampArgs{...}
 type TopicRuleTimestreamTimestampInput interface {
 	pulumi.Input
 
@@ -9814,11 +9814,11 @@ func (i TopicRuleTimestreamTimestampArgs) ToTopicRuleTimestreamTimestampPtrOutpu
 // TopicRuleTimestreamTimestampPtrInput is an input type that accepts TopicRuleTimestreamTimestampArgs, TopicRuleTimestreamTimestampPtr and TopicRuleTimestreamTimestampPtrOutput values.
 // You can construct a concrete instance of `TopicRuleTimestreamTimestampPtrInput` via:
 //
-//          TopicRuleTimestreamTimestampArgs{...}
+//	        TopicRuleTimestreamTimestampArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TopicRuleTimestreamTimestampPtrInput interface {
 	pulumi.Input
 

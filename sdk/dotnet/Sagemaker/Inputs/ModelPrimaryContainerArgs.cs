@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class ModelPrimaryContainerArgs : Pulumi.ResourceArgs
+    public sealed class ModelPrimaryContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DNS host name for the container.
@@ -58,5 +58,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public ModelPrimaryContainerArgs()
         {
         }
+        public static new ModelPrimaryContainerArgs Empty => new ModelPrimaryContainerArgs();
     }
 }

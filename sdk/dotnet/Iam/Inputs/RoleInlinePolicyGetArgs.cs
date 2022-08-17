@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iam.Inputs
 {
 
-    public sealed class RoleInlinePolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class RoleInlinePolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the role policy.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Iam.Inputs
         public RoleInlinePolicyGetArgs()
         {
         }
+        public static new RoleInlinePolicyGetArgs Empty => new RoleInlinePolicyGetArgs();
     }
 }

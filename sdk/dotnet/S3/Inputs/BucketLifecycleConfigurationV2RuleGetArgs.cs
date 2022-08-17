@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketLifecycleConfigurationV2RuleGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketLifecycleConfigurationV2RuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload documented below.
@@ -81,5 +81,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketLifecycleConfigurationV2RuleGetArgs()
         {
         }
+        public static new BucketLifecycleConfigurationV2RuleGetArgs Empty => new BucketLifecycleConfigurationV2RuleGetArgs();
     }
 }

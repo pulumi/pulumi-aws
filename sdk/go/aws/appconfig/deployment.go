@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appconfig.NewDeployment(ctx, "example", &appconfig.DeploymentArgs{
-// 			ApplicationId:          pulumi.Any(aws_appconfig_application.Example.Id),
-// 			ConfigurationProfileId: pulumi.Any(aws_appconfig_configuration_profile.Example.Configuration_profile_id),
-// 			ConfigurationVersion:   pulumi.Any(aws_appconfig_hosted_configuration_version.Example.Version_number),
-// 			DeploymentStrategyId:   pulumi.Any(aws_appconfig_deployment_strategy.Example.Id),
-// 			Description:            pulumi.String("My example deployment"),
-// 			EnvironmentId:          pulumi.Any(aws_appconfig_environment.Example.Environment_id),
-// 			Tags: pulumi.StringMap{
-// 				"Type": pulumi.String("AppConfig Deployment"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appconfig.NewDeployment(ctx, "example", &appconfig.DeploymentArgs{
+//				ApplicationId:          pulumi.Any(aws_appconfig_application.Example.Id),
+//				ConfigurationProfileId: pulumi.Any(aws_appconfig_configuration_profile.Example.Configuration_profile_id),
+//				ConfigurationVersion:   pulumi.Any(aws_appconfig_hosted_configuration_version.Example.Version_number),
+//				DeploymentStrategyId:   pulumi.Any(aws_appconfig_deployment_strategy.Example.Id),
+//				Description:            pulumi.String("My example deployment"),
+//				EnvironmentId:          pulumi.Any(aws_appconfig_environment.Example.Environment_id),
+//				Tags: pulumi.StringMap{
+//					"Type": pulumi.String("AppConfig Deployment"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // AppConfig Deployments can be imported by using the application ID, environment ID, and deployment number separated by a slash (`/`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
+//
+//	$ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
+//
 // ```
 type Deployment struct {
 	pulumi.CustomResourceState
@@ -236,7 +241,7 @@ func (i *Deployment) ToDeploymentOutputWithContext(ctx context.Context) Deployme
 // DeploymentArrayInput is an input type that accepts DeploymentArray and DeploymentArrayOutput values.
 // You can construct a concrete instance of `DeploymentArrayInput` via:
 //
-//          DeploymentArray{ DeploymentArgs{...} }
+//	DeploymentArray{ DeploymentArgs{...} }
 type DeploymentArrayInput interface {
 	pulumi.Input
 
@@ -261,7 +266,7 @@ func (i DeploymentArray) ToDeploymentArrayOutputWithContext(ctx context.Context)
 // DeploymentMapInput is an input type that accepts DeploymentMap and DeploymentMapOutput values.
 // You can construct a concrete instance of `DeploymentMapInput` via:
 //
-//          DeploymentMap{ "key": DeploymentArgs{...} }
+//	DeploymentMap{ "key": DeploymentArgs{...} }
 type DeploymentMapInput interface {
 	pulumi.Input
 

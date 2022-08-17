@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CostExplorer.Inputs
 {
 
-    public sealed class CostCategoryRuleRuleAndArgs : Pulumi.ResourceArgs
+    public sealed class CostCategoryRuleRuleAndArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for the filter that's based on `CostCategory` values. See below.
@@ -24,14 +24,12 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         [Input("dimension")]
         public Input<Inputs.CostCategoryRuleRuleAndDimensionArgs>? Dimension { get; set; }
 
-        /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Input("tags")]
         public Input<Inputs.CostCategoryRuleRuleAndTagsArgs>? Tags { get; set; }
 
         public CostCategoryRuleRuleAndArgs()
         {
         }
+        public static new CostCategoryRuleRuleAndArgs Empty => new CostCategoryRuleRuleAndArgs();
     }
 }

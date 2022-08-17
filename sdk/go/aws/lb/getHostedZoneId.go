@@ -18,35 +18,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		main, err := lb.GetHostedZoneId(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
-// 			ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
-// 			Name:   pulumi.String("example.com"),
-// 			Type:   pulumi.String("A"),
-// 			Aliases: route53.RecordAliasArray{
-// 				&route53.RecordAliasArgs{
-// 					Name:                 pulumi.Any(aws_lb.Main.Dns_name),
-// 					ZoneId:               pulumi.String(main.Id),
-// 					EvaluateTargetHealth: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := lb.GetHostedZoneId(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
+//				ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
+//				Name:   pulumi.String("example.com"),
+//				Type:   pulumi.String("A"),
+//				Aliases: route53.RecordAliasArray{
+//					&route53.RecordAliasArgs{
+//						Name:                 pulumi.Any(aws_lb.Main.Dns_name),
+//						ZoneId:               pulumi.String(main.Id),
+//						EvaluateTargetHealth: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetHostedZoneId(ctx *pulumi.Context, args *GetHostedZoneIdArgs, opts ...pulumi.InvokeOption) (*GetHostedZoneIdResult, error) {
 	var rv GetHostedZoneIdResult

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm.Inputs
 {
 
-    public sealed class PatchBaselineSourceGetArgs : Pulumi.ResourceArgs
+    public sealed class PatchBaselineSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         public PatchBaselineSourceGetArgs()
         {
         }
+        public static new PatchBaselineSourceGetArgs Empty => new PatchBaselineSourceGetArgs();
     }
 }

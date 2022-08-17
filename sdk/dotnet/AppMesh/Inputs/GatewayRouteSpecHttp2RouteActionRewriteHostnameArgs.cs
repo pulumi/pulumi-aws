@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs()
         {
         }
+        public static new GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs Empty => new GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs();
     }
 }

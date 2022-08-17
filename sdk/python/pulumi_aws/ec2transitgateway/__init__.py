@@ -22,6 +22,7 @@ from .multicast_domain_association import *
 from .multicast_group_member import *
 from .multicast_group_source import *
 from .peering_attachment import *
+from .peering_attachment_accepter import *
 from .prefix_list_reference import *
 from .route import *
 from .route_table import *

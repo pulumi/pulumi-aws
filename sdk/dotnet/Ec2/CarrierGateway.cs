@@ -15,24 +15,22 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.CarrierGateway("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.CarrierGateway("example", new Aws.Ec2.CarrierGatewayArgs
+    ///         VpcId = aws_vpc.Example.Id,
+    ///         Tags = 
     ///         {
-    ///             VpcId = aws_vpc.Example.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example-carrier-gateway" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "example-carrier-gateway" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/carrierGateway:CarrierGateway")]
-    public partial class CarrierGateway : Pulumi.CustomResource
+    public partial class CarrierGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the carrier gateway.
@@ -120,7 +118,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class CarrierGatewayArgs : Pulumi.ResourceArgs
+    public sealed class CarrierGatewayArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -143,9 +141,10 @@ namespace Pulumi.Aws.Ec2
         public CarrierGatewayArgs()
         {
         }
+        public static new CarrierGatewayArgs Empty => new CarrierGatewayArgs();
     }
 
-    public sealed class CarrierGatewayState : Pulumi.ResourceArgs
+    public sealed class CarrierGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the carrier gateway.
@@ -192,5 +191,6 @@ namespace Pulumi.Aws.Ec2
         public CarrierGatewayState()
         {
         }
+        public static new CarrierGatewayState Empty => new CarrierGatewayState();
     }
 }

@@ -15,24 +15,22 @@ namespace Pulumi.Aws.Location
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Location.Map("example", new()
     ///     {
-    ///         var example = new Aws.Location.Map("example", new Aws.Location.MapArgs
+    ///         Configuration = new Aws.Location.Inputs.MapConfigurationArgs
     ///         {
-    ///             Configuration = new Aws.Location.Inputs.MapConfigurationArgs
-    ///             {
-    ///                 Style = "VectorHereBerlin",
-    ///             },
-    ///             MapName = "example",
-    ///         });
-    ///     }
+    ///             Style = "VectorHereBerlin",
+    ///         },
+    ///         MapName = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.Location
     /// ```
     /// </summary>
     [AwsResourceType("aws:location/map:Map")]
-    public partial class Map : Pulumi.CustomResource
+    public partial class Map : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Configuration block with the map style selected from an available data provider. Detailed below.
@@ -132,7 +130,7 @@ namespace Pulumi.Aws.Location
         }
     }
 
-    public sealed class MapArgs : Pulumi.ResourceArgs
+    public sealed class MapArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block with the map style selected from an available data provider. Detailed below.
@@ -163,9 +161,10 @@ namespace Pulumi.Aws.Location
         public MapArgs()
         {
         }
+        public static new MapArgs Empty => new MapArgs();
     }
 
-    public sealed class MapState : Pulumi.ResourceArgs
+    public sealed class MapState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block with the map style selected from an available data provider. Detailed below.
@@ -222,5 +221,6 @@ namespace Pulumi.Aws.Location
         public MapState()
         {
         }
+        public static new MapState Empty => new MapState();
     }
 }

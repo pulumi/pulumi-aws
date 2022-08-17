@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class GetComponentsFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetComponentsFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public GetComponentsFilterInputArgs()
         {
         }
+        public static new GetComponentsFilterInputArgs Empty => new GetComponentsFilterInputArgs();
     }
 }

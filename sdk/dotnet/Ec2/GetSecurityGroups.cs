@@ -20,59 +20,55 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Ec2.GetSecurityGroups.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Ec2.GetSecurityGroups.InvokeAsync(new Aws.Ec2.GetSecurityGroupsArgs
+        ///         Tags = 
         ///         {
-        ///             Tags = 
-        ///             {
-        ///                 { "Application", "k8s" },
-        ///                 { "Environment", "dev" },
-        ///             },
-        ///         }));
-        ///     }
+        ///             { "Application", "k8s" },
+        ///             { "Environment", "dev" },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Ec2.GetSecurityGroups.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Ec2.GetSecurityGroups.InvokeAsync(new Aws.Ec2.GetSecurityGroupsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetSecurityGroupsFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetSecurityGroupsFilterArgs
+        ///                 Name = "group-name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "group-name",
-        ///                     Values = 
-        ///                     {
-        ///                         "*nodes*",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2.Inputs.GetSecurityGroupsFilterArgs
-        ///                 {
-        ///                     Name = "vpc-id",
-        ///                     Values = 
-        ///                     {
-        ///                         @var.Vpc_id,
-        ///                     },
+        ///                     "*nodes*",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///             new Aws.Ec2.Inputs.GetSecurityGroupsFilterInputArgs
+        ///             {
+        ///                 Name = "vpc-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     @var.Vpc_id,
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -89,59 +85,55 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Ec2.GetSecurityGroups.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Ec2.GetSecurityGroups.InvokeAsync(new Aws.Ec2.GetSecurityGroupsArgs
+        ///         Tags = 
         ///         {
-        ///             Tags = 
-        ///             {
-        ///                 { "Application", "k8s" },
-        ///                 { "Environment", "dev" },
-        ///             },
-        ///         }));
-        ///     }
+        ///             { "Application", "k8s" },
+        ///             { "Environment", "dev" },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Ec2.GetSecurityGroups.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Ec2.GetSecurityGroups.InvokeAsync(new Aws.Ec2.GetSecurityGroupsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetSecurityGroupsFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetSecurityGroupsFilterArgs
+        ///                 Name = "group-name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "group-name",
-        ///                     Values = 
-        ///                     {
-        ///                         "*nodes*",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2.Inputs.GetSecurityGroupsFilterArgs
-        ///                 {
-        ///                     Name = "vpc-id",
-        ///                     Values = 
-        ///                     {
-        ///                         @var.Vpc_id,
-        ///                     },
+        ///                     "*nodes*",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///             new Aws.Ec2.Inputs.GetSecurityGroupsFilterInputArgs
+        ///             {
+        ///                 Name = "vpc-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     @var.Vpc_id,
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -151,7 +143,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetSecurityGroupsArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityGroupsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetSecurityGroupsFilterArgs>? _filters;
@@ -180,9 +172,10 @@ namespace Pulumi.Aws.Ec2
         public GetSecurityGroupsArgs()
         {
         }
+        public static new GetSecurityGroupsArgs Empty => new GetSecurityGroupsArgs();
     }
 
-    public sealed class GetSecurityGroupsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSecurityGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetSecurityGroupsFilterInputArgs>? _filters;
@@ -211,6 +204,7 @@ namespace Pulumi.Aws.Ec2
         public GetSecurityGroupsInvokeArgs()
         {
         }
+        public static new GetSecurityGroupsInvokeArgs Empty => new GetSecurityGroupsInvokeArgs();
     }
 
 

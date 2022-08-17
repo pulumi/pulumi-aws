@@ -22,27 +22,25 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new load balancer attachment
+    ///     var baz = new Aws.Elb.Attachment("baz", new()
     ///     {
-    ///         // Create a new load balancer attachment
-    ///         var baz = new Aws.Elb.Attachment("baz", new Aws.Elb.AttachmentArgs
-    ///         {
-    ///             Elb = aws_elb.Bar.Id,
-    ///             Instance = aws_instance.Foo.Id,
-    ///         });
-    ///     }
+    ///         Elb = aws_elb.Bar.Id,
+    ///         Instance = aws_instance.Foo.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [Obsolete(@"aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment")]
     [AwsResourceType("aws:elasticloadbalancing/attachment:Attachment")]
-    public partial class Attachment : Pulumi.CustomResource
+    public partial class Attachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the ELB.
@@ -100,7 +98,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         }
     }
 
-    public sealed class AttachmentArgs : Pulumi.ResourceArgs
+    public sealed class AttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the ELB.
@@ -117,9 +115,10 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         public AttachmentArgs()
         {
         }
+        public static new AttachmentArgs Empty => new AttachmentArgs();
     }
 
-    public sealed class AttachmentState : Pulumi.ResourceArgs
+    public sealed class AttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the ELB.
@@ -136,5 +135,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         public AttachmentState()
         {
         }
+        public static new AttachmentState Empty => new AttachmentState();
     }
 }

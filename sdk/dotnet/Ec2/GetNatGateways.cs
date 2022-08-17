@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetNatGatewaysArgs : Pulumi.InvokeArgs
+    public sealed class GetNatGatewaysArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetNatGatewaysFilterArgs>? _filters;
@@ -61,9 +61,10 @@ namespace Pulumi.Aws.Ec2
         public GetNatGatewaysArgs()
         {
         }
+        public static new GetNatGatewaysArgs Empty => new GetNatGatewaysArgs();
     }
 
-    public sealed class GetNatGatewaysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNatGatewaysInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetNatGatewaysFilterInputArgs>? _filters;
@@ -99,6 +100,7 @@ namespace Pulumi.Aws.Ec2
         public GetNatGatewaysInvokeArgs()
         {
         }
+        public static new GetNatGatewaysInvokeArgs Empty => new GetNatGatewaysInvokeArgs();
     }
 
 

@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = securityhub.NewMember(ctx, "exampleMember", &securityhub.MemberArgs{
-// 			AccountId: pulumi.String("123456789012"),
-// 			Email:     pulumi.String("example@example.com"),
-// 			Invite:    pulumi.Bool(true),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleAccount,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewMember(ctx, "exampleMember", &securityhub.MemberArgs{
+//				AccountId: pulumi.String("123456789012"),
+//				Email:     pulumi.String("example@example.com"),
+//				Invite:    pulumi.Bool(true),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAccount,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Security Hub members can be imported using their account ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:securityhub/member:Member example 123456789012
+//
+//	$ pulumi import aws:securityhub/member:Member example 123456789012
+//
 // ```
 type Member struct {
 	pulumi.CustomResourceState
@@ -175,7 +180,7 @@ func (i *Member) ToMemberOutputWithContext(ctx context.Context) MemberOutput {
 // MemberArrayInput is an input type that accepts MemberArray and MemberArrayOutput values.
 // You can construct a concrete instance of `MemberArrayInput` via:
 //
-//          MemberArray{ MemberArgs{...} }
+//	MemberArray{ MemberArgs{...} }
 type MemberArrayInput interface {
 	pulumi.Input
 
@@ -200,7 +205,7 @@ func (i MemberArray) ToMemberArrayOutputWithContext(ctx context.Context) MemberA
 // MemberMapInput is an input type that accepts MemberMap and MemberMapOutput values.
 // You can construct a concrete instance of `MemberMapInput` via:
 //
-//          MemberMap{ "key": MemberArgs{...} }
+//	MemberMap{ "key": MemberArgs{...} }
 type MemberMapInput interface {
 	pulumi.Input
 

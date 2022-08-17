@@ -21,41 +21,37 @@ namespace Pulumi.Aws.Connect
         /// By `name`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetContactFlowModule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetContactFlowModule.InvokeAsync(new Aws.Connect.GetContactFlowModuleArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             Name = "example",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// By `contact_flow_module_id`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetContactFlowModule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetContactFlowModule.InvokeAsync(new Aws.Connect.GetContactFlowModuleArgs
-        ///         {
-        ///             ContactFlowModuleId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         }));
-        ///     }
+        ///         ContactFlowModuleId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,41 +69,37 @@ namespace Pulumi.Aws.Connect
         /// By `name`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetContactFlowModule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetContactFlowModule.InvokeAsync(new Aws.Connect.GetContactFlowModuleArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             Name = "example",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// By `contact_flow_module_id`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetContactFlowModule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetContactFlowModule.InvokeAsync(new Aws.Connect.GetContactFlowModuleArgs
-        ///         {
-        ///             ContactFlowModuleId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         }));
-        ///     }
+        ///         ContactFlowModuleId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -117,7 +109,7 @@ namespace Pulumi.Aws.Connect
     }
 
 
-    public sealed class GetContactFlowModuleArgs : Pulumi.InvokeArgs
+    public sealed class GetContactFlowModuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Returns information on a specific Contact Flow Module by contact flow module id
@@ -152,9 +144,10 @@ namespace Pulumi.Aws.Connect
         public GetContactFlowModuleArgs()
         {
         }
+        public static new GetContactFlowModuleArgs Empty => new GetContactFlowModuleArgs();
     }
 
-    public sealed class GetContactFlowModuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetContactFlowModuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Returns information on a specific Contact Flow Module by contact flow module id
@@ -189,6 +182,7 @@ namespace Pulumi.Aws.Connect
         public GetContactFlowModuleInvokeArgs()
         {
         }
+        public static new GetContactFlowModuleInvokeArgs Empty => new GetContactFlowModuleInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DataSync.Inputs
 {
 
-    public sealed class FsxOpenZfsFileSystemProtocolArgs : Pulumi.ResourceArgs
+    public sealed class FsxOpenZfsFileSystemProtocolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.DataSync.Inputs
         public FsxOpenZfsFileSystemProtocolArgs()
         {
         }
+        public static new FsxOpenZfsFileSystemProtocolArgs Empty => new FsxOpenZfsFileSystemProtocolArgs();
     }
 }

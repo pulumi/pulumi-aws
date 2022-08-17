@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersGetArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersGetArgs Empty => new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersGetArgs();
     }
 }

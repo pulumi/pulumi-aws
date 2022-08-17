@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterConfigurationInfoArgs : Pulumi.ResourceArgs
+    public sealed class ClusterConfigurationInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterConfigurationInfoArgs()
         {
         }
+        public static new ClusterConfigurationInfoArgs Empty => new ClusterConfigurationInfoArgs();
     }
 }

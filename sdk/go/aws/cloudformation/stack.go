@@ -18,47 +18,51 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudformation"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudformation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudformation.NewStack(ctx, "network", &cloudformation.StackArgs{
-// 			Parameters: pulumi.StringMap{
-// 				"VPCCidr": pulumi.String("10.0.0.0/16"),
-// 			},
-// 			TemplateBody: pulumi.String(fmt.Sprintf(`{
-//   "Parameters" : {
-//     "VPCCidr" : {
-//       "Type" : "String",
-//       "Default" : "10.0.0.0/16",
-//       "Description" : "Enter the CIDR block for the VPC. Default is 10.0.0.0/16."
-//     }
-//   },
-//   "Resources" : {
-//     "myVpc": {
-//       "Type" : "AWS::EC2::VPC",
-//       "Properties" : {
-//         "CidrBlock" : { "Ref" : "VPCCidr" },
-//         "Tags" : [
-//           {"Key": "Name", "Value": "Primary_CF_VPC"}
-//         ]
-//       }
-//     }
-//   }
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudformation.NewStack(ctx, "network", &cloudformation.StackArgs{
+//				Parameters: pulumi.StringMap{
+//					"VPCCidr": pulumi.String("10.0.0.0/16"),
+//				},
+//				TemplateBody: pulumi.String(fmt.Sprintf(`{
+//	  "Parameters" : {
+//	    "VPCCidr" : {
+//	      "Type" : "String",
+//	      "Default" : "10.0.0.0/16",
+//	      "Description" : "Enter the CIDR block for the VPC. Default is 10.0.0.0/16."
+//	    }
+//	  },
+//	  "Resources" : {
+//	    "myVpc": {
+//	      "Type" : "AWS::EC2::VPC",
+//	      "Properties" : {
+//	        "CidrBlock" : { "Ref" : "VPCCidr" },
+//	        "Tags" : [
+//	          {"Key": "Name", "Value": "Primary_CF_VPC"}
+//	        ]
+//	      }
+//	    }
+//	  }
+//	}
 //
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -66,7 +70,9 @@ import (
 // Cloudformation Stacks can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
+//
+//	$ pulumi import aws:cloudformation/stack:Stack stack networking-stack
+//
 // ```
 type Stack struct {
 	pulumi.CustomResourceState
@@ -98,7 +104,7 @@ type Stack struct {
 	PolicyUrl pulumi.StringPtrOutput `pulumi:"policyUrl"`
 	// Map of resource tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Structure containing the template body (max size: 51,200 bytes).
 	TemplateBody pulumi.StringOutput `pulumi:"templateBody"`
@@ -164,7 +170,7 @@ type stackState struct {
 	PolicyUrl *string `pulumi:"policyUrl"`
 	// Map of resource tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Structure containing the template body (max size: 51,200 bytes).
 	TemplateBody *string `pulumi:"templateBody"`
@@ -202,7 +208,7 @@ type StackState struct {
 	PolicyUrl pulumi.StringPtrInput
 	// Map of resource tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Structure containing the template body (max size: 51,200 bytes).
 	TemplateBody pulumi.StringPtrInput
@@ -311,7 +317,7 @@ func (i *Stack) ToStackOutputWithContext(ctx context.Context) StackOutput {
 // StackArrayInput is an input type that accepts StackArray and StackArrayOutput values.
 // You can construct a concrete instance of `StackArrayInput` via:
 //
-//          StackArray{ StackArgs{...} }
+//	StackArray{ StackArgs{...} }
 type StackArrayInput interface {
 	pulumi.Input
 
@@ -336,7 +342,7 @@ func (i StackArray) ToStackArrayOutputWithContext(ctx context.Context) StackArra
 // StackMapInput is an input type that accepts StackMap and StackMapOutput values.
 // You can construct a concrete instance of `StackMapInput` via:
 //
-//          StackMap{ "key": StackArgs{...} }
+//	StackMap{ "key": StackArgs{...} }
 type StackMapInput interface {
 	pulumi.Input
 
@@ -432,7 +438,7 @@ func (o StackOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o StackOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

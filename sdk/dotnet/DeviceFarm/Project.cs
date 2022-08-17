@@ -20,19 +20,15 @@ namespace Pulumi.Aws.DeviceFarm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var awesomeDevices = new Aws.DeviceFarm.Project("awesomeDevices", new Aws.DeviceFarm.ProjectArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var awesomeDevices = new Aws.DeviceFarm.Project("awesomeDevices");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +40,7 @@ namespace Pulumi.Aws.DeviceFarm
     /// ```
     /// </summary>
     [AwsResourceType("aws:devicefarm/project:Project")]
-    public partial class Project : Pulumi.CustomResource
+    public partial class Project : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name of this project
@@ -120,7 +116,7 @@ namespace Pulumi.Aws.DeviceFarm
         }
     }
 
-    public sealed class ProjectArgs : Pulumi.ResourceArgs
+    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
@@ -149,9 +145,10 @@ namespace Pulumi.Aws.DeviceFarm
         public ProjectArgs()
         {
         }
+        public static new ProjectArgs Empty => new ProjectArgs();
     }
 
-    public sealed class ProjectState : Pulumi.ResourceArgs
+    public sealed class ProjectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name of this project
@@ -198,5 +195,6 @@ namespace Pulumi.Aws.DeviceFarm
         public ProjectState()
         {
         }
+        public static new ProjectState Empty => new ProjectState();
     }
 }

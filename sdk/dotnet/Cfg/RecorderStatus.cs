@@ -17,33 +17,33 @@ namespace Pulumi.Aws.Cfg
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var bucketV2 = new Aws.S3.BucketV2("bucketV2");
+    /// 
+    ///     var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("fooDeliveryChannel", new()
     ///     {
-    ///         var bucketV2 = new Aws.S3.BucketV2("bucketV2", new Aws.S3.BucketV2Args
+    ///         S3BucketName = bucketV2.Bucket,
+    ///     });
+    /// 
+    ///     var fooRecorderStatus = new Aws.Cfg.RecorderStatus("fooRecorderStatus", new()
+    ///     {
+    ///         IsEnabled = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///         });
-    ///         var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("fooDeliveryChannel", new Aws.Cfg.DeliveryChannelArgs
-    ///         {
-    ///             S3BucketName = bucketV2.Bucket,
-    ///         });
-    ///         var fooRecorderStatus = new Aws.Cfg.RecorderStatus("fooRecorderStatus", new Aws.Cfg.RecorderStatusArgs
-    ///         {
-    ///             IsEnabled = true,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 fooDeliveryChannel,
-    ///             },
-    ///         });
-    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///             fooDeliveryChannel,
+    ///         },
+    ///     });
+    /// 
+    ///     var role = new Aws.Iam.Role("role", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -57,24 +57,27 @@ namespace Pulumi.Aws.Cfg
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var rolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("rolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
+    ///     });
+    /// 
+    ///     var rolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("rolePolicyAttachment", new()
+    ///     {
+    ///         Role = role.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
+    ///     });
+    /// 
+    ///     var fooRecorder = new Aws.Cfg.Recorder("fooRecorder", new()
+    ///     {
+    ///         RoleArn = role.Arn,
+    ///     });
+    /// 
+    ///     var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new()
+    ///     {
+    ///         Role = role.Id,
+    ///         Policy = Output.Tuple(bucketV2.Arn, bucketV2.Arn).Apply(values =&gt;
     ///         {
-    ///             Role = role.Name,
-    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
-    ///         });
-    ///         var fooRecorder = new Aws.Cfg.Recorder("fooRecorder", new Aws.Cfg.RecorderArgs
-    ///         {
-    ///             RoleArn = role.Arn,
-    ///         });
-    ///         var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = role.Id,
-    ///             Policy = Output.Tuple(bucketV2.Arn, bucketV2.Arn).Apply(values =&gt;
-    ///             {
-    ///                 var bucketV2Arn = values.Item1;
-    ///                 var bucketV2Arn1 = values.Item2;
-    ///                 return @$"{{
+    ///             var bucketV2Arn = values.Item1;
+    ///             var bucketV2Arn1 = values.Item2;
+    ///             return @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {{
@@ -90,11 +93,10 @@ namespace Pulumi.Aws.Cfg
     ///   ]
     /// }}
     /// ";
-    ///             }),
-    ///         });
-    ///     }
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -106,7 +108,7 @@ namespace Pulumi.Aws.Cfg
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/recorderStatus:RecorderStatus")]
-    public partial class RecorderStatus : Pulumi.CustomResource
+    public partial class RecorderStatus : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the configuration recorder should be enabled or disabled.
@@ -164,7 +166,7 @@ namespace Pulumi.Aws.Cfg
         }
     }
 
-    public sealed class RecorderStatusArgs : Pulumi.ResourceArgs
+    public sealed class RecorderStatusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the configuration recorder should be enabled or disabled.
@@ -181,9 +183,10 @@ namespace Pulumi.Aws.Cfg
         public RecorderStatusArgs()
         {
         }
+        public static new RecorderStatusArgs Empty => new RecorderStatusArgs();
     }
 
-    public sealed class RecorderStatusState : Pulumi.ResourceArgs
+    public sealed class RecorderStatusState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the configuration recorder should be enabled or disabled.
@@ -200,5 +203,6 @@ namespace Pulumi.Aws.Cfg
         public RecorderStatusState()
         {
         }
+        public static new RecorderStatusState Empty => new RecorderStatusState();
     }
 }

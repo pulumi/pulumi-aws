@@ -20,24 +20,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicecatalog.NewServiceAction(ctx, "example", &servicecatalog.ServiceActionArgs{
-// 			Definition: &servicecatalog.ServiceActionDefinitionArgs{
-// 				Name: pulumi.String("AWS-RestartEC2Instance"),
-// 			},
-// 			Description: pulumi.String("Motor generator unit"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicecatalog.NewServiceAction(ctx, "example", &servicecatalog.ServiceActionArgs{
+//				Definition: &servicecatalog.ServiceActionDefinitionArgs{
+//					Name: pulumi.String("AWS-RestartEC2Instance"),
+//				},
+//				Description: pulumi.String("Motor generator unit"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // `aws_servicecatalog_service_action` can be imported using the service action ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
+//
+//	$ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
+//
 // ```
 type ServiceAction struct {
 	pulumi.CustomResourceState
@@ -166,7 +171,7 @@ func (i *ServiceAction) ToServiceActionOutputWithContext(ctx context.Context) Se
 // ServiceActionArrayInput is an input type that accepts ServiceActionArray and ServiceActionArrayOutput values.
 // You can construct a concrete instance of `ServiceActionArrayInput` via:
 //
-//          ServiceActionArray{ ServiceActionArgs{...} }
+//	ServiceActionArray{ ServiceActionArgs{...} }
 type ServiceActionArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +196,7 @@ func (i ServiceActionArray) ToServiceActionArrayOutputWithContext(ctx context.Co
 // ServiceActionMapInput is an input type that accepts ServiceActionMap and ServiceActionMapOutput values.
 // You can construct a concrete instance of `ServiceActionMapInput` via:
 //
-//          ServiceActionMap{ "key": ServiceActionArgs{...} }
+//	ServiceActionMap{ "key": ServiceActionArgs{...} }
 type ServiceActionMapInput interface {
 	pulumi.Input
 

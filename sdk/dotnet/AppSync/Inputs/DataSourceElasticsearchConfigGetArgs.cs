@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppSync.Inputs
 {
 
-    public sealed class DataSourceElasticsearchConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceElasticsearchConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// HTTP URL.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppSync.Inputs
         public DataSourceElasticsearchConfigGetArgs()
         {
         }
+        public static new DataSourceElasticsearchConfigGetArgs Empty => new DataSourceElasticsearchConfigGetArgs();
     }
 }

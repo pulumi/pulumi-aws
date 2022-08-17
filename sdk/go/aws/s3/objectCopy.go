@@ -19,32 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := s3.NewObjectCopy(ctx, "test", &s3.ObjectCopyArgs{
-// 			Bucket: pulumi.String("destination_bucket"),
-// 			Grants: s3.ObjectCopyGrantArray{
-// 				&s3.ObjectCopyGrantArgs{
-// 					Permissions: pulumi.StringArray{
-// 						pulumi.String("READ"),
-// 					},
-// 					Type: pulumi.String("Group"),
-// 					Uri:  pulumi.String("http://acs.amazonaws.com/groups/global/AllUsers"),
-// 				},
-// 			},
-// 			Key:    pulumi.String("destination_key"),
-// 			Source: pulumi.String("source_bucket/source_key"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewObjectCopy(ctx, "test", &s3.ObjectCopyArgs{
+//				Bucket: pulumi.String("destination_bucket"),
+//				Grants: s3.ObjectCopyGrantArray{
+//					&s3.ObjectCopyGrantArgs{
+//						Permissions: pulumi.StringArray{
+//							pulumi.String("READ"),
+//						},
+//						Type: pulumi.String("Group"),
+//						Uri:  pulumi.String("http://acs.amazonaws.com/groups/global/AllUsers"),
+//					},
+//				},
+//				Key:    pulumi.String("destination_key"),
+//				Source: pulumi.String("source_bucket/source_key"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type ObjectCopy struct {
 	pulumi.CustomResourceState
@@ -132,7 +135,7 @@ type ObjectCopy struct {
 	TaggingDirective pulumi.StringPtrOutput `pulumi:"taggingDirective"`
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Version ID of the newly created copy.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
@@ -261,7 +264,7 @@ type objectCopyState struct {
 	TaggingDirective *string `pulumi:"taggingDirective"`
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Version ID of the newly created copy.
 	VersionId *string `pulumi:"versionId"`
@@ -353,7 +356,7 @@ type ObjectCopyState struct {
 	TaggingDirective pulumi.StringPtrInput
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Version ID of the newly created copy.
 	VersionId pulumi.StringPtrInput
@@ -548,7 +551,7 @@ func (i *ObjectCopy) ToObjectCopyOutputWithContext(ctx context.Context) ObjectCo
 // ObjectCopyArrayInput is an input type that accepts ObjectCopyArray and ObjectCopyArrayOutput values.
 // You can construct a concrete instance of `ObjectCopyArrayInput` via:
 //
-//          ObjectCopyArray{ ObjectCopyArgs{...} }
+//	ObjectCopyArray{ ObjectCopyArgs{...} }
 type ObjectCopyArrayInput interface {
 	pulumi.Input
 
@@ -573,7 +576,7 @@ func (i ObjectCopyArray) ToObjectCopyArrayOutputWithContext(ctx context.Context)
 // ObjectCopyMapInput is an input type that accepts ObjectCopyMap and ObjectCopyMapOutput values.
 // You can construct a concrete instance of `ObjectCopyMapInput` via:
 //
-//          ObjectCopyMap{ "key": ObjectCopyArgs{...} }
+//	ObjectCopyMap{ "key": ObjectCopyArgs{...} }
 type ObjectCopyMapInput interface {
 	pulumi.Input
 
@@ -818,7 +821,7 @@ func (o ObjectCopyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ObjectCopyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

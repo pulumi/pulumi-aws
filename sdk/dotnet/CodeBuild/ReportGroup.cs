@@ -15,19 +15,19 @@ namespace Pulumi.Aws.CodeBuild
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
     ///     {
-    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var exampleKey = new Aws.Kms.Key("exampleKey", new Aws.Kms.KeyArgs
-    ///         {
-    ///             Description = "my test kms key",
-    ///             DeletionWindowInDays = 7,
-    ///             Policy = current.Apply(current =&gt; @$"{{
+    ///         Description = "my test kms key",
+    ///         DeletionWindowInDays = 7,
+    ///         Policy = @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Id"": ""kms-tf-1"",
     ///   ""Statement"": [
@@ -35,37 +35,36 @@ namespace Pulumi.Aws.CodeBuild
     ///       ""Sid"": ""Enable IAM User Permissions"",
     ///       ""Effect"": ""Allow"",
     ///       ""Principal"": {{
-    ///         ""AWS"": ""arn:aws:iam::{current.AccountId}:root""
+    ///         ""AWS"": ""arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root""
     ///       }},
     ///       ""Action"": ""kms:*"",
     ///       ""Resource"": ""*""
     ///     }}
     ///   ]
     /// }}
-    /// "),
-    ///         });
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleReportGroup = new Aws.CodeBuild.ReportGroup("exampleReportGroup", new Aws.CodeBuild.ReportGroupArgs
-    ///         {
-    ///             Type = "TEST",
-    ///             ExportConfig = new Aws.CodeBuild.Inputs.ReportGroupExportConfigArgs
-    ///             {
-    ///                 Type = "S3",
-    ///                 S3Destination = new Aws.CodeBuild.Inputs.ReportGroupExportConfigS3DestinationArgs
-    ///                 {
-    ///                     Bucket = exampleBucketV2.Id,
-    ///                     EncryptionDisabled = false,
-    ///                     EncryptionKey = exampleKey.Arn,
-    ///                     Packaging = "NONE",
-    ///                     Path = "/some",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    /// ",
+    ///     });
     /// 
-    /// }
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    /// 
+    ///     var exampleReportGroup = new Aws.CodeBuild.ReportGroup("exampleReportGroup", new()
+    ///     {
+    ///         Type = "TEST",
+    ///         ExportConfig = new Aws.CodeBuild.Inputs.ReportGroupExportConfigArgs
+    ///         {
+    ///             Type = "S3",
+    ///             S3Destination = new Aws.CodeBuild.Inputs.ReportGroupExportConfigS3DestinationArgs
+    ///             {
+    ///                 Bucket = exampleBucketV2.Id,
+    ///                 EncryptionDisabled = false,
+    ///                 EncryptionKey = exampleKey.Arn,
+    ///                 Packaging = "NONE",
+    ///                 Path = "/some",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -77,7 +76,7 @@ namespace Pulumi.Aws.CodeBuild
     /// ```
     /// </summary>
     [AwsResourceType("aws:codebuild/reportGroup:ReportGroup")]
-    public partial class ReportGroup : Pulumi.CustomResource
+    public partial class ReportGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of Report Group.
@@ -116,7 +115,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -171,7 +170,7 @@ namespace Pulumi.Aws.CodeBuild
         }
     }
 
-    public sealed class ReportGroupArgs : Pulumi.ResourceArgs
+    public sealed class ReportGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
@@ -212,9 +211,10 @@ namespace Pulumi.Aws.CodeBuild
         public ReportGroupArgs()
         {
         }
+        public static new ReportGroupArgs Empty => new ReportGroupArgs();
     }
 
-    public sealed class ReportGroupState : Pulumi.ResourceArgs
+    public sealed class ReportGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of Report Group.
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.CodeBuild
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -279,5 +279,6 @@ namespace Pulumi.Aws.CodeBuild
         public ReportGroupState()
         {
         }
+        public static new ReportGroupState Empty => new ReportGroupState();
     }
 }

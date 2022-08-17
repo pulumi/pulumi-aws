@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateNetworkInterfaceGetArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateNetworkInterfaceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value.
@@ -159,5 +159,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateNetworkInterfaceGetArgs()
         {
         }
+        public static new LaunchTemplateNetworkInterfaceGetArgs Empty => new LaunchTemplateNetworkInterfaceGetArgs();
     }
 }

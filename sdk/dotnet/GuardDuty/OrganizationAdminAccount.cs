@@ -15,37 +15,35 @@ namespace Pulumi.Aws.GuardDuty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
     ///     {
-    ///         var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new Aws.Organizations.OrganizationArgs
+    ///         AwsServiceAccessPrincipals = new[]
     ///         {
-    ///             AwsServiceAccessPrincipals = 
-    ///             {
-    ///                 "guardduty.amazonaws.com",
-    ///             },
-    ///             FeatureSet = "ALL",
-    ///         });
-    ///         var exampleDetector = new Aws.GuardDuty.Detector("exampleDetector", new Aws.GuardDuty.DetectorArgs
-    ///         {
-    ///         });
-    ///         var exampleOrganizationAdminAccount = new Aws.GuardDuty.OrganizationAdminAccount("exampleOrganizationAdminAccount", new Aws.GuardDuty.OrganizationAdminAccountArgs
-    ///         {
-    ///             AdminAccountId = "123456789012",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleOrganization,
-    ///             },
-    ///         });
-    ///     }
+    ///             "guardduty.amazonaws.com",
+    ///         },
+    ///         FeatureSet = "ALL",
+    ///     });
     /// 
-    /// }
+    ///     var exampleDetector = new Aws.GuardDuty.Detector("exampleDetector");
+    /// 
+    ///     var exampleOrganizationAdminAccount = new Aws.GuardDuty.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
+    ///     {
+    ///         AdminAccountId = "123456789012",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleOrganization,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +55,7 @@ namespace Pulumi.Aws.GuardDuty
     /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/organizationAdminAccount:OrganizationAdminAccount")]
-    public partial class OrganizationAdminAccount : Pulumi.CustomResource
+    public partial class OrganizationAdminAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// AWS account identifier to designate as a delegated administrator for GuardDuty.
@@ -109,7 +107,7 @@ namespace Pulumi.Aws.GuardDuty
         }
     }
 
-    public sealed class OrganizationAdminAccountArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationAdminAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AWS account identifier to designate as a delegated administrator for GuardDuty.
@@ -120,9 +118,10 @@ namespace Pulumi.Aws.GuardDuty
         public OrganizationAdminAccountArgs()
         {
         }
+        public static new OrganizationAdminAccountArgs Empty => new OrganizationAdminAccountArgs();
     }
 
-    public sealed class OrganizationAdminAccountState : Pulumi.ResourceArgs
+    public sealed class OrganizationAdminAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AWS account identifier to designate as a delegated administrator for GuardDuty.
@@ -133,5 +132,6 @@ namespace Pulumi.Aws.GuardDuty
         public OrganizationAdminAccountState()
         {
         }
+        public static new OrganizationAdminAccountState Empty => new OrganizationAdminAccountState();
     }
 }

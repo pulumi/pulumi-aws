@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cfg.Inputs
 {
 
-    public sealed class ConfigurationAggregatorAccountAggregationSourceGetArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationAggregatorAccountAggregationSourceGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountIds", required: true)]
         private InputList<string>? _accountIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Cfg.Inputs
         public ConfigurationAggregatorAccountAggregationSourceGetArgs()
         {
         }
+        public static new ConfigurationAggregatorAccountAggregationSourceGetArgs Empty => new ConfigurationAggregatorAccountAggregationSourceGetArgs();
     }
 }

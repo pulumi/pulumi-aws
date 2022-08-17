@@ -27,7 +27,7 @@ namespace Pulumi.Aws.AppFlow
     ///  [1]https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html [2]https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
     /// </summary>
     [AwsResourceType("aws:appflow/connectorProfile:ConnectorProfile")]
-    public partial class ConnectorProfile : Pulumi.CustomResource
+    public partial class ConnectorProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the connector profile.
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.AppFlow
         }
     }
 
-    public sealed class ConnectorProfileArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
@@ -156,9 +156,10 @@ namespace Pulumi.Aws.AppFlow
         public ConnectorProfileArgs()
         {
         }
+        public static new ConnectorProfileArgs Empty => new ConnectorProfileArgs();
     }
 
-    public sealed class ConnectorProfileState : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the connector profile.
@@ -208,5 +209,6 @@ namespace Pulumi.Aws.AppFlow
         public ConnectorProfileState()
         {
         }
+        public static new ConnectorProfileState Empty => new ConnectorProfileState();
     }
 }

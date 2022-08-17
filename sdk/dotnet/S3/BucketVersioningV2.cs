@@ -14,62 +14,58 @@ namespace Pulumi.Aws.S3
     /// ### With Versioning Enabled
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             Acl = "private",
-    ///         });
-    ///         var versioningExample = new Aws.S3.BucketVersioningV2("versioningExample", new Aws.S3.BucketVersioningV2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
-    ///             {
-    ///                 Status = "Enabled",
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
-    /// }
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var versioningExample = new Aws.S3.BucketVersioningV2("versioningExample", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         {
+    ///             Status = "Enabled",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### With Versioning Disabled
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             Acl = "private",
-    ///         });
-    ///         var versioningExample = new Aws.S3.BucketVersioningV2("versioningExample", new Aws.S3.BucketVersioningV2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
-    ///             {
-    ///                 Status = "Disabled",
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
-    /// }
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var versioningExample = new Aws.S3.BucketVersioningV2("versioningExample", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         {
+    ///             Status = "Disabled",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Object Dependency On Versioning
     /// 
@@ -80,33 +76,31 @@ namespace Pulumi.Aws.S3
     /// This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `bucket`:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("exampleBucketVersioningV2", new Aws.S3.BucketVersioningV2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
-    ///             {
-    ///                 Status = "Enabled",
-    ///             },
-    ///         });
-    ///         var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new Aws.S3.BucketObjectv2Args
-    ///         {
-    ///             Bucket = exampleBucketVersioningV2.Bucket,
-    ///             Key = "droeloe",
-    ///             Source = new FileAsset("example.txt"),
-    ///         });
-    ///     }
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
-    /// }
+    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("exampleBucketVersioningV2", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         {
+    ///             Status = "Enabled",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     {
+    ///         Bucket = exampleBucketVersioningV2.Bucket,
+    ///         Key = "droeloe",
+    ///         Source = new FileAsset("example.txt"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -124,7 +118,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketVersioningV2:BucketVersioningV2")]
-    public partial class BucketVersioningV2 : Pulumi.CustomResource
+    public partial class BucketVersioningV2 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the S3 bucket.
@@ -194,7 +188,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class BucketVersioningV2Args : Pulumi.ResourceArgs
+    public sealed class BucketVersioningV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the S3 bucket.
@@ -223,9 +217,10 @@ namespace Pulumi.Aws.S3
         public BucketVersioningV2Args()
         {
         }
+        public static new BucketVersioningV2Args Empty => new BucketVersioningV2Args();
     }
 
-    public sealed class BucketVersioningV2State : Pulumi.ResourceArgs
+    public sealed class BucketVersioningV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the S3 bucket.
@@ -254,5 +249,6 @@ namespace Pulumi.Aws.S3
         public BucketVersioningV2State()
         {
         }
+        public static new BucketVersioningV2State Empty => new BucketVersioningV2State();
     }
 }

@@ -25,40 +25,36 @@ namespace Pulumi.Aws.Lambda
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ComputeSHA1(string input) {
     /// 		return BitConverter.ToString(
     /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
     /// 		).Replace("-","").ToLowerInvariant());
     /// 	}
     /// 
-    ///     public MyStack()
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lambda.Invocation("example", new()
     ///     {
-    ///         var example = new Aws.Lambda.Invocation("example", new Aws.Lambda.InvocationArgs
+    ///         FunctionName = aws_lambda_function.Lambda_function_test.Function_name,
+    ///         Triggers = 
     ///         {
-    ///             FunctionName = aws_lambda_function.Lambda_function_test.Function_name,
-    ///             Triggers = 
+    ///             { "redeployment", ComputeSHA1(JsonSerializer.Serialize(new[]
     ///             {
-    ///                 { "redeployment", ComputeSHA1(JsonSerializer.Serialize(new[]
-    ///                     {
-    ///                         aws_lambda_function.Example.Environment,
-    ///                     }
-    ///                 )) },
-    ///             },
-    ///             Input = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "key1", "value1" },
-    ///                 { "key2", "value2" },
-    ///             }),
-    ///         });
-    ///     }
+    ///                 aws_lambda_function.Example.Environment,
+    ///             })) },
+    ///         },
+    ///         Input = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["key1"] = "value1",
+    ///             ["key2"] = "value2",
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/invocation:Invocation")]
-    public partial class Invocation : Pulumi.CustomResource
+    public partial class Invocation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the lambda function.
@@ -131,7 +127,7 @@ namespace Pulumi.Aws.Lambda
         }
     }
 
-    public sealed class InvocationArgs : Pulumi.ResourceArgs
+    public sealed class InvocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the lambda function.
@@ -162,9 +158,10 @@ namespace Pulumi.Aws.Lambda
         public InvocationArgs()
         {
         }
+        public static new InvocationArgs Empty => new InvocationArgs();
     }
 
-    public sealed class InvocationState : Pulumi.ResourceArgs
+    public sealed class InvocationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the lambda function.
@@ -201,5 +198,6 @@ namespace Pulumi.Aws.Lambda
         public InvocationState()
         {
         }
+        public static new InvocationState Empty => new InvocationState();
     }
 }

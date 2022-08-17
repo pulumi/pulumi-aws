@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewVpcEndpointRouteTableAssociation(ctx, "example", &ec2.VpcEndpointRouteTableAssociationArgs{
-// 			RouteTableId:  pulumi.Any(aws_route_table.Example.Id),
-// 			VpcEndpointId: pulumi.Any(aws_vpc_endpoint.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewVpcEndpointRouteTableAssociation(ctx, "example", &ec2.VpcEndpointRouteTableAssociationArgs{
+//				RouteTableId:  pulumi.Any(aws_route_table.Example.Id),
+//				VpcEndpointId: pulumi.Any(aws_vpc_endpoint.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // VPC Endpoint Route Table Associations can be imported using `vpc_endpoint_id` together with `route_table_id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
+//
+//	$ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
+//
 // ```
 type VpcEndpointRouteTableAssociation struct {
 	pulumi.CustomResourceState
@@ -146,7 +151,7 @@ func (i *VpcEndpointRouteTableAssociation) ToVpcEndpointRouteTableAssociationOut
 // VpcEndpointRouteTableAssociationArrayInput is an input type that accepts VpcEndpointRouteTableAssociationArray and VpcEndpointRouteTableAssociationArrayOutput values.
 // You can construct a concrete instance of `VpcEndpointRouteTableAssociationArrayInput` via:
 //
-//          VpcEndpointRouteTableAssociationArray{ VpcEndpointRouteTableAssociationArgs{...} }
+//	VpcEndpointRouteTableAssociationArray{ VpcEndpointRouteTableAssociationArgs{...} }
 type VpcEndpointRouteTableAssociationArrayInput interface {
 	pulumi.Input
 
@@ -171,7 +176,7 @@ func (i VpcEndpointRouteTableAssociationArray) ToVpcEndpointRouteTableAssociatio
 // VpcEndpointRouteTableAssociationMapInput is an input type that accepts VpcEndpointRouteTableAssociationMap and VpcEndpointRouteTableAssociationMapOutput values.
 // You can construct a concrete instance of `VpcEndpointRouteTableAssociationMapInput` via:
 //
-//          VpcEndpointRouteTableAssociationMap{ "key": VpcEndpointRouteTableAssociationArgs{...} }
+//	VpcEndpointRouteTableAssociationMap{ "key": VpcEndpointRouteTableAssociationArgs{...} }
 type VpcEndpointRouteTableAssociationMapInput interface {
 	pulumi.Input
 

@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
-// 			AvailabilityZones: pulumi.StringArray{
-// 				pulumi.String("us-east-1a"),
-// 			},
-// 			Listeners: elb.LoadBalancerListenerArray{
-// 				&elb.LoadBalancerListenerArgs{
-// 					InstancePort:     pulumi.Int(8000),
-// 					InstanceProtocol: pulumi.String("http"),
-// 					LbPort:           pulumi.Int(80),
-// 					LbProtocol:       pulumi.String("http"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = elb.NewLoadBalancerCookieStickinessPolicy(ctx, "foo", &elb.LoadBalancerCookieStickinessPolicyArgs{
-// 			LoadBalancer:           lb.ID(),
-// 			LbPort:                 pulumi.Int(80),
-// 			CookieExpirationPeriod: pulumi.Int(600),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-east-1a"),
+//				},
+//				Listeners: elb.LoadBalancerListenerArray{
+//					&elb.LoadBalancerListenerArgs{
+//						InstancePort:     pulumi.Int(8000),
+//						InstanceProtocol: pulumi.String("http"),
+//						LbPort:           pulumi.Int(80),
+//						LbProtocol:       pulumi.String("http"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elb.NewLoadBalancerCookieStickinessPolicy(ctx, "foo", &elb.LoadBalancerCookieStickinessPolicyArgs{
+//				LoadBalancer:           lb.ID(),
+//				LbPort:                 pulumi.Int(80),
+//				CookieExpirationPeriod: pulumi.Int(600),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type LoadBalancerCookieStickinessPolicy struct {
 	pulumi.CustomResourceState
@@ -201,7 +204,7 @@ func (i *LoadBalancerCookieStickinessPolicy) ToLoadBalancerCookieStickinessPolic
 // LoadBalancerCookieStickinessPolicyArrayInput is an input type that accepts LoadBalancerCookieStickinessPolicyArray and LoadBalancerCookieStickinessPolicyArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerCookieStickinessPolicyArrayInput` via:
 //
-//          LoadBalancerCookieStickinessPolicyArray{ LoadBalancerCookieStickinessPolicyArgs{...} }
+//	LoadBalancerCookieStickinessPolicyArray{ LoadBalancerCookieStickinessPolicyArgs{...} }
 type LoadBalancerCookieStickinessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -226,7 +229,7 @@ func (i LoadBalancerCookieStickinessPolicyArray) ToLoadBalancerCookieStickinessP
 // LoadBalancerCookieStickinessPolicyMapInput is an input type that accepts LoadBalancerCookieStickinessPolicyMap and LoadBalancerCookieStickinessPolicyMapOutput values.
 // You can construct a concrete instance of `LoadBalancerCookieStickinessPolicyMapInput` via:
 //
-//          LoadBalancerCookieStickinessPolicyMap{ "key": LoadBalancerCookieStickinessPolicyArgs{...} }
+//	LoadBalancerCookieStickinessPolicyMap{ "key": LoadBalancerCookieStickinessPolicyArgs{...} }
 type LoadBalancerCookieStickinessPolicyMapInput interface {
 	pulumi.Input
 

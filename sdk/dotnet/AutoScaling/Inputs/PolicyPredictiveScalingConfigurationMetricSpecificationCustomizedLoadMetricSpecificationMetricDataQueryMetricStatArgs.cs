@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs : Pulumi.ResourceArgs
+    public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs()
         {
         }
+        public static new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs Empty => new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs();
     }
 }

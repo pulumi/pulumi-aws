@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift.Inputs
 {
 
-    public sealed class GameServerGroupInstanceDefinitionGetArgs : Pulumi.ResourceArgs
+    public sealed class GameServerGroupInstanceDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An EC2 instance type.
@@ -30,5 +30,6 @@ namespace Pulumi.Aws.GameLift.Inputs
         public GameServerGroupInstanceDefinitionGetArgs()
         {
         }
+        public static new GameServerGroupInstanceDefinitionGetArgs Empty => new GameServerGroupInstanceDefinitionGetArgs();
     }
 }

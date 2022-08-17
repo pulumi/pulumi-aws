@@ -16,20 +16,22 @@ import (
 // `aws_rds_global_cluster` can be imported by using the RDS Global Cluster identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:rds/globalCluster:GlobalCluster example example
+//
+//	$ pulumi import aws:rds/globalCluster:GlobalCluster example example
+//
 // ```
 //
-//  Certain resource arguments, like `force_destroy`, only exist within this provider. If the argument is set in the the provider configuration on an imported resource, This provider will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration. Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the the provider configuration or use `ignore_changes` to hide the difference, e.g. terraform resource "aws_rds_global_cluster" "example" {
+//	Certain resource arguments, like `force_destroy`, only exist within this provider. If the argument is set in the the provider configuration on an imported resource, This provider will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration. Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the the provider configuration or use `ignore_changes` to hide the difference, e.g. terraform resource "aws_rds_global_cluster" "example" {
 //
 // # ... other configuration ...
 //
 // # There is no API for reading source_db_cluster_identifier
 //
-//  lifecycle {
+//	lifecycle {
 //
-//  ignore_changes = [source_db_cluster_identifier]
+//	ignore_changes = [source_db_cluster_identifier]
 //
-//  } }
+//	} }
 type GlobalCluster struct {
 	pulumi.CustomResourceState
 
@@ -197,7 +199,7 @@ func (i *GlobalCluster) ToGlobalClusterOutputWithContext(ctx context.Context) Gl
 // GlobalClusterArrayInput is an input type that accepts GlobalClusterArray and GlobalClusterArrayOutput values.
 // You can construct a concrete instance of `GlobalClusterArrayInput` via:
 //
-//          GlobalClusterArray{ GlobalClusterArgs{...} }
+//	GlobalClusterArray{ GlobalClusterArgs{...} }
 type GlobalClusterArrayInput interface {
 	pulumi.Input
 
@@ -222,7 +224,7 @@ func (i GlobalClusterArray) ToGlobalClusterArrayOutputWithContext(ctx context.Co
 // GlobalClusterMapInput is an input type that accepts GlobalClusterMap and GlobalClusterMapOutput values.
 // You can construct a concrete instance of `GlobalClusterMapInput` via:
 //
-//          GlobalClusterMap{ "key": GlobalClusterArgs{...} }
+//	GlobalClusterMap{ "key": GlobalClusterArgs{...} }
 type GlobalClusterMapInput interface {
 	pulumi.Input
 

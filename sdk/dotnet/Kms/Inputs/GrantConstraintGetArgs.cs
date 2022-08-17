@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kms.Inputs
 {
 
-    public sealed class GrantConstraintGetArgs : Pulumi.ResourceArgs
+    public sealed class GrantConstraintGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryptionContextEquals")]
         private InputMap<string>? _encryptionContextEquals;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Kms.Inputs
         public GrantConstraintGetArgs()
         {
         }
+        public static new GrantConstraintGetArgs Empty => new GrantConstraintGetArgs();
     }
 }

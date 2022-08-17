@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleStatementAndStatementStatementXssMatchStatementFieldToMatchBodyGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleStatementAndStatementStatementXssMatchStatementFieldToMatchBodyGetArgs : global::Pulumi.ResourceArgs
     {
         public WebAclRuleStatementAndStatementStatementXssMatchStatementFieldToMatchBodyGetArgs()
         {
         }
+        public static new WebAclRuleStatementAndStatementStatementXssMatchStatementFieldToMatchBodyGetArgs Empty => new WebAclRuleStatementAndStatementStatementXssMatchStatementFieldToMatchBodyGetArgs();
     }
 }

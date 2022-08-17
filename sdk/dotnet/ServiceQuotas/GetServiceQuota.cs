@@ -21,26 +21,25 @@ namespace Pulumi.Aws.ServiceQuotas
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var byQuotaCode = Aws.ServiceQuotas.GetServiceQuota.Invoke(new()
         ///     {
-        ///         var byQuotaCode = Output.Create(Aws.ServiceQuotas.GetServiceQuota.InvokeAsync(new Aws.ServiceQuotas.GetServiceQuotaArgs
-        ///         {
-        ///             QuotaCode = "L-F678F1CE",
-        ///             ServiceCode = "vpc",
-        ///         }));
-        ///         var byQuotaName = Output.Create(Aws.ServiceQuotas.GetServiceQuota.InvokeAsync(new Aws.ServiceQuotas.GetServiceQuotaArgs
-        ///         {
-        ///             QuotaName = "VPCs per Region",
-        ///             ServiceCode = "vpc",
-        ///         }));
-        ///     }
+        ///         QuotaCode = "L-F678F1CE",
+        ///         ServiceCode = "vpc",
+        ///     });
         /// 
-        /// }
+        ///     var byQuotaName = Aws.ServiceQuotas.GetServiceQuota.Invoke(new()
+        ///     {
+        ///         QuotaName = "VPCs per Region",
+        ///         ServiceCode = "vpc",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -58,26 +57,25 @@ namespace Pulumi.Aws.ServiceQuotas
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var byQuotaCode = Aws.ServiceQuotas.GetServiceQuota.Invoke(new()
         ///     {
-        ///         var byQuotaCode = Output.Create(Aws.ServiceQuotas.GetServiceQuota.InvokeAsync(new Aws.ServiceQuotas.GetServiceQuotaArgs
-        ///         {
-        ///             QuotaCode = "L-F678F1CE",
-        ///             ServiceCode = "vpc",
-        ///         }));
-        ///         var byQuotaName = Output.Create(Aws.ServiceQuotas.GetServiceQuota.InvokeAsync(new Aws.ServiceQuotas.GetServiceQuotaArgs
-        ///         {
-        ///             QuotaName = "VPCs per Region",
-        ///             ServiceCode = "vpc",
-        ///         }));
-        ///     }
+        ///         QuotaCode = "L-F678F1CE",
+        ///         ServiceCode = "vpc",
+        ///     });
         /// 
-        /// }
+        ///     var byQuotaName = Aws.ServiceQuotas.GetServiceQuota.Invoke(new()
+        ///     {
+        ///         QuotaName = "VPCs per Region",
+        ///         ServiceCode = "vpc",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -87,7 +85,7 @@ namespace Pulumi.Aws.ServiceQuotas
     }
 
 
-    public sealed class GetServiceQuotaArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceQuotaArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_code` or `quota_name` must be specified.
@@ -110,9 +108,10 @@ namespace Pulumi.Aws.ServiceQuotas
         public GetServiceQuotaArgs()
         {
         }
+        public static new GetServiceQuotaArgs Empty => new GetServiceQuotaArgs();
     }
 
-    public sealed class GetServiceQuotaInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceQuotaInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_code` or `quota_name` must be specified.
@@ -135,6 +134,7 @@ namespace Pulumi.Aws.ServiceQuotas
         public GetServiceQuotaInvokeArgs()
         {
         }
+        public static new GetServiceQuotaInvokeArgs Empty => new GetServiceQuotaInvokeArgs();
     }
 
 

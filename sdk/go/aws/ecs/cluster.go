@@ -21,26 +21,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ecs.NewCluster(ctx, "foo", &ecs.ClusterArgs{
-// 			Settings: ecs.ClusterSettingArray{
-// 				&ecs.ClusterSettingArgs{
-// 					Name:  pulumi.String("containerInsights"),
-// 					Value: pulumi.String("enabled"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewCluster(ctx, "foo", &ecs.ClusterArgs{
+//				Settings: ecs.ClusterSettingArray{
+//					&ecs.ClusterSettingArgs{
+//						Name:  pulumi.String("containerInsights"),
+//						Value: pulumi.String("enabled"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Example with Log Configuration
 //
@@ -48,43 +51,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-// 			Description:          pulumi.String("example"),
-// 			DeletionWindowInDays: pulumi.Int(7),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ecs.NewCluster(ctx, "test", &ecs.ClusterArgs{
-// 			Configuration: &ecs.ClusterConfigurationArgs{
-// 				ExecuteCommandConfiguration: &ecs.ClusterConfigurationExecuteCommandConfigurationArgs{
-// 					KmsKeyId: exampleKey.Arn,
-// 					Logging:  pulumi.String("OVERRIDE"),
-// 					LogConfiguration: &ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs{
-// 						CloudWatchEncryptionEnabled: pulumi.Bool(true),
-// 						CloudWatchLogGroupName:      exampleLogGroup.Name,
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//				Description:          pulumi.String("example"),
+//				DeletionWindowInDays: pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecs.NewCluster(ctx, "test", &ecs.ClusterArgs{
+//				Configuration: &ecs.ClusterConfigurationArgs{
+//					ExecuteCommandConfiguration: &ecs.ClusterConfigurationExecuteCommandConfigurationArgs{
+//						KmsKeyId: exampleKey.Arn,
+//						Logging:  pulumi.String("OVERRIDE"),
+//						LogConfiguration: &ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs{
+//							CloudWatchEncryptionEnabled: pulumi.Bool(true),
+//							CloudWatchLogGroupName:      exampleLogGroup.Name,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Example with Capacity Providers
 //
@@ -92,43 +98,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleCluster, err := ecs.NewCluster(ctx, "exampleCluster", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCapacityProvider, err := ecs.NewCapacityProvider(ctx, "exampleCapacityProvider", &ecs.CapacityProviderArgs{
-// 			AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
-// 				AutoScalingGroupArn: pulumi.Any(aws_autoscaling_group.Example.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ecs.NewClusterCapacityProviders(ctx, "exampleClusterCapacityProviders", &ecs.ClusterCapacityProvidersArgs{
-// 			ClusterName: exampleCluster.Name,
-// 			CapacityProviders: pulumi.StringArray{
-// 				exampleCapacityProvider.Name,
-// 			},
-// 			DefaultCapacityProviderStrategies: ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArray{
-// 				&ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs{
-// 					Base:             pulumi.Int(1),
-// 					Weight:           pulumi.Int(100),
-// 					CapacityProvider: exampleCapacityProvider.Name,
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleCluster, err := ecs.NewCluster(ctx, "exampleCluster", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCapacityProvider, err := ecs.NewCapacityProvider(ctx, "exampleCapacityProvider", &ecs.CapacityProviderArgs{
+//				AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
+//					AutoScalingGroupArn: pulumi.Any(aws_autoscaling_group.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecs.NewClusterCapacityProviders(ctx, "exampleClusterCapacityProviders", &ecs.ClusterCapacityProvidersArgs{
+//				ClusterName: exampleCluster.Name,
+//				CapacityProviders: pulumi.StringArray{
+//					exampleCapacityProvider.Name,
+//				},
+//				DefaultCapacityProviderStrategies: ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArray{
+//					&ecs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs{
+//						Base:             pulumi.Int(1),
+//						Weight:           pulumi.Int(100),
+//						CapacityProvider: exampleCapacityProvider.Name,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -136,7 +145,9 @@ import (
 // ECS clusters can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
+//
+//	$ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
+//
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -306,7 +317,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 // ClusterArrayInput is an input type that accepts ClusterArray and ClusterArrayOutput values.
 // You can construct a concrete instance of `ClusterArrayInput` via:
 //
-//          ClusterArray{ ClusterArgs{...} }
+//	ClusterArray{ ClusterArgs{...} }
 type ClusterArrayInput interface {
 	pulumi.Input
 
@@ -331,7 +342,7 @@ func (i ClusterArray) ToClusterArrayOutputWithContext(ctx context.Context) Clust
 // ClusterMapInput is an input type that accepts ClusterMap and ClusterMapOutput values.
 // You can construct a concrete instance of `ClusterMapInput` via:
 //
-//          ClusterMap{ "key": ClusterArgs{...} }
+//	ClusterMap{ "key": ClusterArgs{...} }
 type ClusterMapInput interface {
 	pulumi.Input
 

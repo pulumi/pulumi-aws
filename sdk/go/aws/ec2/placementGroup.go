@@ -20,21 +20,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewPlacementGroup(ctx, "web", &ec2.PlacementGroupArgs{
-// 			Strategy: pulumi.String("cluster"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewPlacementGroup(ctx, "web", &ec2.PlacementGroupArgs{
+//				Strategy: pulumi.String("cluster"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // Placement groups can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
+//
+//	$ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
+//
 // ```
 type PlacementGroup struct {
 	pulumi.CustomResourceState
@@ -64,7 +69,7 @@ type PlacementGroup struct {
 	Strategy pulumi.StringOutput `pulumi:"strategy"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -117,7 +122,7 @@ type placementGroupState struct {
 	Strategy *string `pulumi:"strategy"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -139,7 +144,7 @@ type PlacementGroupState struct {
 	Strategy pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -206,7 +211,7 @@ func (i *PlacementGroup) ToPlacementGroupOutputWithContext(ctx context.Context) 
 // PlacementGroupArrayInput is an input type that accepts PlacementGroupArray and PlacementGroupArrayOutput values.
 // You can construct a concrete instance of `PlacementGroupArrayInput` via:
 //
-//          PlacementGroupArray{ PlacementGroupArgs{...} }
+//	PlacementGroupArray{ PlacementGroupArgs{...} }
 type PlacementGroupArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +236,7 @@ func (i PlacementGroupArray) ToPlacementGroupArrayOutputWithContext(ctx context.
 // PlacementGroupMapInput is an input type that accepts PlacementGroupMap and PlacementGroupMapOutput values.
 // You can construct a concrete instance of `PlacementGroupMapInput` via:
 //
-//          PlacementGroupMap{ "key": PlacementGroupArgs{...} }
+//	PlacementGroupMap{ "key": PlacementGroupArgs{...} }
 type PlacementGroupMapInput interface {
 	pulumi.Input
 
@@ -305,7 +310,7 @@ func (o PlacementGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PlacementGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -18,26 +18,24 @@ namespace Pulumi.Aws.Rds
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Rds.SecurityGroup("default", new()
     ///     {
-    ///         var @default = new Aws.Rds.SecurityGroup("default", new Aws.Rds.SecurityGroupArgs
+    ///         Ingress = new[]
     ///         {
-    ///             Ingress = 
+    ///             new Aws.Rds.Inputs.SecurityGroupIngressArgs
     ///             {
-    ///                 new Aws.Rds.Inputs.SecurityGroupIngressArgs
-    ///                 {
-    ///                     Cidr = "10.0.0.0/24",
-    ///                 },
+    ///                 Cidr = "10.0.0.0/24",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/securityGroup:SecurityGroup")]
-    public partial class SecurityGroup : Pulumi.CustomResource
+    public partial class SecurityGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The arn of the DB security group.
@@ -82,7 +80,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -131,7 +129,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class SecurityGroupArgs : Pulumi.ResourceArgs
+    public sealed class SecurityGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the DB security group. Defaults to "Managed by Pulumi".
@@ -173,9 +171,10 @@ namespace Pulumi.Aws.Rds
         {
             Description = "Managed by Pulumi";
         }
+        public static new SecurityGroupArgs Empty => new SecurityGroupArgs();
     }
 
-    public sealed class SecurityGroupState : Pulumi.ResourceArgs
+    public sealed class SecurityGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The arn of the DB security group.
@@ -223,7 +222,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -235,5 +234,6 @@ namespace Pulumi.Aws.Rds
         {
             Description = "Managed by Pulumi";
         }
+        public static new SecurityGroupState Empty => new SecurityGroupState();
     }
 }

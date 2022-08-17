@@ -24,22 +24,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := eks.NewAddon(ctx, "example", &eks.AddonArgs{
-// 			ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
-// 			AddonName:   pulumi.String("vpc-cni"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := eks.NewAddon(ctx, "example", &eks.AddonArgs{
+//				ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
+//				AddonName:   pulumi.String("vpc-cni"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // EKS add-on can be imported using the `cluster_name` and `addon_name` separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
+//
+//	$ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
+//
 // ```
 type Addon struct {
 	pulumi.CustomResourceState
@@ -81,7 +86,7 @@ type Addon struct {
 	ServiceAccountRoleArn pulumi.StringPtrOutput `pulumi:"serviceAccountRoleArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// (Optional) Key-value map of resource tags, including those inherited from the provider .
+	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -149,7 +154,7 @@ type addonState struct {
 	ServiceAccountRoleArn *string `pulumi:"serviceAccountRoleArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// (Optional) Key-value map of resource tags, including those inherited from the provider .
+	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -183,7 +188,7 @@ type AddonState struct {
 	ServiceAccountRoleArn pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// (Optional) Key-value map of resource tags, including those inherited from the provider .
+	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -270,7 +275,7 @@ func (i *Addon) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 // AddonArrayInput is an input type that accepts AddonArray and AddonArrayOutput values.
 // You can construct a concrete instance of `AddonArrayInput` via:
 //
-//          AddonArray{ AddonArgs{...} }
+//	AddonArray{ AddonArgs{...} }
 type AddonArrayInput interface {
 	pulumi.Input
 
@@ -295,7 +300,7 @@ func (i AddonArray) ToAddonArrayOutputWithContext(ctx context.Context) AddonArra
 // AddonMapInput is an input type that accepts AddonMap and AddonMapOutput values.
 // You can construct a concrete instance of `AddonMapInput` via:
 //
-//          AddonMap{ "key": AddonArgs{...} }
+//	AddonMap{ "key": AddonArgs{...} }
 type AddonMapInput interface {
 	pulumi.Input
 
@@ -390,7 +395,7 @@ func (o AddonOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// (Optional) Key-value map of resource tags, including those inherited from the provider .
+// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
 func (o AddonOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

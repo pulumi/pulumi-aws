@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class SpotFleetRequestLaunchSpecificationGetArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetRequestLaunchSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("ami", required: true)]
         public Input<string> Ami { get; set; } = null!;
@@ -119,5 +119,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public SpotFleetRequestLaunchSpecificationGetArgs()
         {
         }
+        public static new SpotFleetRequestLaunchSpecificationGetArgs Empty => new SpotFleetRequestLaunchSpecificationGetArgs();
     }
 }

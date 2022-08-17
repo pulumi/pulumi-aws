@@ -15,33 +15,30 @@ namespace Pulumi.Aws.Macie2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleAccount = new Aws.Macie2.Account("exampleAccount", new Aws.Macie2.AccountArgs
-    ///         {
-    ///         });
-    ///         var exampleMember = new Aws.Macie2.Member("exampleMember", new Aws.Macie2.MemberArgs
-    ///         {
-    ///             AccountId = "AWS ACCOUNT ID",
-    ///             Email = "EMAIL",
-    ///             Invite = true,
-    ///             InvitationMessage = "Message of the invitation",
-    ///             InvitationDisableEmailNotification = true,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAccount,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleAccount = new Aws.Macie2.Account("exampleAccount");
     /// 
-    /// }
+    ///     var exampleMember = new Aws.Macie2.Member("exampleMember", new()
+    ///     {
+    ///         AccountId = "AWS ACCOUNT ID",
+    ///         Email = "EMAIL",
+    ///         Invite = true,
+    ///         InvitationMessage = "Message of the invitation",
+    ///         InvitationDisableEmailNotification = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAccount,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +50,7 @@ namespace Pulumi.Aws.Macie2
     /// ```
     /// </summary>
     [AwsResourceType("aws:macie2/member:Member")]
-    public partial class Member : Pulumi.CustomResource
+    public partial class Member : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AWS account ID for the account.
@@ -177,7 +174,7 @@ namespace Pulumi.Aws.Macie2
         }
     }
 
-    public sealed class MemberArgs : Pulumi.ResourceArgs
+    public sealed class MemberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS account ID for the account.
@@ -230,9 +227,10 @@ namespace Pulumi.Aws.Macie2
         public MemberArgs()
         {
         }
+        public static new MemberArgs Empty => new MemberArgs();
     }
 
-    public sealed class MemberState : Pulumi.ResourceArgs
+    public sealed class MemberState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS account ID for the account.
@@ -326,5 +324,6 @@ namespace Pulumi.Aws.Macie2
         public MemberState()
         {
         }
+        public static new MemberState Empty => new MemberState();
     }
 }

@@ -15,22 +15,20 @@ namespace Pulumi.Aws.Ssm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var production = new Aws.Ssm.MaintenanceWindow("production", new()
     ///     {
-    ///         var production = new Aws.Ssm.MaintenanceWindow("production", new Aws.Ssm.MaintenanceWindowArgs
-    ///         {
-    ///             Cutoff = 1,
-    ///             Duration = 3,
-    ///             Schedule = "cron(0 16 ? * TUE *)",
-    ///         });
-    ///     }
+    ///         Cutoff = 1,
+    ///         Duration = 3,
+    ///         Schedule = "cron(0 16 ? * TUE *)",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.Ssm
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/maintenanceWindow:MaintenanceWindow")]
-    public partial class MaintenanceWindow : Pulumi.CustomResource
+    public partial class MaintenanceWindow : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
@@ -119,7 +117,7 @@ namespace Pulumi.Aws.Ssm
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -168,7 +166,7 @@ namespace Pulumi.Aws.Ssm
         }
     }
 
-    public sealed class MaintenanceWindowArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
@@ -251,9 +249,10 @@ namespace Pulumi.Aws.Ssm
         public MaintenanceWindowArgs()
         {
         }
+        public static new MaintenanceWindowArgs Empty => new MaintenanceWindowArgs();
     }
 
-    public sealed class MaintenanceWindowState : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
@@ -337,7 +336,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -348,5 +347,6 @@ namespace Pulumi.Aws.Ssm
         public MaintenanceWindowState()
         {
         }
+        public static new MaintenanceWindowState Empty => new MaintenanceWindowState();
     }
 }

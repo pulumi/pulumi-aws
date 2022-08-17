@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/signer"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/signer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testSp, err := signer.NewSigningProfile(ctx, "testSp", &signer.SigningProfileArgs{
-// 			PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = signer.NewSigningJob(ctx, "buildSigningJob", &signer.SigningJobArgs{
-// 			ProfileName: testSp.Name,
-// 			Source: &signer.SigningJobSourceArgs{
-// 				S3: &signer.SigningJobSourceS3Args{
-// 					Bucket:  pulumi.String("s3-bucket-name"),
-// 					Key:     pulumi.String("object-to-be-signed.zip"),
-// 					Version: pulumi.String("jADjFYYYEXAMPLETszPjOmCMFDzd9dN1"),
-// 				},
-// 			},
-// 			Destination: &signer.SigningJobDestinationArgs{
-// 				S3: &signer.SigningJobDestinationS3Args{
-// 					Bucket: pulumi.String("s3-bucket-name"),
-// 					Prefix: pulumi.String("signed/"),
-// 				},
-// 			},
-// 			IgnoreSigningJobFailure: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testSp, err := signer.NewSigningProfile(ctx, "testSp", &signer.SigningProfileArgs{
+//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = signer.NewSigningJob(ctx, "buildSigningJob", &signer.SigningJobArgs{
+//				ProfileName: testSp.Name,
+//				Source: &signer.SigningJobSourceArgs{
+//					S3: &signer.SigningJobSourceS3Args{
+//						Bucket:  pulumi.String("s3-bucket-name"),
+//						Key:     pulumi.String("object-to-be-signed.zip"),
+//						Version: pulumi.String("jADjFYYYEXAMPLETszPjOmCMFDzd9dN1"),
+//					},
+//				},
+//				Destination: &signer.SigningJobDestinationArgs{
+//					S3: &signer.SigningJobDestinationS3Args{
+//						Bucket: pulumi.String("s3-bucket-name"),
+//						Prefix: pulumi.String("signed/"),
+//					},
+//				},
+//				IgnoreSigningJobFailure: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // Signer signing jobs can be imported using the `job_id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
+//
+//	$ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
+//
 // ```
 type SigningJob struct {
 	pulumi.CustomResourceState
@@ -272,7 +277,7 @@ func (i *SigningJob) ToSigningJobOutputWithContext(ctx context.Context) SigningJ
 // SigningJobArrayInput is an input type that accepts SigningJobArray and SigningJobArrayOutput values.
 // You can construct a concrete instance of `SigningJobArrayInput` via:
 //
-//          SigningJobArray{ SigningJobArgs{...} }
+//	SigningJobArray{ SigningJobArgs{...} }
 type SigningJobArrayInput interface {
 	pulumi.Input
 
@@ -297,7 +302,7 @@ func (i SigningJobArray) ToSigningJobArrayOutputWithContext(ctx context.Context)
 // SigningJobMapInput is an input type that accepts SigningJobMap and SigningJobMapOutput values.
 // You can construct a concrete instance of `SigningJobMapInput` via:
 //
-//          SigningJobMap{ "key": SigningJobArgs{...} }
+//	SigningJobMap{ "key": SigningJobArgs{...} }
 type SigningJobMapInput interface {
 	pulumi.Input
 

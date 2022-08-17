@@ -22,23 +22,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := codebuild.NewSourceCredential(ctx, "example", &codebuild.SourceCredentialArgs{
-// 			AuthType:   pulumi.String("PERSONAL_ACCESS_TOKEN"),
-// 			ServerType: pulumi.String("GITHUB"),
-// 			Token:      pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codebuild.NewSourceCredential(ctx, "example", &codebuild.SourceCredentialArgs{
+//				AuthType:   pulumi.String("PERSONAL_ACCESS_TOKEN"),
+//				ServerType: pulumi.String("GITHUB"),
+//				Token:      pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Bitbucket Server Usage
 //
@@ -46,24 +49,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := codebuild.NewSourceCredential(ctx, "example", &codebuild.SourceCredentialArgs{
-// 			AuthType:   pulumi.String("BASIC_AUTH"),
-// 			ServerType: pulumi.String("BITBUCKET"),
-// 			Token:      pulumi.String("example"),
-// 			UserName:   pulumi.String("test-user"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codebuild.NewSourceCredential(ctx, "example", &codebuild.SourceCredentialArgs{
+//				AuthType:   pulumi.String("BASIC_AUTH"),
+//				ServerType: pulumi.String("BITBUCKET"),
+//				Token:      pulumi.String("example"),
+//				UserName:   pulumi.String("test-user"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +77,9 @@ import (
 // CodeBuild Source Credential can be imported using the CodeBuild Source Credential arn, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
+//
+//	$ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
+//
 // ```
 type SourceCredential struct {
 	pulumi.CustomResourceState
@@ -204,7 +212,7 @@ func (i *SourceCredential) ToSourceCredentialOutputWithContext(ctx context.Conte
 // SourceCredentialArrayInput is an input type that accepts SourceCredentialArray and SourceCredentialArrayOutput values.
 // You can construct a concrete instance of `SourceCredentialArrayInput` via:
 //
-//          SourceCredentialArray{ SourceCredentialArgs{...} }
+//	SourceCredentialArray{ SourceCredentialArgs{...} }
 type SourceCredentialArrayInput interface {
 	pulumi.Input
 
@@ -229,7 +237,7 @@ func (i SourceCredentialArray) ToSourceCredentialArrayOutputWithContext(ctx cont
 // SourceCredentialMapInput is an input type that accepts SourceCredentialMap and SourceCredentialMapOutput values.
 // You can construct a concrete instance of `SourceCredentialMapInput` via:
 //
-//          SourceCredentialMap{ "key": SourceCredentialArgs{...} }
+//	SourceCredentialMap{ "key": SourceCredentialArgs{...} }
 type SourceCredentialMapInput interface {
 	pulumi.Input
 

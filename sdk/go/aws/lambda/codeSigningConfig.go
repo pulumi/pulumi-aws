@@ -21,30 +21,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lambda.NewCodeSigningConfig(ctx, "newCsc", &lambda.CodeSigningConfigArgs{
-// 			AllowedPublishers: &lambda.CodeSigningConfigAllowedPublishersArgs{
-// 				SigningProfileVersionArns: pulumi.StringArray{
-// 					pulumi.Any(aws_signer_signing_profile.Example1.Arn),
-// 					pulumi.Any(aws_signer_signing_profile.Example2.Arn),
-// 				},
-// 			},
-// 			Policies: &lambda.CodeSigningConfigPoliciesArgs{
-// 				UntrustedArtifactOnDeployment: pulumi.String("Warn"),
-// 			},
-// 			Description: pulumi.String("My awesome code signing config."),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewCodeSigningConfig(ctx, "newCsc", &lambda.CodeSigningConfigArgs{
+//				AllowedPublishers: &lambda.CodeSigningConfigAllowedPublishersArgs{
+//					SigningProfileVersionArns: pulumi.StringArray{
+//						pulumi.Any(aws_signer_signing_profile.Example1.Arn),
+//						pulumi.Any(aws_signer_signing_profile.Example2.Arn),
+//					},
+//				},
+//				Policies: &lambda.CodeSigningConfigPoliciesArgs{
+//					UntrustedArtifactOnDeployment: pulumi.String("Warn"),
+//				},
+//				Description: pulumi.String("My awesome code signing config."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // Code Signing Configs can be imported using their ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
+//
+//	$ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
+//
 // ```
 type CodeSigningConfig struct {
 	pulumi.CustomResourceState
@@ -181,7 +186,7 @@ func (i *CodeSigningConfig) ToCodeSigningConfigOutputWithContext(ctx context.Con
 // CodeSigningConfigArrayInput is an input type that accepts CodeSigningConfigArray and CodeSigningConfigArrayOutput values.
 // You can construct a concrete instance of `CodeSigningConfigArrayInput` via:
 //
-//          CodeSigningConfigArray{ CodeSigningConfigArgs{...} }
+//	CodeSigningConfigArray{ CodeSigningConfigArgs{...} }
 type CodeSigningConfigArrayInput interface {
 	pulumi.Input
 
@@ -206,7 +211,7 @@ func (i CodeSigningConfigArray) ToCodeSigningConfigArrayOutputWithContext(ctx co
 // CodeSigningConfigMapInput is an input type that accepts CodeSigningConfigMap and CodeSigningConfigMapOutput values.
 // You can construct a concrete instance of `CodeSigningConfigMapInput` via:
 //
-//          CodeSigningConfigMap{ "key": CodeSigningConfigArgs{...} }
+//	CodeSigningConfigMap{ "key": CodeSigningConfigArgs{...} }
 type CodeSigningConfigMapInput interface {
 	pulumi.Input
 

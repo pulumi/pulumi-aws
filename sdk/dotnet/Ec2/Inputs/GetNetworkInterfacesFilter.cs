@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetNetworkInterfacesFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInterfacesFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the field to filter by, as defined by
@@ -34,5 +34,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetNetworkInterfacesFilterArgs()
         {
         }
+        public static new GetNetworkInterfacesFilterArgs Empty => new GetNetworkInterfacesFilterArgs();
     }
 }

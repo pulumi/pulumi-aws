@@ -15,19 +15,15 @@ namespace Pulumi.Aws.MediaConvert
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var test = new Aws.MediaConvert.Queue("test", new Aws.MediaConvert.QueueArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var test = new Aws.MediaConvert.Queue("test");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.MediaConvert
     /// ```
     /// </summary>
     [AwsResourceType("aws:mediaconvert/queue:Queue")]
-    public partial class Queue : Pulumi.CustomResource
+    public partial class Queue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Arn of the queue
@@ -84,7 +80,7 @@ namespace Pulumi.Aws.MediaConvert
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -133,7 +129,7 @@ namespace Pulumi.Aws.MediaConvert
         }
     }
 
-    public sealed class QueueArgs : Pulumi.ResourceArgs
+    public sealed class QueueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the queue
@@ -180,9 +176,10 @@ namespace Pulumi.Aws.MediaConvert
         public QueueArgs()
         {
         }
+        public static new QueueArgs Empty => new QueueArgs();
     }
 
-    public sealed class QueueState : Pulumi.ResourceArgs
+    public sealed class QueueState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Arn of the queue
@@ -236,7 +233,7 @@ namespace Pulumi.Aws.MediaConvert
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -247,5 +244,6 @@ namespace Pulumi.Aws.MediaConvert
         public QueueState()
         {
         }
+        public static new QueueState Empty => new QueueState();
     }
 }

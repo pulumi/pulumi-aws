@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := directconnect.NewHostedConnection(ctx, "hosted", &directconnect.HostedConnectionArgs{
-// 			Bandwidth:      pulumi.String("100Mbps"),
-// 			ConnectionId:   pulumi.String("dxcon-ffabc123"),
-// 			OwnerAccountId: pulumi.String("123456789012"),
-// 			Vlan:           pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := directconnect.NewHostedConnection(ctx, "hosted", &directconnect.HostedConnectionArgs{
+//				Bandwidth:      pulumi.String("100Mbps"),
+//				ConnectionId:   pulumi.String("dxcon-ffabc123"),
+//				OwnerAccountId: pulumi.String("123456789012"),
+//				Vlan:           pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type HostedConnection struct {
 	pulumi.CustomResourceState
@@ -236,7 +239,7 @@ func (i *HostedConnection) ToHostedConnectionOutputWithContext(ctx context.Conte
 // HostedConnectionArrayInput is an input type that accepts HostedConnectionArray and HostedConnectionArrayOutput values.
 // You can construct a concrete instance of `HostedConnectionArrayInput` via:
 //
-//          HostedConnectionArray{ HostedConnectionArgs{...} }
+//	HostedConnectionArray{ HostedConnectionArgs{...} }
 type HostedConnectionArrayInput interface {
 	pulumi.Input
 
@@ -261,7 +264,7 @@ func (i HostedConnectionArray) ToHostedConnectionArrayOutputWithContext(ctx cont
 // HostedConnectionMapInput is an input type that accepts HostedConnectionMap and HostedConnectionMapOutput values.
 // You can construct a concrete instance of `HostedConnectionMapInput` via:
 //
-//          HostedConnectionMap{ "key": HostedConnectionArgs{...} }
+//	HostedConnectionMap{ "key": HostedConnectionArgs{...} }
 type HostedConnectionMapInput interface {
 	pulumi.Input
 

@@ -19,20 +19,18 @@ namespace Pulumi.Aws.NetworkManager
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.NetworkManager.GetGlobalNetwork.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.NetworkManager.GetGlobalNetwork.InvokeAsync(new Aws.NetworkManager.GetGlobalNetworkArgs
-        ///         {
-        ///             GlobalNetworkId = @var.Global_network_id,
-        ///         }));
-        ///     }
+        ///         GlobalNetworkId = @var.Global_network_id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.NetworkManager
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.NetworkManager.GetGlobalNetwork.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.NetworkManager.GetGlobalNetwork.InvokeAsync(new Aws.NetworkManager.GetGlobalNetworkArgs
-        ///         {
-        ///             GlobalNetworkId = @var.Global_network_id,
-        ///         }));
-        ///     }
+        ///         GlobalNetworkId = @var.Global_network_id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.NetworkManager
     }
 
 
-    public sealed class GetGlobalNetworkArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of the specific global network to retrieve.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.NetworkManager
         public GetGlobalNetworkArgs()
         {
         }
+        public static new GetGlobalNetworkArgs Empty => new GetGlobalNetworkArgs();
     }
 
-    public sealed class GetGlobalNetworkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGlobalNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The id of the specific global network to retrieve.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.NetworkManager
         public GetGlobalNetworkInvokeArgs()
         {
         }
+        public static new GetGlobalNetworkInvokeArgs Empty => new GetGlobalNetworkInvokeArgs();
     }
 
 

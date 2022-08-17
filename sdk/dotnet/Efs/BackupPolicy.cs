@@ -16,27 +16,24 @@ namespace Pulumi.Aws.Efs
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var fs = new Aws.Efs.FileSystem("fs", new Aws.Efs.FileSystemArgs
-    ///         {
-    ///         });
-    ///         var policy = new Aws.Efs.BackupPolicy("policy", new Aws.Efs.BackupPolicyArgs
-    ///         {
-    ///             FileSystemId = fs.Id,
-    ///             BackupPolicyDetails = new Aws.Efs.Inputs.BackupPolicyBackupPolicyArgs
-    ///             {
-    ///                 Status = "ENABLED",
-    ///             },
-    ///         });
-    ///     }
+    ///     var fs = new Aws.Efs.FileSystem("fs");
     /// 
-    /// }
+    ///     var policy = new Aws.Efs.BackupPolicy("policy", new()
+    ///     {
+    ///         FileSystemId = fs.Id,
+    ///         BackupPolicyDetails = new Aws.Efs.Inputs.BackupPolicyBackupPolicyArgs
+    ///         {
+    ///             Status = "ENABLED",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +45,7 @@ namespace Pulumi.Aws.Efs
     /// ```
     /// </summary>
     [AwsResourceType("aws:efs/backupPolicy:BackupPolicy")]
-    public partial class BackupPolicy : Pulumi.CustomResource
+    public partial class BackupPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A backup_policy object (documented below).
@@ -106,7 +103,7 @@ namespace Pulumi.Aws.Efs
         }
     }
 
-    public sealed class BackupPolicyArgs : Pulumi.ResourceArgs
+    public sealed class BackupPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A backup_policy object (documented below).
@@ -123,9 +120,10 @@ namespace Pulumi.Aws.Efs
         public BackupPolicyArgs()
         {
         }
+        public static new BackupPolicyArgs Empty => new BackupPolicyArgs();
     }
 
-    public sealed class BackupPolicyState : Pulumi.ResourceArgs
+    public sealed class BackupPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A backup_policy object (documented below).
@@ -142,5 +140,6 @@ namespace Pulumi.Aws.Efs
         public BackupPolicyState()
         {
         }
+        public static new BackupPolicyState Empty => new BackupPolicyState();
     }
 }

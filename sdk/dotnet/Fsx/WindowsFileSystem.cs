@@ -20,64 +20,60 @@ namespace Pulumi.Aws.Fsx
     /// Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Fsx.WindowsFileSystem("example", new()
     ///     {
-    ///         var example = new Aws.Fsx.WindowsFileSystem("example", new Aws.Fsx.WindowsFileSystemArgs
+    ///         ActiveDirectoryId = aws_directory_service_directory.Example.Id,
+    ///         KmsKeyId = aws_kms_key.Example.Arn,
+    ///         StorageCapacity = 300,
+    ///         SubnetIds = new[]
     ///         {
-    ///             ActiveDirectoryId = aws_directory_service_directory.Example.Id,
-    ///             KmsKeyId = aws_kms_key.Example.Arn,
-    ///             StorageCapacity = 300,
-    ///             SubnetIds = 
-    ///             {
-    ///                 aws_subnet.Example.Id,
-    ///             },
-    ///             ThroughputCapacity = 1024,
-    ///         });
-    ///     }
+    ///             aws_subnet.Example.Id,
+    ///         },
+    ///         ThroughputCapacity = 1024,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Using a Self-Managed Microsoft Active Directory
     /// 
     /// Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Fsx.WindowsFileSystem("example", new()
     ///     {
-    ///         var example = new Aws.Fsx.WindowsFileSystem("example", new Aws.Fsx.WindowsFileSystemArgs
+    ///         KmsKeyId = aws_kms_key.Example.Arn,
+    ///         StorageCapacity = 300,
+    ///         SubnetIds = new[]
     ///         {
-    ///             KmsKeyId = aws_kms_key.Example.Arn,
-    ///             StorageCapacity = 300,
-    ///             SubnetIds = 
+    ///             aws_subnet.Example.Id,
+    ///         },
+    ///         ThroughputCapacity = 1024,
+    ///         SelfManagedActiveDirectory = new Aws.Fsx.Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs
+    ///         {
+    ///             DnsIps = new[]
     ///             {
-    ///                 aws_subnet.Example.Id,
+    ///                 "10.0.0.111",
+    ///                 "10.0.0.222",
     ///             },
-    ///             ThroughputCapacity = 1024,
-    ///             SelfManagedActiveDirectory = new Aws.Fsx.Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs
-    ///             {
-    ///                 DnsIps = 
-    ///                 {
-    ///                     "10.0.0.111",
-    ///                     "10.0.0.222",
-    ///                 },
-    ///                 DomainName = "corp.example.com",
-    ///                 Password = "avoid-plaintext-passwords",
-    ///                 Username = "Admin",
-    ///             },
-    ///         });
-    ///     }
+    ///             DomainName = "corp.example.com",
+    ///             Password = "avoid-plaintext-passwords",
+    ///             Username = "Admin",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -103,7 +99,7 @@ namespace Pulumi.Aws.Fsx
     ///  } }
     /// </summary>
     [AwsResourceType("aws:fsx/windowsFileSystem:WindowsFileSystem")]
-    public partial class WindowsFileSystem : Pulumi.CustomResource
+    public partial class WindowsFileSystem : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
@@ -244,7 +240,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -311,7 +307,7 @@ namespace Pulumi.Aws.Fsx
         }
     }
 
-    public sealed class WindowsFileSystemArgs : Pulumi.ResourceArgs
+    public sealed class WindowsFileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
@@ -454,9 +450,10 @@ namespace Pulumi.Aws.Fsx
         public WindowsFileSystemArgs()
         {
         }
+        public static new WindowsFileSystemArgs Empty => new WindowsFileSystemArgs();
     }
 
-    public sealed class WindowsFileSystemState : Pulumi.ResourceArgs
+    public sealed class WindowsFileSystemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
@@ -630,7 +627,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -659,5 +656,6 @@ namespace Pulumi.Aws.Fsx
         public WindowsFileSystemState()
         {
         }
+        public static new WindowsFileSystemState Empty => new WindowsFileSystemState();
     }
 }

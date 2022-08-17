@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := location.NewRouteCalculation(ctx, "example", &location.RouteCalculationArgs{
-// 			CalculatorName: pulumi.String("example"),
-// 			DataSource:     pulumi.String("Here"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := location.NewRouteCalculation(ctx, "example", &location.RouteCalculationArgs{
+//				CalculatorName: pulumi.String("example"),
+//				DataSource:     pulumi.String("Here"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // `aws_location_route_calculator` can be imported using the route calculator name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:location/routeCalculation:RouteCalculation example example
+//
+//	$ pulumi import aws:location/routeCalculation:RouteCalculation example example
+//
 // ```
 type RouteCalculation struct {
 	pulumi.CustomResourceState
@@ -143,7 +148,6 @@ type routeCalculationArgs struct {
 	// The optional description for the route calculator resource.
 	Description *string           `pulumi:"description"`
 	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a RouteCalculation resource.
@@ -155,7 +159,6 @@ type RouteCalculationArgs struct {
 	// The optional description for the route calculator resource.
 	Description pulumi.StringPtrInput
 	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
 }
 
 func (RouteCalculationArgs) ElementType() reflect.Type {
@@ -184,7 +187,7 @@ func (i *RouteCalculation) ToRouteCalculationOutputWithContext(ctx context.Conte
 // RouteCalculationArrayInput is an input type that accepts RouteCalculationArray and RouteCalculationArrayOutput values.
 // You can construct a concrete instance of `RouteCalculationArrayInput` via:
 //
-//          RouteCalculationArray{ RouteCalculationArgs{...} }
+//	RouteCalculationArray{ RouteCalculationArgs{...} }
 type RouteCalculationArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +212,7 @@ func (i RouteCalculationArray) ToRouteCalculationArrayOutputWithContext(ctx cont
 // RouteCalculationMapInput is an input type that accepts RouteCalculationMap and RouteCalculationMapOutput values.
 // You can construct a concrete instance of `RouteCalculationMapInput` via:
 //
-//          RouteCalculationMap{ "key": RouteCalculationArgs{...} }
+//	RouteCalculationMap{ "key": RouteCalculationArgs{...} }
 type RouteCalculationMapInput interface {
 	pulumi.Input
 

@@ -13,30 +13,28 @@ namespace Pulumi.Aws.Kendra
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Kendra.Thesaurus("example", new()
     ///     {
-    ///         var example = new Aws.Kendra.Thesaurus("example", new Aws.Kendra.ThesaurusArgs
+    ///         IndexId = aws_kendra_index.Example.Id,
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         SourceS3Path = new Aws.Kendra.Inputs.ThesaurusSourceS3PathArgs
     ///         {
-    ///             IndexId = aws_kendra_index.Example.Id,
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             SourceS3Path = new Aws.Kendra.Inputs.ThesaurusSourceS3PathArgs
-    ///             {
-    ///                 Bucket = aws_s3_bucket.Example.Id,
-    ///                 Key = aws_s3_object.Example.Key,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example Kendra Thesaurus" },
-    ///             },
-    ///         });
-    ///     }
+    ///             Bucket = aws_s3_bucket.Example.Id,
+    ///             Key = aws_s3_object.Example.Key,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Kendra Thesaurus" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Aws.Kendra
     /// ```
     /// </summary>
     [AwsResourceType("aws:kendra/thesaurus:Thesaurus")]
-    public partial class Thesaurus : Pulumi.CustomResource
+    public partial class Thesaurus : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the thesaurus.
@@ -95,9 +93,6 @@ namespace Pulumi.Aws.Kendra
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -148,7 +143,7 @@ namespace Pulumi.Aws.Kendra
         }
     }
 
-    public sealed class ThesaurusArgs : Pulumi.ResourceArgs
+    public sealed class ThesaurusArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description for a thesaurus.
@@ -188,24 +183,13 @@ namespace Pulumi.Aws.Kendra
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public ThesaurusArgs()
         {
         }
+        public static new ThesaurusArgs Empty => new ThesaurusArgs();
     }
 
-    public sealed class ThesaurusState : Pulumi.ResourceArgs
+    public sealed class ThesaurusState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the thesaurus.
@@ -259,10 +243,6 @@ namespace Pulumi.Aws.Kendra
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -275,5 +255,6 @@ namespace Pulumi.Aws.Kendra
         public ThesaurusState()
         {
         }
+        public static new ThesaurusState Empty => new ThesaurusState();
     }
 }

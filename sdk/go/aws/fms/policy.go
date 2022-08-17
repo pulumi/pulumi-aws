@@ -19,63 +19,66 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fms"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fms"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleRuleGroup, err := wafregional.NewRuleGroup(ctx, "exampleRuleGroup", &wafregional.RuleGroupArgs{
-// 			MetricName: pulumi.String("WAFRuleGroupExample"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = fms.NewPolicy(ctx, "examplePolicy", &fms.PolicyArgs{
-// 			ExcludeResourceTags: pulumi.Bool(false),
-// 			RemediationEnabled:  pulumi.Bool(false),
-// 			ResourceTypeLists: pulumi.StringArray{
-// 				pulumi.String("AWS::ElasticLoadBalancingV2::LoadBalancer"),
-// 			},
-// 			SecurityServicePolicyData: &fms.PolicySecurityServicePolicyDataArgs{
-// 				Type: pulumi.String("WAF"),
-// 				ManagedServiceData: exampleRuleGroup.ID().ApplyT(func(id string) (pulumi.String, error) {
-// 					var _zero pulumi.String
-// 					tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 						"type": "WAF",
-// 						"ruleGroups": []map[string]interface{}{
-// 							map[string]interface{}{
-// 								"id": id,
-// 								"overrideAction": map[string]interface{}{
-// 									"type": "COUNT",
-// 								},
-// 							},
-// 						},
-// 						"defaultAction": map[string]interface{}{
-// 							"type": "BLOCK",
-// 						},
-// 						"overrideCustomerWebACLAssociation": false,
-// 					})
-// 					if err != nil {
-// 						return _zero, err
-// 					}
-// 					json0 := string(tmpJSON0)
-// 					return json0, nil
-// 				}).(pulumi.StringOutput),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example-fms-policy"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRuleGroup, err := wafregional.NewRuleGroup(ctx, "exampleRuleGroup", &wafregional.RuleGroupArgs{
+//				MetricName: pulumi.String("WAFRuleGroupExample"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = fms.NewPolicy(ctx, "examplePolicy", &fms.PolicyArgs{
+//				ExcludeResourceTags: pulumi.Bool(false),
+//				RemediationEnabled:  pulumi.Bool(false),
+//				ResourceTypeLists: pulumi.StringArray{
+//					pulumi.String("AWS::ElasticLoadBalancingV2::LoadBalancer"),
+//				},
+//				SecurityServicePolicyData: &fms.PolicySecurityServicePolicyDataArgs{
+//					Type: pulumi.String("WAF"),
+//					ManagedServiceData: exampleRuleGroup.ID().ApplyT(func(id string) (pulumi.String, error) {
+//						var _zero pulumi.String
+//						tmpJSON0, err := json.Marshal(map[string]interface{}{
+//							"type": "WAF",
+//							"ruleGroups": []map[string]interface{}{
+//								map[string]interface{}{
+//									"id": id,
+//									"overrideAction": map[string]interface{}{
+//										"type": "COUNT",
+//									},
+//								},
+//							},
+//							"defaultAction": map[string]interface{}{
+//								"type": "BLOCK",
+//							},
+//							"overrideCustomerWebACLAssociation": false,
+//						})
+//						if err != nil {
+//							return _zero, err
+//						}
+//						json0 := string(tmpJSON0)
+//						return json0, nil
+//					}).(pulumi.StringOutput),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-fms-policy"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -83,7 +86,9 @@ import (
 // Firewall Manager policies can be imported using the policy ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
+//
+//	$ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
+//
 // ```
 type Policy struct {
 	pulumi.CustomResourceState
@@ -113,9 +118,8 @@ type Policy struct {
 	ResourceTypeLists pulumi.StringArrayOutput `pulumi:"resourceTypeLists"`
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData PolicySecurityServicePolicyDataOutput `pulumi:"securityServicePolicyData"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -179,9 +183,8 @@ type policyState struct {
 	ResourceTypeLists []string `pulumi:"resourceTypeLists"`
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData *PolicySecurityServicePolicyData `pulumi:"securityServicePolicyData"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -211,9 +214,8 @@ type PolicyState struct {
 	ResourceTypeLists pulumi.StringArrayInput
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData PolicySecurityServicePolicyDataPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -244,7 +246,7 @@ type policyArgs struct {
 	ResourceTypeLists []string `pulumi:"resourceTypeLists"`
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData PolicySecurityServicePolicyData `pulumi:"securityServicePolicyData"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -272,7 +274,7 @@ type PolicyArgs struct {
 	ResourceTypeLists pulumi.StringArrayInput
 	// The objects to include in Security Service Policy Data. Documented below.
 	SecurityServicePolicyData PolicySecurityServicePolicyDataInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 }
 
@@ -302,7 +304,7 @@ func (i *Policy) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 // PolicyArrayInput is an input type that accepts PolicyArray and PolicyArrayOutput values.
 // You can construct a concrete instance of `PolicyArrayInput` via:
 //
-//          PolicyArray{ PolicyArgs{...} }
+//	PolicyArray{ PolicyArgs{...} }
 type PolicyArrayInput interface {
 	pulumi.Input
 
@@ -327,7 +329,7 @@ func (i PolicyArray) ToPolicyArrayOutputWithContext(ctx context.Context) PolicyA
 // PolicyMapInput is an input type that accepts PolicyMap and PolicyMapOutput values.
 // You can construct a concrete instance of `PolicyMapInput` via:
 //
-//          PolicyMap{ "key": PolicyArgs{...} }
+//	PolicyMap{ "key": PolicyArgs{...} }
 type PolicyMapInput interface {
 	pulumi.Input
 
@@ -427,12 +429,11 @@ func (o PolicyOutput) SecurityServicePolicyData() PolicySecurityServicePolicyDat
 	return o.ApplyT(func(v *Policy) PolicySecurityServicePolicyDataOutput { return v.SecurityServicePolicyData }).(PolicySecurityServicePolicyDataOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 func (o PolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o PolicyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

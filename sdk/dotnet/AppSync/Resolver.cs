@@ -15,17 +15,16 @@ namespace Pulumi.Aws.AppSync
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testGraphQLApi = new Aws.AppSync.GraphQLApi("testGraphQLApi", new()
     ///     {
-    ///         var testGraphQLApi = new Aws.AppSync.GraphQLApi("testGraphQLApi", new Aws.AppSync.GraphQLApiArgs
-    ///         {
-    ///             AuthenticationType = "API_KEY",
-    ///             Schema = @"type Mutation {
+    ///         AuthenticationType = "API_KEY",
+    ///         Schema = @"type Mutation {
     /// 	putPost(id: ID!, title: String!): Post
     /// }
     /// 
@@ -43,25 +42,27 @@ namespace Pulumi.Aws.AppSync
     /// 	mutation: Mutation
     /// }
     /// ",
-    ///         });
-    ///         var testDataSource = new Aws.AppSync.DataSource("testDataSource", new Aws.AppSync.DataSourceArgs
+    ///     });
+    /// 
+    ///     var testDataSource = new Aws.AppSync.DataSource("testDataSource", new()
+    ///     {
+    ///         ApiId = testGraphQLApi.Id,
+    ///         Name = "tf_example",
+    ///         Type = "HTTP",
+    ///         HttpConfig = new Aws.AppSync.Inputs.DataSourceHttpConfigArgs
     ///         {
-    ///             ApiId = testGraphQLApi.Id,
-    ///             Name = "tf_example",
-    ///             Type = "HTTP",
-    ///             HttpConfig = new Aws.AppSync.Inputs.DataSourceHttpConfigArgs
-    ///             {
-    ///                 Endpoint = "http://example.com",
-    ///             },
-    ///         });
-    ///         // UNIT type resolver (default)
-    ///         var testResolver = new Aws.AppSync.Resolver("testResolver", new Aws.AppSync.ResolverArgs
-    ///         {
-    ///             ApiId = testGraphQLApi.Id,
-    ///             Field = "singlePost",
-    ///             Type = "Query",
-    ///             DataSource = testDataSource.Name,
-    ///             RequestTemplate = @"{
+    ///             Endpoint = "http://example.com",
+    ///         },
+    ///     });
+    /// 
+    ///     // UNIT type resolver (default)
+    ///     var testResolver = new Aws.AppSync.Resolver("testResolver", new()
+    ///     {
+    ///         ApiId = testGraphQLApi.Id,
+    ///         Field = "singlePost",
+    ///         Type = "Query",
+    ///         DataSource = testDataSource.Name,
+    ///         RequestTemplate = @"{
     ///     ""version"": ""2018-05-29"",
     ///     ""method"": ""GET"",
     ///     ""resourcePath"": ""/"",
@@ -70,44 +71,44 @@ namespace Pulumi.Aws.AppSync
     ///     }
     /// }
     /// ",
-    ///             ResponseTemplate = @"#if($ctx.result.statusCode == 200)
+    ///         ResponseTemplate = @"#if($ctx.result.statusCode == 200)
     ///     $ctx.result.body
     /// #else
     ///     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
     /// #end
     /// ",
-    ///             CachingConfig = new Aws.AppSync.Inputs.ResolverCachingConfigArgs
-    ///             {
-    ///                 CachingKeys = 
-    ///                 {
-    ///                     "$context.identity.sub",
-    ///                     "$context.arguments.id",
-    ///                 },
-    ///                 Ttl = 60,
-    ///             },
-    ///         });
-    ///         // PIPELINE type resolver
-    ///         var mutationPipelineTest = new Aws.AppSync.Resolver("mutationPipelineTest", new Aws.AppSync.ResolverArgs
+    ///         CachingConfig = new Aws.AppSync.Inputs.ResolverCachingConfigArgs
     ///         {
-    ///             Type = "Mutation",
-    ///             ApiId = testGraphQLApi.Id,
-    ///             Field = "pipelineTest",
-    ///             RequestTemplate = "{}",
-    ///             ResponseTemplate = "$util.toJson($ctx.result)",
-    ///             Kind = "PIPELINE",
-    ///             PipelineConfig = new Aws.AppSync.Inputs.ResolverPipelineConfigArgs
+    ///             CachingKeys = new[]
     ///             {
-    ///                 Functions = 
-    ///                 {
-    ///                     aws_appsync_function.Test1.Function_id,
-    ///                     aws_appsync_function.Test2.Function_id,
-    ///                     aws_appsync_function.Test3.Function_id,
-    ///                 },
+    ///                 "$context.identity.sub",
+    ///                 "$context.arguments.id",
     ///             },
-    ///         });
-    ///     }
+    ///             Ttl = 60,
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     // PIPELINE type resolver
+    ///     var mutationPipelineTest = new Aws.AppSync.Resolver("mutationPipelineTest", new()
+    ///     {
+    ///         Type = "Mutation",
+    ///         ApiId = testGraphQLApi.Id,
+    ///         Field = "pipelineTest",
+    ///         RequestTemplate = "{}",
+    ///         ResponseTemplate = "$util.toJson($ctx.result)",
+    ///         Kind = "PIPELINE",
+    ///         PipelineConfig = new Aws.AppSync.Inputs.ResolverPipelineConfigArgs
+    ///         {
+    ///             Functions = new[]
+    ///             {
+    ///                 aws_appsync_function.Test1.Function_id,
+    ///                 aws_appsync_function.Test2.Function_id,
+    ///                 aws_appsync_function.Test3.Function_id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -119,7 +120,7 @@ namespace Pulumi.Aws.AppSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/resolver:Resolver")]
-    public partial class Resolver : Pulumi.CustomResource
+    public partial class Resolver : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The API ID for the GraphQL API.
@@ -140,7 +141,7 @@ namespace Pulumi.Aws.AppSync
         public Output<Outputs.ResolverCachingConfig?> CachingConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The DataSource name.
+        /// The data source name.
         /// </summary>
         [Output("dataSource")]
         public Output<string?> DataSource { get; private set; } = null!;
@@ -237,7 +238,7 @@ namespace Pulumi.Aws.AppSync
         }
     }
 
-    public sealed class ResolverArgs : Pulumi.ResourceArgs
+    public sealed class ResolverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API ID for the GraphQL API.
@@ -252,7 +253,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.ResolverCachingConfigArgs>? CachingConfig { get; set; }
 
         /// <summary>
-        /// The DataSource name.
+        /// The data source name.
         /// </summary>
         [Input("dataSource")]
         public Input<string>? DataSource { get; set; }
@@ -308,9 +309,10 @@ namespace Pulumi.Aws.AppSync
         public ResolverArgs()
         {
         }
+        public static new ResolverArgs Empty => new ResolverArgs();
     }
 
-    public sealed class ResolverState : Pulumi.ResourceArgs
+    public sealed class ResolverState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API ID for the GraphQL API.
@@ -331,7 +333,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.ResolverCachingConfigGetArgs>? CachingConfig { get; set; }
 
         /// <summary>
-        /// The DataSource name.
+        /// The data source name.
         /// </summary>
         [Input("dataSource")]
         public Input<string>? DataSource { get; set; }
@@ -387,5 +389,6 @@ namespace Pulumi.Aws.AppSync
         public ResolverState()
         {
         }
+        public static new ResolverState Empty => new ResolverState();
     }
 }

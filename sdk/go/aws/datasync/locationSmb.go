@@ -21,27 +21,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datasync.NewLocationSmb(ctx, "example", &datasync.LocationSmbArgs{
-// 			ServerHostname: pulumi.String("smb.example.com"),
-// 			Subdirectory:   pulumi.String("/exported/path"),
-// 			User:           pulumi.String("Guest"),
-// 			Password:       pulumi.String("ANotGreatPassword"),
-// 			AgentArns: pulumi.StringArray{
-// 				pulumi.Any(aws_datasync_agent.Example.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datasync.NewLocationSmb(ctx, "example", &datasync.LocationSmbArgs{
+//				ServerHostname: pulumi.String("smb.example.com"),
+//				Subdirectory:   pulumi.String("/exported/path"),
+//				User:           pulumi.String("Guest"),
+//				Password:       pulumi.String("ANotGreatPassword"),
+//				AgentArns: pulumi.StringArray{
+//					pulumi.Any(aws_datasync_agent.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // `aws_datasync_location_smb` can be imported by using the Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+//
+//	$ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+//
 // ```
 type LocationSmb struct {
 	pulumi.CustomResourceState
@@ -68,9 +73,9 @@ type LocationSmb struct {
 	ServerHostname pulumi.StringOutput `pulumi:"serverHostname"`
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
 	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Uri     pulumi.StringOutput    `pulumi:"uri"`
 	// The user who can mount the share and has file and folder permissions in the SMB share.
@@ -135,9 +140,9 @@ type locationSmbState struct {
 	ServerHostname *string `pulumi:"serverHostname"`
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
 	Subdirectory *string `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	Uri     *string           `pulumi:"uri"`
 	// The user who can mount the share and has file and folder permissions in the SMB share.
@@ -159,9 +164,9 @@ type LocationSmbState struct {
 	ServerHostname pulumi.StringPtrInput
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
 	Subdirectory pulumi.StringPtrInput
-	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	Uri     pulumi.StringPtrInput
 	// The user who can mount the share and has file and folder permissions in the SMB share.
@@ -185,7 +190,7 @@ type locationSmbArgs struct {
 	ServerHostname string `pulumi:"serverHostname"`
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
 	Subdirectory string `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The user who can mount the share and has file and folder permissions in the SMB share.
 	User string `pulumi:"user"`
@@ -205,7 +210,7 @@ type LocationSmbArgs struct {
 	ServerHostname pulumi.StringInput
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
 	Subdirectory pulumi.StringInput
-	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The user who can mount the share and has file and folder permissions in the SMB share.
 	User pulumi.StringInput
@@ -237,7 +242,7 @@ func (i *LocationSmb) ToLocationSmbOutputWithContext(ctx context.Context) Locati
 // LocationSmbArrayInput is an input type that accepts LocationSmbArray and LocationSmbArrayOutput values.
 // You can construct a concrete instance of `LocationSmbArrayInput` via:
 //
-//          LocationSmbArray{ LocationSmbArgs{...} }
+//	LocationSmbArray{ LocationSmbArgs{...} }
 type LocationSmbArrayInput interface {
 	pulumi.Input
 
@@ -262,7 +267,7 @@ func (i LocationSmbArray) ToLocationSmbArrayOutputWithContext(ctx context.Contex
 // LocationSmbMapInput is an input type that accepts LocationSmbMap and LocationSmbMapOutput values.
 // You can construct a concrete instance of `LocationSmbMapInput` via:
 //
-//          LocationSmbMap{ "key": LocationSmbArgs{...} }
+//	LocationSmbMap{ "key": LocationSmbArgs{...} }
 type LocationSmbMapInput interface {
 	pulumi.Input
 
@@ -333,12 +338,12 @@ func (o LocationSmbOutput) Subdirectory() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationSmb) pulumi.StringOutput { return v.Subdirectory }).(pulumi.StringOutput)
 }
 
-// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LocationSmbOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationSmb) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LocationSmbOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationSmb) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

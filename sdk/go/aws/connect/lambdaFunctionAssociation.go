@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.NewLambdaFunctionAssociation(ctx, "example", &connect.LambdaFunctionAssociationArgs{
-// 			FunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
-// 			InstanceId:  pulumi.Any(aws_connect_instance.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewLambdaFunctionAssociation(ctx, "example", &connect.LambdaFunctionAssociationArgs{
+//				FunctionArn: pulumi.Any(aws_lambda_function.Example.Arn),
+//				InstanceId:  pulumi.Any(aws_connect_instance.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // `aws_connect_lambda_function_association` can be imported using the `instance_id` and `function_arn` separated by a comma (`,`) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
+//
+//	$ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
+//
 // ```
 type LambdaFunctionAssociation struct {
 	pulumi.CustomResourceState
@@ -147,7 +152,7 @@ func (i *LambdaFunctionAssociation) ToLambdaFunctionAssociationOutputWithContext
 // LambdaFunctionAssociationArrayInput is an input type that accepts LambdaFunctionAssociationArray and LambdaFunctionAssociationArrayOutput values.
 // You can construct a concrete instance of `LambdaFunctionAssociationArrayInput` via:
 //
-//          LambdaFunctionAssociationArray{ LambdaFunctionAssociationArgs{...} }
+//	LambdaFunctionAssociationArray{ LambdaFunctionAssociationArgs{...} }
 type LambdaFunctionAssociationArrayInput interface {
 	pulumi.Input
 
@@ -172,7 +177,7 @@ func (i LambdaFunctionAssociationArray) ToLambdaFunctionAssociationArrayOutputWi
 // LambdaFunctionAssociationMapInput is an input type that accepts LambdaFunctionAssociationMap and LambdaFunctionAssociationMapOutput values.
 // You can construct a concrete instance of `LambdaFunctionAssociationMapInput` via:
 //
-//          LambdaFunctionAssociationMap{ "key": LambdaFunctionAssociationArgs{...} }
+//	LambdaFunctionAssociationMap{ "key": LambdaFunctionAssociationArgs{...} }
 type LambdaFunctionAssociationMapInput interface {
 	pulumi.Input
 

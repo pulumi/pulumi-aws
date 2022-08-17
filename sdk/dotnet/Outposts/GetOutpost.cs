@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Outposts
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Outposts.GetOutpost.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Outposts.GetOutpost.InvokeAsync(new Aws.Outposts.GetOutpostArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Outposts
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Outposts.GetOutpost.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Outposts.GetOutpost.InvokeAsync(new Aws.Outposts.GetOutpostArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Outposts
     }
 
 
-    public sealed class GetOutpostArgs : Pulumi.InvokeArgs
+    public sealed class GetOutpostArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN).
@@ -100,9 +96,10 @@ namespace Pulumi.Aws.Outposts
         public GetOutpostArgs()
         {
         }
+        public static new GetOutpostArgs Empty => new GetOutpostArgs();
     }
 
-    public sealed class GetOutpostInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOutpostInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN).
@@ -131,6 +128,7 @@ namespace Pulumi.Aws.Outposts
         public GetOutpostInvokeArgs()
         {
         }
+        public static new GetOutpostInvokeArgs Empty => new GetOutpostInvokeArgs();
     }
 
 

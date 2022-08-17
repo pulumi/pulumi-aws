@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs : Pulumi.ResourceArgs
+    public sealed class CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the schema registry that contains the schema. Must be provided when `schema_name` is specified and conflicts with `schema_arn`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs()
         {
         }
+        public static new CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs Empty => new CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs();
     }
 }

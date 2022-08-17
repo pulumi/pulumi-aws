@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apprunner.NewAutoScalingConfigurationVersion(ctx, "example", &apprunner.AutoScalingConfigurationVersionArgs{
-// 			AutoScalingConfigurationName: pulumi.String("example"),
-// 			MaxConcurrency:               pulumi.Int(50),
-// 			MaxSize:                      pulumi.Int(10),
-// 			MinSize:                      pulumi.Int(2),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example-apprunner-autoscaling"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apprunner.NewAutoScalingConfigurationVersion(ctx, "example", &apprunner.AutoScalingConfigurationVersionArgs{
+//				AutoScalingConfigurationName: pulumi.String("example"),
+//				MaxConcurrency:               pulumi.Int(50),
+//				MaxSize:                      pulumi.Int(10),
+//				MinSize:                      pulumi.Int(2),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-apprunner-autoscaling"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // App Runner AutoScaling Configuration Versions can be imported by using the `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
+//
+//	$ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
+//
 // ```
 type AutoScalingConfigurationVersion struct {
 	pulumi.CustomResourceState
@@ -208,7 +213,7 @@ func (i *AutoScalingConfigurationVersion) ToAutoScalingConfigurationVersionOutpu
 // AutoScalingConfigurationVersionArrayInput is an input type that accepts AutoScalingConfigurationVersionArray and AutoScalingConfigurationVersionArrayOutput values.
 // You can construct a concrete instance of `AutoScalingConfigurationVersionArrayInput` via:
 //
-//          AutoScalingConfigurationVersionArray{ AutoScalingConfigurationVersionArgs{...} }
+//	AutoScalingConfigurationVersionArray{ AutoScalingConfigurationVersionArgs{...} }
 type AutoScalingConfigurationVersionArrayInput interface {
 	pulumi.Input
 
@@ -233,7 +238,7 @@ func (i AutoScalingConfigurationVersionArray) ToAutoScalingConfigurationVersionA
 // AutoScalingConfigurationVersionMapInput is an input type that accepts AutoScalingConfigurationVersionMap and AutoScalingConfigurationVersionMapOutput values.
 // You can construct a concrete instance of `AutoScalingConfigurationVersionMapInput` via:
 //
-//          AutoScalingConfigurationVersionMap{ "key": AutoScalingConfigurationVersionArgs{...} }
+//	AutoScalingConfigurationVersionMap{ "key": AutoScalingConfigurationVersionArgs{...} }
 type AutoScalingConfigurationVersionMapInput interface {
 	pulumi.Input
 

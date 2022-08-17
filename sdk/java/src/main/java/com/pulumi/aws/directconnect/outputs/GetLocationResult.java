@@ -11,6 +11,11 @@ import java.util.Objects;
 @CustomType
 public final class GetLocationResult {
     /**
+     * @return The available MAC Security (MACsec) port speeds for the location.
+     * 
+     */
+    private final List<String> availableMacsecPortSpeeds;
+    /**
      * @return The available port speeds for the location.
      * 
      */
@@ -34,11 +39,13 @@ public final class GetLocationResult {
 
     @CustomType.Constructor
     private GetLocationResult(
+        @CustomType.Parameter("availableMacsecPortSpeeds") List<String> availableMacsecPortSpeeds,
         @CustomType.Parameter("availablePortSpeeds") List<String> availablePortSpeeds,
         @CustomType.Parameter("availableProviders") List<String> availableProviders,
         @CustomType.Parameter("id") String id,
         @CustomType.Parameter("locationCode") String locationCode,
         @CustomType.Parameter("locationName") String locationName) {
+        this.availableMacsecPortSpeeds = availableMacsecPortSpeeds;
         this.availablePortSpeeds = availablePortSpeeds;
         this.availableProviders = availableProviders;
         this.id = id;
@@ -46,6 +53,13 @@ public final class GetLocationResult {
         this.locationName = locationName;
     }
 
+    /**
+     * @return The available MAC Security (MACsec) port speeds for the location.
+     * 
+     */
+    public List<String> availableMacsecPortSpeeds() {
+        return this.availableMacsecPortSpeeds;
+    }
     /**
      * @return The available port speeds for the location.
      * 
@@ -87,6 +101,7 @@ public final class GetLocationResult {
     }
 
     public static final class Builder {
+        private List<String> availableMacsecPortSpeeds;
         private List<String> availablePortSpeeds;
         private List<String> availableProviders;
         private String id;
@@ -99,6 +114,7 @@ public final class GetLocationResult {
 
         public Builder(GetLocationResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.availableMacsecPortSpeeds = defaults.availableMacsecPortSpeeds;
     	      this.availablePortSpeeds = defaults.availablePortSpeeds;
     	      this.availableProviders = defaults.availableProviders;
     	      this.id = defaults.id;
@@ -106,6 +122,13 @@ public final class GetLocationResult {
     	      this.locationName = defaults.locationName;
         }
 
+        public Builder availableMacsecPortSpeeds(List<String> availableMacsecPortSpeeds) {
+            this.availableMacsecPortSpeeds = Objects.requireNonNull(availableMacsecPortSpeeds);
+            return this;
+        }
+        public Builder availableMacsecPortSpeeds(String... availableMacsecPortSpeeds) {
+            return availableMacsecPortSpeeds(List.of(availableMacsecPortSpeeds));
+        }
         public Builder availablePortSpeeds(List<String> availablePortSpeeds) {
             this.availablePortSpeeds = Objects.requireNonNull(availablePortSpeeds);
             return this;
@@ -132,7 +155,7 @@ public final class GetLocationResult {
             this.locationName = Objects.requireNonNull(locationName);
             return this;
         }        public GetLocationResult build() {
-            return new GetLocationResult(availablePortSpeeds, availableProviders, id, locationCode, locationName);
+            return new GetLocationResult(availableMacsecPortSpeeds, availablePortSpeeds, availableProviders, id, locationCode, locationName);
         }
     }
 }

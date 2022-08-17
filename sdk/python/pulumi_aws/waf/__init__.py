@@ -10,6 +10,7 @@ from .geo_match_set import *
 from .get_ipset import *
 from .get_rate_based_rule import *
 from .get_rule import *
+from .get_subscribed_rule_group import *
 from .get_web_acl import *
 from .ip_set import *
 from .rate_based_rule import *

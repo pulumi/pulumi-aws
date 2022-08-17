@@ -15,28 +15,26 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
     ///     {
-    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.1.0.0/16",
-    ///         });
-    ///         var exampleInternetGateway = new Aws.Ec2.InternetGateway("exampleInternetGateway", new Aws.Ec2.InternetGatewayArgs
-    ///         {
-    ///         });
-    ///         var exampleInternetGatewayAttachment = new Aws.Ec2.InternetGatewayAttachment("exampleInternetGatewayAttachment", new Aws.Ec2.InternetGatewayAttachmentArgs
-    ///         {
-    ///             InternetGatewayId = exampleInternetGateway.Id,
-    ///             VpcId = exampleVpc.Id,
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.1.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var exampleInternetGateway = new Aws.Ec2.InternetGateway("exampleInternetGateway");
+    /// 
+    ///     var exampleInternetGatewayAttachment = new Aws.Ec2.InternetGatewayAttachment("exampleInternetGatewayAttachment", new()
+    ///     {
+    ///         InternetGatewayId = exampleInternetGateway.Id,
+    ///         VpcId = exampleVpc.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/internetGatewayAttachment:InternetGatewayAttachment")]
-    public partial class InternetGatewayAttachment : Pulumi.CustomResource
+    public partial class InternetGatewayAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the internet gateway.
@@ -106,7 +104,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class InternetGatewayAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class InternetGatewayAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the internet gateway.
@@ -123,9 +121,10 @@ namespace Pulumi.Aws.Ec2
         public InternetGatewayAttachmentArgs()
         {
         }
+        public static new InternetGatewayAttachmentArgs Empty => new InternetGatewayAttachmentArgs();
     }
 
-    public sealed class InternetGatewayAttachmentState : Pulumi.ResourceArgs
+    public sealed class InternetGatewayAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the internet gateway.
@@ -142,5 +141,6 @@ namespace Pulumi.Aws.Ec2
         public InternetGatewayAttachmentState()
         {
         }
+        public static new InternetGatewayAttachmentState Empty => new InternetGatewayAttachmentState();
     }
 }

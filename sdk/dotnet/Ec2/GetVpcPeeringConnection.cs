@@ -20,33 +20,33 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var pc = Aws.Ec2.GetVpcPeeringConnection.Invoke(new()
         ///     {
-        ///         var pc = Output.Create(Aws.Ec2.GetVpcPeeringConnection.InvokeAsync(new Aws.Ec2.GetVpcPeeringConnectionArgs
-        ///         {
-        ///             VpcId = aws_vpc.Foo.Id,
-        ///             PeerCidrBlock = "10.0.1.0/22",
-        ///         }));
-        ///         // Create a route table
-        ///         var rt = new Aws.Ec2.RouteTable("rt", new Aws.Ec2.RouteTableArgs
-        ///         {
-        ///             VpcId = aws_vpc.Foo.Id,
-        ///         });
-        ///         // Create a route
-        ///         var route = new Aws.Ec2.Route("route", new Aws.Ec2.RouteArgs
-        ///         {
-        ///             RouteTableId = rt.Id,
-        ///             DestinationCidrBlock = pc.Apply(pc =&gt; pc.PeerCidrBlock),
-        ///             VpcPeeringConnectionId = pc.Apply(pc =&gt; pc.Id),
-        ///         });
-        ///     }
+        ///         VpcId = aws_vpc.Foo.Id,
+        ///         PeerCidrBlock = "10.0.1.0/22",
+        ///     });
         /// 
-        /// }
+        ///     // Create a route table
+        ///     var rt = new Aws.Ec2.RouteTable("rt", new()
+        ///     {
+        ///         VpcId = aws_vpc.Foo.Id,
+        ///     });
+        /// 
+        ///     // Create a route
+        ///     var route = new Aws.Ec2.Route("route", new()
+        ///     {
+        ///         RouteTableId = rt.Id,
+        ///         DestinationCidrBlock = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.PeerCidrBlock),
+        ///         VpcPeeringConnectionId = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -63,33 +63,33 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var pc = Aws.Ec2.GetVpcPeeringConnection.Invoke(new()
         ///     {
-        ///         var pc = Output.Create(Aws.Ec2.GetVpcPeeringConnection.InvokeAsync(new Aws.Ec2.GetVpcPeeringConnectionArgs
-        ///         {
-        ///             VpcId = aws_vpc.Foo.Id,
-        ///             PeerCidrBlock = "10.0.1.0/22",
-        ///         }));
-        ///         // Create a route table
-        ///         var rt = new Aws.Ec2.RouteTable("rt", new Aws.Ec2.RouteTableArgs
-        ///         {
-        ///             VpcId = aws_vpc.Foo.Id,
-        ///         });
-        ///         // Create a route
-        ///         var route = new Aws.Ec2.Route("route", new Aws.Ec2.RouteArgs
-        ///         {
-        ///             RouteTableId = rt.Id,
-        ///             DestinationCidrBlock = pc.Apply(pc =&gt; pc.PeerCidrBlock),
-        ///             VpcPeeringConnectionId = pc.Apply(pc =&gt; pc.Id),
-        ///         });
-        ///     }
+        ///         VpcId = aws_vpc.Foo.Id,
+        ///         PeerCidrBlock = "10.0.1.0/22",
+        ///     });
         /// 
-        /// }
+        ///     // Create a route table
+        ///     var rt = new Aws.Ec2.RouteTable("rt", new()
+        ///     {
+        ///         VpcId = aws_vpc.Foo.Id,
+        ///     });
+        /// 
+        ///     // Create a route
+        ///     var route = new Aws.Ec2.Route("route", new()
+        ///     {
+        ///         RouteTableId = rt.Id,
+        ///         DestinationCidrBlock = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.PeerCidrBlock),
+        ///         VpcPeeringConnectionId = pc.Apply(getVpcPeeringConnectionResult =&gt; getVpcPeeringConnectionResult.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetVpcPeeringConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcPeeringConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
@@ -189,9 +189,10 @@ namespace Pulumi.Aws.Ec2
         public GetVpcPeeringConnectionArgs()
         {
         }
+        public static new GetVpcPeeringConnectionArgs Empty => new GetVpcPeeringConnectionArgs();
     }
 
-    public sealed class GetVpcPeeringConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcPeeringConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
@@ -281,6 +282,7 @@ namespace Pulumi.Aws.Ec2
         public GetVpcPeeringConnectionInvokeArgs()
         {
         }
+        public static new GetVpcPeeringConnectionInvokeArgs Empty => new GetVpcPeeringConnectionInvokeArgs();
     }
 
 

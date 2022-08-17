@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class RailsAppLayerCloudwatchConfigurationLogStreamGetArgs : Pulumi.ResourceArgs
+    public sealed class RailsAppLayerCloudwatchConfigurationLogStreamGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("batchCount")]
         public Input<int>? BatchCount { get; set; }
@@ -48,5 +48,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public RailsAppLayerCloudwatchConfigurationLogStreamGetArgs()
         {
         }
+        public static new RailsAppLayerCloudwatchConfigurationLogStreamGetArgs Empty => new RailsAppLayerCloudwatchConfigurationLogStreamGetArgs();
     }
 }

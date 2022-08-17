@@ -34,6 +34,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesArgs;
  * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesKubernetesArgs;
  * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesKubernetesAuditLogsArgs;
+ * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesMalwareProtectionArgs;
+ * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs;
+ * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs;
  * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesS3LogsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -53,6 +56,13 @@ import javax.annotation.Nullable;
  *                 .kubernetes(DetectorDatasourcesKubernetesArgs.builder()
  *                     .auditLogs(DetectorDatasourcesKubernetesAuditLogsArgs.builder()
  *                         .enable(false)
+ *                         .build())
+ *                     .build())
+ *                 .malwareProtection(DetectorDatasourcesMalwareProtectionArgs.builder()
+ *                     .scanEc2InstanceWithFindings(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs.builder()
+ *                         .ebsVolumes(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs.builder()
+ *                             .enable(true)
+ *                             .build())
  *                         .build())
  *                     .build())
  *                 .s3Logs(DetectorDatasourcesS3LogsArgs.builder()
@@ -164,14 +174,14 @@ public class Detector extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider .
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

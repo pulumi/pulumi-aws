@@ -15,38 +15,36 @@ namespace Pulumi.Aws.RedShift
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var bar = new Aws.RedShift.ParameterGroup("bar", new()
     ///     {
-    ///         var bar = new Aws.RedShift.ParameterGroup("bar", new Aws.RedShift.ParameterGroupArgs
+    ///         Family = "redshift-1.0",
+    ///         Parameters = new[]
     ///         {
-    ///             Family = "redshift-1.0",
-    ///             Parameters = 
+    ///             new Aws.RedShift.Inputs.ParameterGroupParameterArgs
     ///             {
-    ///                 new Aws.RedShift.Inputs.ParameterGroupParameterArgs
-    ///                 {
-    ///                     Name = "require_ssl",
-    ///                     Value = "true",
-    ///                 },
-    ///                 new Aws.RedShift.Inputs.ParameterGroupParameterArgs
-    ///                 {
-    ///                     Name = "query_group",
-    ///                     Value = "example",
-    ///                 },
-    ///                 new Aws.RedShift.Inputs.ParameterGroupParameterArgs
-    ///                 {
-    ///                     Name = "enable_user_activity_logging",
-    ///                     Value = "true",
-    ///                 },
+    ///                 Name = "require_ssl",
+    ///                 Value = "true",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.RedShift.Inputs.ParameterGroupParameterArgs
+    ///             {
+    ///                 Name = "query_group",
+    ///                 Value = "example",
+    ///             },
+    ///             new Aws.RedShift.Inputs.ParameterGroupParameterArgs
+    ///             {
+    ///                 Name = "enable_user_activity_logging",
+    ///                 Value = "true",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +56,7 @@ namespace Pulumi.Aws.RedShift
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/parameterGroup:ParameterGroup")]
-    public partial class ParameterGroup : Pulumi.CustomResource
+    public partial class ParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of parameter group
@@ -97,7 +95,7 @@ namespace Pulumi.Aws.RedShift
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -146,7 +144,7 @@ namespace Pulumi.Aws.RedShift
         }
     }
 
-    public sealed class ParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class ParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
@@ -194,9 +192,10 @@ namespace Pulumi.Aws.RedShift
         {
             Description = "Managed by Pulumi";
         }
+        public static new ParameterGroupArgs Empty => new ParameterGroupArgs();
     }
 
-    public sealed class ParameterGroupState : Pulumi.ResourceArgs
+    public sealed class ParameterGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of parameter group
@@ -250,7 +249,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -262,5 +261,6 @@ namespace Pulumi.Aws.RedShift
         {
             Description = "Managed by Pulumi";
         }
+        public static new ParameterGroupState Empty => new ParameterGroupState();
     }
 }

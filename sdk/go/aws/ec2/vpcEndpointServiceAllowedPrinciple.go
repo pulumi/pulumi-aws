@@ -27,27 +27,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := aws.GetCallerIdentity(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewVpcEndpointServiceAllowedPrinciple(ctx, "allowMeToFoo", &ec2.VpcEndpointServiceAllowedPrincipleArgs{
-// 			VpcEndpointServiceId: pulumi.Any(aws_vpc_endpoint_service.Foo.Id),
-// 			PrincipalArn:         pulumi.String(current.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcEndpointServiceAllowedPrinciple(ctx, "allowMeToFoo", &ec2.VpcEndpointServiceAllowedPrincipleArgs{
+//				VpcEndpointServiceId: pulumi.Any(aws_vpc_endpoint_service.Foo.Id),
+//				PrincipalArn:         pulumi.String(current.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type VpcEndpointServiceAllowedPrinciple struct {
 	pulumi.CustomResourceState
@@ -151,7 +154,7 @@ func (i *VpcEndpointServiceAllowedPrinciple) ToVpcEndpointServiceAllowedPrincipl
 // VpcEndpointServiceAllowedPrincipleArrayInput is an input type that accepts VpcEndpointServiceAllowedPrincipleArray and VpcEndpointServiceAllowedPrincipleArrayOutput values.
 // You can construct a concrete instance of `VpcEndpointServiceAllowedPrincipleArrayInput` via:
 //
-//          VpcEndpointServiceAllowedPrincipleArray{ VpcEndpointServiceAllowedPrincipleArgs{...} }
+//	VpcEndpointServiceAllowedPrincipleArray{ VpcEndpointServiceAllowedPrincipleArgs{...} }
 type VpcEndpointServiceAllowedPrincipleArrayInput interface {
 	pulumi.Input
 
@@ -176,7 +179,7 @@ func (i VpcEndpointServiceAllowedPrincipleArray) ToVpcEndpointServiceAllowedPrin
 // VpcEndpointServiceAllowedPrincipleMapInput is an input type that accepts VpcEndpointServiceAllowedPrincipleMap and VpcEndpointServiceAllowedPrincipleMapOutput values.
 // You can construct a concrete instance of `VpcEndpointServiceAllowedPrincipleMapInput` via:
 //
-//          VpcEndpointServiceAllowedPrincipleMap{ "key": VpcEndpointServiceAllowedPrincipleArgs{...} }
+//	VpcEndpointServiceAllowedPrincipleMap{ "key": VpcEndpointServiceAllowedPrincipleArgs{...} }
 type VpcEndpointServiceAllowedPrincipleMapInput interface {
 	pulumi.Input
 

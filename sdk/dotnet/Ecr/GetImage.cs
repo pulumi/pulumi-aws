@@ -19,21 +19,19 @@ namespace Pulumi.Aws.Ecr
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var serviceImage = Aws.Ecr.GetImage.Invoke(new()
         ///     {
-        ///         var serviceImage = Output.Create(Aws.Ecr.GetImage.InvokeAsync(new Aws.Ecr.GetImageArgs
-        ///         {
-        ///             ImageTag = "latest",
-        ///             RepositoryName = "my/service",
-        ///         }));
-        ///     }
+        ///         ImageTag = "latest",
+        ///         RepositoryName = "my/service",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.Ecr
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var serviceImage = Aws.Ecr.GetImage.Invoke(new()
         ///     {
-        ///         var serviceImage = Output.Create(Aws.Ecr.GetImage.InvokeAsync(new Aws.Ecr.GetImageArgs
-        ///         {
-        ///             ImageTag = "latest",
-        ///             RepositoryName = "my/service",
-        ///         }));
-        ///     }
+        ///         ImageTag = "latest",
+        ///         RepositoryName = "my/service",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Ecr
     }
 
 
-    public sealed class GetImageArgs : Pulumi.InvokeArgs
+    public sealed class GetImageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
@@ -102,9 +98,10 @@ namespace Pulumi.Aws.Ecr
         public GetImageArgs()
         {
         }
+        public static new GetImageArgs Empty => new GetImageArgs();
     }
 
-    public sealed class GetImageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
@@ -133,6 +130,7 @@ namespace Pulumi.Aws.Ecr
         public GetImageInvokeArgs()
         {
         }
+        public static new GetImageInvokeArgs Empty => new GetImageInvokeArgs();
     }
 
 

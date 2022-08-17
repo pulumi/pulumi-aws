@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		primary, err := guardduty.NewDetector(ctx, "primary", &guardduty.DetectorArgs{
-// 			Enable: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		memberDetector, err := guardduty.NewDetector(ctx, "memberDetector", &guardduty.DetectorArgs{
-// 			Enable: pulumi.Bool(true),
-// 		}, pulumi.Provider(aws.Dev))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = guardduty.NewMember(ctx, "memberMember", &guardduty.MemberArgs{
-// 			AccountId:         memberDetector.AccountId,
-// 			DetectorId:        primary.ID(),
-// 			Email:             pulumi.String("required@example.com"),
-// 			Invite:            pulumi.Bool(true),
-// 			InvitationMessage: pulumi.String("please accept guardduty invitation"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := guardduty.NewDetector(ctx, "primary", &guardduty.DetectorArgs{
+//				Enable: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			memberDetector, err := guardduty.NewDetector(ctx, "memberDetector", &guardduty.DetectorArgs{
+//				Enable: pulumi.Bool(true),
+//			}, pulumi.Provider(aws.Dev))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = guardduty.NewMember(ctx, "memberMember", &guardduty.MemberArgs{
+//				AccountId:         memberDetector.AccountId,
+//				DetectorId:        primary.ID(),
+//				Email:             pulumi.String("required@example.com"),
+//				Invite:            pulumi.Bool(true),
+//				InvitationMessage: pulumi.String("please accept guardduty invitation"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // GuardDuty members can be imported using the the primary GuardDuty detector ID and member AWS account ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:guardduty/member:Member MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
+//
+//	$ pulumi import aws:guardduty/member:Member MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
+//
 // ```
 type Member struct {
 	pulumi.CustomResourceState
@@ -210,7 +215,7 @@ func (i *Member) ToMemberOutputWithContext(ctx context.Context) MemberOutput {
 // MemberArrayInput is an input type that accepts MemberArray and MemberArrayOutput values.
 // You can construct a concrete instance of `MemberArrayInput` via:
 //
-//          MemberArray{ MemberArgs{...} }
+//	MemberArray{ MemberArgs{...} }
 type MemberArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +240,7 @@ func (i MemberArray) ToMemberArrayOutputWithContext(ctx context.Context) MemberA
 // MemberMapInput is an input type that accepts MemberMap and MemberMapOutput values.
 // You can construct a concrete instance of `MemberMapInput` via:
 //
-//          MemberMap{ "key": MemberArgs{...} }
+//	MemberMap{ "key": MemberArgs{...} }
 type MemberMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Synthetics.Inputs
 {
 
-    public sealed class CanaryTimelineArgs : Pulumi.ResourceArgs
+    public sealed class CanaryTimelineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Date and time the canary was created.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Synthetics.Inputs
         public CanaryTimelineArgs()
         {
         }
+        public static new CanaryTimelineArgs Empty => new CanaryTimelineArgs();
     }
 }

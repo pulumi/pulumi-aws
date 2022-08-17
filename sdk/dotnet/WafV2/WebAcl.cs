@@ -19,231 +19,228 @@ namespace Pulumi.Aws.WafV2
     /// Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.WafV2.WebAcl("example", new()
     ///     {
-    ///         var example = new Aws.WafV2.WebAcl("example", new Aws.WafV2.WebAclArgs
+    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
     ///         {
-    ///             DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///             Allow = ,
+    ///         },
+    ///         Description = "Example of a Cloudfront rate based statement.",
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.WebAclRuleArgs
     ///             {
-    ///                 Allow = ,
-    ///             },
-    ///             Description = "Example of a Cloudfront rate based statement.",
-    ///             Rules = 
-    ///             {
-    ///                 new Aws.WafV2.Inputs.WebAclRuleArgs
+    ///                 Action = new Aws.WafV2.Inputs.WebAclRuleActionArgs
     ///                 {
-    ///                     Action = new Aws.WafV2.Inputs.WebAclRuleActionArgs
+    ///                     Block = ,
+    ///                 },
+    ///                 Name = "rule-1",
+    ///                 Priority = 1,
+    ///                 Statement = new Aws.WafV2.Inputs.WebAclRuleStatementArgs
+    ///                 {
+    ///                     RateBasedStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRateBasedStatementArgs
     ///                     {
-    ///                         Block = ,
-    ///                     },
-    ///                     Name = "rule-1",
-    ///                     Priority = 1,
-    ///                     Statement = new Aws.WafV2.Inputs.WebAclRuleStatementArgs
-    ///                     {
-    ///                         RateBasedStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRateBasedStatementArgs
+    ///                         AggregateKeyType = "IP",
+    ///                         Limit = 10000,
+    ///                         ScopeDownStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementArgs
     ///                         {
-    ///                             AggregateKeyType = "IP",
-    ///                             Limit = 10000,
-    ///                             ScopeDownStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementArgs
+    ///                             GeoMatchStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs
     ///                             {
-    ///                                 GeoMatchStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs
+    ///                                 CountryCodes = new[]
     ///                                 {
-    ///                                     CountryCodes = 
-    ///                                     {
-    ///                                         "US",
-    ///                                         "NL",
-    ///                                     },
+    ///                                     "US",
+    ///                                     "NL",
     ///                                 },
     ///                             },
     ///                         },
     ///                     },
-    ///                     VisibilityConfig = new Aws.WafV2.Inputs.WebAclRuleVisibilityConfigArgs
-    ///                     {
-    ///                         CloudwatchMetricsEnabled = false,
-    ///                         MetricName = "friendly-rule-metric-name",
-    ///                         SampledRequestsEnabled = false,
-    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.WebAclRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
     ///                 },
     ///             },
-    ///             Scope = "CLOUDFRONT",
-    ///             Tags = 
-    ///             {
-    ///                 { "Tag1", "Value1" },
-    ///                 { "Tag2", "Value2" },
-    ///             },
-    ///             VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
-    ///             {
-    ///                 CloudwatchMetricsEnabled = false,
-    ///                 MetricName = "friendly-metric-name",
-    ///                 SampledRequestsEnabled = false,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Scope = "CLOUDFRONT",
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Rule Group Reference
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.WafV2.RuleGroup("example", new()
     ///     {
-    ///         var example = new Aws.WafV2.RuleGroup("example", new Aws.WafV2.RuleGroupArgs
+    ///         Capacity = 10,
+    ///         Scope = "REGIONAL",
+    ///         Rules = new[]
     ///         {
-    ///             Capacity = 10,
-    ///             Scope = "REGIONAL",
-    ///             Rules = 
+    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
     ///             {
-    ///                 new Aws.WafV2.Inputs.RuleGroupRuleArgs
+    ///                 Name = "rule-1",
+    ///                 Priority = 1,
+    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
     ///                 {
-    ///                     Name = "rule-1",
-    ///                     Priority = 1,
-    ///                     Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
+    ///                     Count = ,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
+    ///                 {
+    ///                     GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
     ///                     {
-    ///                         Count = ,
-    ///                     },
-    ///                     Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
-    ///                     {
-    ///                         GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
+    ///                         CountryCodes = new[]
     ///                         {
-    ///                             CountryCodes = 
-    ///                             {
-    ///                                 "NL",
-    ///                             },
+    ///                             "NL",
     ///                         },
-    ///                     },
-    ///                     VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
-    ///                     {
-    ///                         CloudwatchMetricsEnabled = false,
-    ///                         MetricName = "friendly-rule-metric-name",
-    ///                         SampledRequestsEnabled = false,
     ///                     },
     ///                 },
-    ///                 new Aws.WafV2.Inputs.RuleGroupRuleArgs
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
     ///                 {
-    ///                     Name = "rule-to-exclude-a",
-    ///                     Priority = 10,
-    ///                     Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
-    ///                     {
-    ///                         Allow = ,
-    ///                     },
-    ///                     Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
-    ///                     {
-    ///                         GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
-    ///                         {
-    ///                             CountryCodes = 
-    ///                             {
-    ///                                 "US",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
-    ///                     {
-    ///                         CloudwatchMetricsEnabled = false,
-    ///                         MetricName = "friendly-rule-metric-name",
-    ///                         SampledRequestsEnabled = false,
-    ///                     },
-    ///                 },
-    ///                 new Aws.WafV2.Inputs.RuleGroupRuleArgs
-    ///                 {
-    ///                     Name = "rule-to-exclude-b",
-    ///                     Priority = 15,
-    ///                     Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
-    ///                     {
-    ///                         Allow = ,
-    ///                     },
-    ///                     Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
-    ///                     {
-    ///                         GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
-    ///                         {
-    ///                             CountryCodes = 
-    ///                             {
-    ///                                 "GB",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
-    ///                     {
-    ///                         CloudwatchMetricsEnabled = false,
-    ///                         MetricName = "friendly-rule-metric-name",
-    ///                         SampledRequestsEnabled = false,
-    ///                     },
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
     ///                 },
     ///             },
-    ///             VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
+    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
     ///             {
-    ///                 CloudwatchMetricsEnabled = false,
-    ///                 MetricName = "friendly-metric-name",
-    ///                 SampledRequestsEnabled = false,
+    ///                 Name = "rule-to-exclude-a",
+    ///                 Priority = 10,
+    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
+    ///                 {
+    ///                     Allow = ,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
+    ///                 {
+    ///                     GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
+    ///                     {
+    ///                         CountryCodes = new[]
+    ///                         {
+    ///                             "US",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
     ///             },
-    ///         });
-    ///         var test = new Aws.WafV2.WebAcl("test", new Aws.WafV2.WebAclArgs
+    ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
+    ///             {
+    ///                 Name = "rule-to-exclude-b",
+    ///                 Priority = 15,
+    ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
+    ///                 {
+    ///                     Allow = ,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
+    ///                 {
+    ///                     GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementGeoMatchStatementArgs
+    ///                     {
+    ///                         CountryCodes = new[]
+    ///                         {
+    ///                             "GB",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
     ///         {
-    ///             Scope = "REGIONAL",
-    ///             DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
-    ///             {
-    ///                 Block = ,
-    ///             },
-    ///             Rules = 
-    ///             {
-    ///                 new Aws.WafV2.Inputs.WebAclRuleArgs
-    ///                 {
-    ///                     Name = "rule-1",
-    ///                     Priority = 1,
-    ///                     OverrideAction = new Aws.WafV2.Inputs.WebAclRuleOverrideActionArgs
-    ///                     {
-    ///                         Count = ,
-    ///                     },
-    ///                     Statement = new Aws.WafV2.Inputs.WebAclRuleStatementArgs
-    ///                     {
-    ///                         RuleGroupReferenceStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementArgs
-    ///                         {
-    ///                             Arn = example.Arn,
-    ///                             ExcludedRules = 
-    ///                             {
-    ///                                 new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs
-    ///                                 {
-    ///                                     Name = "rule-to-exclude-b",
-    ///                                 },
-    ///                                 new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs
-    ///                                 {
-    ///                                     Name = "rule-to-exclude-a",
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     VisibilityConfig = new Aws.WafV2.Inputs.WebAclRuleVisibilityConfigArgs
-    ///                     {
-    ///                         CloudwatchMetricsEnabled = false,
-    ///                         MetricName = "friendly-rule-metric-name",
-    ///                         SampledRequestsEnabled = false,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Tag1", "Value1" },
-    ///                 { "Tag2", "Value2" },
-    ///             },
-    ///             VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
-    ///             {
-    ///                 CloudwatchMetricsEnabled = false,
-    ///                 MetricName = "friendly-metric-name",
-    ///                 SampledRequestsEnabled = false,
-    ///             },
-    ///         });
-    ///     }
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var test = new Aws.WafV2.WebAcl("test", new()
+    ///     {
+    ///         Scope = "REGIONAL",
+    ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///         {
+    ///             Block = ,
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.WebAclRuleArgs
+    ///             {
+    ///                 Name = "rule-1",
+    ///                 Priority = 1,
+    ///                 OverrideAction = new Aws.WafV2.Inputs.WebAclRuleOverrideActionArgs
+    ///                 {
+    ///                     Count = ,
+    ///                 },
+    ///                 Statement = new Aws.WafV2.Inputs.WebAclRuleStatementArgs
+    ///                 {
+    ///                     RuleGroupReferenceStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementArgs
+    ///                     {
+    ///                         Arn = example.Arn,
+    ///                         ExcludedRules = new[]
+    ///                         {
+    ///                             new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs
+    ///                             {
+    ///                                 Name = "rule-to-exclude-b",
+    ///                             },
+    ///                             new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs
+    ///                             {
+    ///                                 Name = "rule-to-exclude-a",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 VisibilityConfig = new Aws.WafV2.Inputs.WebAclRuleVisibilityConfigArgs
+    ///                 {
+    ///                     CloudwatchMetricsEnabled = false,
+    ///                     MetricName = "friendly-rule-metric-name",
+    ///                     SampledRequestsEnabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -255,7 +252,7 @@ namespace Pulumi.Aws.WafV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafv2/webAcl:WebAcl")]
-    public partial class WebAcl : Pulumi.CustomResource
+    public partial class WebAcl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
@@ -370,7 +367,7 @@ namespace Pulumi.Aws.WafV2
         }
     }
 
-    public sealed class WebAclArgs : Pulumi.ResourceArgs
+    public sealed class WebAclArgs : global::Pulumi.ResourceArgs
     {
         [Input("customResponseBodies")]
         private InputList<Inputs.WebAclCustomResponseBodyArgs>? _customResponseBodies;
@@ -441,9 +438,10 @@ namespace Pulumi.Aws.WafV2
         public WebAclArgs()
         {
         }
+        public static new WebAclArgs Empty => new WebAclArgs();
     }
 
-    public sealed class WebAclState : Pulumi.ResourceArgs
+    public sealed class WebAclState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
@@ -541,5 +539,6 @@ namespace Pulumi.Aws.WafV2
         public WebAclState()
         {
         }
+        public static new WebAclState Empty => new WebAclState();
     }
 }

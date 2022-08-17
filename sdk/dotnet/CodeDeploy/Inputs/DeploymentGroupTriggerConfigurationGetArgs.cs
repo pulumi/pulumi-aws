@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupTriggerConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupTriggerConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("triggerEvents", required: true)]
         private InputList<string>? _triggerEvents;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentGroupTriggerConfigurationGetArgs()
         {
         }
+        public static new DeploymentGroupTriggerConfigurationGetArgs Empty => new DeploymentGroupTriggerConfigurationGetArgs();
     }
 }

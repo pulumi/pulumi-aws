@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketLoggingV2TargetGrantGranteeGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketLoggingV2TargetGrantGranteeGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -42,5 +42,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketLoggingV2TargetGrantGranteeGetArgs()
         {
         }
+        public static new BucketLoggingV2TargetGrantGranteeGetArgs Empty => new BucketLoggingV2TargetGrantGranteeGetArgs();
     }
 }

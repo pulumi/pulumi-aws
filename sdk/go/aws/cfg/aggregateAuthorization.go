@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cfg.NewAggregateAuthorization(ctx, "example", &cfg.AggregateAuthorizationArgs{
-// 			AccountId: pulumi.String("123456789012"),
-// 			Region:    pulumi.String("eu-west-2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cfg.NewAggregateAuthorization(ctx, "example", &cfg.AggregateAuthorizationArgs{
+//				AccountId: pulumi.String("123456789012"),
+//				Region:    pulumi.String("eu-west-2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // Config aggregate authorizations can be imported using `account_id:region`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
+//
+//	$ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
+//
 // ```
 type AggregateAuthorization struct {
 	pulumi.CustomResourceState
@@ -55,7 +60,7 @@ type AggregateAuthorization struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -102,7 +107,7 @@ type aggregateAuthorizationState struct {
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -115,7 +120,7 @@ type AggregateAuthorizationState struct {
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -168,7 +173,7 @@ func (i *AggregateAuthorization) ToAggregateAuthorizationOutputWithContext(ctx c
 // AggregateAuthorizationArrayInput is an input type that accepts AggregateAuthorizationArray and AggregateAuthorizationArrayOutput values.
 // You can construct a concrete instance of `AggregateAuthorizationArrayInput` via:
 //
-//          AggregateAuthorizationArray{ AggregateAuthorizationArgs{...} }
+//	AggregateAuthorizationArray{ AggregateAuthorizationArgs{...} }
 type AggregateAuthorizationArrayInput interface {
 	pulumi.Input
 
@@ -193,7 +198,7 @@ func (i AggregateAuthorizationArray) ToAggregateAuthorizationArrayOutputWithCont
 // AggregateAuthorizationMapInput is an input type that accepts AggregateAuthorizationMap and AggregateAuthorizationMapOutput values.
 // You can construct a concrete instance of `AggregateAuthorizationMapInput` via:
 //
-//          AggregateAuthorizationMap{ "key": AggregateAuthorizationArgs{...} }
+//	AggregateAuthorizationMap{ "key": AggregateAuthorizationArgs{...} }
 type AggregateAuthorizationMapInput interface {
 	pulumi.Input
 
@@ -249,7 +254,7 @@ func (o AggregateAuthorizationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AggregateAuthorization) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AggregateAuthorizationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AggregateAuthorization) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

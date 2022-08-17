@@ -19,34 +19,33 @@ namespace Pulumi.Aws.Cfg
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
     ///     {
-    ///         var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new Aws.Organizations.OrganizationArgs
+    ///         AwsServiceAccessPrincipals = new[]
     ///         {
-    ///             AwsServiceAccessPrincipals = 
-    ///             {
-    ///                 "config-multiaccountsetup.amazonaws.com",
-    ///             },
-    ///             FeatureSet = "ALL",
-    ///         });
-    ///         var exampleOrganizationManagedRule = new Aws.Cfg.OrganizationManagedRule("exampleOrganizationManagedRule", new Aws.Cfg.OrganizationManagedRuleArgs
-    ///         {
-    ///             RuleIdentifier = "IAM_PASSWORD_POLICY",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleOrganization,
-    ///             },
-    ///         });
-    ///     }
+    ///             "config-multiaccountsetup.amazonaws.com",
+    ///         },
+    ///         FeatureSet = "ALL",
+    ///     });
     /// 
-    /// }
+    ///     var exampleOrganizationManagedRule = new Aws.Cfg.OrganizationManagedRule("exampleOrganizationManagedRule", new()
+    ///     {
+    ///         RuleIdentifier = "IAM_PASSWORD_POLICY",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleOrganization,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +57,7 @@ namespace Pulumi.Aws.Cfg
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/organizationManagedRule:OrganizationManagedRule")]
-    public partial class OrganizationManagedRule : Pulumi.CustomResource
+    public partial class OrganizationManagedRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the rule
@@ -170,7 +169,7 @@ namespace Pulumi.Aws.Cfg
         }
     }
 
-    public sealed class OrganizationManagedRuleArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationManagedRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the rule
@@ -247,9 +246,10 @@ namespace Pulumi.Aws.Cfg
         public OrganizationManagedRuleArgs()
         {
         }
+        public static new OrganizationManagedRuleArgs Empty => new OrganizationManagedRuleArgs();
     }
 
-    public sealed class OrganizationManagedRuleState : Pulumi.ResourceArgs
+    public sealed class OrganizationManagedRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the rule
@@ -332,5 +332,6 @@ namespace Pulumi.Aws.Cfg
         public OrganizationManagedRuleState()
         {
         }
+        public static new OrganizationManagedRuleState Empty => new OrganizationManagedRuleState();
     }
 }

@@ -22,26 +22,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/docdb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/docdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleCluster, err := docdb.NewCluster(ctx, "exampleCluster", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = docdb.NewGlobalCluster(ctx, "exampleGlobalCluster", &docdb.GlobalClusterArgs{
-// 			GlobalClusterIdentifier:   pulumi.String("example"),
-// 			SourceDbClusterIdentifier: exampleCluster.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleCluster, err := docdb.NewCluster(ctx, "exampleCluster", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = docdb.NewGlobalCluster(ctx, "exampleGlobalCluster", &docdb.GlobalClusterArgs{
+//				GlobalClusterIdentifier:   pulumi.String("example"),
+//				SourceDbClusterIdentifier: exampleCluster.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,20 +52,22 @@ import (
 // `aws_docdb_global_cluster` can be imported by using the Global Cluster identifier, e.g.
 //
 // ```sh
-//  $ pulumi import aws:docdb/globalCluster:GlobalCluster example example
+//
+//	$ pulumi import aws:docdb/globalCluster:GlobalCluster example example
+//
 // ```
 //
-//  Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html#ignore_changes) to hide the difference, e.g. terraform resource "aws_docdb_global_cluster" "example" {
+//	Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html#ignore_changes) to hide the difference, e.g. terraform resource "aws_docdb_global_cluster" "example" {
 //
 // # ... other configuration ...
 //
 // # There is no API for reading source_db_cluster_identifier
 //
-//  lifecycle {
+//	lifecycle {
 //
-//  ignore_changes = [source_db_cluster_identifier]
+//	ignore_changes = [source_db_cluster_identifier]
 //
-//  } }
+//	} }
 type GlobalCluster struct {
 	pulumi.CustomResourceState
 
@@ -223,7 +228,7 @@ func (i *GlobalCluster) ToGlobalClusterOutputWithContext(ctx context.Context) Gl
 // GlobalClusterArrayInput is an input type that accepts GlobalClusterArray and GlobalClusterArrayOutput values.
 // You can construct a concrete instance of `GlobalClusterArrayInput` via:
 //
-//          GlobalClusterArray{ GlobalClusterArgs{...} }
+//	GlobalClusterArray{ GlobalClusterArgs{...} }
 type GlobalClusterArrayInput interface {
 	pulumi.Input
 
@@ -248,7 +253,7 @@ func (i GlobalClusterArray) ToGlobalClusterArrayOutputWithContext(ctx context.Co
 // GlobalClusterMapInput is an input type that accepts GlobalClusterMap and GlobalClusterMapOutput values.
 // You can construct a concrete instance of `GlobalClusterMapInput` via:
 //
-//          GlobalClusterMap{ "key": GlobalClusterArgs{...} }
+//	GlobalClusterMap{ "key": GlobalClusterArgs{...} }
 type GlobalClusterMapInput interface {
 	pulumi.Input
 

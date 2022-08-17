@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeGetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the account.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeGetArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeGetArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeGetArgs();
     }
 }

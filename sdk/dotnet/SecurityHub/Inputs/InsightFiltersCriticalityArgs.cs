@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SecurityHub.Inputs
 {
 
-    public sealed class InsightFiltersCriticalityArgs : Pulumi.ResourceArgs
+    public sealed class InsightFiltersCriticalityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         public InsightFiltersCriticalityArgs()
         {
         }
+        public static new InsightFiltersCriticalityArgs Empty => new InsightFiltersCriticalityArgs();
     }
 }

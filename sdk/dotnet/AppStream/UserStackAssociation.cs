@@ -15,30 +15,28 @@ namespace Pulumi.Aws.AppStream
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var testStack = new Aws.AppStream.Stack("testStack", new Aws.AppStream.StackArgs
-    ///         {
-    ///         });
-    ///         var testUser = new Aws.AppStream.User("testUser", new Aws.AppStream.UserArgs
-    ///         {
-    ///             AuthenticationType = "USERPOOL",
-    ///             UserName = "EMAIL",
-    ///         });
-    ///         var testUserStackAssociation = new Aws.AppStream.UserStackAssociation("testUserStackAssociation", new Aws.AppStream.UserStackAssociationArgs
-    ///         {
-    ///             AuthenticationType = testUser.AuthenticationType,
-    ///             StackName = testStack.Name,
-    ///             UserName = testUser.UserName,
-    ///         });
-    ///     }
+    ///     var testStack = new Aws.AppStream.Stack("testStack");
     /// 
-    /// }
+    ///     var testUser = new Aws.AppStream.User("testUser", new()
+    ///     {
+    ///         AuthenticationType = "USERPOOL",
+    ///         UserName = "EMAIL",
+    ///     });
+    /// 
+    ///     var testUserStackAssociation = new Aws.AppStream.UserStackAssociation("testUserStackAssociation", new()
+    ///     {
+    ///         AuthenticationType = testUser.AuthenticationType,
+    ///         StackName = testStack.Name,
+    ///         UserName = testUser.UserName,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.AppStream
     /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/userStackAssociation:UserStackAssociation")]
-    public partial class UserStackAssociation : Pulumi.CustomResource
+    public partial class UserStackAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Authentication type for the user.
@@ -120,7 +118,7 @@ namespace Pulumi.Aws.AppStream
         }
     }
 
-    public sealed class UserStackAssociationArgs : Pulumi.ResourceArgs
+    public sealed class UserStackAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication type for the user.
@@ -149,9 +147,10 @@ namespace Pulumi.Aws.AppStream
         public UserStackAssociationArgs()
         {
         }
+        public static new UserStackAssociationArgs Empty => new UserStackAssociationArgs();
     }
 
-    public sealed class UserStackAssociationState : Pulumi.ResourceArgs
+    public sealed class UserStackAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication type for the user.
@@ -180,5 +179,6 @@ namespace Pulumi.Aws.AppStream
         public UserStackAssociationState()
         {
         }
+        public static new UserStackAssociationState Empty => new UserStackAssociationState();
     }
 }

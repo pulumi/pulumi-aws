@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs : Pulumi.ResourceArgs
+    public sealed class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs()
         {
         }
+        public static new FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs Empty => new FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs();
     }
 }

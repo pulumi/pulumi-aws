@@ -21,7 +21,9 @@ import (
 // SSO Permission Set Inline Policies can be imported using the `permission_set_arn` and `instance_arn` separated by a comma (`,`) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+//
+//	$ pulumi import aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+//
 // ```
 type PermissionSetInlinePolicy struct {
 	pulumi.CustomResourceState
@@ -138,7 +140,7 @@ func (i *PermissionSetInlinePolicy) ToPermissionSetInlinePolicyOutputWithContext
 // PermissionSetInlinePolicyArrayInput is an input type that accepts PermissionSetInlinePolicyArray and PermissionSetInlinePolicyArrayOutput values.
 // You can construct a concrete instance of `PermissionSetInlinePolicyArrayInput` via:
 //
-//          PermissionSetInlinePolicyArray{ PermissionSetInlinePolicyArgs{...} }
+//	PermissionSetInlinePolicyArray{ PermissionSetInlinePolicyArgs{...} }
 type PermissionSetInlinePolicyArrayInput interface {
 	pulumi.Input
 
@@ -163,7 +165,7 @@ func (i PermissionSetInlinePolicyArray) ToPermissionSetInlinePolicyArrayOutputWi
 // PermissionSetInlinePolicyMapInput is an input type that accepts PermissionSetInlinePolicyMap and PermissionSetInlinePolicyMapOutput values.
 // You can construct a concrete instance of `PermissionSetInlinePolicyMapInput` via:
 //
-//          PermissionSetInlinePolicyMap{ "key": PermissionSetInlinePolicyArgs{...} }
+//	PermissionSetInlinePolicyMap{ "key": PermissionSetInlinePolicyArgs{...} }
 type PermissionSetInlinePolicyMapInput interface {
 	pulumi.Input
 

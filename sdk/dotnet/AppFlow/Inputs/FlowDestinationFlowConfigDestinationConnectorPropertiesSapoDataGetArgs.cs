@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataGetArgs : Pulumi.ResourceArgs
+    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataGetArgs()
         {
         }
+        public static new FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataGetArgs Empty => new FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataGetArgs();
     }
 }

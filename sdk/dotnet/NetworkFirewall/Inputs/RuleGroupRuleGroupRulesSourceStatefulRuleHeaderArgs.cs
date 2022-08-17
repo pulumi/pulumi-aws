@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs()
         {
         }
+        public static new RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs Empty => new RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs();
     }
 }

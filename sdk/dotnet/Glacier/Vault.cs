@@ -17,28 +17,26 @@ namespace Pulumi.Aws.Glacier
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var awsSnsTopic = new Aws.Sns.Topic("awsSnsTopic");
+    /// 
+    ///     var myArchive = new Aws.Glacier.Vault("myArchive", new()
     ///     {
-    ///         var awsSnsTopic = new Aws.Sns.Topic("awsSnsTopic", new Aws.Sns.TopicArgs
+    ///         Notification = new Aws.Glacier.Inputs.VaultNotificationArgs
     ///         {
-    ///         });
-    ///         var myArchive = new Aws.Glacier.Vault("myArchive", new Aws.Glacier.VaultArgs
-    ///         {
-    ///             Notification = new Aws.Glacier.Inputs.VaultNotificationArgs
+    ///             SnsTopic = awsSnsTopic.Arn,
+    ///             Events = new[]
     ///             {
-    ///                 SnsTopic = awsSnsTopic.Arn,
-    ///                 Events = 
-    ///                 {
-    ///                     "ArchiveRetrievalCompleted",
-    ///                     "InventoryRetrievalCompleted",
-    ///                 },
+    ///                 "ArchiveRetrievalCompleted",
+    ///                 "InventoryRetrievalCompleted",
     ///             },
-    ///             AccessPolicy = @"{
+    ///         },
+    ///         AccessPolicy = @"{
     ///     ""Version"":""2012-10-17"",
     ///     ""Statement"":[
     ///        {
@@ -54,14 +52,13 @@ namespace Pulumi.Aws.Glacier
     ///     ]
     /// }
     /// ",
-    ///             Tags = 
-    ///             {
-    ///                 { "Test", "MyArchive" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Tags = 
+    ///         {
+    ///             { "Test", "MyArchive" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +70,7 @@ namespace Pulumi.Aws.Glacier
     /// ```
     /// </summary>
     [AwsResourceType("aws:glacier/vault:Vault")]
-    public partial class Vault : Pulumi.CustomResource
+    public partial class Vault : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The policy document. This is a JSON formatted string.
@@ -113,7 +110,7 @@ namespace Pulumi.Aws.Glacier
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -162,7 +159,7 @@ namespace Pulumi.Aws.Glacier
         }
     }
 
-    public sealed class VaultArgs : Pulumi.ResourceArgs
+    public sealed class VaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The policy document. This is a JSON formatted string.
@@ -198,9 +195,10 @@ namespace Pulumi.Aws.Glacier
         public VaultArgs()
         {
         }
+        public static new VaultArgs Empty => new VaultArgs();
     }
 
-    public sealed class VaultState : Pulumi.ResourceArgs
+    public sealed class VaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The policy document. This is a JSON formatted string.
@@ -249,7 +247,7 @@ namespace Pulumi.Aws.Glacier
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -260,5 +258,6 @@ namespace Pulumi.Aws.Glacier
         public VaultState()
         {
         }
+        public static new VaultState Empty => new VaultState();
     }
 }

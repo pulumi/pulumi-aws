@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm.Inputs
 {
 
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersLambdaParametersGetArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTaskTaskInvocationParametersLambdaParametersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Pass client-specific information to the Lambda function that you are invoking.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         public MaintenanceWindowTaskTaskInvocationParametersLambdaParametersGetArgs()
         {
         }
+        public static new MaintenanceWindowTaskTaskInvocationParametersLambdaParametersGetArgs Empty => new MaintenanceWindowTaskTaskInvocationParametersLambdaParametersGetArgs();
     }
 }

@@ -17,24 +17,22 @@ namespace Pulumi.Aws.Sagemaker
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.Project("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.Project("example", new Aws.Sagemaker.ProjectArgs
+    ///         ProjectName = "example",
+    ///         ServiceCatalogProvisioningDetails = new Aws.Sagemaker.Inputs.ProjectServiceCatalogProvisioningDetailsArgs
     ///         {
-    ///             ProjectName = "example",
-    ///             ServiceCatalogProvisioningDetails = new Aws.Sagemaker.Inputs.ProjectServiceCatalogProvisioningDetailsArgs
-    ///             {
-    ///                 ProductId = aws_servicecatalog_product.Example.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///             ProductId = aws_servicecatalog_product.Example.Id,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/project:Project")]
-    public partial class Project : Pulumi.CustomResource
+    public partial class Project : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Project.
@@ -84,9 +82,6 @@ namespace Pulumi.Aws.Sagemaker
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -134,7 +129,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class ProjectArgs : Pulumi.ResourceArgs
+    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the project.
@@ -169,9 +164,10 @@ namespace Pulumi.Aws.Sagemaker
         public ProjectArgs()
         {
         }
+        public static new ProjectArgs Empty => new ProjectArgs();
     }
 
-    public sealed class ProjectState : Pulumi.ResourceArgs
+    public sealed class ProjectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Project.
@@ -217,10 +213,6 @@ namespace Pulumi.Aws.Sagemaker
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -230,5 +222,6 @@ namespace Pulumi.Aws.Sagemaker
         public ProjectState()
         {
         }
+        public static new ProjectState Empty => new ProjectState();
     }
 }

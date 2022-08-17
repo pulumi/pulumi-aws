@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class CustomLayerCloudwatchConfigurationLogStreamGetArgs : Pulumi.ResourceArgs
+    public sealed class CustomLayerCloudwatchConfigurationLogStreamGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
@@ -81,5 +81,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public CustomLayerCloudwatchConfigurationLogStreamGetArgs()
         {
         }
+        public static new CustomLayerCloudwatchConfigurationLogStreamGetArgs Empty => new CustomLayerCloudwatchConfigurationLogStreamGetArgs();
     }
 }

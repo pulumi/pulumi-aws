@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketLifecycleConfigurationV2RuleTransitionGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketLifecycleConfigurationV2RuleTransitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketLifecycleConfigurationV2RuleTransitionGetArgs()
         {
         }
+        public static new BucketLifecycleConfigurationV2RuleTransitionGetArgs Empty => new BucketLifecycleConfigurationV2RuleTransitionGetArgs();
     }
 }

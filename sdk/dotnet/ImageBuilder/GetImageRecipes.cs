@@ -19,31 +19,29 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetImageRecipes.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetImageRecipes.InvokeAsync(new Aws.ImageBuilder.GetImageRecipesArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.ImageBuilder.Inputs.GetImageRecipesFilterInputArgs
         ///             {
-        ///                 new Aws.ImageBuilder.Inputs.GetImageRecipesFilterArgs
+        ///                 Name = "platform",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "platform",
-        ///                     Values = 
-        ///                     {
-        ///                         "Linux",
-        ///                     },
+        ///                     "Linux",
         ///                 },
         ///             },
-        ///             Owner = "Self",
-        ///         }));
-        ///     }
+        ///         },
+        ///         Owner = "Self",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -59,31 +57,29 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetImageRecipes.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetImageRecipes.InvokeAsync(new Aws.ImageBuilder.GetImageRecipesArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.ImageBuilder.Inputs.GetImageRecipesFilterInputArgs
         ///             {
-        ///                 new Aws.ImageBuilder.Inputs.GetImageRecipesFilterArgs
+        ///                 Name = "platform",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "platform",
-        ///                     Values = 
-        ///                     {
-        ///                         "Linux",
-        ///                     },
+        ///                     "Linux",
         ///                 },
         ///             },
-        ///             Owner = "Self",
-        ///         }));
-        ///     }
+        ///         },
+        ///         Owner = "Self",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -93,7 +89,7 @@ namespace Pulumi.Aws.ImageBuilder
     }
 
 
-    public sealed class GetImageRecipesArgs : Pulumi.InvokeArgs
+    public sealed class GetImageRecipesArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetImageRecipesFilterArgs>? _filters;
@@ -116,9 +112,10 @@ namespace Pulumi.Aws.ImageBuilder
         public GetImageRecipesArgs()
         {
         }
+        public static new GetImageRecipesArgs Empty => new GetImageRecipesArgs();
     }
 
-    public sealed class GetImageRecipesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetImageRecipesInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetImageRecipesFilterInputArgs>? _filters;
@@ -141,6 +138,7 @@ namespace Pulumi.Aws.ImageBuilder
         public GetImageRecipesInvokeArgs()
         {
         }
+        public static new GetImageRecipesInvokeArgs Empty => new GetImageRecipesInvokeArgs();
     }
 
 

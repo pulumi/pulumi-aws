@@ -17,32 +17,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53domains"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53domains"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := route53domains.NewRegisteredDomain(ctx, "example", &route53domains.RegisteredDomainArgs{
-// 			DomainName: pulumi.String("example.com"),
-// 			NameServers: route53domains.RegisteredDomainNameServerArray{
-// 				&route53domains.RegisteredDomainNameServerArgs{
-// 					Name: pulumi.String("ns-195.awsdns-24.com"),
-// 				},
-// 				&route53domains.RegisteredDomainNameServerArgs{
-// 					Name: pulumi.String("ns-874.awsdns-45.net"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("test"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53domains.NewRegisteredDomain(ctx, "example", &route53domains.RegisteredDomainArgs{
+//				DomainName: pulumi.String("example.com"),
+//				NameServers: route53domains.RegisteredDomainNameServerArray{
+//					&route53domains.RegisteredDomainNameServerArgs{
+//						Name: pulumi.String("ns-195.awsdns-24.com"),
+//					},
+//					&route53domains.RegisteredDomainNameServerArgs{
+//						Name: pulumi.String("ns-874.awsdns-45.net"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type RegisteredDomain struct {
 	pulumi.CustomResourceState
@@ -78,8 +81,7 @@ type RegisteredDomain struct {
 	// List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
 	StatusLists pulumi.StringArrayOutput `pulumi:"statusLists"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Details about the domain technical contact.
 	TechContact RegisteredDomainTechContactOutput `pulumi:"techContact"`
@@ -156,8 +158,7 @@ type registeredDomainState struct {
 	// List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
 	StatusLists []string `pulumi:"statusLists"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Details about the domain technical contact.
 	TechContact *RegisteredDomainTechContact `pulumi:"techContact"`
@@ -203,8 +204,7 @@ type RegisteredDomainState struct {
 	// List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
 	StatusLists pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Details about the domain technical contact.
 	TechContact RegisteredDomainTechContactPtrInput
@@ -238,8 +238,7 @@ type registeredDomainArgs struct {
 	// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
 	RegistrantPrivacy *bool `pulumi:"registrantPrivacy"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Details about the domain technical contact.
 	TechContact *RegisteredDomainTechContact `pulumi:"techContact"`
@@ -266,8 +265,7 @@ type RegisteredDomainArgs struct {
 	// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
 	RegistrantPrivacy pulumi.BoolPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Details about the domain technical contact.
 	TechContact RegisteredDomainTechContactPtrInput
@@ -303,7 +301,7 @@ func (i *RegisteredDomain) ToRegisteredDomainOutputWithContext(ctx context.Conte
 // RegisteredDomainArrayInput is an input type that accepts RegisteredDomainArray and RegisteredDomainArrayOutput values.
 // You can construct a concrete instance of `RegisteredDomainArrayInput` via:
 //
-//          RegisteredDomainArray{ RegisteredDomainArgs{...} }
+//	RegisteredDomainArray{ RegisteredDomainArgs{...} }
 type RegisteredDomainArrayInput interface {
 	pulumi.Input
 
@@ -328,7 +326,7 @@ func (i RegisteredDomainArray) ToRegisteredDomainArrayOutputWithContext(ctx cont
 // RegisteredDomainMapInput is an input type that accepts RegisteredDomainMap and RegisteredDomainMapOutput values.
 // You can construct a concrete instance of `RegisteredDomainMapInput` via:
 //
-//          RegisteredDomainMap{ "key": RegisteredDomainArgs{...} }
+//	RegisteredDomainMap{ "key": RegisteredDomainArgs{...} }
 type RegisteredDomainMapInput interface {
 	pulumi.Input
 
@@ -444,7 +442,6 @@ func (o RegisteredDomainOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o RegisteredDomainOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

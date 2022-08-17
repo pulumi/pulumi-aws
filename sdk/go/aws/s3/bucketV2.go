@@ -73,31 +73,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-// 			Tags: pulumi.StringMap{
-// 				"Name":        pulumi.String("My bucket"),
-// 				"Environment": pulumi.String("Dev"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
-// 			Bucket: bucketV2.ID(),
-// 			Acl:    pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
+//				Tags: pulumi.StringMap{
+//					"Name":        pulumi.String("My bucket"),
+//					"Environment": pulumi.String("Dev"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//				Bucket: bucketV2.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Static Website Hosting
 //
@@ -105,48 +108,53 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-// 			Acl:    pulumi.String("public-read"),
-// 			Policy: readFileOrPanic("policy.json"),
-// 			Websites: s3.BucketV2WebsiteArray{
-// 				&s3.BucketV2WebsiteArgs{
-// 					IndexDocument: pulumi.String("index.html"),
-// 					ErrorDocument: pulumi.String("error.html"),
-// 					RoutingRules: pulumi.String(fmt.Sprintf(`[{
-//     "Condition": {
-//         "KeyPrefixEquals": "docs/"
-//     },
-//     "Redirect": {
-//         "ReplaceKeyPrefixWith": "documents/"
-//     }
-// }]
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
+//				Acl:    pulumi.String("public-read"),
+//				Policy: readFileOrPanic("policy.json"),
+//				Websites: s3.BucketV2WebsiteArray{
+//					&s3.BucketV2WebsiteArgs{
+//						IndexDocument: pulumi.String("index.html"),
+//						ErrorDocument: pulumi.String("error.html"),
+//						RoutingRules: pulumi.String(fmt.Sprintf(`[{
+//	    "Condition": {
+//	        "KeyPrefixEquals": "docs/"
+//	    },
+//	    "Redirect": {
+//	        "ReplaceKeyPrefixWith": "documents/"
+//	    }
+//	}]
+//
 // `)),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Using CORS
 //
@@ -154,39 +162,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-// 			Acl: pulumi.String("public-read"),
-// 			CorsRules: s3.BucketV2CorsRuleArray{
-// 				&s3.BucketV2CorsRuleArgs{
-// 					AllowedHeaders: pulumi.StringArray{
-// 						pulumi.String("*"),
-// 					},
-// 					AllowedMethods: pulumi.StringArray{
-// 						pulumi.String("PUT"),
-// 						pulumi.String("POST"),
-// 					},
-// 					AllowedOrigins: pulumi.StringArray{
-// 						pulumi.String("https://s3-website-test.hashicorp.com"),
-// 					},
-// 					ExposeHeaders: pulumi.StringArray{
-// 						pulumi.String("ETag"),
-// 					},
-// 					MaxAgeSeconds: pulumi.Int(3000),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
+//				Acl: pulumi.String("public-read"),
+//				CorsRules: s3.BucketV2CorsRuleArray{
+//					&s3.BucketV2CorsRuleArgs{
+//						AllowedHeaders: pulumi.StringArray{
+//							pulumi.String("*"),
+//						},
+//						AllowedMethods: pulumi.StringArray{
+//							pulumi.String("PUT"),
+//							pulumi.String("POST"),
+//						},
+//						AllowedOrigins: pulumi.StringArray{
+//							pulumi.String("https://s3-website-test.hashicorp.com"),
+//						},
+//						ExposeHeaders: pulumi.StringArray{
+//							pulumi.String("ETag"),
+//						},
+//						MaxAgeSeconds: pulumi.Int(3000),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Using versioning
 //
@@ -194,26 +205,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-// 			Acl: pulumi.String("private"),
-// 			Versionings: s3.BucketV2VersioningArray{
-// 				&s3.BucketV2VersioningArgs{
-// 					Enabled: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
+//				Acl: pulumi.String("private"),
+//				Versionings: s3.BucketV2VersioningArray{
+//					&s3.BucketV2VersioningArgs{
+//						Enabled: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Enable Logging
 //
@@ -221,33 +235,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		logBucket, err := s3.NewBucketV2(ctx, "logBucket", &s3.BucketV2Args{
-// 			Acl: pulumi.String("log-delivery-write"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-// 			Acl: pulumi.String("private"),
-// 			Loggings: s3.BucketV2LoggingArray{
-// 				&s3.BucketV2LoggingArgs{
-// 					TargetBucket: logBucket.ID(),
-// 					TargetPrefix: pulumi.String("log/"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			logBucket, err := s3.NewBucketV2(ctx, "logBucket", &s3.BucketV2Args{
+//				Acl: pulumi.String("log-delivery-write"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
+//				Acl: pulumi.String("private"),
+//				Loggings: s3.BucketV2LoggingArray{
+//					&s3.BucketV2LoggingArgs{
+//						TargetBucket: logBucket.ID(),
+//						TargetPrefix: pulumi.String("log/"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Using object lifecycle
 //
@@ -255,89 +272,92 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
-// 			Acl: pulumi.String("private"),
-// 			LifecycleRules: s3.BucketV2LifecycleRuleArray{
-// 				&s3.BucketV2LifecycleRuleArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Expirations: s3.BucketV2LifecycleRuleExpirationArray{
-// 						&s3.BucketV2LifecycleRuleExpirationArgs{
-// 							Days: pulumi.Int(90),
-// 						},
-// 					},
-// 					Id:     pulumi.String("log"),
-// 					Prefix: pulumi.String("log/"),
-// 					Tags: pulumi.StringMap{
-// 						"autoclean": pulumi.String("true"),
-// 						"rule":      pulumi.String("log"),
-// 					},
-// 					Transitions: s3.BucketV2LifecycleRuleTransitionArray{
-// 						&s3.BucketV2LifecycleRuleTransitionArgs{
-// 							Days:         pulumi.Int(30),
-// 							StorageClass: pulumi.String("STANDARD_IA"),
-// 						},
-// 						&s3.BucketV2LifecycleRuleTransitionArgs{
-// 							Days:         pulumi.Int(60),
-// 							StorageClass: pulumi.String("GLACIER"),
-// 						},
-// 					},
-// 				},
-// 				&s3.BucketV2LifecycleRuleArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Expirations: s3.BucketV2LifecycleRuleExpirationArray{
-// 						&s3.BucketV2LifecycleRuleExpirationArgs{
-// 							Date: pulumi.String("2016-01-12"),
-// 						},
-// 					},
-// 					Id:     pulumi.String("tmp"),
-// 					Prefix: pulumi.String("tmp/"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketV2(ctx, "versioningBucket", &s3.BucketV2Args{
-// 			Acl: pulumi.String("private"),
-// 			LifecycleRules: s3.BucketV2LifecycleRuleArray{
-// 				&s3.BucketV2LifecycleRuleArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					NoncurrentVersionExpirations: s3.BucketV2LifecycleRuleNoncurrentVersionExpirationArray{
-// 						&s3.BucketV2LifecycleRuleNoncurrentVersionExpirationArgs{
-// 							Days: pulumi.Int(90),
-// 						},
-// 					},
-// 					NoncurrentVersionTransitions: s3.BucketV2LifecycleRuleNoncurrentVersionTransitionArray{
-// 						&s3.BucketV2LifecycleRuleNoncurrentVersionTransitionArgs{
-// 							Days:         pulumi.Int(30),
-// 							StorageClass: pulumi.String("STANDARD_IA"),
-// 						},
-// 						&s3.BucketV2LifecycleRuleNoncurrentVersionTransitionArgs{
-// 							Days:         pulumi.Int(60),
-// 							StorageClass: pulumi.String("GLACIER"),
-// 						},
-// 					},
-// 					Prefix: pulumi.String("config/"),
-// 				},
-// 			},
-// 			Versionings: s3.BucketV2VersioningArray{
-// 				&s3.BucketV2VersioningArgs{
-// 					Enabled: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+//				Acl: pulumi.String("private"),
+//				LifecycleRules: s3.BucketV2LifecycleRuleArray{
+//					&s3.BucketV2LifecycleRuleArgs{
+//						Enabled: pulumi.Bool(true),
+//						Expirations: s3.BucketV2LifecycleRuleExpirationArray{
+//							&s3.BucketV2LifecycleRuleExpirationArgs{
+//								Days: pulumi.Int(90),
+//							},
+//						},
+//						Id:     pulumi.String("log"),
+//						Prefix: pulumi.String("log/"),
+//						Tags: pulumi.StringMap{
+//							"autoclean": pulumi.String("true"),
+//							"rule":      pulumi.String("log"),
+//						},
+//						Transitions: s3.BucketV2LifecycleRuleTransitionArray{
+//							&s3.BucketV2LifecycleRuleTransitionArgs{
+//								Days:         pulumi.Int(30),
+//								StorageClass: pulumi.String("STANDARD_IA"),
+//							},
+//							&s3.BucketV2LifecycleRuleTransitionArgs{
+//								Days:         pulumi.Int(60),
+//								StorageClass: pulumi.String("GLACIER"),
+//							},
+//						},
+//					},
+//					&s3.BucketV2LifecycleRuleArgs{
+//						Enabled: pulumi.Bool(true),
+//						Expirations: s3.BucketV2LifecycleRuleExpirationArray{
+//							&s3.BucketV2LifecycleRuleExpirationArgs{
+//								Date: pulumi.String("2016-01-12"),
+//							},
+//						},
+//						Id:     pulumi.String("tmp"),
+//						Prefix: pulumi.String("tmp/"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketV2(ctx, "versioningBucket", &s3.BucketV2Args{
+//				Acl: pulumi.String("private"),
+//				LifecycleRules: s3.BucketV2LifecycleRuleArray{
+//					&s3.BucketV2LifecycleRuleArgs{
+//						Enabled: pulumi.Bool(true),
+//						NoncurrentVersionExpirations: s3.BucketV2LifecycleRuleNoncurrentVersionExpirationArray{
+//							&s3.BucketV2LifecycleRuleNoncurrentVersionExpirationArgs{
+//								Days: pulumi.Int(90),
+//							},
+//						},
+//						NoncurrentVersionTransitions: s3.BucketV2LifecycleRuleNoncurrentVersionTransitionArray{
+//							&s3.BucketV2LifecycleRuleNoncurrentVersionTransitionArgs{
+//								Days:         pulumi.Int(30),
+//								StorageClass: pulumi.String("STANDARD_IA"),
+//							},
+//							&s3.BucketV2LifecycleRuleNoncurrentVersionTransitionArgs{
+//								Days:         pulumi.Int(60),
+//								StorageClass: pulumi.String("GLACIER"),
+//							},
+//						},
+//						Prefix: pulumi.String("config/"),
+//					},
+//				},
+//				Versionings: s3.BucketV2VersioningArray{
+//					&s3.BucketV2VersioningArgs{
+//						Enabled: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Using replication configuration
 //
@@ -345,153 +365,159 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/providers"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := providers.Newaws(ctx, "central", &providers.awsArgs{
-// 			Region: "eu-central-1",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		replicationRole, err := iam.NewRole(ctx, "replicationRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": "sts:AssumeRole",
-//       "Principal": {
-//         "Service": "s3.amazonaws.com"
-//       },
-//       "Effect": "Allow",
-//       "Sid": ""
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewProvider(ctx, "central", &aws.ProviderArgs{
+//				Region: pulumi.String("eu-central-1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			replicationRole, err := iam.NewRole(ctx, "replicationRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "sts:AssumeRole",
+//	      "Principal": {
+//	        "Service": "s3.amazonaws.com"
+//	      },
+//	      "Effect": "Allow",
+//	      "Sid": ""
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		destination, err := s3.NewBucketV2(ctx, "destination", &s3.BucketV2Args{
-// 			Versionings: s3.BucketV2VersioningArray{
-// 				&s3.BucketV2VersioningArgs{
-// 					Enabled: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		source, err := s3.NewBucketV2(ctx, "source", &s3.BucketV2Args{
-// 			Acl: pulumi.String("private"),
-// 			Versionings: s3.BucketV2VersioningArray{
-// 				&s3.BucketV2VersioningArgs{
-// 					Enabled: pulumi.Bool(true),
-// 				},
-// 			},
-// 			ReplicationConfigurations: s3.BucketV2ReplicationConfigurationArray{
-// 				&s3.BucketV2ReplicationConfigurationArgs{
-// 					Role: replicationRole.Arn,
-// 					Rules: s3.BucketV2ReplicationConfigurationRuleArray{
-// 						&s3.BucketV2ReplicationConfigurationRuleArgs{
-// 							Id:     pulumi.String("foobar"),
-// 							Status: pulumi.String("Enabled"),
-// 							Filters: s3.BucketV2ReplicationConfigurationRuleFilterArray{
-// 								&s3.BucketV2ReplicationConfigurationRuleFilterArgs{
-// 									Tags: nil,
-// 								},
-// 							},
-// 							Destinations: s3.BucketV2ReplicationConfigurationRuleDestinationArray{
-// 								&s3.BucketV2ReplicationConfigurationRuleDestinationArgs{
-// 									Bucket:       destination.Arn,
-// 									StorageClass: pulumi.String("STANDARD"),
-// 									ReplicationTimes: s3.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArray{
-// 										&s3.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs{
-// 											Status:  pulumi.String("Enabled"),
-// 											Minutes: pulumi.Int(15),
-// 										},
-// 									},
-// 									Metrics: s3.BucketV2ReplicationConfigurationRuleDestinationMetricArray{
-// 										&s3.BucketV2ReplicationConfigurationRuleDestinationMetricArgs{
-// 											Status:  pulumi.String("Enabled"),
-// 											Minutes: pulumi.Int(15),
-// 										},
-// 									},
-// 								},
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 		}, pulumi.Provider(aws.Central))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		replicationPolicy, err := iam.NewPolicy(ctx, "replicationPolicy", &iam.PolicyArgs{
-// 			Policy: pulumi.All(source.Arn, source.Arn, destination.Arn).ApplyT(func(_args []interface{}) (string, error) {
-// 				sourceArn := _args[0].(string)
-// 				sourceArn1 := _args[1].(string)
-// 				destinationArn := _args[2].(string)
-// 				return fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": [
-//         "s3:GetReplicationConfiguration",
-//         "s3:ListBucket"
-//       ],
-//       "Effect": "Allow",
-//       "Resource": [
-//         "%v"
-//       ]
-//     },
-//     {
-//       "Action": [
-//         "s3:GetObjectVersionForReplication",
-//         "s3:GetObjectVersionAcl",
-//          "s3:GetObjectVersionTagging"
-//       ],
-//       "Effect": "Allow",
-//       "Resource": [
-//         "%v/*"
-//       ]
-//     },
-//     {
-//       "Action": [
-//         "s3:ReplicateObject",
-//         "s3:ReplicateDelete",
-//         "s3:ReplicateTags"
-//       ],
-//       "Effect": "Allow",
-//       "Resource": "%v/*"
-//     }
-//   ]
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			destination, err := s3.NewBucketV2(ctx, "destination", &s3.BucketV2Args{
+//				Versionings: s3.BucketV2VersioningArray{
+//					&s3.BucketV2VersioningArgs{
+//						Enabled: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			source, err := s3.NewBucketV2(ctx, "source", &s3.BucketV2Args{
+//				Acl: pulumi.String("private"),
+//				Versionings: s3.BucketV2VersioningArray{
+//					&s3.BucketV2VersioningArgs{
+//						Enabled: pulumi.Bool(true),
+//					},
+//				},
+//				ReplicationConfigurations: s3.BucketV2ReplicationConfigurationArray{
+//					&s3.BucketV2ReplicationConfigurationArgs{
+//						Role: replicationRole.Arn,
+//						Rules: s3.BucketV2ReplicationConfigurationRuleArray{
+//							&s3.BucketV2ReplicationConfigurationRuleArgs{
+//								Id:     pulumi.String("foobar"),
+//								Status: pulumi.String("Enabled"),
+//								Filters: s3.BucketV2ReplicationConfigurationRuleFilterArray{
+//									&s3.BucketV2ReplicationConfigurationRuleFilterArgs{
+//										Tags: nil,
+//									},
+//								},
+//								Destinations: s3.BucketV2ReplicationConfigurationRuleDestinationArray{
+//									&s3.BucketV2ReplicationConfigurationRuleDestinationArgs{
+//										Bucket:       destination.Arn,
+//										StorageClass: pulumi.String("STANDARD"),
+//										ReplicationTimes: s3.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArray{
+//											&s3.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs{
+//												Status:  pulumi.String("Enabled"),
+//												Minutes: pulumi.Int(15),
+//											},
+//										},
+//										Metrics: s3.BucketV2ReplicationConfigurationRuleDestinationMetricArray{
+//											&s3.BucketV2ReplicationConfigurationRuleDestinationMetricArgs{
+//												Status:  pulumi.String("Enabled"),
+//												Minutes: pulumi.Int(15),
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, pulumi.Provider(aws.Central))
+//			if err != nil {
+//				return err
+//			}
+//			replicationPolicy, err := iam.NewPolicy(ctx, "replicationPolicy", &iam.PolicyArgs{
+//				Policy: pulumi.All(source.Arn, source.Arn, destination.Arn).ApplyT(func(_args []interface{}) (string, error) {
+//					sourceArn := _args[0].(string)
+//					sourceArn1 := _args[1].(string)
+//					destinationArn := _args[2].(string)
+//					return fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": [
+//	        "s3:GetReplicationConfiguration",
+//	        "s3:ListBucket"
+//	      ],
+//	      "Effect": "Allow",
+//	      "Resource": [
+//	        "%v"
+//	      ]
+//	    },
+//	    {
+//	      "Action": [
+//	        "s3:GetObjectVersionForReplication",
+//	        "s3:GetObjectVersionAcl",
+//	         "s3:GetObjectVersionTagging"
+//	      ],
+//	      "Effect": "Allow",
+//	      "Resource": [
+//	        "%v/*"
+//	      ]
+//	    },
+//	    {
+//	      "Action": [
+//	        "s3:ReplicateObject",
+//	        "s3:ReplicateDelete",
+//	        "s3:ReplicateTags"
+//	      ],
+//	      "Effect": "Allow",
+//	      "Resource": "%v/*"
+//	    }
+//	  ]
+//	}
+//
 // `, sourceArn, sourceArn1, destinationArn), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "replicationRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-// 			Role:      replicationRole.Name,
-// 			PolicyArn: replicationPolicy.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "replicationRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//				Role:      replicationRole.Name,
+//				PolicyArn: replicationPolicy.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Enable Default Server Side Encryption
 //
@@ -499,42 +525,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		mykey, err := kms.NewKey(ctx, "mykey", &kms.KeyArgs{
-// 			Description:          pulumi.String("This key is used to encrypt bucket objects"),
-// 			DeletionWindowInDays: pulumi.Int(10),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketV2(ctx, "mybucket", &s3.BucketV2Args{
-// 			ServerSideEncryptionConfigurations: s3.BucketV2ServerSideEncryptionConfigurationArray{
-// 				&s3.BucketV2ServerSideEncryptionConfigurationArgs{
-// 					Rules: s3.BucketV2ServerSideEncryptionConfigurationRuleArray{
-// 						&s3.BucketV2ServerSideEncryptionConfigurationRuleArgs{
-// 							ApplyServerSideEncryptionByDefaults: s3.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArray{
-// 								&s3.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{
-// 									KmsMasterKeyId: mykey.Arn,
-// 									SseAlgorithm:   pulumi.String("aws:kms"),
-// 								},
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mykey, err := kms.NewKey(ctx, "mykey", &kms.KeyArgs{
+//				Description:          pulumi.String("This key is used to encrypt bucket objects"),
+//				DeletionWindowInDays: pulumi.Int(10),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketV2(ctx, "mybucket", &s3.BucketV2Args{
+//				ServerSideEncryptionConfigurations: s3.BucketV2ServerSideEncryptionConfigurationArray{
+//					&s3.BucketV2ServerSideEncryptionConfigurationArgs{
+//						Rules: s3.BucketV2ServerSideEncryptionConfigurationRuleArray{
+//							&s3.BucketV2ServerSideEncryptionConfigurationRuleArgs{
+//								ApplyServerSideEncryptionByDefaults: s3.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArray{
+//									&s3.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{
+//										KmsMasterKeyId: mykey.Arn,
+//										SseAlgorithm:   pulumi.String("aws:kms"),
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Using ACL policy grants
 //
@@ -542,41 +571,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		currentUser, err := s3.GetCanonicalUserId(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
-// 			Grants: s3.BucketV2GrantArray{
-// 				&s3.BucketV2GrantArgs{
-// 					Id:   pulumi.String(currentUser.Id),
-// 					Type: pulumi.String("CanonicalUser"),
-// 					Permissions: pulumi.StringArray{
-// 						pulumi.String("FULL_CONTROL"),
-// 					},
-// 				},
-// 				&s3.BucketV2GrantArgs{
-// 					Type: pulumi.String("Group"),
-// 					Permissions: pulumi.StringArray{
-// 						pulumi.String("READ_ACP"),
-// 						pulumi.String("WRITE"),
-// 					},
-// 					Uri: pulumi.String("http://acs.amazonaws.com/groups/s3/LogDelivery"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			currentUser, err := s3.GetCanonicalUserId(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+//				Grants: s3.BucketV2GrantArray{
+//					&s3.BucketV2GrantArgs{
+//						Id:   pulumi.String(currentUser.Id),
+//						Type: pulumi.String("CanonicalUser"),
+//						Permissions: pulumi.StringArray{
+//							pulumi.String("FULL_CONTROL"),
+//						},
+//					},
+//					&s3.BucketV2GrantArgs{
+//						Type: pulumi.String("Group"),
+//						Permissions: pulumi.StringArray{
+//							pulumi.String("READ_ACP"),
+//							pulumi.String("WRITE"),
+//						},
+//						Uri: pulumi.String("http://acs.amazonaws.com/groups/s3/LogDelivery"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -584,7 +616,9 @@ import (
 // S3 bucket can be imported using the `bucket`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
+//
+//	$ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
+//
 // ```
 type BucketV2 struct {
 	pulumi.CustomResourceState
@@ -1116,7 +1150,7 @@ func (i *BucketV2) ToBucketV2OutputWithContext(ctx context.Context) BucketV2Outp
 // BucketV2ArrayInput is an input type that accepts BucketV2Array and BucketV2ArrayOutput values.
 // You can construct a concrete instance of `BucketV2ArrayInput` via:
 //
-//          BucketV2Array{ BucketV2Args{...} }
+//	BucketV2Array{ BucketV2Args{...} }
 type BucketV2ArrayInput interface {
 	pulumi.Input
 
@@ -1141,7 +1175,7 @@ func (i BucketV2Array) ToBucketV2ArrayOutputWithContext(ctx context.Context) Buc
 // BucketV2MapInput is an input type that accepts BucketV2Map and BucketV2MapOutput values.
 // You can construct a concrete instance of `BucketV2MapInput` via:
 //
-//          BucketV2Map{ "key": BucketV2Args{...} }
+//	BucketV2Map{ "key": BucketV2Args{...} }
 type BucketV2MapInput interface {
 	pulumi.Input
 

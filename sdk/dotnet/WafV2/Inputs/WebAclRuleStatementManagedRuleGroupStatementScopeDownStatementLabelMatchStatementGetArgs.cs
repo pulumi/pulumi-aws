@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// String to match against.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementGetArgs()
         {
         }
+        public static new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementGetArgs Empty => new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementGetArgs();
     }
 }

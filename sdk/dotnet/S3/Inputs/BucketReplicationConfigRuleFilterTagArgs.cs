@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigRuleFilterTagArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigRuleFilterTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the object key.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigRuleFilterTagArgs()
         {
         }
+        public static new BucketReplicationConfigRuleFilterTagArgs Empty => new BucketReplicationConfigRuleFilterTagArgs();
     }
 }

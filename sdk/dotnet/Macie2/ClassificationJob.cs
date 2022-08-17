@@ -15,43 +15,40 @@ namespace Pulumi.Aws.Macie2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testAccount = new Aws.Macie2.Account("testAccount");
+    /// 
+    ///     var testClassificationJob = new Aws.Macie2.ClassificationJob("testClassificationJob", new()
     ///     {
-    ///         var testAccount = new Aws.Macie2.Account("testAccount", new Aws.Macie2.AccountArgs
+    ///         JobType = "ONE_TIME",
+    ///         S3JobDefinition = new Aws.Macie2.Inputs.ClassificationJobS3JobDefinitionArgs
     ///         {
-    ///         });
-    ///         var testClassificationJob = new Aws.Macie2.ClassificationJob("testClassificationJob", new Aws.Macie2.ClassificationJobArgs
-    ///         {
-    ///             JobType = "ONE_TIME",
-    ///             S3JobDefinition = new Aws.Macie2.Inputs.ClassificationJobS3JobDefinitionArgs
+    ///             BucketDefinitions = new[]
     ///             {
-    ///                 BucketDefinitions = 
+    ///                 new Aws.Macie2.Inputs.ClassificationJobS3JobDefinitionBucketDefinitionArgs
     ///                 {
-    ///                     new Aws.Macie2.Inputs.ClassificationJobS3JobDefinitionBucketDefinitionArgs
+    ///                     AccountId = "ACCOUNT ID",
+    ///                     Buckets = new[]
     ///                     {
-    ///                         AccountId = "ACCOUNT ID",
-    ///                         Buckets = 
-    ///                         {
-    ///                             "S3 BUCKET NAME",
-    ///                         },
+    ///                         "S3 BUCKET NAME",
     ///                     },
     ///                 },
     ///             },
-    ///         }, new CustomResourceOptions
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 testAccount,
-    ///             },
-    ///         });
-    ///     }
+    ///             testAccount,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +60,7 @@ namespace Pulumi.Aws.Macie2
     /// ```
     /// </summary>
     [AwsResourceType("aws:macie2/classificationJob:ClassificationJob")]
-    public partial class ClassificationJob : Pulumi.CustomResource
+    public partial class ClassificationJob : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The date and time, in UTC and extended RFC 3339 format, when the job was created.
@@ -193,7 +190,7 @@ namespace Pulumi.Aws.Macie2
         }
     }
 
-    public sealed class ClassificationJobArgs : Pulumi.ResourceArgs
+    public sealed class ClassificationJobArgs : global::Pulumi.ResourceArgs
     {
         [Input("customDataIdentifierIds")]
         private InputList<string>? _customDataIdentifierIds;
@@ -273,9 +270,10 @@ namespace Pulumi.Aws.Macie2
         public ClassificationJobArgs()
         {
         }
+        public static new ClassificationJobArgs Empty => new ClassificationJobArgs();
     }
 
-    public sealed class ClassificationJobState : Pulumi.ResourceArgs
+    public sealed class ClassificationJobState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The date and time, in UTC and extended RFC 3339 format, when the job was created.
@@ -387,5 +385,6 @@ namespace Pulumi.Aws.Macie2
         public ClassificationJobState()
         {
         }
+        public static new ClassificationJobState Empty => new ClassificationJobState();
     }
 }

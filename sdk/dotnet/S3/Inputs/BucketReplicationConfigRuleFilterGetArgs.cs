@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigRuleFilterGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigRuleFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigRuleFilterGetArgs()
         {
         }
+        public static new BucketReplicationConfigRuleFilterGetArgs Empty => new BucketReplicationConfigRuleFilterGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusGetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Access Key portion of the credentials.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusGetArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusGetArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusGetArgs();
     }
 }

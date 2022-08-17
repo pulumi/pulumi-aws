@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx.Inputs
 {
 
-    public sealed class LustreFileSystemLogConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LustreFileSystemLogConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Fsx.Inputs
         public LustreFileSystemLogConfigurationArgs()
         {
         }
+        public static new LustreFileSystemLogConfigurationArgs Empty => new LustreFileSystemLogConfigurationArgs();
     }
 }

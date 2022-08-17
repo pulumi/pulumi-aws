@@ -30,56 +30,57 @@ namespace Pulumi.Aws.Ec2
     /// named `sg_attachment`:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ami = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
-    ///         var ami = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
+    ///         MostRecent = true,
+    ///         Filters = new[]
     ///         {
-    ///             MostRecent = true,
-    ///             Filters = 
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
     ///             {
-    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
+    ///                 Name = "name",
+    ///                 Values = new[]
     ///                 {
-    ///                     Name = "name",
-    ///                     Values = 
-    ///                     {
-    ///                         "amzn-ami-hvm-*",
-    ///                     },
+    ///                     "amzn-ami-hvm-*",
     ///                 },
     ///             },
-    ///             Owners = 
-    ///             {
-    ///                 "amazon",
-    ///             },
-    ///         }));
-    ///         var instance = new Aws.Ec2.Instance("instance", new Aws.Ec2.InstanceArgs
+    ///         },
+    ///         Owners = new[]
     ///         {
-    ///             InstanceType = "t2.micro",
-    ///             Ami = ami.Apply(ami =&gt; ami.Id),
-    ///             Tags = 
-    ///             {
-    ///                 { "type", "test-instance" },
-    ///             },
-    ///         });
-    ///         var sg = new Aws.Ec2.SecurityGroup("sg", new Aws.Ec2.SecurityGroupArgs
-    ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "type", "test-security-group" },
-    ///             },
-    ///         });
-    ///         var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", new Aws.Ec2.NetworkInterfaceSecurityGroupAttachmentArgs
-    ///         {
-    ///             SecurityGroupId = sg.Id,
-    ///             NetworkInterfaceId = instance.PrimaryNetworkInterfaceId,
-    ///         });
-    ///     }
+    ///             "amazon",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var instance = new Aws.Ec2.Instance("instance", new()
+    ///     {
+    ///         InstanceType = "t2.micro",
+    ///         Ami = ami.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         Tags = 
+    ///         {
+    ///             { "type", "test-instance" },
+    ///         },
+    ///     });
+    /// 
+    ///     var sg = new Aws.Ec2.SecurityGroup("sg", new()
+    ///     {
+    ///         Tags = 
+    ///         {
+    ///             { "type", "test-security-group" },
+    ///         },
+    ///     });
+    /// 
+    ///     var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", new()
+    ///     {
+    ///         SecurityGroupId = sg.Id,
+    ///         NetworkInterfaceId = instance.PrimaryNetworkInterfaceId,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// In this example, `instance` is provided by the `aws.ec2.Instance` data source,
@@ -87,36 +88,36 @@ namespace Pulumi.Aws.Ec2
     /// `sg_attachment` then attaches to the output instance's `network_interface_id`:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var instance = Aws.Ec2.GetInstance.Invoke(new()
     ///     {
-    ///         var instance = Output.Create(Aws.Ec2.GetInstance.InvokeAsync(new Aws.Ec2.GetInstanceArgs
-    ///         {
-    ///             InstanceId = "i-1234567890abcdef0",
-    ///         }));
-    ///         var sg = new Aws.Ec2.SecurityGroup("sg", new Aws.Ec2.SecurityGroupArgs
-    ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "type", "test-security-group" },
-    ///             },
-    ///         });
-    ///         var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", new Aws.Ec2.NetworkInterfaceSecurityGroupAttachmentArgs
-    ///         {
-    ///             SecurityGroupId = sg.Id,
-    ///             NetworkInterfaceId = instance.Apply(instance =&gt; instance.NetworkInterfaceId),
-    ///         });
-    ///     }
+    ///         InstanceId = "i-1234567890abcdef0",
+    ///     });
     /// 
-    /// }
+    ///     var sg = new Aws.Ec2.SecurityGroup("sg", new()
+    ///     {
+    ///         Tags = 
+    ///         {
+    ///             { "type", "test-security-group" },
+    ///         },
+    ///     });
+    /// 
+    ///     var sgAttachment = new Aws.Ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment", new()
+    ///     {
+    ///         SecurityGroupId = sg.Id,
+    ///         NetworkInterfaceId = instance.Apply(getInstanceResult =&gt; getInstanceResult.NetworkInterfaceId),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment")]
-    public partial class NetworkInterfaceSecurityGroupAttachment : Pulumi.CustomResource
+    public partial class NetworkInterfaceSecurityGroupAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the network interface to attach to.
@@ -174,7 +175,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class NetworkInterfaceSecurityGroupAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceSecurityGroupAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the network interface to attach to.
@@ -191,9 +192,10 @@ namespace Pulumi.Aws.Ec2
         public NetworkInterfaceSecurityGroupAttachmentArgs()
         {
         }
+        public static new NetworkInterfaceSecurityGroupAttachmentArgs Empty => new NetworkInterfaceSecurityGroupAttachmentArgs();
     }
 
-    public sealed class NetworkInterfaceSecurityGroupAttachmentState : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceSecurityGroupAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the network interface to attach to.
@@ -210,5 +212,6 @@ namespace Pulumi.Aws.Ec2
         public NetworkInterfaceSecurityGroupAttachmentState()
         {
         }
+        public static new NetworkInterfaceSecurityGroupAttachmentState Empty => new NetworkInterfaceSecurityGroupAttachmentState();
     }
 }

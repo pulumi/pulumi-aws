@@ -20,24 +20,22 @@ namespace Pulumi.Aws.Connect
         /// ### By name
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetBotAssociation.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetBotAssociation.InvokeAsync(new Aws.Connect.GetBotAssociationArgs
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         LexBot = new Aws.Connect.Inputs.GetBotAssociationLexBotInputArgs
         ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             LexBot = new Aws.Connect.Inputs.GetBotAssociationLexBotArgs
-        ///             {
-        ///                 Name = "Test",
-        ///             },
-        ///         }));
-        ///     }
+        ///             Name = "Test",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,24 +52,22 @@ namespace Pulumi.Aws.Connect
         /// ### By name
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetBotAssociation.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetBotAssociation.InvokeAsync(new Aws.Connect.GetBotAssociationArgs
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         LexBot = new Aws.Connect.Inputs.GetBotAssociationLexBotInputArgs
         ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             LexBot = new Aws.Connect.Inputs.GetBotAssociationLexBotArgs
-        ///             {
-        ///                 Name = "Test",
-        ///             },
-        ///         }));
-        ///     }
+        ///             Name = "Test",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +77,7 @@ namespace Pulumi.Aws.Connect
     }
 
 
-    public sealed class GetBotAssociationArgs : Pulumi.InvokeArgs
+    public sealed class GetBotAssociationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
@@ -98,9 +94,10 @@ namespace Pulumi.Aws.Connect
         public GetBotAssociationArgs()
         {
         }
+        public static new GetBotAssociationArgs Empty => new GetBotAssociationArgs();
     }
 
-    public sealed class GetBotAssociationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBotAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
@@ -117,6 +114,7 @@ namespace Pulumi.Aws.Connect
         public GetBotAssociationInvokeArgs()
         {
         }
+        public static new GetBotAssociationInvokeArgs Empty => new GetBotAssociationInvokeArgs();
     }
 
 

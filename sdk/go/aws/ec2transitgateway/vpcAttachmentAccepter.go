@@ -25,24 +25,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2transitgateway.NewVpcAttachmentAccepter(ctx, "example", &ec2transitgateway.VpcAttachmentAccepterArgs{
-// 			TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Example cross-account attachment"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2transitgateway.NewVpcAttachmentAccepter(ctx, "example", &ec2transitgateway.VpcAttachmentAccepterArgs{
+//				TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example cross-account attachment"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // `aws_ec2_transit_gateway_vpc_attachment_accepter` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
+//
+//	$ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
+//
 // ```
 type VpcAttachmentAccepter struct {
 	pulumi.CustomResourceState
@@ -219,7 +224,7 @@ func (i *VpcAttachmentAccepter) ToVpcAttachmentAccepterOutputWithContext(ctx con
 // VpcAttachmentAccepterArrayInput is an input type that accepts VpcAttachmentAccepterArray and VpcAttachmentAccepterArrayOutput values.
 // You can construct a concrete instance of `VpcAttachmentAccepterArrayInput` via:
 //
-//          VpcAttachmentAccepterArray{ VpcAttachmentAccepterArgs{...} }
+//	VpcAttachmentAccepterArray{ VpcAttachmentAccepterArgs{...} }
 type VpcAttachmentAccepterArrayInput interface {
 	pulumi.Input
 
@@ -244,7 +249,7 @@ func (i VpcAttachmentAccepterArray) ToVpcAttachmentAccepterArrayOutputWithContex
 // VpcAttachmentAccepterMapInput is an input type that accepts VpcAttachmentAccepterMap and VpcAttachmentAccepterMapOutput values.
 // You can construct a concrete instance of `VpcAttachmentAccepterMapInput` via:
 //
-//          VpcAttachmentAccepterMap{ "key": VpcAttachmentAccepterArgs{...} }
+//	VpcAttachmentAccepterMap{ "key": VpcAttachmentAccepterArgs{...} }
 type VpcAttachmentAccepterMapInput interface {
 	pulumi.Input
 

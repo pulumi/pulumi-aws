@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SAPOData basic authentication credentials.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs();
     }
 }

@@ -15,30 +15,29 @@ namespace Pulumi.Aws.CloudFront
     /// The following example below creates a CloudFront key group.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var examplePublicKey = new Aws.CloudFront.PublicKey("examplePublicKey", new()
     ///     {
-    ///         var examplePublicKey = new Aws.CloudFront.PublicKey("examplePublicKey", new Aws.CloudFront.PublicKeyArgs
-    ///         {
-    ///             Comment = "example public key",
-    ///             EncodedKey = File.ReadAllText("public_key.pem"),
-    ///         });
-    ///         var exampleKeyGroup = new Aws.CloudFront.KeyGroup("exampleKeyGroup", new Aws.CloudFront.KeyGroupArgs
-    ///         {
-    ///             Comment = "example key group",
-    ///             Items = 
-    ///             {
-    ///                 examplePublicKey.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         Comment = "example public key",
+    ///         EncodedKey = File.ReadAllText("public_key.pem"),
+    ///     });
     /// 
-    /// }
+    ///     var exampleKeyGroup = new Aws.CloudFront.KeyGroup("exampleKeyGroup", new()
+    ///     {
+    ///         Comment = "example key group",
+    ///         Items = new[]
+    ///         {
+    ///             examplePublicKey.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +49,7 @@ namespace Pulumi.Aws.CloudFront
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/keyGroup:KeyGroup")]
-    public partial class KeyGroup : Pulumi.CustomResource
+    public partial class KeyGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A comment to describe the key group..
@@ -120,7 +119,7 @@ namespace Pulumi.Aws.CloudFront
         }
     }
 
-    public sealed class KeyGroupArgs : Pulumi.ResourceArgs
+    public sealed class KeyGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A comment to describe the key group..
@@ -149,9 +148,10 @@ namespace Pulumi.Aws.CloudFront
         public KeyGroupArgs()
         {
         }
+        public static new KeyGroupArgs Empty => new KeyGroupArgs();
     }
 
-    public sealed class KeyGroupState : Pulumi.ResourceArgs
+    public sealed class KeyGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A comment to describe the key group..
@@ -186,5 +186,6 @@ namespace Pulumi.Aws.CloudFront
         public KeyGroupState()
         {
         }
+        public static new KeyGroupState Empty => new KeyGroupState();
     }
 }

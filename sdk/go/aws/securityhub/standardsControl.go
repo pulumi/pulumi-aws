@@ -17,37 +17,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := securityhub.NewAccount(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		cisAwsFoundationsBenchmark, err := securityhub.NewStandardsSubscription(ctx, "cisAwsFoundationsBenchmark", &securityhub.StandardsSubscriptionArgs{
-// 			StandardsArn: pulumi.String("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			example,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = securityhub.NewStandardsControl(ctx, "ensureIamPasswordPolicyPreventsPasswordReuse", &securityhub.StandardsControlArgs{
-// 			StandardsControlArn: pulumi.String("arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10"),
-// 			ControlStatus:       pulumi.String("DISABLED"),
-// 			DisabledReason:      pulumi.String("We handle password policies within Okta"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			cisAwsFoundationsBenchmark,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := securityhub.NewAccount(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			cisAwsFoundationsBenchmark, err := securityhub.NewStandardsSubscription(ctx, "cisAwsFoundationsBenchmark", &securityhub.StandardsSubscriptionArgs{
+//				StandardsArn: pulumi.String("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewStandardsControl(ctx, "ensureIamPasswordPolicyPreventsPasswordReuse", &securityhub.StandardsControlArgs{
+//				StandardsControlArn: pulumi.String("arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10"),
+//				ControlStatus:       pulumi.String("DISABLED"),
+//				DisabledReason:      pulumi.String("We handle password policies within Okta"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				cisAwsFoundationsBenchmark,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type StandardsControl struct {
 	pulumi.CustomResourceState
@@ -203,7 +206,7 @@ func (i *StandardsControl) ToStandardsControlOutputWithContext(ctx context.Conte
 // StandardsControlArrayInput is an input type that accepts StandardsControlArray and StandardsControlArrayOutput values.
 // You can construct a concrete instance of `StandardsControlArrayInput` via:
 //
-//          StandardsControlArray{ StandardsControlArgs{...} }
+//	StandardsControlArray{ StandardsControlArgs{...} }
 type StandardsControlArrayInput interface {
 	pulumi.Input
 
@@ -228,7 +231,7 @@ func (i StandardsControlArray) ToStandardsControlArrayOutputWithContext(ctx cont
 // StandardsControlMapInput is an input type that accepts StandardsControlMap and StandardsControlMapOutput values.
 // You can construct a concrete instance of `StandardsControlMapInput` via:
 //
-//          StandardsControlMap{ "key": StandardsControlArgs{...} }
+//	StandardsControlMap{ "key": StandardsControlArgs{...} }
 type StandardsControlMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class CodeRepositoryGitConfigArgs : Pulumi.ResourceArgs
+    public sealed class CodeRepositoryGitConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default branch for the Git repository.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public CodeRepositoryGitConfigArgs()
         {
         }
+        public static new CodeRepositoryGitConfigArgs Empty => new CodeRepositoryGitConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ProjectBuildBatchConfigArgs : Pulumi.ResourceArgs
+    public sealed class ProjectBuildBatchConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if the build artifacts for the batch build should be combined into a single artifact location.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ProjectBuildBatchConfigArgs()
         {
         }
+        public static new ProjectBuildBatchConfigArgs Empty => new ProjectBuildBatchConfigArgs();
     }
 }

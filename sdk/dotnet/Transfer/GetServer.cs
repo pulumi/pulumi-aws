@@ -20,20 +20,18 @@ namespace Pulumi.Aws.Transfer
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Transfer.GetServer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Transfer.GetServer.InvokeAsync(new Aws.Transfer.GetServerArgs
-        ///         {
-        ///             ServerId = "s-1234567",
-        ///         }));
-        ///     }
+        ///         ServerId = "s-1234567",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,20 +48,18 @@ namespace Pulumi.Aws.Transfer
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Transfer.GetServer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Transfer.GetServer.InvokeAsync(new Aws.Transfer.GetServerArgs
-        ///         {
-        ///             ServerId = "s-1234567",
-        ///         }));
-        ///     }
+        ///         ServerId = "s-1234567",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Transfer
     }
 
 
-    public sealed class GetServerArgs : Pulumi.InvokeArgs
+    public sealed class GetServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID for an SFTP server.
@@ -84,9 +80,10 @@ namespace Pulumi.Aws.Transfer
         public GetServerArgs()
         {
         }
+        public static new GetServerArgs Empty => new GetServerArgs();
     }
 
-    public sealed class GetServerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID for an SFTP server.
@@ -97,6 +94,7 @@ namespace Pulumi.Aws.Transfer
         public GetServerInvokeArgs()
         {
         }
+        public static new GetServerInvokeArgs Empty => new GetServerInvokeArgs();
     }
 
 

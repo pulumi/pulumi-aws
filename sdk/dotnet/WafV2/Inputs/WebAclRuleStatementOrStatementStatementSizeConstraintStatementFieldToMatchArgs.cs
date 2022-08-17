@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Inspect all query arguments.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchArgs()
         {
         }
+        public static new WebAclRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchArgs Empty => new WebAclRuleStatementOrStatementStatementSizeConstraintStatementFieldToMatchArgs();
     }
 }

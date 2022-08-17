@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex.Inputs
 {
 
-    public sealed class BotIntentArgs : Pulumi.ResourceArgs
+    public sealed class BotIntentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the intent. Must be less than or equal to 100 characters in length.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Lex.Inputs
         public BotIntentArgs()
         {
         }
+        public static new BotIntentArgs Empty => new BotIntentArgs();
     }
 }

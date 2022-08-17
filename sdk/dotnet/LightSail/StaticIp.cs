@@ -17,23 +17,19 @@ namespace Pulumi.Aws.LightSail
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var test = new Aws.LightSail.StaticIp("test", new Aws.LightSail.StaticIpArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var test = new Aws.LightSail.StaticIp("test");
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/staticIp:StaticIp")]
-    public partial class StaticIp : Pulumi.CustomResource
+    public partial class StaticIp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Lightsail static IP
@@ -103,7 +99,7 @@ namespace Pulumi.Aws.LightSail
         }
     }
 
-    public sealed class StaticIpArgs : Pulumi.ResourceArgs
+    public sealed class StaticIpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name for the allocated static IP
@@ -114,9 +110,10 @@ namespace Pulumi.Aws.LightSail
         public StaticIpArgs()
         {
         }
+        public static new StaticIpArgs Empty => new StaticIpArgs();
     }
 
-    public sealed class StaticIpState : Pulumi.ResourceArgs
+    public sealed class StaticIpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Lightsail static IP
@@ -145,5 +142,6 @@ namespace Pulumi.Aws.LightSail
         public StaticIpState()
         {
         }
+        public static new StaticIpState Empty => new StaticIpState();
     }
 }

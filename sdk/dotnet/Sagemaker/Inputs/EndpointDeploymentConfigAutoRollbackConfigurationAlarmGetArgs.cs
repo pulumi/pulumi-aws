@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class EndpointDeploymentConfigAutoRollbackConfigurationAlarmGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointDeploymentConfigAutoRollbackConfigurationAlarmGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of a CloudWatch alarm in your account.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public EndpointDeploymentConfigAutoRollbackConfigurationAlarmGetArgs()
         {
         }
+        public static new EndpointDeploymentConfigAutoRollbackConfigurationAlarmGetArgs Empty => new EndpointDeploymentConfigAutoRollbackConfigurationAlarmGetArgs();
     }
 }

@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Cognito
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var sc = Aws.Cognito.GetUserPoolSigningCertificate.Invoke(new()
         ///     {
-        ///         var sc = Output.Create(Aws.Cognito.GetUserPoolSigningCertificate.InvokeAsync(new Aws.Cognito.GetUserPoolSigningCertificateArgs
-        ///         {
-        ///             UserPoolId = aws_cognito_user_pool.My_pool.Id,
-        ///         }));
-        ///     }
+        ///         UserPoolId = aws_cognito_user_pool.My_pool.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Cognito
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var sc = Aws.Cognito.GetUserPoolSigningCertificate.Invoke(new()
         ///     {
-        ///         var sc = Output.Create(Aws.Cognito.GetUserPoolSigningCertificate.InvokeAsync(new Aws.Cognito.GetUserPoolSigningCertificateArgs
-        ///         {
-        ///             UserPoolId = aws_cognito_user_pool.My_pool.Id,
-        ///         }));
-        ///     }
+        ///         UserPoolId = aws_cognito_user_pool.My_pool.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Cognito
     }
 
 
-    public sealed class GetUserPoolSigningCertificateArgs : Pulumi.InvokeArgs
+    public sealed class GetUserPoolSigningCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Cognito user pool ID.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Cognito
         public GetUserPoolSigningCertificateArgs()
         {
         }
+        public static new GetUserPoolSigningCertificateArgs Empty => new GetUserPoolSigningCertificateArgs();
     }
 
-    public sealed class GetUserPoolSigningCertificateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserPoolSigningCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Cognito user pool ID.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Cognito
         public GetUserPoolSigningCertificateInvokeArgs()
         {
         }
+        public static new GetUserPoolSigningCertificateInvokeArgs Empty => new GetUserPoolSigningCertificateInvokeArgs();
     }
 
 

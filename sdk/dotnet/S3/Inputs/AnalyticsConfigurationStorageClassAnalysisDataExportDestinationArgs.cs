@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Analytics data export currently only supports an S3 bucket destination (documented below).
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs()
         {
         }
+        public static new AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs Empty => new AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs();
     }
 }

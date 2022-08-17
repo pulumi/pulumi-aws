@@ -21,20 +21,18 @@ namespace Pulumi.Aws.Kms
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var s3 = Aws.Kms.GetAlias.Invoke(new()
         ///     {
-        ///         var s3 = Output.Create(Aws.Kms.GetAlias.InvokeAsync(new Aws.Kms.GetAliasArgs
-        ///         {
-        ///             Name = "alias/aws/s3",
-        ///         }));
-        ///     }
+        ///         Name = "alias/aws/s3",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,20 +50,18 @@ namespace Pulumi.Aws.Kms
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var s3 = Aws.Kms.GetAlias.Invoke(new()
         ///     {
-        ///         var s3 = Output.Create(Aws.Kms.GetAlias.InvokeAsync(new Aws.Kms.GetAliasArgs
-        ///         {
-        ///             Name = "alias/aws/s3",
-        ///         }));
-        ///     }
+        ///         Name = "alias/aws/s3",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Kms
     }
 
 
-    public sealed class GetAliasArgs : Pulumi.InvokeArgs
+    public sealed class GetAliasArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
@@ -86,9 +82,10 @@ namespace Pulumi.Aws.Kms
         public GetAliasArgs()
         {
         }
+        public static new GetAliasArgs Empty => new GetAliasArgs();
     }
 
-    public sealed class GetAliasInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
@@ -99,6 +96,7 @@ namespace Pulumi.Aws.Kms
         public GetAliasInvokeArgs()
         {
         }
+        public static new GetAliasInvokeArgs Empty => new GetAliasInvokeArgs();
     }
 
 

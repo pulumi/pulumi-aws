@@ -15,48 +15,47 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ubuntu = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
-    ///         var ubuntu = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
+    ///         MostRecent = true,
+    ///         Filters = new[]
     ///         {
-    ///             MostRecent = true,
-    ///             Filters = 
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
     ///             {
-    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
+    ///                 Name = "name",
+    ///                 Values = new[]
     ///                 {
-    ///                     Name = "name",
-    ///                     Values = 
-    ///                     {
-    ///                         "ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
-    ///                     },
-    ///                 },
-    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
-    ///                 {
-    ///                     Name = "virtualization-type",
-    ///                     Values = 
-    ///                     {
-    ///                         "hvm",
-    ///                     },
+    ///                     "ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
     ///                 },
     ///             },
-    ///             Owners = 
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
     ///             {
-    ///                 "099720109477",
+    ///                 Name = "virtualization-type",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "hvm",
+    ///                 },
     ///             },
-    ///         }));
-    ///         var asConf = new Aws.Ec2.LaunchConfiguration("asConf", new Aws.Ec2.LaunchConfigurationArgs
+    ///         },
+    ///         Owners = new[]
     ///         {
-    ///             ImageId = ubuntu.Apply(ubuntu =&gt; ubuntu.Id),
-    ///             InstanceType = "t2.micro",
-    ///         });
-    ///     }
+    ///             "099720109477",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var asConf = new Aws.Ec2.LaunchConfiguration("asConf", new()
+    ///     {
+    ///         ImageId = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         InstanceType = "t2.micro",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Using with AutoScaling Groups
     /// 
@@ -69,55 +68,55 @@ namespace Pulumi.Aws.Ec2
     /// with `name_prefix`.  Example:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ubuntu = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
-    ///         var ubuntu = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
+    ///         MostRecent = true,
+    ///         Filters = new[]
     ///         {
-    ///             MostRecent = true,
-    ///             Filters = 
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
     ///             {
-    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
+    ///                 Name = "name",
+    ///                 Values = new[]
     ///                 {
-    ///                     Name = "name",
-    ///                     Values = 
-    ///                     {
-    ///                         "ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
-    ///                     },
-    ///                 },
-    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
-    ///                 {
-    ///                     Name = "virtualization-type",
-    ///                     Values = 
-    ///                     {
-    ///                         "hvm",
-    ///                     },
+    ///                     "ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
     ///                 },
     ///             },
-    ///             Owners = 
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
     ///             {
-    ///                 "099720109477",
+    ///                 Name = "virtualization-type",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "hvm",
+    ///                 },
     ///             },
-    ///         }));
-    ///         var asConf = new Aws.Ec2.LaunchConfiguration("asConf", new Aws.Ec2.LaunchConfigurationArgs
+    ///         },
+    ///         Owners = new[]
     ///         {
-    ///             NamePrefix = "lc-example-",
-    ///             ImageId = ubuntu.Apply(ubuntu =&gt; ubuntu.Id),
-    ///             InstanceType = "t2.micro",
-    ///         });
-    ///         var bar = new Aws.AutoScaling.Group("bar", new Aws.AutoScaling.GroupArgs
-    ///         {
-    ///             LaunchConfiguration = asConf.Name,
-    ///             MinSize = 1,
-    ///             MaxSize = 2,
-    ///         });
-    ///     }
+    ///             "099720109477",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var asConf = new Aws.Ec2.LaunchConfiguration("asConf", new()
+    ///     {
+    ///         NamePrefix = "lc-example-",
+    ///         ImageId = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         InstanceType = "t2.micro",
+    ///     });
+    /// 
+    ///     var bar = new Aws.AutoScaling.Group("bar", new()
+    ///     {
+    ///         LaunchConfiguration = asConf.Name,
+    ///         MinSize = 1,
+    ///         MaxSize = 2,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// With this setup this provider generates a unique name for your Launch
@@ -134,53 +133,53 @@ namespace Pulumi.Aws.Ec2
     /// for more information or how to launch [Spot Instances](https://www.terraform.io/docs/providers/aws/r/spot_instance_request.html) with this provider.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ubuntu = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
-    ///         var ubuntu = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
+    ///         MostRecent = true,
+    ///         Filters = new[]
     ///         {
-    ///             MostRecent = true,
-    ///             Filters = 
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
     ///             {
-    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
+    ///                 Name = "name",
+    ///                 Values = new[]
     ///                 {
-    ///                     Name = "name",
-    ///                     Values = 
-    ///                     {
-    ///                         "ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
-    ///                     },
-    ///                 },
-    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
-    ///                 {
-    ///                     Name = "virtualization-type",
-    ///                     Values = 
-    ///                     {
-    ///                         "hvm",
-    ///                     },
+    ///                     "ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
     ///                 },
     ///             },
-    ///             Owners = 
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
     ///             {
-    ///                 "099720109477",
+    ///                 Name = "virtualization-type",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "hvm",
+    ///                 },
     ///             },
-    ///         }));
-    ///         var asConf = new Aws.Ec2.LaunchConfiguration("asConf", new Aws.Ec2.LaunchConfigurationArgs
+    ///         },
+    ///         Owners = new[]
     ///         {
-    ///             ImageId = ubuntu.Apply(ubuntu =&gt; ubuntu.Id),
-    ///             InstanceType = "m4.large",
-    ///             SpotPrice = "0.001",
-    ///         });
-    ///         var bar = new Aws.AutoScaling.Group("bar", new Aws.AutoScaling.GroupArgs
-    ///         {
-    ///             LaunchConfiguration = asConf.Name,
-    ///         });
-    ///     }
+    ///             "099720109477",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var asConf = new Aws.Ec2.LaunchConfiguration("asConf", new()
+    ///     {
+    ///         ImageId = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         InstanceType = "m4.large",
+    ///         SpotPrice = "0.001",
+    ///     });
+    /// 
+    ///     var bar = new Aws.AutoScaling.Group("bar", new()
+    ///     {
+    ///         LaunchConfiguration = asConf.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Block devices
@@ -252,7 +251,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/launchConfiguration:LaunchConfiguration")]
-    public partial class LaunchConfiguration : Pulumi.CustomResource
+    public partial class LaunchConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name of the launch configuration.
@@ -432,7 +431,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class LaunchConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LaunchConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Associate a public ip address with an instance in a VPC.
@@ -589,9 +588,10 @@ namespace Pulumi.Aws.Ec2
         public LaunchConfigurationArgs()
         {
         }
+        public static new LaunchConfigurationArgs Empty => new LaunchConfigurationArgs();
     }
 
-    public sealed class LaunchConfigurationState : Pulumi.ResourceArgs
+    public sealed class LaunchConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name of the launch configuration.
@@ -754,5 +754,6 @@ namespace Pulumi.Aws.Ec2
         public LaunchConfigurationState()
         {
         }
+        public static new LaunchConfigurationState Empty => new LaunchConfigurationState();
     }
 }

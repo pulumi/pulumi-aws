@@ -16,30 +16,29 @@ namespace Pulumi.Aws.Chime
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new()
     ///     {
-    ///         var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new Aws.Chime.VoiceConnectorArgs
-    ///         {
-    ///             RequireEncryption = true,
-    ///         });
-    ///         var defaultVoiceConnectorStreaming = new Aws.Chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming", new Aws.Chime.VoiceConnectorStreamingArgs
-    ///         {
-    ///             Disabled = false,
-    ///             VoiceConnectorId = defaultVoiceConnector.Id,
-    ///             DataRetention = 7,
-    ///             StreamingNotificationTargets = 
-    ///             {
-    ///                 "SQS",
-    ///             },
-    ///         });
-    ///     }
+    ///         RequireEncryption = true,
+    ///     });
     /// 
-    /// }
+    ///     var defaultVoiceConnectorStreaming = new Aws.Chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming", new()
+    ///     {
+    ///         Disabled = false,
+    ///         VoiceConnectorId = defaultVoiceConnector.Id,
+    ///         DataRetention = 7,
+    ///         StreamingNotificationTargets = new[]
+    ///         {
+    ///             "SQS",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +50,7 @@ namespace Pulumi.Aws.Chime
     /// ```
     /// </summary>
     [AwsResourceType("aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming")]
-    public partial class VoiceConnectorStreaming : Pulumi.CustomResource
+    public partial class VoiceConnectorStreaming : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The retention period, in hours, for the Amazon Kinesis data.
@@ -121,7 +120,7 @@ namespace Pulumi.Aws.Chime
         }
     }
 
-    public sealed class VoiceConnectorStreamingArgs : Pulumi.ResourceArgs
+    public sealed class VoiceConnectorStreamingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The retention period, in hours, for the Amazon Kinesis data.
@@ -156,9 +155,10 @@ namespace Pulumi.Aws.Chime
         public VoiceConnectorStreamingArgs()
         {
         }
+        public static new VoiceConnectorStreamingArgs Empty => new VoiceConnectorStreamingArgs();
     }
 
-    public sealed class VoiceConnectorStreamingState : Pulumi.ResourceArgs
+    public sealed class VoiceConnectorStreamingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The retention period, in hours, for the Amazon Kinesis data.
@@ -193,5 +193,6 @@ namespace Pulumi.Aws.Chime
         public VoiceConnectorStreamingState()
         {
         }
+        public static new VoiceConnectorStreamingState Empty => new VoiceConnectorStreamingState();
     }
 }

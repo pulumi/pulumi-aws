@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Connect.Inputs
 {
 
-    public sealed class UserHierarchyGroupHierarchyPathLevelOneArgs : Pulumi.ResourceArgs
+    public sealed class UserHierarchyGroupHierarchyPathLevelOneArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the hierarchy group.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Connect.Inputs
         public UserHierarchyGroupHierarchyPathLevelOneArgs()
         {
         }
+        public static new UserHierarchyGroupHierarchyPathLevelOneArgs Empty => new UserHierarchyGroupHierarchyPathLevelOneArgs();
     }
 }

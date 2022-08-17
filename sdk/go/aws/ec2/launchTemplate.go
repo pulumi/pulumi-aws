@@ -18,107 +18,110 @@ import (
 // package main
 //
 // import (
-// 	"encoding/base64"
-// 	"fmt"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/base64"
+//	"fmt"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func filebase64OrPanic(path string) pulumi.StringPtrInput {
-// 	if fileData, err := ioutil.ReadFile(path); err == nil {
-// 		return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
-// 	} else {
-// 		panic(err.Error())
-// 	}
-// }
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := ioutil.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewLaunchTemplate(ctx, "foo", &ec2.LaunchTemplateArgs{
-// 			BlockDeviceMappings: ec2.LaunchTemplateBlockDeviceMappingArray{
-// 				&ec2.LaunchTemplateBlockDeviceMappingArgs{
-// 					DeviceName: pulumi.String("/dev/sda1"),
-// 					Ebs: &ec2.LaunchTemplateBlockDeviceMappingEbsArgs{
-// 						VolumeSize: pulumi.Int(20),
-// 					},
-// 				},
-// 			},
-// 			CapacityReservationSpecification: &ec2.LaunchTemplateCapacityReservationSpecificationArgs{
-// 				CapacityReservationPreference: pulumi.String("open"),
-// 			},
-// 			CpuOptions: &ec2.LaunchTemplateCpuOptionsArgs{
-// 				CoreCount:      pulumi.Int(4),
-// 				ThreadsPerCore: pulumi.Int(2),
-// 			},
-// 			CreditSpecification: &ec2.LaunchTemplateCreditSpecificationArgs{
-// 				CpuCredits: pulumi.String("standard"),
-// 			},
-// 			DisableApiStop:        pulumi.Bool(true),
-// 			DisableApiTermination: pulumi.Bool(true),
-// 			EbsOptimized:          pulumi.String("true"),
-// 			ElasticGpuSpecifications: ec2.LaunchTemplateElasticGpuSpecificationArray{
-// 				&ec2.LaunchTemplateElasticGpuSpecificationArgs{
-// 					Type: pulumi.String("test"),
-// 				},
-// 			},
-// 			ElasticInferenceAccelerator: &ec2.LaunchTemplateElasticInferenceAcceleratorArgs{
-// 				Type: pulumi.String("eia1.medium"),
-// 			},
-// 			IamInstanceProfile: &ec2.LaunchTemplateIamInstanceProfileArgs{
-// 				Name: pulumi.String("test"),
-// 			},
-// 			ImageId:                           pulumi.String("ami-test"),
-// 			InstanceInitiatedShutdownBehavior: pulumi.String("terminate"),
-// 			InstanceMarketOptions: &ec2.LaunchTemplateInstanceMarketOptionsArgs{
-// 				MarketType: pulumi.String("spot"),
-// 			},
-// 			InstanceType: pulumi.String("t2.micro"),
-// 			KernelId:     pulumi.String("test"),
-// 			KeyName:      pulumi.String("test"),
-// 			LicenseSpecifications: ec2.LaunchTemplateLicenseSpecificationArray{
-// 				&ec2.LaunchTemplateLicenseSpecificationArgs{
-// 					LicenseConfigurationArn: pulumi.String("arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef"),
-// 				},
-// 			},
-// 			MetadataOptions: &ec2.LaunchTemplateMetadataOptionsArgs{
-// 				HttpEndpoint:            pulumi.String("enabled"),
-// 				HttpTokens:              pulumi.String("required"),
-// 				HttpPutResponseHopLimit: pulumi.Int(1),
-// 				InstanceMetadataTags:    pulumi.String("enabled"),
-// 			},
-// 			Monitoring: &ec2.LaunchTemplateMonitoringArgs{
-// 				Enabled: pulumi.Bool(true),
-// 			},
-// 			NetworkInterfaces: ec2.LaunchTemplateNetworkInterfaceArray{
-// 				&ec2.LaunchTemplateNetworkInterfaceArgs{
-// 					AssociatePublicIpAddress: pulumi.String("true"),
-// 				},
-// 			},
-// 			Placement: &ec2.LaunchTemplatePlacementArgs{
-// 				AvailabilityZone: pulumi.String("us-west-2a"),
-// 			},
-// 			RamDiskId: pulumi.String("test"),
-// 			VpcSecurityGroupIds: pulumi.StringArray{
-// 				pulumi.String("sg-12345678"),
-// 			},
-// 			TagSpecifications: ec2.LaunchTemplateTagSpecificationArray{
-// 				&ec2.LaunchTemplateTagSpecificationArgs{
-// 					ResourceType: pulumi.String("instance"),
-// 					Tags: pulumi.StringMap{
-// 						"Name": pulumi.String("test"),
-// 					},
-// 				},
-// 			},
-// 			UserData: filebase64OrPanic(fmt.Sprintf("%v/example.sh", path.Module)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewLaunchTemplate(ctx, "foo", &ec2.LaunchTemplateArgs{
+//				BlockDeviceMappings: ec2.LaunchTemplateBlockDeviceMappingArray{
+//					&ec2.LaunchTemplateBlockDeviceMappingArgs{
+//						DeviceName: pulumi.String("/dev/sda1"),
+//						Ebs: &ec2.LaunchTemplateBlockDeviceMappingEbsArgs{
+//							VolumeSize: pulumi.Int(20),
+//						},
+//					},
+//				},
+//				CapacityReservationSpecification: &ec2.LaunchTemplateCapacityReservationSpecificationArgs{
+//					CapacityReservationPreference: pulumi.String("open"),
+//				},
+//				CpuOptions: &ec2.LaunchTemplateCpuOptionsArgs{
+//					CoreCount:      pulumi.Int(4),
+//					ThreadsPerCore: pulumi.Int(2),
+//				},
+//				CreditSpecification: &ec2.LaunchTemplateCreditSpecificationArgs{
+//					CpuCredits: pulumi.String("standard"),
+//				},
+//				DisableApiStop:        pulumi.Bool(true),
+//				DisableApiTermination: pulumi.Bool(true),
+//				EbsOptimized:          pulumi.String("true"),
+//				ElasticGpuSpecifications: ec2.LaunchTemplateElasticGpuSpecificationArray{
+//					&ec2.LaunchTemplateElasticGpuSpecificationArgs{
+//						Type: pulumi.String("test"),
+//					},
+//				},
+//				ElasticInferenceAccelerator: &ec2.LaunchTemplateElasticInferenceAcceleratorArgs{
+//					Type: pulumi.String("eia1.medium"),
+//				},
+//				IamInstanceProfile: &ec2.LaunchTemplateIamInstanceProfileArgs{
+//					Name: pulumi.String("test"),
+//				},
+//				ImageId:                           pulumi.String("ami-test"),
+//				InstanceInitiatedShutdownBehavior: pulumi.String("terminate"),
+//				InstanceMarketOptions: &ec2.LaunchTemplateInstanceMarketOptionsArgs{
+//					MarketType: pulumi.String("spot"),
+//				},
+//				InstanceType: pulumi.String("t2.micro"),
+//				KernelId:     pulumi.String("test"),
+//				KeyName:      pulumi.String("test"),
+//				LicenseSpecifications: ec2.LaunchTemplateLicenseSpecificationArray{
+//					&ec2.LaunchTemplateLicenseSpecificationArgs{
+//						LicenseConfigurationArn: pulumi.String("arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef"),
+//					},
+//				},
+//				MetadataOptions: &ec2.LaunchTemplateMetadataOptionsArgs{
+//					HttpEndpoint:            pulumi.String("enabled"),
+//					HttpTokens:              pulumi.String("required"),
+//					HttpPutResponseHopLimit: pulumi.Int(1),
+//					InstanceMetadataTags:    pulumi.String("enabled"),
+//				},
+//				Monitoring: &ec2.LaunchTemplateMonitoringArgs{
+//					Enabled: pulumi.Bool(true),
+//				},
+//				NetworkInterfaces: ec2.LaunchTemplateNetworkInterfaceArray{
+//					&ec2.LaunchTemplateNetworkInterfaceArgs{
+//						AssociatePublicIpAddress: pulumi.String("true"),
+//					},
+//				},
+//				Placement: &ec2.LaunchTemplatePlacementArgs{
+//					AvailabilityZone: pulumi.String("us-west-2a"),
+//				},
+//				RamDiskId: pulumi.String("test"),
+//				VpcSecurityGroupIds: pulumi.StringArray{
+//					pulumi.String("sg-12345678"),
+//				},
+//				TagSpecifications: ec2.LaunchTemplateTagSpecificationArray{
+//					&ec2.LaunchTemplateTagSpecificationArgs{
+//						ResourceType: pulumi.String("instance"),
+//						Tags: pulumi.StringMap{
+//							"Name": pulumi.String("test"),
+//						},
+//					},
+//				},
+//				UserData: filebase64OrPanic(fmt.Sprintf("%v/example.sh", path.Module)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -126,7 +129,9 @@ import (
 // Launch Templates can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
+//
+//	$ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
+//
 // ```
 type LaunchTemplate struct {
 	pulumi.CustomResourceState
@@ -211,7 +216,7 @@ type LaunchTemplate struct {
 	TagSpecifications LaunchTemplateTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
 	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion pulumi.BoolPtrOutput `pulumi:"updateDefaultVersion"`
@@ -330,7 +335,7 @@ type launchTemplateState struct {
 	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
 	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion *bool `pulumi:"updateDefaultVersion"`
@@ -421,7 +426,7 @@ type LaunchTemplateState struct {
 	TagSpecifications LaunchTemplateTagSpecificationArrayInput
 	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion pulumi.BoolPtrInput
@@ -632,7 +637,7 @@ func (i *LaunchTemplate) ToLaunchTemplateOutputWithContext(ctx context.Context) 
 // LaunchTemplateArrayInput is an input type that accepts LaunchTemplateArray and LaunchTemplateArrayOutput values.
 // You can construct a concrete instance of `LaunchTemplateArrayInput` via:
 //
-//          LaunchTemplateArray{ LaunchTemplateArgs{...} }
+//	LaunchTemplateArray{ LaunchTemplateArgs{...} }
 type LaunchTemplateArrayInput interface {
 	pulumi.Input
 
@@ -657,7 +662,7 @@ func (i LaunchTemplateArray) ToLaunchTemplateArrayOutputWithContext(ctx context.
 // LaunchTemplateMapInput is an input type that accepts LaunchTemplateMap and LaunchTemplateMapOutput values.
 // You can construct a concrete instance of `LaunchTemplateMapInput` via:
 //
-//          LaunchTemplateMap{ "key": LaunchTemplateArgs{...} }
+//	LaunchTemplateMap{ "key": LaunchTemplateArgs{...} }
 type LaunchTemplateMapInput interface {
 	pulumi.Input
 
@@ -887,7 +892,7 @@ func (o LaunchTemplateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LaunchTemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

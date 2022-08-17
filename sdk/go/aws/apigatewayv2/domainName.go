@@ -24,26 +24,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apigatewayv2.NewDomainName(ctx, "example", &apigatewayv2.DomainNameArgs{
-// 			DomainName: pulumi.String("ws-api.example.com"),
-// 			DomainNameConfiguration: &apigatewayv2.DomainNameDomainNameConfigurationArgs{
-// 				CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-// 				EndpointType:   pulumi.String("REGIONAL"),
-// 				SecurityPolicy: pulumi.String("TLS_1_2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigatewayv2.NewDomainName(ctx, "example", &apigatewayv2.DomainNameArgs{
+//				DomainName: pulumi.String("ws-api.example.com"),
+//				DomainNameConfiguration: &apigatewayv2.DomainNameDomainNameConfigurationArgs{
+//					CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//					EndpointType:   pulumi.String("REGIONAL"),
+//					SecurityPolicy: pulumi.String("TLS_1_2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Associated Route 53 Resource Record
 //
@@ -51,46 +54,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleDomainName, err := apigatewayv2.NewDomainName(ctx, "exampleDomainName", &apigatewayv2.DomainNameArgs{
-// 			DomainName: pulumi.String("http-api.example.com"),
-// 			DomainNameConfiguration: &apigatewayv2.DomainNameDomainNameConfigurationArgs{
-// 				CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-// 				EndpointType:   pulumi.String("REGIONAL"),
-// 				SecurityPolicy: pulumi.String("TLS_1_2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
-// 			Name:   exampleDomainName.DomainName,
-// 			Type:   pulumi.String("A"),
-// 			ZoneId: pulumi.Any(aws_route53_zone.Example.Zone_id),
-// 			Aliases: route53.RecordAliasArray{
-// 				&route53.RecordAliasArgs{
-// 					Name: exampleDomainName.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (string, error) {
-// 						return domainNameConfiguration.TargetDomainName, nil
-// 					}).(pulumi.StringOutput),
-// 					ZoneId: exampleDomainName.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (string, error) {
-// 						return domainNameConfiguration.HostedZoneId, nil
-// 					}).(pulumi.StringOutput),
-// 					EvaluateTargetHealth: pulumi.Bool(false),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleDomainName, err := apigatewayv2.NewDomainName(ctx, "exampleDomainName", &apigatewayv2.DomainNameArgs{
+//				DomainName: pulumi.String("http-api.example.com"),
+//				DomainNameConfiguration: &apigatewayv2.DomainNameDomainNameConfigurationArgs{
+//					CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//					EndpointType:   pulumi.String("REGIONAL"),
+//					SecurityPolicy: pulumi.String("TLS_1_2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
+//				Name:   exampleDomainName.DomainName,
+//				Type:   pulumi.String("A"),
+//				ZoneId: pulumi.Any(aws_route53_zone.Example.Zone_id),
+//				Aliases: route53.RecordAliasArray{
+//					&route53.RecordAliasArgs{
+//						Name: exampleDomainName.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (string, error) {
+//							return domainNameConfiguration.TargetDomainName, nil
+//						}).(pulumi.StringOutput),
+//						ZoneId: exampleDomainName.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (string, error) {
+//							return domainNameConfiguration.HostedZoneId, nil
+//						}).(pulumi.StringOutput),
+//						EvaluateTargetHealth: pulumi.Bool(false),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -98,7 +104,9 @@ import (
 // `aws_apigatewayv2_domain_name` can be imported by using the domain name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
+//
+//	$ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
+//
 // ```
 type DomainName struct {
 	pulumi.CustomResourceState
@@ -240,7 +248,7 @@ func (i *DomainName) ToDomainNameOutputWithContext(ctx context.Context) DomainNa
 // DomainNameArrayInput is an input type that accepts DomainNameArray and DomainNameArrayOutput values.
 // You can construct a concrete instance of `DomainNameArrayInput` via:
 //
-//          DomainNameArray{ DomainNameArgs{...} }
+//	DomainNameArray{ DomainNameArgs{...} }
 type DomainNameArrayInput interface {
 	pulumi.Input
 
@@ -265,7 +273,7 @@ func (i DomainNameArray) ToDomainNameArrayOutputWithContext(ctx context.Context)
 // DomainNameMapInput is an input type that accepts DomainNameMap and DomainNameMapOutput values.
 // You can construct a concrete instance of `DomainNameMapInput` via:
 //
-//          DomainNameMap{ "key": DomainNameArgs{...} }
+//	DomainNameMap{ "key": DomainNameArgs{...} }
 type DomainNameMapInput interface {
 	pulumi.Input
 

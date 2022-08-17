@@ -19,25 +19,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := glue.NewSchema(ctx, "example", &glue.SchemaArgs{
-// 			SchemaName:       pulumi.String("example"),
-// 			RegistryArn:      pulumi.Any(aws_glue_registry.Test.Arn),
-// 			DataFormat:       pulumi.String("AVRO"),
-// 			Compatibility:    pulumi.String("NONE"),
-// 			SchemaDefinition: pulumi.String("{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewSchema(ctx, "example", &glue.SchemaArgs{
+//				SchemaName:       pulumi.String("example"),
+//				RegistryArn:      pulumi.Any(aws_glue_registry.Test.Arn),
+//				DataFormat:       pulumi.String("AVRO"),
+//				Compatibility:    pulumi.String("NONE"),
+//				SchemaDefinition: pulumi.String("{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // Glue Registries can be imported using `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
+//
+//	$ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
+//
 // ```
 type Schema struct {
 	pulumi.CustomResourceState
@@ -241,7 +246,7 @@ func (i *Schema) ToSchemaOutputWithContext(ctx context.Context) SchemaOutput {
 // SchemaArrayInput is an input type that accepts SchemaArray and SchemaArrayOutput values.
 // You can construct a concrete instance of `SchemaArrayInput` via:
 //
-//          SchemaArray{ SchemaArgs{...} }
+//	SchemaArray{ SchemaArgs{...} }
 type SchemaArrayInput interface {
 	pulumi.Input
 
@@ -266,7 +271,7 @@ func (i SchemaArray) ToSchemaArrayOutputWithContext(ctx context.Context) SchemaA
 // SchemaMapInput is an input type that accepts SchemaMap and SchemaMapOutput values.
 // You can construct a concrete instance of `SchemaMapInput` via:
 //
-//          SchemaMap{ "key": SchemaArgs{...} }
+//	SchemaMap{ "key": SchemaArgs{...} }
 type SchemaMapInput interface {
 	pulumi.Input
 

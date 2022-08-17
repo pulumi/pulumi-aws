@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventTargetRedshiftTargetArgs : Pulumi.ResourceArgs
+    public sealed class EventTargetRedshiftTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the database.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventTargetRedshiftTargetArgs()
         {
         }
+        public static new EventTargetRedshiftTargetArgs Empty => new EventTargetRedshiftTargetArgs();
     }
 }

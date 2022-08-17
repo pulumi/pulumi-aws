@@ -27,71 +27,75 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.NewContactFlowModule(ctx, "example", &connect.ContactFlowModuleArgs{
-// 			Content: pulumi.String(fmt.Sprintf(`    {
-// 		"Version": "2019-10-30",
-// 		"StartAction": "12345678-1234-1234-1234-123456789012",
-// 		"Actions": [
-// 			{
-// 				"Identifier": "12345678-1234-1234-1234-123456789012",
-// 				"Parameters": {
-// 					"Text": "Hello contact flow module"
-// 				},
-// 				"Transitions": {
-// 					"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-// 					"Errors": [],
-// 					"Conditions": []
-// 				},
-// 				"Type": "MessageParticipant"
-// 			},
-// 			{
-// 				"Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-// 				"Type": "DisconnectParticipant",
-// 				"Parameters": {},
-// 				"Transitions": {}
-// 			}
-// 		],
-// 		"Settings": {
-// 			"InputParameters": [],
-// 			"OutputParameters": [],
-// 			"Transitions": [
-// 				{
-// 					"DisplayName": "Success",
-// 					"ReferenceName": "Success",
-// 					"Description": ""
-// 				},
-// 				{
-// 					"DisplayName": "Error",
-// 					"ReferenceName": "Error",
-// 					"Description": ""
-// 				}
-// 			]
-// 		}
-// 	}
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewContactFlowModule(ctx, "example", &connect.ContactFlowModuleArgs{
+//				Content: pulumi.String(fmt.Sprintf(`    {
+//			"Version": "2019-10-30",
+//			"StartAction": "12345678-1234-1234-1234-123456789012",
+//			"Actions": [
+//				{
+//					"Identifier": "12345678-1234-1234-1234-123456789012",
+//					"Parameters": {
+//						"Text": "Hello contact flow module"
+//					},
+//					"Transitions": {
+//						"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+//						"Errors": [],
+//						"Conditions": []
+//					},
+//					"Type": "MessageParticipant"
+//				},
+//				{
+//					"Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+//					"Type": "DisconnectParticipant",
+//					"Parameters": {},
+//					"Transitions": {}
+//				}
+//			],
+//			"Settings": {
+//				"InputParameters": [],
+//				"OutputParameters": [],
+//				"Transitions": [
+//					{
+//						"DisplayName": "Success",
+//						"ReferenceName": "Success",
+//						"Description": ""
+//					},
+//					{
+//						"DisplayName": "Error",
+//						"ReferenceName": "Error",
+//						"Description": ""
+//					}
+//				]
+//			}
+//		}
 //
 // `)),
-// 			Description: pulumi.String("Example Contact Flow Module Description"),
-// 			InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-// 			Tags: pulumi.StringMap{
-// 				"Application": pulumi.String("Terraform"),
-// 				"Method":      pulumi.String("Create"),
-// 				"Name":        pulumi.String("Example Contact Flow Module"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				Description: pulumi.String("Example Contact Flow Module Description"),
+//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Tags: pulumi.StringMap{
+//					"Application": pulumi.String("Terraform"),
+//					"Method":      pulumi.String("Create"),
+//					"Name":        pulumi.String("Example Contact Flow Module"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -99,7 +103,9 @@ import (
 // Amazon Connect Contact Flow Modules can be imported using the `instance_id` and `contact_flow_module_id` separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:connect/contactFlowModule:ContactFlowModule example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
+//	$ pulumi import aws:connect/contactFlowModule:ContactFlowModule example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
 // ```
 type ContactFlowModule struct {
 	pulumi.CustomResourceState
@@ -120,8 +126,7 @@ type ContactFlowModule struct {
 	// Specifies the name of the Contact Flow Module.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -173,8 +178,7 @@ type contactFlowModuleState struct {
 	// Specifies the name of the Contact Flow Module.
 	Name *string `pulumi:"name"`
 	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -195,8 +199,7 @@ type ContactFlowModuleState struct {
 	// Specifies the name of the Contact Flow Module.
 	Name pulumi.StringPtrInput
 	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -263,7 +266,7 @@ func (i *ContactFlowModule) ToContactFlowModuleOutputWithContext(ctx context.Con
 // ContactFlowModuleArrayInput is an input type that accepts ContactFlowModuleArray and ContactFlowModuleArrayOutput values.
 // You can construct a concrete instance of `ContactFlowModuleArrayInput` via:
 //
-//          ContactFlowModuleArray{ ContactFlowModuleArgs{...} }
+//	ContactFlowModuleArray{ ContactFlowModuleArgs{...} }
 type ContactFlowModuleArrayInput interface {
 	pulumi.Input
 
@@ -288,7 +291,7 @@ func (i ContactFlowModuleArray) ToContactFlowModuleArrayOutputWithContext(ctx co
 // ContactFlowModuleMapInput is an input type that accepts ContactFlowModuleMap and ContactFlowModuleMapOutput values.
 // You can construct a concrete instance of `ContactFlowModuleMapInput` via:
 //
-//          ContactFlowModuleMap{ "key": ContactFlowModuleArgs{...} }
+//	ContactFlowModuleMap{ "key": ContactFlowModuleArgs{...} }
 type ContactFlowModuleMapInput interface {
 	pulumi.Input
 
@@ -368,7 +371,6 @@ func (o ContactFlowModuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o ContactFlowModuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

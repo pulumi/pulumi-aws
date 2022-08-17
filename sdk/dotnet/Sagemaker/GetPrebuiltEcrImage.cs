@@ -23,21 +23,19 @@ namespace Pulumi.Aws.Sagemaker
         /// Basic usage:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Sagemaker.GetPrebuiltEcrImage.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Sagemaker.GetPrebuiltEcrImage.InvokeAsync(new Aws.Sagemaker.GetPrebuiltEcrImageArgs
-        ///         {
-        ///             ImageTag = "2.2-1.0.11.0",
-        ///             RepositoryName = "sagemaker-scikit-learn",
-        ///         }));
-        ///     }
+        ///         ImageTag = "2.2-1.0.11.0",
+        ///         RepositoryName = "sagemaker-scikit-learn",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -57,21 +55,19 @@ namespace Pulumi.Aws.Sagemaker
         /// Basic usage:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Sagemaker.GetPrebuiltEcrImage.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Sagemaker.GetPrebuiltEcrImage.InvokeAsync(new Aws.Sagemaker.GetPrebuiltEcrImageArgs
-        ///         {
-        ///             ImageTag = "2.2-1.0.11.0",
-        ///             RepositoryName = "sagemaker-scikit-learn",
-        ///         }));
-        ///     }
+        ///         ImageTag = "2.2-1.0.11.0",
+        ///         RepositoryName = "sagemaker-scikit-learn",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +77,7 @@ namespace Pulumi.Aws.Sagemaker
     }
 
 
-    public sealed class GetPrebuiltEcrImageArgs : Pulumi.InvokeArgs
+    public sealed class GetPrebuiltEcrImageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
@@ -110,9 +106,10 @@ namespace Pulumi.Aws.Sagemaker
         public GetPrebuiltEcrImageArgs()
         {
         }
+        public static new GetPrebuiltEcrImageArgs Empty => new GetPrebuiltEcrImageArgs();
     }
 
-    public sealed class GetPrebuiltEcrImageInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrebuiltEcrImageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
@@ -141,6 +138,7 @@ namespace Pulumi.Aws.Sagemaker
         public GetPrebuiltEcrImageInvokeArgs()
         {
         }
+        public static new GetPrebuiltEcrImageInvokeArgs Empty => new GetPrebuiltEcrImageInvokeArgs();
     }
 
 

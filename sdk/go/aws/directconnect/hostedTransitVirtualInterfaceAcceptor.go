@@ -22,53 +22,55 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/providers"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := providers.Newaws(ctx, "accepter", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		accepterCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
-// 			AmazonSideAsn: pulumi.String("64512"),
-// 		}, pulumi.Provider(aws.Accepter))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		creator, err := directconnect.NewHostedTransitVirtualInterface(ctx, "creator", &directconnect.HostedTransitVirtualInterfaceArgs{
-// 			ConnectionId:   pulumi.String("dxcon-zzzzzzzz"),
-// 			OwnerAccountId: pulumi.String(accepterCallerIdentity.AccountId),
-// 			Vlan:           pulumi.Int(4094),
-// 			AddressFamily:  pulumi.String("ipv4"),
-// 			BgpAsn:         pulumi.Int(65352),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			example,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = directconnect.NewHostedTransitVirtualInterfaceAcceptor(ctx, "accepterHostedTransitVirtualInterfaceAcceptor", &directconnect.HostedTransitVirtualInterfaceAcceptorArgs{
-// 			VirtualInterfaceId: creator.ID(),
-// 			DxGatewayId:        example.ID(),
-// 			Tags: pulumi.StringMap{
-// 				"Side": pulumi.String("Accepter"),
-// 			},
-// 		}, pulumi.Provider(aws.Accepter))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewProvider(ctx, "accepter", nil)
+//			if err != nil {
+//				return err
+//			}
+//			accepterCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
+//				AmazonSideAsn: pulumi.String("64512"),
+//			}, pulumi.Provider(aws.Accepter))
+//			if err != nil {
+//				return err
+//			}
+//			creator, err := directconnect.NewHostedTransitVirtualInterface(ctx, "creator", &directconnect.HostedTransitVirtualInterfaceArgs{
+//				ConnectionId:   pulumi.String("dxcon-zzzzzzzz"),
+//				OwnerAccountId: pulumi.String(accepterCallerIdentity.AccountId),
+//				Vlan:           pulumi.Int(4094),
+//				AddressFamily:  pulumi.String("ipv4"),
+//				BgpAsn:         pulumi.Int(65352),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = directconnect.NewHostedTransitVirtualInterfaceAcceptor(ctx, "accepterHostedTransitVirtualInterfaceAcceptor", &directconnect.HostedTransitVirtualInterfaceAcceptorArgs{
+//				VirtualInterfaceId: creator.ID(),
+//				DxGatewayId:        example.ID(),
+//				Tags: pulumi.StringMap{
+//					"Side": pulumi.String("Accepter"),
+//				},
+//			}, pulumi.Provider(aws.Accepter))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -76,7 +78,9 @@ import (
 // Direct Connect hosted transit virtual interfaces can be imported using the `vif id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd
+//
+//	$ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd
+//
 // ```
 type HostedTransitVirtualInterfaceAcceptor struct {
 	pulumi.CustomResourceState
@@ -87,7 +91,7 @@ type HostedTransitVirtualInterfaceAcceptor struct {
 	DxGatewayId pulumi.StringOutput `pulumi:"dxGatewayId"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId pulumi.StringOutput `pulumi:"virtualInterfaceId"`
@@ -134,7 +138,7 @@ type hostedTransitVirtualInterfaceAcceptorState struct {
 	DxGatewayId *string `pulumi:"dxGatewayId"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId *string `pulumi:"virtualInterfaceId"`
@@ -147,7 +151,7 @@ type HostedTransitVirtualInterfaceAcceptorState struct {
 	DxGatewayId pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId pulumi.StringPtrInput
@@ -202,7 +206,7 @@ func (i *HostedTransitVirtualInterfaceAcceptor) ToHostedTransitVirtualInterfaceA
 // HostedTransitVirtualInterfaceAcceptorArrayInput is an input type that accepts HostedTransitVirtualInterfaceAcceptorArray and HostedTransitVirtualInterfaceAcceptorArrayOutput values.
 // You can construct a concrete instance of `HostedTransitVirtualInterfaceAcceptorArrayInput` via:
 //
-//          HostedTransitVirtualInterfaceAcceptorArray{ HostedTransitVirtualInterfaceAcceptorArgs{...} }
+//	HostedTransitVirtualInterfaceAcceptorArray{ HostedTransitVirtualInterfaceAcceptorArgs{...} }
 type HostedTransitVirtualInterfaceAcceptorArrayInput interface {
 	pulumi.Input
 
@@ -227,7 +231,7 @@ func (i HostedTransitVirtualInterfaceAcceptorArray) ToHostedTransitVirtualInterf
 // HostedTransitVirtualInterfaceAcceptorMapInput is an input type that accepts HostedTransitVirtualInterfaceAcceptorMap and HostedTransitVirtualInterfaceAcceptorMapOutput values.
 // You can construct a concrete instance of `HostedTransitVirtualInterfaceAcceptorMapInput` via:
 //
-//          HostedTransitVirtualInterfaceAcceptorMap{ "key": HostedTransitVirtualInterfaceAcceptorArgs{...} }
+//	HostedTransitVirtualInterfaceAcceptorMap{ "key": HostedTransitVirtualInterfaceAcceptorArgs{...} }
 type HostedTransitVirtualInterfaceAcceptorMapInput interface {
 	pulumi.Input
 
@@ -278,7 +282,7 @@ func (o HostedTransitVirtualInterfaceAcceptorOutput) Tags() pulumi.StringMapOutp
 	return o.ApplyT(func(v *HostedTransitVirtualInterfaceAcceptor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o HostedTransitVirtualInterfaceAcceptorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HostedTransitVirtualInterfaceAcceptor) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

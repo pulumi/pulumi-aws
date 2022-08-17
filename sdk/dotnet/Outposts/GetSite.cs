@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Outposts
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Outposts.GetSite.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Outposts.GetSite.InvokeAsync(new Aws.Outposts.GetSiteArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Outposts
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Outposts.GetSite.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Outposts.GetSite.InvokeAsync(new Aws.Outposts.GetSiteArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Outposts
     }
 
 
-    public sealed class GetSiteArgs : Pulumi.InvokeArgs
+    public sealed class GetSiteArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the Site.
@@ -88,9 +84,10 @@ namespace Pulumi.Aws.Outposts
         public GetSiteArgs()
         {
         }
+        public static new GetSiteArgs Empty => new GetSiteArgs();
     }
 
-    public sealed class GetSiteInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSiteInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the Site.
@@ -107,6 +104,7 @@ namespace Pulumi.Aws.Outposts
         public GetSiteInvokeArgs()
         {
         }
+        public static new GetSiteInvokeArgs Empty => new GetSiteInvokeArgs();
     }
 
 

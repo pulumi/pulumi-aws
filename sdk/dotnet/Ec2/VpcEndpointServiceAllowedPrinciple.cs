@@ -23,26 +23,25 @@ namespace Pulumi.Aws.Ec2
     /// Basic usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var allowMeToFoo = new Aws.Ec2.VpcEndpointServiceAllowedPrinciple("allowMeToFoo", new Aws.Ec2.VpcEndpointServiceAllowedPrincipleArgs
-    ///         {
-    ///             VpcEndpointServiceId = aws_vpc_endpoint_service.Foo.Id,
-    ///             PrincipalArn = current.Apply(current =&gt; current.Arn),
-    ///         });
-    ///     }
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    /// }
+    ///     var allowMeToFoo = new Aws.Ec2.VpcEndpointServiceAllowedPrinciple("allowMeToFoo", new()
+    ///     {
+    ///         VpcEndpointServiceId = aws_vpc_endpoint_service.Foo.Id,
+    ///         PrincipalArn = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple")]
-    public partial class VpcEndpointServiceAllowedPrinciple : Pulumi.CustomResource
+    public partial class VpcEndpointServiceAllowedPrinciple : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the principal to allow permissions.
@@ -100,7 +99,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcEndpointServiceAllowedPrincipleArgs : Pulumi.ResourceArgs
+    public sealed class VpcEndpointServiceAllowedPrincipleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the principal to allow permissions.
@@ -117,9 +116,10 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointServiceAllowedPrincipleArgs()
         {
         }
+        public static new VpcEndpointServiceAllowedPrincipleArgs Empty => new VpcEndpointServiceAllowedPrincipleArgs();
     }
 
-    public sealed class VpcEndpointServiceAllowedPrincipleState : Pulumi.ResourceArgs
+    public sealed class VpcEndpointServiceAllowedPrincipleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the principal to allow permissions.
@@ -136,5 +136,6 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointServiceAllowedPrincipleState()
         {
         }
+        public static new VpcEndpointServiceAllowedPrincipleState Empty => new VpcEndpointServiceAllowedPrincipleState();
     }
 }

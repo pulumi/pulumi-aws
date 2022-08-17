@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Emr.Inputs
 {
 
-    public sealed class InstanceFleetLaunchSpecificationsGetArgs : Pulumi.ResourceArgs
+    public sealed class InstanceFleetLaunchSpecificationsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("onDemandSpecifications")]
         private InputList<Inputs.InstanceFleetLaunchSpecificationsOnDemandSpecificationGetArgs>? _onDemandSpecifications;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Emr.Inputs
         public InstanceFleetLaunchSpecificationsGetArgs()
         {
         }
+        public static new InstanceFleetLaunchSpecificationsGetArgs Empty => new InstanceFleetLaunchSpecificationsGetArgs();
     }
 }

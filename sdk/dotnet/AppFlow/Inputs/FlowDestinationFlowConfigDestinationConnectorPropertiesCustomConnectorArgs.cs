@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs : Pulumi.ResourceArgs
+    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs : global::Pulumi.ResourceArgs
     {
         [Input("customProperties")]
         private InputMap<string>? _customProperties;
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs()
         {
         }
+        public static new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs Empty => new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs();
     }
 }

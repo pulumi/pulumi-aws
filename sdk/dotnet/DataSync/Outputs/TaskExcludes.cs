@@ -18,7 +18,7 @@ namespace Pulumi.Aws.DataSync.Outputs
         /// </summary>
         public readonly string? FilterType;
         /// <summary>
-        /// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+        /// A single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
         /// </summary>
         public readonly string? Value;
 

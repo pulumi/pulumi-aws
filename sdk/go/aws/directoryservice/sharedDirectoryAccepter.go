@@ -21,31 +21,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleSharedDirectory, err := directoryservice.NewSharedDirectory(ctx, "exampleSharedDirectory", &directoryservice.SharedDirectoryArgs{
-// 			DirectoryId: pulumi.Any(aws_directory_service_directory.Example.Id),
-// 			Notes:       pulumi.String("example"),
-// 			Target: &directoryservice.SharedDirectoryTargetArgs{
-// 				Id: pulumi.Any(data.Aws_caller_identity.Receiver.Account_id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = directoryservice.NewSharedDirectoryAccepter(ctx, "exampleSharedDirectoryAccepter", &directoryservice.SharedDirectoryAccepterArgs{
-// 			SharedDirectoryId: exampleSharedDirectory.SharedDirectoryId,
-// 		}, pulumi.Provider("awsalternate"))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleSharedDirectory, err := directoryservice.NewSharedDirectory(ctx, "exampleSharedDirectory", &directoryservice.SharedDirectoryArgs{
+//				DirectoryId: pulumi.Any(aws_directory_service_directory.Example.Id),
+//				Notes:       pulumi.String("example"),
+//				Target: &directoryservice.SharedDirectoryTargetArgs{
+//					Id: pulumi.Any(data.Aws_caller_identity.Receiver.Account_id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = directoryservice.NewSharedDirectoryAccepter(ctx, "exampleSharedDirectoryAccepter", &directoryservice.SharedDirectoryAccepterArgs{
+//				SharedDirectoryId: exampleSharedDirectory.SharedDirectoryId,
+//			}, pulumi.Provider("awsalternate"))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // Directory Service Shared Directories can be imported using the shared directory ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
+//
+//	$ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
+//
 // ```
 type SharedDirectoryAccepter struct {
 	pulumi.CustomResourceState
@@ -168,7 +173,7 @@ func (i *SharedDirectoryAccepter) ToSharedDirectoryAccepterOutputWithContext(ctx
 // SharedDirectoryAccepterArrayInput is an input type that accepts SharedDirectoryAccepterArray and SharedDirectoryAccepterArrayOutput values.
 // You can construct a concrete instance of `SharedDirectoryAccepterArrayInput` via:
 //
-//          SharedDirectoryAccepterArray{ SharedDirectoryAccepterArgs{...} }
+//	SharedDirectoryAccepterArray{ SharedDirectoryAccepterArgs{...} }
 type SharedDirectoryAccepterArrayInput interface {
 	pulumi.Input
 
@@ -193,7 +198,7 @@ func (i SharedDirectoryAccepterArray) ToSharedDirectoryAccepterArrayOutputWithCo
 // SharedDirectoryAccepterMapInput is an input type that accepts SharedDirectoryAccepterMap and SharedDirectoryAccepterMapOutput values.
 // You can construct a concrete instance of `SharedDirectoryAccepterMapInput` via:
 //
-//          SharedDirectoryAccepterMap{ "key": SharedDirectoryAccepterArgs{...} }
+//	SharedDirectoryAccepterMap{ "key": SharedDirectoryAccepterArgs{...} }
 type SharedDirectoryAccepterMapInput interface {
 	pulumi.Input
 

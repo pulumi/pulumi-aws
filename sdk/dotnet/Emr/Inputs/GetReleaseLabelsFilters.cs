@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Emr.Inputs
 {
 
-    public sealed class GetReleaseLabelsFiltersArgs : Pulumi.InvokeArgs
+    public sealed class GetReleaseLabelsFiltersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Emr.Inputs
         public GetReleaseLabelsFiltersArgs()
         {
         }
+        public static new GetReleaseLabelsFiltersArgs Empty => new GetReleaseLabelsFiltersArgs();
     }
 }

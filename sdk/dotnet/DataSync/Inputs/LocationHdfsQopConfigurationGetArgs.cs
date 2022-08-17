@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DataSync.Inputs
 {
 
-    public sealed class LocationHdfsQopConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class LocationHdfsQopConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.DataSync.Inputs
         public LocationHdfsQopConfigurationGetArgs()
         {
         }
+        public static new LocationHdfsQopConfigurationGetArgs Empty => new LocationHdfsQopConfigurationGetArgs();
     }
 }

@@ -15,65 +15,61 @@ namespace Pulumi.Aws.Eks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Eks.NodeGroup("example", new()
     ///     {
-    ///         var example = new Aws.Eks.NodeGroup("example", new Aws.Eks.NodeGroupArgs
+    ///         ClusterName = aws_eks_cluster.Example.Name,
+    ///         NodeRoleArn = aws_iam_role.Example.Arn,
+    ///         SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
+    ///         ScalingConfig = new Aws.Eks.Inputs.NodeGroupScalingConfigArgs
     ///         {
-    ///             ClusterName = aws_eks_cluster.Example.Name,
-    ///             NodeRoleArn = aws_iam_role.Example.Arn,
-    ///             SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
-    ///             ScalingConfig = new Aws.Eks.Inputs.NodeGroupScalingConfigArgs
-    ///             {
-    ///                 DesiredSize = 1,
-    ///                 MaxSize = 1,
-    ///                 MinSize = 1,
-    ///             },
-    ///             UpdateConfig = new Aws.Eks.Inputs.NodeGroupUpdateConfigArgs
-    ///             {
-    ///                 MaxUnavailable = 2,
-    ///             },
-    ///         }, new CustomResourceOptions
+    ///             DesiredSize = 1,
+    ///             MaxSize = 1,
+    ///             MinSize = 1,
+    ///         },
+    ///         UpdateConfig = new Aws.Eks.Inputs.NodeGroupUpdateConfigArgs
     ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 aws_iam_role_policy_attachment.Example_AmazonEKSWorkerNodePolicy,
-    ///                 aws_iam_role_policy_attachment.Example_AmazonEKS_CNI_Policy,
-    ///                 aws_iam_role_policy_attachment.Example_AmazonEC2ContainerRegistryReadOnly,
-    ///             },
-    ///         });
-    ///     }
+    ///             MaxUnavailable = 2,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             aws_iam_role_policy_attachment.Example_AmazonEKSWorkerNodePolicy,
+    ///             aws_iam_role_policy_attachment.Example_AmazonEKS_CNI_Policy,
+    ///             aws_iam_role_policy_attachment.Example_AmazonEC2ContainerRegistryReadOnly,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Ignoring Changes to Desired Size
     /// 
     /// You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // ... other configurations ...
+    ///     var example = new Aws.Eks.NodeGroup("example", new()
     ///     {
-    ///         // ... other configurations ...
-    ///         var example = new Aws.Eks.NodeGroup("example", new Aws.Eks.NodeGroupArgs
+    ///         ScalingConfig = new Aws.Eks.Inputs.NodeGroupScalingConfigArgs
     ///         {
-    ///             ScalingConfig = new Aws.Eks.Inputs.NodeGroupScalingConfigArgs
-    ///             {
-    ///                 DesiredSize = 2,
-    ///             },
-    ///         });
-    ///     }
+    ///             DesiredSize = 2,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example IAM Role for EKS Node Group
     /// 
@@ -83,48 +79,47 @@ namespace Pulumi.Aws.Eks
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         var example = new Aws.Iam.Role("example", new Aws.Iam.RoleArgs
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 { "Statement", new[]
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", "sts:AssumeRole" },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "Service", "ec2.amazonaws.com" },
-    ///                             } },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///                 { "Version", "2012-10-17" },
-    ///             }),
-    ///         });
-    ///         var example_AmazonEKSWorkerNodePolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
-    ///             Role = example.Name,
-    ///         });
-    ///         var example_AmazonEKSCNIPolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSCNIPolicy", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
-    ///             Role = example.Name,
-    ///         });
-    ///         var example_AmazonEC2ContainerRegistryReadOnly = new Aws.Iam.RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
-    ///             Role = example.Name,
-    ///         });
-    ///     }
+    ///                         ["Service"] = "ec2.amazonaws.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ["Version"] = "2012-10-17",
+    ///         }),
+    ///     });
     /// 
-    /// }
+    ///     var example_AmazonEKSWorkerNodePolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+    ///         Role = example.Name,
+    ///     });
+    /// 
+    ///     var example_AmazonEKSCNIPolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSCNIPolicy", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+    ///         Role = example.Name,
+    ///     });
+    /// 
+    ///     var example_AmazonEC2ContainerRegistryReadOnly = new Aws.Iam.RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
+    ///         Role = example.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -136,7 +131,7 @@ namespace Pulumi.Aws.Eks
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/nodeGroup:NodeGroup")]
-    public partial class NodeGroup : Pulumi.CustomResource
+    public partial class NodeGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
@@ -253,7 +248,7 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -317,7 +312,7 @@ namespace Pulumi.Aws.Eks
         }
     }
 
-    public sealed class NodeGroupArgs : Pulumi.ResourceArgs
+    public sealed class NodeGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
@@ -463,9 +458,10 @@ namespace Pulumi.Aws.Eks
         public NodeGroupArgs()
         {
         }
+        public static new NodeGroupArgs Empty => new NodeGroupArgs();
     }
 
-    public sealed class NodeGroupState : Pulumi.ResourceArgs
+    public sealed class NodeGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
@@ -615,7 +611,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -647,5 +643,6 @@ namespace Pulumi.Aws.Eks
         public NodeGroupState()
         {
         }
+        public static new NodeGroupState Empty => new NodeGroupState();
     }
 }

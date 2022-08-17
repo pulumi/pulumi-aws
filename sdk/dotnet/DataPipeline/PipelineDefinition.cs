@@ -15,95 +15,92 @@ namespace Pulumi.Aws.DataPipeline
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.DataPipeline.Pipeline("default");
+    /// 
+    ///     var example = new Aws.DataPipeline.PipelineDefinition("example", new()
     ///     {
-    ///         var @default = new Aws.DataPipeline.Pipeline("default", new Aws.DataPipeline.PipelineArgs
+    ///         PipelineId = @default.Id,
+    ///         PipelineObjects = new[]
     ///         {
-    ///         });
-    ///         var example = new Aws.DataPipeline.PipelineDefinition("example", new Aws.DataPipeline.PipelineDefinitionArgs
-    ///         {
-    ///             PipelineId = @default.Id,
-    ///             PipelineObjects = 
+    ///             new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
     ///             {
-    ///                 new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
+    ///                 Id = "Default",
+    ///                 Name = "Default",
+    ///                 Fields = new[]
     ///                 {
-    ///                     Id = "Default",
-    ///                     Name = "Default",
-    ///                     Fields = 
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
     ///                     {
-    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
-    ///                         {
-    ///                             Key = "workerGroup",
-    ///                             StringValue = "workerGroup",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
-    ///                 {
-    ///                     Id = "Schedule",
-    ///                     Name = "Schedule",
-    ///                     Fields = 
-    ///                     {
-    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
-    ///                         {
-    ///                             Key = "startDateTime",
-    ///                             StringValue = "2012-12-12T00:00:00",
-    ///                         },
-    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
-    ///                         {
-    ///                             Key = "type",
-    ///                             StringValue = "Schedule",
-    ///                         },
-    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
-    ///                         {
-    ///                             Key = "period",
-    ///                             StringValue = "1 hour",
-    ///                         },
-    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
-    ///                         {
-    ///                             Key = "endDateTime",
-    ///                             StringValue = "2012-12-21T18:00:00",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
-    ///                 {
-    ///                     Id = "SayHello",
-    ///                     Name = "SayHello",
-    ///                     Fields = 
-    ///                     {
-    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
-    ///                         {
-    ///                             Key = "type",
-    ///                             StringValue = "ShellCommandActivity",
-    ///                         },
-    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
-    ///                         {
-    ///                             Key = "command",
-    ///                             StringValue = "echo hello",
-    ///                         },
-    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
-    ///                         {
-    ///                             Key = "parent",
-    ///                             StringValue = "Default",
-    ///                         },
-    ///                         new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
-    ///                         {
-    ///                             Key = "schedule",
-    ///                             StringValue = "Schedule",
-    ///                         },
+    ///                         Key = "workerGroup",
+    ///                         StringValue = "workerGroup",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
+    ///             {
+    ///                 Id = "Schedule",
+    ///                 Name = "Schedule",
+    ///                 Fields = new[]
+    ///                 {
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "startDateTime",
+    ///                         StringValue = "2012-12-12T00:00:00",
+    ///                     },
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "type",
+    ///                         StringValue = "Schedule",
+    ///                     },
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "period",
+    ///                         StringValue = "1 hour",
+    ///                     },
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "endDateTime",
+    ///                         StringValue = "2012-12-21T18:00:00",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectArgs
+    ///             {
+    ///                 Id = "SayHello",
+    ///                 Name = "SayHello",
+    ///                 Fields = new[]
+    ///                 {
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "type",
+    ///                         StringValue = "ShellCommandActivity",
+    ///                     },
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "command",
+    ///                         StringValue = "echo hello",
+    ///                     },
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "parent",
+    ///                         StringValue = "Default",
+    ///                     },
+    ///                     new Aws.DataPipeline.Inputs.PipelineDefinitionPipelineObjectFieldArgs
+    ///                     {
+    ///                         Key = "schedule",
+    ///                         StringValue = "Schedule",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -115,7 +112,7 @@ namespace Pulumi.Aws.DataPipeline
     /// ```
     /// </summary>
     [AwsResourceType("aws:datapipeline/pipelineDefinition:PipelineDefinition")]
-    public partial class PipelineDefinition : Pulumi.CustomResource
+    public partial class PipelineDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Configuration block for the parameter objects used in the pipeline definition. See below
@@ -185,7 +182,7 @@ namespace Pulumi.Aws.DataPipeline
         }
     }
 
-    public sealed class PipelineDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class PipelineDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("parameterObjects")]
         private InputList<Inputs.PipelineDefinitionParameterObjectArgs>? _parameterObjects;
@@ -232,9 +229,10 @@ namespace Pulumi.Aws.DataPipeline
         public PipelineDefinitionArgs()
         {
         }
+        public static new PipelineDefinitionArgs Empty => new PipelineDefinitionArgs();
     }
 
-    public sealed class PipelineDefinitionState : Pulumi.ResourceArgs
+    public sealed class PipelineDefinitionState : global::Pulumi.ResourceArgs
     {
         [Input("parameterObjects")]
         private InputList<Inputs.PipelineDefinitionParameterObjectGetArgs>? _parameterObjects;
@@ -281,5 +279,6 @@ namespace Pulumi.Aws.DataPipeline
         public PipelineDefinitionState()
         {
         }
+        public static new PipelineDefinitionState Empty => new PipelineDefinitionState();
     }
 }

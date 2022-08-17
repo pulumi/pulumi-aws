@@ -19,7 +19,9 @@ import (
 // Intents can be imported using their name.
 //
 // ```sh
-//  $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
+//
+//	$ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
+//
 // ```
 type Intent struct {
 	pulumi.CustomResourceState
@@ -358,7 +360,7 @@ func (i *Intent) ToIntentOutputWithContext(ctx context.Context) IntentOutput {
 // IntentArrayInput is an input type that accepts IntentArray and IntentArrayOutput values.
 // You can construct a concrete instance of `IntentArrayInput` via:
 //
-//          IntentArray{ IntentArgs{...} }
+//	IntentArray{ IntentArgs{...} }
 type IntentArrayInput interface {
 	pulumi.Input
 
@@ -383,7 +385,7 @@ func (i IntentArray) ToIntentArrayOutputWithContext(ctx context.Context) IntentA
 // IntentMapInput is an input type that accepts IntentMap and IntentMapOutput values.
 // You can construct a concrete instance of `IntentMapInput` via:
 //
-//          IntentMap{ "key": IntentArgs{...} }
+//	IntentMap{ "key": IntentArgs{...} }
 type IntentMapInput interface {
 	pulumi.Input
 

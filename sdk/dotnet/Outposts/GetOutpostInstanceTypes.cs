@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Outposts
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Outposts.GetOutpostInstanceTypes.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Outposts.GetOutpostInstanceTypes.InvokeAsync(new Aws.Outposts.GetOutpostInstanceTypesArgs
-        ///         {
-        ///             Arn = data.Aws_outposts_outpost.Example.Arn,
-        ///         }));
-        ///     }
+        ///         Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Outposts
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Outposts.GetOutpostInstanceTypes.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Outposts.GetOutpostInstanceTypes.InvokeAsync(new Aws.Outposts.GetOutpostInstanceTypesArgs
-        ///         {
-        ///             Arn = data.Aws_outposts_outpost.Example.Arn,
-        ///         }));
-        ///     }
+        ///         Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Outposts
     }
 
 
-    public sealed class GetOutpostInstanceTypesArgs : Pulumi.InvokeArgs
+    public sealed class GetOutpostInstanceTypesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Outpost Amazon Resource Name (ARN).
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Outposts
         public GetOutpostInstanceTypesArgs()
         {
         }
+        public static new GetOutpostInstanceTypesArgs Empty => new GetOutpostInstanceTypesArgs();
     }
 
-    public sealed class GetOutpostInstanceTypesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOutpostInstanceTypesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Outpost Amazon Resource Name (ARN).
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Outposts
         public GetOutpostInstanceTypesInvokeArgs()
         {
         }
+        public static new GetOutpostInstanceTypesInvokeArgs Empty => new GetOutpostInstanceTypesInvokeArgs();
     }
 
 

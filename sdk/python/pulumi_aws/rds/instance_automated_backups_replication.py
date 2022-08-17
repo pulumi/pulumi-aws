@@ -197,9 +197,8 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        replica = pulumi.providers.Aws("replica", region="us-west-2")
+        replica = aws.Provider("replica", region="us-west-2")
         default_instance = aws.rds.Instance("defaultInstance",
             allocated_storage=10,
             identifier="mydb",
@@ -274,9 +273,8 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        replica = pulumi.providers.Aws("replica", region="us-west-2")
+        replica = aws.Provider("replica", region="us-west-2")
         default_instance = aws.rds.Instance("defaultInstance",
             allocated_storage=10,
             identifier="mydb",

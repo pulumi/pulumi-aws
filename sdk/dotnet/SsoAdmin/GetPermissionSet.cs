@@ -25,7 +25,7 @@ namespace Pulumi.Aws.SsoAdmin
     }
 
 
-    public sealed class GetPermissionSetArgs : Pulumi.InvokeArgs
+    public sealed class GetPermissionSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the permission set.
@@ -60,9 +60,10 @@ namespace Pulumi.Aws.SsoAdmin
         public GetPermissionSetArgs()
         {
         }
+        public static new GetPermissionSetArgs Empty => new GetPermissionSetArgs();
     }
 
-    public sealed class GetPermissionSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPermissionSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the permission set.
@@ -97,6 +98,7 @@ namespace Pulumi.Aws.SsoAdmin
         public GetPermissionSetInvokeArgs()
         {
         }
+        public static new GetPermissionSetInvokeArgs Empty => new GetPermissionSetInvokeArgs();
     }
 
 

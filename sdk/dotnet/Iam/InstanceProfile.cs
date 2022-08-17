@@ -15,17 +15,16 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var role = new Aws.Iam.Role("role", new()
     ///     {
-    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
-    ///         {
-    ///             Path = "/",
-    ///             AssumeRolePolicy = @"{
+    ///         Path = "/",
+    ///         AssumeRolePolicy = @"{
     ///     ""Version"": ""2012-10-17"",
     ///     ""Statement"": [
     ///         {
@@ -39,14 +38,14 @@ namespace Pulumi.Aws.Iam
     ///     ]
     /// }
     /// ",
-    ///         });
-    ///         var testProfile = new Aws.Iam.InstanceProfile("testProfile", new Aws.Iam.InstanceProfileArgs
-    ///         {
-    ///             Role = role.Name,
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var testProfile = new Aws.Iam.InstanceProfile("testProfile", new()
+    ///     {
+    ///         Role = role.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +57,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/instanceProfile:InstanceProfile")]
-    public partial class InstanceProfile : Pulumi.CustomResource
+    public partial class InstanceProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN assigned by AWS to the instance profile.
@@ -97,13 +96,13 @@ namespace Pulumi.Aws.Iam
         public Output<string?> Role { get; private set; } = null!;
 
         /// <summary>
-        /// Map of resource tags for the IAM Instance Profile. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the IAM Instance Profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -158,7 +157,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class InstanceProfileArgs : Pulumi.ResourceArgs
+    public sealed class InstanceProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
@@ -188,7 +187,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags for the IAM Instance Profile. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the IAM Instance Profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -199,9 +198,10 @@ namespace Pulumi.Aws.Iam
         public InstanceProfileArgs()
         {
         }
+        public static new InstanceProfileArgs Empty => new InstanceProfileArgs();
     }
 
-    public sealed class InstanceProfileState : Pulumi.ResourceArgs
+    public sealed class InstanceProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN assigned by AWS to the instance profile.
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags for the IAM Instance Profile. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the IAM Instance Profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -272,5 +272,6 @@ namespace Pulumi.Aws.Iam
         public InstanceProfileState()
         {
         }
+        public static new InstanceProfileState Empty => new InstanceProfileState();
     }
 }

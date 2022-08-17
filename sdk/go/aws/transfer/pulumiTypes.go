@@ -20,7 +20,7 @@ type AccessHomeDirectoryMapping struct {
 // AccessHomeDirectoryMappingInput is an input type that accepts AccessHomeDirectoryMappingArgs and AccessHomeDirectoryMappingOutput values.
 // You can construct a concrete instance of `AccessHomeDirectoryMappingInput` via:
 //
-//          AccessHomeDirectoryMappingArgs{...}
+//	AccessHomeDirectoryMappingArgs{...}
 type AccessHomeDirectoryMappingInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i AccessHomeDirectoryMappingArgs) ToAccessHomeDirectoryMappingOutputWithCo
 // AccessHomeDirectoryMappingArrayInput is an input type that accepts AccessHomeDirectoryMappingArray and AccessHomeDirectoryMappingArrayOutput values.
 // You can construct a concrete instance of `AccessHomeDirectoryMappingArrayInput` via:
 //
-//          AccessHomeDirectoryMappingArray{ AccessHomeDirectoryMappingArgs{...} }
+//	AccessHomeDirectoryMappingArray{ AccessHomeDirectoryMappingArgs{...} }
 type AccessHomeDirectoryMappingArrayInput interface {
 	pulumi.Input
 
@@ -128,7 +128,7 @@ type AccessPosixProfile struct {
 // AccessPosixProfileInput is an input type that accepts AccessPosixProfileArgs and AccessPosixProfileOutput values.
 // You can construct a concrete instance of `AccessPosixProfileInput` via:
 //
-//          AccessPosixProfileArgs{...}
+//	AccessPosixProfileArgs{...}
 type AccessPosixProfileInput interface {
 	pulumi.Input
 
@@ -168,11 +168,11 @@ func (i AccessPosixProfileArgs) ToAccessPosixProfilePtrOutputWithContext(ctx con
 // AccessPosixProfilePtrInput is an input type that accepts AccessPosixProfileArgs, AccessPosixProfilePtr and AccessPosixProfilePtrOutput values.
 // You can construct a concrete instance of `AccessPosixProfilePtrInput` via:
 //
-//          AccessPosixProfileArgs{...}
+//	        AccessPosixProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccessPosixProfilePtrInput interface {
 	pulumi.Input
 
@@ -307,7 +307,7 @@ type ServerEndpointDetails struct {
 // ServerEndpointDetailsInput is an input type that accepts ServerEndpointDetailsArgs and ServerEndpointDetailsOutput values.
 // You can construct a concrete instance of `ServerEndpointDetailsInput` via:
 //
-//          ServerEndpointDetailsArgs{...}
+//	ServerEndpointDetailsArgs{...}
 type ServerEndpointDetailsInput interface {
 	pulumi.Input
 
@@ -351,11 +351,11 @@ func (i ServerEndpointDetailsArgs) ToServerEndpointDetailsPtrOutputWithContext(c
 // ServerEndpointDetailsPtrInput is an input type that accepts ServerEndpointDetailsArgs, ServerEndpointDetailsPtr and ServerEndpointDetailsPtrOutput values.
 // You can construct a concrete instance of `ServerEndpointDetailsPtrInput` via:
 //
-//          ServerEndpointDetailsArgs{...}
+//	        ServerEndpointDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServerEndpointDetailsPtrInput interface {
 	pulumi.Input
 
@@ -512,7 +512,7 @@ type ServerWorkflowDetails struct {
 // ServerWorkflowDetailsInput is an input type that accepts ServerWorkflowDetailsArgs and ServerWorkflowDetailsOutput values.
 // You can construct a concrete instance of `ServerWorkflowDetailsInput` via:
 //
-//          ServerWorkflowDetailsArgs{...}
+//	ServerWorkflowDetailsArgs{...}
 type ServerWorkflowDetailsInput interface {
 	pulumi.Input
 
@@ -548,11 +548,11 @@ func (i ServerWorkflowDetailsArgs) ToServerWorkflowDetailsPtrOutputWithContext(c
 // ServerWorkflowDetailsPtrInput is an input type that accepts ServerWorkflowDetailsArgs, ServerWorkflowDetailsPtr and ServerWorkflowDetailsPtrOutput values.
 // You can construct a concrete instance of `ServerWorkflowDetailsPtrInput` via:
 //
-//          ServerWorkflowDetailsArgs{...}
+//	        ServerWorkflowDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServerWorkflowDetailsPtrInput interface {
 	pulumi.Input
 
@@ -651,7 +651,7 @@ type ServerWorkflowDetailsOnUpload struct {
 // ServerWorkflowDetailsOnUploadInput is an input type that accepts ServerWorkflowDetailsOnUploadArgs and ServerWorkflowDetailsOnUploadOutput values.
 // You can construct a concrete instance of `ServerWorkflowDetailsOnUploadInput` via:
 //
-//          ServerWorkflowDetailsOnUploadArgs{...}
+//	ServerWorkflowDetailsOnUploadArgs{...}
 type ServerWorkflowDetailsOnUploadInput interface {
 	pulumi.Input
 
@@ -689,11 +689,11 @@ func (i ServerWorkflowDetailsOnUploadArgs) ToServerWorkflowDetailsOnUploadPtrOut
 // ServerWorkflowDetailsOnUploadPtrInput is an input type that accepts ServerWorkflowDetailsOnUploadArgs, ServerWorkflowDetailsOnUploadPtr and ServerWorkflowDetailsOnUploadPtrOutput values.
 // You can construct a concrete instance of `ServerWorkflowDetailsOnUploadPtrInput` via:
 //
-//          ServerWorkflowDetailsOnUploadArgs{...}
+//	        ServerWorkflowDetailsOnUploadArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServerWorkflowDetailsOnUploadPtrInput interface {
 	pulumi.Input
 
@@ -807,7 +807,7 @@ type UserHomeDirectoryMapping struct {
 // UserHomeDirectoryMappingInput is an input type that accepts UserHomeDirectoryMappingArgs and UserHomeDirectoryMappingOutput values.
 // You can construct a concrete instance of `UserHomeDirectoryMappingInput` via:
 //
-//          UserHomeDirectoryMappingArgs{...}
+//	UserHomeDirectoryMappingArgs{...}
 type UserHomeDirectoryMappingInput interface {
 	pulumi.Input
 
@@ -837,7 +837,7 @@ func (i UserHomeDirectoryMappingArgs) ToUserHomeDirectoryMappingOutputWithContex
 // UserHomeDirectoryMappingArrayInput is an input type that accepts UserHomeDirectoryMappingArray and UserHomeDirectoryMappingArrayOutput values.
 // You can construct a concrete instance of `UserHomeDirectoryMappingArrayInput` via:
 //
-//          UserHomeDirectoryMappingArray{ UserHomeDirectoryMappingArgs{...} }
+//	UserHomeDirectoryMappingArray{ UserHomeDirectoryMappingArgs{...} }
 type UserHomeDirectoryMappingArrayInput interface {
 	pulumi.Input
 
@@ -915,7 +915,7 @@ type UserPosixProfile struct {
 // UserPosixProfileInput is an input type that accepts UserPosixProfileArgs and UserPosixProfileOutput values.
 // You can construct a concrete instance of `UserPosixProfileInput` via:
 //
-//          UserPosixProfileArgs{...}
+//	UserPosixProfileArgs{...}
 type UserPosixProfileInput interface {
 	pulumi.Input
 
@@ -955,11 +955,11 @@ func (i UserPosixProfileArgs) ToUserPosixProfilePtrOutputWithContext(ctx context
 // UserPosixProfilePtrInput is an input type that accepts UserPosixProfileArgs, UserPosixProfilePtr and UserPosixProfilePtrOutput values.
 // You can construct a concrete instance of `UserPosixProfilePtrInput` via:
 //
-//          UserPosixProfileArgs{...}
+//	        UserPosixProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type UserPosixProfilePtrInput interface {
 	pulumi.Input
 
@@ -1094,7 +1094,7 @@ type WorkflowOnExceptionStep struct {
 // WorkflowOnExceptionStepInput is an input type that accepts WorkflowOnExceptionStepArgs and WorkflowOnExceptionStepOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepInput` via:
 //
-//          WorkflowOnExceptionStepArgs{...}
+//	WorkflowOnExceptionStepArgs{...}
 type WorkflowOnExceptionStepInput interface {
 	pulumi.Input
 
@@ -1130,7 +1130,7 @@ func (i WorkflowOnExceptionStepArgs) ToWorkflowOnExceptionStepOutputWithContext(
 // WorkflowOnExceptionStepArrayInput is an input type that accepts WorkflowOnExceptionStepArray and WorkflowOnExceptionStepArrayOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepArrayInput` via:
 //
-//          WorkflowOnExceptionStepArray{ WorkflowOnExceptionStepArgs{...} }
+//	WorkflowOnExceptionStepArray{ WorkflowOnExceptionStepArgs{...} }
 type WorkflowOnExceptionStepArrayInput interface {
 	pulumi.Input
 
@@ -1225,7 +1225,7 @@ type WorkflowOnExceptionStepCopyStepDetails struct {
 // WorkflowOnExceptionStepCopyStepDetailsInput is an input type that accepts WorkflowOnExceptionStepCopyStepDetailsArgs and WorkflowOnExceptionStepCopyStepDetailsOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepCopyStepDetailsInput` via:
 //
-//          WorkflowOnExceptionStepCopyStepDetailsArgs{...}
+//	WorkflowOnExceptionStepCopyStepDetailsArgs{...}
 type WorkflowOnExceptionStepCopyStepDetailsInput interface {
 	pulumi.Input
 
@@ -1267,11 +1267,11 @@ func (i WorkflowOnExceptionStepCopyStepDetailsArgs) ToWorkflowOnExceptionStepCop
 // WorkflowOnExceptionStepCopyStepDetailsPtrInput is an input type that accepts WorkflowOnExceptionStepCopyStepDetailsArgs, WorkflowOnExceptionStepCopyStepDetailsPtr and WorkflowOnExceptionStepCopyStepDetailsPtrOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepCopyStepDetailsPtrInput` via:
 //
-//          WorkflowOnExceptionStepCopyStepDetailsArgs{...}
+//	        WorkflowOnExceptionStepCopyStepDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowOnExceptionStepCopyStepDetailsPtrInput interface {
 	pulumi.Input
 
@@ -1417,7 +1417,7 @@ type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation struct {
 // WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationInput is an input type that accepts WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs and WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationInput` via:
 //
-//          WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs{...}
+//	WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs{...}
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationInput interface {
 	pulumi.Input
 
@@ -1455,11 +1455,11 @@ func (i WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs) ToWor
 // WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrInput is an input type that accepts WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs, WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtr and WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrInput` via:
 //
-//          WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs{...}
+//	        WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationPtrInput interface {
 	pulumi.Input
 
@@ -1577,7 +1577,7 @@ type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocatio
 // WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationInput is an input type that accepts WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs and WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationInput` via:
 //
-//          WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs{...}
+//	WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs{...}
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationInput interface {
 	pulumi.Input
 
@@ -1615,11 +1615,11 @@ func (i WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLoca
 // WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrInput is an input type that accepts WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs, WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtr and WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrInput` via:
 //
-//          WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs{...}
+//	        WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrInput interface {
 	pulumi.Input
 
@@ -1737,7 +1737,7 @@ type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation
 // WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationInput is an input type that accepts WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs and WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationInput` via:
 //
-//          WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs{...}
+//	WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs{...}
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationInput interface {
 	pulumi.Input
 
@@ -1775,11 +1775,11 @@ func (i WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocat
 // WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrInput is an input type that accepts WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs, WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtr and WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrInput` via:
 //
-//          WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs{...}
+//	        WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrInput interface {
 	pulumi.Input
 
@@ -1901,7 +1901,7 @@ type WorkflowOnExceptionStepCustomStepDetails struct {
 // WorkflowOnExceptionStepCustomStepDetailsInput is an input type that accepts WorkflowOnExceptionStepCustomStepDetailsArgs and WorkflowOnExceptionStepCustomStepDetailsOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepCustomStepDetailsInput` via:
 //
-//          WorkflowOnExceptionStepCustomStepDetailsArgs{...}
+//	WorkflowOnExceptionStepCustomStepDetailsArgs{...}
 type WorkflowOnExceptionStepCustomStepDetailsInput interface {
 	pulumi.Input
 
@@ -1943,11 +1943,11 @@ func (i WorkflowOnExceptionStepCustomStepDetailsArgs) ToWorkflowOnExceptionStepC
 // WorkflowOnExceptionStepCustomStepDetailsPtrInput is an input type that accepts WorkflowOnExceptionStepCustomStepDetailsArgs, WorkflowOnExceptionStepCustomStepDetailsPtr and WorkflowOnExceptionStepCustomStepDetailsPtrOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepCustomStepDetailsPtrInput` via:
 //
-//          WorkflowOnExceptionStepCustomStepDetailsArgs{...}
+//	        WorkflowOnExceptionStepCustomStepDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowOnExceptionStepCustomStepDetailsPtrInput interface {
 	pulumi.Input
 
@@ -2091,7 +2091,7 @@ type WorkflowOnExceptionStepDeleteStepDetails struct {
 // WorkflowOnExceptionStepDeleteStepDetailsInput is an input type that accepts WorkflowOnExceptionStepDeleteStepDetailsArgs and WorkflowOnExceptionStepDeleteStepDetailsOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepDeleteStepDetailsInput` via:
 //
-//          WorkflowOnExceptionStepDeleteStepDetailsArgs{...}
+//	WorkflowOnExceptionStepDeleteStepDetailsArgs{...}
 type WorkflowOnExceptionStepDeleteStepDetailsInput interface {
 	pulumi.Input
 
@@ -2129,11 +2129,11 @@ func (i WorkflowOnExceptionStepDeleteStepDetailsArgs) ToWorkflowOnExceptionStepD
 // WorkflowOnExceptionStepDeleteStepDetailsPtrInput is an input type that accepts WorkflowOnExceptionStepDeleteStepDetailsArgs, WorkflowOnExceptionStepDeleteStepDetailsPtr and WorkflowOnExceptionStepDeleteStepDetailsPtrOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepDeleteStepDetailsPtrInput` via:
 //
-//          WorkflowOnExceptionStepDeleteStepDetailsArgs{...}
+//	        WorkflowOnExceptionStepDeleteStepDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowOnExceptionStepDeleteStepDetailsPtrInput interface {
 	pulumi.Input
 
@@ -2249,7 +2249,7 @@ type WorkflowOnExceptionStepTagStepDetails struct {
 // WorkflowOnExceptionStepTagStepDetailsInput is an input type that accepts WorkflowOnExceptionStepTagStepDetailsArgs and WorkflowOnExceptionStepTagStepDetailsOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepTagStepDetailsInput` via:
 //
-//          WorkflowOnExceptionStepTagStepDetailsArgs{...}
+//	WorkflowOnExceptionStepTagStepDetailsArgs{...}
 type WorkflowOnExceptionStepTagStepDetailsInput interface {
 	pulumi.Input
 
@@ -2289,11 +2289,11 @@ func (i WorkflowOnExceptionStepTagStepDetailsArgs) ToWorkflowOnExceptionStepTagS
 // WorkflowOnExceptionStepTagStepDetailsPtrInput is an input type that accepts WorkflowOnExceptionStepTagStepDetailsArgs, WorkflowOnExceptionStepTagStepDetailsPtr and WorkflowOnExceptionStepTagStepDetailsPtrOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepTagStepDetailsPtrInput` via:
 //
-//          WorkflowOnExceptionStepTagStepDetailsArgs{...}
+//	        WorkflowOnExceptionStepTagStepDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowOnExceptionStepTagStepDetailsPtrInput interface {
 	pulumi.Input
 
@@ -2424,7 +2424,7 @@ type WorkflowOnExceptionStepTagStepDetailsTag struct {
 // WorkflowOnExceptionStepTagStepDetailsTagInput is an input type that accepts WorkflowOnExceptionStepTagStepDetailsTagArgs and WorkflowOnExceptionStepTagStepDetailsTagOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepTagStepDetailsTagInput` via:
 //
-//          WorkflowOnExceptionStepTagStepDetailsTagArgs{...}
+//	WorkflowOnExceptionStepTagStepDetailsTagArgs{...}
 type WorkflowOnExceptionStepTagStepDetailsTagInput interface {
 	pulumi.Input
 
@@ -2454,7 +2454,7 @@ func (i WorkflowOnExceptionStepTagStepDetailsTagArgs) ToWorkflowOnExceptionStepT
 // WorkflowOnExceptionStepTagStepDetailsTagArrayInput is an input type that accepts WorkflowOnExceptionStepTagStepDetailsTagArray and WorkflowOnExceptionStepTagStepDetailsTagArrayOutput values.
 // You can construct a concrete instance of `WorkflowOnExceptionStepTagStepDetailsTagArrayInput` via:
 //
-//          WorkflowOnExceptionStepTagStepDetailsTagArray{ WorkflowOnExceptionStepTagStepDetailsTagArgs{...} }
+//	WorkflowOnExceptionStepTagStepDetailsTagArray{ WorkflowOnExceptionStepTagStepDetailsTagArgs{...} }
 type WorkflowOnExceptionStepTagStepDetailsTagArrayInput interface {
 	pulumi.Input
 
@@ -2536,7 +2536,7 @@ type WorkflowStep struct {
 // WorkflowStepInput is an input type that accepts WorkflowStepArgs and WorkflowStepOutput values.
 // You can construct a concrete instance of `WorkflowStepInput` via:
 //
-//          WorkflowStepArgs{...}
+//	WorkflowStepArgs{...}
 type WorkflowStepInput interface {
 	pulumi.Input
 
@@ -2572,7 +2572,7 @@ func (i WorkflowStepArgs) ToWorkflowStepOutputWithContext(ctx context.Context) W
 // WorkflowStepArrayInput is an input type that accepts WorkflowStepArray and WorkflowStepArrayOutput values.
 // You can construct a concrete instance of `WorkflowStepArrayInput` via:
 //
-//          WorkflowStepArray{ WorkflowStepArgs{...} }
+//	WorkflowStepArray{ WorkflowStepArgs{...} }
 type WorkflowStepArrayInput interface {
 	pulumi.Input
 
@@ -2667,7 +2667,7 @@ type WorkflowStepCopyStepDetails struct {
 // WorkflowStepCopyStepDetailsInput is an input type that accepts WorkflowStepCopyStepDetailsArgs and WorkflowStepCopyStepDetailsOutput values.
 // You can construct a concrete instance of `WorkflowStepCopyStepDetailsInput` via:
 //
-//          WorkflowStepCopyStepDetailsArgs{...}
+//	WorkflowStepCopyStepDetailsArgs{...}
 type WorkflowStepCopyStepDetailsInput interface {
 	pulumi.Input
 
@@ -2709,11 +2709,11 @@ func (i WorkflowStepCopyStepDetailsArgs) ToWorkflowStepCopyStepDetailsPtrOutputW
 // WorkflowStepCopyStepDetailsPtrInput is an input type that accepts WorkflowStepCopyStepDetailsArgs, WorkflowStepCopyStepDetailsPtr and WorkflowStepCopyStepDetailsPtrOutput values.
 // You can construct a concrete instance of `WorkflowStepCopyStepDetailsPtrInput` via:
 //
-//          WorkflowStepCopyStepDetailsArgs{...}
+//	        WorkflowStepCopyStepDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowStepCopyStepDetailsPtrInput interface {
 	pulumi.Input
 
@@ -2859,7 +2859,7 @@ type WorkflowStepCopyStepDetailsDestinationFileLocation struct {
 // WorkflowStepCopyStepDetailsDestinationFileLocationInput is an input type that accepts WorkflowStepCopyStepDetailsDestinationFileLocationArgs and WorkflowStepCopyStepDetailsDestinationFileLocationOutput values.
 // You can construct a concrete instance of `WorkflowStepCopyStepDetailsDestinationFileLocationInput` via:
 //
-//          WorkflowStepCopyStepDetailsDestinationFileLocationArgs{...}
+//	WorkflowStepCopyStepDetailsDestinationFileLocationArgs{...}
 type WorkflowStepCopyStepDetailsDestinationFileLocationInput interface {
 	pulumi.Input
 
@@ -2897,11 +2897,11 @@ func (i WorkflowStepCopyStepDetailsDestinationFileLocationArgs) ToWorkflowStepCo
 // WorkflowStepCopyStepDetailsDestinationFileLocationPtrInput is an input type that accepts WorkflowStepCopyStepDetailsDestinationFileLocationArgs, WorkflowStepCopyStepDetailsDestinationFileLocationPtr and WorkflowStepCopyStepDetailsDestinationFileLocationPtrOutput values.
 // You can construct a concrete instance of `WorkflowStepCopyStepDetailsDestinationFileLocationPtrInput` via:
 //
-//          WorkflowStepCopyStepDetailsDestinationFileLocationArgs{...}
+//	        WorkflowStepCopyStepDetailsDestinationFileLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowStepCopyStepDetailsDestinationFileLocationPtrInput interface {
 	pulumi.Input
 
@@ -3019,7 +3019,7 @@ type WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation struct {
 // WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationInput is an input type that accepts WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs and WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationOutput values.
 // You can construct a concrete instance of `WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationInput` via:
 //
-//          WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs{...}
+//	WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs{...}
 type WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationInput interface {
 	pulumi.Input
 
@@ -3057,11 +3057,11 @@ func (i WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs) T
 // WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrInput is an input type that accepts WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs, WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtr and WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutput values.
 // You can construct a concrete instance of `WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrInput` via:
 //
-//          WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs{...}
+//	        WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrInput interface {
 	pulumi.Input
 
@@ -3177,7 +3177,7 @@ type WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation struct {
 // WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationInput is an input type that accepts WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs and WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput values.
 // You can construct a concrete instance of `WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationInput` via:
 //
-//          WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs{...}
+//	WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs{...}
 type WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationInput interface {
 	pulumi.Input
 
@@ -3215,11 +3215,11 @@ func (i WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs) To
 // WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrInput is an input type that accepts WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs, WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtr and WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput values.
 // You can construct a concrete instance of `WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrInput` via:
 //
-//          WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs{...}
+//	        WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrInput interface {
 	pulumi.Input
 
@@ -3337,7 +3337,7 @@ type WorkflowStepCustomStepDetails struct {
 // WorkflowStepCustomStepDetailsInput is an input type that accepts WorkflowStepCustomStepDetailsArgs and WorkflowStepCustomStepDetailsOutput values.
 // You can construct a concrete instance of `WorkflowStepCustomStepDetailsInput` via:
 //
-//          WorkflowStepCustomStepDetailsArgs{...}
+//	WorkflowStepCustomStepDetailsArgs{...}
 type WorkflowStepCustomStepDetailsInput interface {
 	pulumi.Input
 
@@ -3379,11 +3379,11 @@ func (i WorkflowStepCustomStepDetailsArgs) ToWorkflowStepCustomStepDetailsPtrOut
 // WorkflowStepCustomStepDetailsPtrInput is an input type that accepts WorkflowStepCustomStepDetailsArgs, WorkflowStepCustomStepDetailsPtr and WorkflowStepCustomStepDetailsPtrOutput values.
 // You can construct a concrete instance of `WorkflowStepCustomStepDetailsPtrInput` via:
 //
-//          WorkflowStepCustomStepDetailsArgs{...}
+//	        WorkflowStepCustomStepDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowStepCustomStepDetailsPtrInput interface {
 	pulumi.Input
 
@@ -3527,7 +3527,7 @@ type WorkflowStepDeleteStepDetails struct {
 // WorkflowStepDeleteStepDetailsInput is an input type that accepts WorkflowStepDeleteStepDetailsArgs and WorkflowStepDeleteStepDetailsOutput values.
 // You can construct a concrete instance of `WorkflowStepDeleteStepDetailsInput` via:
 //
-//          WorkflowStepDeleteStepDetailsArgs{...}
+//	WorkflowStepDeleteStepDetailsArgs{...}
 type WorkflowStepDeleteStepDetailsInput interface {
 	pulumi.Input
 
@@ -3565,11 +3565,11 @@ func (i WorkflowStepDeleteStepDetailsArgs) ToWorkflowStepDeleteStepDetailsPtrOut
 // WorkflowStepDeleteStepDetailsPtrInput is an input type that accepts WorkflowStepDeleteStepDetailsArgs, WorkflowStepDeleteStepDetailsPtr and WorkflowStepDeleteStepDetailsPtrOutput values.
 // You can construct a concrete instance of `WorkflowStepDeleteStepDetailsPtrInput` via:
 //
-//          WorkflowStepDeleteStepDetailsArgs{...}
+//	        WorkflowStepDeleteStepDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowStepDeleteStepDetailsPtrInput interface {
 	pulumi.Input
 
@@ -3685,7 +3685,7 @@ type WorkflowStepTagStepDetails struct {
 // WorkflowStepTagStepDetailsInput is an input type that accepts WorkflowStepTagStepDetailsArgs and WorkflowStepTagStepDetailsOutput values.
 // You can construct a concrete instance of `WorkflowStepTagStepDetailsInput` via:
 //
-//          WorkflowStepTagStepDetailsArgs{...}
+//	WorkflowStepTagStepDetailsArgs{...}
 type WorkflowStepTagStepDetailsInput interface {
 	pulumi.Input
 
@@ -3725,11 +3725,11 @@ func (i WorkflowStepTagStepDetailsArgs) ToWorkflowStepTagStepDetailsPtrOutputWit
 // WorkflowStepTagStepDetailsPtrInput is an input type that accepts WorkflowStepTagStepDetailsArgs, WorkflowStepTagStepDetailsPtr and WorkflowStepTagStepDetailsPtrOutput values.
 // You can construct a concrete instance of `WorkflowStepTagStepDetailsPtrInput` via:
 //
-//          WorkflowStepTagStepDetailsArgs{...}
+//	        WorkflowStepTagStepDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowStepTagStepDetailsPtrInput interface {
 	pulumi.Input
 
@@ -3858,7 +3858,7 @@ type WorkflowStepTagStepDetailsTag struct {
 // WorkflowStepTagStepDetailsTagInput is an input type that accepts WorkflowStepTagStepDetailsTagArgs and WorkflowStepTagStepDetailsTagOutput values.
 // You can construct a concrete instance of `WorkflowStepTagStepDetailsTagInput` via:
 //
-//          WorkflowStepTagStepDetailsTagArgs{...}
+//	WorkflowStepTagStepDetailsTagArgs{...}
 type WorkflowStepTagStepDetailsTagInput interface {
 	pulumi.Input
 
@@ -3888,7 +3888,7 @@ func (i WorkflowStepTagStepDetailsTagArgs) ToWorkflowStepTagStepDetailsTagOutput
 // WorkflowStepTagStepDetailsTagArrayInput is an input type that accepts WorkflowStepTagStepDetailsTagArray and WorkflowStepTagStepDetailsTagArrayOutput values.
 // You can construct a concrete instance of `WorkflowStepTagStepDetailsTagArrayInput` via:
 //
-//          WorkflowStepTagStepDetailsTagArray{ WorkflowStepTagStepDetailsTagArgs{...} }
+//	WorkflowStepTagStepDetailsTagArray{ WorkflowStepTagStepDetailsTagArgs{...} }
 type WorkflowStepTagStepDetailsTagArrayInput interface {
 	pulumi.Input
 

@@ -19,47 +19,46 @@ namespace Pulumi.Aws
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var europeanEc2 = Aws.GetIpRanges.Invoke(new()
         ///     {
-        ///         var europeanEc2 = Output.Create(Aws.GetIpRanges.InvokeAsync(new Aws.GetIpRangesArgs
+        ///         Regions = new[]
         ///         {
-        ///             Regions = 
-        ///             {
-        ///                 "eu-west-1",
-        ///                 "eu-central-1",
-        ///             },
-        ///             Services = 
-        ///             {
-        ///                 "ec2",
-        ///             },
-        ///         }));
-        ///         var fromEurope = new Aws.Ec2.SecurityGroup("fromEurope", new Aws.Ec2.SecurityGroupArgs
+        ///             "eu-west-1",
+        ///             "eu-central-1",
+        ///         },
+        ///         Services = new[]
         ///         {
-        ///             Ingress = 
-        ///             {
-        ///                 new Aws.Ec2.Inputs.SecurityGroupIngressArgs
-        ///                 {
-        ///                     FromPort = 443,
-        ///                     ToPort = 443,
-        ///                     Protocol = "tcp",
-        ///                     CidrBlocks = europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.CidrBlocks),
-        ///                     Ipv6CidrBlocks = europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.Ipv6CidrBlocks),
-        ///                 },
-        ///             },
-        ///             Tags = 
-        ///             {
-        ///                 { "CreateDate", europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.CreateDate) },
-        ///                 { "SyncToken", europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.SyncToken) },
-        ///             },
-        ///         });
-        ///     }
+        ///             "ec2",
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var fromEurope = new Aws.Ec2.SecurityGroup("fromEurope", new()
+        ///     {
+        ///         Ingress = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
+        ///             {
+        ///                 FromPort = 443,
+        ///                 ToPort = 443,
+        ///                 Protocol = "tcp",
+        ///                 CidrBlocks = europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.CidrBlocks),
+        ///                 Ipv6CidrBlocks = europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.Ipv6CidrBlocks),
+        ///             },
+        ///         },
+        ///         Tags = 
+        ///         {
+        ///             { "CreateDate", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.CreateDate) },
+        ///             { "SyncToken", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.SyncToken) },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,47 +74,46 @@ namespace Pulumi.Aws
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var europeanEc2 = Aws.GetIpRanges.Invoke(new()
         ///     {
-        ///         var europeanEc2 = Output.Create(Aws.GetIpRanges.InvokeAsync(new Aws.GetIpRangesArgs
+        ///         Regions = new[]
         ///         {
-        ///             Regions = 
-        ///             {
-        ///                 "eu-west-1",
-        ///                 "eu-central-1",
-        ///             },
-        ///             Services = 
-        ///             {
-        ///                 "ec2",
-        ///             },
-        ///         }));
-        ///         var fromEurope = new Aws.Ec2.SecurityGroup("fromEurope", new Aws.Ec2.SecurityGroupArgs
+        ///             "eu-west-1",
+        ///             "eu-central-1",
+        ///         },
+        ///         Services = new[]
         ///         {
-        ///             Ingress = 
-        ///             {
-        ///                 new Aws.Ec2.Inputs.SecurityGroupIngressArgs
-        ///                 {
-        ///                     FromPort = 443,
-        ///                     ToPort = 443,
-        ///                     Protocol = "tcp",
-        ///                     CidrBlocks = europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.CidrBlocks),
-        ///                     Ipv6CidrBlocks = europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.Ipv6CidrBlocks),
-        ///                 },
-        ///             },
-        ///             Tags = 
-        ///             {
-        ///                 { "CreateDate", europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.CreateDate) },
-        ///                 { "SyncToken", europeanEc2.Apply(europeanEc2 =&gt; europeanEc2.SyncToken) },
-        ///             },
-        ///         });
-        ///     }
+        ///             "ec2",
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var fromEurope = new Aws.Ec2.SecurityGroup("fromEurope", new()
+        ///     {
+        ///         Ingress = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
+        ///             {
+        ///                 FromPort = 443,
+        ///                 ToPort = 443,
+        ///                 Protocol = "tcp",
+        ///                 CidrBlocks = europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.CidrBlocks),
+        ///                 Ipv6CidrBlocks = europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.Ipv6CidrBlocks),
+        ///             },
+        ///         },
+        ///         Tags = 
+        ///         {
+        ///             { "CreateDate", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.CreateDate) },
+        ///             { "SyncToken", europeanEc2.Apply(getIpRangesResult =&gt; getIpRangesResult.SyncToken) },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -125,7 +123,7 @@ namespace Pulumi.Aws
     }
 
 
-    public sealed class GetIpRangesArgs : Pulumi.InvokeArgs
+    public sealed class GetIpRangesArgs : global::Pulumi.InvokeArgs
     {
         [Input("regions")]
         private List<string>? _regions;
@@ -166,9 +164,10 @@ namespace Pulumi.Aws
         public GetIpRangesArgs()
         {
         }
+        public static new GetIpRangesArgs Empty => new GetIpRangesArgs();
     }
 
-    public sealed class GetIpRangesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIpRangesInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("regions")]
         private InputList<string>? _regions;
@@ -209,6 +208,7 @@ namespace Pulumi.Aws
         public GetIpRangesInvokeArgs()
         {
         }
+        public static new GetIpRangesInvokeArgs Empty => new GetIpRangesInvokeArgs();
     }
 
 

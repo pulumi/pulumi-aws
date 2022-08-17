@@ -15,81 +15,80 @@ namespace Pulumi.Aws.Elb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
     ///     {
-    ///         var lb = new Aws.Elb.LoadBalancer("lb", new Aws.Elb.LoadBalancerArgs
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-east-1a",
-    ///             },
-    ///             Listeners = 
-    ///             {
-    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///                 {
-    ///                     InstancePort = 8000,
-    ///                     InstanceProtocol = "https",
-    ///                     LbPort = 443,
-    ///                     LbProtocol = "https",
-    ///                     SslCertificateId = "arn:aws:iam::123456789012:server-certificate/certName",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var foo = new Aws.Elb.SslNegotiationPolicy("foo", new Aws.Elb.SslNegotiationPolicyArgs
+    ///             "us-east-1a",
+    ///         },
+    ///         Listeners = new[]
     ///         {
-    ///             LoadBalancer = lb.Id,
-    ///             LbPort = 443,
-    ///             Attributes = 
+    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
     ///             {
-    ///                 new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
-    ///                 {
-    ///                     Name = "Protocol-TLSv1",
-    ///                     Value = "false",
-    ///                 },
-    ///                 new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
-    ///                 {
-    ///                     Name = "Protocol-TLSv1.1",
-    ///                     Value = "false",
-    ///                 },
-    ///                 new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
-    ///                 {
-    ///                     Name = "Protocol-TLSv1.2",
-    ///                     Value = "true",
-    ///                 },
-    ///                 new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
-    ///                 {
-    ///                     Name = "Server-Defined-Cipher-Order",
-    ///                     Value = "true",
-    ///                 },
-    ///                 new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
-    ///                 {
-    ///                     Name = "ECDHE-RSA-AES128-GCM-SHA256",
-    ///                     Value = "true",
-    ///                 },
-    ///                 new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
-    ///                 {
-    ///                     Name = "AES128-GCM-SHA256",
-    ///                     Value = "true",
-    ///                 },
-    ///                 new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
-    ///                 {
-    ///                     Name = "EDH-RSA-DES-CBC3-SHA",
-    ///                     Value = "false",
-    ///                 },
+    ///                 InstancePort = 8000,
+    ///                 InstanceProtocol = "https",
+    ///                 LbPort = 443,
+    ///                 LbProtocol = "https",
+    ///                 SslCertificateId = "arn:aws:iam::123456789012:server-certificate/certName",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var foo = new Aws.Elb.SslNegotiationPolicy("foo", new()
+    ///     {
+    ///         LoadBalancer = lb.Id,
+    ///         LbPort = 443,
+    ///         Attributes = new[]
+    ///         {
+    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
+    ///             {
+    ///                 Name = "Protocol-TLSv1",
+    ///                 Value = "false",
+    ///             },
+    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
+    ///             {
+    ///                 Name = "Protocol-TLSv1.1",
+    ///                 Value = "false",
+    ///             },
+    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
+    ///             {
+    ///                 Name = "Protocol-TLSv1.2",
+    ///                 Value = "true",
+    ///             },
+    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
+    ///             {
+    ///                 Name = "Server-Defined-Cipher-Order",
+    ///                 Value = "true",
+    ///             },
+    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
+    ///             {
+    ///                 Name = "ECDHE-RSA-AES128-GCM-SHA256",
+    ///                 Value = "true",
+    ///             },
+    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
+    ///             {
+    ///                 Name = "AES128-GCM-SHA256",
+    ///                 Value = "true",
+    ///             },
+    ///             new Aws.Elb.Inputs.SslNegotiationPolicyAttributeArgs
+    ///             {
+    ///                 Name = "EDH-RSA-DES-CBC3-SHA",
+    ///                 Value = "false",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:elb/sslNegotiationPolicy:SslNegotiationPolicy")]
-    public partial class SslNegotiationPolicy : Pulumi.CustomResource
+    public partial class SslNegotiationPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An SSL Negotiation policy attribute. Each has two properties:
@@ -143,7 +142,7 @@ namespace Pulumi.Aws.Elb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy"},
+                    new global::Pulumi.Alias { Type = "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -166,7 +165,7 @@ namespace Pulumi.Aws.Elb
         }
     }
 
-    public sealed class SslNegotiationPolicyArgs : Pulumi.ResourceArgs
+    public sealed class SslNegotiationPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         private InputList<Inputs.SslNegotiationPolicyAttributeArgs>? _attributes;
@@ -204,9 +203,10 @@ namespace Pulumi.Aws.Elb
         public SslNegotiationPolicyArgs()
         {
         }
+        public static new SslNegotiationPolicyArgs Empty => new SslNegotiationPolicyArgs();
     }
 
-    public sealed class SslNegotiationPolicyState : Pulumi.ResourceArgs
+    public sealed class SslNegotiationPolicyState : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         private InputList<Inputs.SslNegotiationPolicyAttributeGetArgs>? _attributes;
@@ -244,5 +244,6 @@ namespace Pulumi.Aws.Elb
         public SslNegotiationPolicyState()
         {
         }
+        public static new SslNegotiationPolicyState Empty => new SslNegotiationPolicyState();
     }
 }

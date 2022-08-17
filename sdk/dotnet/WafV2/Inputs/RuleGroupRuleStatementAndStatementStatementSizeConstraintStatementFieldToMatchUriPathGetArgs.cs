@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathGetArgs : global::Pulumi.ResourceArgs
     {
         public RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathGetArgs()
         {
         }
+        public static new RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathGetArgs Empty => new RuleGroupRuleStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPathGetArgs();
     }
 }

@@ -18,7 +18,7 @@ type DatabaseAclConfiguration struct {
 // DatabaseAclConfigurationInput is an input type that accepts DatabaseAclConfigurationArgs and DatabaseAclConfigurationOutput values.
 // You can construct a concrete instance of `DatabaseAclConfigurationInput` via:
 //
-//          DatabaseAclConfigurationArgs{...}
+//	DatabaseAclConfigurationArgs{...}
 type DatabaseAclConfigurationInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i DatabaseAclConfigurationArgs) ToDatabaseAclConfigurationPtrOutputWithCon
 // DatabaseAclConfigurationPtrInput is an input type that accepts DatabaseAclConfigurationArgs, DatabaseAclConfigurationPtr and DatabaseAclConfigurationPtrOutput values.
 // You can construct a concrete instance of `DatabaseAclConfigurationPtrInput` via:
 //
-//          DatabaseAclConfigurationArgs{...}
+//	        DatabaseAclConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatabaseAclConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -157,7 +157,7 @@ type DatabaseEncryptionConfiguration struct {
 // DatabaseEncryptionConfigurationInput is an input type that accepts DatabaseEncryptionConfigurationArgs and DatabaseEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `DatabaseEncryptionConfigurationInput` via:
 //
-//          DatabaseEncryptionConfigurationArgs{...}
+//	DatabaseEncryptionConfigurationArgs{...}
 type DatabaseEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -195,11 +195,11 @@ func (i DatabaseEncryptionConfigurationArgs) ToDatabaseEncryptionConfigurationPt
 // DatabaseEncryptionConfigurationPtrInput is an input type that accepts DatabaseEncryptionConfigurationArgs, DatabaseEncryptionConfigurationPtr and DatabaseEncryptionConfigurationPtrOutput values.
 // You can construct a concrete instance of `DatabaseEncryptionConfigurationPtrInput` via:
 //
-//          DatabaseEncryptionConfigurationArgs{...}
+//	        DatabaseEncryptionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DatabaseEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -321,7 +321,7 @@ type WorkgroupConfiguration struct {
 // WorkgroupConfigurationInput is an input type that accepts WorkgroupConfigurationArgs and WorkgroupConfigurationOutput values.
 // You can construct a concrete instance of `WorkgroupConfigurationInput` via:
 //
-//          WorkgroupConfigurationArgs{...}
+//	WorkgroupConfigurationArgs{...}
 type WorkgroupConfigurationInput interface {
 	pulumi.Input
 
@@ -367,11 +367,11 @@ func (i WorkgroupConfigurationArgs) ToWorkgroupConfigurationPtrOutputWithContext
 // WorkgroupConfigurationPtrInput is an input type that accepts WorkgroupConfigurationArgs, WorkgroupConfigurationPtr and WorkgroupConfigurationPtrOutput values.
 // You can construct a concrete instance of `WorkgroupConfigurationPtrInput` via:
 //
-//          WorkgroupConfigurationArgs{...}
+//	        WorkgroupConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkgroupConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -547,7 +547,7 @@ type WorkgroupConfigurationEngineVersion struct {
 // WorkgroupConfigurationEngineVersionInput is an input type that accepts WorkgroupConfigurationEngineVersionArgs and WorkgroupConfigurationEngineVersionOutput values.
 // You can construct a concrete instance of `WorkgroupConfigurationEngineVersionInput` via:
 //
-//          WorkgroupConfigurationEngineVersionArgs{...}
+//	WorkgroupConfigurationEngineVersionArgs{...}
 type WorkgroupConfigurationEngineVersionInput interface {
 	pulumi.Input
 
@@ -585,11 +585,11 @@ func (i WorkgroupConfigurationEngineVersionArgs) ToWorkgroupConfigurationEngineV
 // WorkgroupConfigurationEngineVersionPtrInput is an input type that accepts WorkgroupConfigurationEngineVersionArgs, WorkgroupConfigurationEngineVersionPtr and WorkgroupConfigurationEngineVersionPtrOutput values.
 // You can construct a concrete instance of `WorkgroupConfigurationEngineVersionPtrInput` via:
 //
-//          WorkgroupConfigurationEngineVersionArgs{...}
+//	        WorkgroupConfigurationEngineVersionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkgroupConfigurationEngineVersionPtrInput interface {
 	pulumi.Input
 
@@ -707,7 +707,7 @@ type WorkgroupConfigurationResultConfiguration struct {
 // WorkgroupConfigurationResultConfigurationInput is an input type that accepts WorkgroupConfigurationResultConfigurationArgs and WorkgroupConfigurationResultConfigurationOutput values.
 // You can construct a concrete instance of `WorkgroupConfigurationResultConfigurationInput` via:
 //
-//          WorkgroupConfigurationResultConfigurationArgs{...}
+//	WorkgroupConfigurationResultConfigurationArgs{...}
 type WorkgroupConfigurationResultConfigurationInput interface {
 	pulumi.Input
 
@@ -749,11 +749,11 @@ func (i WorkgroupConfigurationResultConfigurationArgs) ToWorkgroupConfigurationR
 // WorkgroupConfigurationResultConfigurationPtrInput is an input type that accepts WorkgroupConfigurationResultConfigurationArgs, WorkgroupConfigurationResultConfigurationPtr and WorkgroupConfigurationResultConfigurationPtrOutput values.
 // You can construct a concrete instance of `WorkgroupConfigurationResultConfigurationPtrInput` via:
 //
-//          WorkgroupConfigurationResultConfigurationArgs{...}
+//	        WorkgroupConfigurationResultConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkgroupConfigurationResultConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -899,7 +899,7 @@ type WorkgroupConfigurationResultConfigurationAclConfiguration struct {
 // WorkgroupConfigurationResultConfigurationAclConfigurationInput is an input type that accepts WorkgroupConfigurationResultConfigurationAclConfigurationArgs and WorkgroupConfigurationResultConfigurationAclConfigurationOutput values.
 // You can construct a concrete instance of `WorkgroupConfigurationResultConfigurationAclConfigurationInput` via:
 //
-//          WorkgroupConfigurationResultConfigurationAclConfigurationArgs{...}
+//	WorkgroupConfigurationResultConfigurationAclConfigurationArgs{...}
 type WorkgroupConfigurationResultConfigurationAclConfigurationInput interface {
 	pulumi.Input
 
@@ -935,11 +935,11 @@ func (i WorkgroupConfigurationResultConfigurationAclConfigurationArgs) ToWorkgro
 // WorkgroupConfigurationResultConfigurationAclConfigurationPtrInput is an input type that accepts WorkgroupConfigurationResultConfigurationAclConfigurationArgs, WorkgroupConfigurationResultConfigurationAclConfigurationPtr and WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput values.
 // You can construct a concrete instance of `WorkgroupConfigurationResultConfigurationAclConfigurationPtrInput` via:
 //
-//          WorkgroupConfigurationResultConfigurationAclConfigurationArgs{...}
+//	        WorkgroupConfigurationResultConfigurationAclConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkgroupConfigurationResultConfigurationAclConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1038,7 +1038,7 @@ type WorkgroupConfigurationResultConfigurationEncryptionConfiguration struct {
 // WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput is an input type that accepts WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs and WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput` via:
 //
-//          WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{...}
+//	WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{...}
 type WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -1076,11 +1076,11 @@ func (i WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs) To
 // WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput is an input type that accepts WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs, WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtr and WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput values.
 // You can construct a concrete instance of `WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput` via:
 //
-//          WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{...}
+//	        WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 

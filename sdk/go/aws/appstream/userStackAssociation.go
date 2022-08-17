@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testStack, err := appstream.NewStack(ctx, "testStack", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testUser, err := appstream.NewUser(ctx, "testUser", &appstream.UserArgs{
-// 			AuthenticationType: pulumi.String("USERPOOL"),
-// 			UserName:           pulumi.String("EMAIL"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appstream.NewUserStackAssociation(ctx, "testUserStackAssociation", &appstream.UserStackAssociationArgs{
-// 			AuthenticationType: testUser.AuthenticationType,
-// 			StackName:          testStack.Name,
-// 			UserName:           testUser.UserName,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testStack, err := appstream.NewStack(ctx, "testStack", nil)
+//			if err != nil {
+//				return err
+//			}
+//			testUser, err := appstream.NewUser(ctx, "testUser", &appstream.UserArgs{
+//				AuthenticationType: pulumi.String("USERPOOL"),
+//				UserName:           pulumi.String("EMAIL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appstream.NewUserStackAssociation(ctx, "testUserStackAssociation", &appstream.UserStackAssociationArgs{
+//				AuthenticationType: testUser.AuthenticationType,
+//				StackName:          testStack.Name,
+//				UserName:           testUser.UserName,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // AppStream User Stack Association can be imported by using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
+//
+//	$ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
+//
 // ```
 type UserStackAssociation struct {
 	pulumi.CustomResourceState
@@ -181,7 +186,7 @@ func (i *UserStackAssociation) ToUserStackAssociationOutputWithContext(ctx conte
 // UserStackAssociationArrayInput is an input type that accepts UserStackAssociationArray and UserStackAssociationArrayOutput values.
 // You can construct a concrete instance of `UserStackAssociationArrayInput` via:
 //
-//          UserStackAssociationArray{ UserStackAssociationArgs{...} }
+//	UserStackAssociationArray{ UserStackAssociationArgs{...} }
 type UserStackAssociationArrayInput interface {
 	pulumi.Input
 
@@ -206,7 +211,7 @@ func (i UserStackAssociationArray) ToUserStackAssociationArrayOutputWithContext(
 // UserStackAssociationMapInput is an input type that accepts UserStackAssociationMap and UserStackAssociationMapOutput values.
 // You can construct a concrete instance of `UserStackAssociationMapInput` via:
 //
-//          UserStackAssociationMap{ "key": UserStackAssociationArgs{...} }
+//	UserStackAssociationMap{ "key": UserStackAssociationArgs{...} }
 type UserStackAssociationMapInput interface {
 	pulumi.Input
 

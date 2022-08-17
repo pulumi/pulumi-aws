@@ -16,69 +16,62 @@ namespace Pulumi.Aws.S3
     /// ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.S3.BucketV2("example");
+    /// 
+    ///     var analytics = new Aws.S3.BucketV2("analytics");
+    /// 
+    ///     var example_entire_bucket = new Aws.S3.AnalyticsConfiguration("example-entire-bucket", new()
     ///     {
-    ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
+    ///         Bucket = example.Bucket,
+    ///         StorageClassAnalysis = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisArgs
     ///         {
-    ///         });
-    ///         var analytics = new Aws.S3.BucketV2("analytics", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var example_entire_bucket = new Aws.S3.AnalyticsConfiguration("example-entire-bucket", new Aws.S3.AnalyticsConfigurationArgs
-    ///         {
-    ///             Bucket = example.Bucket,
-    ///             StorageClassAnalysis = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisArgs
+    ///             DataExport = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs
     ///             {
-    ///                 DataExport = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs
+    ///                 Destination = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs
     ///                 {
-    ///                     Destination = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs
+    ///                     S3BucketDestination = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs
     ///                     {
-    ///                         S3BucketDestination = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs
-    ///                         {
-    ///                             BucketArn = analytics.Arn,
-    ///                         },
+    ///                         BucketArn = analytics.Arn,
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Add analytics configuration with S3 object filter
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var example_filtered = new Aws.S3.AnalyticsConfiguration("example-filtered", new Aws.S3.AnalyticsConfigurationArgs
-    ///         {
-    ///             Bucket = example.Bucket,
-    ///             Filter = new Aws.S3.Inputs.AnalyticsConfigurationFilterArgs
-    ///             {
-    ///                 Prefix = "documents/",
-    ///                 Tags = 
-    ///                 {
-    ///                     { "priority", "high" },
-    ///                     { "class", "blue" },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var example = new Aws.S3.BucketV2("example");
     /// 
-    /// }
+    ///     var example_filtered = new Aws.S3.AnalyticsConfiguration("example-filtered", new()
+    ///     {
+    ///         Bucket = example.Bucket,
+    ///         Filter = new Aws.S3.Inputs.AnalyticsConfigurationFilterArgs
+    ///         {
+    ///             Prefix = "documents/",
+    ///             Tags = 
+    ///             {
+    ///                 { "priority", "high" },
+    ///                 { "class", "blue" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -90,7 +83,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/analyticsConfiguration:AnalyticsConfiguration")]
-    public partial class AnalyticsConfiguration : Pulumi.CustomResource
+    public partial class AnalyticsConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the bucket this analytics configuration is associated with.
@@ -160,7 +153,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class AnalyticsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket this analytics configuration is associated with.
@@ -189,9 +182,10 @@ namespace Pulumi.Aws.S3
         public AnalyticsConfigurationArgs()
         {
         }
+        public static new AnalyticsConfigurationArgs Empty => new AnalyticsConfigurationArgs();
     }
 
-    public sealed class AnalyticsConfigurationState : Pulumi.ResourceArgs
+    public sealed class AnalyticsConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket this analytics configuration is associated with.
@@ -220,5 +214,6 @@ namespace Pulumi.Aws.S3
         public AnalyticsConfigurationState()
         {
         }
+        public static new AnalyticsConfigurationState Empty => new AnalyticsConfigurationState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WorkLink.Inputs
 {
 
-    public sealed class FleetIdentityProviderGetArgs : Pulumi.ResourceArgs
+    public sealed class FleetIdentityProviderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SAML metadata document provided by the customer’s identity provider.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WorkLink.Inputs
         public FleetIdentityProviderGetArgs()
         {
         }
+        public static new FleetIdentityProviderGetArgs Empty => new FleetIdentityProviderGetArgs();
     }
 }

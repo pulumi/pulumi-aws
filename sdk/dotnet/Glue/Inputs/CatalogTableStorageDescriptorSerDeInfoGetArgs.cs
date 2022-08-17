@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class CatalogTableStorageDescriptorSerDeInfoGetArgs : Pulumi.ResourceArgs
+    public sealed class CatalogTableStorageDescriptorSerDeInfoGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the target table.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public CatalogTableStorageDescriptorSerDeInfoGetArgs()
         {
         }
+        public static new CatalogTableStorageDescriptorSerDeInfoGetArgs Empty => new CatalogTableStorageDescriptorSerDeInfoGetArgs();
     }
 }

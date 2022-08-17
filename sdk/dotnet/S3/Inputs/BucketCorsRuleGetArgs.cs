@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketCorsRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketCorsRuleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedHeaders")]
         private InputList<string>? _allowedHeaders;
@@ -69,5 +69,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketCorsRuleGetArgs()
         {
         }
+        public static new BucketCorsRuleGetArgs Empty => new BucketCorsRuleGetArgs();
     }
 }

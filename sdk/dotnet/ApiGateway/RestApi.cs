@@ -14,6 +14,8 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// &gt; **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2.
     /// 
+    /// !&gt; **WARN:** When importing Open API Specifications with the `body` argument, by default the API Gateway REST API will be replaced with the Open API Specification thus removing any existing methods, resources, integrations, or endpoints. Endpoint mutations are asynchronous operations, and race conditions with DNS are possible. To overcome this limitation, use the `put_rest_api_mode` attribute and set it to `merge`.
+    /// 
     /// ## Example Usage
     /// ### Resources
     /// 
@@ -25,68 +27,67 @@ namespace Pulumi.Aws.ApiGateway
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ComputeSHA1(string input) {
     /// 		return BitConverter.ToString(
     /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
     /// 		).Replace("-","").ToLowerInvariant());
     /// 	}
     /// 
-    ///     public MyStack()
-    ///     {
-    ///         var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///         });
-    ///         var exampleResource = new Aws.ApiGateway.Resource("exampleResource", new Aws.ApiGateway.ResourceArgs
-    ///         {
-    ///             ParentId = exampleRestApi.RootResourceId,
-    ///             PathPart = "example",
-    ///             RestApi = exampleRestApi.Id,
-    ///         });
-    ///         var exampleMethod = new Aws.ApiGateway.Method("exampleMethod", new Aws.ApiGateway.MethodArgs
-    ///         {
-    ///             Authorization = "NONE",
-    ///             HttpMethod = "GET",
-    ///             ResourceId = exampleResource.Id,
-    ///             RestApi = exampleRestApi.Id,
-    ///         });
-    ///         var exampleIntegration = new Aws.ApiGateway.Integration("exampleIntegration", new Aws.ApiGateway.IntegrationArgs
-    ///         {
-    ///             HttpMethod = exampleMethod.HttpMethod,
-    ///             ResourceId = exampleResource.Id,
-    ///             RestApi = exampleRestApi.Id,
-    ///             Type = "MOCK",
-    ///         });
-    ///         var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new Aws.ApiGateway.DeploymentArgs
-    ///         {
-    ///             RestApi = exampleRestApi.Id,
-    ///             Triggers = 
-    ///             {
-    ///                 { "redeployment", Output.Tuple(exampleResource.Id, exampleMethod.Id, exampleIntegration.Id).Apply(values =&gt;
-    ///                 {
-    ///                     var exampleResourceId = values.Item1;
-    ///                     var exampleMethodId = values.Item2;
-    ///                     var exampleIntegrationId = values.Item3;
-    ///                     return JsonSerializer.Serialize(new[]
-    ///                         {
-    ///                             exampleResourceId,
-    ///                             exampleMethodId,
-    ///                             exampleIntegrationId,
-    ///                         }
-    ///                     );
-    ///                 }).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
-    ///             },
-    ///         });
-    ///         var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new Aws.ApiGateway.StageArgs
-    ///         {
-    ///             Deployment = exampleDeployment.Id,
-    ///             RestApi = exampleRestApi.Id,
-    ///             StageName = "example",
-    ///         });
-    ///     }
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
     /// 
-    /// }
+    ///     var exampleResource = new Aws.ApiGateway.Resource("exampleResource", new()
+    ///     {
+    ///         ParentId = exampleRestApi.RootResourceId,
+    ///         PathPart = "example",
+    ///         RestApi = exampleRestApi.Id,
+    ///     });
+    /// 
+    ///     var exampleMethod = new Aws.ApiGateway.Method("exampleMethod", new()
+    ///     {
+    ///         Authorization = "NONE",
+    ///         HttpMethod = "GET",
+    ///         ResourceId = exampleResource.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///     });
+    /// 
+    ///     var exampleIntegration = new Aws.ApiGateway.Integration("exampleIntegration", new()
+    ///     {
+    ///         HttpMethod = exampleMethod.HttpMethod,
+    ///         ResourceId = exampleResource.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///         Type = "MOCK",
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", Output.Tuple(exampleResource.Id, exampleMethod.Id, exampleIntegration.Id).Apply(values =&gt;
+    ///             {
+    ///                 var exampleResourceId = values.Item1;
+    ///                 var exampleMethodId = values.Item2;
+    ///                 var exampleIntegrationId = values.Item3;
+    ///                 return JsonSerializer.Serialize(new[]
+    ///                 {
+    ///                     exampleResourceId,
+    ///                     exampleMethodId,
+    ///                     exampleIntegrationId,
+    ///                 });
+    ///             }).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = "example",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -98,7 +99,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/restApi:RestApi")]
-    public partial class RestApi : Pulumi.CustomResource
+    public partial class RestApi : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
@@ -175,10 +176,16 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+        /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+        /// </summary>
+        [Output("putRestApiMode")]
+        public Output<string?> PutRestApiMode { get; private set; } = null!;
 
         /// <summary>
         /// The resource ID of the REST API's root
@@ -187,13 +194,13 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> RootResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -242,7 +249,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class RestApiArgs : Pulumi.ResourceArgs
+    public sealed class RestApiArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
@@ -311,16 +318,22 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+        /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
+
+        /// <summary>
+        /// Specifies the mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+        /// </summary>
+        [Input("putRestApiMode")]
+        public Input<string>? PutRestApiMode { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -331,9 +344,10 @@ namespace Pulumi.Aws.ApiGateway
         public RestApiArgs()
         {
         }
+        public static new RestApiArgs Empty => new RestApiArgs();
     }
 
-    public sealed class RestApiState : Pulumi.ResourceArgs
+    public sealed class RestApiState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
@@ -422,10 +436,16 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. It is recommended to use the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+        /// JSON formatted policy document that controls access to the API Gateway. This provider will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
+
+        /// <summary>
+        /// Specifies the mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+        /// </summary>
+        [Input("putRestApiMode")]
+        public Input<string>? PutRestApiMode { get; set; }
 
         /// <summary>
         /// The resource ID of the REST API's root
@@ -437,7 +457,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -449,7 +469,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -460,5 +480,6 @@ namespace Pulumi.Aws.ApiGateway
         public RestApiState()
         {
         }
+        public static new RestApiState Empty => new RestApiState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transfer.Inputs
 {
 
-    public sealed class WorkflowOnExceptionStepCopyStepDetailsArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowOnExceptionStepCopyStepDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Transfer.Inputs
         public WorkflowOnExceptionStepCopyStepDetailsArgs()
         {
         }
+        public static new WorkflowOnExceptionStepCopyStepDetailsArgs Empty => new WorkflowOnExceptionStepCopyStepDetailsArgs();
     }
 }

@@ -20,93 +20,85 @@ namespace Pulumi.Aws.Ec2
         /// ### Search By Allocation ID (VPC only)
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var byAllocationId = Aws.Ec2.GetElasticIp.Invoke(new()
         ///     {
-        ///         var byAllocationId = Output.Create(Aws.Ec2.GetElasticIp.InvokeAsync(new Aws.Ec2.GetElasticIpArgs
-        ///         {
-        ///             Id = "eipalloc-12345678",
-        ///         }));
-        ///     }
+        ///         Id = "eipalloc-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Search By Filters (EC2-Classic or VPC)
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var byFilter = Aws.Ec2.GetElasticIp.Invoke(new()
         ///     {
-        ///         var byFilter = Output.Create(Aws.Ec2.GetElasticIp.InvokeAsync(new Aws.Ec2.GetElasticIpArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetElasticIpFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetElasticIpFilterArgs
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "tag:Name",
-        ///                     Values = 
-        ///                     {
-        ///                         "exampleNameTagValue",
-        ///                     },
+        ///                     "exampleNameTagValue",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Search By Public IP (EC2-Classic or VPC)
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var byPublicIp = Aws.Ec2.GetElasticIp.Invoke(new()
         ///     {
-        ///         var byPublicIp = Output.Create(Aws.Ec2.GetElasticIp.InvokeAsync(new Aws.Ec2.GetElasticIpArgs
-        ///         {
-        ///             PublicIp = "1.2.3.4",
-        ///         }));
-        ///     }
+        ///         PublicIp = "1.2.3.4",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Search By Tags (EC2-Classic or VPC)
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var byTags = Aws.Ec2.GetElasticIp.Invoke(new()
         ///     {
-        ///         var byTags = Output.Create(Aws.Ec2.GetElasticIp.InvokeAsync(new Aws.Ec2.GetElasticIpArgs
+        ///         Tags = 
         ///         {
-        ///             Tags = 
-        ///             {
-        ///                 { "Name", "exampleNameTagValue" },
-        ///             },
-        ///         }));
-        ///     }
+        ///             { "Name", "exampleNameTagValue" },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -123,93 +115,85 @@ namespace Pulumi.Aws.Ec2
         /// ### Search By Allocation ID (VPC only)
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var byAllocationId = Aws.Ec2.GetElasticIp.Invoke(new()
         ///     {
-        ///         var byAllocationId = Output.Create(Aws.Ec2.GetElasticIp.InvokeAsync(new Aws.Ec2.GetElasticIpArgs
-        ///         {
-        ///             Id = "eipalloc-12345678",
-        ///         }));
-        ///     }
+        ///         Id = "eipalloc-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Search By Filters (EC2-Classic or VPC)
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var byFilter = Aws.Ec2.GetElasticIp.Invoke(new()
         ///     {
-        ///         var byFilter = Output.Create(Aws.Ec2.GetElasticIp.InvokeAsync(new Aws.Ec2.GetElasticIpArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetElasticIpFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetElasticIpFilterArgs
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "tag:Name",
-        ///                     Values = 
-        ///                     {
-        ///                         "exampleNameTagValue",
-        ///                     },
+        ///                     "exampleNameTagValue",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Search By Public IP (EC2-Classic or VPC)
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var byPublicIp = Aws.Ec2.GetElasticIp.Invoke(new()
         ///     {
-        ///         var byPublicIp = Output.Create(Aws.Ec2.GetElasticIp.InvokeAsync(new Aws.Ec2.GetElasticIpArgs
-        ///         {
-        ///             PublicIp = "1.2.3.4",
-        ///         }));
-        ///     }
+        ///         PublicIp = "1.2.3.4",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Search By Tags (EC2-Classic or VPC)
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var byTags = Aws.Ec2.GetElasticIp.Invoke(new()
         ///     {
-        ///         var byTags = Output.Create(Aws.Ec2.GetElasticIp.InvokeAsync(new Aws.Ec2.GetElasticIpArgs
+        ///         Tags = 
         ///         {
-        ///             Tags = 
-        ///             {
-        ///                 { "Name", "exampleNameTagValue" },
-        ///             },
-        ///         }));
-        ///     }
+        ///             { "Name", "exampleNameTagValue" },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -219,7 +203,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetElasticIpArgs : Pulumi.InvokeArgs
+    public sealed class GetElasticIpArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetElasticIpFilterArgs>? _filters;
@@ -260,9 +244,10 @@ namespace Pulumi.Aws.Ec2
         public GetElasticIpArgs()
         {
         }
+        public static new GetElasticIpArgs Empty => new GetElasticIpArgs();
     }
 
-    public sealed class GetElasticIpInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetElasticIpInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetElasticIpFilterInputArgs>? _filters;
@@ -303,6 +288,7 @@ namespace Pulumi.Aws.Ec2
         public GetElasticIpInvokeArgs()
         {
         }
+        public static new GetElasticIpInvokeArgs Empty => new GetElasticIpInvokeArgs();
     }
 
 

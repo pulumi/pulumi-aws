@@ -19,31 +19,29 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetContainerRecipes.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetContainerRecipes.InvokeAsync(new Aws.ImageBuilder.GetContainerRecipesArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.ImageBuilder.Inputs.GetContainerRecipesFilterInputArgs
         ///             {
-        ///                 new Aws.ImageBuilder.Inputs.GetContainerRecipesFilterArgs
+        ///                 Name = "platform",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "platform",
-        ///                     Values = 
-        ///                     {
-        ///                         "Linux",
-        ///                     },
+        ///                     "Linux",
         ///                 },
         ///             },
-        ///             Owner = "Self",
-        ///         }));
-        ///     }
+        ///         },
+        ///         Owner = "Self",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -59,31 +57,29 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetContainerRecipes.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetContainerRecipes.InvokeAsync(new Aws.ImageBuilder.GetContainerRecipesArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.ImageBuilder.Inputs.GetContainerRecipesFilterInputArgs
         ///             {
-        ///                 new Aws.ImageBuilder.Inputs.GetContainerRecipesFilterArgs
+        ///                 Name = "platform",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "platform",
-        ///                     Values = 
-        ///                     {
-        ///                         "Linux",
-        ///                     },
+        ///                     "Linux",
         ///                 },
         ///             },
-        ///             Owner = "Self",
-        ///         }));
-        ///     }
+        ///         },
+        ///         Owner = "Self",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -93,7 +89,7 @@ namespace Pulumi.Aws.ImageBuilder
     }
 
 
-    public sealed class GetContainerRecipesArgs : Pulumi.InvokeArgs
+    public sealed class GetContainerRecipesArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetContainerRecipesFilterArgs>? _filters;
@@ -116,9 +112,10 @@ namespace Pulumi.Aws.ImageBuilder
         public GetContainerRecipesArgs()
         {
         }
+        public static new GetContainerRecipesArgs Empty => new GetContainerRecipesArgs();
     }
 
-    public sealed class GetContainerRecipesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetContainerRecipesInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetContainerRecipesFilterInputArgs>? _filters;
@@ -141,6 +138,7 @@ namespace Pulumi.Aws.ImageBuilder
         public GetContainerRecipesInvokeArgs()
         {
         }
+        public static new GetContainerRecipesInvokeArgs Empty => new GetContainerRecipesInvokeArgs();
     }
 
 

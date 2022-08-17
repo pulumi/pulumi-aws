@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs()
         {
         }
+        public static new SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs Empty => new SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class RouteTableRouteGetArgs : Pulumi.ResourceArgs
+    public sealed class RouteTableRouteGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
@@ -99,5 +99,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public RouteTableRouteGetArgs()
         {
         }
+        public static new RouteTableRouteGetArgs Empty => new RouteTableRouteGetArgs();
     }
 }

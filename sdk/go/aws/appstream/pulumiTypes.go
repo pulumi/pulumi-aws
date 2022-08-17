@@ -20,7 +20,7 @@ type DirectoryConfigServiceAccountCredentials struct {
 // DirectoryConfigServiceAccountCredentialsInput is an input type that accepts DirectoryConfigServiceAccountCredentialsArgs and DirectoryConfigServiceAccountCredentialsOutput values.
 // You can construct a concrete instance of `DirectoryConfigServiceAccountCredentialsInput` via:
 //
-//          DirectoryConfigServiceAccountCredentialsArgs{...}
+//	DirectoryConfigServiceAccountCredentialsArgs{...}
 type DirectoryConfigServiceAccountCredentialsInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i DirectoryConfigServiceAccountCredentialsArgs) ToDirectoryConfigServiceAc
 // DirectoryConfigServiceAccountCredentialsPtrInput is an input type that accepts DirectoryConfigServiceAccountCredentialsArgs, DirectoryConfigServiceAccountCredentialsPtr and DirectoryConfigServiceAccountCredentialsPtrOutput values.
 // You can construct a concrete instance of `DirectoryConfigServiceAccountCredentialsPtrInput` via:
 //
-//          DirectoryConfigServiceAccountCredentialsArgs{...}
+//	        DirectoryConfigServiceAccountCredentialsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DirectoryConfigServiceAccountCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -180,7 +180,7 @@ type FleetComputeCapacity struct {
 // FleetComputeCapacityInput is an input type that accepts FleetComputeCapacityArgs and FleetComputeCapacityOutput values.
 // You can construct a concrete instance of `FleetComputeCapacityInput` via:
 //
-//          FleetComputeCapacityArgs{...}
+//	FleetComputeCapacityArgs{...}
 type FleetComputeCapacityInput interface {
 	pulumi.Input
 
@@ -222,11 +222,11 @@ func (i FleetComputeCapacityArgs) ToFleetComputeCapacityPtrOutputWithContext(ctx
 // FleetComputeCapacityPtrInput is an input type that accepts FleetComputeCapacityArgs, FleetComputeCapacityPtr and FleetComputeCapacityPtrOutput values.
 // You can construct a concrete instance of `FleetComputeCapacityPtrInput` via:
 //
-//          FleetComputeCapacityArgs{...}
+//	        FleetComputeCapacityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FleetComputeCapacityPtrInput interface {
 	pulumi.Input
 
@@ -370,7 +370,7 @@ type FleetDomainJoinInfo struct {
 // FleetDomainJoinInfoInput is an input type that accepts FleetDomainJoinInfoArgs and FleetDomainJoinInfoOutput values.
 // You can construct a concrete instance of `FleetDomainJoinInfoInput` via:
 //
-//          FleetDomainJoinInfoArgs{...}
+//	FleetDomainJoinInfoArgs{...}
 type FleetDomainJoinInfoInput interface {
 	pulumi.Input
 
@@ -408,11 +408,11 @@ func (i FleetDomainJoinInfoArgs) ToFleetDomainJoinInfoPtrOutputWithContext(ctx c
 // FleetDomainJoinInfoPtrInput is an input type that accepts FleetDomainJoinInfoArgs, FleetDomainJoinInfoPtr and FleetDomainJoinInfoPtrOutput values.
 // You can construct a concrete instance of `FleetDomainJoinInfoPtrInput` via:
 //
-//          FleetDomainJoinInfoArgs{...}
+//	        FleetDomainJoinInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FleetDomainJoinInfoPtrInput interface {
 	pulumi.Input
 
@@ -526,7 +526,7 @@ type FleetVpcConfig struct {
 // FleetVpcConfigInput is an input type that accepts FleetVpcConfigArgs and FleetVpcConfigOutput values.
 // You can construct a concrete instance of `FleetVpcConfigInput` via:
 //
-//          FleetVpcConfigArgs{...}
+//	FleetVpcConfigArgs{...}
 type FleetVpcConfigInput interface {
 	pulumi.Input
 
@@ -564,11 +564,11 @@ func (i FleetVpcConfigArgs) ToFleetVpcConfigPtrOutputWithContext(ctx context.Con
 // FleetVpcConfigPtrInput is an input type that accepts FleetVpcConfigArgs, FleetVpcConfigPtr and FleetVpcConfigPtrOutput values.
 // You can construct a concrete instance of `FleetVpcConfigPtrInput` via:
 //
-//          FleetVpcConfigArgs{...}
+//	        FleetVpcConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FleetVpcConfigPtrInput interface {
 	pulumi.Input
 
@@ -682,7 +682,7 @@ type ImageBuilderAccessEndpoint struct {
 // ImageBuilderAccessEndpointInput is an input type that accepts ImageBuilderAccessEndpointArgs and ImageBuilderAccessEndpointOutput values.
 // You can construct a concrete instance of `ImageBuilderAccessEndpointInput` via:
 //
-//          ImageBuilderAccessEndpointArgs{...}
+//	ImageBuilderAccessEndpointArgs{...}
 type ImageBuilderAccessEndpointInput interface {
 	pulumi.Input
 
@@ -712,7 +712,7 @@ func (i ImageBuilderAccessEndpointArgs) ToImageBuilderAccessEndpointOutputWithCo
 // ImageBuilderAccessEndpointArrayInput is an input type that accepts ImageBuilderAccessEndpointArray and ImageBuilderAccessEndpointArrayOutput values.
 // You can construct a concrete instance of `ImageBuilderAccessEndpointArrayInput` via:
 //
-//          ImageBuilderAccessEndpointArray{ ImageBuilderAccessEndpointArgs{...} }
+//	ImageBuilderAccessEndpointArray{ ImageBuilderAccessEndpointArgs{...} }
 type ImageBuilderAccessEndpointArrayInput interface {
 	pulumi.Input
 
@@ -788,7 +788,7 @@ type ImageBuilderDomainJoinInfo struct {
 // ImageBuilderDomainJoinInfoInput is an input type that accepts ImageBuilderDomainJoinInfoArgs and ImageBuilderDomainJoinInfoOutput values.
 // You can construct a concrete instance of `ImageBuilderDomainJoinInfoInput` via:
 //
-//          ImageBuilderDomainJoinInfoArgs{...}
+//	ImageBuilderDomainJoinInfoArgs{...}
 type ImageBuilderDomainJoinInfoInput interface {
 	pulumi.Input
 
@@ -826,11 +826,11 @@ func (i ImageBuilderDomainJoinInfoArgs) ToImageBuilderDomainJoinInfoPtrOutputWit
 // ImageBuilderDomainJoinInfoPtrInput is an input type that accepts ImageBuilderDomainJoinInfoArgs, ImageBuilderDomainJoinInfoPtr and ImageBuilderDomainJoinInfoPtrOutput values.
 // You can construct a concrete instance of `ImageBuilderDomainJoinInfoPtrInput` via:
 //
-//          ImageBuilderDomainJoinInfoArgs{...}
+//	        ImageBuilderDomainJoinInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ImageBuilderDomainJoinInfoPtrInput interface {
 	pulumi.Input
 
@@ -944,7 +944,7 @@ type ImageBuilderVpcConfig struct {
 // ImageBuilderVpcConfigInput is an input type that accepts ImageBuilderVpcConfigArgs and ImageBuilderVpcConfigOutput values.
 // You can construct a concrete instance of `ImageBuilderVpcConfigInput` via:
 //
-//          ImageBuilderVpcConfigArgs{...}
+//	ImageBuilderVpcConfigArgs{...}
 type ImageBuilderVpcConfigInput interface {
 	pulumi.Input
 
@@ -982,11 +982,11 @@ func (i ImageBuilderVpcConfigArgs) ToImageBuilderVpcConfigPtrOutputWithContext(c
 // ImageBuilderVpcConfigPtrInput is an input type that accepts ImageBuilderVpcConfigArgs, ImageBuilderVpcConfigPtr and ImageBuilderVpcConfigPtrOutput values.
 // You can construct a concrete instance of `ImageBuilderVpcConfigPtrInput` via:
 //
-//          ImageBuilderVpcConfigArgs{...}
+//	        ImageBuilderVpcConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ImageBuilderVpcConfigPtrInput interface {
 	pulumi.Input
 
@@ -1091,14 +1091,16 @@ func (o ImageBuilderVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 type StackAccessEndpoint struct {
-	EndpointType string  `pulumi:"endpointType"`
-	VpceId       *string `pulumi:"vpceId"`
+	// The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+	EndpointType string `pulumi:"endpointType"`
+	// The ID of the VPC in which the interface endpoint is used.
+	VpceId *string `pulumi:"vpceId"`
 }
 
 // StackAccessEndpointInput is an input type that accepts StackAccessEndpointArgs and StackAccessEndpointOutput values.
 // You can construct a concrete instance of `StackAccessEndpointInput` via:
 //
-//          StackAccessEndpointArgs{...}
+//	StackAccessEndpointArgs{...}
 type StackAccessEndpointInput interface {
 	pulumi.Input
 
@@ -1107,8 +1109,10 @@ type StackAccessEndpointInput interface {
 }
 
 type StackAccessEndpointArgs struct {
-	EndpointType pulumi.StringInput    `pulumi:"endpointType"`
-	VpceId       pulumi.StringPtrInput `pulumi:"vpceId"`
+	// The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The ID of the VPC in which the interface endpoint is used.
+	VpceId pulumi.StringPtrInput `pulumi:"vpceId"`
 }
 
 func (StackAccessEndpointArgs) ElementType() reflect.Type {
@@ -1126,7 +1130,7 @@ func (i StackAccessEndpointArgs) ToStackAccessEndpointOutputWithContext(ctx cont
 // StackAccessEndpointArrayInput is an input type that accepts StackAccessEndpointArray and StackAccessEndpointArrayOutput values.
 // You can construct a concrete instance of `StackAccessEndpointArrayInput` via:
 //
-//          StackAccessEndpointArray{ StackAccessEndpointArgs{...} }
+//	StackAccessEndpointArray{ StackAccessEndpointArgs{...} }
 type StackAccessEndpointArrayInput interface {
 	pulumi.Input
 
@@ -1162,10 +1166,12 @@ func (o StackAccessEndpointOutput) ToStackAccessEndpointOutputWithContext(ctx co
 	return o
 }
 
+// The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
 func (o StackAccessEndpointOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v StackAccessEndpoint) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
+// The ID of the VPC in which the interface endpoint is used.
 func (o StackAccessEndpointOutput) VpceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackAccessEndpoint) *string { return v.VpceId }).(pulumi.StringPtrOutput)
 }
@@ -1198,7 +1204,7 @@ type StackApplicationSettings struct {
 // StackApplicationSettingsInput is an input type that accepts StackApplicationSettingsArgs and StackApplicationSettingsOutput values.
 // You can construct a concrete instance of `StackApplicationSettingsInput` via:
 //
-//          StackApplicationSettingsArgs{...}
+//	StackApplicationSettingsArgs{...}
 type StackApplicationSettingsInput interface {
 	pulumi.Input
 
@@ -1234,11 +1240,11 @@ func (i StackApplicationSettingsArgs) ToStackApplicationSettingsPtrOutputWithCon
 // StackApplicationSettingsPtrInput is an input type that accepts StackApplicationSettingsArgs, StackApplicationSettingsPtr and StackApplicationSettingsPtrOutput values.
 // You can construct a concrete instance of `StackApplicationSettingsPtrInput` via:
 //
-//          StackApplicationSettingsArgs{...}
+//	        StackApplicationSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StackApplicationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1350,7 +1356,7 @@ type StackStorageConnector struct {
 // StackStorageConnectorInput is an input type that accepts StackStorageConnectorArgs and StackStorageConnectorOutput values.
 // You can construct a concrete instance of `StackStorageConnectorInput` via:
 //
-//          StackStorageConnectorArgs{...}
+//	StackStorageConnectorArgs{...}
 type StackStorageConnectorInput interface {
 	pulumi.Input
 
@@ -1382,7 +1388,7 @@ func (i StackStorageConnectorArgs) ToStackStorageConnectorOutputWithContext(ctx 
 // StackStorageConnectorArrayInput is an input type that accepts StackStorageConnectorArray and StackStorageConnectorArrayOutput values.
 // You can construct a concrete instance of `StackStorageConnectorArrayInput` via:
 //
-//          StackStorageConnectorArray{ StackStorageConnectorArgs{...} }
+//	StackStorageConnectorArray{ StackStorageConnectorArgs{...} }
 type StackStorageConnectorArrayInput interface {
 	pulumi.Input
 
@@ -1463,7 +1469,7 @@ type StackUserSetting struct {
 // StackUserSettingInput is an input type that accepts StackUserSettingArgs and StackUserSettingOutput values.
 // You can construct a concrete instance of `StackUserSettingInput` via:
 //
-//          StackUserSettingArgs{...}
+//	StackUserSettingArgs{...}
 type StackUserSettingInput interface {
 	pulumi.Input
 
@@ -1493,7 +1499,7 @@ func (i StackUserSettingArgs) ToStackUserSettingOutputWithContext(ctx context.Co
 // StackUserSettingArrayInput is an input type that accepts StackUserSettingArray and StackUserSettingArrayOutput values.
 // You can construct a concrete instance of `StackUserSettingArrayInput` via:
 //
-//          StackUserSettingArray{ StackUserSettingArgs{...} }
+//	StackUserSettingArray{ StackUserSettingArgs{...} }
 type StackUserSettingArrayInput interface {
 	pulumi.Input
 

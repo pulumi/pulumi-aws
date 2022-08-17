@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFormation.Inputs
 {
 
-    public sealed class StackSetInstanceOperationPreferencesArgs : Pulumi.ResourceArgs
+    public sealed class StackSetInstanceOperationPreferencesArgs : global::Pulumi.ResourceArgs
     {
         [Input("failureToleranceCount")]
         public Input<int>? FailureToleranceCount { get; set; }
@@ -38,5 +38,6 @@ namespace Pulumi.Aws.CloudFormation.Inputs
         public StackSetInstanceOperationPreferencesArgs()
         {
         }
+        public static new StackSetInstanceOperationPreferencesArgs Empty => new StackSetInstanceOperationPreferencesArgs();
     }
 }

@@ -15,23 +15,20 @@ namespace Pulumi.Aws.CloudWatch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var yada = new Aws.CloudWatch.LogGroup("yada", new Aws.CloudWatch.LogGroupArgs
-    ///         {
-    ///         });
-    ///         var foo = new Aws.CloudWatch.LogStream("foo", new Aws.CloudWatch.LogStreamArgs
-    ///         {
-    ///             LogGroupName = yada.Name,
-    ///         });
-    ///     }
+    ///     var yada = new Aws.CloudWatch.LogGroup("yada");
     /// 
-    /// }
+    ///     var foo = new Aws.CloudWatch.LogStream("foo", new()
+    ///     {
+    ///         LogGroupName = yada.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +40,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logStream:LogStream")]
-    public partial class LogStream : Pulumi.CustomResource
+    public partial class LogStream : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the log stream.
@@ -107,7 +104,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class LogStreamArgs : Pulumi.ResourceArgs
+    public sealed class LogStreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the log group under which the log stream is to be created.
@@ -124,9 +121,10 @@ namespace Pulumi.Aws.CloudWatch
         public LogStreamArgs()
         {
         }
+        public static new LogStreamArgs Empty => new LogStreamArgs();
     }
 
-    public sealed class LogStreamState : Pulumi.ResourceArgs
+    public sealed class LogStreamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the log stream.
@@ -149,5 +147,6 @@ namespace Pulumi.Aws.CloudWatch
         public LogStreamState()
         {
         }
+        public static new LogStreamState Empty => new LogStreamState();
     }
 }

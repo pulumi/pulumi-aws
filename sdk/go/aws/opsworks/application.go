@@ -19,62 +19,65 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsworks.NewApplication(ctx, "foo-app", &opsworks.ApplicationArgs{
-// 			ShortName:   pulumi.String("foobar"),
-// 			StackId:     pulumi.Any(aws_opsworks_stack.Main.Id),
-// 			Type:        pulumi.String("rails"),
-// 			Description: pulumi.String("This is a Rails application"),
-// 			Domains: pulumi.StringArray{
-// 				pulumi.String("example.com"),
-// 				pulumi.String("sub.example.com"),
-// 			},
-// 			Environments: opsworks.ApplicationEnvironmentArray{
-// 				&opsworks.ApplicationEnvironmentArgs{
-// 					Key:    pulumi.String("key"),
-// 					Value:  pulumi.String("value"),
-// 					Secure: pulumi.Bool(false),
-// 				},
-// 			},
-// 			AppSources: opsworks.ApplicationAppSourceArray{
-// 				&opsworks.ApplicationAppSourceArgs{
-// 					Type:     pulumi.String("git"),
-// 					Revision: pulumi.String("master"),
-// 					Url:      pulumi.String("https://github.com/example.git"),
-// 				},
-// 			},
-// 			EnableSsl: pulumi.Bool(true),
-// 			SslConfigurations: opsworks.ApplicationSslConfigurationArray{
-// 				&opsworks.ApplicationSslConfigurationArgs{
-// 					PrivateKey:  readFileOrPanic("./foobar.key"),
-// 					Certificate: readFileOrPanic("./foobar.crt"),
-// 				},
-// 			},
-// 			DocumentRoot:       pulumi.String("public"),
-// 			AutoBundleOnDeploy: pulumi.String("true"),
-// 			RailsEnv:           pulumi.String("staging"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsworks.NewApplication(ctx, "foo-app", &opsworks.ApplicationArgs{
+//				ShortName:   pulumi.String("foobar"),
+//				StackId:     pulumi.Any(aws_opsworks_stack.Main.Id),
+//				Type:        pulumi.String("rails"),
+//				Description: pulumi.String("This is a Rails application"),
+//				Domains: pulumi.StringArray{
+//					pulumi.String("example.com"),
+//					pulumi.String("sub.example.com"),
+//				},
+//				Environments: opsworks.ApplicationEnvironmentArray{
+//					&opsworks.ApplicationEnvironmentArgs{
+//						Key:    pulumi.String("key"),
+//						Value:  pulumi.String("value"),
+//						Secure: pulumi.Bool(false),
+//					},
+//				},
+//				AppSources: opsworks.ApplicationAppSourceArray{
+//					&opsworks.ApplicationAppSourceArgs{
+//						Type:     pulumi.String("git"),
+//						Revision: pulumi.String("master"),
+//						Url:      pulumi.String("https://github.com/example.git"),
+//					},
+//				},
+//				EnableSsl: pulumi.Bool(true),
+//				SslConfigurations: opsworks.ApplicationSslConfigurationArray{
+//					&opsworks.ApplicationSslConfigurationArgs{
+//						PrivateKey:  readFileOrPanic("./foobar.key"),
+//						Certificate: readFileOrPanic("./foobar.crt"),
+//					},
+//				},
+//				DocumentRoot:       pulumi.String("public"),
+//				AutoBundleOnDeploy: pulumi.String("true"),
+//				RailsEnv:           pulumi.String("staging"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -82,7 +85,9 @@ import (
 // Opsworks Application can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:opsworks/application:Application test <id>
+//
+//	$ pulumi import aws:opsworks/application:Application test <id>
+//
 // ```
 type Application struct {
 	pulumi.CustomResourceState
@@ -336,7 +341,7 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 // ApplicationArrayInput is an input type that accepts ApplicationArray and ApplicationArrayOutput values.
 // You can construct a concrete instance of `ApplicationArrayInput` via:
 //
-//          ApplicationArray{ ApplicationArgs{...} }
+//	ApplicationArray{ ApplicationArgs{...} }
 type ApplicationArrayInput interface {
 	pulumi.Input
 
@@ -361,7 +366,7 @@ func (i ApplicationArray) ToApplicationArrayOutputWithContext(ctx context.Contex
 // ApplicationMapInput is an input type that accepts ApplicationMap and ApplicationMapOutput values.
 // You can construct a concrete instance of `ApplicationMapInput` via:
 //
-//          ApplicationMap{ "key": ApplicationArgs{...} }
+//	ApplicationMap{ "key": ApplicationArgs{...} }
 type ApplicationMapInput interface {
 	pulumi.Input
 

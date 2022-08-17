@@ -13,28 +13,27 @@ namespace Pulumi.Aws.Ecs
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("exampleComputeEnvironment", new()
     ///     {
-    ///         var exampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("exampleComputeEnvironment", new Aws.Batch.ComputeEnvironmentArgs
-    ///         {
-    ///             ComputeEnvironmentName = "example",
-    ///             ServiceRole = aws_iam_role.Example.Arn,
-    ///             Type = "UNMANAGED",
-    ///         });
-    ///         var exampleTag = new Aws.Ecs.Tag("exampleTag", new Aws.Ecs.TagArgs
-    ///         {
-    ///             ResourceArn = exampleComputeEnvironment.EcsClusterArn,
-    ///             Key = "Name",
-    ///             Value = "Hello World",
-    ///         });
-    ///     }
+    ///         ComputeEnvironmentName = "example",
+    ///         ServiceRole = aws_iam_role.Example.Arn,
+    ///         Type = "UNMANAGED",
+    ///     });
     /// 
-    /// }
+    ///     var exampleTag = new Aws.Ecs.Tag("exampleTag", new()
+    ///     {
+    ///         ResourceArn = exampleComputeEnvironment.EcsClusterArn,
+    ///         Key = "Name",
+    ///         Value = "Hello World",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +45,7 @@ namespace Pulumi.Aws.Ecs
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/tag:Tag")]
-    public partial class Tag : Pulumi.CustomResource
+    public partial class Tag : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Tag name.
@@ -110,7 +109,7 @@ namespace Pulumi.Aws.Ecs
         }
     }
 
-    public sealed class TagArgs : Pulumi.ResourceArgs
+    public sealed class TagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Tag name.
@@ -133,9 +132,10 @@ namespace Pulumi.Aws.Ecs
         public TagArgs()
         {
         }
+        public static new TagArgs Empty => new TagArgs();
     }
 
-    public sealed class TagState : Pulumi.ResourceArgs
+    public sealed class TagState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Tag name.
@@ -158,5 +158,6 @@ namespace Pulumi.Aws.Ecs
         public TagState()
         {
         }
+        public static new TagState Empty => new TagState();
     }
 }

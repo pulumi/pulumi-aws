@@ -19,30 +19,28 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetDistributionConfigurations.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetDistributionConfigurations.InvokeAsync(new Aws.ImageBuilder.GetDistributionConfigurationsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.ImageBuilder.Inputs.GetDistributionConfigurationsFilterInputArgs
         ///             {
-        ///                 new Aws.ImageBuilder.Inputs.GetDistributionConfigurationsFilterArgs
+        ///                 Name = "name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "name",
-        ///                     Values = 
-        ///                     {
-        ///                         "example",
-        ///                     },
+        ///                     "example",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -58,30 +56,28 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetDistributionConfigurations.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetDistributionConfigurations.InvokeAsync(new Aws.ImageBuilder.GetDistributionConfigurationsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.ImageBuilder.Inputs.GetDistributionConfigurationsFilterInputArgs
         ///             {
-        ///                 new Aws.ImageBuilder.Inputs.GetDistributionConfigurationsFilterArgs
+        ///                 Name = "name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "name",
-        ///                     Values = 
-        ///                     {
-        ///                         "example",
-        ///                     },
+        ///                     "example",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -91,7 +87,7 @@ namespace Pulumi.Aws.ImageBuilder
     }
 
 
-    public sealed class GetDistributionConfigurationsArgs : Pulumi.InvokeArgs
+    public sealed class GetDistributionConfigurationsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetDistributionConfigurationsFilterArgs>? _filters;
@@ -108,9 +104,10 @@ namespace Pulumi.Aws.ImageBuilder
         public GetDistributionConfigurationsArgs()
         {
         }
+        public static new GetDistributionConfigurationsArgs Empty => new GetDistributionConfigurationsArgs();
     }
 
-    public sealed class GetDistributionConfigurationsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDistributionConfigurationsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetDistributionConfigurationsFilterInputArgs>? _filters;
@@ -127,6 +124,7 @@ namespace Pulumi.Aws.ImageBuilder
         public GetDistributionConfigurationsInvokeArgs()
         {
         }
+        public static new GetDistributionConfigurationsInvokeArgs Empty => new GetDistributionConfigurationsInvokeArgs();
     }
 
 

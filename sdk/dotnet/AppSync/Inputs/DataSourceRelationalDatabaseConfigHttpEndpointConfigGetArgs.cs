@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppSync.Inputs
 {
 
-    public sealed class DataSourceRelationalDatabaseConfigHttpEndpointConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceRelationalDatabaseConfigHttpEndpointConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AWS secret store ARN for database credentials.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.AppSync.Inputs
         public DataSourceRelationalDatabaseConfigHttpEndpointConfigGetArgs()
         {
         }
+        public static new DataSourceRelationalDatabaseConfigHttpEndpointConfigGetArgs Empty => new DataSourceRelationalDatabaseConfigHttpEndpointConfigGetArgs();
     }
 }

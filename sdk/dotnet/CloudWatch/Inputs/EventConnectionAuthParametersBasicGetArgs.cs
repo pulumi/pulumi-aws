@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventConnectionAuthParametersBasicGetArgs : Pulumi.ResourceArgs
+    public sealed class EventConnectionAuthParametersBasicGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A password for the authorization. Created and stored in AWS Secrets Manager.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventConnectionAuthParametersBasicGetArgs()
         {
         }
+        public static new EventConnectionAuthParametersBasicGetArgs Empty => new EventConnectionAuthParametersBasicGetArgs();
     }
 }

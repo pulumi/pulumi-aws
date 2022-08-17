@@ -16,44 +16,42 @@ namespace Pulumi.Aws.Lex
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var flowerTypes = new Aws.Lex.SlotType("flowerTypes", new()
     ///     {
-    ///         var flowerTypes = new Aws.Lex.SlotType("flowerTypes", new Aws.Lex.SlotTypeArgs
+    ///         CreateVersion = true,
+    ///         Description = "Types of flowers to order",
+    ///         EnumerationValues = new[]
     ///         {
-    ///             CreateVersion = true,
-    ///             Description = "Types of flowers to order",
-    ///             EnumerationValues = 
+    ///             new Aws.Lex.Inputs.SlotTypeEnumerationValueArgs
     ///             {
-    ///                 new Aws.Lex.Inputs.SlotTypeEnumerationValueArgs
+    ///                 Synonyms = new[]
     ///                 {
-    ///                     Synonyms = 
-    ///                     {
-    ///                         "Lirium",
-    ///                         "Martagon",
-    ///                     },
-    ///                     Value = "lilies",
+    ///                     "Lirium",
+    ///                     "Martagon",
     ///                 },
-    ///                 new Aws.Lex.Inputs.SlotTypeEnumerationValueArgs
-    ///                 {
-    ///                     Synonyms = 
-    ///                     {
-    ///                         "Eduardoregelia",
-    ///                         "Podonix",
-    ///                     },
-    ///                     Value = "tulips",
-    ///                 },
+    ///                 Value = "lilies",
     ///             },
-    ///             Name = "FlowerTypes",
-    ///             ValueSelectionStrategy = "ORIGINAL_VALUE",
-    ///         });
-    ///     }
+    ///             new Aws.Lex.Inputs.SlotTypeEnumerationValueArgs
+    ///             {
+    ///                 Synonyms = new[]
+    ///                 {
+    ///                     "Eduardoregelia",
+    ///                     "Podonix",
+    ///                 },
+    ///                 Value = "tulips",
+    ///             },
+    ///         },
+    ///         Name = "FlowerTypes",
+    ///         ValueSelectionStrategy = "ORIGINAL_VALUE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +63,7 @@ namespace Pulumi.Aws.Lex
     /// ```
     /// </summary>
     [AwsResourceType("aws:lex/slotType:SlotType")]
-    public partial class SlotType : Pulumi.CustomResource
+    public partial class SlotType : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Checksum identifying the version of the slot type that was created. The checksum is
@@ -173,7 +171,7 @@ namespace Pulumi.Aws.Lex
         }
     }
 
-    public sealed class SlotTypeArgs : Pulumi.ResourceArgs
+    public sealed class SlotTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines if a new slot type version is created when the initial resource is created and on each
@@ -221,9 +219,10 @@ namespace Pulumi.Aws.Lex
         public SlotTypeArgs()
         {
         }
+        public static new SlotTypeArgs Empty => new SlotTypeArgs();
     }
 
-    public sealed class SlotTypeState : Pulumi.ResourceArgs
+    public sealed class SlotTypeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Checksum identifying the version of the slot type that was created. The checksum is
@@ -296,5 +295,6 @@ namespace Pulumi.Aws.Lex
         public SlotTypeState()
         {
         }
+        public static new SlotTypeState Empty => new SlotTypeState();
     }
 }

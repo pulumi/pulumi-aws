@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewSubnetCidrReservation(ctx, "example", &ec2.SubnetCidrReservationArgs{
-// 			CidrBlock:       pulumi.String("10.0.0.16/28"),
-// 			ReservationType: pulumi.String("prefix"),
-// 			SubnetId:        pulumi.Any(aws_subnet.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewSubnetCidrReservation(ctx, "example", &ec2.SubnetCidrReservationArgs{
+//				CidrBlock:       pulumi.String("10.0.0.16/28"),
+//				ReservationType: pulumi.String("prefix"),
+//				SubnetId:        pulumi.Any(aws_subnet.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Existing CIDR reservations can be imported using `SUBNET_ID:RESERVATION_ID`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
+//
+//	$ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
+//
 // ```
 type SubnetCidrReservation struct {
 	pulumi.CustomResourceState
@@ -176,7 +181,7 @@ func (i *SubnetCidrReservation) ToSubnetCidrReservationOutputWithContext(ctx con
 // SubnetCidrReservationArrayInput is an input type that accepts SubnetCidrReservationArray and SubnetCidrReservationArrayOutput values.
 // You can construct a concrete instance of `SubnetCidrReservationArrayInput` via:
 //
-//          SubnetCidrReservationArray{ SubnetCidrReservationArgs{...} }
+//	SubnetCidrReservationArray{ SubnetCidrReservationArgs{...} }
 type SubnetCidrReservationArrayInput interface {
 	pulumi.Input
 
@@ -201,7 +206,7 @@ func (i SubnetCidrReservationArray) ToSubnetCidrReservationArrayOutputWithContex
 // SubnetCidrReservationMapInput is an input type that accepts SubnetCidrReservationMap and SubnetCidrReservationMapOutput values.
 // You can construct a concrete instance of `SubnetCidrReservationMapInput` via:
 //
-//          SubnetCidrReservationMap{ "key": SubnetCidrReservationArgs{...} }
+//	SubnetCidrReservationMap{ "key": SubnetCidrReservationArgs{...} }
 type SubnetCidrReservationMapInput interface {
 	pulumi.Input
 

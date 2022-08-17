@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Lambda
     }
 
 
-    public sealed class GetInvocationArgs : Pulumi.InvokeArgs
+    public sealed class GetInvocationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lambda function.
@@ -53,9 +53,10 @@ namespace Pulumi.Aws.Lambda
         public GetInvocationArgs()
         {
         }
+        public static new GetInvocationArgs Empty => new GetInvocationArgs();
     }
 
-    public sealed class GetInvocationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInvocationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the lambda function.
@@ -79,6 +80,7 @@ namespace Pulumi.Aws.Lambda
         public GetInvocationInvokeArgs()
         {
         }
+        public static new GetInvocationInvokeArgs Empty => new GetInvocationInvokeArgs();
     }
 
 

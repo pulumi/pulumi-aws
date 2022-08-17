@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MskConnect.Inputs
 {
 
-    public sealed class ConnectorCapacityProvisionedCapacityGetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorCapacityProvisionedCapacityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public ConnectorCapacityProvisionedCapacityGetArgs()
         {
         }
+        public static new ConnectorCapacityProvisionedCapacityGetArgs Empty => new ConnectorCapacityProvisionedCapacityGetArgs();
     }
 }

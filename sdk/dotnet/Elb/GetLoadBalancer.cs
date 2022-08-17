@@ -25,22 +25,20 @@ namespace Pulumi.Aws.Elb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var lbName = config.Get("lbName") ?? "";
+        ///     var test = Aws.Elb.GetLoadBalancer.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var lbName = config.Get("lbName") ?? "";
-        ///         var test = Output.Create(Aws.Elb.GetLoadBalancer.InvokeAsync(new Aws.Elb.GetLoadBalancerArgs
-        ///         {
-        ///             Name = lbName,
-        ///         }));
-        ///     }
+        ///         Name = lbName,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -62,22 +60,20 @@ namespace Pulumi.Aws.Elb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var lbName = config.Get("lbName") ?? "";
+        ///     var test = Aws.Elb.GetLoadBalancer.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var lbName = config.Get("lbName") ?? "";
-        ///         var test = Output.Create(Aws.Elb.GetLoadBalancer.InvokeAsync(new Aws.Elb.GetLoadBalancerArgs
-        ///         {
-        ///             Name = lbName,
-        ///         }));
-        ///     }
+        ///         Name = lbName,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -87,7 +83,7 @@ namespace Pulumi.Aws.Elb
     }
 
 
-    public sealed class GetLoadBalancerArgs : Pulumi.InvokeArgs
+    public sealed class GetLoadBalancerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique name of the load balancer.
@@ -106,9 +102,10 @@ namespace Pulumi.Aws.Elb
         public GetLoadBalancerArgs()
         {
         }
+        public static new GetLoadBalancerArgs Empty => new GetLoadBalancerArgs();
     }
 
-    public sealed class GetLoadBalancerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLoadBalancerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique name of the load balancer.
@@ -127,6 +124,7 @@ namespace Pulumi.Aws.Elb
         public GetLoadBalancerInvokeArgs()
         {
         }
+        public static new GetLoadBalancerInvokeArgs Empty => new GetLoadBalancerInvokeArgs();
     }
 
 

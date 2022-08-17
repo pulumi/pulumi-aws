@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail.Inputs
 {
 
-    public sealed class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs : Pulumi.ResourceArgs
+    public sealed class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.LightSail.Inputs
         public ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs()
         {
         }
+        public static new ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs Empty => new ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs();
     }
 }

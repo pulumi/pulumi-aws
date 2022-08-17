@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./dataSource";
 export * from "./experience";
 export * from "./faq";
 export * from "./getExperience";
@@ -17,6 +18,7 @@ export * from "./querySuggestionsBlockList";
 export * from "./thesaurus";
 
 // Import resources to register:
+import { DataSource } from "./dataSource";
 import { Experience } from "./experience";
 import { Faq } from "./faq";
 import { Index } from "./index_";
@@ -27,6 +29,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:kendra/dataSource:DataSource":
+                return new DataSource(name, <any>undefined, { urn })
             case "aws:kendra/experience:Experience":
                 return new Experience(name, <any>undefined, { urn })
             case "aws:kendra/faq:Faq":
@@ -42,6 +46,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "kendra/dataSource", _module)
 pulumi.runtime.registerResourceModule("aws", "kendra/experience", _module)
 pulumi.runtime.registerResourceModule("aws", "kendra/faq", _module)
 pulumi.runtime.registerResourceModule("aws", "kendra/index", _module)

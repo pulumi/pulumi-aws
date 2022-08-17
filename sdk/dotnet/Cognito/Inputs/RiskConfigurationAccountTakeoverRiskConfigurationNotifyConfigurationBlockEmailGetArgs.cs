@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailGetArgs : Pulumi.ResourceArgs
+    public sealed class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The email HTML body.
@@ -30,5 +30,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailGetArgs()
         {
         }
+        public static new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailGetArgs Empty => new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailGetArgs();
     }
 }

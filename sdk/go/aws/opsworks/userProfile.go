@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsworks.NewUserProfile(ctx, "myProfile", &opsworks.UserProfileArgs{
-// 			UserArn:     pulumi.Any(aws_iam_user.User.Arn),
-// 			SshUsername: pulumi.String("my_user"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsworks.NewUserProfile(ctx, "myProfile", &opsworks.UserProfileArgs{
+//				UserArn:     pulumi.Any(aws_iam_user.User.Arn),
+//				SshUsername: pulumi.String("my_user"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type UserProfile struct {
 	pulumi.CustomResourceState
@@ -158,7 +161,7 @@ func (i *UserProfile) ToUserProfileOutputWithContext(ctx context.Context) UserPr
 // UserProfileArrayInput is an input type that accepts UserProfileArray and UserProfileArrayOutput values.
 // You can construct a concrete instance of `UserProfileArrayInput` via:
 //
-//          UserProfileArray{ UserProfileArgs{...} }
+//	UserProfileArray{ UserProfileArgs{...} }
 type UserProfileArrayInput interface {
 	pulumi.Input
 
@@ -183,7 +186,7 @@ func (i UserProfileArray) ToUserProfileArrayOutputWithContext(ctx context.Contex
 // UserProfileMapInput is an input type that accepts UserProfileMap and UserProfileMapOutput values.
 // You can construct a concrete instance of `UserProfileMapInput` via:
 //
-//          UserProfileMap{ "key": UserProfileArgs{...} }
+//	UserProfileMap{ "key": UserProfileArgs{...} }
 type UserProfileMapInput interface {
 	pulumi.Input
 

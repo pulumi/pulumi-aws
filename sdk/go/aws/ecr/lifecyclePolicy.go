@@ -24,45 +24,50 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		foo, err := ecr.NewRepository(ctx, "foo", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ecr.NewLifecyclePolicy(ctx, "foopolicy", &ecr.LifecyclePolicyArgs{
-// 			Repository: foo.Name,
-// 			Policy: pulumi.Any(fmt.Sprintf(`{
-//     "rules": [
-//         {
-//             "rulePriority": 1,
-//             "description": "Expire images older than 14 days",
-//             "selection": {
-//                 "tagStatus": "untagged",
-//                 "countType": "sinceImagePushed",
-//                 "countUnit": "days",
-//                 "countNumber": 14
-//             },
-//             "action": {
-//                 "type": "expire"
-//             }
-//         }
-//     ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := ecr.NewRepository(ctx, "foo", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecr.NewLifecyclePolicy(ctx, "foopolicy", &ecr.LifecyclePolicyArgs{
+//				Repository: foo.Name,
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//	    "rules": [
+//	        {
+//	            "rulePriority": 1,
+//	            "description": "Expire images older than 14 days",
+//	            "selection": {
+//	                "tagStatus": "untagged",
+//	                "countType": "sinceImagePushed",
+//	                "countUnit": "days",
+//	                "countNumber": 14
+//	            },
+//	            "action": {
+//	                "type": "expire"
+//	            }
+//	        }
+//	    ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Policy on tagged image
 //
@@ -70,45 +75,50 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		foo, err := ecr.NewRepository(ctx, "foo", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ecr.NewLifecyclePolicy(ctx, "foopolicy", &ecr.LifecyclePolicyArgs{
-// 			Repository: foo.Name,
-// 			Policy: pulumi.Any(fmt.Sprintf(`{
-//     "rules": [
-//         {
-//             "rulePriority": 1,
-//             "description": "Keep last 30 images",
-//             "selection": {
-//                 "tagStatus": "tagged",
-//                 "tagPrefixList": ["v"],
-//                 "countType": "imageCountMoreThan",
-//                 "countNumber": 30
-//             },
-//             "action": {
-//                 "type": "expire"
-//             }
-//         }
-//     ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := ecr.NewRepository(ctx, "foo", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecr.NewLifecyclePolicy(ctx, "foopolicy", &ecr.LifecyclePolicyArgs{
+//				Repository: foo.Name,
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//	    "rules": [
+//	        {
+//	            "rulePriority": 1,
+//	            "description": "Keep last 30 images",
+//	            "selection": {
+//	                "tagStatus": "tagged",
+//	                "tagPrefixList": ["v"],
+//	                "countType": "imageCountMoreThan",
+//	                "countNumber": 30
+//	            },
+//	            "action": {
+//	                "type": "expire"
+//	            }
+//	        }
+//	    ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -116,7 +126,9 @@ import (
 // ECR Lifecycle Policy can be imported using the name of the repository, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
+//
+//	$ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
+//
 // ```
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
@@ -226,7 +238,7 @@ func (i *LifecyclePolicy) ToLifecyclePolicyOutputWithContext(ctx context.Context
 // LifecyclePolicyArrayInput is an input type that accepts LifecyclePolicyArray and LifecyclePolicyArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyArrayInput` via:
 //
-//          LifecyclePolicyArray{ LifecyclePolicyArgs{...} }
+//	LifecyclePolicyArray{ LifecyclePolicyArgs{...} }
 type LifecyclePolicyArrayInput interface {
 	pulumi.Input
 
@@ -251,7 +263,7 @@ func (i LifecyclePolicyArray) ToLifecyclePolicyArrayOutputWithContext(ctx contex
 // LifecyclePolicyMapInput is an input type that accepts LifecyclePolicyMap and LifecyclePolicyMapOutput values.
 // You can construct a concrete instance of `LifecyclePolicyMapInput` via:
 //
-//          LifecyclePolicyMap{ "key": LifecyclePolicyArgs{...} }
+//	LifecyclePolicyMap{ "key": LifecyclePolicyArgs{...} }
 type LifecyclePolicyMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Connect.Inputs
 {
 
-    public sealed class UserHierarchyStructureHierarchyStructureLevelOneGetArgs : Pulumi.ResourceArgs
+    public sealed class UserHierarchyStructureHierarchyStructureLevelOneGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the hierarchy level.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Connect.Inputs
         public UserHierarchyStructureHierarchyStructureLevelOneGetArgs()
         {
         }
+        public static new UserHierarchyStructureHierarchyStructureLevelOneGetArgs Empty => new UserHierarchyStructureHierarchyStructureLevelOneGetArgs();
     }
 }

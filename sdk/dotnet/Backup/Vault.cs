@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Backup
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Backup.Vault("example", new()
     ///     {
-    ///         var example = new Aws.Backup.Vault("example", new Aws.Backup.VaultArgs
-    ///         {
-    ///             KmsKeyArn = aws_kms_key.Example.Arn,
-    ///         });
-    ///     }
+    ///         KmsKeyArn = aws_kms_key.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,13 +38,19 @@ namespace Pulumi.Aws.Backup
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/vault:Vault")]
-    public partial class Vault : Pulumi.CustomResource
+    public partial class Vault : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the vault.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+        /// </summary>
+        [Output("forceDestroy")]
+        public Output<bool?> ForceDestroy { get; private set; } = null!;
 
         /// <summary>
         /// The server-side encryption key that is used to protect your backups.
@@ -73,7 +77,7 @@ namespace Pulumi.Aws.Backup
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -122,8 +126,14 @@ namespace Pulumi.Aws.Backup
         }
     }
 
-    public sealed class VaultArgs : Pulumi.ResourceArgs
+    public sealed class VaultArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
+
         /// <summary>
         /// The server-side encryption key that is used to protect your backups.
         /// </summary>
@@ -151,15 +161,22 @@ namespace Pulumi.Aws.Backup
         public VaultArgs()
         {
         }
+        public static new VaultArgs Empty => new VaultArgs();
     }
 
-    public sealed class VaultState : Pulumi.ResourceArgs
+    public sealed class VaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the vault.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
         /// The server-side encryption key that is used to protect your backups.
@@ -195,7 +212,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -206,5 +223,6 @@ namespace Pulumi.Aws.Backup
         public VaultState()
         {
         }
+        public static new VaultState Empty => new VaultState();
     }
 }

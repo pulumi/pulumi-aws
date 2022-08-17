@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementGetArgs()
         {
         }
+        public static new WebAclRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementGetArgs Empty => new WebAclRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementGetArgs();
     }
 }

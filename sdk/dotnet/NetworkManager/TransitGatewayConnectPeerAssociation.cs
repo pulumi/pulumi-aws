@@ -16,22 +16,20 @@ namespace Pulumi.Aws.NetworkManager
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.NetworkManager.TransitGatewayConnectPeerAssociation("example", new()
     ///     {
-    ///         var example = new Aws.NetworkManager.TransitGatewayConnectPeerAssociation("example", new Aws.NetworkManager.TransitGatewayConnectPeerAssociationArgs
-    ///         {
-    ///             GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///             DeviceId = aws_networkmanager_device.Example.Id,
-    ///             TransitGatewayConnectPeerArn = aws_ec2_transit_gateway_connect_peer.Example.Arn,
-    ///         });
-    ///     }
+    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
+    ///         DeviceId = aws_networkmanager_device.Example.Id,
+    ///         TransitGatewayConnectPeerArn = aws_ec2_transit_gateway_connect_peer.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.NetworkManager
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation")]
-    public partial class TransitGatewayConnectPeerAssociation : Pulumi.CustomResource
+    public partial class TransitGatewayConnectPeerAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the device.
@@ -113,7 +111,7 @@ namespace Pulumi.Aws.NetworkManager
         }
     }
 
-    public sealed class TransitGatewayConnectPeerAssociationArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayConnectPeerAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the device.
@@ -142,9 +140,10 @@ namespace Pulumi.Aws.NetworkManager
         public TransitGatewayConnectPeerAssociationArgs()
         {
         }
+        public static new TransitGatewayConnectPeerAssociationArgs Empty => new TransitGatewayConnectPeerAssociationArgs();
     }
 
-    public sealed class TransitGatewayConnectPeerAssociationState : Pulumi.ResourceArgs
+    public sealed class TransitGatewayConnectPeerAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the device.
@@ -173,5 +172,6 @@ namespace Pulumi.Aws.NetworkManager
         public TransitGatewayConnectPeerAssociationState()
         {
         }
+        public static new TransitGatewayConnectPeerAssociationState Empty => new TransitGatewayConnectPeerAssociationState();
     }
 }

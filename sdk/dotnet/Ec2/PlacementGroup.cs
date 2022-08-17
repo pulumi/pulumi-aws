@@ -16,20 +16,18 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var web = new Aws.Ec2.PlacementGroup("web", new()
     ///     {
-    ///         var web = new Aws.Ec2.PlacementGroup("web", new Aws.Ec2.PlacementGroupArgs
-    ///         {
-    ///             Strategy = "cluster",
-    ///         });
-    ///     }
+    ///         Strategy = "cluster",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/placementGroup:PlacementGroup")]
-    public partial class PlacementGroup : Pulumi.CustomResource
+    public partial class PlacementGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the placement group.
@@ -89,7 +87,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -138,7 +136,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class PlacementGroupArgs : Pulumi.ResourceArgs
+    public sealed class PlacementGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the placement group.
@@ -182,9 +180,10 @@ namespace Pulumi.Aws.Ec2
         public PlacementGroupArgs()
         {
         }
+        public static new PlacementGroupArgs Empty => new PlacementGroupArgs();
     }
 
-    public sealed class PlacementGroupState : Pulumi.ResourceArgs
+    public sealed class PlacementGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the placement group.
@@ -241,7 +240,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -252,5 +251,6 @@ namespace Pulumi.Aws.Ec2
         public PlacementGroupState()
         {
         }
+        public static new PlacementGroupState Empty => new PlacementGroupState();
     }
 }

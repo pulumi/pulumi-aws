@@ -25,7 +25,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")]
-    public partial class BucketLifecycleConfigurationV2 : Pulumi.CustomResource
+    public partial class BucketLifecycleConfigurationV2 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the source S3 bucket you want Amazon S3 to monitor.
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class BucketLifecycleConfigurationV2Args : Pulumi.ResourceArgs
+    public sealed class BucketLifecycleConfigurationV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the source S3 bucket you want Amazon S3 to monitor.
@@ -118,9 +118,10 @@ namespace Pulumi.Aws.S3
         public BucketLifecycleConfigurationV2Args()
         {
         }
+        public static new BucketLifecycleConfigurationV2Args Empty => new BucketLifecycleConfigurationV2Args();
     }
 
-    public sealed class BucketLifecycleConfigurationV2State : Pulumi.ResourceArgs
+    public sealed class BucketLifecycleConfigurationV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the source S3 bucket you want Amazon S3 to monitor.
@@ -149,5 +150,6 @@ namespace Pulumi.Aws.S3
         public BucketLifecycleConfigurationV2State()
         {
         }
+        public static new BucketLifecycleConfigurationV2State Empty => new BucketLifecycleConfigurationV2State();
     }
 }

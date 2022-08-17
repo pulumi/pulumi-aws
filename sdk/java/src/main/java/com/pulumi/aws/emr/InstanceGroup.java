@@ -158,14 +158,14 @@ public class InstanceGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="instanceCount", type=Integer.class, parameters={})
-    private Output</* @Nullable */ Integer> instanceCount;
+    private Output<Integer> instanceCount;
 
     /**
      * @return target number of instances for the instance group. defaults to 0.
      * 
      */
-    public Output<Optional<Integer>> instanceCount() {
-        return Codegen.optional(this.instanceCount);
+    public Output<Integer> instanceCount() {
+        return this.instanceCount;
     }
     /**
      * The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.

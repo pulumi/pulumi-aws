@@ -16,28 +16,26 @@ namespace Pulumi.Aws.Fsx
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Fsx.OntapFileSystem("test", new()
     ///     {
-    ///         var test = new Aws.Fsx.OntapFileSystem("test", new Aws.Fsx.OntapFileSystemArgs
+    ///         StorageCapacity = 1024,
+    ///         SubnetIds = new[]
     ///         {
-    ///             StorageCapacity = 1024,
-    ///             SubnetIds = 
-    ///             {
-    ///                 aws_subnet.Test1.Id,
-    ///                 aws_subnet.Test2.Id,
-    ///             },
-    ///             DeploymentType = "MULTI_AZ_1",
-    ///             ThroughputCapacity = 512,
-    ///             PreferredSubnetId = aws_subnet.Test1.Id,
-    ///         });
-    ///     }
+    ///             aws_subnet.Test1.Id,
+    ///             aws_subnet.Test2.Id,
+    ///         },
+    ///         DeploymentType = "MULTI_AZ_1",
+    ///         ThroughputCapacity = 512,
+    ///         PreferredSubnetId = aws_subnet.Test1.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +61,7 @@ namespace Pulumi.Aws.Fsx
     ///  } }
     /// </summary>
     [AwsResourceType("aws:fsx/ontapFileSystem:OntapFileSystem")]
-    public partial class OntapFileSystem : Pulumi.CustomResource
+    public partial class OntapFileSystem : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name of the file system.
@@ -174,7 +172,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -247,7 +245,7 @@ namespace Pulumi.Aws.Fsx
         }
     }
 
-    public sealed class OntapFileSystemArgs : Pulumi.ResourceArgs
+    public sealed class OntapFileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
@@ -349,7 +347,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -372,9 +370,10 @@ namespace Pulumi.Aws.Fsx
         public OntapFileSystemArgs()
         {
         }
+        public static new OntapFileSystemArgs Empty => new OntapFileSystemArgs();
     }
 
-    public sealed class OntapFileSystemState : Pulumi.ResourceArgs
+    public sealed class OntapFileSystemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name of the file system.
@@ -518,7 +517,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -559,5 +558,6 @@ namespace Pulumi.Aws.Fsx
         public OntapFileSystemState()
         {
         }
+        public static new OntapFileSystemState Empty => new OntapFileSystemState();
     }
 }

@@ -139,7 +139,7 @@ export class Resolver extends pulumi.CustomResource {
      */
     public readonly cachingConfig!: pulumi.Output<outputs.appsync.ResolverCachingConfig | undefined>;
     /**
-     * The DataSource name.
+     * The data source name.
      */
     public readonly dataSource!: pulumi.Output<string | undefined>;
     /**
@@ -246,7 +246,7 @@ export interface ResolverState {
      */
     cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig>;
     /**
-     * The DataSource name.
+     * The data source name.
      */
     dataSource?: pulumi.Input<string>;
     /**
@@ -296,7 +296,7 @@ export interface ResolverArgs {
      */
     cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig>;
     /**
-     * The DataSource name.
+     * The data source name.
      */
     dataSource?: pulumi.Input<string>;
     /**

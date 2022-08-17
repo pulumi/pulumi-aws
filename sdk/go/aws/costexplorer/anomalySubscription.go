@@ -20,7 +20,9 @@ import (
 // `aws_ce_anomaly_subscription` can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
+//
+//	$ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
+//
 // ```
 type AnomalySubscription struct {
 	pulumi.CustomResourceState
@@ -38,8 +40,7 @@ type AnomalySubscription struct {
 	// A subscriber configuration. Multiple subscribers can be defined.
 	Subscribers AnomalySubscriptionSubscriberArrayOutput `pulumi:"subscribers"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The dollar value that triggers a notification if the threshold is exceeded.
 	Threshold pulumi.Float64Output `pulumi:"threshold"`
@@ -99,8 +100,7 @@ type anomalySubscriptionState struct {
 	// A subscriber configuration. Multiple subscribers can be defined.
 	Subscribers []AnomalySubscriptionSubscriber `pulumi:"subscribers"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The dollar value that triggers a notification if the threshold is exceeded.
 	Threshold *float64 `pulumi:"threshold"`
@@ -120,8 +120,7 @@ type AnomalySubscriptionState struct {
 	// A subscriber configuration. Multiple subscribers can be defined.
 	Subscribers AnomalySubscriptionSubscriberArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The dollar value that triggers a notification if the threshold is exceeded.
 	Threshold pulumi.Float64PtrInput
@@ -144,8 +143,6 @@ type anomalySubscriptionArgs struct {
 	Subscribers []AnomalySubscriptionSubscriber `pulumi:"subscribers"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The dollar value that triggers a notification if the threshold is exceeded.
 	Threshold float64 `pulumi:"threshold"`
 }
@@ -164,8 +161,6 @@ type AnomalySubscriptionArgs struct {
 	Subscribers AnomalySubscriptionSubscriberArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
 	// The dollar value that triggers a notification if the threshold is exceeded.
 	Threshold pulumi.Float64Input
 }
@@ -196,7 +191,7 @@ func (i *AnomalySubscription) ToAnomalySubscriptionOutputWithContext(ctx context
 // AnomalySubscriptionArrayInput is an input type that accepts AnomalySubscriptionArray and AnomalySubscriptionArrayOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionArrayInput` via:
 //
-//          AnomalySubscriptionArray{ AnomalySubscriptionArgs{...} }
+//	AnomalySubscriptionArray{ AnomalySubscriptionArgs{...} }
 type AnomalySubscriptionArrayInput interface {
 	pulumi.Input
 
@@ -221,7 +216,7 @@ func (i AnomalySubscriptionArray) ToAnomalySubscriptionArrayOutputWithContext(ct
 // AnomalySubscriptionMapInput is an input type that accepts AnomalySubscriptionMap and AnomalySubscriptionMapOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionMapInput` via:
 //
-//          AnomalySubscriptionMap{ "key": AnomalySubscriptionArgs{...} }
+//	AnomalySubscriptionMap{ "key": AnomalySubscriptionArgs{...} }
 type AnomalySubscriptionMapInput interface {
 	pulumi.Input
 
@@ -292,7 +287,6 @@ func (o AnomalySubscriptionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o AnomalySubscriptionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

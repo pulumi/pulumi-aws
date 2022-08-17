@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class IdentityPoolRoleAttachmentRoleMappingMappingRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class IdentityPoolRoleAttachmentRoleMappingMappingRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The claim name that must be present in the token, for example, "isAdmin" or "paid".
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public IdentityPoolRoleAttachmentRoleMappingMappingRuleGetArgs()
         {
         }
+        public static new IdentityPoolRoleAttachmentRoleMappingMappingRuleGetArgs Empty => new IdentityPoolRoleAttachmentRoleMappingMappingRuleGetArgs();
     }
 }

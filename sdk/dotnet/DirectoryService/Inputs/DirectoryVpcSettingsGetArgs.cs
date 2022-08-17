@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DirectoryService.Inputs
 {
 
-    public sealed class DirectoryVpcSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class DirectoryVpcSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
@@ -41,5 +41,6 @@ namespace Pulumi.Aws.DirectoryService.Inputs
         public DirectoryVpcSettingsGetArgs()
         {
         }
+        public static new DirectoryVpcSettingsGetArgs Empty => new DirectoryVpcSettingsGetArgs();
     }
 }

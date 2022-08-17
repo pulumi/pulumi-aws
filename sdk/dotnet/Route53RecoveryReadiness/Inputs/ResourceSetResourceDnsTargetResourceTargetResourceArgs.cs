@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53RecoveryReadiness.Inputs
 {
 
-    public sealed class ResourceSetResourceDnsTargetResourceTargetResourceArgs : Pulumi.ResourceArgs
+    public sealed class ResourceSetResourceDnsTargetResourceTargetResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness.Inputs
         public ResourceSetResourceDnsTargetResourceTargetResourceArgs()
         {
         }
+        public static new ResourceSetResourceDnsTargetResourceTargetResourceArgs Empty => new ResourceSetResourceDnsTargetResourceTargetResourceArgs();
     }
 }

@@ -15,28 +15,26 @@ namespace Pulumi.Aws.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Iot.Authorizer("example", new()
     ///     {
-    ///         var example = new Aws.Iot.Authorizer("example", new Aws.Iot.AuthorizerArgs
+    ///         AuthorizerFunctionArn = aws_lambda_function.Example.Arn,
+    ///         SigningDisabled = false,
+    ///         Status = "ACTIVE",
+    ///         TokenKeyName = "Token-Header",
+    ///         TokenSigningPublicKeys = 
     ///         {
-    ///             AuthorizerFunctionArn = aws_lambda_function.Example.Arn,
-    ///             SigningDisabled = false,
-    ///             Status = "ACTIVE",
-    ///             TokenKeyName = "Token-Header",
-    ///             TokenSigningPublicKeys = 
-    ///             {
-    ///                 { "Key1", File.ReadAllText("test-fixtures/iot-authorizer-signing-key.pem") },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Key1", File.ReadAllText("test-fixtures/iot-authorizer-signing-key.pem") },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Aws.Iot
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/authorizer:Authorizer")]
-    public partial class Authorizer : Pulumi.CustomResource
+    public partial class Authorizer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the authorizer.
@@ -142,7 +140,7 @@ namespace Pulumi.Aws.Iot
         }
     }
 
-    public sealed class AuthorizerArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the authorizer's Lambda function.
@@ -195,9 +193,10 @@ namespace Pulumi.Aws.Iot
         public AuthorizerArgs()
         {
         }
+        public static new AuthorizerArgs Empty => new AuthorizerArgs();
     }
 
-    public sealed class AuthorizerState : Pulumi.ResourceArgs
+    public sealed class AuthorizerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the authorizer.
@@ -256,5 +255,6 @@ namespace Pulumi.Aws.Iot
         public AuthorizerState()
         {
         }
+        public static new AuthorizerState Empty => new AuthorizerState();
     }
 }

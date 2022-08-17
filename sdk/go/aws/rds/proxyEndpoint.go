@@ -18,7 +18,9 @@ import (
 // DB proxy endpoints can be imported using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
+//
+//	$ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
+//
 // ```
 type ProxyEndpoint struct {
 	pulumi.CustomResourceState
@@ -192,7 +194,7 @@ func (i *ProxyEndpoint) ToProxyEndpointOutputWithContext(ctx context.Context) Pr
 // ProxyEndpointArrayInput is an input type that accepts ProxyEndpointArray and ProxyEndpointArrayOutput values.
 // You can construct a concrete instance of `ProxyEndpointArrayInput` via:
 //
-//          ProxyEndpointArray{ ProxyEndpointArgs{...} }
+//	ProxyEndpointArray{ ProxyEndpointArgs{...} }
 type ProxyEndpointArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +219,7 @@ func (i ProxyEndpointArray) ToProxyEndpointArrayOutputWithContext(ctx context.Co
 // ProxyEndpointMapInput is an input type that accepts ProxyEndpointMap and ProxyEndpointMapOutput values.
 // You can construct a concrete instance of `ProxyEndpointMapInput` via:
 //
-//          ProxyEndpointMap{ "key": ProxyEndpointArgs{...} }
+//	ProxyEndpointMap{ "key": ProxyEndpointArgs{...} }
 type ProxyEndpointMapInput interface {
 	pulumi.Input
 

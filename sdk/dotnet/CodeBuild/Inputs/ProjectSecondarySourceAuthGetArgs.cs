@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ProjectSecondarySourceAuthGetArgs : Pulumi.ResourceArgs
+    public sealed class ProjectSecondarySourceAuthGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ProjectSecondarySourceAuthGetArgs()
         {
         }
+        public static new ProjectSecondarySourceAuthGetArgs Empty => new ProjectSecondarySourceAuthGetArgs();
     }
 }

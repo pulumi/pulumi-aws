@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DataSync.Inputs
 {
 
-    public sealed class TaskScheduleGetArgs : Pulumi.ResourceArgs
+    public sealed class TaskScheduleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.DataSync.Inputs
         public TaskScheduleGetArgs()
         {
         }
+        public static new TaskScheduleGetArgs Empty => new TaskScheduleGetArgs();
     }
 }

@@ -13,39 +13,37 @@ namespace Pulumi.Aws.Route53Domains
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Route53Domains.RegisteredDomain("example", new()
     ///     {
-    ///         var example = new Aws.Route53Domains.RegisteredDomain("example", new Aws.Route53Domains.RegisteredDomainArgs
+    ///         DomainName = "example.com",
+    ///         NameServers = new[]
     ///         {
-    ///             DomainName = "example.com",
-    ///             NameServers = 
+    ///             new Aws.Route53Domains.Inputs.RegisteredDomainNameServerArgs
     ///             {
-    ///                 new Aws.Route53Domains.Inputs.RegisteredDomainNameServerArgs
-    ///                 {
-    ///                     Name = "ns-195.awsdns-24.com",
-    ///                 },
-    ///                 new Aws.Route53Domains.Inputs.RegisteredDomainNameServerArgs
-    ///                 {
-    ///                     Name = "ns-874.awsdns-45.net",
-    ///                 },
+    ///                 Name = "ns-195.awsdns-24.com",
     ///             },
-    ///             Tags = 
+    ///             new Aws.Route53Domains.Inputs.RegisteredDomainNameServerArgs
     ///             {
-    ///                 { "Environment", "test" },
+    ///                 Name = "ns-874.awsdns-45.net",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "test" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53domains/registeredDomain:RegisteredDomain")]
-    public partial class RegisteredDomain : Pulumi.CustomResource
+    public partial class RegisteredDomain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
@@ -143,9 +141,6 @@ namespace Pulumi.Aws.Route53Domains
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -223,7 +218,7 @@ namespace Pulumi.Aws.Route53Domains
         }
     }
 
-    public sealed class RegisteredDomainArgs : Pulumi.ResourceArgs
+    public sealed class RegisteredDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Details about the domain administrative contact.
@@ -287,10 +282,6 @@ namespace Pulumi.Aws.Route53Domains
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -318,9 +309,10 @@ namespace Pulumi.Aws.Route53Domains
         public RegisteredDomainArgs()
         {
         }
+        public static new RegisteredDomainArgs Empty => new RegisteredDomainArgs();
     }
 
-    public sealed class RegisteredDomainState : Pulumi.ResourceArgs
+    public sealed class RegisteredDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
@@ -438,10 +430,6 @@ namespace Pulumi.Aws.Route53Domains
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -481,5 +469,6 @@ namespace Pulumi.Aws.Route53Domains
         public RegisteredDomainState()
         {
         }
+        public static new RegisteredDomainState Empty => new RegisteredDomainState();
     }
 }

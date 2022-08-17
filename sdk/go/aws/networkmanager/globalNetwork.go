@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := networkmanager.NewGlobalNetwork(ctx, "example", &networkmanager.GlobalNetworkArgs{
-// 			Description: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkmanager.NewGlobalNetwork(ctx, "example", &networkmanager.GlobalNetworkArgs{
+//				Description: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -40,7 +43,9 @@ import (
 // `aws_networkmanager_global_network` can be imported using the global network ID, e.g.
 //
 // ```sh
-//  $ pulumi import aws:networkmanager/globalNetwork:GlobalNetwork example global-network-0d47f6t230mz46dy4
+//
+//	$ pulumi import aws:networkmanager/globalNetwork:GlobalNetwork example global-network-0d47f6t230mz46dy4
+//
 // ```
 type GlobalNetwork struct {
 	pulumi.CustomResourceState
@@ -142,7 +147,7 @@ func (i *GlobalNetwork) ToGlobalNetworkOutputWithContext(ctx context.Context) Gl
 // GlobalNetworkArrayInput is an input type that accepts GlobalNetworkArray and GlobalNetworkArrayOutput values.
 // You can construct a concrete instance of `GlobalNetworkArrayInput` via:
 //
-//          GlobalNetworkArray{ GlobalNetworkArgs{...} }
+//	GlobalNetworkArray{ GlobalNetworkArgs{...} }
 type GlobalNetworkArrayInput interface {
 	pulumi.Input
 
@@ -167,7 +172,7 @@ func (i GlobalNetworkArray) ToGlobalNetworkArrayOutputWithContext(ctx context.Co
 // GlobalNetworkMapInput is an input type that accepts GlobalNetworkMap and GlobalNetworkMapOutput values.
 // You can construct a concrete instance of `GlobalNetworkMapInput` via:
 //
-//          GlobalNetworkMap{ "key": GlobalNetworkArgs{...} }
+//	GlobalNetworkMap{ "key": GlobalNetworkArgs{...} }
 type GlobalNetworkMapInput interface {
 	pulumi.Input
 

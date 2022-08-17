@@ -20,7 +20,7 @@ type VoiceConnectorGroupConnector struct {
 // VoiceConnectorGroupConnectorInput is an input type that accepts VoiceConnectorGroupConnectorArgs and VoiceConnectorGroupConnectorOutput values.
 // You can construct a concrete instance of `VoiceConnectorGroupConnectorInput` via:
 //
-//          VoiceConnectorGroupConnectorArgs{...}
+//	VoiceConnectorGroupConnectorArgs{...}
 type VoiceConnectorGroupConnectorInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i VoiceConnectorGroupConnectorArgs) ToVoiceConnectorGroupConnectorOutputWi
 // VoiceConnectorGroupConnectorArrayInput is an input type that accepts VoiceConnectorGroupConnectorArray and VoiceConnectorGroupConnectorArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorGroupConnectorArrayInput` via:
 //
-//          VoiceConnectorGroupConnectorArray{ VoiceConnectorGroupConnectorArgs{...} }
+//	VoiceConnectorGroupConnectorArray{ VoiceConnectorGroupConnectorArgs{...} }
 type VoiceConnectorGroupConnectorArrayInput interface {
 	pulumi.Input
 
@@ -132,7 +132,7 @@ type VoiceConnectorOrganizationRoute struct {
 // VoiceConnectorOrganizationRouteInput is an input type that accepts VoiceConnectorOrganizationRouteArgs and VoiceConnectorOrganizationRouteOutput values.
 // You can construct a concrete instance of `VoiceConnectorOrganizationRouteInput` via:
 //
-//          VoiceConnectorOrganizationRouteArgs{...}
+//	VoiceConnectorOrganizationRouteArgs{...}
 type VoiceConnectorOrganizationRouteInput interface {
 	pulumi.Input
 
@@ -168,7 +168,7 @@ func (i VoiceConnectorOrganizationRouteArgs) ToVoiceConnectorOrganizationRouteOu
 // VoiceConnectorOrganizationRouteArrayInput is an input type that accepts VoiceConnectorOrganizationRouteArray and VoiceConnectorOrganizationRouteArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorOrganizationRouteArrayInput` via:
 //
-//          VoiceConnectorOrganizationRouteArray{ VoiceConnectorOrganizationRouteArgs{...} }
+//	VoiceConnectorOrganizationRouteArray{ VoiceConnectorOrganizationRouteArgs{...} }
 type VoiceConnectorOrganizationRouteArrayInput interface {
 	pulumi.Input
 
@@ -259,7 +259,7 @@ type VoiceConnectorTerminationCredentialsCredential struct {
 // VoiceConnectorTerminationCredentialsCredentialInput is an input type that accepts VoiceConnectorTerminationCredentialsCredentialArgs and VoiceConnectorTerminationCredentialsCredentialOutput values.
 // You can construct a concrete instance of `VoiceConnectorTerminationCredentialsCredentialInput` via:
 //
-//          VoiceConnectorTerminationCredentialsCredentialArgs{...}
+//	VoiceConnectorTerminationCredentialsCredentialArgs{...}
 type VoiceConnectorTerminationCredentialsCredentialInput interface {
 	pulumi.Input
 
@@ -289,7 +289,7 @@ func (i VoiceConnectorTerminationCredentialsCredentialArgs) ToVoiceConnectorTerm
 // VoiceConnectorTerminationCredentialsCredentialArrayInput is an input type that accepts VoiceConnectorTerminationCredentialsCredentialArray and VoiceConnectorTerminationCredentialsCredentialArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorTerminationCredentialsCredentialArrayInput` via:
 //
-//          VoiceConnectorTerminationCredentialsCredentialArray{ VoiceConnectorTerminationCredentialsCredentialArgs{...} }
+//	VoiceConnectorTerminationCredentialsCredentialArray{ VoiceConnectorTerminationCredentialsCredentialArgs{...} }
 type VoiceConnectorTerminationCredentialsCredentialArrayInput interface {
 	pulumi.Input
 

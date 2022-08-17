@@ -19,32 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appconfig.NewConfigurationProfile(ctx, "example", &appconfig.ConfigurationProfileArgs{
-// 			ApplicationId: pulumi.Any(aws_appconfig_application.Example.Id),
-// 			Description:   pulumi.String("Example Configuration Profile"),
-// 			LocationUri:   pulumi.String("hosted"),
-// 			Validators: appconfig.ConfigurationProfileValidatorArray{
-// 				&appconfig.ConfigurationProfileValidatorArgs{
-// 					Content: pulumi.Any(aws_lambda_function.Example.Arn),
-// 					Type:    pulumi.String("LAMBDA"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Type": pulumi.String("AppConfig Configuration Profile"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appconfig.NewConfigurationProfile(ctx, "example", &appconfig.ConfigurationProfileArgs{
+//				ApplicationId: pulumi.Any(aws_appconfig_application.Example.Id),
+//				Description:   pulumi.String("Example Configuration Profile"),
+//				LocationUri:   pulumi.String("hosted"),
+//				Validators: appconfig.ConfigurationProfileValidatorArray{
+//					&appconfig.ConfigurationProfileValidatorArgs{
+//						Content: pulumi.Any(aws_lambda_function.Example.Arn),
+//						Type:    pulumi.String("LAMBDA"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Type": pulumi.String("AppConfig Configuration Profile"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // AppConfig Configuration Profiles can be imported by using the configuration profile ID and application ID separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appconfig/configurationProfile:ConfigurationProfile example 71abcde:11xxxxx
+//
+//	$ pulumi import aws:appconfig/configurationProfile:ConfigurationProfile example 71abcde:11xxxxx
+//
 // ```
 type ConfigurationProfile struct {
 	pulumi.CustomResourceState
@@ -234,7 +239,7 @@ func (i *ConfigurationProfile) ToConfigurationProfileOutputWithContext(ctx conte
 // ConfigurationProfileArrayInput is an input type that accepts ConfigurationProfileArray and ConfigurationProfileArrayOutput values.
 // You can construct a concrete instance of `ConfigurationProfileArrayInput` via:
 //
-//          ConfigurationProfileArray{ ConfigurationProfileArgs{...} }
+//	ConfigurationProfileArray{ ConfigurationProfileArgs{...} }
 type ConfigurationProfileArrayInput interface {
 	pulumi.Input
 
@@ -259,7 +264,7 @@ func (i ConfigurationProfileArray) ToConfigurationProfileArrayOutputWithContext(
 // ConfigurationProfileMapInput is an input type that accepts ConfigurationProfileMap and ConfigurationProfileMapOutput values.
 // You can construct a concrete instance of `ConfigurationProfileMapInput` via:
 //
-//          ConfigurationProfileMap{ "key": ConfigurationProfileArgs{...} }
+//	ConfigurationProfileMap{ "key": ConfigurationProfileArgs{...} }
 type ConfigurationProfileMapInput interface {
 	pulumi.Input
 

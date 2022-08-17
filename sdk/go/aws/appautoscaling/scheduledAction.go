@@ -20,38 +20,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		dynamodbTarget, err := appautoscaling.NewTarget(ctx, "dynamodbTarget", &appautoscaling.TargetArgs{
-// 			MaxCapacity:       pulumi.Int(100),
-// 			MinCapacity:       pulumi.Int(5),
-// 			ResourceId:        pulumi.String("table/tableName"),
-// 			ScalableDimension: pulumi.String("dynamodb:table:ReadCapacityUnits"),
-// 			ServiceNamespace:  pulumi.String("dynamodb"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appautoscaling.NewScheduledAction(ctx, "dynamodbScheduledAction", &appautoscaling.ScheduledActionArgs{
-// 			ServiceNamespace:  dynamodbTarget.ServiceNamespace,
-// 			ResourceId:        dynamodbTarget.ResourceId,
-// 			ScalableDimension: dynamodbTarget.ScalableDimension,
-// 			Schedule:          pulumi.String("at(2006-01-02T15:04:05)"),
-// 			ScalableTargetAction: &appautoscaling.ScheduledActionScalableTargetActionArgs{
-// 				MinCapacity: pulumi.Int(1),
-// 				MaxCapacity: pulumi.Int(200),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			dynamodbTarget, err := appautoscaling.NewTarget(ctx, "dynamodbTarget", &appautoscaling.TargetArgs{
+//				MaxCapacity:       pulumi.Int(100),
+//				MinCapacity:       pulumi.Int(5),
+//				ResourceId:        pulumi.String("table/tableName"),
+//				ScalableDimension: pulumi.String("dynamodb:table:ReadCapacityUnits"),
+//				ServiceNamespace:  pulumi.String("dynamodb"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appautoscaling.NewScheduledAction(ctx, "dynamodbScheduledAction", &appautoscaling.ScheduledActionArgs{
+//				ServiceNamespace:  dynamodbTarget.ServiceNamespace,
+//				ResourceId:        dynamodbTarget.ResourceId,
+//				ScalableDimension: dynamodbTarget.ScalableDimension,
+//				Schedule:          pulumi.String("at(2006-01-02T15:04:05)"),
+//				ScalableTargetAction: &appautoscaling.ScheduledActionScalableTargetActionArgs{
+//					MinCapacity: pulumi.Int(1),
+//					MaxCapacity: pulumi.Int(200),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### ECS Service Autoscaling
 //
@@ -59,38 +62,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		ecsTarget, err := appautoscaling.NewTarget(ctx, "ecsTarget", &appautoscaling.TargetArgs{
-// 			MaxCapacity:       pulumi.Int(4),
-// 			MinCapacity:       pulumi.Int(1),
-// 			ResourceId:        pulumi.String("service/clusterName/serviceName"),
-// 			ScalableDimension: pulumi.String("ecs:service:DesiredCount"),
-// 			ServiceNamespace:  pulumi.String("ecs"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appautoscaling.NewScheduledAction(ctx, "ecsScheduledAction", &appautoscaling.ScheduledActionArgs{
-// 			ServiceNamespace:  ecsTarget.ServiceNamespace,
-// 			ResourceId:        ecsTarget.ResourceId,
-// 			ScalableDimension: ecsTarget.ScalableDimension,
-// 			Schedule:          pulumi.String("at(2006-01-02T15:04:05)"),
-// 			ScalableTargetAction: &appautoscaling.ScheduledActionScalableTargetActionArgs{
-// 				MinCapacity: pulumi.Int(1),
-// 				MaxCapacity: pulumi.Int(10),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ecsTarget, err := appautoscaling.NewTarget(ctx, "ecsTarget", &appautoscaling.TargetArgs{
+//				MaxCapacity:       pulumi.Int(4),
+//				MinCapacity:       pulumi.Int(1),
+//				ResourceId:        pulumi.String("service/clusterName/serviceName"),
+//				ScalableDimension: pulumi.String("ecs:service:DesiredCount"),
+//				ServiceNamespace:  pulumi.String("ecs"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appautoscaling.NewScheduledAction(ctx, "ecsScheduledAction", &appautoscaling.ScheduledActionArgs{
+//				ServiceNamespace:  ecsTarget.ServiceNamespace,
+//				ResourceId:        ecsTarget.ResourceId,
+//				ScalableDimension: ecsTarget.ScalableDimension,
+//				Schedule:          pulumi.String("at(2006-01-02T15:04:05)"),
+//				ScalableTargetAction: &appautoscaling.ScheduledActionScalableTargetActionArgs{
+//					MinCapacity: pulumi.Int(1),
+//					MaxCapacity: pulumi.Int(10),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type ScheduledAction struct {
 	pulumi.CustomResourceState
@@ -279,7 +285,7 @@ func (i *ScheduledAction) ToScheduledActionOutputWithContext(ctx context.Context
 // ScheduledActionArrayInput is an input type that accepts ScheduledActionArray and ScheduledActionArrayOutput values.
 // You can construct a concrete instance of `ScheduledActionArrayInput` via:
 //
-//          ScheduledActionArray{ ScheduledActionArgs{...} }
+//	ScheduledActionArray{ ScheduledActionArgs{...} }
 type ScheduledActionArrayInput interface {
 	pulumi.Input
 
@@ -304,7 +310,7 @@ func (i ScheduledActionArray) ToScheduledActionArrayOutputWithContext(ctx contex
 // ScheduledActionMapInput is an input type that accepts ScheduledActionMap and ScheduledActionMapOutput values.
 // You can construct a concrete instance of `ScheduledActionMapInput` via:
 //
-//          ScheduledActionMap{ "key": ScheduledActionArgs{...} }
+//	ScheduledActionMap{ "key": ScheduledActionArgs{...} }
 type ScheduledActionMapInput interface {
 	pulumi.Input
 

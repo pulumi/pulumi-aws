@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Qldb.Inputs
 {
 
-    public sealed class StreamKinesisConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class StreamKinesisConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Qldb.Inputs
         public StreamKinesisConfigurationArgs()
         {
         }
+        public static new StreamKinesisConfigurationArgs Empty => new StreamKinesisConfigurationArgs();
     }
 }

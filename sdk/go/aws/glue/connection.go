@@ -19,25 +19,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
-// 			ConnectionProperties: pulumi.StringMap{
-// 				"JDBC_CONNECTION_URL": pulumi.String("jdbc:mysql://example.com/exampledatabase"),
-// 				"PASSWORD":            pulumi.String("examplepassword"),
-// 				"USERNAME":            pulumi.String("exampleusername"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
+//				ConnectionProperties: pulumi.StringMap{
+//					"JDBC_CONNECTION_URL": pulumi.String("jdbc:mysql://example.com/exampledatabase"),
+//					"PASSWORD":            pulumi.String("examplepassword"),
+//					"USERNAME":            pulumi.String("exampleusername"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### VPC Connection
 //
@@ -47,34 +50,37 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
-// 			ConnectionProperties: pulumi.StringMap{
-// 				"JDBC_CONNECTION_URL": pulumi.String(fmt.Sprintf("jdbc:mysql://%v/exampledatabase", aws_rds_cluster.Example.Endpoint)),
-// 				"PASSWORD":            pulumi.String("examplepassword"),
-// 				"USERNAME":            pulumi.String("exampleusername"),
-// 			},
-// 			PhysicalConnectionRequirements: &glue.ConnectionPhysicalConnectionRequirementsArgs{
-// 				AvailabilityZone: pulumi.Any(aws_subnet.Example.Availability_zone),
-// 				SecurityGroupIdLists: pulumi.StringArray{
-// 					pulumi.Any(aws_security_group.Example.Id),
-// 				},
-// 				SubnetId: pulumi.Any(aws_subnet.Example.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
+//				ConnectionProperties: pulumi.StringMap{
+//					"JDBC_CONNECTION_URL": pulumi.String(fmt.Sprintf("jdbc:mysql://%v/exampledatabase", aws_rds_cluster.Example.Endpoint)),
+//					"PASSWORD":            pulumi.String("examplepassword"),
+//					"USERNAME":            pulumi.String("exampleusername"),
+//				},
+//				PhysicalConnectionRequirements: &glue.ConnectionPhysicalConnectionRequirementsArgs{
+//					AvailabilityZone: pulumi.Any(aws_subnet.Example.Availability_zone),
+//					SecurityGroupIdLists: pulumi.StringArray{
+//						pulumi.Any(aws_security_group.Example.Id),
+//					},
+//					SubnetId: pulumi.Any(aws_subnet.Example.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -82,7 +88,9 @@ import (
 // Glue Connections can be imported using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
+//
+//	$ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
+//
 // ```
 type Connection struct {
 	pulumi.CustomResourceState
@@ -93,7 +101,7 @@ type Connection struct {
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// A map of key-value pairs used as parameters for this connection.
 	ConnectionProperties pulumi.StringMapOutput `pulumi:"connectionProperties"`
-	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
+	// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
 	ConnectionType pulumi.StringPtrOutput `pulumi:"connectionType"`
 	// Description of the connection.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -144,7 +152,7 @@ type connectionState struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// A map of key-value pairs used as parameters for this connection.
 	ConnectionProperties map[string]string `pulumi:"connectionProperties"`
-	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
+	// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
 	ConnectionType *string `pulumi:"connectionType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
@@ -167,7 +175,7 @@ type ConnectionState struct {
 	CatalogId pulumi.StringPtrInput
 	// A map of key-value pairs used as parameters for this connection.
 	ConnectionProperties pulumi.StringMapInput
-	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
+	// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
 	ConnectionType pulumi.StringPtrInput
 	// Description of the connection.
 	Description pulumi.StringPtrInput
@@ -192,7 +200,7 @@ type connectionArgs struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// A map of key-value pairs used as parameters for this connection.
 	ConnectionProperties map[string]string `pulumi:"connectionProperties"`
-	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
+	// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
 	ConnectionType *string `pulumi:"connectionType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
@@ -212,7 +220,7 @@ type ConnectionArgs struct {
 	CatalogId pulumi.StringPtrInput
 	// A map of key-value pairs used as parameters for this connection.
 	ConnectionProperties pulumi.StringMapInput
-	// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
+	// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
 	ConnectionType pulumi.StringPtrInput
 	// Description of the connection.
 	Description pulumi.StringPtrInput
@@ -252,7 +260,7 @@ func (i *Connection) ToConnectionOutputWithContext(ctx context.Context) Connecti
 // ConnectionArrayInput is an input type that accepts ConnectionArray and ConnectionArrayOutput values.
 // You can construct a concrete instance of `ConnectionArrayInput` via:
 //
-//          ConnectionArray{ ConnectionArgs{...} }
+//	ConnectionArray{ ConnectionArgs{...} }
 type ConnectionArrayInput interface {
 	pulumi.Input
 
@@ -277,7 +285,7 @@ func (i ConnectionArray) ToConnectionArrayOutputWithContext(ctx context.Context)
 // ConnectionMapInput is an input type that accepts ConnectionMap and ConnectionMapOutput values.
 // You can construct a concrete instance of `ConnectionMapInput` via:
 //
-//          ConnectionMap{ "key": ConnectionArgs{...} }
+//	ConnectionMap{ "key": ConnectionArgs{...} }
 type ConnectionMapInput interface {
 	pulumi.Input
 
@@ -328,7 +336,7 @@ func (o ConnectionOutput) ConnectionProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.ConnectionProperties }).(pulumi.StringMapOutput)
 }
 
-// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
+// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
 func (o ConnectionOutput) ConnectionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.ConnectionType }).(pulumi.StringPtrOutput)
 }

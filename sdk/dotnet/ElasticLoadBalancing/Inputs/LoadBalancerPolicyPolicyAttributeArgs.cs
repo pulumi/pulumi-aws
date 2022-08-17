@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticLoadBalancing.Inputs
 {
 
-    public sealed class LoadBalancerPolicyPolicyAttributeArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerPolicyPolicyAttributeArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing.Inputs
         public LoadBalancerPolicyPolicyAttributeArgs()
         {
         }
+        public static new LoadBalancerPolicyPolicyAttributeArgs Empty => new LoadBalancerPolicyPolicyAttributeArgs();
     }
 }

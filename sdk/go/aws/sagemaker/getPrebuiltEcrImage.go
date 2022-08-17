@@ -22,22 +22,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sagemaker.GetPrebuiltEcrImage(ctx, &sagemaker.GetPrebuiltEcrImageArgs{
-// 			ImageTag:       pulumi.StringRef("2.2-1.0.11.0"),
-// 			RepositoryName: "sagemaker-scikit-learn",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sagemaker.GetPrebuiltEcrImage(ctx, &sagemaker.GetPrebuiltEcrImageArgs{
+//				ImageTag:       pulumi.StringRef("2.2-1.0.11.0"),
+//				RepositoryName: "sagemaker-scikit-learn",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetPrebuiltEcrImage(ctx *pulumi.Context, args *GetPrebuiltEcrImageArgs, opts ...pulumi.InvokeOption) (*GetPrebuiltEcrImageResult, error) {
 	var rv GetPrebuiltEcrImageResult

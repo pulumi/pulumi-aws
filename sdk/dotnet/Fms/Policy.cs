@@ -20,55 +20,52 @@ namespace Pulumi.Aws.Fms
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleRuleGroup = new Aws.WafRegional.RuleGroup("exampleRuleGroup", new()
     ///     {
-    ///         var exampleRuleGroup = new Aws.WafRegional.RuleGroup("exampleRuleGroup", new Aws.WafRegional.RuleGroupArgs
-    ///         {
-    ///             MetricName = "WAFRuleGroupExample",
-    ///         });
-    ///         var examplePolicy = new Aws.Fms.Policy("examplePolicy", new Aws.Fms.PolicyArgs
-    ///         {
-    ///             ExcludeResourceTags = false,
-    ///             RemediationEnabled = false,
-    ///             ResourceTypeLists = 
-    ///             {
-    ///                 "AWS::ElasticLoadBalancingV2::LoadBalancer",
-    ///             },
-    ///             SecurityServicePolicyData = new Aws.Fms.Inputs.PolicySecurityServicePolicyDataArgs
-    ///             {
-    ///                 Type = "WAF",
-    ///                 ManagedServiceData = exampleRuleGroup.Id.Apply(id =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "type", "WAF" },
-    ///                     { "ruleGroups", new[]
-    ///                         {
-    ///                             new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "id", id },
-    ///                                 { "overrideAction", new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     { "type", "COUNT" },
-    ///                                 } },
-    ///                             },
-    ///                         }
-    ///                      },
-    ///                     { "defaultAction", new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "type", "BLOCK" },
-    ///                     } },
-    ///                     { "overrideCustomerWebACLAssociation", false },
-    ///                 })),
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example-fms-policy" },
-    ///             },
-    ///         });
-    ///     }
+    ///         MetricName = "WAFRuleGroupExample",
+    ///     });
     /// 
-    /// }
+    ///     var examplePolicy = new Aws.Fms.Policy("examplePolicy", new()
+    ///     {
+    ///         ExcludeResourceTags = false,
+    ///         RemediationEnabled = false,
+    ///         ResourceTypeLists = new[]
+    ///         {
+    ///             "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    ///         },
+    ///         SecurityServicePolicyData = new Aws.Fms.Inputs.PolicySecurityServicePolicyDataArgs
+    ///         {
+    ///             Type = "WAF",
+    ///             ManagedServiceData = exampleRuleGroup.Id.Apply(id =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["type"] = "WAF",
+    ///                 ["ruleGroups"] = new[]
+    ///                 {
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["id"] = id,
+    ///                         ["overrideAction"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["type"] = "COUNT",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 ["defaultAction"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["type"] = "BLOCK",
+    ///                 },
+    ///                 ["overrideCustomerWebACLAssociation"] = false,
+    ///             })),
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example-fms-policy" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -80,7 +77,7 @@ namespace Pulumi.Aws.Fms
     /// ```
     /// </summary>
     [AwsResourceType("aws:fms/policy:Policy")]
-    public partial class Policy : Pulumi.CustomResource
+    public partial class Policy : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -158,14 +155,11 @@ namespace Pulumi.Aws.Fms
         public Output<Outputs.PolicySecurityServicePolicyData> SecurityServicePolicyData { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -213,7 +207,7 @@ namespace Pulumi.Aws.Fms
         }
     }
 
-    public sealed class PolicyArgs : Pulumi.ResourceArgs
+    public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
@@ -297,7 +291,7 @@ namespace Pulumi.Aws.Fms
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -308,9 +302,10 @@ namespace Pulumi.Aws.Fms
         public PolicyArgs()
         {
         }
+        public static new PolicyArgs Empty => new PolicyArgs();
     }
 
-    public sealed class PolicyState : Pulumi.ResourceArgs
+    public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -403,7 +398,7 @@ namespace Pulumi.Aws.Fms
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -413,10 +408,6 @@ namespace Pulumi.Aws.Fms
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -426,5 +417,6 @@ namespace Pulumi.Aws.Fms
         public PolicyState()
         {
         }
+        public static new PolicyState Empty => new PolicyState();
     }
 }

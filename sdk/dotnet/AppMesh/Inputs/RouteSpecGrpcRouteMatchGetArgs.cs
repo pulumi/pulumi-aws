@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class RouteSpecGrpcRouteMatchGetArgs : Pulumi.ResourceArgs
+    public sealed class RouteSpecGrpcRouteMatchGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("metadatas")]
         private InputList<Inputs.RouteSpecGrpcRouteMatchMetadataGetArgs>? _metadatas;
@@ -46,5 +46,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public RouteSpecGrpcRouteMatchGetArgs()
         {
         }
+        public static new RouteSpecGrpcRouteMatchGetArgs Empty => new RouteSpecGrpcRouteMatchGetArgs();
     }
 }

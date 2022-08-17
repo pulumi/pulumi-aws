@@ -17,22 +17,20 @@ namespace Pulumi.Aws.DirectConnect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var hoge = new Aws.DirectConnect.LinkAggregationGroup("hoge", new()
     ///     {
-    ///         var hoge = new Aws.DirectConnect.LinkAggregationGroup("hoge", new Aws.DirectConnect.LinkAggregationGroupArgs
-    ///         {
-    ///             ConnectionsBandwidth = "1Gbps",
-    ///             ForceDestroy = true,
-    ///             Location = "EqDC2",
-    ///         });
-    ///     }
+    ///         ConnectionsBandwidth = "1Gbps",
+    ///         ForceDestroy = true,
+    ///         Location = "EqDC2",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.DirectConnect
     /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/linkAggregationGroup:LinkAggregationGroup")]
-    public partial class LinkAggregationGroup : Pulumi.CustomResource
+    public partial class LinkAggregationGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the LAG.
@@ -159,7 +157,7 @@ namespace Pulumi.Aws.DirectConnect
         }
     }
 
-    public sealed class LinkAggregationGroupArgs : Pulumi.ResourceArgs
+    public sealed class LinkAggregationGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of an existing dedicated connection to migrate to the LAG.
@@ -212,9 +210,10 @@ namespace Pulumi.Aws.DirectConnect
         public LinkAggregationGroupArgs()
         {
         }
+        public static new LinkAggregationGroupArgs Empty => new LinkAggregationGroupArgs();
     }
 
-    public sealed class LinkAggregationGroupState : Pulumi.ResourceArgs
+    public sealed class LinkAggregationGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the LAG.
@@ -300,5 +299,6 @@ namespace Pulumi.Aws.DirectConnect
         public LinkAggregationGroupState()
         {
         }
+        public static new LinkAggregationGroupState Empty => new LinkAggregationGroupState();
     }
 }

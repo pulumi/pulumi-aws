@@ -15,19 +15,15 @@ namespace Pulumi.Aws.MediaStore
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.MediaStore.Container("example", new Aws.MediaStore.ContainerArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var example = new Aws.MediaStore.Container("example");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.MediaStore
     /// ```
     /// </summary>
     [AwsResourceType("aws:mediastore/container:Container")]
-    public partial class Container : Pulumi.CustomResource
+    public partial class Container : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the container.
@@ -66,7 +62,7 @@ namespace Pulumi.Aws.MediaStore
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -115,7 +111,7 @@ namespace Pulumi.Aws.MediaStore
         }
     }
 
-    public sealed class ContainerArgs : Pulumi.ResourceArgs
+    public sealed class ContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the container. Must contain alphanumeric characters or underscores.
@@ -138,9 +134,10 @@ namespace Pulumi.Aws.MediaStore
         public ContainerArgs()
         {
         }
+        public static new ContainerArgs Empty => new ContainerArgs();
     }
 
-    public sealed class ContainerState : Pulumi.ResourceArgs
+    public sealed class ContainerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the container.
@@ -176,7 +173,7 @@ namespace Pulumi.Aws.MediaStore
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -187,5 +184,6 @@ namespace Pulumi.Aws.MediaStore
         public ContainerState()
         {
         }
+        public static new ContainerState Empty => new ContainerState();
     }
 }

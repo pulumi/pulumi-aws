@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class InventoryDestinationBucketEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class InventoryDestinationBucketEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public InventoryDestinationBucketEncryptionArgs()
         {
         }
+        public static new InventoryDestinationBucketEncryptionArgs Empty => new InventoryDestinationBucketEncryptionArgs();
     }
 }

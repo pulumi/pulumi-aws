@@ -21,41 +21,41 @@ namespace Pulumi.Aws.Acm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var issued = Aws.Acm.GetCertificate.Invoke(new()
         ///     {
-        ///         var issued = Output.Create(Aws.Acm.GetCertificate.InvokeAsync(new Aws.Acm.GetCertificateArgs
+        ///         Domain = "tf.example.com",
+        ///         Statuses = new[]
         ///         {
-        ///             Domain = "tf.example.com",
-        ///             Statuses = 
-        ///             {
-        ///                 "ISSUED",
-        ///             },
-        ///         }));
-        ///         var amazonIssued = Output.Create(Aws.Acm.GetCertificate.InvokeAsync(new Aws.Acm.GetCertificateArgs
-        ///         {
-        ///             Domain = "tf.example.com",
-        ///             MostRecent = true,
-        ///             Types = 
-        ///             {
-        ///                 "AMAZON_ISSUED",
-        ///             },
-        ///         }));
-        ///         var rsa4096 = Output.Create(Aws.Acm.GetCertificate.InvokeAsync(new Aws.Acm.GetCertificateArgs
-        ///         {
-        ///             Domain = "tf.example.com",
-        ///             KeyTypes = 
-        ///             {
-        ///                 "RSA_4096",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "ISSUED",
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var amazonIssued = Aws.Acm.GetCertificate.Invoke(new()
+        ///     {
+        ///         Domain = "tf.example.com",
+        ///         MostRecent = true,
+        ///         Types = new[]
+        ///         {
+        ///             "AMAZON_ISSUED",
+        ///         },
+        ///     });
+        /// 
+        ///     var rsa4096 = Aws.Acm.GetCertificate.Invoke(new()
+        ///     {
+        ///         Domain = "tf.example.com",
+        ///         KeyTypes = new[]
+        ///         {
+        ///             "RSA_4096",
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,41 +73,41 @@ namespace Pulumi.Aws.Acm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var issued = Aws.Acm.GetCertificate.Invoke(new()
         ///     {
-        ///         var issued = Output.Create(Aws.Acm.GetCertificate.InvokeAsync(new Aws.Acm.GetCertificateArgs
+        ///         Domain = "tf.example.com",
+        ///         Statuses = new[]
         ///         {
-        ///             Domain = "tf.example.com",
-        ///             Statuses = 
-        ///             {
-        ///                 "ISSUED",
-        ///             },
-        ///         }));
-        ///         var amazonIssued = Output.Create(Aws.Acm.GetCertificate.InvokeAsync(new Aws.Acm.GetCertificateArgs
-        ///         {
-        ///             Domain = "tf.example.com",
-        ///             MostRecent = true,
-        ///             Types = 
-        ///             {
-        ///                 "AMAZON_ISSUED",
-        ///             },
-        ///         }));
-        ///         var rsa4096 = Output.Create(Aws.Acm.GetCertificate.InvokeAsync(new Aws.Acm.GetCertificateArgs
-        ///         {
-        ///             Domain = "tf.example.com",
-        ///             KeyTypes = 
-        ///             {
-        ///                 "RSA_4096",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "ISSUED",
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var amazonIssued = Aws.Acm.GetCertificate.Invoke(new()
+        ///     {
+        ///         Domain = "tf.example.com",
+        ///         MostRecent = true,
+        ///         Types = new[]
+        ///         {
+        ///             "AMAZON_ISSUED",
+        ///         },
+        ///     });
+        /// 
+        ///     var rsa4096 = Aws.Acm.GetCertificate.Invoke(new()
+        ///     {
+        ///         Domain = "tf.example.com",
+        ///         KeyTypes = new[]
+        ///         {
+        ///             "RSA_4096",
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Acm
     }
 
 
-    public sealed class GetCertificateArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
@@ -184,9 +184,10 @@ namespace Pulumi.Aws.Acm
         public GetCertificateArgs()
         {
         }
+        public static new GetCertificateArgs Empty => new GetCertificateArgs();
     }
 
-    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
@@ -253,6 +254,7 @@ namespace Pulumi.Aws.Acm
         public GetCertificateInvokeArgs()
         {
         }
+        public static new GetCertificateInvokeArgs Empty => new GetCertificateInvokeArgs();
     }
 
 

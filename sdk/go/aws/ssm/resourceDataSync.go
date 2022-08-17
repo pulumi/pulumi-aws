@@ -19,66 +19,71 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		hogeBucketV2, err := s3.NewBucketV2(ctx, "hogeBucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketPolicy(ctx, "hogeBucketPolicy", &s3.BucketPolicyArgs{
-// 			Bucket: hogeBucketV2.Bucket,
-// 			Policy: pulumi.Any(fmt.Sprintf(`{
-//     "Version": "2012-10-17",
-//     "Statement": [
-//         {
-//             "Sid": "SSMBucketPermissionsCheck",
-//             "Effect": "Allow",
-//             "Principal": {
-//                 "Service": "ssm.amazonaws.com"
-//             },
-//             "Action": "s3:GetBucketAcl",
-//             "Resource": "arn:aws:s3:::tf-test-bucket-1234"
-//         },
-//         {
-//             "Sid": " SSMBucketDelivery",
-//             "Effect": "Allow",
-//             "Principal": {
-//                 "Service": "ssm.amazonaws.com"
-//             },
-//             "Action": "s3:PutObject",
-//             "Resource": ["arn:aws:s3:::tf-test-bucket-1234/*"],
-//             "Condition": {
-//                 "StringEquals": {
-//                     "s3:x-amz-acl": "bucket-owner-full-control"
-//                 }
-//             }
-//         }
-//     ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			hogeBucketV2, err := s3.NewBucketV2(ctx, "hogeBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketPolicy(ctx, "hogeBucketPolicy", &s3.BucketPolicyArgs{
+//				Bucket: hogeBucketV2.Bucket,
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//	    "Version": "2012-10-17",
+//	    "Statement": [
+//	        {
+//	            "Sid": "SSMBucketPermissionsCheck",
+//	            "Effect": "Allow",
+//	            "Principal": {
+//	                "Service": "ssm.amazonaws.com"
+//	            },
+//	            "Action": "s3:GetBucketAcl",
+//	            "Resource": "arn:aws:s3:::tf-test-bucket-1234"
+//	        },
+//	        {
+//	            "Sid": " SSMBucketDelivery",
+//	            "Effect": "Allow",
+//	            "Principal": {
+//	                "Service": "ssm.amazonaws.com"
+//	            },
+//	            "Action": "s3:PutObject",
+//	            "Resource": ["arn:aws:s3:::tf-test-bucket-1234/*"],
+//	            "Condition": {
+//	                "StringEquals": {
+//	                    "s3:x-amz-acl": "bucket-owner-full-control"
+//	                }
+//	            }
+//	        }
+//	    ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ssm.NewResourceDataSync(ctx, "foo", &ssm.ResourceDataSyncArgs{
-// 			S3Destination: &ssm.ResourceDataSyncS3DestinationArgs{
-// 				BucketName: hogeBucketV2.Bucket,
-// 				Region:     hogeBucketV2.Region,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssm.NewResourceDataSync(ctx, "foo", &ssm.ResourceDataSyncArgs{
+//				S3Destination: &ssm.ResourceDataSyncS3DestinationArgs{
+//					BucketName: hogeBucketV2.Bucket,
+//					Region:     hogeBucketV2.Region,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -86,7 +91,9 @@ import (
 // SSM resource data sync can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
+//
+//	$ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
+//
 // ```
 type ResourceDataSync struct {
 	pulumi.CustomResourceState
@@ -187,7 +194,7 @@ func (i *ResourceDataSync) ToResourceDataSyncOutputWithContext(ctx context.Conte
 // ResourceDataSyncArrayInput is an input type that accepts ResourceDataSyncArray and ResourceDataSyncArrayOutput values.
 // You can construct a concrete instance of `ResourceDataSyncArrayInput` via:
 //
-//          ResourceDataSyncArray{ ResourceDataSyncArgs{...} }
+//	ResourceDataSyncArray{ ResourceDataSyncArgs{...} }
 type ResourceDataSyncArrayInput interface {
 	pulumi.Input
 
@@ -212,7 +219,7 @@ func (i ResourceDataSyncArray) ToResourceDataSyncArrayOutputWithContext(ctx cont
 // ResourceDataSyncMapInput is an input type that accepts ResourceDataSyncMap and ResourceDataSyncMapOutput values.
 // You can construct a concrete instance of `ResourceDataSyncMapInput` via:
 //
-//          ResourceDataSyncMap{ "key": ResourceDataSyncArgs{...} }
+//	ResourceDataSyncMap{ "key": ResourceDataSyncArgs{...} }
 type ResourceDataSyncMapInput interface {
 	pulumi.Input
 

@@ -20,30 +20,28 @@ namespace Pulumi.Aws.Ec2
         /// ### Filter Example
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Ec2.GetDedicatedHost.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Ec2.GetDedicatedHost.InvokeAsync(new Aws.Ec2.GetDedicatedHostArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetDedicatedHostFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetDedicatedHostFilterArgs
+        ///                 Name = "instance-type",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "instance-type",
-        ///                     Values = 
-        ///                     {
-        ///                         "c5.18xlarge",
-        ///                     },
+        ///                     "c5.18xlarge",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -60,30 +58,28 @@ namespace Pulumi.Aws.Ec2
         /// ### Filter Example
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Ec2.GetDedicatedHost.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Ec2.GetDedicatedHost.InvokeAsync(new Aws.Ec2.GetDedicatedHostArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetDedicatedHostFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetDedicatedHostFilterArgs
+        ///                 Name = "instance-type",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "instance-type",
-        ///                     Values = 
-        ///                     {
-        ///                         "c5.18xlarge",
-        ///                     },
+        ///                     "c5.18xlarge",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -93,7 +89,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetDedicatedHostArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedHostArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetDedicatedHostFilterArgs>? _filters;
@@ -124,9 +120,10 @@ namespace Pulumi.Aws.Ec2
         public GetDedicatedHostArgs()
         {
         }
+        public static new GetDedicatedHostArgs Empty => new GetDedicatedHostArgs();
     }
 
-    public sealed class GetDedicatedHostInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedHostInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetDedicatedHostFilterInputArgs>? _filters;
@@ -157,6 +154,7 @@ namespace Pulumi.Aws.Ec2
         public GetDedicatedHostInvokeArgs()
         {
         }
+        public static new GetDedicatedHostInvokeArgs Empty => new GetDedicatedHostInvokeArgs();
     }
 
 

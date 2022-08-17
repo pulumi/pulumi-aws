@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("referenceId")]
         public Input<string>? ReferenceId { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceGetArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceGetArgs Empty => new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceGetArgs();
     }
 }

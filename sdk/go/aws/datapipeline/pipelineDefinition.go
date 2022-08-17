@@ -19,81 +19,84 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datapipeline"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datapipeline"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datapipeline.NewPipeline(ctx, "default", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datapipeline.NewPipelineDefinition(ctx, "example", &datapipeline.PipelineDefinitionArgs{
-// 			PipelineId: _default.ID(),
-// 			PipelineObjects: datapipeline.PipelineDefinitionPipelineObjectArray{
-// 				&datapipeline.PipelineDefinitionPipelineObjectArgs{
-// 					Id:   pulumi.String("Default"),
-// 					Name: pulumi.String("Default"),
-// 					Fields: datapipeline.PipelineDefinitionPipelineObjectFieldArray{
-// 						&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-// 							Key:         pulumi.String("workerGroup"),
-// 							StringValue: pulumi.String("workerGroup"),
-// 						},
-// 					},
-// 				},
-// 				&datapipeline.PipelineDefinitionPipelineObjectArgs{
-// 					Id:   pulumi.String("Schedule"),
-// 					Name: pulumi.String("Schedule"),
-// 					Fields: datapipeline.PipelineDefinitionPipelineObjectFieldArray{
-// 						&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-// 							Key:         pulumi.String("startDateTime"),
-// 							StringValue: pulumi.String("2012-12-12T00:00:00"),
-// 						},
-// 						&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-// 							Key:         pulumi.String("type"),
-// 							StringValue: pulumi.String("Schedule"),
-// 						},
-// 						&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-// 							Key:         pulumi.String("period"),
-// 							StringValue: pulumi.String("1 hour"),
-// 						},
-// 						&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-// 							Key:         pulumi.String("endDateTime"),
-// 							StringValue: pulumi.String("2012-12-21T18:00:00"),
-// 						},
-// 					},
-// 				},
-// 				&datapipeline.PipelineDefinitionPipelineObjectArgs{
-// 					Id:   pulumi.String("SayHello"),
-// 					Name: pulumi.String("SayHello"),
-// 					Fields: datapipeline.PipelineDefinitionPipelineObjectFieldArray{
-// 						&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-// 							Key:         pulumi.String("type"),
-// 							StringValue: pulumi.String("ShellCommandActivity"),
-// 						},
-// 						&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-// 							Key:         pulumi.String("command"),
-// 							StringValue: pulumi.String("echo hello"),
-// 						},
-// 						&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-// 							Key:         pulumi.String("parent"),
-// 							StringValue: pulumi.String("Default"),
-// 						},
-// 						&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
-// 							Key:         pulumi.String("schedule"),
-// 							StringValue: pulumi.String("Schedule"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datapipeline.NewPipeline(ctx, "default", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datapipeline.NewPipelineDefinition(ctx, "example", &datapipeline.PipelineDefinitionArgs{
+//				PipelineId: _default.ID(),
+//				PipelineObjects: datapipeline.PipelineDefinitionPipelineObjectArray{
+//					&datapipeline.PipelineDefinitionPipelineObjectArgs{
+//						Id:   pulumi.String("Default"),
+//						Name: pulumi.String("Default"),
+//						Fields: datapipeline.PipelineDefinitionPipelineObjectFieldArray{
+//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
+//								Key:         pulumi.String("workerGroup"),
+//								StringValue: pulumi.String("workerGroup"),
+//							},
+//						},
+//					},
+//					&datapipeline.PipelineDefinitionPipelineObjectArgs{
+//						Id:   pulumi.String("Schedule"),
+//						Name: pulumi.String("Schedule"),
+//						Fields: datapipeline.PipelineDefinitionPipelineObjectFieldArray{
+//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
+//								Key:         pulumi.String("startDateTime"),
+//								StringValue: pulumi.String("2012-12-12T00:00:00"),
+//							},
+//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
+//								Key:         pulumi.String("type"),
+//								StringValue: pulumi.String("Schedule"),
+//							},
+//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
+//								Key:         pulumi.String("period"),
+//								StringValue: pulumi.String("1 hour"),
+//							},
+//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
+//								Key:         pulumi.String("endDateTime"),
+//								StringValue: pulumi.String("2012-12-21T18:00:00"),
+//							},
+//						},
+//					},
+//					&datapipeline.PipelineDefinitionPipelineObjectArgs{
+//						Id:   pulumi.String("SayHello"),
+//						Name: pulumi.String("SayHello"),
+//						Fields: datapipeline.PipelineDefinitionPipelineObjectFieldArray{
+//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
+//								Key:         pulumi.String("type"),
+//								StringValue: pulumi.String("ShellCommandActivity"),
+//							},
+//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
+//								Key:         pulumi.String("command"),
+//								StringValue: pulumi.String("echo hello"),
+//							},
+//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
+//								Key:         pulumi.String("parent"),
+//								StringValue: pulumi.String("Default"),
+//							},
+//							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
+//								Key:         pulumi.String("schedule"),
+//								StringValue: pulumi.String("Schedule"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -101,7 +104,9 @@ import (
 // `aws_datapipeline_pipeline_definition` can be imported using the id, e.g.
 //
 // ```sh
-//  $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
+//
+//	$ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
+//
 // ```
 type PipelineDefinition struct {
 	pulumi.CustomResourceState
@@ -225,7 +230,7 @@ func (i *PipelineDefinition) ToPipelineDefinitionOutputWithContext(ctx context.C
 // PipelineDefinitionArrayInput is an input type that accepts PipelineDefinitionArray and PipelineDefinitionArrayOutput values.
 // You can construct a concrete instance of `PipelineDefinitionArrayInput` via:
 //
-//          PipelineDefinitionArray{ PipelineDefinitionArgs{...} }
+//	PipelineDefinitionArray{ PipelineDefinitionArgs{...} }
 type PipelineDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -250,7 +255,7 @@ func (i PipelineDefinitionArray) ToPipelineDefinitionArrayOutputWithContext(ctx 
 // PipelineDefinitionMapInput is an input type that accepts PipelineDefinitionMap and PipelineDefinitionMapOutput values.
 // You can construct a concrete instance of `PipelineDefinitionMapInput` via:
 //
-//          PipelineDefinitionMap{ "key": PipelineDefinitionArgs{...} }
+//	PipelineDefinitionMap{ "key": PipelineDefinitionArgs{...} }
 type PipelineDefinitionMapInput interface {
 	pulumi.Input
 

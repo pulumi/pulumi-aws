@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Eks.Inputs
 {
 
-    public sealed class ClusterEncryptionConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterEncryptionConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block with provider for encryption. Detailed below.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Eks.Inputs
         public ClusterEncryptionConfigGetArgs()
         {
         }
+        public static new ClusterEncryptionConfigGetArgs Empty => new ClusterEncryptionConfigGetArgs();
     }
 }

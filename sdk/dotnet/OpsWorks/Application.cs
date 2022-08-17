@@ -15,59 +15,57 @@ namespace Pulumi.Aws.OpsWorks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo_app = new Aws.OpsWorks.Application("foo-app", new()
     ///     {
-    ///         var foo_app = new Aws.OpsWorks.Application("foo-app", new Aws.OpsWorks.ApplicationArgs
+    ///         ShortName = "foobar",
+    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///         Type = "rails",
+    ///         Description = "This is a Rails application",
+    ///         Domains = new[]
     ///         {
-    ///             ShortName = "foobar",
-    ///             StackId = aws_opsworks_stack.Main.Id,
-    ///             Type = "rails",
-    ///             Description = "This is a Rails application",
-    ///             Domains = 
+    ///             "example.com",
+    ///             "sub.example.com",
+    ///         },
+    ///         Environments = new[]
+    ///         {
+    ///             new Aws.OpsWorks.Inputs.ApplicationEnvironmentArgs
     ///             {
-    ///                 "example.com",
-    ///                 "sub.example.com",
+    ///                 Key = "key",
+    ///                 Value = "value",
+    ///                 Secure = false,
     ///             },
-    ///             Environments = 
+    ///         },
+    ///         AppSources = new[]
+    ///         {
+    ///             new Aws.OpsWorks.Inputs.ApplicationAppSourceArgs
     ///             {
-    ///                 new Aws.OpsWorks.Inputs.ApplicationEnvironmentArgs
-    ///                 {
-    ///                     Key = "key",
-    ///                     Value = "value",
-    ///                     Secure = false,
-    ///                 },
+    ///                 Type = "git",
+    ///                 Revision = "master",
+    ///                 Url = "https://github.com/example.git",
     ///             },
-    ///             AppSources = 
+    ///         },
+    ///         EnableSsl = true,
+    ///         SslConfigurations = new[]
+    ///         {
+    ///             new Aws.OpsWorks.Inputs.ApplicationSslConfigurationArgs
     ///             {
-    ///                 new Aws.OpsWorks.Inputs.ApplicationAppSourceArgs
-    ///                 {
-    ///                     Type = "git",
-    ///                     Revision = "master",
-    ///                     Url = "https://github.com/example.git",
-    ///                 },
+    ///                 PrivateKey = File.ReadAllText("./foobar.key"),
+    ///                 Certificate = File.ReadAllText("./foobar.crt"),
     ///             },
-    ///             EnableSsl = true,
-    ///             SslConfigurations = 
-    ///             {
-    ///                 new Aws.OpsWorks.Inputs.ApplicationSslConfigurationArgs
-    ///                 {
-    ///                     PrivateKey = File.ReadAllText("./foobar.key"),
-    ///                     Certificate = File.ReadAllText("./foobar.crt"),
-    ///                 },
-    ///             },
-    ///             DocumentRoot = "public",
-    ///             AutoBundleOnDeploy = "true",
-    ///             RailsEnv = "staging",
-    ///         });
-    ///     }
+    ///         },
+    ///         DocumentRoot = "public",
+    ///         AutoBundleOnDeploy = "true",
+    ///         RailsEnv = "staging",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -79,7 +77,7 @@ namespace Pulumi.Aws.OpsWorks
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/application:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// SCM configuration of the app as described below.
@@ -227,7 +225,7 @@ namespace Pulumi.Aws.OpsWorks
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         [Input("appSources")]
         private InputList<Inputs.ApplicationAppSourceArgs>? _appSources;
@@ -358,9 +356,10 @@ namespace Pulumi.Aws.OpsWorks
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 
-    public sealed class ApplicationState : Pulumi.ResourceArgs
+    public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
         [Input("appSources")]
         private InputList<Inputs.ApplicationAppSourceGetArgs>? _appSources;
@@ -491,5 +490,6 @@ namespace Pulumi.Aws.OpsWorks
         public ApplicationState()
         {
         }
+        public static new ApplicationState Empty => new ApplicationState();
     }
 }

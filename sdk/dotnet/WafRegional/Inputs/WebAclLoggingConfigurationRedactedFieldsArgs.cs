@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafRegional.Inputs
 {
 
-    public sealed class WebAclLoggingConfigurationRedactedFieldsArgs : Pulumi.ResourceArgs
+    public sealed class WebAclLoggingConfigurationRedactedFieldsArgs : global::Pulumi.ResourceArgs
     {
         [Input("fieldToMatches", required: true)]
         private InputList<Inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs>? _fieldToMatches;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafRegional.Inputs
         public WebAclLoggingConfigurationRedactedFieldsArgs()
         {
         }
+        public static new WebAclLoggingConfigurationRedactedFieldsArgs Empty => new WebAclLoggingConfigurationRedactedFieldsArgs();
     }
 }

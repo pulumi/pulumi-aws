@@ -20,35 +20,40 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sfn"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sfn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
-// 			RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
-// 			Definition: pulumi.String(fmt.Sprintf(`{
-//   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-//   "StartAt": "HelloWorld",
-//   "States": {
-//     "HelloWorld": {
-//       "Type": "Task",
-//       "Resource": "%v",
-//       "End": true
-//     }
-//   }
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
+//				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
+//				Definition: pulumi.String(fmt.Sprintf(`{
+//	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+//	  "StartAt": "HelloWorld",
+//	  "States": {
+//	    "HelloWorld": {
+//	      "Type": "Task",
+//	      "Resource": "%v",
+//	      "End": true
+//	    }
+//	  }
+//	}
+//
 // `, aws_lambda_function.Lambda.Arn)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Basic (Express Workflow)
 //
@@ -56,36 +61,41 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sfn"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sfn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
-// 			RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
-// 			Type:    pulumi.String("EXPRESS"),
-// 			Definition: pulumi.String(fmt.Sprintf(`{
-//   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-//   "StartAt": "HelloWorld",
-//   "States": {
-//     "HelloWorld": {
-//       "Type": "Task",
-//       "Resource": "%v",
-//       "End": true
-//     }
-//   }
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
+//				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
+//				Type:    pulumi.String("EXPRESS"),
+//				Definition: pulumi.String(fmt.Sprintf(`{
+//	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+//	  "StartAt": "HelloWorld",
+//	  "States": {
+//	    "HelloWorld": {
+//	      "Type": "Task",
+//	      "Resource": "%v",
+//	      "End": true
+//	    }
+//	  }
+//	}
+//
 // `, aws_lambda_function.Lambda.Arn)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Logging
 //
@@ -95,40 +105,45 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sfn"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sfn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
-// 			RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
-// 			Definition: pulumi.String(fmt.Sprintf(`{
-//   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-//   "StartAt": "HelloWorld",
-//   "States": {
-//     "HelloWorld": {
-//       "Type": "Task",
-//       "Resource": "%v",
-//       "End": true
-//     }
-//   }
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
+//				RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
+//				Definition: pulumi.String(fmt.Sprintf(`{
+//	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+//	  "StartAt": "HelloWorld",
+//	  "States": {
+//	    "HelloWorld": {
+//	      "Type": "Task",
+//	      "Resource": "%v",
+//	      "End": true
+//	    }
+//	  }
+//	}
+//
 // `, aws_lambda_function.Lambda.Arn)),
-// 			LoggingConfiguration: &sfn.StateMachineLoggingConfigurationArgs{
-// 				LogDestination:       pulumi.String(fmt.Sprintf("%v:*", aws_cloudwatch_log_group.Log_group_for_sfn.Arn)),
-// 				IncludeExecutionData: pulumi.Bool(true),
-// 				Level:                pulumi.String("ERROR"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				LoggingConfiguration: &sfn.StateMachineLoggingConfigurationArgs{
+//					LogDestination:       pulumi.String(fmt.Sprintf("%v:*", aws_cloudwatch_log_group.Log_group_for_sfn.Arn)),
+//					IncludeExecutionData: pulumi.Bool(true),
+//					Level:                pulumi.String("ERROR"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -136,7 +151,9 @@ import (
 // State Machines can be imported using the `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+//
+//	$ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+//
 // ```
 type StateMachine struct {
 	pulumi.CustomResourceState
@@ -157,7 +174,7 @@ type StateMachine struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Selects whether AWS X-Ray tracing is enabled.
 	TracingConfiguration StateMachineTracingConfigurationOutput `pulumi:"tracingConfiguration"`
@@ -216,7 +233,7 @@ type stateMachineState struct {
 	Status *string `pulumi:"status"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Selects whether AWS X-Ray tracing is enabled.
 	TracingConfiguration *StateMachineTracingConfiguration `pulumi:"tracingConfiguration"`
@@ -241,7 +258,7 @@ type StateMachineState struct {
 	Status pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Selects whether AWS X-Ray tracing is enabled.
 	TracingConfiguration StateMachineTracingConfigurationPtrInput
@@ -314,7 +331,7 @@ func (i *StateMachine) ToStateMachineOutputWithContext(ctx context.Context) Stat
 // StateMachineArrayInput is an input type that accepts StateMachineArray and StateMachineArrayOutput values.
 // You can construct a concrete instance of `StateMachineArrayInput` via:
 //
-//          StateMachineArray{ StateMachineArgs{...} }
+//	StateMachineArray{ StateMachineArgs{...} }
 type StateMachineArrayInput interface {
 	pulumi.Input
 
@@ -339,7 +356,7 @@ func (i StateMachineArray) ToStateMachineArrayOutputWithContext(ctx context.Cont
 // StateMachineMapInput is an input type that accepts StateMachineMap and StateMachineMapOutput values.
 // You can construct a concrete instance of `StateMachineMapInput` via:
 //
-//          StateMachineMap{ "key": StateMachineArgs{...} }
+//	StateMachineMap{ "key": StateMachineArgs{...} }
 type StateMachineMapInput interface {
 	pulumi.Input
 
@@ -415,7 +432,7 @@ func (o StateMachineOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider.
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o StateMachineOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

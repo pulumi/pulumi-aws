@@ -21,28 +21,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudhsmv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudhsmv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		cluster, err := cloudhsmv2.LookupCluster(ctx, &cloudhsmv2.LookupClusterArgs{
-// 			ClusterId: _var.Cloudhsm_cluster_id,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cloudhsmv2.NewHsm(ctx, "cloudhsmV2Hsm", &cloudhsmv2.HsmArgs{
-// 			SubnetId:  pulumi.String(cluster.SubnetIds[0]),
-// 			ClusterId: pulumi.String(cluster.ClusterId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cluster, err := cloudhsmv2.LookupCluster(ctx, &cloudhsmv2.LookupClusterArgs{
+//				ClusterId: _var.Cloudhsm_cluster_id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudhsmv2.NewHsm(ctx, "cloudhsmV2Hsm", &cloudhsmv2.HsmArgs{
+//				SubnetId:  pulumi.String(cluster.SubnetIds[0]),
+//				ClusterId: pulumi.String(cluster.ClusterId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // HSM modules can be imported using their HSM ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
+//
+//	$ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
+//
 // ```
 type Hsm struct {
 	pulumi.CustomResourceState
@@ -189,7 +194,7 @@ func (i *Hsm) ToHsmOutputWithContext(ctx context.Context) HsmOutput {
 // HsmArrayInput is an input type that accepts HsmArray and HsmArrayOutput values.
 // You can construct a concrete instance of `HsmArrayInput` via:
 //
-//          HsmArray{ HsmArgs{...} }
+//	HsmArray{ HsmArgs{...} }
 type HsmArrayInput interface {
 	pulumi.Input
 
@@ -214,7 +219,7 @@ func (i HsmArray) ToHsmArrayOutputWithContext(ctx context.Context) HsmArrayOutpu
 // HsmMapInput is an input type that accepts HsmMap and HsmMapOutput values.
 // You can construct a concrete instance of `HsmMapInput` via:
 //
-//          HsmMap{ "key": HsmArgs{...} }
+//	HsmMap{ "key": HsmArgs{...} }
 type HsmMapInput interface {
 	pulumi.Input
 

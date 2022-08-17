@@ -15,23 +15,21 @@ namespace Pulumi.Aws.Dax
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var bar = new Aws.Dax.Cluster("bar", new()
     ///     {
-    ///         var bar = new Aws.Dax.Cluster("bar", new Aws.Dax.ClusterArgs
-    ///         {
-    ///             ClusterName = "cluster-example",
-    ///             IamRoleArn = data.Aws_iam_role.Example.Arn,
-    ///             NodeType = "dax.r4.large",
-    ///             ReplicationFactor = 1,
-    ///         });
-    ///     }
+    ///         ClusterName = "cluster-example",
+    ///         IamRoleArn = data.Aws_iam_role.Example.Arn,
+    ///         NodeType = "dax.r4.large",
+    ///         ReplicationFactor = 1,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.Dax
     ///  [1]http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes
     /// </summary>
     [AwsResourceType("aws:dax/cluster:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the DAX cluster
@@ -182,7 +180,7 @@ namespace Pulumi.Aws.Dax
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -231,7 +229,7 @@ namespace Pulumi.Aws.Dax
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
@@ -355,9 +353,10 @@ namespace Pulumi.Aws.Dax
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 
-    public sealed class ClusterState : Pulumi.ResourceArgs
+    public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the DAX cluster
@@ -521,7 +520,7 @@ namespace Pulumi.Aws.Dax
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -532,5 +531,6 @@ namespace Pulumi.Aws.Dax
         public ClusterState()
         {
         }
+        public static new ClusterState Empty => new ClusterState();
     }
 }

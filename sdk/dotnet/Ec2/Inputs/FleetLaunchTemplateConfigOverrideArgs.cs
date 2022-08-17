@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class FleetLaunchTemplateConfigOverrideArgs : Pulumi.ResourceArgs
+    public sealed class FleetLaunchTemplateConfigOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Availability Zone in which to launch the instances.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public FleetLaunchTemplateConfigOverrideArgs()
         {
         }
+        public static new FleetLaunchTemplateConfigOverrideArgs Empty => new FleetLaunchTemplateConfigOverrideArgs();
     }
 }

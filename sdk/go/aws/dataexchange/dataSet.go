@@ -19,30 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dataexchange"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dataexchange"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := dataexchange.NewDataSet(ctx, "example", &dataexchange.DataSetArgs{
-// 			AssetType:   pulumi.String("S3_SNAPSHOT"),
-// 			Description: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := dataexchange.NewDataSet(ctx, "example", &dataexchange.DataSetArgs{
+//				AssetType:   pulumi.String("S3_SNAPSHOT"),
+//				Description: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// DataExchange DataSets can be imported by their arn
+// # DataExchange DataSets can be imported by their arn
 //
 // ```sh
-//  $ pulumi import aws:dataexchange/dataSet:DataSet example arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+//
+//	$ pulumi import aws:dataexchange/dataSet:DataSet example arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+//
 // ```
 type DataSet struct {
 	pulumi.CustomResourceState
@@ -56,8 +61,7 @@ type DataSet struct {
 	// The name of the data set.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -105,8 +109,7 @@ type dataSetState struct {
 	// The name of the data set.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -120,8 +123,7 @@ type DataSetState struct {
 	// The name of the data set.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -178,7 +180,7 @@ func (i *DataSet) ToDataSetOutputWithContext(ctx context.Context) DataSetOutput 
 // DataSetArrayInput is an input type that accepts DataSetArray and DataSetArrayOutput values.
 // You can construct a concrete instance of `DataSetArrayInput` via:
 //
-//          DataSetArray{ DataSetArgs{...} }
+//	DataSetArray{ DataSetArgs{...} }
 type DataSetArrayInput interface {
 	pulumi.Input
 
@@ -203,7 +205,7 @@ func (i DataSetArray) ToDataSetArrayOutputWithContext(ctx context.Context) DataS
 // DataSetMapInput is an input type that accepts DataSetMap and DataSetMapOutput values.
 // You can construct a concrete instance of `DataSetMapInput` via:
 //
-//          DataSetMap{ "key": DataSetArgs{...} }
+//	DataSetMap{ "key": DataSetArgs{...} }
 type DataSetMapInput interface {
 	pulumi.Input
 
@@ -264,7 +266,6 @@ func (o DataSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o DataSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

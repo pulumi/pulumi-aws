@@ -13,27 +13,25 @@ namespace Pulumi.Aws.CloudFormation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CloudFormation.CloudFormationType("example", new()
     ///     {
-    ///         var example = new Aws.CloudFormation.CloudFormationType("example", new Aws.CloudFormation.CloudFormationTypeArgs
+    ///         SchemaHandlerPackage = $"s3://{aws_s3_object.Example.Bucket}/{aws_s3_object.Example.Key}",
+    ///         Type = "RESOURCE",
+    ///         TypeName = "ExampleCompany::ExampleService::ExampleResource",
+    ///         LoggingConfig = new Aws.CloudFormation.Inputs.CloudFormationTypeLoggingConfigArgs
     ///         {
-    ///             SchemaHandlerPackage = $"s3://{aws_s3_object.Example.Bucket}/{aws_s3_object.Example.Key}",
-    ///             Type = "RESOURCE",
-    ///             TypeName = "ExampleCompany::ExampleService::ExampleResource",
-    ///             LoggingConfig = new Aws.CloudFormation.Inputs.CloudFormationTypeLoggingConfigArgs
-    ///             {
-    ///                 LogGroupName = aws_cloudwatch_log_group.Example.Name,
-    ///                 LogRoleArn = aws_iam_role.Example.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             LogGroupName = aws_cloudwatch_log_group.Example.Name,
+    ///             LogRoleArn = aws_iam_role.Example.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.CloudFormation
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudformation/cloudFormationType:CloudFormationType")]
-    public partial class CloudFormationType : Pulumi.CustomResource
+    public partial class CloudFormationType : global::Pulumi.CustomResource
     {
         /// <summary>
         /// (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
@@ -193,7 +191,7 @@ namespace Pulumi.Aws.CloudFormation
         }
     }
 
-    public sealed class CloudFormationTypeArgs : Pulumi.ResourceArgs
+    public sealed class CloudFormationTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
@@ -228,9 +226,10 @@ namespace Pulumi.Aws.CloudFormation
         public CloudFormationTypeArgs()
         {
         }
+        public static new CloudFormationTypeArgs Empty => new CloudFormationTypeArgs();
     }
 
-    public sealed class CloudFormationTypeState : Pulumi.ResourceArgs
+    public sealed class CloudFormationTypeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `type_arn`.
@@ -337,5 +336,6 @@ namespace Pulumi.Aws.CloudFormation
         public CloudFormationTypeState()
         {
         }
+        public static new CloudFormationTypeState Empty => new CloudFormationTypeState();
     }
 }

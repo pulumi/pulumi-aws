@@ -18,34 +18,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := wafregional.NewXssMatchSet(ctx, "xssMatchSet", &wafregional.XssMatchSetArgs{
-// 			XssMatchTuples: wafregional.XssMatchSetXssMatchTupleArray{
-// 				&wafregional.XssMatchSetXssMatchTupleArgs{
-// 					FieldToMatch: &wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs{
-// 						Type: pulumi.String("URI"),
-// 					},
-// 					TextTransformation: pulumi.String("NONE"),
-// 				},
-// 				&wafregional.XssMatchSetXssMatchTupleArgs{
-// 					FieldToMatch: &wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs{
-// 						Type: pulumi.String("QUERY_STRING"),
-// 					},
-// 					TextTransformation: pulumi.String("NONE"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := wafregional.NewXssMatchSet(ctx, "xssMatchSet", &wafregional.XssMatchSetArgs{
+//				XssMatchTuples: wafregional.XssMatchSetXssMatchTupleArray{
+//					&wafregional.XssMatchSetXssMatchTupleArgs{
+//						FieldToMatch: &wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs{
+//							Type: pulumi.String("URI"),
+//						},
+//						TextTransformation: pulumi.String("NONE"),
+//					},
+//					&wafregional.XssMatchSetXssMatchTupleArgs{
+//						FieldToMatch: &wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs{
+//							Type: pulumi.String("QUERY_STRING"),
+//						},
+//						TextTransformation: pulumi.String("NONE"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // AWS WAF Regional XSS Match can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
+//
+//	$ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
+//
 // ```
 type XssMatchSet struct {
 	pulumi.CustomResourceState
@@ -151,7 +156,7 @@ func (i *XssMatchSet) ToXssMatchSetOutputWithContext(ctx context.Context) XssMat
 // XssMatchSetArrayInput is an input type that accepts XssMatchSetArray and XssMatchSetArrayOutput values.
 // You can construct a concrete instance of `XssMatchSetArrayInput` via:
 //
-//          XssMatchSetArray{ XssMatchSetArgs{...} }
+//	XssMatchSetArray{ XssMatchSetArgs{...} }
 type XssMatchSetArrayInput interface {
 	pulumi.Input
 
@@ -176,7 +181,7 @@ func (i XssMatchSetArray) ToXssMatchSetArrayOutputWithContext(ctx context.Contex
 // XssMatchSetMapInput is an input type that accepts XssMatchSetMap and XssMatchSetMapOutput values.
 // You can construct a concrete instance of `XssMatchSetMapInput` via:
 //
-//          XssMatchSetMap{ "key": XssMatchSetArgs{...} }
+//	XssMatchSetMap{ "key": XssMatchSetArgs{...} }
 type XssMatchSetMapInput interface {
 	pulumi.Input
 

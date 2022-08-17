@@ -23,33 +23,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
-// 			AwsServiceAccessPrincipals: pulumi.StringArray{
-// 				pulumi.String("config-multiaccountsetup.amazonaws.com"),
-// 			},
-// 			FeatureSet: pulumi.String("ALL"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cfg.NewOrganizationManagedRule(ctx, "exampleOrganizationManagedRule", &cfg.OrganizationManagedRuleArgs{
-// 			RuleIdentifier: pulumi.String("IAM_PASSWORD_POLICY"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleOrganization,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
+//				AwsServiceAccessPrincipals: pulumi.StringArray{
+//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
+//				},
+//				FeatureSet: pulumi.String("ALL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cfg.NewOrganizationManagedRule(ctx, "exampleOrganizationManagedRule", &cfg.OrganizationManagedRuleArgs{
+//				RuleIdentifier: pulumi.String("IAM_PASSWORD_POLICY"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleOrganization,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Config Organization Managed Rules can be imported using the name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
+//
+//	$ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
+//
 // ```
 type OrganizationManagedRule struct {
 	pulumi.CustomResourceState
@@ -244,7 +249,7 @@ func (i *OrganizationManagedRule) ToOrganizationManagedRuleOutputWithContext(ctx
 // OrganizationManagedRuleArrayInput is an input type that accepts OrganizationManagedRuleArray and OrganizationManagedRuleArrayOutput values.
 // You can construct a concrete instance of `OrganizationManagedRuleArrayInput` via:
 //
-//          OrganizationManagedRuleArray{ OrganizationManagedRuleArgs{...} }
+//	OrganizationManagedRuleArray{ OrganizationManagedRuleArgs{...} }
 type OrganizationManagedRuleArrayInput interface {
 	pulumi.Input
 
@@ -269,7 +274,7 @@ func (i OrganizationManagedRuleArray) ToOrganizationManagedRuleArrayOutputWithCo
 // OrganizationManagedRuleMapInput is an input type that accepts OrganizationManagedRuleMap and OrganizationManagedRuleMapOutput values.
 // You can construct a concrete instance of `OrganizationManagedRuleMapInput` via:
 //
-//          OrganizationManagedRuleMap{ "key": OrganizationManagedRuleArgs{...} }
+//	OrganizationManagedRuleMap{ "key": OrganizationManagedRuleArgs{...} }
 type OrganizationManagedRuleMapInput interface {
 	pulumi.Input
 

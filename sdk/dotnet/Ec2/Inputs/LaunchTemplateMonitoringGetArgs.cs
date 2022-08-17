@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateMonitoringGetArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateMonitoringGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If `true`, the launched EC2 instance will have detailed monitoring enabled.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateMonitoringGetArgs()
         {
         }
+        public static new LaunchTemplateMonitoringGetArgs Empty => new LaunchTemplateMonitoringGetArgs();
     }
 }

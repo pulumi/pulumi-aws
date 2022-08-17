@@ -21,24 +21,22 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2TransitGateway.VpcAttachmentAccepter("example", new()
     ///     {
-    ///         var example = new Aws.Ec2TransitGateway.VpcAttachmentAccepter("example", new Aws.Ec2TransitGateway.VpcAttachmentAccepterArgs
+    ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
+    ///         Tags = 
     ///         {
-    ///             TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example cross-account attachment" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "Example cross-account attachment" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter")]
-    public partial class VpcAttachmentAccepter : Pulumi.CustomResource
+    public partial class VpcAttachmentAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
@@ -168,7 +166,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
-    public sealed class VpcAttachmentAccepterArgs : Pulumi.ResourceArgs
+    public sealed class VpcAttachmentAccepterArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -203,9 +201,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public VpcAttachmentAccepterArgs()
         {
         }
+        public static new VpcAttachmentAccepterArgs Empty => new VpcAttachmentAccepterArgs();
     }
 
-    public sealed class VpcAttachmentAccepterState : Pulumi.ResourceArgs
+    public sealed class VpcAttachmentAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
@@ -300,5 +299,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public VpcAttachmentAccepterState()
         {
         }
+        public static new VpcAttachmentAccepterState Empty => new VpcAttachmentAccepterState();
     }
 }

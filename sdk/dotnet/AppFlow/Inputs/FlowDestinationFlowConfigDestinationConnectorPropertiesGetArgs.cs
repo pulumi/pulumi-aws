@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesGetArgs : Pulumi.ResourceArgs
+    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
@@ -90,5 +90,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowDestinationFlowConfigDestinationConnectorPropertiesGetArgs()
         {
         }
+        public static new FlowDestinationFlowConfigDestinationConnectorPropertiesGetArgs Empty => new FlowDestinationFlowConfigDestinationConnectorPropertiesGetArgs();
     }
 }

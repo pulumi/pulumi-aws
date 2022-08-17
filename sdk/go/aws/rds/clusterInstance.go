@@ -32,45 +32,48 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rds.NewCluster(ctx, "default", &rds.ClusterArgs{
-// 			ClusterIdentifier: pulumi.String("aurora-cluster-demo"),
-// 			AvailabilityZones: pulumi.StringArray{
-// 				pulumi.String("us-west-2a"),
-// 				pulumi.String("us-west-2b"),
-// 				pulumi.String("us-west-2c"),
-// 			},
-// 			DatabaseName:   pulumi.String("mydb"),
-// 			MasterUsername: pulumi.String("foo"),
-// 			MasterPassword: pulumi.String("barbut8chars"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		var clusterInstances []*rds.ClusterInstance
-// 		for key0, val0 := range 2 {
-// 			__res, err := rds.NewClusterInstance(ctx, fmt.Sprintf("clusterInstances-%v", key0), &rds.ClusterInstanceArgs{
-// 				Identifier:        pulumi.String(fmt.Sprintf("aurora-cluster-demo-%v", val0)),
-// 				ClusterIdentifier: _default.ID(),
-// 				InstanceClass:     pulumi.String("db.r4.large"),
-// 				Engine:            _default.Engine,
-// 				EngineVersion:     _default.EngineVersion,
-// 			})
-// 			if err != nil {
-// 				return err
-// 			}
-// 			clusterInstances = append(clusterInstances, __res)
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewCluster(ctx, "default", &rds.ClusterArgs{
+//				ClusterIdentifier: pulumi.String("aurora-cluster-demo"),
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-west-2a"),
+//					pulumi.String("us-west-2b"),
+//					pulumi.String("us-west-2c"),
+//				},
+//				DatabaseName:   pulumi.String("mydb"),
+//				MasterUsername: pulumi.String("foo"),
+//				MasterPassword: pulumi.String("barbut8chars"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			var clusterInstances []*rds.ClusterInstance
+//			for key0, val0 := range 2 {
+//				__res, err := rds.NewClusterInstance(ctx, fmt.Sprintf("clusterInstances-%v", key0), &rds.ClusterInstanceArgs{
+//					Identifier:        pulumi.String(fmt.Sprintf("aurora-cluster-demo-%v", val0)),
+//					ClusterIdentifier: _default.ID(),
+//					InstanceClass:     pulumi.String("db.r4.large"),
+//					Engine:            _default.Engine,
+//					EngineVersion:     _default.EngineVersion,
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				clusterInstances = append(clusterInstances, __res)
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -78,7 +81,9 @@ import (
 // RDS Cluster Instances can be imported using the `identifier`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
+//
+//	$ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
+//
 // ```
 type ClusterInstance struct {
 	pulumi.CustomResourceState
@@ -152,9 +157,9 @@ type ClusterInstance struct {
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
-	// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolOutput `pulumi:"writer"`
@@ -264,9 +269,9 @@ type clusterInstanceState struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer *bool `pulumi:"writer"`
@@ -342,9 +347,9 @@ type ClusterInstanceState struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Specifies whether the DB cluster is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolPtrInput
@@ -410,7 +415,7 @@ type clusterInstanceArgs struct {
 	// Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
 	// details on controlling this property.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -471,7 +476,7 @@ type ClusterInstanceArgs struct {
 	// Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more
 	// details on controlling this property.
 	PubliclyAccessible pulumi.BoolPtrInput
-	// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -501,7 +506,7 @@ func (i *ClusterInstance) ToClusterInstanceOutputWithContext(ctx context.Context
 // ClusterInstanceArrayInput is an input type that accepts ClusterInstanceArray and ClusterInstanceArrayOutput values.
 // You can construct a concrete instance of `ClusterInstanceArrayInput` via:
 //
-//          ClusterInstanceArray{ ClusterInstanceArgs{...} }
+//	ClusterInstanceArray{ ClusterInstanceArgs{...} }
 type ClusterInstanceArrayInput interface {
 	pulumi.Input
 
@@ -526,7 +531,7 @@ func (i ClusterInstanceArray) ToClusterInstanceArrayOutputWithContext(ctx contex
 // ClusterInstanceMapInput is an input type that accepts ClusterInstanceMap and ClusterInstanceMapOutput values.
 // You can construct a concrete instance of `ClusterInstanceMapInput` via:
 //
-//          ClusterInstanceMap{ "key": ClusterInstanceArgs{...} }
+//	ClusterInstanceMap{ "key": ClusterInstanceArgs{...} }
 type ClusterInstanceMapInput interface {
 	pulumi.Input
 
@@ -718,12 +723,12 @@ func (o ClusterInstanceOutput) StorageEncrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolOutput { return v.StorageEncrypted }).(pulumi.BoolOutput)
 }
 
-// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ClusterInstanceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClusterInstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -29,32 +29,30 @@ namespace Pulumi.Aws.Ec2
     /// Basic usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.SecurityGroupRule("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.SecurityGroupRule("example", new Aws.Ec2.SecurityGroupRuleArgs
+    ///         Type = "ingress",
+    ///         FromPort = 0,
+    ///         ToPort = 65535,
+    ///         Protocol = "tcp",
+    ///         CidrBlocks = new[]
     ///         {
-    ///             Type = "ingress",
-    ///             FromPort = 0,
-    ///             ToPort = 65535,
-    ///             Protocol = "tcp",
-    ///             CidrBlocks = 
-    ///             {
-    ///                 aws_vpc.Example.Cidr_block,
-    ///             },
-    ///             Ipv6CidrBlocks = 
-    ///             {
-    ///                 aws_vpc.Example.Ipv6_cidr_block,
-    ///             },
-    ///             SecurityGroupId = "sg-123456",
-    ///         });
-    ///     }
+    ///             aws_vpc.Example.Cidr_block,
+    ///         },
+    ///         Ipv6CidrBlocks = new[]
+    ///         {
+    ///             aws_vpc.Example.Ipv6_cidr_block,
+    ///         },
+    ///         SecurityGroupId = "sg-123456",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Usage With Prefix List IDs
     /// 
@@ -65,67 +63,64 @@ namespace Pulumi.Aws.Ec2
     /// Prefix list IDs are exported on VPC Endpoints, so you can use this format:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         // ...
-    ///         var myEndpoint = new Aws.Ec2.VpcEndpoint("myEndpoint", new Aws.Ec2.VpcEndpointArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var allowAll = new Aws.Ec2.SecurityGroupRule("allowAll", new Aws.Ec2.SecurityGroupRuleArgs
-    ///         {
-    ///             Type = "egress",
-    ///             ToPort = 0,
-    ///             Protocol = "-1",
-    ///             PrefixListIds = 
-    ///             {
-    ///                 myEndpoint.PrefixListId,
-    ///             },
-    ///             FromPort = 0,
-    ///             SecurityGroupId = "sg-123456",
-    ///         });
-    ///     }
+    ///     // ...
+    ///     var myEndpoint = new Aws.Ec2.VpcEndpoint("myEndpoint");
     /// 
-    /// }
+    ///     // ...
+    ///     var allowAll = new Aws.Ec2.SecurityGroupRule("allowAll", new()
+    ///     {
+    ///         Type = "egress",
+    ///         ToPort = 0,
+    ///         Protocol = "-1",
+    ///         PrefixListIds = new[]
+    ///         {
+    ///             myEndpoint.PrefixListId,
+    ///         },
+    ///         FromPort = 0,
+    ///         SecurityGroupId = "sg-123456",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// You can also find a specific Prefix List using the [`aws.ec2.getPrefixList`](https://www.terraform.io/docs/providers/aws/d/prefix_list.html)
     /// or [`ec2_managed_prefix_list`](https://www.terraform.io/docs/providers/aws/d/ec2_managed_prefix_list.html) data sources:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var s3 = current.Apply(current =&gt; Output.Create(Aws.Ec2.GetPrefixList.InvokeAsync(new Aws.Ec2.GetPrefixListArgs
-    ///         {
-    ///             Name = $"com.amazonaws.{current.Name}.s3",
-    ///         })));
-    ///         var s3GatewayEgress = new Aws.Ec2.SecurityGroupRule("s3GatewayEgress", new Aws.Ec2.SecurityGroupRuleArgs
-    ///         {
-    ///             Description = "S3 Gateway Egress",
-    ///             Type = "egress",
-    ///             SecurityGroupId = "sg-123456",
-    ///             FromPort = 443,
-    ///             ToPort = 443,
-    ///             Protocol = "tcp",
-    ///             PrefixListIds = 
-    ///             {
-    ///                 s3.Apply(s3 =&gt; s3.Id),
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
-    /// }
+    ///     var s3 = Aws.Ec2.GetPrefixList.Invoke(new()
+    ///     {
+    ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.s3",
+    ///     });
+    /// 
+    ///     var s3GatewayEgress = new Aws.Ec2.SecurityGroupRule("s3GatewayEgress", new()
+    ///     {
+    ///         Description = "S3 Gateway Egress",
+    ///         Type = "egress",
+    ///         SecurityGroupId = "sg-123456",
+    ///         FromPort = 443,
+    ///         ToPort = 443,
+    ///         Protocol = "tcp",
+    ///         PrefixListIds = new[]
+    ///         {
+    ///             s3.Apply(getPrefixListResult =&gt; getPrefixListResult.Id),
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -173,7 +168,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/securityGroupRule:SecurityGroupRule")]
-    public partial class SecurityGroupRule : Pulumi.CustomResource
+    public partial class SecurityGroupRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
@@ -286,7 +281,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class SecurityGroupRuleArgs : Pulumi.ResourceArgs
+    public sealed class SecurityGroupRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("cidrBlocks")]
         private InputList<string>? _cidrBlocks;
@@ -376,9 +371,10 @@ namespace Pulumi.Aws.Ec2
         public SecurityGroupRuleArgs()
         {
         }
+        public static new SecurityGroupRuleArgs Empty => new SecurityGroupRuleArgs();
     }
 
-    public sealed class SecurityGroupRuleState : Pulumi.ResourceArgs
+    public sealed class SecurityGroupRuleState : global::Pulumi.ResourceArgs
     {
         [Input("cidrBlocks")]
         private InputList<string>? _cidrBlocks;
@@ -468,5 +464,6 @@ namespace Pulumi.Aws.Ec2
         public SecurityGroupRuleState()
         {
         }
+        public static new SecurityGroupRuleState Empty => new SecurityGroupRuleState();
     }
 }

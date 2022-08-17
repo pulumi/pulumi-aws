@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketGrantGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketGrantGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketGrantGetArgs()
         {
         }
+        public static new BucketGrantGetArgs Empty => new BucketGrantGetArgs();
     }
 }

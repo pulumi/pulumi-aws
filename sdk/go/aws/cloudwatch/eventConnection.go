@@ -21,28 +21,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
-// 			AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
-// 				ApiKey: &cloudwatch.EventConnectionAuthParametersApiKeyArgs{
-// 					Key:   pulumi.String("x-signature"),
-// 					Value: pulumi.String("1234"),
-// 				},
-// 			},
-// 			AuthorizationType: pulumi.String("API_KEY"),
-// 			Description:       pulumi.String("A connection description"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
+//				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
+//					ApiKey: &cloudwatch.EventConnectionAuthParametersApiKeyArgs{
+//						Key:   pulumi.String("x-signature"),
+//						Value: pulumi.String("1234"),
+//					},
+//				},
+//				AuthorizationType: pulumi.String("API_KEY"),
+//				Description:       pulumi.String("A connection description"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Basic Authorization
 //
@@ -50,36 +53,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
-// 			AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
-// 				Basic: &cloudwatch.EventConnectionAuthParametersBasicArgs{
-// 					Password: pulumi.String("Pass1234!"),
-// 					Username: pulumi.String("user"),
-// 				},
-// 			},
-// 			AuthorizationType: pulumi.String("BASIC"),
-// 			Description:       pulumi.String("A connection description"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewEventConnection(ctx, "test", &cloudwatch.EventConnectionArgs{
+//				AuthParameters: &cloudwatch.EventConnectionAuthParametersArgs{
+//					Basic: &cloudwatch.EventConnectionAuthParametersBasicArgs{
+//						Password: pulumi.String("Pass1234!"),
+//						Username: pulumi.String("user"),
+//					},
+//				},
+//				AuthorizationType: pulumi.String("BASIC"),
+//				Description:       pulumi.String("A connection description"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// EventBridge Connection can be imported using the `name`, e.g., console
+// # EventBridge Connection can be imported using the `name`, e.g., console
 //
 // ```sh
-//  $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
+//
+//	$ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
+//
 // ```
 type EventConnection struct {
 	pulumi.CustomResourceState
@@ -215,7 +223,7 @@ func (i *EventConnection) ToEventConnectionOutputWithContext(ctx context.Context
 // EventConnectionArrayInput is an input type that accepts EventConnectionArray and EventConnectionArrayOutput values.
 // You can construct a concrete instance of `EventConnectionArrayInput` via:
 //
-//          EventConnectionArray{ EventConnectionArgs{...} }
+//	EventConnectionArray{ EventConnectionArgs{...} }
 type EventConnectionArrayInput interface {
 	pulumi.Input
 
@@ -240,7 +248,7 @@ func (i EventConnectionArray) ToEventConnectionArrayOutputWithContext(ctx contex
 // EventConnectionMapInput is an input type that accepts EventConnectionMap and EventConnectionMapOutput values.
 // You can construct a concrete instance of `EventConnectionMapInput` via:
 //
-//          EventConnectionMap{ "key": EventConnectionArgs{...} }
+//	EventConnectionMap{ "key": EventConnectionArgs{...} }
 type EventConnectionMapInput interface {
 	pulumi.Input
 

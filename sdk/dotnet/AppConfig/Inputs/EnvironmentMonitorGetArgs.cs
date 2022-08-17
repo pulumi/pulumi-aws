@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppConfig.Inputs
 {
 
-    public sealed class EnvironmentMonitorGetArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentMonitorGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the Amazon CloudWatch alarm.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppConfig.Inputs
         public EnvironmentMonitorGetArgs()
         {
         }
+        public static new EnvironmentMonitorGetArgs Empty => new EnvironmentMonitorGetArgs();
     }
 }

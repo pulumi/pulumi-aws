@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Amplify.Inputs
 {
 
-    public sealed class DomainAssociationSubDomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainAssociationSubDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The branch name setting for the subdomain.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Amplify.Inputs
         public DomainAssociationSubDomainArgs()
         {
         }
+        public static new DomainAssociationSubDomainArgs Empty => new DomainAssociationSubDomainArgs();
     }
 }

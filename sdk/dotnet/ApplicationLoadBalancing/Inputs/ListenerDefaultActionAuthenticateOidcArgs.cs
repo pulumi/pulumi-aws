@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
 {
 
-    public sealed class ListenerDefaultActionAuthenticateOidcArgs : Pulumi.ResourceArgs
+    public sealed class ListenerDefaultActionAuthenticateOidcArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationRequestExtraParams")]
         private InputMap<string>? _authenticationRequestExtraParams;
@@ -87,5 +87,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
         public ListenerDefaultActionAuthenticateOidcArgs()
         {
         }
+        public static new ListenerDefaultActionAuthenticateOidcArgs Empty => new ListenerDefaultActionAuthenticateOidcArgs();
     }
 }

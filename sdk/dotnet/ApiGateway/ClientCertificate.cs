@@ -15,20 +15,18 @@ namespace Pulumi.Aws.ApiGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var demo = new Aws.ApiGateway.ClientCertificate("demo", new()
     ///     {
-    ///         var demo = new Aws.ApiGateway.ClientCertificate("demo", new Aws.ApiGateway.ClientCertificateArgs
-    ///         {
-    ///             Description = "My client certificate",
-    ///         });
-    ///     }
+    ///         Description = "My client certificate",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/clientCertificate:ClientCertificate")]
-    public partial class ClientCertificate : Pulumi.CustomResource
+    public partial class ClientCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN)
@@ -73,13 +71,13 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> PemEncodedCertificate { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -128,7 +126,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class ClientCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ClientCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the client certificate.
@@ -140,7 +138,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -151,9 +149,10 @@ namespace Pulumi.Aws.ApiGateway
         public ClientCertificateArgs()
         {
         }
+        public static new ClientCertificateArgs Empty => new ClientCertificateArgs();
     }
 
-    public sealed class ClientCertificateState : Pulumi.ResourceArgs
+    public sealed class ClientCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN)
@@ -189,7 +188,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -201,7 +200,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -212,5 +211,6 @@ namespace Pulumi.Aws.ApiGateway
         public ClientCertificateState()
         {
         }
+        public static new ClientCertificateState Empty => new ClientCertificateState();
     }
 }

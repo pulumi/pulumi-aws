@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Elb.Inputs
 {
 
-    public sealed class SslNegotiationPolicyAttributeArgs : Pulumi.ResourceArgs
+    public sealed class SslNegotiationPolicyAttributeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the attribute
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Elb.Inputs
         public SslNegotiationPolicyAttributeArgs()
         {
         }
+        public static new SslNegotiationPolicyAttributeArgs Empty => new SslNegotiationPolicyAttributeArgs();
     }
 }

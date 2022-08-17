@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CloudFront
     }
 
 
-    public sealed class GetOriginAccessIdentityArgs : Pulumi.InvokeArgs
+    public sealed class GetOriginAccessIdentityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
@@ -30,9 +30,10 @@ namespace Pulumi.Aws.CloudFront
         public GetOriginAccessIdentityArgs()
         {
         }
+        public static new GetOriginAccessIdentityArgs Empty => new GetOriginAccessIdentityArgs();
     }
 
-    public sealed class GetOriginAccessIdentityInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOriginAccessIdentityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
@@ -43,6 +44,7 @@ namespace Pulumi.Aws.CloudFront
         public GetOriginAccessIdentityInvokeArgs()
         {
         }
+        public static new GetOriginAccessIdentityInvokeArgs Empty => new GetOriginAccessIdentityInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionGetArgs : Pulumi.ResourceArgs
+    public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the dimension.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionGetArgs()
         {
         }
+        public static new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionGetArgs Empty => new PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionGetArgs();
     }
 }

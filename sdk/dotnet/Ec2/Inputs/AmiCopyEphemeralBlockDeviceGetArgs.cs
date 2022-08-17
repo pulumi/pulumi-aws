@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class AmiCopyEphemeralBlockDeviceGetArgs : Pulumi.ResourceArgs
+    public sealed class AmiCopyEphemeralBlockDeviceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path at which the device is exposed to created instances.
@@ -28,5 +28,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public AmiCopyEphemeralBlockDeviceGetArgs()
         {
         }
+        public static new AmiCopyEphemeralBlockDeviceGetArgs Empty => new AmiCopyEphemeralBlockDeviceGetArgs();
     }
 }

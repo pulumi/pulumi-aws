@@ -33,14 +33,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Function DataSource name.
+     * The Function data source name.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The Function DataSource name.
+     * @return The Function data source name.
      * 
      */
     public Output<String> dataSource() {
@@ -206,7 +206,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSource The Function DataSource name.
+         * @param dataSource The Function data source name.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSource The Function DataSource name.
+         * @param dataSource The Function data source name.
          * 
          * @return builder
          * 

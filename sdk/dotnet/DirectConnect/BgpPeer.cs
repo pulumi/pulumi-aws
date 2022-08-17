@@ -15,26 +15,24 @@ namespace Pulumi.Aws.DirectConnect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var peer = new Aws.DirectConnect.BgpPeer("peer", new()
     ///     {
-    ///         var peer = new Aws.DirectConnect.BgpPeer("peer", new Aws.DirectConnect.BgpPeerArgs
-    ///         {
-    ///             VirtualInterfaceId = aws_dx_private_virtual_interface.Foo.Id,
-    ///             AddressFamily = "ipv6",
-    ///             BgpAsn = 65351,
-    ///         });
-    ///     }
+    ///         VirtualInterfaceId = aws_dx_private_virtual_interface.Foo.Id,
+    ///         AddressFamily = "ipv6",
+    ///         BgpAsn = 65351,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/bgpPeer:BgpPeer")]
-    public partial class BgpPeer : Pulumi.CustomResource
+    public partial class BgpPeer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -136,7 +134,7 @@ namespace Pulumi.Aws.DirectConnect
         }
     }
 
-    public sealed class BgpPeerArgs : Pulumi.ResourceArgs
+    public sealed class BgpPeerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -179,9 +177,10 @@ namespace Pulumi.Aws.DirectConnect
         public BgpPeerArgs()
         {
         }
+        public static new BgpPeerArgs Empty => new BgpPeerArgs();
     }
 
-    public sealed class BgpPeerState : Pulumi.ResourceArgs
+    public sealed class BgpPeerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -242,5 +241,6 @@ namespace Pulumi.Aws.DirectConnect
         public BgpPeerState()
         {
         }
+        public static new BgpPeerState Empty => new BgpPeerState();
     }
 }

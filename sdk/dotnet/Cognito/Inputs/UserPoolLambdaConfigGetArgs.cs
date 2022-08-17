@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class UserPoolLambdaConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolLambdaConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the lambda creating an authentication challenge.
@@ -93,5 +93,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public UserPoolLambdaConfigGetArgs()
         {
         }
+        public static new UserPoolLambdaConfigGetArgs Empty => new UserPoolLambdaConfigGetArgs();
     }
 }

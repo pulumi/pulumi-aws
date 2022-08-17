@@ -14,31 +14,29 @@ namespace Pulumi.Aws.Transcribe
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Transcribe.VocabularyFilter("example", new()
     ///     {
-    ///         var example = new Aws.Transcribe.VocabularyFilter("example", new Aws.Transcribe.VocabularyFilterArgs
+    ///         LanguageCode = "en-US",
+    ///         Tags = 
     ///         {
-    ///             LanguageCode = "en-US",
-    ///             Tags = 
-    ///             {
-    ///                 { "tag1", "value1" },
-    ///                 { "tag2", "value3" },
-    ///             },
-    ///             VocabularyFilterName = "example",
-    ///             Words = 
-    ///             {
-    ///                 "cars",
-    ///                 "bucket",
-    ///             },
-    ///         });
-    ///     }
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value3" },
+    ///         },
+    ///         VocabularyFilterName = "example",
+    ///         Words = new[]
+    ///         {
+    ///             "cars",
+    ///             "bucket",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.Transcribe
     /// ```
     /// </summary>
     [AwsResourceType("aws:transcribe/vocabularyFilter:VocabularyFilter")]
-    public partial class VocabularyFilter : Pulumi.CustomResource
+    public partial class VocabularyFilter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the VocabularyFilter.
@@ -70,9 +68,6 @@ namespace Pulumi.Aws.Transcribe
         [Output("languageCode")]
         public Output<string> LanguageCode { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the VocabularyFilter. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -141,7 +136,7 @@ namespace Pulumi.Aws.Transcribe
         }
     }
 
-    public sealed class VocabularyFilterArgs : Pulumi.ResourceArgs
+    public sealed class VocabularyFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
@@ -151,22 +146,10 @@ namespace Pulumi.Aws.Transcribe
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the VocabularyFilter. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -196,9 +179,10 @@ namespace Pulumi.Aws.Transcribe
         public VocabularyFilterArgs()
         {
         }
+        public static new VocabularyFilterArgs Empty => new VocabularyFilterArgs();
     }
 
-    public sealed class VocabularyFilterState : Pulumi.ResourceArgs
+    public sealed class VocabularyFilterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the VocabularyFilter.
@@ -220,10 +204,6 @@ namespace Pulumi.Aws.Transcribe
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the VocabularyFilter. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -265,5 +245,6 @@ namespace Pulumi.Aws.Transcribe
         public VocabularyFilterState()
         {
         }
+        public static new VocabularyFilterState Empty => new VocabularyFilterState();
     }
 }

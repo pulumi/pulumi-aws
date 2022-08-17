@@ -15,42 +15,41 @@ namespace Pulumi.Aws.SecurityHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
     ///     {
-    ///         var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new Aws.Organizations.OrganizationArgs
+    ///         AwsServiceAccessPrincipals = new[]
     ///         {
-    ///             AwsServiceAccessPrincipals = 
-    ///             {
-    ///                 "securityhub.amazonaws.com",
-    ///             },
-    ///             FeatureSet = "ALL",
-    ///         });
-    ///         var exampleAccount = new Aws.SecurityHub.Account("exampleAccount", new Aws.SecurityHub.AccountArgs
-    ///         {
-    ///         });
-    ///         var exampleOrganizationAdminAccount = new Aws.SecurityHub.OrganizationAdminAccount("exampleOrganizationAdminAccount", new Aws.SecurityHub.OrganizationAdminAccountArgs
-    ///         {
-    ///             AdminAccountId = "123456789012",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleOrganization,
-    ///             },
-    ///         });
-    ///         // Auto enable security hub in organization member accounts
-    ///         var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("exampleOrganizationConfiguration", new Aws.SecurityHub.OrganizationConfigurationArgs
-    ///         {
-    ///             AutoEnable = true,
-    ///         });
-    ///     }
+    ///             "securityhub.amazonaws.com",
+    ///         },
+    ///         FeatureSet = "ALL",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    /// 
+    ///     var exampleOrganizationAdminAccount = new Aws.SecurityHub.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
+    ///     {
+    ///         AdminAccountId = "123456789012",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleOrganization,
+    ///         },
+    ///     });
+    /// 
+    ///     // Auto enable security hub in organization member accounts
+    ///     var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("exampleOrganizationConfiguration", new()
+    ///     {
+    ///         AutoEnable = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +61,7 @@ namespace Pulumi.Aws.SecurityHub
     /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/organizationAdminAccount:OrganizationAdminAccount")]
-    public partial class OrganizationAdminAccount : Pulumi.CustomResource
+    public partial class OrganizationAdminAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AWS account identifier of the account to designate as the Security Hub administrator account.
@@ -114,7 +113,7 @@ namespace Pulumi.Aws.SecurityHub
         }
     }
 
-    public sealed class OrganizationAdminAccountArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationAdminAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS account identifier of the account to designate as the Security Hub administrator account.
@@ -125,9 +124,10 @@ namespace Pulumi.Aws.SecurityHub
         public OrganizationAdminAccountArgs()
         {
         }
+        public static new OrganizationAdminAccountArgs Empty => new OrganizationAdminAccountArgs();
     }
 
-    public sealed class OrganizationAdminAccountState : Pulumi.ResourceArgs
+    public sealed class OrganizationAdminAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS account identifier of the account to designate as the Security Hub administrator account.
@@ -138,5 +138,6 @@ namespace Pulumi.Aws.SecurityHub
         public OrganizationAdminAccountState()
         {
         }
+        public static new OrganizationAdminAccountState Empty => new OrganizationAdminAccountState();
     }
 }

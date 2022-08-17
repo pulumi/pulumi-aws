@@ -20,29 +20,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.NewSecurityProfile(ctx, "example", &connect.SecurityProfileArgs{
-// 			Description: pulumi.String("example description"),
-// 			InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-// 			Permissions: pulumi.StringArray{
-// 				pulumi.String("BasicAgentAccess"),
-// 				pulumi.String("OutboundCallAccess"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Example Security Profile"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewSecurityProfile(ctx, "example", &connect.SecurityProfileArgs{
+//				Description: pulumi.String("example description"),
+//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Permissions: pulumi.StringArray{
+//					pulumi.String("BasicAgentAccess"),
+//					pulumi.String("OutboundCallAccess"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example Security Profile"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // Amazon Connect Security Profiles can be imported using the `instance_id` and `security_profile_id` separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:connect/securityProfile:SecurityProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
+//	$ pulumi import aws:connect/securityProfile:SecurityProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
 // ```
 type SecurityProfile struct {
 	pulumi.CustomResourceState
@@ -68,12 +73,9 @@ type SecurityProfile struct {
 	// Specifies a list of permissions assigned to the security profile.
 	Permissions pulumi.StringArrayOutput `pulumi:"permissions"`
 	// The identifier for the Security Profile.
-	SecurityProfileId pulumi.StringOutput `pulumi:"securityProfileId"`
-	// Tags to apply to the Security Profile. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	SecurityProfileId pulumi.StringOutput    `pulumi:"securityProfileId"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll           pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewSecurityProfile registers a new resource with the given unique name, arguments, and options.
@@ -121,12 +123,9 @@ type securityProfileState struct {
 	// Specifies a list of permissions assigned to the security profile.
 	Permissions []string `pulumi:"permissions"`
 	// The identifier for the Security Profile.
-	SecurityProfileId *string `pulumi:"securityProfileId"`
-	// Tags to apply to the Security Profile. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	SecurityProfileId *string           `pulumi:"securityProfileId"`
+	Tags              map[string]string `pulumi:"tags"`
+	TagsAll           map[string]string `pulumi:"tagsAll"`
 }
 
 type SecurityProfileState struct {
@@ -144,11 +143,8 @@ type SecurityProfileState struct {
 	Permissions pulumi.StringArrayInput
 	// The identifier for the Security Profile.
 	SecurityProfileId pulumi.StringPtrInput
-	// Tags to apply to the Security Profile. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
+	TagsAll           pulumi.StringMapInput
 }
 
 func (SecurityProfileState) ElementType() reflect.Type {
@@ -163,10 +159,8 @@ type securityProfileArgs struct {
 	// Specifies the name of the Security Profile.
 	Name *string `pulumi:"name"`
 	// Specifies a list of permissions assigned to the security profile.
-	Permissions []string `pulumi:"permissions"`
-	// Tags to apply to the Security Profile. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Permissions []string          `pulumi:"permissions"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SecurityProfile resource.
@@ -179,9 +173,7 @@ type SecurityProfileArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies a list of permissions assigned to the security profile.
 	Permissions pulumi.StringArrayInput
-	// Tags to apply to the Security Profile. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
 }
 
 func (SecurityProfileArgs) ElementType() reflect.Type {
@@ -210,7 +202,7 @@ func (i *SecurityProfile) ToSecurityProfileOutputWithContext(ctx context.Context
 // SecurityProfileArrayInput is an input type that accepts SecurityProfileArray and SecurityProfileArrayOutput values.
 // You can construct a concrete instance of `SecurityProfileArrayInput` via:
 //
-//          SecurityProfileArray{ SecurityProfileArgs{...} }
+//	SecurityProfileArray{ SecurityProfileArgs{...} }
 type SecurityProfileArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +227,7 @@ func (i SecurityProfileArray) ToSecurityProfileArrayOutputWithContext(ctx contex
 // SecurityProfileMapInput is an input type that accepts SecurityProfileMap and SecurityProfileMapOutput values.
 // You can construct a concrete instance of `SecurityProfileMapInput` via:
 //
-//          SecurityProfileMap{ "key": SecurityProfileArgs{...} }
+//	SecurityProfileMap{ "key": SecurityProfileArgs{...} }
 type SecurityProfileMapInput interface {
 	pulumi.Input
 
@@ -306,13 +298,10 @@ func (o SecurityProfileOutput) SecurityProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringOutput { return v.SecurityProfileId }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the Security Profile. If configured with a provider
-// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SecurityProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o SecurityProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

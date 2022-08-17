@@ -15,33 +15,31 @@ namespace Pulumi.Aws.NetworkFirewall
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.NetworkFirewall.Firewall("example", new()
     ///     {
-    ///         var example = new Aws.NetworkFirewall.Firewall("example", new Aws.NetworkFirewall.FirewallArgs
+    ///         FirewallPolicyArn = aws_networkfirewall_firewall_policy.Example.Arn,
+    ///         VpcId = aws_vpc.Example.Id,
+    ///         SubnetMappings = new[]
     ///         {
-    ///             FirewallPolicyArn = aws_networkfirewall_firewall_policy.Example.Arn,
-    ///             VpcId = aws_vpc.Example.Id,
-    ///             SubnetMappings = 
+    ///             new Aws.NetworkFirewall.Inputs.FirewallSubnetMappingArgs
     ///             {
-    ///                 new Aws.NetworkFirewall.Inputs.FirewallSubnetMappingArgs
-    ///                 {
-    ///                     SubnetId = aws_subnet.Example.Id,
-    ///                 },
+    ///                 SubnetId = aws_subnet.Example.Id,
     ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Tag1", "Value1" },
-    ///                 { "Tag2", "Value2" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkfirewall/firewall:Firewall")]
-    public partial class Firewall : Pulumi.CustomResource
+    public partial class Firewall : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the firewall.
@@ -110,13 +108,13 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<ImmutableArray<Outputs.FirewallSubnetMapping>> SubnetMappings { get; private set; } = null!;
 
         /// <summary>
-        /// Map of resource tags to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -177,7 +175,7 @@ namespace Pulumi.Aws.NetworkFirewall
         }
     }
 
-    public sealed class FirewallArgs : Pulumi.ResourceArgs
+    public sealed class FirewallArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
@@ -231,7 +229,7 @@ namespace Pulumi.Aws.NetworkFirewall
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -248,9 +246,10 @@ namespace Pulumi.Aws.NetworkFirewall
         public FirewallArgs()
         {
         }
+        public static new FirewallArgs Empty => new FirewallArgs();
     }
 
-    public sealed class FirewallState : Pulumi.ResourceArgs
+    public sealed class FirewallState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the firewall.
@@ -322,7 +321,7 @@ namespace Pulumi.Aws.NetworkFirewall
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -334,7 +333,7 @@ namespace Pulumi.Aws.NetworkFirewall
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -357,5 +356,6 @@ namespace Pulumi.Aws.NetworkFirewall
         public FirewallState()
         {
         }
+        public static new FirewallState Empty => new FirewallState();
     }
 }

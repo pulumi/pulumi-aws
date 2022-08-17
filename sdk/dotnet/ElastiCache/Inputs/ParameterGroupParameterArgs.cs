@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElastiCache.Inputs
 {
 
-    public sealed class ParameterGroupParameterArgs : Pulumi.ResourceArgs
+    public sealed class ParameterGroupParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the ElastiCache parameter.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ElastiCache.Inputs
         public ParameterGroupParameterArgs()
         {
         }
+        public static new ParameterGroupParameterArgs Empty => new ParameterGroupParameterArgs();
     }
 }

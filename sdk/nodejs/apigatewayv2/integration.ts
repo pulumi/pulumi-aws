@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleIntegration = new aws.apigatewayv2.Integration("exampleIntegration", {
  *     apiId: aws_apigatewayv2_api.example.id,
- *     integrationType: "AWS",
+ *     integrationType: "AWS_PROXY",
  *     connectionType: "INTERNET",
  *     contentHandlingStrategy: "CONVERT_TO_TEXT",
  *     description: "Lambda example",

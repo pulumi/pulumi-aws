@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx.Inputs
 {
 
-    public sealed class OntapFileSystemEndpointManagementArgs : Pulumi.ResourceArgs
+    public sealed class OntapFileSystemEndpointManagementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Fsx.Inputs
         public OntapFileSystemEndpointManagementArgs()
         {
         }
+        public static new OntapFileSystemEndpointManagementArgs Empty => new OntapFileSystemEndpointManagementArgs();
     }
 }

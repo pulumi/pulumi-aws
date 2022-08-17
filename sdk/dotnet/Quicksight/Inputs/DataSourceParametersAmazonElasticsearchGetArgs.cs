@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Quicksight.Inputs
 {
 
-    public sealed class DataSourceParametersAmazonElasticsearchGetArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceParametersAmazonElasticsearchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The OpenSearch domain.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public DataSourceParametersAmazonElasticsearchGetArgs()
         {
         }
+        public static new DataSourceParametersAmazonElasticsearchGetArgs Empty => new DataSourceParametersAmazonElasticsearchGetArgs();
     }
 }

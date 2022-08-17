@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFormation.Inputs
 {
 
-    public sealed class CloudFormationTypeLoggingConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class CloudFormationTypeLoggingConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CloudFormation.Inputs
         public CloudFormationTypeLoggingConfigGetArgs()
         {
         }
+        public static new CloudFormationTypeLoggingConfigGetArgs Empty => new CloudFormationTypeLoggingConfigGetArgs();
     }
 }

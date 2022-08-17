@@ -19,26 +19,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewCustomerGateway(ctx, "main", &ec2.CustomerGatewayArgs{
-// 			BgpAsn:    pulumi.String("65000"),
-// 			IpAddress: pulumi.String("172.83.124.10"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("main-customer-gateway"),
-// 			},
-// 			Type: pulumi.String("ipsec.1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewCustomerGateway(ctx, "main", &ec2.CustomerGatewayArgs{
+//				BgpAsn:    pulumi.String("65000"),
+//				IpAddress: pulumi.String("172.83.124.10"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("main-customer-gateway"),
+//				},
+//				Type: pulumi.String("ipsec.1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // Customer Gateways can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
+//
+//	$ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
+//
 // ```
 type CustomerGateway struct {
 	pulumi.CustomResourceState
@@ -61,9 +66,9 @@ type CustomerGateway struct {
 	DeviceName pulumi.StringPtrOutput `pulumi:"deviceName"`
 	// The IPv4 address for the customer gateway device's outside interface.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
-	// Tags to apply to the gateway. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
@@ -118,9 +123,9 @@ type customerGatewayState struct {
 	DeviceName *string `pulumi:"deviceName"`
 	// The IPv4 address for the customer gateway device's outside interface.
 	IpAddress *string `pulumi:"ipAddress"`
-	// Tags to apply to the gateway. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
@@ -138,9 +143,9 @@ type CustomerGatewayState struct {
 	DeviceName pulumi.StringPtrInput
 	// The IPv4 address for the customer gateway device's outside interface.
 	IpAddress pulumi.StringPtrInput
-	// Tags to apply to the gateway. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
@@ -160,7 +165,7 @@ type customerGatewayArgs struct {
 	DeviceName *string `pulumi:"deviceName"`
 	// The IPv4 address for the customer gateway device's outside interface.
 	IpAddress string `pulumi:"ipAddress"`
-	// Tags to apply to the gateway. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
@@ -177,7 +182,7 @@ type CustomerGatewayArgs struct {
 	DeviceName pulumi.StringPtrInput
 	// The IPv4 address for the customer gateway device's outside interface.
 	IpAddress pulumi.StringInput
-	// Tags to apply to the gateway. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
@@ -210,7 +215,7 @@ func (i *CustomerGateway) ToCustomerGatewayOutputWithContext(ctx context.Context
 // CustomerGatewayArrayInput is an input type that accepts CustomerGatewayArray and CustomerGatewayArrayOutput values.
 // You can construct a concrete instance of `CustomerGatewayArrayInput` via:
 //
-//          CustomerGatewayArray{ CustomerGatewayArgs{...} }
+//	CustomerGatewayArray{ CustomerGatewayArgs{...} }
 type CustomerGatewayArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +240,7 @@ func (i CustomerGatewayArray) ToCustomerGatewayArrayOutputWithContext(ctx contex
 // CustomerGatewayMapInput is an input type that accepts CustomerGatewayMap and CustomerGatewayMapOutput values.
 // You can construct a concrete instance of `CustomerGatewayMapInput` via:
 //
-//          CustomerGatewayMap{ "key": CustomerGatewayArgs{...} }
+//	CustomerGatewayMap{ "key": CustomerGatewayArgs{...} }
 type CustomerGatewayMapInput interface {
 	pulumi.Input
 
@@ -296,12 +301,12 @@ func (o CustomerGatewayOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the gateway. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Tags to apply to the gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CustomerGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CustomerGatewayOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sagemaker.NewImageVersion(ctx, "test", &sagemaker.ImageVersionArgs{
-// 			ImageName: pulumi.Any(aws_sagemaker_image.Test.Id),
-// 			BaseImage: pulumi.String("012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sagemaker.NewImageVersion(ctx, "test", &sagemaker.ImageVersionArgs{
+//				ImageName: pulumi.Any(aws_sagemaker_image.Test.Id),
+//				BaseImage: pulumi.String("012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // SageMaker Image Versions can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+//
+//	$ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+//
 // ```
 type ImageVersion struct {
 	pulumi.CustomResourceState
@@ -168,7 +173,7 @@ func (i *ImageVersion) ToImageVersionOutputWithContext(ctx context.Context) Imag
 // ImageVersionArrayInput is an input type that accepts ImageVersionArray and ImageVersionArrayOutput values.
 // You can construct a concrete instance of `ImageVersionArrayInput` via:
 //
-//          ImageVersionArray{ ImageVersionArgs{...} }
+//	ImageVersionArray{ ImageVersionArgs{...} }
 type ImageVersionArrayInput interface {
 	pulumi.Input
 
@@ -193,7 +198,7 @@ func (i ImageVersionArray) ToImageVersionArrayOutputWithContext(ctx context.Cont
 // ImageVersionMapInput is an input type that accepts ImageVersionMap and ImageVersionMapOutput values.
 // You can construct a concrete instance of `ImageVersionMapInput` via:
 //
-//          ImageVersionMap{ "key": ImageVersionArgs{...} }
+//	ImageVersionMap{ "key": ImageVersionArgs{...} }
 type ImageVersionMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigRuleFilterAndArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigRuleFilterAndArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigRuleFilterAndArgs()
         {
         }
+        public static new BucketReplicationConfigRuleFilterAndArgs Empty => new BucketReplicationConfigRuleFilterAndArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GuardDuty.Inputs
 {
 
-    public sealed class OrganizationConfigurationDatasourcesS3LogsArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationConfigurationDatasourcesS3LogsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.GuardDuty.Inputs
         public OrganizationConfigurationDatasourcesS3LogsArgs()
         {
         }
+        public static new OrganizationConfigurationDatasourcesS3LogsArgs Empty => new OrganizationConfigurationDatasourcesS3LogsArgs();
     }
 }

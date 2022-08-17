@@ -16,42 +16,38 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ### Attachment Routing
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2TransitGateway.PrefixListReference("example", new()
     ///     {
-    ///         var example = new Aws.Ec2TransitGateway.PrefixListReference("example", new Aws.Ec2TransitGateway.PrefixListReferenceArgs
-    ///         {
-    ///             PrefixListId = aws_ec2_managed_prefix_list.Example.Id,
-    ///             TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
-    ///             TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
-    ///         });
-    ///     }
+    ///         PrefixListId = aws_ec2_managed_prefix_list.Example.Id,
+    ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
+    ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Blackhole Routing
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2TransitGateway.PrefixListReference("example", new()
     ///     {
-    ///         var example = new Aws.Ec2TransitGateway.PrefixListReference("example", new Aws.Ec2TransitGateway.PrefixListReferenceArgs
-    ///         {
-    ///             Blackhole = true,
-    ///             PrefixListId = aws_ec2_managed_prefix_list.Example.Id,
-    ///             TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
-    ///         });
-    ///     }
+    ///         Blackhole = true,
+    ///         PrefixListId = aws_ec2_managed_prefix_list.Example.Id,
+    ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +59,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/prefixListReference:PrefixListReference")]
-    public partial class PrefixListReference : Pulumi.CustomResource
+    public partial class PrefixListReference : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
@@ -136,7 +132,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
-    public sealed class PrefixListReferenceArgs : Pulumi.ResourceArgs
+    public sealed class PrefixListReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
@@ -165,9 +161,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public PrefixListReferenceArgs()
         {
         }
+        public static new PrefixListReferenceArgs Empty => new PrefixListReferenceArgs();
     }
 
-    public sealed class PrefixListReferenceState : Pulumi.ResourceArgs
+    public sealed class PrefixListReferenceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
@@ -199,5 +196,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public PrefixListReferenceState()
         {
         }
+        public static new PrefixListReferenceState Empty => new PrefixListReferenceState();
     }
 }

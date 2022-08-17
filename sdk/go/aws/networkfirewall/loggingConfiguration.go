@@ -20,33 +20,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
-// 			FirewallArn: pulumi.Any(aws_networkfirewall_firewall.Example.Arn),
-// 			LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
-// 				LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
-// 					&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
-// 						LogDestination: pulumi.StringMap{
-// 							"bucketName": pulumi.Any(aws_s3_bucket.Example.Bucket),
-// 							"prefix":     pulumi.String("/example"),
-// 						},
-// 						LogDestinationType: pulumi.String("S3"),
-// 						LogType:            pulumi.String("FLOW"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
+//				FirewallArn: pulumi.Any(aws_networkfirewall_firewall.Example.Arn),
+//				LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
+//					LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
+//						&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
+//							LogDestination: pulumi.StringMap{
+//								"bucketName": pulumi.Any(aws_s3_bucket.Example.Bucket),
+//								"prefix":     pulumi.String("/example"),
+//							},
+//							LogDestinationType: pulumi.String("S3"),
+//							LogType:            pulumi.String("FLOW"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Logging to CloudWatch
 //
@@ -54,32 +57,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
-// 			FirewallArn: pulumi.Any(aws_networkfirewall_firewall.Example.Arn),
-// 			LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
-// 				LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
-// 					&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
-// 						LogDestination: pulumi.StringMap{
-// 							"logGroup": pulumi.Any(aws_cloudwatch_log_group.Example.Name),
-// 						},
-// 						LogDestinationType: pulumi.String("CloudWatchLogs"),
-// 						LogType:            pulumi.String("ALERT"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
+//				FirewallArn: pulumi.Any(aws_networkfirewall_firewall.Example.Arn),
+//				LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
+//					LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
+//						&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
+//							LogDestination: pulumi.StringMap{
+//								"logGroup": pulumi.Any(aws_cloudwatch_log_group.Example.Name),
+//							},
+//							LogDestinationType: pulumi.String("CloudWatchLogs"),
+//							LogType:            pulumi.String("ALERT"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Logging to Kinesis Data Firehose
 //
@@ -87,32 +93,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
-// 			FirewallArn: pulumi.Any(aws_networkfirewall_firewall.Example.Arn),
-// 			LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
-// 				LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
-// 					&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
-// 						LogDestination: pulumi.StringMap{
-// 							"deliveryStream": pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Name),
-// 						},
-// 						LogDestinationType: pulumi.String("KinesisDataFirehose"),
-// 						LogType:            pulumi.String("ALERT"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewLoggingConfiguration(ctx, "example", &networkfirewall.LoggingConfigurationArgs{
+//				FirewallArn: pulumi.Any(aws_networkfirewall_firewall.Example.Arn),
+//				LoggingConfiguration: &networkfirewall.LoggingConfigurationLoggingConfigurationArgs{
+//					LogDestinationConfigs: networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{
+//						&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
+//							LogDestination: pulumi.StringMap{
+//								"deliveryStream": pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Name),
+//							},
+//							LogDestinationType: pulumi.String("KinesisDataFirehose"),
+//							LogType:            pulumi.String("ALERT"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -120,7 +129,9 @@ import (
 // Network Firewall Logging Configurations can be imported using the `firewall_arn` e.g
 //
 // ```sh
-//  $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
+//
+//	$ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
+//
 // ```
 type LoggingConfiguration struct {
 	pulumi.CustomResourceState
@@ -224,7 +235,7 @@ func (i *LoggingConfiguration) ToLoggingConfigurationOutputWithContext(ctx conte
 // LoggingConfigurationArrayInput is an input type that accepts LoggingConfigurationArray and LoggingConfigurationArrayOutput values.
 // You can construct a concrete instance of `LoggingConfigurationArrayInput` via:
 //
-//          LoggingConfigurationArray{ LoggingConfigurationArgs{...} }
+//	LoggingConfigurationArray{ LoggingConfigurationArgs{...} }
 type LoggingConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -249,7 +260,7 @@ func (i LoggingConfigurationArray) ToLoggingConfigurationArrayOutputWithContext(
 // LoggingConfigurationMapInput is an input type that accepts LoggingConfigurationMap and LoggingConfigurationMapOutput values.
 // You can construct a concrete instance of `LoggingConfigurationMapInput` via:
 //
-//          LoggingConfigurationMap{ "key": LoggingConfigurationArgs{...} }
+//	LoggingConfigurationMap{ "key": LoggingConfigurationArgs{...} }
 type LoggingConfigurationMapInput interface {
 	pulumi.Input
 

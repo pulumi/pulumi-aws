@@ -21,6 +21,112 @@ import javax.annotation.Nullable;
  * Provides a budget action resource. Budget actions are cost savings controls that run either automatically on your behalf or by using a workflow approval process.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.Policy;
+ * import com.pulumi.aws.iam.PolicyArgs;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.budgets.Budget;
+ * import com.pulumi.aws.budgets.BudgetArgs;
+ * import com.pulumi.aws.budgets.BudgetAction;
+ * import com.pulumi.aws.budgets.BudgetActionArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetActionActionThresholdArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetActionDefinitionArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetActionDefinitionIamActionDefinitionArgs;
+ * import com.pulumi.aws.budgets.inputs.BudgetActionSubscriberArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
+ *             .description(&#34;My example policy&#34;)
+ *             .policy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Action&#34;: [
+ *         &#34;ec2:Describe*&#34;
+ *       ],
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Resource&#34;: &#34;*&#34;
+ *     }
+ *   ]
+ * }
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *         final var current = AwsFunctions.getPartition();
+ * 
+ *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(&#34;&#34;&#34;
+ * {
+ *   &#34;Version&#34;: &#34;2012-10-17&#34;,
+ *   &#34;Statement&#34;: [
+ *     {
+ *       &#34;Effect&#34;: &#34;Allow&#34;,
+ *       &#34;Principal&#34;: {
+ *         &#34;Service&#34;: [
+ *           &#34;budgets.%s&#34;
+ *         ]
+ *       },
+ *       &#34;Action&#34;: [
+ *         &#34;sts:AssumeRole&#34;
+ *       ]
+ *     }
+ *   ]
+ * }
+ * &#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.dnsSuffix())))
+ *             .build());
+ * 
+ *         var exampleBudget = new Budget(&#34;exampleBudget&#34;, BudgetArgs.builder()        
+ *             .budgetType(&#34;USAGE&#34;)
+ *             .limitAmount(&#34;10.0&#34;)
+ *             .limitUnit(&#34;dollars&#34;)
+ *             .timePeriodStart(&#34;2006-01-02_15:04&#34;)
+ *             .timeUnit(&#34;MONTHLY&#34;)
+ *             .build());
+ * 
+ *         var exampleBudgetAction = new BudgetAction(&#34;exampleBudgetAction&#34;, BudgetActionArgs.builder()        
+ *             .budgetName(exampleBudget.name())
+ *             .actionType(&#34;APPLY_IAM_POLICY&#34;)
+ *             .approvalModel(&#34;AUTOMATIC&#34;)
+ *             .notificationType(&#34;ACTUAL&#34;)
+ *             .executionRoleArn(exampleRole.arn())
+ *             .actionThreshold(BudgetActionActionThresholdArgs.builder()
+ *                 .actionThresholdType(&#34;ABSOLUTE_VALUE&#34;)
+ *                 .actionThresholdValue(100)
+ *                 .build())
+ *             .definition(BudgetActionDefinitionArgs.builder()
+ *                 .iamActionDefinition(BudgetActionDefinitionIamActionDefinitionArgs.builder()
+ *                     .policyArn(examplePolicy.arn())
+ *                     .roles(exampleRole.name())
+ *                     .build())
+ *                 .build())
+ *             .subscribers(BudgetActionSubscriberArgs.builder()
+ *                 .address(&#34;example@example.example&#34;)
+ *                 .subscriptionType(&#34;EMAIL&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

@@ -18,90 +18,84 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// ### Instance Target Group
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.Ec2.Vpc("main", new()
     ///     {
-    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var test = new Aws.LB.TargetGroup("test", new Aws.LB.TargetGroupArgs
-    ///         {
-    ///             Port = 80,
-    ///             Protocol = "HTTP",
-    ///             VpcId = main.Id,
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var test = new Aws.LB.TargetGroup("test", new()
+    ///     {
+    ///         Port = 80,
+    ///         Protocol = "HTTP",
+    ///         VpcId = main.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### IP Target Group
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.Ec2.Vpc("main", new()
     ///     {
-    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var ip_example = new Aws.LB.TargetGroup("ip-example", new Aws.LB.TargetGroupArgs
-    ///         {
-    ///             Port = 80,
-    ///             Protocol = "HTTP",
-    ///             TargetType = "ip",
-    ///             VpcId = main.Id,
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var ip_example = new Aws.LB.TargetGroup("ip-example", new()
+    ///     {
+    ///         Port = 80,
+    ///         Protocol = "HTTP",
+    ///         TargetType = "ip",
+    ///         VpcId = main.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Lambda Target Group
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lambda_example = new Aws.LB.TargetGroup("lambda-example", new()
     ///     {
-    ///         var lambda_example = new Aws.LB.TargetGroup("lambda-example", new Aws.LB.TargetGroupArgs
-    ///         {
-    ///             TargetType = "lambda",
-    ///         });
-    ///     }
+    ///         TargetType = "lambda",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### ALB Target Group
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var alb_example = new Aws.LB.TargetGroup("alb-example", new()
     ///     {
-    ///         var alb_example = new Aws.LB.TargetGroup("alb-example", new Aws.LB.TargetGroupArgs
-    ///         {
-    ///             TargetType = "alb",
-    ///             Port = 80,
-    ///             Protocol = "TCP",
-    ///             VpcId = aws_vpc.Main.Id,
-    ///         });
-    ///     }
+    ///         TargetType = "alb",
+    ///         Port = 80,
+    ///         Protocol = "TCP",
+    ///         VpcId = aws_vpc.Main.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -114,7 +108,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// </summary>
     [Obsolete(@"aws.elasticloadbalancingv2.TargetGroup has been deprecated in favor of aws.lb.TargetGroup")]
     [AwsResourceType("aws:elasticloadbalancingv2/targetGroup:TargetGroup")]
-    public partial class TargetGroup : Pulumi.CustomResource
+    public partial class TargetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the Target Group (matches `id`).
@@ -219,7 +213,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -280,7 +274,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         }
     }
 
-    public sealed class TargetGroupArgs : Pulumi.ResourceArgs
+    public sealed class TargetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
@@ -393,9 +387,10 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public TargetGroupArgs()
         {
         }
+        public static new TargetGroupArgs Empty => new TargetGroupArgs();
     }
 
-    public sealed class TargetGroupState : Pulumi.ResourceArgs
+    public sealed class TargetGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the Target Group (matches `id`).
@@ -509,7 +504,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -532,5 +527,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public TargetGroupState()
         {
         }
+        public static new TargetGroupState Empty => new TargetGroupState();
     }
 }

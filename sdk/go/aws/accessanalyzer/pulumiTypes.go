@@ -26,7 +26,7 @@ type ArchiveRuleFilter struct {
 // ArchiveRuleFilterInput is an input type that accepts ArchiveRuleFilterArgs and ArchiveRuleFilterOutput values.
 // You can construct a concrete instance of `ArchiveRuleFilterInput` via:
 //
-//          ArchiveRuleFilterArgs{...}
+//	ArchiveRuleFilterArgs{...}
 type ArchiveRuleFilterInput interface {
 	pulumi.Input
 
@@ -62,7 +62,7 @@ func (i ArchiveRuleFilterArgs) ToArchiveRuleFilterOutputWithContext(ctx context.
 // ArchiveRuleFilterArrayInput is an input type that accepts ArchiveRuleFilterArray and ArchiveRuleFilterArrayOutput values.
 // You can construct a concrete instance of `ArchiveRuleFilterArrayInput` via:
 //
-//          ArchiveRuleFilterArray{ ArchiveRuleFilterArgs{...} }
+//	ArchiveRuleFilterArray{ ArchiveRuleFilterArgs{...} }
 type ArchiveRuleFilterArrayInput interface {
 	pulumi.Input
 

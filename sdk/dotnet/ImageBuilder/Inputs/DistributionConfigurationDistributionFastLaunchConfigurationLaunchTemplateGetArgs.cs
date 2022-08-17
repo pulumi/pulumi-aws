@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateGetArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Amazon EC2 launch template to use.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateGetArgs()
         {
         }
+        public static new DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateGetArgs Empty => new DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateGetArgs();
     }
 }

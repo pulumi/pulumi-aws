@@ -20,7 +20,7 @@ type GroupInsightsConfiguration struct {
 // GroupInsightsConfigurationInput is an input type that accepts GroupInsightsConfigurationArgs and GroupInsightsConfigurationOutput values.
 // You can construct a concrete instance of `GroupInsightsConfigurationInput` via:
 //
-//          GroupInsightsConfigurationArgs{...}
+//	GroupInsightsConfigurationArgs{...}
 type GroupInsightsConfigurationInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i GroupInsightsConfigurationArgs) ToGroupInsightsConfigurationPtrOutputWit
 // GroupInsightsConfigurationPtrInput is an input type that accepts GroupInsightsConfigurationArgs, GroupInsightsConfigurationPtr and GroupInsightsConfigurationPtrOutput values.
 // You can construct a concrete instance of `GroupInsightsConfigurationPtrInput` via:
 //
-//          GroupInsightsConfigurationArgs{...}
+//	        GroupInsightsConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GroupInsightsConfigurationPtrInput interface {
 	pulumi.Input
 

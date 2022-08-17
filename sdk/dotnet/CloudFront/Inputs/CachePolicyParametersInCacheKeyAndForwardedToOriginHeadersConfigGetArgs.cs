@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigGetArgs()
         {
         }
+        public static new CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigGetArgs Empty => new CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigGetArgs();
     }
 }

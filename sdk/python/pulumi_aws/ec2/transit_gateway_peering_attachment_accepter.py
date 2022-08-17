@@ -166,7 +166,12 @@ class _TransitGatewayPeeringAttachmentAccepterState:
         pulumi.set(self, "transit_gateway_id", value)
 
 
+warnings.warn("""aws.ec2.TransitGatewayPeeringAttachmentAccepter has been deprecated in favor of aws.ec2transitgateway.PeeringAttachmentAccepter""", DeprecationWarning)
+
+
 class TransitGatewayPeeringAttachmentAccepter(pulumi.CustomResource):
+    warnings.warn("""aws.ec2.TransitGatewayPeeringAttachmentAccepter has been deprecated in favor of aws.ec2transitgateway.PeeringAttachmentAccepter""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -183,7 +188,7 @@ class TransitGatewayPeeringAttachmentAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.TransitGatewayPeeringAttachmentAccepter("example",
+        example = aws.ec2transitgateway.PeeringAttachmentAccepter("example",
             transit_gateway_attachment_id=aws_ec2_transit_gateway_peering_attachment["example"]["id"],
             tags={
                 "Name": "Example cross-account attachment",
@@ -218,7 +223,7 @@ class TransitGatewayPeeringAttachmentAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.TransitGatewayPeeringAttachmentAccepter("example",
+        example = aws.ec2transitgateway.PeeringAttachmentAccepter("example",
             transit_gateway_attachment_id=aws_ec2_transit_gateway_peering_attachment["example"]["id"],
             tags={
                 "Name": "Example cross-account attachment",
@@ -251,6 +256,7 @@ class TransitGatewayPeeringAttachmentAccepter(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""TransitGatewayPeeringAttachmentAccepter is deprecated: aws.ec2.TransitGatewayPeeringAttachmentAccepter has been deprecated in favor of aws.ec2transitgateway.PeeringAttachmentAccepter""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

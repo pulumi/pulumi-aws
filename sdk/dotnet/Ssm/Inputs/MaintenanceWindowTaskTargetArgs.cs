@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm.Inputs
 {
 
-    public sealed class MaintenanceWindowTaskTargetArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTaskTargetArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -30,5 +30,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         public MaintenanceWindowTaskTargetArgs()
         {
         }
+        public static new MaintenanceWindowTaskTargetArgs Empty => new MaintenanceWindowTaskTargetArgs();
     }
 }

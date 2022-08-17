@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apigateway.NewClientCertificate(ctx, "demo", &apigateway.ClientCertificateArgs{
-// 			Description: pulumi.String("My client certificate"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.NewClientCertificate(ctx, "demo", &apigateway.ClientCertificateArgs{
+//				Description: pulumi.String("My client certificate"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -40,7 +43,9 @@ import (
 // API Gateway Client Certificates can be imported using the id, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
+//
+//	$ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
+//
 // ```
 type ClientCertificate struct {
 	pulumi.CustomResourceState
@@ -55,9 +60,9 @@ type ClientCertificate struct {
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
 	// The PEM-encoded public key of the client certificate.
 	PemEncodedCertificate pulumi.StringOutput `pulumi:"pemEncodedCertificate"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -100,9 +105,9 @@ type clientCertificateState struct {
 	ExpirationDate *string `pulumi:"expirationDate"`
 	// The PEM-encoded public key of the client certificate.
 	PemEncodedCertificate *string `pulumi:"pemEncodedCertificate"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -117,9 +122,9 @@ type ClientCertificateState struct {
 	ExpirationDate pulumi.StringPtrInput
 	// The PEM-encoded public key of the client certificate.
 	PemEncodedCertificate pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -130,7 +135,7 @@ func (ClientCertificateState) ElementType() reflect.Type {
 type clientCertificateArgs struct {
 	// The description of the client certificate.
 	Description *string `pulumi:"description"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -138,7 +143,7 @@ type clientCertificateArgs struct {
 type ClientCertificateArgs struct {
 	// The description of the client certificate.
 	Description pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -168,7 +173,7 @@ func (i *ClientCertificate) ToClientCertificateOutputWithContext(ctx context.Con
 // ClientCertificateArrayInput is an input type that accepts ClientCertificateArray and ClientCertificateArrayOutput values.
 // You can construct a concrete instance of `ClientCertificateArrayInput` via:
 //
-//          ClientCertificateArray{ ClientCertificateArgs{...} }
+//	ClientCertificateArray{ ClientCertificateArgs{...} }
 type ClientCertificateArrayInput interface {
 	pulumi.Input
 
@@ -193,7 +198,7 @@ func (i ClientCertificateArray) ToClientCertificateArrayOutputWithContext(ctx co
 // ClientCertificateMapInput is an input type that accepts ClientCertificateMap and ClientCertificateMapOutput values.
 // You can construct a concrete instance of `ClientCertificateMapInput` via:
 //
-//          ClientCertificateMap{ "key": ClientCertificateArgs{...} }
+//	ClientCertificateMap{ "key": ClientCertificateArgs{...} }
 type ClientCertificateMapInput interface {
 	pulumi.Input
 
@@ -254,12 +259,12 @@ func (o ClientCertificateOutput) PemEncodedCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.PemEncodedCertificate }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ClientCertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClientCertificateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

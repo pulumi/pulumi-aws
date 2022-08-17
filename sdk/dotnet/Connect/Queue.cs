@@ -19,84 +19,78 @@ namespace Pulumi.Aws.Connect
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Connect.Queue("test", new()
     ///     {
-    ///         var test = new Aws.Connect.Queue("test", new Aws.Connect.QueueArgs
+    ///         Description = "Example Description",
+    ///         HoursOfOperationId = "12345678-1234-1234-1234-123456789012",
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Tags = 
     ///         {
-    ///             Description = "Example Description",
-    ///             HoursOfOperationId = "12345678-1234-1234-1234-123456789012",
-    ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example Queue" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "Example Queue" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With Quick Connect IDs
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Connect.Queue("test", new()
     ///     {
-    ///         var test = new Aws.Connect.Queue("test", new Aws.Connect.QueueArgs
+    ///         Description = "Example Description",
+    ///         HoursOfOperationId = "12345678-1234-1234-1234-123456789012",
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         QuickConnectIds = new[]
     ///         {
-    ///             Description = "Example Description",
-    ///             HoursOfOperationId = "12345678-1234-1234-1234-123456789012",
-    ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///             QuickConnectIds = 
-    ///             {
-    ///                 "12345678-abcd-1234-abcd-123456789012",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example Queue with Quick Connect IDs" },
-    ///             },
-    ///         });
-    ///     }
+    ///             "12345678-abcd-1234-abcd-123456789012",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Queue with Quick Connect IDs" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With Outbound Caller Config
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Connect.Queue("test", new()
     ///     {
-    ///         var test = new Aws.Connect.Queue("test", new Aws.Connect.QueueArgs
+    ///         Description = "Example Description",
+    ///         HoursOfOperationId = "12345678-1234-1234-1234-123456789012",
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         OutboundCallerConfig = new Aws.Connect.Inputs.QueueOutboundCallerConfigArgs
     ///         {
-    ///             Description = "Example Description",
-    ///             HoursOfOperationId = "12345678-1234-1234-1234-123456789012",
-    ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///             OutboundCallerConfig = new Aws.Connect.Inputs.QueueOutboundCallerConfigArgs
-    ///             {
-    ///                 OutboundCallerIdName = "example",
-    ///                 OutboundCallerIdNumberId = "12345678-abcd-1234-abcd-123456789012",
-    ///                 OutboundFlowId = "87654321-defg-1234-defg-987654321234",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example Queue with Outbound Caller Config" },
-    ///             },
-    ///         });
-    ///     }
+    ///             OutboundCallerIdName = "example",
+    ///             OutboundCallerIdNumberId = "12345678-abcd-1234-abcd-123456789012",
+    ///             OutboundFlowId = "87654321-defg-1234-defg-987654321234",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Queue with Outbound Caller Config" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -108,7 +102,7 @@ namespace Pulumi.Aws.Connect
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/queue:Queue")]
-    public partial class Queue : Pulumi.CustomResource
+    public partial class Queue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Queue.
@@ -179,9 +173,6 @@ namespace Pulumi.Aws.Connect
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -229,7 +220,7 @@ namespace Pulumi.Aws.Connect
         }
     }
 
-    public sealed class QueueArgs : Pulumi.ResourceArgs
+    public sealed class QueueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the description of the Queue.
@@ -300,9 +291,10 @@ namespace Pulumi.Aws.Connect
         public QueueArgs()
         {
         }
+        public static new QueueArgs Empty => new QueueArgs();
     }
 
-    public sealed class QueueState : Pulumi.ResourceArgs
+    public sealed class QueueState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Queue.
@@ -392,10 +384,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -405,5 +393,6 @@ namespace Pulumi.Aws.Connect
         public QueueState()
         {
         }
+        public static new QueueState Empty => new QueueState();
     }
 }

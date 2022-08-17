@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGateway.Inputs
 {
 
-    public sealed class UsagePlanThrottleSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class UsagePlanThrottleSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         public UsagePlanThrottleSettingsGetArgs()
         {
         }
+        public static new UsagePlanThrottleSettingsGetArgs Empty => new UsagePlanThrottleSettingsGetArgs();
     }
 }

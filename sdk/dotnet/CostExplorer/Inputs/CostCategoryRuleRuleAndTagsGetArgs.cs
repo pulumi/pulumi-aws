@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CostExplorer.Inputs
 {
 
-    public sealed class CostCategoryRuleRuleAndTagsGetArgs : Pulumi.ResourceArgs
+    public sealed class CostCategoryRuleRuleAndTagsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key for the tag.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         public CostCategoryRuleRuleAndTagsGetArgs()
         {
         }
+        public static new CostCategoryRuleRuleAndTagsGetArgs Empty => new CostCategoryRuleRuleAndTagsGetArgs();
     }
 }

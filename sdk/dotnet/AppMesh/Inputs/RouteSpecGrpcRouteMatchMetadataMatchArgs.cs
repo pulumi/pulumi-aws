@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class RouteSpecGrpcRouteMatchMetadataMatchArgs : Pulumi.ResourceArgs
+    public sealed class RouteSpecGrpcRouteMatchMetadataMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
@@ -46,5 +46,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public RouteSpecGrpcRouteMatchMetadataMatchArgs()
         {
         }
+        public static new RouteSpecGrpcRouteMatchMetadataMatchArgs Empty => new RouteSpecGrpcRouteMatchMetadataMatchArgs();
     }
 }

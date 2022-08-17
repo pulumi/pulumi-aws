@@ -18,36 +18,34 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2ClientVpn.Endpoint("example", new()
     ///     {
-    ///         var example = new Aws.Ec2ClientVpn.Endpoint("example", new Aws.Ec2ClientVpn.EndpointArgs
+    ///         Description = "clientvpn-example",
+    ///         ServerCertificateArn = aws_acm_certificate.Cert.Arn,
+    ///         ClientCidrBlock = "10.0.0.0/16",
+    ///         AuthenticationOptions = new[]
     ///         {
-    ///             Description = "clientvpn-example",
-    ///             ServerCertificateArn = aws_acm_certificate.Cert.Arn,
-    ///             ClientCidrBlock = "10.0.0.0/16",
-    ///             AuthenticationOptions = 
+    ///             new Aws.Ec2ClientVpn.Inputs.EndpointAuthenticationOptionArgs
     ///             {
-    ///                 new Aws.Ec2ClientVpn.Inputs.EndpointAuthenticationOptionArgs
-    ///                 {
-    ///                     Type = "certificate-authentication",
-    ///                     RootCertificateChainArn = aws_acm_certificate.Root_cert.Arn,
-    ///                 },
+    ///                 Type = "certificate-authentication",
+    ///                 RootCertificateChainArn = aws_acm_certificate.Root_cert.Arn,
     ///             },
-    ///             ConnectionLogOptions = new Aws.Ec2ClientVpn.Inputs.EndpointConnectionLogOptionsArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 CloudwatchLogGroup = aws_cloudwatch_log_group.Lg.Name,
-    ///                 CloudwatchLogStream = aws_cloudwatch_log_stream.Ls.Name,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         ConnectionLogOptions = new Aws.Ec2ClientVpn.Inputs.EndpointConnectionLogOptionsArgs
+    ///         {
+    ///             Enabled = true,
+    ///             CloudwatchLogGroup = aws_cloudwatch_log_group.Lg.Name,
+    ///             CloudwatchLogStream = aws_cloudwatch_log_stream.Ls.Name,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +57,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2clientvpn/endpoint:Endpoint")]
-    public partial class Endpoint : Pulumi.CustomResource
+    public partial class Endpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Client VPN endpoint.
@@ -225,7 +223,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
     }
 
-    public sealed class EndpointArgs : Pulumi.ResourceArgs
+    public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationOptions", required: true)]
         private InputList<Inputs.EndpointAuthenticationOptionArgs>? _authenticationOptions;
@@ -350,9 +348,10 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public EndpointArgs()
         {
         }
+        public static new EndpointArgs Empty => new EndpointArgs();
     }
 
-    public sealed class EndpointState : Pulumi.ResourceArgs
+    public sealed class EndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Client VPN endpoint.
@@ -507,5 +506,6 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public EndpointState()
         {
         }
+        public static new EndpointState Empty => new EndpointState();
     }
 }

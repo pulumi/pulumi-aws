@@ -18,19 +18,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ses.NewConfigurationSet(ctx, "test", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewConfigurationSet(ctx, "test", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Require TLS Connections
 //
@@ -38,23 +41,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ses.NewConfigurationSet(ctx, "test", &ses.ConfigurationSetArgs{
-// 			DeliveryOptions: &ses.ConfigurationSetDeliveryOptionsArgs{
-// 				TlsPolicy: pulumi.String("Require"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewConfigurationSet(ctx, "test", &ses.ConfigurationSetArgs{
+//				DeliveryOptions: &ses.ConfigurationSetDeliveryOptionsArgs{
+//					TlsPolicy: pulumi.String("Require"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,16 +68,18 @@ import (
 // SES Configuration Sets can be imported using their `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
+//
+//	$ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
+//
 // ```
 type ConfigurationSet struct {
 	pulumi.CustomResourceState
 
 	// SES configuration set ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Configuration block. Detailed below.
+	// Whether messages that use the configuration set are required to use TLS. See below.
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrOutput `pulumi:"deliveryOptions"`
-	// The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+	// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
 	LastFreshStart pulumi.StringOutput `pulumi:"lastFreshStart"`
 	// Name of the configuration set.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -79,6 +87,8 @@ type ConfigurationSet struct {
 	ReputationMetricsEnabled pulumi.BoolPtrOutput `pulumi:"reputationMetricsEnabled"`
 	// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
 	SendingEnabled pulumi.BoolPtrOutput `pulumi:"sendingEnabled"`
+	// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+	TrackingOptions ConfigurationSetTrackingOptionsPtrOutput `pulumi:"trackingOptions"`
 }
 
 // NewConfigurationSet registers a new resource with the given unique name, arguments, and options.
@@ -118,9 +128,9 @@ func GetConfigurationSet(ctx *pulumi.Context,
 type configurationSetState struct {
 	// SES configuration set ARN.
 	Arn *string `pulumi:"arn"`
-	// Configuration block. Detailed below.
+	// Whether messages that use the configuration set are required to use TLS. See below.
 	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
-	// The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+	// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
 	LastFreshStart *string `pulumi:"lastFreshStart"`
 	// Name of the configuration set.
 	Name *string `pulumi:"name"`
@@ -128,14 +138,16 @@ type configurationSetState struct {
 	ReputationMetricsEnabled *bool `pulumi:"reputationMetricsEnabled"`
 	// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
 	SendingEnabled *bool `pulumi:"sendingEnabled"`
+	// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
 }
 
 type ConfigurationSetState struct {
 	// SES configuration set ARN.
 	Arn pulumi.StringPtrInput
-	// Configuration block. Detailed below.
+	// Whether messages that use the configuration set are required to use TLS. See below.
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrInput
-	// The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+	// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
 	LastFreshStart pulumi.StringPtrInput
 	// Name of the configuration set.
 	Name pulumi.StringPtrInput
@@ -143,6 +155,8 @@ type ConfigurationSetState struct {
 	ReputationMetricsEnabled pulumi.BoolPtrInput
 	// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
 	SendingEnabled pulumi.BoolPtrInput
+	// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+	TrackingOptions ConfigurationSetTrackingOptionsPtrInput
 }
 
 func (ConfigurationSetState) ElementType() reflect.Type {
@@ -150,7 +164,7 @@ func (ConfigurationSetState) ElementType() reflect.Type {
 }
 
 type configurationSetArgs struct {
-	// Configuration block. Detailed below.
+	// Whether messages that use the configuration set are required to use TLS. See below.
 	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
 	// Name of the configuration set.
 	Name *string `pulumi:"name"`
@@ -158,11 +172,13 @@ type configurationSetArgs struct {
 	ReputationMetricsEnabled *bool `pulumi:"reputationMetricsEnabled"`
 	// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
 	SendingEnabled *bool `pulumi:"sendingEnabled"`
+	// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
 }
 
 // The set of arguments for constructing a ConfigurationSet resource.
 type ConfigurationSetArgs struct {
-	// Configuration block. Detailed below.
+	// Whether messages that use the configuration set are required to use TLS. See below.
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrInput
 	// Name of the configuration set.
 	Name pulumi.StringPtrInput
@@ -170,6 +186,8 @@ type ConfigurationSetArgs struct {
 	ReputationMetricsEnabled pulumi.BoolPtrInput
 	// Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
 	SendingEnabled pulumi.BoolPtrInput
+	// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+	TrackingOptions ConfigurationSetTrackingOptionsPtrInput
 }
 
 func (ConfigurationSetArgs) ElementType() reflect.Type {
@@ -198,7 +216,7 @@ func (i *ConfigurationSet) ToConfigurationSetOutputWithContext(ctx context.Conte
 // ConfigurationSetArrayInput is an input type that accepts ConfigurationSetArray and ConfigurationSetArrayOutput values.
 // You can construct a concrete instance of `ConfigurationSetArrayInput` via:
 //
-//          ConfigurationSetArray{ ConfigurationSetArgs{...} }
+//	ConfigurationSetArray{ ConfigurationSetArgs{...} }
 type ConfigurationSetArrayInput interface {
 	pulumi.Input
 
@@ -223,7 +241,7 @@ func (i ConfigurationSetArray) ToConfigurationSetArrayOutputWithContext(ctx cont
 // ConfigurationSetMapInput is an input type that accepts ConfigurationSetMap and ConfigurationSetMapOutput values.
 // You can construct a concrete instance of `ConfigurationSetMapInput` via:
 //
-//          ConfigurationSetMap{ "key": ConfigurationSetArgs{...} }
+//	ConfigurationSetMap{ "key": ConfigurationSetArgs{...} }
 type ConfigurationSetMapInput interface {
 	pulumi.Input
 
@@ -264,12 +282,12 @@ func (o ConfigurationSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Configuration block. Detailed below.
+// Whether messages that use the configuration set are required to use TLS. See below.
 func (o ConfigurationSetOutput) DeliveryOptions() ConfigurationSetDeliveryOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetDeliveryOptionsPtrOutput { return v.DeliveryOptions }).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
-// The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+// Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
 func (o ConfigurationSetOutput) LastFreshStart() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.LastFreshStart }).(pulumi.StringOutput)
 }
@@ -287,6 +305,11 @@ func (o ConfigurationSetOutput) ReputationMetricsEnabled() pulumi.BoolPtrOutput 
 // Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
 func (o ConfigurationSetOutput) SendingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.BoolPtrOutput { return v.SendingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+func (o ConfigurationSetOutput) TrackingOptions() ConfigurationSetTrackingOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetTrackingOptionsPtrOutput { return v.TrackingOptions }).(ConfigurationSetTrackingOptionsPtrOutput)
 }
 
 type ConfigurationSetArrayOutput struct{ *pulumi.OutputState }

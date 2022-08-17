@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventPermissionConditionArgs : Pulumi.ResourceArgs
+    public sealed class EventPermissionConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key for the condition. Valid values: `aws:PrincipalOrgID`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventPermissionConditionArgs()
         {
         }
+        public static new EventPermissionConditionArgs Empty => new EventPermissionConditionArgs();
     }
 }

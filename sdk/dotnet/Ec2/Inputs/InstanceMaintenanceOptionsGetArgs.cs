@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class InstanceMaintenanceOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class InstanceMaintenanceOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public InstanceMaintenanceOptionsGetArgs()
         {
         }
+        public static new InstanceMaintenanceOptionsGetArgs Empty => new InstanceMaintenanceOptionsGetArgs();
     }
 }

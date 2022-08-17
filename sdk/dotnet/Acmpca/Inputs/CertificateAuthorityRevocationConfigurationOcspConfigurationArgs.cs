@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Acmpca.Inputs
 {
 
-    public sealed class CertificateAuthorityRevocationConfigurationOcspConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityRevocationConfigurationOcspConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean value that specifies whether a custom OCSP responder is enabled.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public CertificateAuthorityRevocationConfigurationOcspConfigurationArgs()
         {
         }
+        public static new CertificateAuthorityRevocationConfigurationOcspConfigurationArgs Empty => new CertificateAuthorityRevocationConfigurationOcspConfigurationArgs();
     }
 }

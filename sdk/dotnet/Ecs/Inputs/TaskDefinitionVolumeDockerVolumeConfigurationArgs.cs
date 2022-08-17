@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class TaskDefinitionVolumeDockerVolumeConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionVolumeDockerVolumeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public TaskDefinitionVolumeDockerVolumeConfigurationArgs()
         {
         }
+        public static new TaskDefinitionVolumeDockerVolumeConfigurationArgs Empty => new TaskDefinitionVolumeDockerVolumeConfigurationArgs();
     }
 }

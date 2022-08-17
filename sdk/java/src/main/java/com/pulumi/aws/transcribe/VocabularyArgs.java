@@ -47,26 +47,11 @@ public final class VocabularyArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.phrases);
     }
 
-    /**
-     * A map of tags to assign to the Vocabulary. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the Vocabulary. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
-    }
-
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
     }
 
     /**
@@ -105,7 +90,6 @@ public final class VocabularyArgs extends com.pulumi.resources.ResourceArgs {
         this.languageCode = $.languageCode;
         this.phrases = $.phrases;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.vocabularyFileUri = $.vocabularyFileUri;
         this.vocabularyName = $.vocabularyName;
     }
@@ -180,34 +164,13 @@ public final class VocabularyArgs extends com.pulumi.resources.ResourceArgs {
             return phrases(List.of(phrases));
         }
 
-        /**
-         * @param tags A map of tags to assign to the Vocabulary. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the Vocabulary. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

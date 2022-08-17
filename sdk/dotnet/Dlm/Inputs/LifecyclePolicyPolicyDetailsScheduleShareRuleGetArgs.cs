@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dlm.Inputs
 {
 
-    public sealed class LifecyclePolicyPolicyDetailsScheduleShareRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyPolicyDetailsScheduleShareRuleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("targetAccounts", required: true)]
         private InputList<string>? _targetAccounts;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Dlm.Inputs
         public LifecyclePolicyPolicyDetailsScheduleShareRuleGetArgs()
         {
         }
+        public static new LifecyclePolicyPolicyDetailsScheduleShareRuleGetArgs Empty => new LifecyclePolicyPolicyDetailsScheduleShareRuleGetArgs();
     }
 }

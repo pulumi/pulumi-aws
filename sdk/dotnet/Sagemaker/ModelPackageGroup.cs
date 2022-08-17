@@ -16,20 +16,18 @@ namespace Pulumi.Aws.Sagemaker
     /// ### Basic usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.ModelPackageGroup("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.ModelPackageGroup("example", new Aws.Sagemaker.ModelPackageGroupArgs
-    ///         {
-    ///             ModelPackageGroupName = "example",
-    ///         });
-    ///     }
+    ///         ModelPackageGroupName = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/modelPackageGroup:ModelPackageGroup")]
-    public partial class ModelPackageGroup : Pulumi.CustomResource
+    public partial class ModelPackageGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
@@ -68,7 +66,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -117,7 +115,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class ModelPackageGroupArgs : Pulumi.ResourceArgs
+    public sealed class ModelPackageGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the model group.
@@ -146,9 +144,10 @@ namespace Pulumi.Aws.Sagemaker
         public ModelPackageGroupArgs()
         {
         }
+        public static new ModelPackageGroupArgs Empty => new ModelPackageGroupArgs();
     }
 
-    public sealed class ModelPackageGroupState : Pulumi.ResourceArgs
+    public sealed class ModelPackageGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
@@ -184,7 +183,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -195,5 +194,6 @@ namespace Pulumi.Aws.Sagemaker
         public ModelPackageGroupState()
         {
         }
+        public static new ModelPackageGroupState Empty => new ModelPackageGroupState();
     }
 }

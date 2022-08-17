@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex.Inputs
 {
 
-    public sealed class IntentSlotArgs : Pulumi.ResourceArgs
+    public sealed class IntentSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the bot. Must be less than or equal to 200 characters in length.
@@ -84,5 +84,6 @@ namespace Pulumi.Aws.Lex.Inputs
         public IntentSlotArgs()
         {
         }
+        public static new IntentSlotArgs Empty => new IntentSlotArgs();
     }
 }

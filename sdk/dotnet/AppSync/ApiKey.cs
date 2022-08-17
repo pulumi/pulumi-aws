@@ -15,25 +15,24 @@ namespace Pulumi.Aws.AppSync
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
     ///     {
-    ///         var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new Aws.AppSync.GraphQLApiArgs
-    ///         {
-    ///             AuthenticationType = "API_KEY",
-    ///         });
-    ///         var exampleApiKey = new Aws.AppSync.ApiKey("exampleApiKey", new Aws.AppSync.ApiKeyArgs
-    ///         {
-    ///             ApiId = exampleGraphQLApi.Id,
-    ///             Expires = "2018-05-03T04:00:00Z",
-    ///         });
-    ///     }
+    ///         AuthenticationType = "API_KEY",
+    ///     });
     /// 
-    /// }
+    ///     var exampleApiKey = new Aws.AppSync.ApiKey("exampleApiKey", new()
+    ///     {
+    ///         ApiId = exampleGraphQLApi.Id,
+    ///         Expires = "2018-05-03T04:00:00Z",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +44,7 @@ namespace Pulumi.Aws.AppSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/apiKey:ApiKey")]
-    public partial class ApiKey : Pulumi.CustomResource
+    public partial class ApiKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the associated AppSync API
@@ -115,7 +114,7 @@ namespace Pulumi.Aws.AppSync
         }
     }
 
-    public sealed class ApiKeyArgs : Pulumi.ResourceArgs
+    public sealed class ApiKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the associated AppSync API
@@ -139,9 +138,10 @@ namespace Pulumi.Aws.AppSync
         {
             Description = "Managed by Pulumi";
         }
+        public static new ApiKeyArgs Empty => new ApiKeyArgs();
     }
 
-    public sealed class ApiKeyState : Pulumi.ResourceArgs
+    public sealed class ApiKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the associated AppSync API
@@ -171,5 +171,6 @@ namespace Pulumi.Aws.AppSync
         {
             Description = "Managed by Pulumi";
         }
+        public static new ApiKeyState Empty => new ApiKeyState();
     }
 }

@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := organizations.NewDelegatedAdministrator(ctx, "example", &organizations.DelegatedAdministratorArgs{
-// 			AccountId:        pulumi.String("123456789012"),
-// 			ServicePrincipal: pulumi.String("principal"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := organizations.NewDelegatedAdministrator(ctx, "example", &organizations.DelegatedAdministratorArgs{
+//				AccountId:        pulumi.String("123456789012"),
+//				ServicePrincipal: pulumi.String("principal"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // `aws_organizations_delegated_administrator` can be imported by using the account ID and its service principal, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com
+//
+//	$ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com
+//
 // ```
 type DelegatedAdministrator struct {
 	pulumi.CustomResourceState
@@ -188,7 +193,7 @@ func (i *DelegatedAdministrator) ToDelegatedAdministratorOutputWithContext(ctx c
 // DelegatedAdministratorArrayInput is an input type that accepts DelegatedAdministratorArray and DelegatedAdministratorArrayOutput values.
 // You can construct a concrete instance of `DelegatedAdministratorArrayInput` via:
 //
-//          DelegatedAdministratorArray{ DelegatedAdministratorArgs{...} }
+//	DelegatedAdministratorArray{ DelegatedAdministratorArgs{...} }
 type DelegatedAdministratorArrayInput interface {
 	pulumi.Input
 
@@ -213,7 +218,7 @@ func (i DelegatedAdministratorArray) ToDelegatedAdministratorArrayOutputWithCont
 // DelegatedAdministratorMapInput is an input type that accepts DelegatedAdministratorMap and DelegatedAdministratorMapOutput values.
 // You can construct a concrete instance of `DelegatedAdministratorMapInput` via:
 //
-//          DelegatedAdministratorMap{ "key": DelegatedAdministratorArgs{...} }
+//	DelegatedAdministratorMap{ "key": DelegatedAdministratorArgs{...} }
 type DelegatedAdministratorMapInput interface {
 	pulumi.Input
 

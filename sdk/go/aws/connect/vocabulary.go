@@ -20,28 +20,31 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.NewVocabulary(ctx, "example", &connect.VocabularyArgs{
-// 			Content: pulumi.String(fmt.Sprintf("Phrase	IPA	SoundsLike	DisplayAs\nLos-Angeles			Los Angeles\nF.B.I.	ɛ f b i aɪ		FBI\nEtienne		eh-tee-en	\n")),
-// 			InstanceId:   pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-// 			LanguageCode: pulumi.String("en-US"),
-// 			Tags: pulumi.StringMap{
-// 				"Key1": pulumi.String("Value1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewVocabulary(ctx, "example", &connect.VocabularyArgs{
+//				Content:      pulumi.String(fmt.Sprintf("Phrase	IPA	SoundsLike	DisplayAs\nLos-Angeles			Los Angeles\nF.B.I.	ɛ f b i aɪ		FBI\nEtienne		eh-tee-en	\n")),
+//				InstanceId:   pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				LanguageCode: pulumi.String("en-US"),
+//				Tags: pulumi.StringMap{
+//					"Key1": pulumi.String("Value1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Amazon Connect Vocabularies can be imported using the `instance_id` and `vocabulary_id` separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:connect/vocabulary:Vocabulary example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
+//	$ pulumi import aws:connect/vocabulary:Vocabulary example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
 // ```
 type Vocabulary struct {
 	pulumi.CustomResourceState
@@ -69,11 +74,8 @@ type Vocabulary struct {
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Tags to apply to the vocabulary. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	State   pulumi.StringOutput    `pulumi:"state"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The identifier of the custom vocabulary.
 	VocabularyId pulumi.StringOutput `pulumi:"vocabularyId"`
@@ -132,11 +134,8 @@ type vocabularyState struct {
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name *string `pulumi:"name"`
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
-	State *string `pulumi:"state"`
-	// Tags to apply to the vocabulary. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	State   *string           `pulumi:"state"`
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The identifier of the custom vocabulary.
 	VocabularyId *string `pulumi:"vocabularyId"`
@@ -158,11 +157,8 @@ type VocabularyState struct {
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name pulumi.StringPtrInput
 	// The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
-	State pulumi.StringPtrInput
-	// Tags to apply to the vocabulary. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	State   pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The identifier of the custom vocabulary.
 	VocabularyId pulumi.StringPtrInput
@@ -180,12 +176,8 @@ type vocabularyArgs struct {
 	// The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
 	LanguageCode string `pulumi:"languageCode"`
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
-	Name *string `pulumi:"name"`
-	// Tags to apply to the vocabulary. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Name *string           `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Vocabulary resource.
@@ -198,11 +190,7 @@ type VocabularyArgs struct {
 	LanguageCode pulumi.StringInput
 	// A unique name of the custom vocabulary. Must not be more than 140 characters.
 	Name pulumi.StringPtrInput
-	// Tags to apply to the vocabulary. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
 }
 
 func (VocabularyArgs) ElementType() reflect.Type {
@@ -231,7 +219,7 @@ func (i *Vocabulary) ToVocabularyOutputWithContext(ctx context.Context) Vocabula
 // VocabularyArrayInput is an input type that accepts VocabularyArray and VocabularyArrayOutput values.
 // You can construct a concrete instance of `VocabularyArrayInput` via:
 //
-//          VocabularyArray{ VocabularyArgs{...} }
+//	VocabularyArray{ VocabularyArgs{...} }
 type VocabularyArrayInput interface {
 	pulumi.Input
 
@@ -256,7 +244,7 @@ func (i VocabularyArray) ToVocabularyArrayOutputWithContext(ctx context.Context)
 // VocabularyMapInput is an input type that accepts VocabularyMap and VocabularyMapOutput values.
 // You can construct a concrete instance of `VocabularyMapInput` via:
 //
-//          VocabularyMap{ "key": VocabularyArgs{...} }
+//	VocabularyMap{ "key": VocabularyArgs{...} }
 type VocabularyMapInput interface {
 	pulumi.Input
 
@@ -332,13 +320,10 @@ func (o VocabularyOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the vocabulary. If configured with a provider
-// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VocabularyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o VocabularyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

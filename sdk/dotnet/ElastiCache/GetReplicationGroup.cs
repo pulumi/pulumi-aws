@@ -19,20 +19,18 @@ namespace Pulumi.Aws.ElastiCache
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var bar = Aws.ElastiCache.GetReplicationGroup.Invoke(new()
         ///     {
-        ///         var bar = Output.Create(Aws.ElastiCache.GetReplicationGroup.InvokeAsync(new Aws.ElastiCache.GetReplicationGroupArgs
-        ///         {
-        ///             ReplicationGroupId = "example",
-        ///         }));
-        ///     }
+        ///         ReplicationGroupId = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.ElastiCache
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var bar = Aws.ElastiCache.GetReplicationGroup.Invoke(new()
         ///     {
-        ///         var bar = Output.Create(Aws.ElastiCache.GetReplicationGroup.InvokeAsync(new Aws.ElastiCache.GetReplicationGroupArgs
-        ///         {
-        ///             ReplicationGroupId = "example",
-        ///         }));
-        ///     }
+        ///         ReplicationGroupId = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.ElastiCache
     }
 
 
-    public sealed class GetReplicationGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the replication group.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.ElastiCache
         public GetReplicationGroupArgs()
         {
         }
+        public static new GetReplicationGroupArgs Empty => new GetReplicationGroupArgs();
     }
 
-    public sealed class GetReplicationGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the replication group.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.ElastiCache
         public GetReplicationGroupInvokeArgs()
         {
         }
+        public static new GetReplicationGroupInvokeArgs Empty => new GetReplicationGroupInvokeArgs();
     }
 
 

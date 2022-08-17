@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := inspector.NewResourceGroup(ctx, "example", &inspector.ResourceGroupArgs{
-// 			Tags: pulumi.StringMap{
-// 				"Env":  pulumi.String("bar"),
-// 				"Name": pulumi.String("foo"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := inspector.NewResourceGroup(ctx, "example", &inspector.ResourceGroupArgs{
+//				Tags: pulumi.StringMap{
+//					"Env":  pulumi.String("bar"),
+//					"Name": pulumi.String("foo"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type ResourceGroup struct {
 	pulumi.CustomResourceState
@@ -133,7 +136,7 @@ func (i *ResourceGroup) ToResourceGroupOutputWithContext(ctx context.Context) Re
 // ResourceGroupArrayInput is an input type that accepts ResourceGroupArray and ResourceGroupArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupArrayInput` via:
 //
-//          ResourceGroupArray{ ResourceGroupArgs{...} }
+//	ResourceGroupArray{ ResourceGroupArgs{...} }
 type ResourceGroupArrayInput interface {
 	pulumi.Input
 
@@ -158,7 +161,7 @@ func (i ResourceGroupArray) ToResourceGroupArrayOutputWithContext(ctx context.Co
 // ResourceGroupMapInput is an input type that accepts ResourceGroupMap and ResourceGroupMapOutput values.
 // You can construct a concrete instance of `ResourceGroupMapInput` via:
 //
-//          ResourceGroupMap{ "key": ResourceGroupArgs{...} }
+//	ResourceGroupMap{ "key": ResourceGroupArgs{...} }
 type ResourceGroupMapInput interface {
 	pulumi.Input
 

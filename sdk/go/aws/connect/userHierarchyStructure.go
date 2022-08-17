@@ -21,26 +21,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.NewUserHierarchyStructure(ctx, "example", &connect.UserHierarchyStructureArgs{
-// 			HierarchyStructure: &connect.UserHierarchyStructureHierarchyStructureArgs{
-// 				LevelOne: &connect.UserHierarchyStructureHierarchyStructureLevelOneArgs{
-// 					Name: pulumi.String("levelone"),
-// 				},
-// 			},
-// 			InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewUserHierarchyStructure(ctx, "example", &connect.UserHierarchyStructureArgs{
+//				HierarchyStructure: &connect.UserHierarchyStructureHierarchyStructureArgs{
+//					LevelOne: &connect.UserHierarchyStructureHierarchyStructureLevelOneArgs{
+//						Name: pulumi.String("levelone"),
+//					},
+//				},
+//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With Five Levels
 //
@@ -48,38 +51,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.NewUserHierarchyStructure(ctx, "example", &connect.UserHierarchyStructureArgs{
-// 			HierarchyStructure: &connect.UserHierarchyStructureHierarchyStructureArgs{
-// 				LevelFive: &connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs{
-// 					Name: pulumi.String("levelfive"),
-// 				},
-// 				LevelFour: &connect.UserHierarchyStructureHierarchyStructureLevelFourArgs{
-// 					Name: pulumi.String("levelfour"),
-// 				},
-// 				LevelOne: &connect.UserHierarchyStructureHierarchyStructureLevelOneArgs{
-// 					Name: pulumi.String("levelone"),
-// 				},
-// 				LevelThree: &connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs{
-// 					Name: pulumi.String("levelthree"),
-// 				},
-// 				LevelTwo: &connect.UserHierarchyStructureHierarchyStructureLevelTwoArgs{
-// 					Name: pulumi.String("leveltwo"),
-// 				},
-// 			},
-// 			InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewUserHierarchyStructure(ctx, "example", &connect.UserHierarchyStructureArgs{
+//				HierarchyStructure: &connect.UserHierarchyStructureHierarchyStructureArgs{
+//					LevelFive: &connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs{
+//						Name: pulumi.String("levelfive"),
+//					},
+//					LevelFour: &connect.UserHierarchyStructureHierarchyStructureLevelFourArgs{
+//						Name: pulumi.String("levelfour"),
+//					},
+//					LevelOne: &connect.UserHierarchyStructureHierarchyStructureLevelOneArgs{
+//						Name: pulumi.String("levelone"),
+//					},
+//					LevelThree: &connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs{
+//						Name: pulumi.String("levelthree"),
+//					},
+//					LevelTwo: &connect.UserHierarchyStructureHierarchyStructureLevelTwoArgs{
+//						Name: pulumi.String("leveltwo"),
+//					},
+//				},
+//				InstanceId: pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -87,7 +93,9 @@ import (
 // Amazon Connect User Hierarchy Structures can be imported using the `instance_id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
+//
+//	$ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
+//
 // ```
 type UserHierarchyStructure struct {
 	pulumi.CustomResourceState
@@ -191,7 +199,7 @@ func (i *UserHierarchyStructure) ToUserHierarchyStructureOutputWithContext(ctx c
 // UserHierarchyStructureArrayInput is an input type that accepts UserHierarchyStructureArray and UserHierarchyStructureArrayOutput values.
 // You can construct a concrete instance of `UserHierarchyStructureArrayInput` via:
 //
-//          UserHierarchyStructureArray{ UserHierarchyStructureArgs{...} }
+//	UserHierarchyStructureArray{ UserHierarchyStructureArgs{...} }
 type UserHierarchyStructureArrayInput interface {
 	pulumi.Input
 
@@ -216,7 +224,7 @@ func (i UserHierarchyStructureArray) ToUserHierarchyStructureArrayOutputWithCont
 // UserHierarchyStructureMapInput is an input type that accepts UserHierarchyStructureMap and UserHierarchyStructureMapOutput values.
 // You can construct a concrete instance of `UserHierarchyStructureMapInput` via:
 //
-//          UserHierarchyStructureMap{ "key": UserHierarchyStructureArgs{...} }
+//	UserHierarchyStructureMap{ "key": UserHierarchyStructureArgs{...} }
 type UserHierarchyStructureMapInput interface {
 	pulumi.Input
 

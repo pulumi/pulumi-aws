@@ -26,23 +26,21 @@ namespace Pulumi.Aws.Ec2
     /// Basic usage with tags:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Ec2.DefaultVpcDhcpOptions("default", new()
     ///     {
-    ///         var @default = new Aws.Ec2.DefaultVpcDhcpOptions("default", new Aws.Ec2.DefaultVpcDhcpOptionsArgs
+    ///         Tags = 
     ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Default DHCP Option Set" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "Default DHCP Option Set" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +52,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions")]
-    public partial class DefaultVpcDhcpOptions : Pulumi.CustomResource
+    public partial class DefaultVpcDhcpOptions : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the DHCP Options Set.
@@ -142,7 +140,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class DefaultVpcDhcpOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DefaultVpcDhcpOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the AWS account that owns the DHCP options set.
@@ -162,20 +160,13 @@ namespace Pulumi.Aws.Ec2
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public DefaultVpcDhcpOptionsArgs()
         {
         }
+        public static new DefaultVpcDhcpOptionsArgs Empty => new DefaultVpcDhcpOptionsArgs();
     }
 
-    public sealed class DefaultVpcDhcpOptionsState : Pulumi.ResourceArgs
+    public sealed class DefaultVpcDhcpOptionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the DHCP Options Set.
@@ -233,5 +224,6 @@ namespace Pulumi.Aws.Ec2
         public DefaultVpcDhcpOptionsState()
         {
         }
+        public static new DefaultVpcDhcpOptionsState Empty => new DefaultVpcDhcpOptionsState();
     }
 }

@@ -30,7 +30,7 @@ type ApplicationApplicationConfiguration struct {
 // ApplicationApplicationConfigurationInput is an input type that accepts ApplicationApplicationConfigurationArgs and ApplicationApplicationConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationInput` via:
 //
-//          ApplicationApplicationConfigurationArgs{...}
+//	ApplicationApplicationConfigurationArgs{...}
 type ApplicationApplicationConfigurationInput interface {
 	pulumi.Input
 
@@ -78,11 +78,11 @@ func (i ApplicationApplicationConfigurationArgs) ToApplicationApplicationConfigu
 // ApplicationApplicationConfigurationPtrInput is an input type that accepts ApplicationApplicationConfigurationArgs, ApplicationApplicationConfigurationPtr and ApplicationApplicationConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationPtrInput` via:
 //
-//          ApplicationApplicationConfigurationArgs{...}
+//	        ApplicationApplicationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -285,7 +285,7 @@ type ApplicationApplicationConfigurationApplicationCodeConfiguration struct {
 // ApplicationApplicationConfigurationApplicationCodeConfigurationInput is an input type that accepts ApplicationApplicationConfigurationApplicationCodeConfigurationArgs and ApplicationApplicationConfigurationApplicationCodeConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationApplicationCodeConfigurationInput` via:
 //
-//          ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{...}
+//	ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{...}
 type ApplicationApplicationConfigurationApplicationCodeConfigurationInput interface {
 	pulumi.Input
 
@@ -323,11 +323,11 @@ func (i ApplicationApplicationConfigurationApplicationCodeConfigurationArgs) ToA
 // ApplicationApplicationConfigurationApplicationCodeConfigurationPtrInput is an input type that accepts ApplicationApplicationConfigurationApplicationCodeConfigurationArgs, ApplicationApplicationConfigurationApplicationCodeConfigurationPtr and ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationApplicationCodeConfigurationPtrInput` via:
 //
-//          ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{...}
+//	        ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationApplicationCodeConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -445,7 +445,7 @@ type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent 
 // ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentInput is an input type that accepts ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs and ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentInput` via:
 //
-//          ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{...}
+//	ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{...}
 type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentInput interface {
 	pulumi.Input
 
@@ -483,11 +483,11 @@ func (i ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 // ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrInput is an input type that accepts ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs, ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtr and ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrInput` via:
 //
-//          ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{...}
+//	        ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrInput interface {
 	pulumi.Input
 
@@ -607,7 +607,7 @@ type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS
 // ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationInput is an input type that accepts ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs and ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationInput` via:
 //
-//          ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs{...}
+//	ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs{...}
 type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationInput interface {
 	pulumi.Input
 
@@ -647,11 +647,11 @@ func (i ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 // ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrInput is an input type that accepts ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs, ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtr and ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrInput` via:
 //
-//          ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs{...}
+//	        ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrInput interface {
 	pulumi.Input
 
@@ -784,7 +784,7 @@ type ApplicationApplicationConfigurationApplicationSnapshotConfiguration struct 
 // ApplicationApplicationConfigurationApplicationSnapshotConfigurationInput is an input type that accepts ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs and ApplicationApplicationConfigurationApplicationSnapshotConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationApplicationSnapshotConfigurationInput` via:
 //
-//          ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs{...}
+//	ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs{...}
 type ApplicationApplicationConfigurationApplicationSnapshotConfigurationInput interface {
 	pulumi.Input
 
@@ -820,11 +820,11 @@ func (i ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs)
 // ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrInput is an input type that accepts ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs, ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtr and ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrInput` via:
 //
-//          ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs{...}
+//	        ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -923,7 +923,7 @@ type ApplicationApplicationConfigurationEnvironmentProperties struct {
 // ApplicationApplicationConfigurationEnvironmentPropertiesInput is an input type that accepts ApplicationApplicationConfigurationEnvironmentPropertiesArgs and ApplicationApplicationConfigurationEnvironmentPropertiesOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationEnvironmentPropertiesInput` via:
 //
-//          ApplicationApplicationConfigurationEnvironmentPropertiesArgs{...}
+//	ApplicationApplicationConfigurationEnvironmentPropertiesArgs{...}
 type ApplicationApplicationConfigurationEnvironmentPropertiesInput interface {
 	pulumi.Input
 
@@ -959,11 +959,11 @@ func (i ApplicationApplicationConfigurationEnvironmentPropertiesArgs) ToApplicat
 // ApplicationApplicationConfigurationEnvironmentPropertiesPtrInput is an input type that accepts ApplicationApplicationConfigurationEnvironmentPropertiesArgs, ApplicationApplicationConfigurationEnvironmentPropertiesPtr and ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationEnvironmentPropertiesPtrInput` via:
 //
-//          ApplicationApplicationConfigurationEnvironmentPropertiesArgs{...}
+//	        ApplicationApplicationConfigurationEnvironmentPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationEnvironmentPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1064,7 +1064,7 @@ type ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup struc
 // ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupInput is an input type that accepts ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs and ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupInput` via:
 //
-//          ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs{...}
+//	ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs{...}
 type ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupInput interface {
 	pulumi.Input
 
@@ -1094,7 +1094,7 @@ func (i ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArg
 // ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayInput is an input type that accepts ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArray and ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayInput` via:
 //
-//          ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArray{ ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs{...} }
+//	ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArray{ ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs{...} }
 type ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayInput interface {
 	pulumi.Input
 
@@ -1176,7 +1176,7 @@ type ApplicationApplicationConfigurationFlinkApplicationConfiguration struct {
 // ApplicationApplicationConfigurationFlinkApplicationConfigurationInput is an input type that accepts ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs and ApplicationApplicationConfigurationFlinkApplicationConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationFlinkApplicationConfigurationInput` via:
 //
-//          ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs{...}
+//	ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs{...}
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationInput interface {
 	pulumi.Input
 
@@ -1216,11 +1216,11 @@ func (i ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs) To
 // ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrInput is an input type that accepts ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs, ApplicationApplicationConfigurationFlinkApplicationConfigurationPtr and ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrInput` via:
 //
-//          ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs{...}
+//	        ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1362,7 +1362,7 @@ type ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointC
 // ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationInput is an input type that accepts ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs and ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationInput` via:
 //
-//          ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs{...}
+//	ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs{...}
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationInput interface {
 	pulumi.Input
 
@@ -1407,11 +1407,11 @@ func (i ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoi
 // ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrInput is an input type that accepts ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs, ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtr and ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrInput` via:
 //
-//          ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs{...}
+//	        ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1571,7 +1571,7 @@ type ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringC
 // ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationInput is an input type that accepts ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs and ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationInput` via:
 //
-//          ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs{...}
+//	ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs{...}
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationInput interface {
 	pulumi.Input
 
@@ -1611,11 +1611,11 @@ func (i ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitori
 // ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrInput is an input type that accepts ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs, ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtr and ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrInput` via:
 //
-//          ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs{...}
+//	        ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1754,7 +1754,7 @@ type ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelism
 // ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationInput is an input type that accepts ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs and ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationInput` via:
 //
-//          ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs{...}
+//	ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs{...}
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationInput interface {
 	pulumi.Input
 
@@ -1796,11 +1796,11 @@ func (i ApplicationApplicationConfigurationFlinkApplicationConfigurationParallel
 // ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrInput is an input type that accepts ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs, ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtr and ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrInput` via:
 //
-//          ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs{...}
+//	        ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1952,7 +1952,7 @@ type ApplicationApplicationConfigurationRunConfiguration struct {
 // ApplicationApplicationConfigurationRunConfigurationInput is an input type that accepts ApplicationApplicationConfigurationRunConfigurationArgs and ApplicationApplicationConfigurationRunConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationRunConfigurationInput` via:
 //
-//          ApplicationApplicationConfigurationRunConfigurationArgs{...}
+//	ApplicationApplicationConfigurationRunConfigurationArgs{...}
 type ApplicationApplicationConfigurationRunConfigurationInput interface {
 	pulumi.Input
 
@@ -1990,11 +1990,11 @@ func (i ApplicationApplicationConfigurationRunConfigurationArgs) ToApplicationAp
 // ApplicationApplicationConfigurationRunConfigurationPtrInput is an input type that accepts ApplicationApplicationConfigurationRunConfigurationArgs, ApplicationApplicationConfigurationRunConfigurationPtr and ApplicationApplicationConfigurationRunConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationRunConfigurationPtrInput` via:
 //
-//          ApplicationApplicationConfigurationRunConfigurationArgs{...}
+//	        ApplicationApplicationConfigurationRunConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationRunConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2112,7 +2112,7 @@ type ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfig
 // ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationInput is an input type that accepts ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs and ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationInput` via:
 //
-//          ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs{...}
+//	ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs{...}
 type ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationInput interface {
 	pulumi.Input
 
@@ -2150,11 +2150,11 @@ func (i ApplicationApplicationConfigurationRunConfigurationApplicationRestoreCon
 // ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrInput is an input type that accepts ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs, ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtr and ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrInput` via:
 //
-//          ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs{...}
+//	        ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2270,7 +2270,7 @@ type ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration st
 // ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationInput is an input type that accepts ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs and ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationInput` via:
 //
-//          ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs{...}
+//	ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs{...}
 type ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationInput interface {
 	pulumi.Input
 
@@ -2306,11 +2306,11 @@ func (i ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration
 // ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrInput is an input type that accepts ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs, ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtr and ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrInput` via:
 //
-//          ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs{...}
+//	        ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2413,7 +2413,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfiguration struct {
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInput interface {
 	pulumi.Input
 
@@ -2453,11 +2453,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationArgs) ToAp
 // ApplicationApplicationConfigurationSqlApplicationConfigurationPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2605,7 +2605,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputType str
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeInput interface {
 	pulumi.Input
 
@@ -2656,11 +2656,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeA
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtr and ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrInput interface {
 	pulumi.Input
 
@@ -2893,7 +2893,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPar
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismInput interface {
 	pulumi.Input
 
@@ -2929,11 +2929,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrInput interface {
 	pulumi.Input
 
@@ -3032,7 +3032,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPro
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInput interface {
 	pulumi.Input
 
@@ -3068,11 +3068,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -3171,7 +3171,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPro
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorInput interface {
 	pulumi.Input
 
@@ -3207,11 +3207,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrInput interface {
 	pulumi.Input
 
@@ -3314,7 +3314,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSch
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaInput interface {
 	pulumi.Input
 
@@ -3354,11 +3354,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrInput interface {
 	pulumi.Input
 
@@ -3495,7 +3495,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSch
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnInput interface {
 	pulumi.Input
 
@@ -3527,7 +3527,7 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArray and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArray{ ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs{...} }
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArray{ ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs{...} }
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayInput interface {
 	pulumi.Input
 
@@ -3614,7 +3614,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSch
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatInput interface {
 	pulumi.Input
 
@@ -3652,11 +3652,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrInput interface {
 	pulumi.Input
 
@@ -3774,7 +3774,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSch
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersInput interface {
 	pulumi.Input
 
@@ -3812,11 +3812,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrInput interface {
 	pulumi.Input
 
@@ -3934,7 +3934,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSch
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersInput interface {
 	pulumi.Input
 
@@ -3972,11 +3972,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrInput interface {
 	pulumi.Input
 
@@ -4092,7 +4092,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSch
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersInput interface {
 	pulumi.Input
 
@@ -4128,11 +4128,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrInput interface {
 	pulumi.Input
 
@@ -4231,7 +4231,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSta
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationInput interface {
 	pulumi.Input
 
@@ -4259,7 +4259,7 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArray and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArray{ ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs{...} }
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArray{ ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs{...} }
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -4330,7 +4330,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisF
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputInput interface {
 	pulumi.Input
 
@@ -4366,11 +4366,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrInput interface {
 	pulumi.Input
 
@@ -4469,7 +4469,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisS
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputInput interface {
 	pulumi.Input
 
@@ -4505,11 +4505,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrInput interface {
 	pulumi.Input
 
@@ -4617,7 +4617,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType st
 // ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeInput interface {
 	pulumi.Input
 
@@ -4654,7 +4654,7 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType
 // ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArray and ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArray{ ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs{...} }
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArray{ ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs{...} }
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayInput interface {
 	pulumi.Input
 
@@ -4757,7 +4757,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestina
 // ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaInput interface {
 	pulumi.Input
 
@@ -4811,7 +4811,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesis
 // ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputInput interface {
 	pulumi.Input
 
@@ -4847,11 +4847,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 // ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrInput interface {
 	pulumi.Input
 
@@ -4950,7 +4950,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesis
 // ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputInput interface {
 	pulumi.Input
 
@@ -4986,11 +4986,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 // ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrInput interface {
 	pulumi.Input
 
@@ -5089,7 +5089,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaO
 // ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputInput interface {
 	pulumi.Input
 
@@ -5125,11 +5125,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLamb
 // ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrInput interface {
 	pulumi.Input
 
@@ -5233,7 +5233,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceInput interface {
 	pulumi.Input
 
@@ -5274,11 +5274,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtr and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrInput interface {
 	pulumi.Input
 
@@ -5430,7 +5430,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaInput interface {
 	pulumi.Input
 
@@ -5470,11 +5470,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrInput interface {
 	pulumi.Input
 
@@ -5611,7 +5611,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnInput interface {
 	pulumi.Input
 
@@ -5643,7 +5643,7 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArray and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArray{ ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs{...} }
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArray{ ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs{...} }
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayInput interface {
 	pulumi.Input
 
@@ -5730,7 +5730,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatInput interface {
 	pulumi.Input
 
@@ -5768,11 +5768,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrInput interface {
 	pulumi.Input
 
@@ -5890,7 +5890,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersInput interface {
 	pulumi.Input
 
@@ -5928,11 +5928,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrInput interface {
 	pulumi.Input
 
@@ -6050,7 +6050,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersInput interface {
 	pulumi.Input
 
@@ -6088,11 +6088,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrInput interface {
 	pulumi.Input
 
@@ -6208,7 +6208,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersInput interface {
 	pulumi.Input
 
@@ -6244,11 +6244,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrInput interface {
 	pulumi.Input
 
@@ -6349,7 +6349,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs{...}
+//	ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs{...}
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceInput interface {
 	pulumi.Input
 
@@ -6387,11 +6387,11 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtr and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs{...}
+//	        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrInput interface {
 	pulumi.Input
 
@@ -6511,7 +6511,7 @@ type ApplicationApplicationConfigurationVpcConfiguration struct {
 // ApplicationApplicationConfigurationVpcConfigurationInput is an input type that accepts ApplicationApplicationConfigurationVpcConfigurationArgs and ApplicationApplicationConfigurationVpcConfigurationOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationVpcConfigurationInput` via:
 //
-//          ApplicationApplicationConfigurationVpcConfigurationArgs{...}
+//	ApplicationApplicationConfigurationVpcConfigurationArgs{...}
 type ApplicationApplicationConfigurationVpcConfigurationInput interface {
 	pulumi.Input
 
@@ -6551,11 +6551,11 @@ func (i ApplicationApplicationConfigurationVpcConfigurationArgs) ToApplicationAp
 // ApplicationApplicationConfigurationVpcConfigurationPtrInput is an input type that accepts ApplicationApplicationConfigurationVpcConfigurationArgs, ApplicationApplicationConfigurationVpcConfigurationPtr and ApplicationApplicationConfigurationVpcConfigurationPtrOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationVpcConfigurationPtrInput` via:
 //
-//          ApplicationApplicationConfigurationVpcConfigurationArgs{...}
+//	        ApplicationApplicationConfigurationVpcConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationApplicationConfigurationVpcConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -6694,7 +6694,7 @@ type ApplicationCloudwatchLoggingOptions struct {
 // ApplicationCloudwatchLoggingOptionsInput is an input type that accepts ApplicationCloudwatchLoggingOptionsArgs and ApplicationCloudwatchLoggingOptionsOutput values.
 // You can construct a concrete instance of `ApplicationCloudwatchLoggingOptionsInput` via:
 //
-//          ApplicationCloudwatchLoggingOptionsArgs{...}
+//	ApplicationCloudwatchLoggingOptionsArgs{...}
 type ApplicationCloudwatchLoggingOptionsInput interface {
 	pulumi.Input
 
@@ -6731,11 +6731,11 @@ func (i ApplicationCloudwatchLoggingOptionsArgs) ToApplicationCloudwatchLoggingO
 // ApplicationCloudwatchLoggingOptionsPtrInput is an input type that accepts ApplicationCloudwatchLoggingOptionsArgs, ApplicationCloudwatchLoggingOptionsPtr and ApplicationCloudwatchLoggingOptionsPtrOutput values.
 // You can construct a concrete instance of `ApplicationCloudwatchLoggingOptionsPtrInput` via:
 //
-//          ApplicationCloudwatchLoggingOptionsArgs{...}
+//	        ApplicationCloudwatchLoggingOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationCloudwatchLoggingOptionsPtrInput interface {
 	pulumi.Input
 

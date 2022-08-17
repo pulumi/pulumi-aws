@@ -18,19 +18,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sfn"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sfn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sfn.NewActivity(ctx, "sfnActivity", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sfn.NewActivity(ctx, "sfnActivity", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -38,7 +41,9 @@ import (
 // Activities can be imported using the `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
+//
+//	$ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
+//
 // ```
 type Activity struct {
 	pulumi.CustomResourceState
@@ -49,7 +54,7 @@ type Activity struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -88,7 +93,7 @@ type activityState struct {
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -99,7 +104,7 @@ type ActivityState struct {
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -148,7 +153,7 @@ func (i *Activity) ToActivityOutputWithContext(ctx context.Context) ActivityOutp
 // ActivityArrayInput is an input type that accepts ActivityArray and ActivityArrayOutput values.
 // You can construct a concrete instance of `ActivityArrayInput` via:
 //
-//          ActivityArray{ ActivityArgs{...} }
+//	ActivityArray{ ActivityArgs{...} }
 type ActivityArrayInput interface {
 	pulumi.Input
 
@@ -173,7 +178,7 @@ func (i ActivityArray) ToActivityArrayOutputWithContext(ctx context.Context) Act
 // ActivityMapInput is an input type that accepts ActivityMap and ActivityMapOutput values.
 // You can construct a concrete instance of `ActivityMapInput` via:
 //
-//          ActivityMap{ "key": ActivityArgs{...} }
+//	ActivityMap{ "key": ActivityArgs{...} }
 type ActivityMapInput interface {
 	pulumi.Input
 
@@ -224,7 +229,7 @@ func (o ActivityOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Activity) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ActivityOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Activity) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

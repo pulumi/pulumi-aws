@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicecatalog.NewPortfolio(ctx, "portfolio", &servicecatalog.PortfolioArgs{
-// 			Description:  pulumi.String("List of my organizations apps"),
-// 			ProviderName: pulumi.String("Brett"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicecatalog.NewPortfolio(ctx, "portfolio", &servicecatalog.PortfolioArgs{
+//				Description:  pulumi.String("List of my organizations apps"),
+//				ProviderName: pulumi.String("Brett"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // Service Catalog Portfolios can be imported using the `service catalog portfolio id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
+//
+//	$ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
+//
 // ```
 type Portfolio struct {
 	pulumi.CustomResourceState
@@ -55,9 +60,9 @@ type Portfolio struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
-	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -101,9 +106,9 @@ type portfolioState struct {
 	Name *string `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
 	ProviderName *string `pulumi:"providerName"`
-	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -116,9 +121,9 @@ type PortfolioState struct {
 	Name pulumi.StringPtrInput
 	// Name of the person or organization who owns the portfolio.
 	ProviderName pulumi.StringPtrInput
-	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -133,7 +138,7 @@ type portfolioArgs struct {
 	Name *string `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
 	ProviderName string `pulumi:"providerName"`
-	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -145,7 +150,7 @@ type PortfolioArgs struct {
 	Name pulumi.StringPtrInput
 	// Name of the person or organization who owns the portfolio.
 	ProviderName pulumi.StringInput
-	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -175,7 +180,7 @@ func (i *Portfolio) ToPortfolioOutputWithContext(ctx context.Context) PortfolioO
 // PortfolioArrayInput is an input type that accepts PortfolioArray and PortfolioArrayOutput values.
 // You can construct a concrete instance of `PortfolioArrayInput` via:
 //
-//          PortfolioArray{ PortfolioArgs{...} }
+//	PortfolioArray{ PortfolioArgs{...} }
 type PortfolioArrayInput interface {
 	pulumi.Input
 
@@ -200,7 +205,7 @@ func (i PortfolioArray) ToPortfolioArrayOutputWithContext(ctx context.Context) P
 // PortfolioMapInput is an input type that accepts PortfolioMap and PortfolioMapOutput values.
 // You can construct a concrete instance of `PortfolioMapInput` via:
 //
-//          PortfolioMap{ "key": PortfolioArgs{...} }
+//	PortfolioMap{ "key": PortfolioArgs{...} }
 type PortfolioMapInput interface {
 	pulumi.Input
 
@@ -259,12 +264,12 @@ func (o PortfolioOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portfolio) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PortfolioOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Portfolio) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PortfolioOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Portfolio) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

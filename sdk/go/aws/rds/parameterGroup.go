@@ -17,31 +17,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rds.NewParameterGroup(ctx, "default", &rds.ParameterGroupArgs{
-// 			Family: pulumi.String("mysql5.6"),
-// 			Parameters: rds.ParameterGroupParameterArray{
-// 				&rds.ParameterGroupParameterArgs{
-// 					Name:  pulumi.String("character_set_server"),
-// 					Value: pulumi.String("utf8"),
-// 				},
-// 				&rds.ParameterGroupParameterArgs{
-// 					Name:  pulumi.String("character_set_client"),
-// 					Value: pulumi.String("utf8"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewParameterGroup(ctx, "default", &rds.ParameterGroupArgs{
+//				Family: pulumi.String("mysql5.6"),
+//				Parameters: rds.ParameterGroupParameterArray{
+//					&rds.ParameterGroupParameterArgs{
+//						Name:  pulumi.String("character_set_server"),
+//						Value: pulumi.String("utf8"),
+//					},
+//					&rds.ParameterGroupParameterArgs{
+//						Name:  pulumi.String("character_set_client"),
+//						Value: pulumi.String("utf8"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // DB Parameter groups can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
+//
+//	$ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
+//
 // ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState
@@ -68,7 +73,7 @@ type ParameterGroup struct {
 	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -121,7 +126,7 @@ type parameterGroupState struct {
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -140,7 +145,7 @@ type ParameterGroupState struct {
 	Parameters ParameterGroupParameterArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -205,7 +210,7 @@ func (i *ParameterGroup) ToParameterGroupOutputWithContext(ctx context.Context) 
 // ParameterGroupArrayInput is an input type that accepts ParameterGroupArray and ParameterGroupArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupArrayInput` via:
 //
-//          ParameterGroupArray{ ParameterGroupArgs{...} }
+//	ParameterGroupArray{ ParameterGroupArgs{...} }
 type ParameterGroupArrayInput interface {
 	pulumi.Input
 
@@ -230,7 +235,7 @@ func (i ParameterGroupArray) ToParameterGroupArrayOutputWithContext(ctx context.
 // ParameterGroupMapInput is an input type that accepts ParameterGroupMap and ParameterGroupMapOutput values.
 // You can construct a concrete instance of `ParameterGroupMapInput` via:
 //
-//          ParameterGroupMap{ "key": ParameterGroupArgs{...} }
+//	ParameterGroupMap{ "key": ParameterGroupArgs{...} }
 type ParameterGroupMapInput interface {
 	pulumi.Input
 
@@ -301,7 +306,7 @@ func (o ParameterGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ParameterGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

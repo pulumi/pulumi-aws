@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class FeatureGroupOnlineStoreConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class FeatureGroupOnlineStoreConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public FeatureGroupOnlineStoreConfigGetArgs()
         {
         }
+        public static new FeatureGroupOnlineStoreConfigGetArgs Empty => new FeatureGroupOnlineStoreConfigGetArgs();
     }
 }

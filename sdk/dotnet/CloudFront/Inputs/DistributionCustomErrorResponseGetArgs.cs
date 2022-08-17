@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionCustomErrorResponseGetArgs : Pulumi.ResourceArgs
+    public sealed class DistributionCustomErrorResponseGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The minimum amount of time you want
@@ -44,5 +44,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionCustomErrorResponseGetArgs()
         {
         }
+        public static new DistributionCustomErrorResponseGetArgs Empty => new DistributionCustomErrorResponseGetArgs();
     }
 }

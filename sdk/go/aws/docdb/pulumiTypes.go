@@ -22,7 +22,7 @@ type ClusterParameterGroupParameter struct {
 // ClusterParameterGroupParameterInput is an input type that accepts ClusterParameterGroupParameterArgs and ClusterParameterGroupParameterOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupParameterInput` via:
 //
-//          ClusterParameterGroupParameterArgs{...}
+//	ClusterParameterGroupParameterArgs{...}
 type ClusterParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -54,7 +54,7 @@ func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutp
 // ClusterParameterGroupParameterArrayInput is an input type that accepts ClusterParameterGroupParameterArray and ClusterParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupParameterArrayInput` via:
 //
-//          ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
+//	ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
 type ClusterParameterGroupParameterArrayInput interface {
 	pulumi.Input
 
@@ -135,7 +135,7 @@ type GlobalClusterGlobalClusterMember struct {
 // GlobalClusterGlobalClusterMemberInput is an input type that accepts GlobalClusterGlobalClusterMemberArgs and GlobalClusterGlobalClusterMemberOutput values.
 // You can construct a concrete instance of `GlobalClusterGlobalClusterMemberInput` via:
 //
-//          GlobalClusterGlobalClusterMemberArgs{...}
+//	GlobalClusterGlobalClusterMemberArgs{...}
 type GlobalClusterGlobalClusterMemberInput interface {
 	pulumi.Input
 
@@ -165,7 +165,7 @@ func (i GlobalClusterGlobalClusterMemberArgs) ToGlobalClusterGlobalClusterMember
 // GlobalClusterGlobalClusterMemberArrayInput is an input type that accepts GlobalClusterGlobalClusterMemberArray and GlobalClusterGlobalClusterMemberArrayOutput values.
 // You can construct a concrete instance of `GlobalClusterGlobalClusterMemberArrayInput` via:
 //
-//          GlobalClusterGlobalClusterMemberArray{ GlobalClusterGlobalClusterMemberArgs{...} }
+//	GlobalClusterGlobalClusterMemberArray{ GlobalClusterGlobalClusterMemberArgs{...} }
 type GlobalClusterGlobalClusterMemberArrayInput interface {
 	pulumi.Input
 

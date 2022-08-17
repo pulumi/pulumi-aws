@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventTargetEcsTargetNetworkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class EventTargetEcsTargetNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventTargetEcsTargetNetworkConfigurationArgs()
         {
         }
+        public static new EventTargetEcsTargetNetworkConfigurationArgs Empty => new EventTargetEcsTargetNetworkConfigurationArgs();
     }
 }

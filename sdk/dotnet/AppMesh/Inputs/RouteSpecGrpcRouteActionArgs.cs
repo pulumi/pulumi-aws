@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class RouteSpecGrpcRouteActionArgs : Pulumi.ResourceArgs
+    public sealed class RouteSpecGrpcRouteActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("weightedTargets", required: true)]
         private InputList<Inputs.RouteSpecGrpcRouteActionWeightedTargetArgs>? _weightedTargets;
@@ -28,5 +28,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public RouteSpecGrpcRouteActionArgs()
         {
         }
+        public static new RouteSpecGrpcRouteActionArgs Empty => new RouteSpecGrpcRouteActionArgs();
     }
 }

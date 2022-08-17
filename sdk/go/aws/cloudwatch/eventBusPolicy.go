@@ -24,48 +24,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Sid:    pulumi.StringRef("DevAccountAccess"),
-// 					Effect: pulumi.StringRef("Allow"),
-// 					Actions: []string{
-// 						"events:PutEvents",
-// 					},
-// 					Resources: []string{
-// 						"arn:aws:events:eu-west-1:123456789012:event-bus/default",
-// 					},
-// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// 						iam.GetPolicyDocumentStatementPrincipal{
-// 							Type: "AWS",
-// 							Identifiers: []string{
-// 								"123456789012",
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cloudwatch.NewEventBusPolicy(ctx, "testEventBusPolicy", &cloudwatch.EventBusPolicyArgs{
-// 			Policy:       pulumi.String(testPolicyDocument.Json),
-// 			EventBusName: pulumi.Any(aws_cloudwatch_event_bus.Test.Name),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					iam.GetPolicyDocumentStatement{
+//						Sid:    pulumi.StringRef("DevAccountAccess"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"events:PutEvents",
+//						},
+//						Resources: []string{
+//							"arn:aws:events:eu-west-1:123456789012:event-bus/default",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							iam.GetPolicyDocumentStatementPrincipal{
+//								Type: "AWS",
+//								Identifiers: []string{
+//									"123456789012",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventBusPolicy(ctx, "testEventBusPolicy", &cloudwatch.EventBusPolicyArgs{
+//				Policy:       pulumi.String(testPolicyDocument.Json),
+//				EventBusName: pulumi.Any(aws_cloudwatch_event_bus.Test.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +76,9 @@ import (
 // EventBridge permissions can be imported using the `event_bus_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
+//
+//	$ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
+//
 // ```
 type EventBusPolicy struct {
 	pulumi.CustomResourceState
@@ -169,7 +174,7 @@ func (i *EventBusPolicy) ToEventBusPolicyOutputWithContext(ctx context.Context) 
 // EventBusPolicyArrayInput is an input type that accepts EventBusPolicyArray and EventBusPolicyArrayOutput values.
 // You can construct a concrete instance of `EventBusPolicyArrayInput` via:
 //
-//          EventBusPolicyArray{ EventBusPolicyArgs{...} }
+//	EventBusPolicyArray{ EventBusPolicyArgs{...} }
 type EventBusPolicyArrayInput interface {
 	pulumi.Input
 
@@ -194,7 +199,7 @@ func (i EventBusPolicyArray) ToEventBusPolicyArrayOutputWithContext(ctx context.
 // EventBusPolicyMapInput is an input type that accepts EventBusPolicyMap and EventBusPolicyMapOutput values.
 // You can construct a concrete instance of `EventBusPolicyMapInput` via:
 //
-//          EventBusPolicyMap{ "key": EventBusPolicyArgs{...} }
+//	EventBusPolicyMap{ "key": EventBusPolicyArgs{...} }
 type EventBusPolicyMapInput interface {
 	pulumi.Input
 

@@ -36,7 +36,7 @@ type AppAutoBranchCreationConfig struct {
 // AppAutoBranchCreationConfigInput is an input type that accepts AppAutoBranchCreationConfigArgs and AppAutoBranchCreationConfigOutput values.
 // You can construct a concrete instance of `AppAutoBranchCreationConfigInput` via:
 //
-//          AppAutoBranchCreationConfigArgs{...}
+//	AppAutoBranchCreationConfigArgs{...}
 type AppAutoBranchCreationConfigInput interface {
 	pulumi.Input
 
@@ -90,11 +90,11 @@ func (i AppAutoBranchCreationConfigArgs) ToAppAutoBranchCreationConfigPtrOutputW
 // AppAutoBranchCreationConfigPtrInput is an input type that accepts AppAutoBranchCreationConfigArgs, AppAutoBranchCreationConfigPtr and AppAutoBranchCreationConfigPtrOutput values.
 // You can construct a concrete instance of `AppAutoBranchCreationConfigPtrInput` via:
 //
-//          AppAutoBranchCreationConfigArgs{...}
+//	        AppAutoBranchCreationConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AppAutoBranchCreationConfigPtrInput interface {
 	pulumi.Input
 
@@ -332,7 +332,7 @@ type AppCustomRule struct {
 // AppCustomRuleInput is an input type that accepts AppCustomRuleArgs and AppCustomRuleOutput values.
 // You can construct a concrete instance of `AppCustomRuleInput` via:
 //
-//          AppCustomRuleArgs{...}
+//	AppCustomRuleArgs{...}
 type AppCustomRuleInput interface {
 	pulumi.Input
 
@@ -366,7 +366,7 @@ func (i AppCustomRuleArgs) ToAppCustomRuleOutputWithContext(ctx context.Context)
 // AppCustomRuleArrayInput is an input type that accepts AppCustomRuleArray and AppCustomRuleArrayOutput values.
 // You can construct a concrete instance of `AppCustomRuleArrayInput` via:
 //
-//          AppCustomRuleArray{ AppCustomRuleArgs{...} }
+//	AppCustomRuleArray{ AppCustomRuleArgs{...} }
 type AppCustomRuleArrayInput interface {
 	pulumi.Input
 
@@ -456,7 +456,7 @@ type AppProductionBranch struct {
 // AppProductionBranchInput is an input type that accepts AppProductionBranchArgs and AppProductionBranchOutput values.
 // You can construct a concrete instance of `AppProductionBranchInput` via:
 //
-//          AppProductionBranchArgs{...}
+//	AppProductionBranchArgs{...}
 type AppProductionBranchInput interface {
 	pulumi.Input
 
@@ -490,7 +490,7 @@ func (i AppProductionBranchArgs) ToAppProductionBranchOutputWithContext(ctx cont
 // AppProductionBranchArrayInput is an input type that accepts AppProductionBranchArray and AppProductionBranchArrayOutput values.
 // You can construct a concrete instance of `AppProductionBranchArrayInput` via:
 //
-//          AppProductionBranchArray{ AppProductionBranchArgs{...} }
+//	AppProductionBranchArray{ AppProductionBranchArgs{...} }
 type AppProductionBranchArrayInput interface {
 	pulumi.Input
 
@@ -580,7 +580,7 @@ type DomainAssociationSubDomain struct {
 // DomainAssociationSubDomainInput is an input type that accepts DomainAssociationSubDomainArgs and DomainAssociationSubDomainOutput values.
 // You can construct a concrete instance of `DomainAssociationSubDomainInput` via:
 //
-//          DomainAssociationSubDomainArgs{...}
+//	DomainAssociationSubDomainArgs{...}
 type DomainAssociationSubDomainInput interface {
 	pulumi.Input
 
@@ -614,7 +614,7 @@ func (i DomainAssociationSubDomainArgs) ToDomainAssociationSubDomainOutputWithCo
 // DomainAssociationSubDomainArrayInput is an input type that accepts DomainAssociationSubDomainArray and DomainAssociationSubDomainArrayOutput values.
 // You can construct a concrete instance of `DomainAssociationSubDomainArrayInput` via:
 //
-//          DomainAssociationSubDomainArray{ DomainAssociationSubDomainArgs{...} }
+//	DomainAssociationSubDomainArray{ DomainAssociationSubDomainArgs{...} }
 type DomainAssociationSubDomainArrayInput interface {
 	pulumi.Input
 

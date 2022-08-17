@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Emr.Inputs
 {
 
-    public sealed class ClusterCoreInstanceFleetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCoreInstanceFleetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the cluster.
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.Emr.Inputs
         public ClusterCoreInstanceFleetArgs()
         {
         }
+        public static new ClusterCoreInstanceFleetArgs Empty => new ClusterCoreInstanceFleetArgs();
     }
 }

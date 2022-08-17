@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.EmrServerless.Inputs
 {
 
-    public sealed class ApplicationMaximumCapacityGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationMaximumCapacityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CPU requirements for every worker instance of the worker type.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.EmrServerless.Inputs
         public ApplicationMaximumCapacityGetArgs()
         {
         }
+        public static new ApplicationMaximumCapacityGetArgs Empty => new ApplicationMaximumCapacityGetArgs();
     }
 }

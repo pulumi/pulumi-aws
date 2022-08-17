@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGateway.Inputs
 {
 
-    public sealed class UsagePlanApiStageGetArgs : Pulumi.ResourceArgs
+    public sealed class UsagePlanApiStageGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// API Id of the associated API stage in a usage plan.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         public UsagePlanApiStageGetArgs()
         {
         }
+        public static new UsagePlanApiStageGetArgs Empty => new UsagePlanApiStageGetArgs();
     }
 }

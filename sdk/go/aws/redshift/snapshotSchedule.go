@@ -17,24 +17,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := redshift.NewSnapshotSchedule(ctx, "default", &redshift.SnapshotScheduleArgs{
-// 			Definitions: pulumi.StringArray{
-// 				pulumi.String("rate(12 hours)"),
-// 			},
-// 			Identifier: pulumi.String("tf-redshift-snapshot-schedule"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := redshift.NewSnapshotSchedule(ctx, "default", &redshift.SnapshotScheduleArgs{
+//				Definitions: pulumi.StringArray{
+//					pulumi.String("rate(12 hours)"),
+//				},
+//				Identifier: pulumi.String("tf-redshift-snapshot-schedule"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // Redshift Snapshot Schedule can be imported using the `identifier`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
+//
+//	$ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
+//
 // ```
 type SnapshotSchedule struct {
 	pulumi.CustomResourceState
@@ -62,7 +67,7 @@ type SnapshotSchedule struct {
 	IdentifierPrefix pulumi.StringOutput `pulumi:"identifierPrefix"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -113,7 +118,7 @@ type snapshotScheduleState struct {
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -133,7 +138,7 @@ type SnapshotScheduleState struct {
 	IdentifierPrefix pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -200,7 +205,7 @@ func (i *SnapshotSchedule) ToSnapshotScheduleOutputWithContext(ctx context.Conte
 // SnapshotScheduleArrayInput is an input type that accepts SnapshotScheduleArray and SnapshotScheduleArrayOutput values.
 // You can construct a concrete instance of `SnapshotScheduleArrayInput` via:
 //
-//          SnapshotScheduleArray{ SnapshotScheduleArgs{...} }
+//	SnapshotScheduleArray{ SnapshotScheduleArgs{...} }
 type SnapshotScheduleArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +230,7 @@ func (i SnapshotScheduleArray) ToSnapshotScheduleArrayOutputWithContext(ctx cont
 // SnapshotScheduleMapInput is an input type that accepts SnapshotScheduleMap and SnapshotScheduleMapOutput values.
 // You can construct a concrete instance of `SnapshotScheduleMapInput` via:
 //
-//          SnapshotScheduleMap{ "key": SnapshotScheduleArgs{...} }
+//	SnapshotScheduleMap{ "key": SnapshotScheduleArgs{...} }
 type SnapshotScheduleMapInput interface {
 	pulumi.Input
 
@@ -297,7 +302,7 @@ func (o SnapshotScheduleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SnapshotScheduleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotSchedule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

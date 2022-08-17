@@ -13,21 +13,19 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var mainRouteTableAssociation = new Aws.Ec2.MainRouteTableAssociation("mainRouteTableAssociation", new()
     ///     {
-    ///         var mainRouteTableAssociation = new Aws.Ec2.MainRouteTableAssociation("mainRouteTableAssociation", new Aws.Ec2.MainRouteTableAssociationArgs
-    ///         {
-    ///             VpcId = aws_vpc.Foo.Id,
-    ///             RouteTableId = aws_route_table.Bar.Id,
-    ///         });
-    ///     }
+    ///         VpcId = aws_vpc.Foo.Id,
+    ///         RouteTableId = aws_route_table.Bar.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Notes
     /// 
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.Ec2
     /// [tf-default-route-table]: /docs/providers/aws/r/default_route_table.html
     /// </summary>
     [AwsResourceType("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation")]
-    public partial class MainRouteTableAssociation : Pulumi.CustomResource
+    public partial class MainRouteTableAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Used internally, see __Notes__ below
@@ -108,7 +106,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class MainRouteTableAssociationArgs : Pulumi.ResourceArgs
+    public sealed class MainRouteTableAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Route Table to set as the new
@@ -126,9 +124,10 @@ namespace Pulumi.Aws.Ec2
         public MainRouteTableAssociationArgs()
         {
         }
+        public static new MainRouteTableAssociationArgs Empty => new MainRouteTableAssociationArgs();
     }
 
-    public sealed class MainRouteTableAssociationState : Pulumi.ResourceArgs
+    public sealed class MainRouteTableAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Used internally, see __Notes__ below
@@ -152,5 +151,6 @@ namespace Pulumi.Aws.Ec2
         public MainRouteTableAssociationState()
         {
         }
+        public static new MainRouteTableAssociationState Empty => new MainRouteTableAssociationState();
     }
 }

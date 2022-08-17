@@ -18,29 +18,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
-// 			Engine:        "mysql",
-// 			EngineVersion: pulumi.StringRef("5.7.22"),
-// 			LicenseModel:  pulumi.StringRef("general-public-license"),
-// 			PreferredInstanceClasses: []string{
-// 				"db.r6.xlarge",
-// 				"db.m4.large",
-// 				"db.t3.small",
-// 			},
-// 			StorageType: pulumi.StringRef("standard"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
+//				Engine:        "mysql",
+//				EngineVersion: pulumi.StringRef("5.7.22"),
+//				LicenseModel:  pulumi.StringRef("general-public-license"),
+//				PreferredInstanceClasses: []string{
+//					"db.r6.xlarge",
+//					"db.m4.large",
+//					"db.t3.small",
+//				},
+//				StorageType: pulumi.StringRef("standard"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
@@ -49,32 +52,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
-// 			Engine:       "mysql",
-// 			LicenseModel: pulumi.StringRef("general-public-license"),
-// 			PreferredEngineVersions: []string{
-// 				"5.6.35",
-// 				"5.6.41",
-// 				"5.6.44",
-// 			},
-// 			PreferredInstanceClasses: []string{
-// 				"db.t2.small",
-// 				"db.t3.medium",
-// 				"db.t3.large",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.GetOrderableDbInstance(ctx, &rds.GetOrderableDbInstanceArgs{
+//				Engine:       "mysql",
+//				LicenseModel: pulumi.StringRef("general-public-license"),
+//				PreferredEngineVersions: []string{
+//					"5.6.35",
+//					"5.6.41",
+//					"5.6.44",
+//				},
+//				PreferredInstanceClasses: []string{
+//					"db.t2.small",
+//					"db.t3.medium",
+//					"db.t3.large",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetOrderableDbInstance(ctx *pulumi.Context, args *GetOrderableDbInstanceArgs, opts ...pulumi.InvokeOption) (*GetOrderableDbInstanceResult, error) {
 	var rv GetOrderableDbInstanceResult

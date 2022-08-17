@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CostExplorer.Inputs
 {
 
-    public sealed class CostCategoryRuleInheritedValueArgs : Pulumi.ResourceArgs
+    public sealed class CostCategoryRuleInheritedValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key to extract cost category values.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         public CostCategoryRuleInheritedValueArgs()
         {
         }
+        public static new CostCategoryRuleInheritedValueArgs Empty => new CostCategoryRuleInheritedValueArgs();
     }
 }

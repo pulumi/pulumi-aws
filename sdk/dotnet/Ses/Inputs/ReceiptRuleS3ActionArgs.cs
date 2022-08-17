@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ses.Inputs
 {
 
-    public sealed class ReceiptRuleS3ActionArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleS3ActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the S3 bucket
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Ses.Inputs
         public ReceiptRuleS3ActionArgs()
         {
         }
+        public static new ReceiptRuleS3ActionArgs Empty => new ReceiptRuleS3ActionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppRunner.Inputs
 {
 
-    public sealed class ServiceHealthCheckConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceHealthCheckConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public ServiceHealthCheckConfigurationGetArgs()
         {
         }
+        public static new ServiceHealthCheckConfigurationGetArgs Empty => new ServiceHealthCheckConfigurationGetArgs();
     }
 }

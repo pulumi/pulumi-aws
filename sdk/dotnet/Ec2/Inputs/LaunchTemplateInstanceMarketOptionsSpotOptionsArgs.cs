@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateInstanceMarketOptionsSpotOptionsArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateInstanceMarketOptionsSpotOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The required duration in minutes. This value must be a multiple of 60.
@@ -46,5 +46,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateInstanceMarketOptionsSpotOptionsArgs()
         {
         }
+        public static new LaunchTemplateInstanceMarketOptionsSpotOptionsArgs Empty => new LaunchTemplateInstanceMarketOptionsSpotOptionsArgs();
     }
 }

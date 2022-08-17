@@ -17,22 +17,20 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ApiGatewayV2.IntegrationResponse("example", new()
     ///     {
-    ///         var example = new Aws.ApiGatewayV2.IntegrationResponse("example", new Aws.ApiGatewayV2.IntegrationResponseArgs
-    ///         {
-    ///             ApiId = aws_apigatewayv2_api.Example.Id,
-    ///             IntegrationId = aws_apigatewayv2_integration.Example.Id,
-    ///             IntegrationResponseKey = "/200/",
-    ///         });
-    ///     }
+    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         IntegrationId = aws_apigatewayv2_integration.Example.Id,
+    ///         IntegrationResponseKey = "/200/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/integrationResponse:IntegrationResponse")]
-    public partial class IntegrationResponse : Pulumi.CustomResource
+    public partial class IntegrationResponse : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The API identifier.
@@ -126,7 +124,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
     }
 
-    public sealed class IntegrationResponseArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API identifier.
@@ -173,9 +171,10 @@ namespace Pulumi.Aws.ApiGatewayV2
         public IntegrationResponseArgs()
         {
         }
+        public static new IntegrationResponseArgs Empty => new IntegrationResponseArgs();
     }
 
-    public sealed class IntegrationResponseState : Pulumi.ResourceArgs
+    public sealed class IntegrationResponseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API identifier.
@@ -222,5 +221,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         public IntegrationResponseState()
         {
         }
+        public static new IntegrationResponseState Empty => new IntegrationResponseState();
     }
 }

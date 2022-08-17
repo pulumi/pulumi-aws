@@ -21,24 +21,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
-// 			Admins: pulumi.StringArray{
-// 				pulumi.Any(aws_iam_user.Test.Arn),
-// 				pulumi.Any(aws_iam_role.Test.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
+//				Admins: pulumi.StringArray{
+//					pulumi.Any(aws_iam_user.Test.Arn),
+//					pulumi.Any(aws_iam_role.Test.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Create Default Permissions
 //
@@ -46,42 +49,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
-// 			Admins: pulumi.StringArray{
-// 				pulumi.Any(aws_iam_user.Test.Arn),
-// 				pulumi.Any(aws_iam_role.Test.Arn),
-// 			},
-// 			CreateDatabaseDefaultPermissions: lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArray{
-// 				&lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs{
-// 					Permissions: pulumi.StringArray{
-// 						pulumi.String("SELECT"),
-// 						pulumi.String("ALTER"),
-// 						pulumi.String("DROP"),
-// 					},
-// 					Principal: pulumi.Any(aws_iam_user.Test.Arn),
-// 				},
-// 			},
-// 			CreateTableDefaultPermissions: lakeformation.DataLakeSettingsCreateTableDefaultPermissionArray{
-// 				&lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs{
-// 					Permissions: pulumi.StringArray{
-// 						pulumi.String("ALL"),
-// 					},
-// 					Principal: pulumi.Any(aws_iam_role.Test.Arn),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
+//				Admins: pulumi.StringArray{
+//					pulumi.Any(aws_iam_user.Test.Arn),
+//					pulumi.Any(aws_iam_role.Test.Arn),
+//				},
+//				CreateDatabaseDefaultPermissions: lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArray{
+//					&lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs{
+//						Permissions: pulumi.StringArray{
+//							pulumi.String("SELECT"),
+//							pulumi.String("ALTER"),
+//							pulumi.String("DROP"),
+//						},
+//						Principal: pulumi.Any(aws_iam_user.Test.Arn),
+//					},
+//				},
+//				CreateTableDefaultPermissions: lakeformation.DataLakeSettingsCreateTableDefaultPermissionArray{
+//					&lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs{
+//						Permissions: pulumi.StringArray{
+//							pulumi.String("ALL"),
+//						},
+//						Principal: pulumi.Any(aws_iam_role.Test.Arn),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type DataLakeSettings struct {
 	pulumi.CustomResourceState
@@ -209,7 +215,7 @@ func (i *DataLakeSettings) ToDataLakeSettingsOutputWithContext(ctx context.Conte
 // DataLakeSettingsArrayInput is an input type that accepts DataLakeSettingsArray and DataLakeSettingsArrayOutput values.
 // You can construct a concrete instance of `DataLakeSettingsArrayInput` via:
 //
-//          DataLakeSettingsArray{ DataLakeSettingsArgs{...} }
+//	DataLakeSettingsArray{ DataLakeSettingsArgs{...} }
 type DataLakeSettingsArrayInput interface {
 	pulumi.Input
 
@@ -234,7 +240,7 @@ func (i DataLakeSettingsArray) ToDataLakeSettingsArrayOutputWithContext(ctx cont
 // DataLakeSettingsMapInput is an input type that accepts DataLakeSettingsMap and DataLakeSettingsMapOutput values.
 // You can construct a concrete instance of `DataLakeSettingsMapInput` via:
 //
-//          DataLakeSettingsMap{ "key": DataLakeSettingsArgs{...} }
+//	DataLakeSettingsMap{ "key": DataLakeSettingsArgs{...} }
 type DataLakeSettingsMapInput interface {
 	pulumi.Input
 

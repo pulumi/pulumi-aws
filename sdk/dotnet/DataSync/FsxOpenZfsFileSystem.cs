@@ -15,34 +15,32 @@ namespace Pulumi.Aws.DataSync
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DataSync.FsxOpenZfsFileSystem("example", new()
     ///     {
-    ///         var example = new Aws.DataSync.FsxOpenZfsFileSystem("example", new Aws.DataSync.FsxOpenZfsFileSystemArgs
+    ///         FsxFilesystemArn = aws_fsx_openzfs_file_system.Example.Arn,
+    ///         SecurityGroupArns = new[]
     ///         {
-    ///             FsxFilesystemArn = aws_fsx_openzfs_file_system.Example.Arn,
-    ///             SecurityGroupArns = 
+    ///             aws_security_group.Example.Arn,
+    ///         },
+    ///         Protocol = new Aws.DataSync.Inputs.FsxOpenZfsFileSystemProtocolArgs
+    ///         {
+    ///             Nfs = new Aws.DataSync.Inputs.FsxOpenZfsFileSystemProtocolNfsArgs
     ///             {
-    ///                 aws_security_group.Example.Arn,
-    ///             },
-    ///             Protocol = new Aws.DataSync.Inputs.FsxOpenZfsFileSystemProtocolArgs
-    ///             {
-    ///                 Nfs = new Aws.DataSync.Inputs.FsxOpenZfsFileSystemProtocolNfsArgs
+    ///                 MountOptions = new Aws.DataSync.Inputs.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs
     ///                 {
-    ///                     MountOptions = new Aws.DataSync.Inputs.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs
-    ///                     {
-    ///                         Version = "AUTOMATIC",
-    ///                     },
+    ///                     Version = "AUTOMATIC",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +52,7 @@ namespace Pulumi.Aws.DataSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem")]
-    public partial class FsxOpenZfsFileSystem : Pulumi.CustomResource
+    public partial class FsxOpenZfsFileSystem : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
@@ -98,9 +96,6 @@ namespace Pulumi.Aws.DataSync
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -154,7 +149,7 @@ namespace Pulumi.Aws.DataSync
         }
     }
 
-    public sealed class FsxOpenZfsFileSystemArgs : Pulumi.ResourceArgs
+    public sealed class FsxOpenZfsFileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
@@ -201,9 +196,10 @@ namespace Pulumi.Aws.DataSync
         public FsxOpenZfsFileSystemArgs()
         {
         }
+        public static new FsxOpenZfsFileSystemArgs Empty => new FsxOpenZfsFileSystemArgs();
     }
 
-    public sealed class FsxOpenZfsFileSystemState : Pulumi.ResourceArgs
+    public sealed class FsxOpenZfsFileSystemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
@@ -261,10 +257,6 @@ namespace Pulumi.Aws.DataSync
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -280,5 +272,6 @@ namespace Pulumi.Aws.DataSync
         public FsxOpenZfsFileSystemState()
         {
         }
+        public static new FsxOpenZfsFileSystemState Empty => new FsxOpenZfsFileSystemState();
     }
 }

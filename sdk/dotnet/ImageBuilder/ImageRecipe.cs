@@ -15,54 +15,52 @@ namespace Pulumi.Aws.ImageBuilder
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ImageBuilder.ImageRecipe("example", new()
     ///     {
-    ///         var example = new Aws.ImageBuilder.ImageRecipe("example", new Aws.ImageBuilder.ImageRecipeArgs
+    ///         BlockDeviceMappings = new[]
     ///         {
-    ///             BlockDeviceMappings = 
+    ///             new Aws.ImageBuilder.Inputs.ImageRecipeBlockDeviceMappingArgs
     ///             {
-    ///                 new Aws.ImageBuilder.Inputs.ImageRecipeBlockDeviceMappingArgs
+    ///                 DeviceName = "/dev/xvdb",
+    ///                 Ebs = new Aws.ImageBuilder.Inputs.ImageRecipeBlockDeviceMappingEbsArgs
     ///                 {
-    ///                     DeviceName = "/dev/xvdb",
-    ///                     Ebs = new Aws.ImageBuilder.Inputs.ImageRecipeBlockDeviceMappingEbsArgs
+    ///                     DeleteOnTermination = "true",
+    ///                     VolumeSize = 100,
+    ///                     VolumeType = "gp2",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Components = new[]
+    ///         {
+    ///             new Aws.ImageBuilder.Inputs.ImageRecipeComponentArgs
+    ///             {
+    ///                 ComponentArn = aws_imagebuilder_component.Example.Arn,
+    ///                 Parameters = new[]
+    ///                 {
+    ///                     new Aws.ImageBuilder.Inputs.ImageRecipeComponentParameterArgs
     ///                     {
-    ///                         DeleteOnTermination = "true",
-    ///                         VolumeSize = 100,
-    ///                         VolumeType = "gp2",
+    ///                         Name = "Parameter1",
+    ///                         Value = "Value1",
+    ///                     },
+    ///                     new Aws.ImageBuilder.Inputs.ImageRecipeComponentParameterArgs
+    ///                     {
+    ///                         Name = "Parameter2",
+    ///                         Value = "Value2",
     ///                     },
     ///                 },
     ///             },
-    ///             Components = 
-    ///             {
-    ///                 new Aws.ImageBuilder.Inputs.ImageRecipeComponentArgs
-    ///                 {
-    ///                     ComponentArn = aws_imagebuilder_component.Example.Arn,
-    ///                     Parameters = 
-    ///                     {
-    ///                         new Aws.ImageBuilder.Inputs.ImageRecipeComponentParameterArgs
-    ///                         {
-    ///                             Name = "Parameter1",
-    ///                             Value = "Value1",
-    ///                         },
-    ///                         new Aws.ImageBuilder.Inputs.ImageRecipeComponentParameterArgs
-    ///                         {
-    ///                             Name = "Parameter2",
-    ///                             Value = "Value2",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ParentImage = $"arn:{data.Aws_partition.Current.Partition}:imagebuilder:{data.Aws_region.Current.Name}:aws:image/amazon-linux-2-x86/x.x.x",
-    ///             Version = "1.0.0",
-    ///         });
-    ///     }
+    ///         },
+    ///         ParentImage = $"arn:{data.Aws_partition.Current.Partition}:imagebuilder:{data.Aws_region.Current.Name}:aws:image/amazon-linux-2-x86/x.x.x",
+    ///         Version = "1.0.0",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +72,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// ```
     /// </summary>
     [AwsResourceType("aws:imagebuilder/imageRecipe:ImageRecipe")]
-    public partial class ImageRecipe : Pulumi.CustomResource
+    public partial class ImageRecipe : global::Pulumi.CustomResource
     {
         /// <summary>
         /// (Required) Amazon Resource Name (ARN) of the image recipe.
@@ -143,7 +141,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -210,7 +208,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
     }
 
-    public sealed class ImageRecipeArgs : Pulumi.ResourceArgs
+    public sealed class ImageRecipeArgs : global::Pulumi.ResourceArgs
     {
         [Input("blockDeviceMappings")]
         private InputList<Inputs.ImageRecipeBlockDeviceMappingArgs>? _blockDeviceMappings;
@@ -293,9 +291,10 @@ namespace Pulumi.Aws.ImageBuilder
         public ImageRecipeArgs()
         {
         }
+        public static new ImageRecipeArgs Empty => new ImageRecipeArgs();
     }
 
-    public sealed class ImageRecipeState : Pulumi.ResourceArgs
+    public sealed class ImageRecipeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Required) Amazon Resource Name (ARN) of the image recipe.
@@ -385,7 +384,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -414,5 +413,6 @@ namespace Pulumi.Aws.ImageBuilder
         public ImageRecipeState()
         {
         }
+        public static new ImageRecipeState Empty => new ImageRecipeState();
     }
 }

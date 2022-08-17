@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class RealtimeLogConfigEndpointArgs : Pulumi.ResourceArgs
+    public sealed class RealtimeLogConfigEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Kinesis data stream configuration.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public RealtimeLogConfigEndpointArgs()
         {
         }
+        public static new RealtimeLogConfigEndpointArgs Empty => new RealtimeLogConfigEndpointArgs();
     }
 }

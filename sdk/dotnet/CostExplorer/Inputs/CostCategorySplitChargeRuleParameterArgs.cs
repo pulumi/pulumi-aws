@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CostExplorer.Inputs
 {
 
-    public sealed class CostCategorySplitChargeRuleParameterArgs : Pulumi.ResourceArgs
+    public sealed class CostCategorySplitChargeRuleParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Parameter type.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         public CostCategorySplitChargeRuleParameterArgs()
         {
         }
+        public static new CostCategorySplitChargeRuleParameterArgs Empty => new CostCategorySplitChargeRuleParameterArgs();
     }
 }

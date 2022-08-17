@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Eks
     }
 
 
-    public sealed class GetClusterAuthArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterAuthArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster
@@ -46,9 +46,10 @@ namespace Pulumi.Aws.Eks
         public GetClusterAuthArgs()
         {
         }
+        public static new GetClusterAuthArgs Empty => new GetClusterAuthArgs();
     }
 
-    public sealed class GetClusterAuthInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterAuthInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster
@@ -59,6 +60,7 @@ namespace Pulumi.Aws.Eks
         public GetClusterAuthInvokeArgs()
         {
         }
+        public static new GetClusterAuthInvokeArgs Empty => new GetClusterAuthInvokeArgs();
     }
 
 

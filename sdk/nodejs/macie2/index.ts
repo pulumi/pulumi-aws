@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./account";
+export * from "./classificationExportConfiguration";
 export * from "./classificationJob";
 export * from "./invitationAccepter";
 export * from "./member";
@@ -13,6 +14,7 @@ export * from "./organizationAdminAccount";
 
 // Import resources to register:
 import { Account } from "./account";
+import { ClassificationExportConfiguration } from "./classificationExportConfiguration";
 import { ClassificationJob } from "./classificationJob";
 import { InvitationAccepter } from "./invitationAccepter";
 import { Member } from "./member";
@@ -24,6 +26,8 @@ const _module = {
         switch (type) {
             case "aws:macie2/account:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration":
+                return new ClassificationExportConfiguration(name, <any>undefined, { urn })
             case "aws:macie2/classificationJob:ClassificationJob":
                 return new ClassificationJob(name, <any>undefined, { urn })
             case "aws:macie2/invitationAccepter:InvitationAccepter":
@@ -38,6 +42,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "macie2/account", _module)
+pulumi.runtime.registerResourceModule("aws", "macie2/classificationExportConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "macie2/classificationJob", _module)
 pulumi.runtime.registerResourceModule("aws", "macie2/invitationAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "macie2/member", _module)

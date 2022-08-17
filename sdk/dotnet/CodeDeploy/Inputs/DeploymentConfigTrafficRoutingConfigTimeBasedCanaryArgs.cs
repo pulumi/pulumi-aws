@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs()
         {
         }
+        public static new DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs Empty => new DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class MysqlLayerCloudwatchConfigurationLogStreamGetArgs : Pulumi.ResourceArgs
+    public sealed class MysqlLayerCloudwatchConfigurationLogStreamGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("batchCount")]
         public Input<int>? BatchCount { get; set; }
@@ -48,5 +48,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public MysqlLayerCloudwatchConfigurationLogStreamGetArgs()
         {
         }
+        public static new MysqlLayerCloudwatchConfigurationLogStreamGetArgs Empty => new MysqlLayerCloudwatchConfigurationLogStreamGetArgs();
     }
 }

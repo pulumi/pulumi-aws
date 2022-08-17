@@ -25,29 +25,28 @@ namespace Pulumi.Aws.Acm
     /// In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleCertificate = new Aws.Acm.Certificate("exampleCertificate", new()
     ///     {
-    ///         var exampleCertificate = new Aws.Acm.Certificate("exampleCertificate", new Aws.Acm.CertificateArgs
-    ///         {
-    ///             DomainName = "example.com",
-    ///             ValidationMethod = "EMAIL",
-    ///         });
-    ///         var exampleCertificateValidation = new Aws.Acm.CertificateValidation("exampleCertificateValidation", new Aws.Acm.CertificateValidationArgs
-    ///         {
-    ///             CertificateArn = exampleCertificate.Arn,
-    ///         });
-    ///     }
+    ///         DomainName = "example.com",
+    ///         ValidationMethod = "EMAIL",
+    ///     });
     /// 
-    /// }
+    ///     var exampleCertificateValidation = new Aws.Acm.CertificateValidation("exampleCertificateValidation", new()
+    ///     {
+    ///         CertificateArn = exampleCertificate.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:acm/certificateValidation:CertificateValidation")]
-    public partial class CertificateValidation : Pulumi.CustomResource
+    public partial class CertificateValidation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the certificate that is being validated.
@@ -105,7 +104,7 @@ namespace Pulumi.Aws.Acm
         }
     }
 
-    public sealed class CertificateValidationArgs : Pulumi.ResourceArgs
+    public sealed class CertificateValidationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the certificate that is being validated.
@@ -128,9 +127,10 @@ namespace Pulumi.Aws.Acm
         public CertificateValidationArgs()
         {
         }
+        public static new CertificateValidationArgs Empty => new CertificateValidationArgs();
     }
 
-    public sealed class CertificateValidationState : Pulumi.ResourceArgs
+    public sealed class CertificateValidationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the certificate that is being validated.
@@ -153,5 +153,6 @@ namespace Pulumi.Aws.Acm
         public CertificateValidationState()
         {
         }
+        public static new CertificateValidationState Empty => new CertificateValidationState();
     }
 }

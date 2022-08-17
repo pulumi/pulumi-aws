@@ -24,36 +24,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		network, err := ec2.NewVpc(ctx, "network", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.0.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		vpn, err := ec2.NewVpnGateway(ctx, "vpn", &ec2.VpnGatewayArgs{
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example-vpn-gateway"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewVpnGatewayAttachment(ctx, "vpnAttachment", &ec2.VpnGatewayAttachmentArgs{
-// 			VpcId:        network.ID(),
-// 			VpnGatewayId: vpn.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			network, err := ec2.NewVpc(ctx, "network", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			vpn, err := ec2.NewVpnGateway(ctx, "vpn", &ec2.VpnGatewayArgs{
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-vpn-gateway"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpnGatewayAttachment(ctx, "vpnAttachment", &ec2.VpnGatewayAttachmentArgs{
+//				VpcId:        network.ID(),
+//				VpnGatewayId: vpn.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
@@ -165,7 +168,7 @@ func (i *VpnGatewayAttachment) ToVpnGatewayAttachmentOutputWithContext(ctx conte
 // VpnGatewayAttachmentArrayInput is an input type that accepts VpnGatewayAttachmentArray and VpnGatewayAttachmentArrayOutput values.
 // You can construct a concrete instance of `VpnGatewayAttachmentArrayInput` via:
 //
-//          VpnGatewayAttachmentArray{ VpnGatewayAttachmentArgs{...} }
+//	VpnGatewayAttachmentArray{ VpnGatewayAttachmentArgs{...} }
 type VpnGatewayAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -190,7 +193,7 @@ func (i VpnGatewayAttachmentArray) ToVpnGatewayAttachmentArrayOutputWithContext(
 // VpnGatewayAttachmentMapInput is an input type that accepts VpnGatewayAttachmentMap and VpnGatewayAttachmentMapOutput values.
 // You can construct a concrete instance of `VpnGatewayAttachmentMapInput` via:
 //
-//          VpnGatewayAttachmentMap{ "key": VpnGatewayAttachmentArgs{...} }
+//	VpnGatewayAttachmentMap{ "key": VpnGatewayAttachmentArgs{...} }
 type VpnGatewayAttachmentMapInput interface {
 	pulumi.Input
 

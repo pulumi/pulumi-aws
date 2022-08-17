@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = securityhub.NewActionTarget(ctx, "exampleActionTarget", &securityhub.ActionTargetArgs{
-// 			Identifier:  pulumi.String("SendToChat"),
-// 			Description: pulumi.String("This is custom action sends selected findings to chat"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleAccount,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewActionTarget(ctx, "exampleActionTarget", &securityhub.ActionTargetArgs{
+//				Identifier:  pulumi.String("SendToChat"),
+//				Description: pulumi.String("This is custom action sends selected findings to chat"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAccount,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Security Hub custom action can be imported using the action target ARN e.g.,
 //
 // ```sh
-//  $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
+//
+//	$ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
+//
 // ```
 type ActionTarget struct {
 	pulumi.CustomResourceState
@@ -168,7 +173,7 @@ func (i *ActionTarget) ToActionTargetOutputWithContext(ctx context.Context) Acti
 // ActionTargetArrayInput is an input type that accepts ActionTargetArray and ActionTargetArrayOutput values.
 // You can construct a concrete instance of `ActionTargetArrayInput` via:
 //
-//          ActionTargetArray{ ActionTargetArgs{...} }
+//	ActionTargetArray{ ActionTargetArgs{...} }
 type ActionTargetArrayInput interface {
 	pulumi.Input
 
@@ -193,7 +198,7 @@ func (i ActionTargetArray) ToActionTargetArrayOutputWithContext(ctx context.Cont
 // ActionTargetMapInput is an input type that accepts ActionTargetMap and ActionTargetMapOutput values.
 // You can construct a concrete instance of `ActionTargetMapInput` via:
 //
-//          ActionTargetMap{ "key": ActionTargetArgs{...} }
+//	ActionTargetMap{ "key": ActionTargetArgs{...} }
 type ActionTargetMapInput interface {
 	pulumi.Input
 

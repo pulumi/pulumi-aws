@@ -19,20 +19,18 @@ namespace Pulumi.Aws.MskConnect
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MskConnect.GetConnector.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MskConnect.GetConnector.InvokeAsync(new Aws.MskConnect.GetConnectorArgs
-        ///         {
-        ///             Name = "example-mskconnector",
-        ///         }));
-        ///     }
+        ///         Name = "example-mskconnector",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.MskConnect
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MskConnect.GetConnector.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MskConnect.GetConnector.InvokeAsync(new Aws.MskConnect.GetConnectorArgs
-        ///         {
-        ///             Name = "example-mskconnector",
-        ///         }));
-        ///     }
+        ///         Name = "example-mskconnector",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.MskConnect
     }
 
 
-    public sealed class GetConnectorArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the connector.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.MskConnect
         public GetConnectorArgs()
         {
         }
+        public static new GetConnectorArgs Empty => new GetConnectorArgs();
     }
 
-    public sealed class GetConnectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the connector.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.MskConnect
         public GetConnectorInvokeArgs()
         {
         }
+        public static new GetConnectorInvokeArgs Empty => new GetConnectorInvokeArgs();
     }
 
 

@@ -19,60 +19,64 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudwatch.NewDashboard(ctx, "main", &cloudwatch.DashboardArgs{
-// 			DashboardBody: pulumi.String(fmt.Sprintf(`{
-//   "widgets": [
-//     {
-//       "type": "metric",
-//       "x": 0,
-//       "y": 0,
-//       "width": 12,
-//       "height": 6,
-//       "properties": {
-//         "metrics": [
-//           [
-//             "AWS/EC2",
-//             "CPUUtilization",
-//             "InstanceId",
-//             "i-012345"
-//           ]
-//         ],
-//         "period": 300,
-//         "stat": "Average",
-//         "region": "us-east-1",
-//         "title": "EC2 Instance CPU"
-//       }
-//     },
-//     {
-//       "type": "text",
-//       "x": 0,
-//       "y": 7,
-//       "width": 3,
-//       "height": 3,
-//       "properties": {
-//         "markdown": "Hello world"
-//       }
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewDashboard(ctx, "main", &cloudwatch.DashboardArgs{
+//				DashboardBody: pulumi.String(fmt.Sprintf(`{
+//	  "widgets": [
+//	    {
+//	      "type": "metric",
+//	      "x": 0,
+//	      "y": 0,
+//	      "width": 12,
+//	      "height": 6,
+//	      "properties": {
+//	        "metrics": [
+//	          [
+//	            "AWS/EC2",
+//	            "CPUUtilization",
+//	            "InstanceId",
+//	            "i-012345"
+//	          ]
+//	        ],
+//	        "period": 300,
+//	        "stat": "Average",
+//	        "region": "us-east-1",
+//	        "title": "EC2 Instance CPU"
+//	      }
+//	    },
+//	    {
+//	      "type": "text",
+//	      "x": 0,
+//	      "y": 7,
+//	      "width": 3,
+//	      "height": 3,
+//	      "properties": {
+//	        "markdown": "Hello world"
+//	      }
+//	    }
+//	  ]
+//	}
 //
 // `)),
-// 			DashboardName: pulumi.String("my-dashboard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				DashboardName: pulumi.String("my-dashboard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -80,7 +84,9 @@ import (
 // CloudWatch dashboards can be imported using the `dashboard_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
+//
+//	$ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
+//
 // ```
 type Dashboard struct {
 	pulumi.CustomResourceState
@@ -190,7 +196,7 @@ func (i *Dashboard) ToDashboardOutputWithContext(ctx context.Context) DashboardO
 // DashboardArrayInput is an input type that accepts DashboardArray and DashboardArrayOutput values.
 // You can construct a concrete instance of `DashboardArrayInput` via:
 //
-//          DashboardArray{ DashboardArgs{...} }
+//	DashboardArray{ DashboardArgs{...} }
 type DashboardArrayInput interface {
 	pulumi.Input
 
@@ -215,7 +221,7 @@ func (i DashboardArray) ToDashboardArrayOutputWithContext(ctx context.Context) D
 // DashboardMapInput is an input type that accepts DashboardMap and DashboardMapOutput values.
 // You can construct a concrete instance of `DashboardMapInput` via:
 //
-//          DashboardMap{ "key": DashboardArgs{...} }
+//	DashboardMap{ "key": DashboardArgs{...} }
 type DashboardMapInput interface {
 	pulumi.Input
 

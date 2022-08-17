@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Amplify.Inputs
 {
 
-    public sealed class AppAutoBranchCreationConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class AppAutoBranchCreationConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The basic authorization credentials for the autocreated branch.
@@ -81,5 +81,6 @@ namespace Pulumi.Aws.Amplify.Inputs
         public AppAutoBranchCreationConfigGetArgs()
         {
         }
+        public static new AppAutoBranchCreationConfigGetArgs Empty => new AppAutoBranchCreationConfigGetArgs();
     }
 }

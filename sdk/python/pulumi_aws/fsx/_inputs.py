@@ -37,6 +37,7 @@ __all__ = [
     'OpenZfsVolumeUserAndGroupQuotaArgs',
     'WindowsFileSystemAuditLogConfigurationArgs',
     'WindowsFileSystemSelfManagedActiveDirectoryArgs',
+    'GetOpenZfsSnapshotFilterArgs',
 ]
 
 @pulumi.input_type
@@ -761,12 +762,14 @@ class OpenZfsFileSystemRootVolumeConfigurationArgs:
                  data_compression_type: Optional[pulumi.Input[str]] = None,
                  nfs_exports: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs']] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
+                 record_size_kib: Optional[pulumi.Input[int]] = None,
                  user_and_group_quotas: Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs']]]] = None):
         """
         :param pulumi.Input[bool] copy_tags_to_snapshots: - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param pulumi.Input[str] data_compression_type: - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs'] nfs_exports: - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
         :param pulumi.Input[bool] read_only: - specifies whether the volume is read-only. Default is false.
+        :param pulumi.Input[int] record_size_kib: - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
         :param pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs']]] user_and_group_quotas: - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         """
         if copy_tags_to_snapshots is not None:
@@ -777,6 +780,8 @@ class OpenZfsFileSystemRootVolumeConfigurationArgs:
             pulumi.set(__self__, "nfs_exports", nfs_exports)
         if read_only is not None:
             pulumi.set(__self__, "read_only", read_only)
+        if record_size_kib is not None:
+            pulumi.set(__self__, "record_size_kib", record_size_kib)
         if user_and_group_quotas is not None:
             pulumi.set(__self__, "user_and_group_quotas", user_and_group_quotas)
 
@@ -827,6 +832,18 @@ class OpenZfsFileSystemRootVolumeConfigurationArgs:
     @read_only.setter
     def read_only(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "read_only", value)
+
+    @property
+    @pulumi.getter(name="recordSizeKib")
+    def record_size_kib(self) -> Optional[pulumi.Input[int]]:
+        """
+        - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        """
+        return pulumi.get(self, "record_size_kib")
+
+    @record_size_kib.setter
+    def record_size_kib(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "record_size_kib", value)
 
     @property
     @pulumi.getter(name="userAndGroupQuotas")
@@ -1238,5 +1255,38 @@ class WindowsFileSystemSelfManagedActiveDirectoryArgs:
     @organizational_unit_distinguished_name.setter
     def organizational_unit_distinguished_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "organizational_unit_distinguished_name", value)
+
+
+@pulumi.input_type
+class GetOpenZfsSnapshotFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the snapshot.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the snapshot.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
 
 

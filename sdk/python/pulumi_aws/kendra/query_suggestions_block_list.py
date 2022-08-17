@@ -21,8 +21,7 @@ class QuerySuggestionsBlockListArgs:
                  source_s3_path: pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a QuerySuggestionsBlockList resource.
         :param pulumi.Input[str] index_id: The identifier of the index for a block list.
@@ -30,7 +29,6 @@ class QuerySuggestionsBlockListArgs:
         :param pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'] source_s3_path: The S3 path where your block list text file sits in S3. Detailed below.
         :param pulumi.Input[str] description: The description for a block list.
         :param pulumi.Input[str] name: The name for the block list.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -41,8 +39,6 @@ class QuerySuggestionsBlockListArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="indexId")
@@ -113,18 +109,6 @@ class QuerySuggestionsBlockListArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
-
 
 @pulumi.input_type
 class _QuerySuggestionsBlockListState:
@@ -148,7 +132,6 @@ class _QuerySuggestionsBlockListState:
         :param pulumi.Input[str] query_suggestions_block_list_id: The unique indentifier of the block list.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'] source_s3_path: The S3 path where your block list text file sits in S3. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -276,9 +259,6 @@ class _QuerySuggestionsBlockListState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -297,7 +277,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  source_s3_path: Optional[pulumi.Input[pulumi.InputType['QuerySuggestionsBlockListSourceS3PathArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -334,7 +313,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the block list.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input[pulumi.InputType['QuerySuggestionsBlockListSourceS3PathArgs']] source_s3_path: The S3 path where your block list text file sits in S3. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         ...
     @overload
@@ -391,7 +369,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  source_s3_path: Optional[pulumi.Input[pulumi.InputType['QuerySuggestionsBlockListSourceS3PathArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -413,10 +390,10 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_s3_path'")
             __props__.__dict__["source_s3_path"] = source_s3_path
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["query_suggestions_block_list_id"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["tags_all"] = None
         super(QuerySuggestionsBlockList, __self__).__init__(
             'aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList',
             resource_name,
@@ -451,7 +428,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param pulumi.Input[str] query_suggestions_block_list_id: The unique indentifier of the block list.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input[pulumi.InputType['QuerySuggestionsBlockListSourceS3PathArgs']] source_s3_path: The S3 path where your block list text file sits in S3. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -538,8 +514,5 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        """
         return pulumi.get(self, "tags_all")
 

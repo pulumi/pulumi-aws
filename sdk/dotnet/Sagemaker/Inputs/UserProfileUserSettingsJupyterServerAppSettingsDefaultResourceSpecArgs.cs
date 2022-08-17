@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs : Pulumi.ResourceArgs
+    public sealed class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The instance type.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs()
         {
         }
+        public static new UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs Empty => new UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs();
     }
 }

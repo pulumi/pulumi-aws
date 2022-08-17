@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Quicksight.Inputs
 {
 
-    public sealed class DataSourceCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
@@ -28,5 +28,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public DataSourceCredentialsArgs()
         {
         }
+        public static new DataSourceCredentialsArgs Empty => new DataSourceCredentialsArgs();
     }
 }

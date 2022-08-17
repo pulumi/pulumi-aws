@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The criteria for determining a SAN's match.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs()
         {
         }
+        public static new VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs Empty => new VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs();
     }
 }

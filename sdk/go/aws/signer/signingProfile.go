@@ -19,36 +19,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/signer"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/signer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := signer.NewSigningProfile(ctx, "testSp", &signer.SigningProfileArgs{
-// 			PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = signer.NewSigningProfile(ctx, "prodSp", &signer.SigningProfileArgs{
-// 			NamePrefix: pulumi.String("prod_sp_"),
-// 			PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
-// 			SignatureValidityPeriod: &signer.SigningProfileSignatureValidityPeriodArgs{
-// 				Type:  pulumi.String("YEARS"),
-// 				Value: pulumi.Int(5),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"tag1": pulumi.String("value1"),
-// 				"tag2": pulumi.String("value2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := signer.NewSigningProfile(ctx, "testSp", &signer.SigningProfileArgs{
+//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = signer.NewSigningProfile(ctx, "prodSp", &signer.SigningProfileArgs{
+//				NamePrefix: pulumi.String("prod_sp_"),
+//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
+//				SignatureValidityPeriod: &signer.SigningProfileSignatureValidityPeriodArgs{
+//					Type:  pulumi.String("YEARS"),
+//					Value: pulumi.Int(5),
+//				},
+//				Tags: pulumi.StringMap{
+//					"tag1": pulumi.String("value1"),
+//					"tag2": pulumi.String("value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // Signer signing profiles can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
+//
+//	$ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
+//
 // ```
 type SigningProfile struct {
 	pulumi.CustomResourceState
@@ -77,9 +82,9 @@ type SigningProfile struct {
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodOutput `pulumi:"signatureValidityPeriod"`
 	// The status of the target signing profile.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A list of tags associated with the signing profile. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The current version of the signing profile.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -135,9 +140,9 @@ type signingProfileState struct {
 	SignatureValidityPeriod *SigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriod"`
 	// The status of the target signing profile.
 	Status *string `pulumi:"status"`
-	// A list of tags associated with the signing profile. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The current version of the signing profile.
 	Version *string `pulumi:"version"`
@@ -162,9 +167,9 @@ type SigningProfileState struct {
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrInput
 	// The status of the target signing profile.
 	Status pulumi.StringPtrInput
-	// A list of tags associated with the signing profile. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The current version of the signing profile.
 	Version pulumi.StringPtrInput
@@ -185,7 +190,7 @@ type signingProfileArgs struct {
 	PlatformId string `pulumi:"platformId"`
 	// The validity period for a signing job.
 	SignatureValidityPeriod *SigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriod"`
-	// A list of tags associated with the signing profile. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -199,7 +204,7 @@ type SigningProfileArgs struct {
 	PlatformId pulumi.StringInput
 	// The validity period for a signing job.
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrInput
-	// A list of tags associated with the signing profile. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -229,7 +234,7 @@ func (i *SigningProfile) ToSigningProfileOutputWithContext(ctx context.Context) 
 // SigningProfileArrayInput is an input type that accepts SigningProfileArray and SigningProfileArrayOutput values.
 // You can construct a concrete instance of `SigningProfileArrayInput` via:
 //
-//          SigningProfileArray{ SigningProfileArgs{...} }
+//	SigningProfileArray{ SigningProfileArgs{...} }
 type SigningProfileArrayInput interface {
 	pulumi.Input
 
@@ -254,7 +259,7 @@ func (i SigningProfileArray) ToSigningProfileArrayOutputWithContext(ctx context.
 // SigningProfileMapInput is an input type that accepts SigningProfileMap and SigningProfileMapOutput values.
 // You can construct a concrete instance of `SigningProfileMapInput` via:
 //
-//          SigningProfileMap{ "key": SigningProfileArgs{...} }
+//	SigningProfileMap{ "key": SigningProfileArgs{...} }
 type SigningProfileMapInput interface {
 	pulumi.Input
 
@@ -330,12 +335,12 @@ func (o SigningProfileOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// A list of tags associated with the signing profile. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SigningProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SigningProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SigningProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

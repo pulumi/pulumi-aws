@@ -15,25 +15,23 @@ namespace Pulumi.Aws.Ebs
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ebs.Volume("example", new()
     ///     {
-    ///         var example = new Aws.Ebs.Volume("example", new Aws.Ebs.VolumeArgs
+    ///         AvailabilityZone = "us-west-2a",
+    ///         Size = 40,
+    ///         Tags = 
     ///         {
-    ///             AvailabilityZone = "us-west-2a",
-    ///             Size = 40,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "HelloWorld" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "HelloWorld" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// &gt; **NOTE**: At least one of `size` or `snapshot_id` is required when specifying an EBS volume
@@ -47,7 +45,7 @@ namespace Pulumi.Aws.Ebs
     /// ```
     /// </summary>
     [AwsResourceType("aws:ebs/volume:Volume")]
-    public partial class Volume : Pulumi.CustomResource
+    public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
@@ -174,7 +172,7 @@ namespace Pulumi.Aws.Ebs
         }
     }
 
-    public sealed class VolumeArgs : Pulumi.ResourceArgs
+    public sealed class VolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AZ where the EBS volume will exist.
@@ -254,9 +252,10 @@ namespace Pulumi.Aws.Ebs
         public VolumeArgs()
         {
         }
+        public static new VolumeArgs Empty => new VolumeArgs();
     }
 
-    public sealed class VolumeState : Pulumi.ResourceArgs
+    public sealed class VolumeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
@@ -354,5 +353,6 @@ namespace Pulumi.Aws.Ebs
         public VolumeState()
         {
         }
+        public static new VolumeState Empty => new VolumeState();
     }
 }

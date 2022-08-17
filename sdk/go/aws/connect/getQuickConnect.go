@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.LookupQuickConnect(ctx, &connect.LookupQuickConnectArgs{
-// 			InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-// 			Name:       pulumi.StringRef("Example"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.LookupQuickConnect(ctx, &connect.LookupQuickConnectArgs{
+//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+//				Name:       pulumi.StringRef("Example"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // By `quickConnectId`
@@ -44,22 +47,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.LookupQuickConnect(ctx, &connect.LookupQuickConnectArgs{
-// 			InstanceId:     "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-// 			QuickConnectId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.LookupQuickConnect(ctx, &connect.LookupQuickConnectArgs{
+//				InstanceId:     "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+//				QuickConnectId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupQuickConnect(ctx *pulumi.Context, args *LookupQuickConnectArgs, opts ...pulumi.InvokeOption) (*LookupQuickConnectResult, error) {
 	var rv LookupQuickConnectResult

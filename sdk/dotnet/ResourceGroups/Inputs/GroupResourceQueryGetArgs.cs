@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ResourceGroups.Inputs
 {
 
-    public sealed class GroupResourceQueryGetArgs : Pulumi.ResourceArgs
+    public sealed class GroupResourceQueryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource query as a JSON string.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ResourceGroups.Inputs
         public GroupResourceQueryGetArgs()
         {
         }
+        public static new GroupResourceQueryGetArgs Empty => new GroupResourceQueryGetArgs();
     }
 }

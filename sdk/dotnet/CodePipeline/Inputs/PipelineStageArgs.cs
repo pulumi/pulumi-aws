@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodePipeline.Inputs
 {
 
-    public sealed class PipelineStageArgs : Pulumi.ResourceArgs
+    public sealed class PipelineStageArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<Inputs.PipelineStageActionArgs>? _actions;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         public PipelineStageArgs()
         {
         }
+        public static new PipelineStageArgs Empty => new PipelineStageArgs();
     }
 }

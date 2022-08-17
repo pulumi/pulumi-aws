@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventTargetHttpTargetGetArgs : Pulumi.ResourceArgs
+    public sealed class EventTargetHttpTargetGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("headerParameters")]
         private InputMap<string>? _headerParameters;
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventTargetHttpTargetGetArgs()
         {
         }
+        public static new EventTargetHttpTargetGetArgs Empty => new EventTargetHttpTargetGetArgs();
     }
 }

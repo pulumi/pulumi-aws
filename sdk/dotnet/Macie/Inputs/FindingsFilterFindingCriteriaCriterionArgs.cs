@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Macie.Inputs
 {
 
-    public sealed class FindingsFilterFindingCriteriaCriterionArgs : Pulumi.ResourceArgs
+    public sealed class FindingsFilterFindingCriteriaCriterionArgs : global::Pulumi.ResourceArgs
     {
         [Input("eqExactMatches")]
         private InputList<string>? _eqExactMatches;
@@ -81,5 +81,6 @@ namespace Pulumi.Aws.Macie.Inputs
         public FindingsFilterFindingCriteriaCriterionArgs()
         {
         }
+        public static new FindingsFilterFindingCriteriaCriterionArgs Empty => new FindingsFilterFindingCriteriaCriterionArgs();
     }
 }

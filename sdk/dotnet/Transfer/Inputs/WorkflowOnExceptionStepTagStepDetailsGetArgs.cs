@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transfer.Inputs
 {
 
-    public sealed class WorkflowOnExceptionStepTagStepDetailsGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowOnExceptionStepTagStepDetailsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the step, used as an identifier.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Transfer.Inputs
         public WorkflowOnExceptionStepTagStepDetailsGetArgs()
         {
         }
+        public static new WorkflowOnExceptionStepTagStepDetailsGetArgs Empty => new WorkflowOnExceptionStepTagStepDetailsGetArgs();
     }
 }

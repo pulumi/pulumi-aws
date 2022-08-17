@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleActionAllowCustomRequestHandlingGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleActionAllowCustomRequestHandlingGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("insertHeaders", required: true)]
         private InputList<Inputs.WebAclRuleActionAllowCustomRequestHandlingInsertHeaderGetArgs>? _insertHeaders;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclRuleActionAllowCustomRequestHandlingGetArgs()
         {
         }
+        public static new WebAclRuleActionAllowCustomRequestHandlingGetArgs Empty => new WebAclRuleActionAllowCustomRequestHandlingGetArgs();
     }
 }

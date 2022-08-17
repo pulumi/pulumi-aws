@@ -16,59 +16,53 @@ namespace Pulumi.Aws.Organizations
     /// ### Organization Account
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var account = new Aws.Organizations.PolicyAttachment("account", new()
     ///     {
-    ///         var account = new Aws.Organizations.PolicyAttachment("account", new Aws.Organizations.PolicyAttachmentArgs
-    ///         {
-    ///             PolicyId = aws_organizations_policy.Example.Id,
-    ///             TargetId = "123456789012",
-    ///         });
-    ///     }
+    ///         PolicyId = aws_organizations_policy.Example.Id,
+    ///         TargetId = "123456789012",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Organization Root
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var root = new Aws.Organizations.PolicyAttachment("root", new()
     ///     {
-    ///         var root = new Aws.Organizations.PolicyAttachment("root", new Aws.Organizations.PolicyAttachmentArgs
-    ///         {
-    ///             PolicyId = aws_organizations_policy.Example.Id,
-    ///             TargetId = aws_organizations_organization.Example.Roots[0].Id,
-    ///         });
-    ///     }
+    ///         PolicyId = aws_organizations_policy.Example.Id,
+    ///         TargetId = aws_organizations_organization.Example.Roots[0].Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Organization Unit
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var unit = new Aws.Organizations.PolicyAttachment("unit", new()
     ///     {
-    ///         var unit = new Aws.Organizations.PolicyAttachment("unit", new Aws.Organizations.PolicyAttachmentArgs
-    ///         {
-    ///             PolicyId = aws_organizations_policy.Example.Id,
-    ///             TargetId = aws_organizations_organizational_unit.Example.Id,
-    ///         });
-    ///     }
+    ///         PolicyId = aws_organizations_policy.Example.Id,
+    ///         TargetId = aws_organizations_organizational_unit.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -80,7 +74,7 @@ namespace Pulumi.Aws.Organizations
     /// ```
     /// </summary>
     [AwsResourceType("aws:organizations/policyAttachment:PolicyAttachment")]
-    public partial class PolicyAttachment : Pulumi.CustomResource
+    public partial class PolicyAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The unique identifier (ID) of the policy that you want to attach to the target.
@@ -138,7 +132,7 @@ namespace Pulumi.Aws.Organizations
         }
     }
 
-    public sealed class PolicyAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class PolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique identifier (ID) of the policy that you want to attach to the target.
@@ -155,9 +149,10 @@ namespace Pulumi.Aws.Organizations
         public PolicyAttachmentArgs()
         {
         }
+        public static new PolicyAttachmentArgs Empty => new PolicyAttachmentArgs();
     }
 
-    public sealed class PolicyAttachmentState : Pulumi.ResourceArgs
+    public sealed class PolicyAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique identifier (ID) of the policy that you want to attach to the target.
@@ -174,5 +169,6 @@ namespace Pulumi.Aws.Organizations
         public PolicyAttachmentState()
         {
         }
+        public static new PolicyAttachmentState Empty => new PolicyAttachmentState();
     }
 }

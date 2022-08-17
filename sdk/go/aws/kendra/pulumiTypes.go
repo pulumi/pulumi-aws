@@ -10,6 +10,4070 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DataSourceConfiguration struct {
+	// A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+	S3Configuration *DataSourceConfigurationS3Configuration `pulumi:"s3Configuration"`
+	// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+	WebCrawlerConfiguration *DataSourceConfigurationWebCrawlerConfiguration `pulumi:"webCrawlerConfiguration"`
+}
+
+// DataSourceConfigurationInput is an input type that accepts DataSourceConfigurationArgs and DataSourceConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationInput` via:
+//
+//	DataSourceConfigurationArgs{...}
+type DataSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationOutput() DataSourceConfigurationOutput
+	ToDataSourceConfigurationOutputWithContext(context.Context) DataSourceConfigurationOutput
+}
+
+type DataSourceConfigurationArgs struct {
+	// A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+	S3Configuration DataSourceConfigurationS3ConfigurationPtrInput `pulumi:"s3Configuration"`
+	// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+	WebCrawlerConfiguration DataSourceConfigurationWebCrawlerConfigurationPtrInput `pulumi:"webCrawlerConfiguration"`
+}
+
+func (DataSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationArgs) ToDataSourceConfigurationOutput() DataSourceConfigurationOutput {
+	return i.ToDataSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationArgs) ToDataSourceConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationOutput)
+}
+
+func (i DataSourceConfigurationArgs) ToDataSourceConfigurationPtrOutput() DataSourceConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationArgs) ToDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationOutput).ToDataSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfigurationPtrInput is an input type that accepts DataSourceConfigurationArgs, DataSourceConfigurationPtr and DataSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationPtrInput` via:
+//
+//	        DataSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationPtrOutput() DataSourceConfigurationPtrOutput
+	ToDataSourceConfigurationPtrOutputWithContext(context.Context) DataSourceConfigurationPtrOutput
+}
+
+type dataSourceConfigurationPtrType DataSourceConfigurationArgs
+
+func DataSourceConfigurationPtr(v *DataSourceConfigurationArgs) DataSourceConfigurationPtrInput {
+	return (*dataSourceConfigurationPtrType)(v)
+}
+
+func (*dataSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceConfigurationPtrType) ToDataSourceConfigurationPtrOutput() DataSourceConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfigurationPtrType) ToDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationPtrOutput)
+}
+
+type DataSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationOutput) ToDataSourceConfigurationOutput() DataSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationOutput) ToDataSourceConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationOutput) ToDataSourceConfigurationPtrOutput() DataSourceConfigurationPtrOutput {
+	return o.ToDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfigurationOutput) ToDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfiguration) *DataSourceConfiguration {
+		return &v
+	}).(DataSourceConfigurationPtrOutput)
+}
+
+// A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+func (o DataSourceConfigurationOutput) S3Configuration() DataSourceConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceConfigurationS3Configuration { return v.S3Configuration }).(DataSourceConfigurationS3ConfigurationPtrOutput)
+}
+
+// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+func (o DataSourceConfigurationOutput) WebCrawlerConfiguration() DataSourceConfigurationWebCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfiguration) *DataSourceConfigurationWebCrawlerConfiguration {
+		return v.WebCrawlerConfiguration
+	}).(DataSourceConfigurationWebCrawlerConfigurationPtrOutput)
+}
+
+type DataSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationPtrOutput) ToDataSourceConfigurationPtrOutput() DataSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationPtrOutput) ToDataSourceConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationPtrOutput) Elem() DataSourceConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceConfiguration) DataSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfiguration
+		return ret
+	}).(DataSourceConfigurationOutput)
+}
+
+// A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+func (o DataSourceConfigurationPtrOutput) S3Configuration() DataSourceConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceConfigurationS3Configuration {
+		if v == nil {
+			return nil
+		}
+		return v.S3Configuration
+	}).(DataSourceConfigurationS3ConfigurationPtrOutput)
+}
+
+// A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+func (o DataSourceConfigurationPtrOutput) WebCrawlerConfiguration() DataSourceConfigurationWebCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfiguration) *DataSourceConfigurationWebCrawlerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.WebCrawlerConfiguration
+	}).(DataSourceConfigurationWebCrawlerConfigurationPtrOutput)
+}
+
+type DataSourceConfigurationS3Configuration struct {
+	// A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
+	AccessControlListConfiguration *DataSourceConfigurationS3ConfigurationAccessControlListConfiguration `pulumi:"accessControlListConfiguration"`
+	// The name of the bucket that contains the documents.
+	BucketName string `pulumi:"bucketName"`
+	// A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+	DocumentsMetadataConfiguration *DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration `pulumi:"documentsMetadataConfiguration"`
+	// A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
+	ExclusionPatterns []string `pulumi:"exclusionPatterns"`
+	// A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
+	InclusionPatterns []string `pulumi:"inclusionPatterns"`
+	// A list of S3 prefixes for the documents that should be included in the index.
+	InclusionPrefixes []string `pulumi:"inclusionPrefixes"`
+}
+
+// DataSourceConfigurationS3ConfigurationInput is an input type that accepts DataSourceConfigurationS3ConfigurationArgs and DataSourceConfigurationS3ConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationS3ConfigurationInput` via:
+//
+//	DataSourceConfigurationS3ConfigurationArgs{...}
+type DataSourceConfigurationS3ConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationS3ConfigurationOutput() DataSourceConfigurationS3ConfigurationOutput
+	ToDataSourceConfigurationS3ConfigurationOutputWithContext(context.Context) DataSourceConfigurationS3ConfigurationOutput
+}
+
+type DataSourceConfigurationS3ConfigurationArgs struct {
+	// A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
+	AccessControlListConfiguration DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrInput `pulumi:"accessControlListConfiguration"`
+	// The name of the bucket that contains the documents.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+	DocumentsMetadataConfiguration DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrInput `pulumi:"documentsMetadataConfiguration"`
+	// A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
+	ExclusionPatterns pulumi.StringArrayInput `pulumi:"exclusionPatterns"`
+	// A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
+	InclusionPatterns pulumi.StringArrayInput `pulumi:"inclusionPatterns"`
+	// A list of S3 prefixes for the documents that should be included in the index.
+	InclusionPrefixes pulumi.StringArrayInput `pulumi:"inclusionPrefixes"`
+}
+
+func (DataSourceConfigurationS3ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationS3ConfigurationArgs) ToDataSourceConfigurationS3ConfigurationOutput() DataSourceConfigurationS3ConfigurationOutput {
+	return i.ToDataSourceConfigurationS3ConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationS3ConfigurationArgs) ToDataSourceConfigurationS3ConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationS3ConfigurationOutput)
+}
+
+func (i DataSourceConfigurationS3ConfigurationArgs) ToDataSourceConfigurationS3ConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationS3ConfigurationArgs) ToDataSourceConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationS3ConfigurationOutput).ToDataSourceConfigurationS3ConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfigurationS3ConfigurationPtrInput is an input type that accepts DataSourceConfigurationS3ConfigurationArgs, DataSourceConfigurationS3ConfigurationPtr and DataSourceConfigurationS3ConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationS3ConfigurationPtrInput` via:
+//
+//	        DataSourceConfigurationS3ConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfigurationS3ConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationS3ConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationPtrOutput
+	ToDataSourceConfigurationS3ConfigurationPtrOutputWithContext(context.Context) DataSourceConfigurationS3ConfigurationPtrOutput
+}
+
+type dataSourceConfigurationS3ConfigurationPtrType DataSourceConfigurationS3ConfigurationArgs
+
+func DataSourceConfigurationS3ConfigurationPtr(v *DataSourceConfigurationS3ConfigurationArgs) DataSourceConfigurationS3ConfigurationPtrInput {
+	return (*dataSourceConfigurationS3ConfigurationPtrType)(v)
+}
+
+func (*dataSourceConfigurationS3ConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (i *dataSourceConfigurationS3ConfigurationPtrType) ToDataSourceConfigurationS3ConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfigurationS3ConfigurationPtrType) ToDataSourceConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationS3ConfigurationPtrOutput)
+}
+
+type DataSourceConfigurationS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationS3ConfigurationOutput) ToDataSourceConfigurationS3ConfigurationOutput() DataSourceConfigurationS3ConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationS3ConfigurationOutput) ToDataSourceConfigurationS3ConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationS3ConfigurationOutput) ToDataSourceConfigurationS3ConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationPtrOutput {
+	return o.ToDataSourceConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfigurationS3ConfigurationOutput) ToDataSourceConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationS3Configuration) *DataSourceConfigurationS3Configuration {
+		return &v
+	}).(DataSourceConfigurationS3ConfigurationPtrOutput)
+}
+
+// A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
+func (o DataSourceConfigurationS3ConfigurationOutput) AccessControlListConfiguration() DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationS3Configuration) *DataSourceConfigurationS3ConfigurationAccessControlListConfiguration {
+		return v.AccessControlListConfiguration
+	}).(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput)
+}
+
+// The name of the bucket that contains the documents.
+func (o DataSourceConfigurationS3ConfigurationOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceConfigurationS3Configuration) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+func (o DataSourceConfigurationS3ConfigurationOutput) DocumentsMetadataConfiguration() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationS3Configuration) *DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration {
+		return v.DocumentsMetadataConfiguration
+	}).(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput)
+}
+
+// A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
+func (o DataSourceConfigurationS3ConfigurationOutput) ExclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceConfigurationS3Configuration) []string { return v.ExclusionPatterns }).(pulumi.StringArrayOutput)
+}
+
+// A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
+func (o DataSourceConfigurationS3ConfigurationOutput) InclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceConfigurationS3Configuration) []string { return v.InclusionPatterns }).(pulumi.StringArrayOutput)
+}
+
+// A list of S3 prefixes for the documents that should be included in the index.
+func (o DataSourceConfigurationS3ConfigurationOutput) InclusionPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceConfigurationS3Configuration) []string { return v.InclusionPrefixes }).(pulumi.StringArrayOutput)
+}
+
+type DataSourceConfigurationS3ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationS3ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationS3ConfigurationPtrOutput) ToDataSourceConfigurationS3ConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationS3ConfigurationPtrOutput) ToDataSourceConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationS3ConfigurationPtrOutput) Elem() DataSourceConfigurationS3ConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationS3Configuration) DataSourceConfigurationS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfigurationS3Configuration
+		return ret
+	}).(DataSourceConfigurationS3ConfigurationOutput)
+}
+
+// A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
+func (o DataSourceConfigurationS3ConfigurationPtrOutput) AccessControlListConfiguration() DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationS3Configuration) *DataSourceConfigurationS3ConfigurationAccessControlListConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AccessControlListConfiguration
+	}).(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput)
+}
+
+// The name of the bucket that contains the documents.
+func (o DataSourceConfigurationS3ConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A block that defines the Ddcument metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+func (o DataSourceConfigurationS3ConfigurationPtrOutput) DocumentsMetadataConfiguration() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationS3Configuration) *DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentsMetadataConfiguration
+	}).(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput)
+}
+
+// A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
+func (o DataSourceConfigurationS3ConfigurationPtrOutput) ExclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationS3Configuration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExclusionPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
+func (o DataSourceConfigurationS3ConfigurationPtrOutput) InclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationS3Configuration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InclusionPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of S3 prefixes for the documents that should be included in the index.
+func (o DataSourceConfigurationS3ConfigurationPtrOutput) InclusionPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationS3Configuration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InclusionPrefixes
+	}).(pulumi.StringArrayOutput)
+}
+
+type DataSourceConfigurationS3ConfigurationAccessControlListConfiguration struct {
+	// Path to the AWS S3 bucket that contains the ACL files.
+	KeyPath *string `pulumi:"keyPath"`
+}
+
+// DataSourceConfigurationS3ConfigurationAccessControlListConfigurationInput is an input type that accepts DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs and DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationS3ConfigurationAccessControlListConfigurationInput` via:
+//
+//	DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs{...}
+type DataSourceConfigurationS3ConfigurationAccessControlListConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput() DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput
+	ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutputWithContext(context.Context) DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput
+}
+
+type DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs struct {
+	// Path to the AWS S3 bucket that contains the ACL files.
+	KeyPath pulumi.StringPtrInput `pulumi:"keyPath"`
+}
+
+func (DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationS3ConfigurationAccessControlListConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs) ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput() DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput {
+	return i.ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs) ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput)
+}
+
+func (i DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs) ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs) ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput).ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrInput is an input type that accepts DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs, DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtr and DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrInput` via:
+//
+//	        DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput
+	ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutputWithContext(context.Context) DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput
+}
+
+type dataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrType DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs
+
+func DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtr(v *DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs) DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrInput {
+	return (*dataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrType)(v)
+}
+
+func (*dataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationS3ConfigurationAccessControlListConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrType) ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrType) ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput)
+}
+
+type DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationS3ConfigurationAccessControlListConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput) ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput() DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput) ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput) ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput {
+	return o.ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput) ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationS3ConfigurationAccessControlListConfiguration) *DataSourceConfigurationS3ConfigurationAccessControlListConfiguration {
+		return &v
+	}).(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput)
+}
+
+// Path to the AWS S3 bucket that contains the ACL files.
+func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput) KeyPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationS3ConfigurationAccessControlListConfiguration) *string { return v.KeyPath }).(pulumi.StringPtrOutput)
+}
+
+type DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationS3ConfigurationAccessControlListConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput) ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput) ToDataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput) Elem() DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationS3ConfigurationAccessControlListConfiguration) DataSourceConfigurationS3ConfigurationAccessControlListConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfigurationS3ConfigurationAccessControlListConfiguration
+		return ret
+	}).(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput)
+}
+
+// Path to the AWS S3 bucket that contains the ACL files.
+func (o DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput) KeyPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationS3ConfigurationAccessControlListConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration struct {
+	// A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
+	S3Prefix *string `pulumi:"s3Prefix"`
+}
+
+// DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationInput is an input type that accepts DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs and DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationInput` via:
+//
+//	DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs{...}
+type DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput
+	ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutputWithContext(context.Context) DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput
+}
+
+type DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs struct {
+	// A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
+	S3Prefix pulumi.StringPtrInput `pulumi:"s3Prefix"`
+}
+
+func (DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs) ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput {
+	return i.ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs) ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput)
+}
+
+func (i DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs) ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs) ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput).ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrInput is an input type that accepts DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs, DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtr and DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrInput` via:
+//
+//	        DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput
+	ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutputWithContext(context.Context) DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput
+}
+
+type dataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrType DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs
+
+func DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtr(v *DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs) DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrInput {
+	return (*dataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrType)(v)
+}
+
+func (*dataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrType) ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrType) ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput)
+}
+
+type DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput) ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput) ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput) ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput {
+	return o.ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput) ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration) *DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration {
+		return &v
+	}).(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput)
+}
+
+// A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
+func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput) S3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration) *string {
+		return v.S3Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput) ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput) ToDataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput) Elem() DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration) DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration
+		return ret
+	}).(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput)
+}
+
+// A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
+func (o DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput) S3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfiguration struct {
+	// A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
+	AuthenticationConfiguration *DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
+	// Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels – index level (i.e. seed in this example), sections level, and subsections level – and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
+	CrawlDepth *int `pulumi:"crawlDepth"`
+	// The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
+	MaxContentSizePerPageInMegaBytes *float64 `pulumi:"maxContentSizePerPageInMegaBytes"`
+	// The maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
+	MaxLinksPerPage *int `pulumi:"maxLinksPerPage"`
+	// The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
+	MaxUrlsPerMinuteCrawlRate *int `pulumi:"maxUrlsPerMinuteCrawlRate"`
+	// Configuration information required to connect to your internal websites via a web proxy. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). Detailed below.
+	ProxyConfiguration *DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration `pulumi:"proxyConfiguration"`
+	// A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+	UrlExclusionPatterns []string `pulumi:"urlExclusionPatterns"`
+	// A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+	UrlInclusionPatterns []string `pulumi:"urlInclusionPatterns"`
+	// A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
+	Urls DataSourceConfigurationWebCrawlerConfigurationUrls `pulumi:"urls"`
+}
+
+// DataSourceConfigurationWebCrawlerConfigurationInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationArgs and DataSourceConfigurationWebCrawlerConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationWebCrawlerConfigurationInput` via:
+//
+//	DataSourceConfigurationWebCrawlerConfigurationArgs{...}
+type DataSourceConfigurationWebCrawlerConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationWebCrawlerConfigurationOutput() DataSourceConfigurationWebCrawlerConfigurationOutput
+	ToDataSourceConfigurationWebCrawlerConfigurationOutputWithContext(context.Context) DataSourceConfigurationWebCrawlerConfigurationOutput
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationArgs struct {
+	// A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
+	AuthenticationConfiguration DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrInput `pulumi:"authenticationConfiguration"`
+	// Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels – index level (i.e. seed in this example), sections level, and subsections level – and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
+	CrawlDepth pulumi.IntPtrInput `pulumi:"crawlDepth"`
+	// The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
+	MaxContentSizePerPageInMegaBytes pulumi.Float64PtrInput `pulumi:"maxContentSizePerPageInMegaBytes"`
+	// The maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
+	MaxLinksPerPage pulumi.IntPtrInput `pulumi:"maxLinksPerPage"`
+	// The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
+	MaxUrlsPerMinuteCrawlRate pulumi.IntPtrInput `pulumi:"maxUrlsPerMinuteCrawlRate"`
+	// Configuration information required to connect to your internal websites via a web proxy. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). Detailed below.
+	ProxyConfiguration DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrInput `pulumi:"proxyConfiguration"`
+	// A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+	UrlExclusionPatterns pulumi.StringArrayInput `pulumi:"urlExclusionPatterns"`
+	// A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+	UrlInclusionPatterns pulumi.StringArrayInput `pulumi:"urlInclusionPatterns"`
+	// A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
+	Urls DataSourceConfigurationWebCrawlerConfigurationUrlsInput `pulumi:"urls"`
+}
+
+func (DataSourceConfigurationWebCrawlerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationOutput() DataSourceConfigurationWebCrawlerConfigurationOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationOutput)
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationOutput).ToDataSourceConfigurationWebCrawlerConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfigurationWebCrawlerConfigurationPtrInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationArgs, DataSourceConfigurationWebCrawlerConfigurationPtr and DataSourceConfigurationWebCrawlerConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationWebCrawlerConfigurationPtrInput` via:
+//
+//	        DataSourceConfigurationWebCrawlerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfigurationWebCrawlerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationWebCrawlerConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationPtrOutput
+	ToDataSourceConfigurationWebCrawlerConfigurationPtrOutputWithContext(context.Context) DataSourceConfigurationWebCrawlerConfigurationPtrOutput
+}
+
+type dataSourceConfigurationWebCrawlerConfigurationPtrType DataSourceConfigurationWebCrawlerConfigurationArgs
+
+func DataSourceConfigurationWebCrawlerConfigurationPtr(v *DataSourceConfigurationWebCrawlerConfigurationArgs) DataSourceConfigurationWebCrawlerConfigurationPtrInput {
+	return (*dataSourceConfigurationWebCrawlerConfigurationPtrType)(v)
+}
+
+func (*dataSourceConfigurationWebCrawlerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationWebCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceConfigurationWebCrawlerConfigurationPtrType) ToDataSourceConfigurationWebCrawlerConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfigurationWebCrawlerConfigurationPtrType) ToDataSourceConfigurationWebCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationPtrOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationWebCrawlerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationOutput() DataSourceConfigurationWebCrawlerConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationPtrOutput {
+	return o.ToDataSourceConfigurationWebCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationWebCrawlerConfiguration) *DataSourceConfigurationWebCrawlerConfiguration {
+		return &v
+	}).(DataSourceConfigurationWebCrawlerConfigurationPtrOutput)
+}
+
+// A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
+func (o DataSourceConfigurationWebCrawlerConfigurationOutput) AuthenticationConfiguration() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) *DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration {
+		return v.AuthenticationConfiguration
+	}).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput)
+}
+
+// Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels – index level (i.e. seed in this example), sections level, and subsections level – and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
+func (o DataSourceConfigurationWebCrawlerConfigurationOutput) CrawlDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) *int { return v.CrawlDepth }).(pulumi.IntPtrOutput)
+}
+
+// The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
+func (o DataSourceConfigurationWebCrawlerConfigurationOutput) MaxContentSizePerPageInMegaBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) *float64 {
+		return v.MaxContentSizePerPageInMegaBytes
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
+func (o DataSourceConfigurationWebCrawlerConfigurationOutput) MaxLinksPerPage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) *int { return v.MaxLinksPerPage }).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
+func (o DataSourceConfigurationWebCrawlerConfigurationOutput) MaxUrlsPerMinuteCrawlRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) *int { return v.MaxUrlsPerMinuteCrawlRate }).(pulumi.IntPtrOutput)
+}
+
+// Configuration information required to connect to your internal websites via a web proxy. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). Detailed below.
+func (o DataSourceConfigurationWebCrawlerConfigurationOutput) ProxyConfiguration() DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) *DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration {
+		return v.ProxyConfiguration
+	}).(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput)
+}
+
+// A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+func (o DataSourceConfigurationWebCrawlerConfigurationOutput) UrlExclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) []string { return v.UrlExclusionPatterns }).(pulumi.StringArrayOutput)
+}
+
+// A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+func (o DataSourceConfigurationWebCrawlerConfigurationOutput) UrlInclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) []string { return v.UrlInclusionPatterns }).(pulumi.StringArrayOutput)
+}
+
+// A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
+func (o DataSourceConfigurationWebCrawlerConfigurationOutput) Urls() DataSourceConfigurationWebCrawlerConfigurationUrlsOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfiguration) DataSourceConfigurationWebCrawlerConfigurationUrls {
+		return v.Urls
+	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationWebCrawlerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationWebCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) Elem() DataSourceConfigurationWebCrawlerConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) DataSourceConfigurationWebCrawlerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfigurationWebCrawlerConfiguration
+		return ret
+	}).(DataSourceConfigurationWebCrawlerConfigurationOutput)
+}
+
+// A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
+func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) AuthenticationConfiguration() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) *DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationConfiguration
+	}).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput)
+}
+
+// Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels – index level (i.e. seed in this example), sections level, and subsections level – and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
+func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) CrawlDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CrawlDepth
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
+func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) MaxContentSizePerPageInMegaBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxContentSizePerPageInMegaBytes
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
+func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) MaxLinksPerPage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxLinksPerPage
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
+func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) MaxUrlsPerMinuteCrawlRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxUrlsPerMinuteCrawlRate
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configuration information required to connect to your internal websites via a web proxy. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). Detailed below.
+func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) ProxyConfiguration() DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) *DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ProxyConfiguration
+	}).(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput)
+}
+
+// A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) UrlExclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UrlExclusionPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) UrlInclusionPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UrlInclusionPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
+func (o DataSourceConfigurationWebCrawlerConfigurationPtrOutput) Urls() DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfiguration) *DataSourceConfigurationWebCrawlerConfigurationUrls {
+		if v == nil {
+			return nil
+		}
+		return &v.Urls
+	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration struct {
+	// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
+	BasicAuthentications []DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication `pulumi:"basicAuthentications"`
+}
+
+// DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs and DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationInput` via:
+//
+//	DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs{...}
+type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput
+	ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutputWithContext(context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs struct {
+	// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
+	BasicAuthentications DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayInput `pulumi:"basicAuthentications"`
+}
+
+func (DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput)
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput).ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs, DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtr and DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrInput` via:
+//
+//	        DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput
+	ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutputWithContext(context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput
+}
+
+type dataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrType DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs
+
+func DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtr(v *DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrInput {
+	return (*dataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrType)(v)
+}
+
+func (*dataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrType) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrType) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput {
+	return o.ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration) *DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration {
+		return &v
+	}).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput)
+}
+
+// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput) BasicAuthentications() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration) []DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication {
+		return v.BasicAuthentications
+	}).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput) Elem() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration
+		return ret
+	}).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput)
+}
+
+// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput) BasicAuthentications() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration) []DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication {
+		if v == nil {
+			return nil
+		}
+		return v.BasicAuthentications
+	}).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication struct {
+	// Your secret ARN, which you can create in AWS Secrets Manager. You use a secret if basic authentication credentials are required to connect to a website. The secret stores your credentials of user name and password.
+	Credentials string `pulumi:"credentials"`
+	// The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
+	Host string `pulumi:"host"`
+	// The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
+	Port int `pulumi:"port"`
+}
+
+// DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs and DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationInput` via:
+//
+//	DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs{...}
+type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput
+	ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutputWithContext(context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs struct {
+	// Your secret ARN, which you can create in AWS Secrets Manager. You use a secret if basic authentication credentials are required to connect to a website. The secret stores your credentials of user name and password.
+	Credentials pulumi.StringInput `pulumi:"credentials"`
+	// The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
+	Host pulumi.StringInput `pulumi:"host"`
+	// The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput)
+}
+
+// DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArray and DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayInput` via:
+//
+//	DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArray{ DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs{...} }
+type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput
+	ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutputWithContext(context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArray []DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationInput
+
+func (DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArray) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArray) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput {
+	return o
+}
+
+// Your secret ARN, which you can create in AWS Secrets Manager. You use a secret if basic authentication credentials are required to connect to a website. The secret stores your credentials of user name and password.
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput) Credentials() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication) string {
+		return v.Credentials
+	}).(pulumi.StringOutput)
+}
+
+// The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication) string {
+		return v.Host
+	}).(pulumi.StringOutput)
+}
+
+// The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication) int {
+		return v.Port
+	}).(pulumi.IntOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput() DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput) ToDataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput) Index(i pulumi.IntInput) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication {
+		return vs[0].([]DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication)[vs[1].(int)]
+	}).(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration struct {
+	// Your secret ARN, which you can create in AWS Secrets Manager. The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
+	Credentials *string `pulumi:"credentials"`
+	// The name of the website host you want to connect to via a web proxy server. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
+	Host string `pulumi:"host"`
+	// The port number of the website host you want to connect to via a web proxy server. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
+	Port int `pulumi:"port"`
+}
+
+// DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs and DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationInput` via:
+//
+//	DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs{...}
+type DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput() DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput
+	ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutputWithContext(context.Context) DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs struct {
+	// Your secret ARN, which you can create in AWS Secrets Manager. The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
+	Credentials pulumi.StringPtrInput `pulumi:"credentials"`
+	// The name of the website host you want to connect to via a web proxy server. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
+	Host pulumi.StringInput `pulumi:"host"`
+	// The port number of the website host you want to connect to via a web proxy server. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput() DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput)
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput).ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs, DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtr and DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrInput` via:
+//
+//	        DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput
+	ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutputWithContext(context.Context) DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput
+}
+
+type dataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrType DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs
+
+func DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtr(v *DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs) DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrInput {
+	return (*dataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrType)(v)
+}
+
+func (*dataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrType) ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrType) ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput() DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput {
+	return o.ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration) *DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration {
+		return &v
+	}).(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput)
+}
+
+// Your secret ARN, which you can create in AWS Secrets Manager. The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
+func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput) Credentials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration) *string { return v.Credentials }).(pulumi.StringPtrOutput)
+}
+
+// The name of the website host you want to connect to via a web proxy server. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
+func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// The port number of the website host you want to connect to via a web proxy server. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
+func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput) Elem() DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration) DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration
+		return ret
+	}).(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput)
+}
+
+// Your secret ARN, which you can create in AWS Secrets Manager. The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
+func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput) Credentials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the website host you want to connect to via a web proxy server. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
+func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Host
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port number of the website host you want to connect to via a web proxy server. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
+func (o DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationUrls struct {
+	// A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
+	SeedUrlConfiguration *DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration `pulumi:"seedUrlConfiguration"`
+	// A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
+	SiteMapsConfiguration *DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration `pulumi:"siteMapsConfiguration"`
+}
+
+// DataSourceConfigurationWebCrawlerConfigurationUrlsInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationUrlsArgs and DataSourceConfigurationWebCrawlerConfigurationUrlsOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationWebCrawlerConfigurationUrlsInput` via:
+//
+//	DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{...}
+type DataSourceConfigurationWebCrawlerConfigurationUrlsInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationWebCrawlerConfigurationUrlsOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsOutput
+	ToDataSourceConfigurationWebCrawlerConfigurationUrlsOutputWithContext(context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsOutput
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationUrlsArgs struct {
+	// A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
+	SeedUrlConfiguration DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrInput `pulumi:"seedUrlConfiguration"`
+	// A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
+	SiteMapsConfiguration DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrInput `pulumi:"siteMapsConfiguration"`
+}
+
+func (DataSourceConfigurationWebCrawlerConfigurationUrlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationUrls)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationUrlsArgs) ToDataSourceConfigurationWebCrawlerConfigurationUrlsOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationUrlsArgs) ToDataSourceConfigurationWebCrawlerConfigurationUrlsOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationUrlsOutput)
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationUrlsArgs) ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationUrlsArgs) ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationUrlsOutput).ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfigurationWebCrawlerConfigurationUrlsPtrInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationUrlsArgs, DataSourceConfigurationWebCrawlerConfigurationUrlsPtr and DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationWebCrawlerConfigurationUrlsPtrInput` via:
+//
+//	        DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfigurationWebCrawlerConfigurationUrlsPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput
+	ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutputWithContext(context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput
+}
+
+type dataSourceConfigurationWebCrawlerConfigurationUrlsPtrType DataSourceConfigurationWebCrawlerConfigurationUrlsArgs
+
+func DataSourceConfigurationWebCrawlerConfigurationUrlsPtr(v *DataSourceConfigurationWebCrawlerConfigurationUrlsArgs) DataSourceConfigurationWebCrawlerConfigurationUrlsPtrInput {
+	return (*dataSourceConfigurationWebCrawlerConfigurationUrlsPtrType)(v)
+}
+
+func (*dataSourceConfigurationWebCrawlerConfigurationUrlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationWebCrawlerConfigurationUrls)(nil)).Elem()
+}
+
+func (i *dataSourceConfigurationWebCrawlerConfigurationUrlsPtrType) ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfigurationWebCrawlerConfigurationUrlsPtrType) ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationUrlsOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationWebCrawlerConfigurationUrlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationUrls)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput {
+	return o.ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationWebCrawlerConfigurationUrls) *DataSourceConfigurationWebCrawlerConfigurationUrls {
+		return &v
+	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput)
+}
+
+// A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsOutput) SeedUrlConfiguration() DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationUrls) *DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration {
+		return v.SeedUrlConfiguration
+	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput)
+}
+
+// A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsOutput) SiteMapsConfiguration() DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationUrls) *DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration {
+		return v.SiteMapsConfiguration
+	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationWebCrawlerConfigurationUrls)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput) Elem() DataSourceConfigurationWebCrawlerConfigurationUrlsOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationUrls) DataSourceConfigurationWebCrawlerConfigurationUrls {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfigurationWebCrawlerConfigurationUrls
+		return ret
+	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsOutput)
+}
+
+// A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput) SeedUrlConfiguration() DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationUrls) *DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SeedUrlConfiguration
+	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput)
+}
+
+// A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput) SiteMapsConfiguration() DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationUrls) *DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SiteMapsConfiguration
+	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration struct {
+	// The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
+	SeedUrls []string `pulumi:"seedUrls"`
+	// The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
+	WebCrawlerMode *string `pulumi:"webCrawlerMode"`
+}
+
+// DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs and DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationInput` via:
+//
+//	DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs{...}
+type DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput
+	ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutputWithContext(context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs struct {
+	// The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
+	SeedUrls pulumi.StringArrayInput `pulumi:"seedUrls"`
+	// The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
+	WebCrawlerMode pulumi.StringPtrInput `pulumi:"webCrawlerMode"`
+}
+
+func (DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput)
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput).ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs, DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtr and DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrInput` via:
+//
+//	        DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput
+	ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutputWithContext(context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput
+}
+
+type dataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrType DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs
+
+func DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtr(v *DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs) DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrInput {
+	return (*dataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrType)(v)
+}
+
+func (*dataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrType) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrType) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput {
+	return o.ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration) *DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration {
+		return &v
+	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput)
+}
+
+// The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput) SeedUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration) []string {
+		return v.SeedUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput) WebCrawlerMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration) *string {
+		return v.WebCrawlerMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput) Elem() DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration) DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration
+		return ret
+	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput)
+}
+
+// The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput) SeedUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SeedUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput) WebCrawlerMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WebCrawlerMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration struct {
+	// The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
+	SiteMaps []string `pulumi:"siteMaps"`
+}
+
+// DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs and DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationInput` via:
+//
+//	DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs{...}
+type DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput
+	ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutputWithContext(context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs struct {
+	// The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
+	SiteMaps pulumi.StringArrayInput `pulumi:"siteMaps"`
+}
+
+func (DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput)
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput).ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrInput is an input type that accepts DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs, DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtr and DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrInput` via:
+//
+//	        DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput
+	ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutputWithContext(context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput
+}
+
+type dataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrType DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs
+
+func DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtr(v *DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs) DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrInput {
+	return (*dataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrType)(v)
+}
+
+func (*dataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrType) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput {
+	return i.ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrType) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput {
+	return o.ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration) *DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration {
+		return &v
+	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput)
+}
+
+// The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput) SiteMaps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration) []string {
+		return v.SiteMaps
+	}).(pulumi.StringArrayOutput)
+}
+
+type DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput() DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput) ToDataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutputWithContext(ctx context.Context) DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput) Elem() DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration) DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration
+		return ret
+	}).(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput)
+}
+
+// The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
+func (o DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput) SiteMaps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SiteMaps
+	}).(pulumi.StringArrayOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfiguration struct {
+	// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
+	InlineConfigurations []DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration `pulumi:"inlineConfigurations"`
+	// A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
+	PostExtractionHookConfiguration *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration `pulumi:"postExtractionHookConfiguration"`
+	// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
+	PreExtractionHookConfiguration *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration `pulumi:"preExtractionHookConfiguration"`
+	// The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	RoleArn *string `pulumi:"roleArn"`
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationArgs and DataSourceCustomDocumentEnrichmentConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationInput` via:
+//
+//	DataSourceCustomDocumentEnrichmentConfigurationArgs{...}
+type DataSourceCustomDocumentEnrichmentConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationOutput() DataSourceCustomDocumentEnrichmentConfigurationOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationOutput
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationArgs struct {
+	// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
+	InlineConfigurations DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayInput `pulumi:"inlineConfigurations"`
+	// A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
+	PostExtractionHookConfiguration DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrInput `pulumi:"postExtractionHookConfiguration"`
+	// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
+	PreExtractionHookConfiguration DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrInput `pulumi:"preExtractionHookConfiguration"`
+	// The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+}
+
+func (DataSourceCustomDocumentEnrichmentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationOutput() DataSourceCustomDocumentEnrichmentConfigurationOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationOutput).ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationPtrInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationArgs, DataSourceCustomDocumentEnrichmentConfigurationPtr and DataSourceCustomDocumentEnrichmentConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationPtrInput` via:
+//
+//	        DataSourceCustomDocumentEnrichmentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceCustomDocumentEnrichmentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationPtrOutput
+}
+
+type dataSourceCustomDocumentEnrichmentConfigurationPtrType DataSourceCustomDocumentEnrichmentConfigurationArgs
+
+func DataSourceCustomDocumentEnrichmentConfigurationPtr(v *DataSourceCustomDocumentEnrichmentConfigurationArgs) DataSourceCustomDocumentEnrichmentConfigurationPtrInput {
+	return (*dataSourceCustomDocumentEnrichmentConfigurationPtrType)(v)
+}
+
+func (*dataSourceCustomDocumentEnrichmentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPtrType) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPtrType) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationOutput() DataSourceCustomDocumentEnrichmentConfigurationOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return o.ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceCustomDocumentEnrichmentConfiguration {
+		return &v
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPtrOutput)
+}
+
+// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) InlineConfigurations() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) []DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration {
+		return v.InlineConfigurations
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput)
+}
+
+// A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) PostExtractionHookConfiguration() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration {
+		return v.PostExtractionHookConfiguration
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput)
+}
+
+// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) PreExtractionHookConfiguration() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration {
+		return v.PreExtractionHookConfiguration
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+func (o DataSourceCustomDocumentEnrichmentConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) DataSourceCustomDocumentEnrichmentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceCustomDocumentEnrichmentConfiguration
+		return ret
+	}).(DataSourceCustomDocumentEnrichmentConfigurationOutput)
+}
+
+// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) InlineConfigurations() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) []DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.InlineConfigurations
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput)
+}
+
+// A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) PostExtractionHookConfiguration() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PostExtractionHookConfiguration
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput)
+}
+
+// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) PreExtractionHookConfiguration() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PreExtractionHookConfiguration
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration struct {
+	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+	Condition *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition `pulumi:"condition"`
+	// `TRUE` to delete content if the condition used for the target attribute is met.
+	DocumentContentDeletion *bool `pulumi:"documentContentDeletion"`
+	// Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
+	Target *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget `pulumi:"target"`
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs and DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationInput` via:
+//
+//	DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs{...}
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs struct {
+	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+	Condition DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrInput `pulumi:"condition"`
+	// `TRUE` to delete content if the condition used for the target attribute is met.
+	DocumentContentDeletion pulumi.BoolPtrInput `pulumi:"documentContentDeletion"`
+	// Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
+	Target DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrInput `pulumi:"target"`
+}
+
+func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput)
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArray and DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayInput` via:
+//
+//	DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArray{ DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs{...} }
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArray []DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationInput
+
+func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArray) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArray) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput {
+	return o
+}
+
+// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput) Condition() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition {
+		return v.Condition
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput)
+}
+
+// `TRUE` to delete content if the condition used for the target attribute is met.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput) DocumentContentDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration) *bool {
+		return v.DocumentContentDeletion
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput) Target() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget {
+		return v.Target
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput) Index(i pulumi.IntInput) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration {
+		return vs[0].([]DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration)[vs[1].(int)]
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition struct {
+	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+	ConditionDocumentAttributeKey string `pulumi:"conditionDocumentAttributeKey"`
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	ConditionOnValue *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue `pulumi:"conditionOnValue"`
+	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+	Operator string `pulumi:"operator"`
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs and DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionInput` via:
+//
+//	DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs{...}
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs struct {
+	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+	ConditionDocumentAttributeKey pulumi.StringInput `pulumi:"conditionDocumentAttributeKey"`
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	ConditionOnValue DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrInput `pulumi:"conditionOnValue"`
+	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition)(nil)).Elem()
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput).ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutputWithContext(ctx)
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs, DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtr and DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrInput` via:
+//
+//	        DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput
+}
+
+type dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrType DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs
+
+func DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtr(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrInput {
+	return (*dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrType)(v)
+}
+
+func (*dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition)(nil)).Elem()
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrType) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrType) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput {
+	return o.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition {
+		return &v
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput)
+}
+
+// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput) ConditionDocumentAttributeKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) string {
+		return v.ConditionDocumentAttributeKey
+	}).(pulumi.StringOutput)
+}
+
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue {
+		return v.ConditionOnValue
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput)
+}
+
+// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) string {
+		return v.Operator
+	}).(pulumi.StringOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition
+		return ret
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput)
+}
+
+// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput) ConditionDocumentAttributeKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConditionDocumentAttributeKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue {
+		if v == nil {
+			return nil
+		}
+		return v.ConditionOnValue
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput)
+}
+
+// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue struct {
+	// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+	DateValue *string `pulumi:"dateValue"`
+	// A long integer value.
+	LongValue *int `pulumi:"longValue"`
+	// A list of strings.
+	StringListValues []string `pulumi:"stringListValues"`
+	StringValue      *string  `pulumi:"stringValue"`
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs and DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueInput` via:
+//
+//	DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs{...}
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs struct {
+	// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+	DateValue pulumi.StringPtrInput `pulumi:"dateValue"`
+	// A long integer value.
+	LongValue pulumi.IntPtrInput `pulumi:"longValue"`
+	// A list of strings.
+	StringListValues pulumi.StringArrayInput `pulumi:"stringListValues"`
+	StringValue      pulumi.StringPtrInput   `pulumi:"stringValue"`
+}
+
+func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue)(nil)).Elem()
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput).ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutputWithContext(ctx)
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs, DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtr and DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrInput` via:
+//
+//	        DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput
+}
+
+type dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrType DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs
+
+func DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtr(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrInput {
+	return (*dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrType)(v)
+}
+
+func (*dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue)(nil)).Elem()
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrType) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrType) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
+	return o.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue {
+		return &v
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput)
+}
+
+// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput) DateValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) *string {
+		return v.DateValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// A long integer value.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput) LongValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) *int {
+		return v.LongValue
+	}).(pulumi.IntPtrOutput)
+}
+
+// A list of strings.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput) StringListValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) []string {
+		return v.StringListValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) *string {
+		return v.StringValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue
+		return ret
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput)
+}
+
+// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput) DateValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DateValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// A long integer value.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput) LongValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LongValue
+	}).(pulumi.IntPtrOutput)
+}
+
+// A list of strings.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput) StringListValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StringListValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StringValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget struct {
+	// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+	TargetDocumentAttributeKey *string `pulumi:"targetDocumentAttributeKey"`
+	// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
+	// See Document Attribute Value.
+	TargetDocumentAttributeValue *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue `pulumi:"targetDocumentAttributeValue"`
+	// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
+	TargetDocumentAttributeValueDeletion *bool `pulumi:"targetDocumentAttributeValueDeletion"`
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs and DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetInput` via:
+//
+//	DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs{...}
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs struct {
+	// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+	TargetDocumentAttributeKey pulumi.StringPtrInput `pulumi:"targetDocumentAttributeKey"`
+	// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
+	// See Document Attribute Value.
+	TargetDocumentAttributeValue DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrInput `pulumi:"targetDocumentAttributeValue"`
+	// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
+	TargetDocumentAttributeValueDeletion pulumi.BoolPtrInput `pulumi:"targetDocumentAttributeValueDeletion"`
+}
+
+func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget)(nil)).Elem()
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput).ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutputWithContext(ctx)
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs, DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtr and DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrInput` via:
+//
+//	        DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput
+}
+
+type dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrType DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs
+
+func DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtr(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrInput {
+	return (*dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrType)(v)
+}
+
+func (*dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget)(nil)).Elem()
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrType) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrType) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput {
+	return o.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget {
+		return &v
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput)
+}
+
+// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput) TargetDocumentAttributeKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *string {
+		return v.TargetDocumentAttributeKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
+// See Document Attribute Value.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput) TargetDocumentAttributeValue() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue {
+		return v.TargetDocumentAttributeValue
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput)
+}
+
+// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput) TargetDocumentAttributeValueDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *bool {
+		return v.TargetDocumentAttributeValueDeletion
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
+		return ret
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput)
+}
+
+// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput) TargetDocumentAttributeKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetDocumentAttributeKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
+// See Document Attribute Value.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput) TargetDocumentAttributeValue() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue {
+		if v == nil {
+			return nil
+		}
+		return v.TargetDocumentAttributeValue
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput)
+}
+
+// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput) TargetDocumentAttributeValueDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TargetDocumentAttributeValueDeletion
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue struct {
+	// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+	DateValue *string `pulumi:"dateValue"`
+	// A long integer value.
+	LongValue *int `pulumi:"longValue"`
+	// A list of strings.
+	StringListValues []string `pulumi:"stringListValues"`
+	StringValue      *string  `pulumi:"stringValue"`
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs and DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueInput` via:
+//
+//	DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs{...}
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs struct {
+	// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+	DateValue pulumi.StringPtrInput `pulumi:"dateValue"`
+	// A long integer value.
+	LongValue pulumi.IntPtrInput `pulumi:"longValue"`
+	// A list of strings.
+	StringListValues pulumi.StringArrayInput `pulumi:"stringListValues"`
+	StringValue      pulumi.StringPtrInput   `pulumi:"stringValue"`
+}
+
+func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue)(nil)).Elem()
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput).ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutputWithContext(ctx)
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs, DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtr and DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrInput` via:
+//
+//	        DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput
+}
+
+type dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrType DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs
+
+func DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtr(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrInput {
+	return (*dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrType)(v)
+}
+
+func (*dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue)(nil)).Elem()
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrType) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrType) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
+	return o.ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue {
+		return &v
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput)
+}
+
+// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput) DateValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) *string {
+		return v.DateValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// A long integer value.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput) LongValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) *int {
+		return v.LongValue
+	}).(pulumi.IntPtrOutput)
+}
+
+// A list of strings.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput) StringListValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) []string {
+		return v.StringListValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) *string {
+		return v.StringValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue
+		return ret
+	}).(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput)
+}
+
+// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput) DateValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DateValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// A long integer value.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput) LongValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LongValue
+	}).(pulumi.IntPtrOutput)
+}
+
+// A list of strings.
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput) StringListValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StringListValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StringValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration struct {
+	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+	InvocationCondition *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition `pulumi:"invocationCondition"`
+	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+	LambdaArn string `pulumi:"lambdaArn"`
+	// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
+	S3Bucket string `pulumi:"s3Bucket"`
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs and DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInput` via:
+//
+//	DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs{...}
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs struct {
+	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+	InvocationCondition DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrInput `pulumi:"invocationCondition"`
+	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+	// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+}
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput).ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs, DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtr and DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrInput` via:
+//
+//	        DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput
+}
+
+type dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrType DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs
+
+func DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtr(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrInput {
+	return (*dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrType)(v)
+}
+
+func (*dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrType) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrType) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput {
+	return o.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration {
+		return &v
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput)
+}
+
+// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput) InvocationCondition() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition {
+		return v.InvocationCondition
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) string {
+		return v.LambdaArn
+	}).(pulumi.StringOutput)
+}
+
+// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) string {
+		return v.S3Bucket
+	}).(pulumi.StringOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration
+		return ret
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput)
+}
+
+// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput) InvocationCondition() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition {
+		if v == nil {
+			return nil
+		}
+		return v.InvocationCondition
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition struct {
+	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+	ConditionDocumentAttributeKey string `pulumi:"conditionDocumentAttributeKey"`
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	ConditionOnValue *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue `pulumi:"conditionOnValue"`
+	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+	Operator string `pulumi:"operator"`
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs and DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionInput` via:
+//
+//	DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs{...}
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs struct {
+	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+	ConditionDocumentAttributeKey pulumi.StringInput `pulumi:"conditionDocumentAttributeKey"`
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	ConditionOnValue DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput `pulumi:"conditionOnValue"`
+	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition)(nil)).Elem()
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput).ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutputWithContext(ctx)
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs, DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtr and DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrInput` via:
+//
+//	        DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput
+}
+
+type dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrType DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs
+
+func DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtr(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrInput {
+	return (*dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrType)(v)
+}
+
+func (*dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition)(nil)).Elem()
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrType) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrType) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
+	return o.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition {
+		return &v
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput)
+}
+
+// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput) ConditionDocumentAttributeKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) string {
+		return v.ConditionDocumentAttributeKey
+	}).(pulumi.StringOutput)
+}
+
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue {
+		return v.ConditionOnValue
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
+}
+
+// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) string {
+		return v.Operator
+	}).(pulumi.StringOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition
+		return ret
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput)
+}
+
+// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput) ConditionDocumentAttributeKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConditionDocumentAttributeKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue {
+		if v == nil {
+			return nil
+		}
+		return v.ConditionOnValue
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
+}
+
+// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue struct {
+	// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+	DateValue *string `pulumi:"dateValue"`
+	// A long integer value.
+	LongValue *int `pulumi:"longValue"`
+	// A list of strings.
+	StringListValues []string `pulumi:"stringListValues"`
+	StringValue      *string  `pulumi:"stringValue"`
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs and DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueInput` via:
+//
+//	DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs{...}
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs struct {
+	// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+	DateValue pulumi.StringPtrInput `pulumi:"dateValue"`
+	// A long integer value.
+	LongValue pulumi.IntPtrInput `pulumi:"longValue"`
+	// A list of strings.
+	StringListValues pulumi.StringArrayInput `pulumi:"stringListValues"`
+	StringValue      pulumi.StringPtrInput   `pulumi:"stringValue"`
+}
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue)(nil)).Elem()
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput).ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(ctx)
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs, DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtr and DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput` via:
+//
+//	        DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput
+}
+
+type dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrType DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs
+
+func DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtr(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput {
+	return (*dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrType)(v)
+}
+
+func (*dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue)(nil)).Elem()
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrType) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrType) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return o.ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue {
+		return &v
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
+}
+
+// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput) DateValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) *string {
+		return v.DateValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// A long integer value.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput) LongValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) *int {
+		return v.LongValue
+	}).(pulumi.IntPtrOutput)
+}
+
+// A list of strings.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput) StringListValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) []string {
+		return v.StringListValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) *string {
+		return v.StringValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue
+		return ret
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput)
+}
+
+// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) DateValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DateValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// A long integer value.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) LongValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LongValue
+	}).(pulumi.IntPtrOutput)
+}
+
+// A list of strings.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) StringListValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StringListValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StringValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration struct {
+	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+	InvocationCondition *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition `pulumi:"invocationCondition"`
+	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+	LambdaArn string `pulumi:"lambdaArn"`
+	// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
+	S3Bucket string `pulumi:"s3Bucket"`
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs and DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInput` via:
+//
+//	DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs{...}
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs struct {
+	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+	InvocationCondition DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrInput `pulumi:"invocationCondition"`
+	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+	// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+}
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput).ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs, DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtr and DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrInput` via:
+//
+//	        DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput
+}
+
+type dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrType DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs
+
+func DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtr(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrInput {
+	return (*dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrType)(v)
+}
+
+func (*dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrType) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrType) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput {
+	return o.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration {
+		return &v
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput)
+}
+
+// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput) InvocationCondition() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition {
+		return v.InvocationCondition
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) string {
+		return v.LambdaArn
+	}).(pulumi.StringOutput)
+}
+
+// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) string {
+		return v.S3Bucket
+	}).(pulumi.StringOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration
+		return ret
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput)
+}
+
+// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput) InvocationCondition() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition {
+		if v == nil {
+			return nil
+		}
+		return v.InvocationCondition
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition struct {
+	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+	ConditionDocumentAttributeKey string `pulumi:"conditionDocumentAttributeKey"`
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	ConditionOnValue *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue `pulumi:"conditionOnValue"`
+	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+	Operator string `pulumi:"operator"`
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs and DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionInput` via:
+//
+//	DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs{...}
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs struct {
+	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+	ConditionDocumentAttributeKey pulumi.StringInput `pulumi:"conditionDocumentAttributeKey"`
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	ConditionOnValue DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput `pulumi:"conditionOnValue"`
+	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition)(nil)).Elem()
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput).ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutputWithContext(ctx)
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs, DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtr and DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrInput` via:
+//
+//	        DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput
+}
+
+type dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrType DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs
+
+func DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtr(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrInput {
+	return (*dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrType)(v)
+}
+
+func (*dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition)(nil)).Elem()
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrType) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrType) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
+	return o.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition {
+		return &v
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput)
+}
+
+// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput) ConditionDocumentAttributeKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) string {
+		return v.ConditionDocumentAttributeKey
+	}).(pulumi.StringOutput)
+}
+
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue {
+		return v.ConditionOnValue
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
+}
+
+// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) string {
+		return v.Operator
+	}).(pulumi.StringOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition
+		return ret
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput)
+}
+
+// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput) ConditionDocumentAttributeKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConditionDocumentAttributeKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue {
+		if v == nil {
+			return nil
+		}
+		return v.ConditionOnValue
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
+}
+
+// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue struct {
+	// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+	DateValue *string `pulumi:"dateValue"`
+	// A long integer value.
+	LongValue *int `pulumi:"longValue"`
+	// A list of strings.
+	StringListValues []string `pulumi:"stringListValues"`
+	StringValue      *string  `pulumi:"stringValue"`
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs and DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueInput` via:
+//
+//	DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs{...}
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs struct {
+	// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+	DateValue pulumi.StringPtrInput `pulumi:"dateValue"`
+	// A long integer value.
+	LongValue pulumi.IntPtrInput `pulumi:"longValue"`
+	// A list of strings.
+	StringListValues pulumi.StringArrayInput `pulumi:"stringListValues"`
+	StringValue      pulumi.StringPtrInput   `pulumi:"stringValue"`
+}
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue)(nil)).Elem()
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput)
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput).ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(ctx)
+}
+
+// DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput is an input type that accepts DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs, DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtr and DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput values.
+// You can construct a concrete instance of `DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput` via:
+//
+//	        DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput
+	ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput
+}
+
+type dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrType DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs
+
+func DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtr(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput {
+	return (*dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrType)(v)
+}
+
+func (*dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue)(nil)).Elem()
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrType) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return i.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrType) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return o.ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue {
+		return &v
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput)
+}
+
+// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput) DateValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) *string {
+		return v.DateValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// A long integer value.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput) LongValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) *int {
+		return v.LongValue
+	}).(pulumi.IntPtrOutput)
+}
+
+// A list of strings.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput) StringListValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) []string {
+		return v.StringListValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) *string {
+		return v.StringValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue)(nil)).Elem()
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) ToDataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutputWithContext(ctx context.Context) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
+	return o
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) Elem() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue
+		return ret
+	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput)
+}
+
+// A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) DateValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DateValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// A long integer value.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) LongValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LongValue
+	}).(pulumi.IntPtrOutput)
+}
+
+// A list of strings.
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) StringListValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StringListValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StringValue
+	}).(pulumi.StringPtrOutput)
+}
+
 type ExperienceConfiguration struct {
 	ContentSourceConfiguration *ExperienceConfigurationContentSourceConfiguration `pulumi:"contentSourceConfiguration"`
 	// The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
@@ -19,7 +4083,7 @@ type ExperienceConfiguration struct {
 // ExperienceConfigurationInput is an input type that accepts ExperienceConfigurationArgs and ExperienceConfigurationOutput values.
 // You can construct a concrete instance of `ExperienceConfigurationInput` via:
 //
-//          ExperienceConfigurationArgs{...}
+//	ExperienceConfigurationArgs{...}
 type ExperienceConfigurationInput interface {
 	pulumi.Input
 
@@ -56,11 +4120,11 @@ func (i ExperienceConfigurationArgs) ToExperienceConfigurationPtrOutputWithConte
 // ExperienceConfigurationPtrInput is an input type that accepts ExperienceConfigurationArgs, ExperienceConfigurationPtr and ExperienceConfigurationPtrOutput values.
 // You can construct a concrete instance of `ExperienceConfigurationPtrInput` via:
 //
-//          ExperienceConfigurationArgs{...}
+//	        ExperienceConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExperienceConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -178,7 +4242,7 @@ type ExperienceConfigurationContentSourceConfiguration struct {
 // ExperienceConfigurationContentSourceConfigurationInput is an input type that accepts ExperienceConfigurationContentSourceConfigurationArgs and ExperienceConfigurationContentSourceConfigurationOutput values.
 // You can construct a concrete instance of `ExperienceConfigurationContentSourceConfigurationInput` via:
 //
-//          ExperienceConfigurationContentSourceConfigurationArgs{...}
+//	ExperienceConfigurationContentSourceConfigurationArgs{...}
 type ExperienceConfigurationContentSourceConfigurationInput interface {
 	pulumi.Input
 
@@ -218,11 +4282,11 @@ func (i ExperienceConfigurationContentSourceConfigurationArgs) ToExperienceConfi
 // ExperienceConfigurationContentSourceConfigurationPtrInput is an input type that accepts ExperienceConfigurationContentSourceConfigurationArgs, ExperienceConfigurationContentSourceConfigurationPtr and ExperienceConfigurationContentSourceConfigurationPtrOutput values.
 // You can construct a concrete instance of `ExperienceConfigurationContentSourceConfigurationPtrInput` via:
 //
-//          ExperienceConfigurationContentSourceConfigurationArgs{...}
+//	        ExperienceConfigurationContentSourceConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExperienceConfigurationContentSourceConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -349,7 +4413,7 @@ type ExperienceConfigurationUserIdentityConfiguration struct {
 // ExperienceConfigurationUserIdentityConfigurationInput is an input type that accepts ExperienceConfigurationUserIdentityConfigurationArgs and ExperienceConfigurationUserIdentityConfigurationOutput values.
 // You can construct a concrete instance of `ExperienceConfigurationUserIdentityConfigurationInput` via:
 //
-//          ExperienceConfigurationUserIdentityConfigurationArgs{...}
+//	ExperienceConfigurationUserIdentityConfigurationArgs{...}
 type ExperienceConfigurationUserIdentityConfigurationInput interface {
 	pulumi.Input
 
@@ -385,11 +4449,11 @@ func (i ExperienceConfigurationUserIdentityConfigurationArgs) ToExperienceConfig
 // ExperienceConfigurationUserIdentityConfigurationPtrInput is an input type that accepts ExperienceConfigurationUserIdentityConfigurationArgs, ExperienceConfigurationUserIdentityConfigurationPtr and ExperienceConfigurationUserIdentityConfigurationPtrOutput values.
 // You can construct a concrete instance of `ExperienceConfigurationUserIdentityConfigurationPtrInput` via:
 //
-//          ExperienceConfigurationUserIdentityConfigurationArgs{...}
+//	        ExperienceConfigurationUserIdentityConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ExperienceConfigurationUserIdentityConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -488,7 +4552,7 @@ type ExperienceEndpoint struct {
 // ExperienceEndpointInput is an input type that accepts ExperienceEndpointArgs and ExperienceEndpointOutput values.
 // You can construct a concrete instance of `ExperienceEndpointInput` via:
 //
-//          ExperienceEndpointArgs{...}
+//	ExperienceEndpointArgs{...}
 type ExperienceEndpointInput interface {
 	pulumi.Input
 
@@ -518,7 +4582,7 @@ func (i ExperienceEndpointArgs) ToExperienceEndpointOutputWithContext(ctx contex
 // ExperienceEndpointArrayInput is an input type that accepts ExperienceEndpointArray and ExperienceEndpointArrayOutput values.
 // You can construct a concrete instance of `ExperienceEndpointArrayInput` via:
 //
-//          ExperienceEndpointArray{ ExperienceEndpointArgs{...} }
+//	ExperienceEndpointArray{ ExperienceEndpointArgs{...} }
 type ExperienceEndpointArrayInput interface {
 	pulumi.Input
 
@@ -594,7 +4658,7 @@ type FaqS3Path struct {
 // FaqS3PathInput is an input type that accepts FaqS3PathArgs and FaqS3PathOutput values.
 // You can construct a concrete instance of `FaqS3PathInput` via:
 //
-//          FaqS3PathArgs{...}
+//	FaqS3PathArgs{...}
 type FaqS3PathInput interface {
 	pulumi.Input
 
@@ -632,11 +4696,11 @@ func (i FaqS3PathArgs) ToFaqS3PathPtrOutputWithContext(ctx context.Context) FaqS
 // FaqS3PathPtrInput is an input type that accepts FaqS3PathArgs, FaqS3PathPtr and FaqS3PathPtrOutput values.
 // You can construct a concrete instance of `FaqS3PathPtrInput` via:
 //
-//          FaqS3PathArgs{...}
+//	        FaqS3PathArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FaqS3PathPtrInput interface {
 	pulumi.Input
 
@@ -750,7 +4814,7 @@ type IndexCapacityUnits struct {
 // IndexCapacityUnitsInput is an input type that accepts IndexCapacityUnitsArgs and IndexCapacityUnitsOutput values.
 // You can construct a concrete instance of `IndexCapacityUnitsInput` via:
 //
-//          IndexCapacityUnitsArgs{...}
+//	IndexCapacityUnitsArgs{...}
 type IndexCapacityUnitsInput interface {
 	pulumi.Input
 
@@ -788,11 +4852,11 @@ func (i IndexCapacityUnitsArgs) ToIndexCapacityUnitsPtrOutputWithContext(ctx con
 // IndexCapacityUnitsPtrInput is an input type that accepts IndexCapacityUnitsArgs, IndexCapacityUnitsPtr and IndexCapacityUnitsPtrOutput values.
 // You can construct a concrete instance of `IndexCapacityUnitsPtrInput` via:
 //
-//          IndexCapacityUnitsArgs{...}
+//	        IndexCapacityUnitsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IndexCapacityUnitsPtrInput interface {
 	pulumi.Input
 
@@ -910,7 +4974,7 @@ type IndexDocumentMetadataConfigurationUpdate struct {
 // IndexDocumentMetadataConfigurationUpdateInput is an input type that accepts IndexDocumentMetadataConfigurationUpdateArgs and IndexDocumentMetadataConfigurationUpdateOutput values.
 // You can construct a concrete instance of `IndexDocumentMetadataConfigurationUpdateInput` via:
 //
-//          IndexDocumentMetadataConfigurationUpdateArgs{...}
+//	IndexDocumentMetadataConfigurationUpdateArgs{...}
 type IndexDocumentMetadataConfigurationUpdateInput interface {
 	pulumi.Input
 
@@ -944,7 +5008,7 @@ func (i IndexDocumentMetadataConfigurationUpdateArgs) ToIndexDocumentMetadataCon
 // IndexDocumentMetadataConfigurationUpdateArrayInput is an input type that accepts IndexDocumentMetadataConfigurationUpdateArray and IndexDocumentMetadataConfigurationUpdateArrayOutput values.
 // You can construct a concrete instance of `IndexDocumentMetadataConfigurationUpdateArrayInput` via:
 //
-//          IndexDocumentMetadataConfigurationUpdateArray{ IndexDocumentMetadataConfigurationUpdateArgs{...} }
+//	IndexDocumentMetadataConfigurationUpdateArray{ IndexDocumentMetadataConfigurationUpdateArgs{...} }
 type IndexDocumentMetadataConfigurationUpdateArrayInput interface {
 	pulumi.Input
 
@@ -1040,7 +5104,7 @@ type IndexDocumentMetadataConfigurationUpdateRelevance struct {
 // IndexDocumentMetadataConfigurationUpdateRelevanceInput is an input type that accepts IndexDocumentMetadataConfigurationUpdateRelevanceArgs and IndexDocumentMetadataConfigurationUpdateRelevanceOutput values.
 // You can construct a concrete instance of `IndexDocumentMetadataConfigurationUpdateRelevanceInput` via:
 //
-//          IndexDocumentMetadataConfigurationUpdateRelevanceArgs{...}
+//	IndexDocumentMetadataConfigurationUpdateRelevanceArgs{...}
 type IndexDocumentMetadataConfigurationUpdateRelevanceInput interface {
 	pulumi.Input
 
@@ -1076,7 +5140,7 @@ func (i IndexDocumentMetadataConfigurationUpdateRelevanceArgs) ToIndexDocumentMe
 // IndexDocumentMetadataConfigurationUpdateRelevanceArrayInput is an input type that accepts IndexDocumentMetadataConfigurationUpdateRelevanceArray and IndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput values.
 // You can construct a concrete instance of `IndexDocumentMetadataConfigurationUpdateRelevanceArrayInput` via:
 //
-//          IndexDocumentMetadataConfigurationUpdateRelevanceArray{ IndexDocumentMetadataConfigurationUpdateRelevanceArgs{...} }
+//	IndexDocumentMetadataConfigurationUpdateRelevanceArray{ IndexDocumentMetadataConfigurationUpdateRelevanceArgs{...} }
 type IndexDocumentMetadataConfigurationUpdateRelevanceArrayInput interface {
 	pulumi.Input
 
@@ -1171,7 +5235,7 @@ type IndexDocumentMetadataConfigurationUpdateSearch struct {
 // IndexDocumentMetadataConfigurationUpdateSearchInput is an input type that accepts IndexDocumentMetadataConfigurationUpdateSearchArgs and IndexDocumentMetadataConfigurationUpdateSearchOutput values.
 // You can construct a concrete instance of `IndexDocumentMetadataConfigurationUpdateSearchInput` via:
 //
-//          IndexDocumentMetadataConfigurationUpdateSearchArgs{...}
+//	IndexDocumentMetadataConfigurationUpdateSearchArgs{...}
 type IndexDocumentMetadataConfigurationUpdateSearchInput interface {
 	pulumi.Input
 
@@ -1205,7 +5269,7 @@ func (i IndexDocumentMetadataConfigurationUpdateSearchArgs) ToIndexDocumentMetad
 // IndexDocumentMetadataConfigurationUpdateSearchArrayInput is an input type that accepts IndexDocumentMetadataConfigurationUpdateSearchArray and IndexDocumentMetadataConfigurationUpdateSearchArrayOutput values.
 // You can construct a concrete instance of `IndexDocumentMetadataConfigurationUpdateSearchArrayInput` via:
 //
-//          IndexDocumentMetadataConfigurationUpdateSearchArray{ IndexDocumentMetadataConfigurationUpdateSearchArgs{...} }
+//	IndexDocumentMetadataConfigurationUpdateSearchArray{ IndexDocumentMetadataConfigurationUpdateSearchArgs{...} }
 type IndexDocumentMetadataConfigurationUpdateSearchArrayInput interface {
 	pulumi.Input
 
@@ -1291,7 +5355,7 @@ type IndexIndexStatistic struct {
 // IndexIndexStatisticInput is an input type that accepts IndexIndexStatisticArgs and IndexIndexStatisticOutput values.
 // You can construct a concrete instance of `IndexIndexStatisticInput` via:
 //
-//          IndexIndexStatisticArgs{...}
+//	IndexIndexStatisticArgs{...}
 type IndexIndexStatisticInput interface {
 	pulumi.Input
 
@@ -1321,7 +5385,7 @@ func (i IndexIndexStatisticArgs) ToIndexIndexStatisticOutputWithContext(ctx cont
 // IndexIndexStatisticArrayInput is an input type that accepts IndexIndexStatisticArray and IndexIndexStatisticArrayOutput values.
 // You can construct a concrete instance of `IndexIndexStatisticArrayInput` via:
 //
-//          IndexIndexStatisticArray{ IndexIndexStatisticArgs{...} }
+//	IndexIndexStatisticArray{ IndexIndexStatisticArgs{...} }
 type IndexIndexStatisticArrayInput interface {
 	pulumi.Input
 
@@ -1397,7 +5461,7 @@ type IndexIndexStatisticFaqStatistic struct {
 // IndexIndexStatisticFaqStatisticInput is an input type that accepts IndexIndexStatisticFaqStatisticArgs and IndexIndexStatisticFaqStatisticOutput values.
 // You can construct a concrete instance of `IndexIndexStatisticFaqStatisticInput` via:
 //
-//          IndexIndexStatisticFaqStatisticArgs{...}
+//	IndexIndexStatisticFaqStatisticArgs{...}
 type IndexIndexStatisticFaqStatisticInput interface {
 	pulumi.Input
 
@@ -1425,7 +5489,7 @@ func (i IndexIndexStatisticFaqStatisticArgs) ToIndexIndexStatisticFaqStatisticOu
 // IndexIndexStatisticFaqStatisticArrayInput is an input type that accepts IndexIndexStatisticFaqStatisticArray and IndexIndexStatisticFaqStatisticArrayOutput values.
 // You can construct a concrete instance of `IndexIndexStatisticFaqStatisticArrayInput` via:
 //
-//          IndexIndexStatisticFaqStatisticArray{ IndexIndexStatisticFaqStatisticArgs{...} }
+//	IndexIndexStatisticFaqStatisticArray{ IndexIndexStatisticFaqStatisticArgs{...} }
 type IndexIndexStatisticFaqStatisticArrayInput interface {
 	pulumi.Input
 
@@ -1496,7 +5560,7 @@ type IndexIndexStatisticTextDocumentStatistic struct {
 // IndexIndexStatisticTextDocumentStatisticInput is an input type that accepts IndexIndexStatisticTextDocumentStatisticArgs and IndexIndexStatisticTextDocumentStatisticOutput values.
 // You can construct a concrete instance of `IndexIndexStatisticTextDocumentStatisticInput` via:
 //
-//          IndexIndexStatisticTextDocumentStatisticArgs{...}
+//	IndexIndexStatisticTextDocumentStatisticArgs{...}
 type IndexIndexStatisticTextDocumentStatisticInput interface {
 	pulumi.Input
 
@@ -1526,7 +5590,7 @@ func (i IndexIndexStatisticTextDocumentStatisticArgs) ToIndexIndexStatisticTextD
 // IndexIndexStatisticTextDocumentStatisticArrayInput is an input type that accepts IndexIndexStatisticTextDocumentStatisticArray and IndexIndexStatisticTextDocumentStatisticArrayOutput values.
 // You can construct a concrete instance of `IndexIndexStatisticTextDocumentStatisticArrayInput` via:
 //
-//          IndexIndexStatisticTextDocumentStatisticArray{ IndexIndexStatisticTextDocumentStatisticArgs{...} }
+//	IndexIndexStatisticTextDocumentStatisticArray{ IndexIndexStatisticTextDocumentStatisticArgs{...} }
 type IndexIndexStatisticTextDocumentStatisticArrayInput interface {
 	pulumi.Input
 
@@ -1600,7 +5664,7 @@ type IndexServerSideEncryptionConfiguration struct {
 // IndexServerSideEncryptionConfigurationInput is an input type that accepts IndexServerSideEncryptionConfigurationArgs and IndexServerSideEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `IndexServerSideEncryptionConfigurationInput` via:
 //
-//          IndexServerSideEncryptionConfigurationArgs{...}
+//	IndexServerSideEncryptionConfigurationArgs{...}
 type IndexServerSideEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -1636,11 +5700,11 @@ func (i IndexServerSideEncryptionConfigurationArgs) ToIndexServerSideEncryptionC
 // IndexServerSideEncryptionConfigurationPtrInput is an input type that accepts IndexServerSideEncryptionConfigurationArgs, IndexServerSideEncryptionConfigurationPtr and IndexServerSideEncryptionConfigurationPtrOutput values.
 // You can construct a concrete instance of `IndexServerSideEncryptionConfigurationPtrInput` via:
 //
-//          IndexServerSideEncryptionConfigurationArgs{...}
+//	        IndexServerSideEncryptionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IndexServerSideEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1737,7 +5801,7 @@ type IndexUserGroupResolutionConfiguration struct {
 // IndexUserGroupResolutionConfigurationInput is an input type that accepts IndexUserGroupResolutionConfigurationArgs and IndexUserGroupResolutionConfigurationOutput values.
 // You can construct a concrete instance of `IndexUserGroupResolutionConfigurationInput` via:
 //
-//          IndexUserGroupResolutionConfigurationArgs{...}
+//	IndexUserGroupResolutionConfigurationArgs{...}
 type IndexUserGroupResolutionConfigurationInput interface {
 	pulumi.Input
 
@@ -1773,11 +5837,11 @@ func (i IndexUserGroupResolutionConfigurationArgs) ToIndexUserGroupResolutionCon
 // IndexUserGroupResolutionConfigurationPtrInput is an input type that accepts IndexUserGroupResolutionConfigurationArgs, IndexUserGroupResolutionConfigurationPtr and IndexUserGroupResolutionConfigurationPtrOutput values.
 // You can construct a concrete instance of `IndexUserGroupResolutionConfigurationPtrInput` via:
 //
-//          IndexUserGroupResolutionConfigurationArgs{...}
+//	        IndexUserGroupResolutionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IndexUserGroupResolutionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1876,7 +5940,7 @@ type IndexUserTokenConfigurations struct {
 // IndexUserTokenConfigurationsInput is an input type that accepts IndexUserTokenConfigurationsArgs and IndexUserTokenConfigurationsOutput values.
 // You can construct a concrete instance of `IndexUserTokenConfigurationsInput` via:
 //
-//          IndexUserTokenConfigurationsArgs{...}
+//	IndexUserTokenConfigurationsArgs{...}
 type IndexUserTokenConfigurationsInput interface {
 	pulumi.Input
 
@@ -1914,11 +5978,11 @@ func (i IndexUserTokenConfigurationsArgs) ToIndexUserTokenConfigurationsPtrOutpu
 // IndexUserTokenConfigurationsPtrInput is an input type that accepts IndexUserTokenConfigurationsArgs, IndexUserTokenConfigurationsPtr and IndexUserTokenConfigurationsPtrOutput values.
 // You can construct a concrete instance of `IndexUserTokenConfigurationsPtrInput` via:
 //
-//          IndexUserTokenConfigurationsArgs{...}
+//	        IndexUserTokenConfigurationsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IndexUserTokenConfigurationsPtrInput interface {
 	pulumi.Input
 
@@ -2036,7 +6100,7 @@ type IndexUserTokenConfigurationsJsonTokenTypeConfiguration struct {
 // IndexUserTokenConfigurationsJsonTokenTypeConfigurationInput is an input type that accepts IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs and IndexUserTokenConfigurationsJsonTokenTypeConfigurationOutput values.
 // You can construct a concrete instance of `IndexUserTokenConfigurationsJsonTokenTypeConfigurationInput` via:
 //
-//          IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs{...}
+//	IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs{...}
 type IndexUserTokenConfigurationsJsonTokenTypeConfigurationInput interface {
 	pulumi.Input
 
@@ -2074,11 +6138,11 @@ func (i IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs) ToIndexUserT
 // IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrInput is an input type that accepts IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs, IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtr and IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput values.
 // You can construct a concrete instance of `IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrInput` via:
 //
-//          IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs{...}
+//	        IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2202,7 +6266,7 @@ type IndexUserTokenConfigurationsJwtTokenTypeConfiguration struct {
 // IndexUserTokenConfigurationsJwtTokenTypeConfigurationInput is an input type that accepts IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs and IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput values.
 // You can construct a concrete instance of `IndexUserTokenConfigurationsJwtTokenTypeConfigurationInput` via:
 //
-//          IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs{...}
+//	IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs{...}
 type IndexUserTokenConfigurationsJwtTokenTypeConfigurationInput interface {
 	pulumi.Input
 
@@ -2250,11 +6314,11 @@ func (i IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs) ToIndexUserTo
 // IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrInput is an input type that accepts IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs, IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtr and IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput values.
 // You can construct a concrete instance of `IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrInput` via:
 //
-//          IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs{...}
+//	        IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -2443,7 +6507,7 @@ type QuerySuggestionsBlockListSourceS3Path struct {
 // QuerySuggestionsBlockListSourceS3PathInput is an input type that accepts QuerySuggestionsBlockListSourceS3PathArgs and QuerySuggestionsBlockListSourceS3PathOutput values.
 // You can construct a concrete instance of `QuerySuggestionsBlockListSourceS3PathInput` via:
 //
-//          QuerySuggestionsBlockListSourceS3PathArgs{...}
+//	QuerySuggestionsBlockListSourceS3PathArgs{...}
 type QuerySuggestionsBlockListSourceS3PathInput interface {
 	pulumi.Input
 
@@ -2481,11 +6545,11 @@ func (i QuerySuggestionsBlockListSourceS3PathArgs) ToQuerySuggestionsBlockListSo
 // QuerySuggestionsBlockListSourceS3PathPtrInput is an input type that accepts QuerySuggestionsBlockListSourceS3PathArgs, QuerySuggestionsBlockListSourceS3PathPtr and QuerySuggestionsBlockListSourceS3PathPtrOutput values.
 // You can construct a concrete instance of `QuerySuggestionsBlockListSourceS3PathPtrInput` via:
 //
-//          QuerySuggestionsBlockListSourceS3PathArgs{...}
+//	        QuerySuggestionsBlockListSourceS3PathArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type QuerySuggestionsBlockListSourceS3PathPtrInput interface {
 	pulumi.Input
 
@@ -2599,7 +6663,7 @@ type ThesaurusSourceS3Path struct {
 // ThesaurusSourceS3PathInput is an input type that accepts ThesaurusSourceS3PathArgs and ThesaurusSourceS3PathOutput values.
 // You can construct a concrete instance of `ThesaurusSourceS3PathInput` via:
 //
-//          ThesaurusSourceS3PathArgs{...}
+//	ThesaurusSourceS3PathArgs{...}
 type ThesaurusSourceS3PathInput interface {
 	pulumi.Input
 
@@ -2637,11 +6701,11 @@ func (i ThesaurusSourceS3PathArgs) ToThesaurusSourceS3PathPtrOutputWithContext(c
 // ThesaurusSourceS3PathPtrInput is an input type that accepts ThesaurusSourceS3PathArgs, ThesaurusSourceS3PathPtr and ThesaurusSourceS3PathPtrOutput values.
 // You can construct a concrete instance of `ThesaurusSourceS3PathPtrInput` via:
 //
-//          ThesaurusSourceS3PathArgs{...}
+//	        ThesaurusSourceS3PathArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ThesaurusSourceS3PathPtrInput interface {
 	pulumi.Input
 
@@ -2755,7 +6819,7 @@ type GetExperienceConfiguration struct {
 // GetExperienceConfigurationInput is an input type that accepts GetExperienceConfigurationArgs and GetExperienceConfigurationOutput values.
 // You can construct a concrete instance of `GetExperienceConfigurationInput` via:
 //
-//          GetExperienceConfigurationArgs{...}
+//	GetExperienceConfigurationArgs{...}
 type GetExperienceConfigurationInput interface {
 	pulumi.Input
 
@@ -2785,7 +6849,7 @@ func (i GetExperienceConfigurationArgs) ToGetExperienceConfigurationOutputWithCo
 // GetExperienceConfigurationArrayInput is an input type that accepts GetExperienceConfigurationArray and GetExperienceConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetExperienceConfigurationArrayInput` via:
 //
-//          GetExperienceConfigurationArray{ GetExperienceConfigurationArgs{...} }
+//	GetExperienceConfigurationArray{ GetExperienceConfigurationArgs{...} }
 type GetExperienceConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -2867,7 +6931,7 @@ type GetExperienceConfigurationContentSourceConfiguration struct {
 // GetExperienceConfigurationContentSourceConfigurationInput is an input type that accepts GetExperienceConfigurationContentSourceConfigurationArgs and GetExperienceConfigurationContentSourceConfigurationOutput values.
 // You can construct a concrete instance of `GetExperienceConfigurationContentSourceConfigurationInput` via:
 //
-//          GetExperienceConfigurationContentSourceConfigurationArgs{...}
+//	GetExperienceConfigurationContentSourceConfigurationArgs{...}
 type GetExperienceConfigurationContentSourceConfigurationInput interface {
 	pulumi.Input
 
@@ -2899,7 +6963,7 @@ func (i GetExperienceConfigurationContentSourceConfigurationArgs) ToGetExperienc
 // GetExperienceConfigurationContentSourceConfigurationArrayInput is an input type that accepts GetExperienceConfigurationContentSourceConfigurationArray and GetExperienceConfigurationContentSourceConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetExperienceConfigurationContentSourceConfigurationArrayInput` via:
 //
-//          GetExperienceConfigurationContentSourceConfigurationArray{ GetExperienceConfigurationContentSourceConfigurationArgs{...} }
+//	GetExperienceConfigurationContentSourceConfigurationArray{ GetExperienceConfigurationContentSourceConfigurationArgs{...} }
 type GetExperienceConfigurationContentSourceConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -2978,7 +7042,7 @@ type GetExperienceConfigurationUserIdentityConfiguration struct {
 // GetExperienceConfigurationUserIdentityConfigurationInput is an input type that accepts GetExperienceConfigurationUserIdentityConfigurationArgs and GetExperienceConfigurationUserIdentityConfigurationOutput values.
 // You can construct a concrete instance of `GetExperienceConfigurationUserIdentityConfigurationInput` via:
 //
-//          GetExperienceConfigurationUserIdentityConfigurationArgs{...}
+//	GetExperienceConfigurationUserIdentityConfigurationArgs{...}
 type GetExperienceConfigurationUserIdentityConfigurationInput interface {
 	pulumi.Input
 
@@ -3006,7 +7070,7 @@ func (i GetExperienceConfigurationUserIdentityConfigurationArgs) ToGetExperience
 // GetExperienceConfigurationUserIdentityConfigurationArrayInput is an input type that accepts GetExperienceConfigurationUserIdentityConfigurationArray and GetExperienceConfigurationUserIdentityConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetExperienceConfigurationUserIdentityConfigurationArrayInput` via:
 //
-//          GetExperienceConfigurationUserIdentityConfigurationArray{ GetExperienceConfigurationUserIdentityConfigurationArgs{...} }
+//	GetExperienceConfigurationUserIdentityConfigurationArray{ GetExperienceConfigurationUserIdentityConfigurationArgs{...} }
 type GetExperienceConfigurationUserIdentityConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -3077,7 +7141,7 @@ type GetExperienceEndpoint struct {
 // GetExperienceEndpointInput is an input type that accepts GetExperienceEndpointArgs and GetExperienceEndpointOutput values.
 // You can construct a concrete instance of `GetExperienceEndpointInput` via:
 //
-//          GetExperienceEndpointArgs{...}
+//	GetExperienceEndpointArgs{...}
 type GetExperienceEndpointInput interface {
 	pulumi.Input
 
@@ -3107,7 +7171,7 @@ func (i GetExperienceEndpointArgs) ToGetExperienceEndpointOutputWithContext(ctx 
 // GetExperienceEndpointArrayInput is an input type that accepts GetExperienceEndpointArray and GetExperienceEndpointArrayOutput values.
 // You can construct a concrete instance of `GetExperienceEndpointArrayInput` via:
 //
-//          GetExperienceEndpointArray{ GetExperienceEndpointArgs{...} }
+//	GetExperienceEndpointArray{ GetExperienceEndpointArgs{...} }
 type GetExperienceEndpointArrayInput interface {
 	pulumi.Input
 
@@ -3183,7 +7247,7 @@ type GetFaqS3Path struct {
 // GetFaqS3PathInput is an input type that accepts GetFaqS3PathArgs and GetFaqS3PathOutput values.
 // You can construct a concrete instance of `GetFaqS3PathInput` via:
 //
-//          GetFaqS3PathArgs{...}
+//	GetFaqS3PathArgs{...}
 type GetFaqS3PathInput interface {
 	pulumi.Input
 
@@ -3213,7 +7277,7 @@ func (i GetFaqS3PathArgs) ToGetFaqS3PathOutputWithContext(ctx context.Context) G
 // GetFaqS3PathArrayInput is an input type that accepts GetFaqS3PathArray and GetFaqS3PathArrayOutput values.
 // You can construct a concrete instance of `GetFaqS3PathArrayInput` via:
 //
-//          GetFaqS3PathArray{ GetFaqS3PathArgs{...} }
+//	GetFaqS3PathArray{ GetFaqS3PathArgs{...} }
 type GetFaqS3PathArrayInput interface {
 	pulumi.Input
 
@@ -3289,7 +7353,7 @@ type GetIndexCapacityUnit struct {
 // GetIndexCapacityUnitInput is an input type that accepts GetIndexCapacityUnitArgs and GetIndexCapacityUnitOutput values.
 // You can construct a concrete instance of `GetIndexCapacityUnitInput` via:
 //
-//          GetIndexCapacityUnitArgs{...}
+//	GetIndexCapacityUnitArgs{...}
 type GetIndexCapacityUnitInput interface {
 	pulumi.Input
 
@@ -3319,7 +7383,7 @@ func (i GetIndexCapacityUnitArgs) ToGetIndexCapacityUnitOutputWithContext(ctx co
 // GetIndexCapacityUnitArrayInput is an input type that accepts GetIndexCapacityUnitArray and GetIndexCapacityUnitArrayOutput values.
 // You can construct a concrete instance of `GetIndexCapacityUnitArrayInput` via:
 //
-//          GetIndexCapacityUnitArray{ GetIndexCapacityUnitArgs{...} }
+//	GetIndexCapacityUnitArray{ GetIndexCapacityUnitArgs{...} }
 type GetIndexCapacityUnitArrayInput interface {
 	pulumi.Input
 
@@ -3399,7 +7463,7 @@ type GetIndexDocumentMetadataConfigurationUpdate struct {
 // GetIndexDocumentMetadataConfigurationUpdateInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateArgs and GetIndexDocumentMetadataConfigurationUpdateOutput values.
 // You can construct a concrete instance of `GetIndexDocumentMetadataConfigurationUpdateInput` via:
 //
-//          GetIndexDocumentMetadataConfigurationUpdateArgs{...}
+//	GetIndexDocumentMetadataConfigurationUpdateArgs{...}
 type GetIndexDocumentMetadataConfigurationUpdateInput interface {
 	pulumi.Input
 
@@ -3433,7 +7497,7 @@ func (i GetIndexDocumentMetadataConfigurationUpdateArgs) ToGetIndexDocumentMetad
 // GetIndexDocumentMetadataConfigurationUpdateArrayInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateArray and GetIndexDocumentMetadataConfigurationUpdateArrayOutput values.
 // You can construct a concrete instance of `GetIndexDocumentMetadataConfigurationUpdateArrayInput` via:
 //
-//          GetIndexDocumentMetadataConfigurationUpdateArray{ GetIndexDocumentMetadataConfigurationUpdateArgs{...} }
+//	GetIndexDocumentMetadataConfigurationUpdateArray{ GetIndexDocumentMetadataConfigurationUpdateArgs{...} }
 type GetIndexDocumentMetadataConfigurationUpdateArrayInput interface {
 	pulumi.Input
 
@@ -3529,7 +7593,7 @@ type GetIndexDocumentMetadataConfigurationUpdateRelevance struct {
 // GetIndexDocumentMetadataConfigurationUpdateRelevanceInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs and GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput values.
 // You can construct a concrete instance of `GetIndexDocumentMetadataConfigurationUpdateRelevanceInput` via:
 //
-//          GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs{...}
+//	GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs{...}
 type GetIndexDocumentMetadataConfigurationUpdateRelevanceInput interface {
 	pulumi.Input
 
@@ -3565,7 +7629,7 @@ func (i GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs) ToGetIndexDocu
 // GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateRelevanceArray and GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput values.
 // You can construct a concrete instance of `GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayInput` via:
 //
-//          GetIndexDocumentMetadataConfigurationUpdateRelevanceArray{ GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs{...} }
+//	GetIndexDocumentMetadataConfigurationUpdateRelevanceArray{ GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs{...} }
 type GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayInput interface {
 	pulumi.Input
 
@@ -3662,7 +7726,7 @@ type GetIndexDocumentMetadataConfigurationUpdateSearch struct {
 // GetIndexDocumentMetadataConfigurationUpdateSearchInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateSearchArgs and GetIndexDocumentMetadataConfigurationUpdateSearchOutput values.
 // You can construct a concrete instance of `GetIndexDocumentMetadataConfigurationUpdateSearchInput` via:
 //
-//          GetIndexDocumentMetadataConfigurationUpdateSearchArgs{...}
+//	GetIndexDocumentMetadataConfigurationUpdateSearchArgs{...}
 type GetIndexDocumentMetadataConfigurationUpdateSearchInput interface {
 	pulumi.Input
 
@@ -3696,7 +7760,7 @@ func (i GetIndexDocumentMetadataConfigurationUpdateSearchArgs) ToGetIndexDocumen
 // GetIndexDocumentMetadataConfigurationUpdateSearchArrayInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateSearchArray and GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput values.
 // You can construct a concrete instance of `GetIndexDocumentMetadataConfigurationUpdateSearchArrayInput` via:
 //
-//          GetIndexDocumentMetadataConfigurationUpdateSearchArray{ GetIndexDocumentMetadataConfigurationUpdateSearchArgs{...} }
+//	GetIndexDocumentMetadataConfigurationUpdateSearchArray{ GetIndexDocumentMetadataConfigurationUpdateSearchArgs{...} }
 type GetIndexDocumentMetadataConfigurationUpdateSearchArrayInput interface {
 	pulumi.Input
 
@@ -3782,7 +7846,7 @@ type GetIndexIndexStatistic struct {
 // GetIndexIndexStatisticInput is an input type that accepts GetIndexIndexStatisticArgs and GetIndexIndexStatisticOutput values.
 // You can construct a concrete instance of `GetIndexIndexStatisticInput` via:
 //
-//          GetIndexIndexStatisticArgs{...}
+//	GetIndexIndexStatisticArgs{...}
 type GetIndexIndexStatisticInput interface {
 	pulumi.Input
 
@@ -3812,7 +7876,7 @@ func (i GetIndexIndexStatisticArgs) ToGetIndexIndexStatisticOutputWithContext(ct
 // GetIndexIndexStatisticArrayInput is an input type that accepts GetIndexIndexStatisticArray and GetIndexIndexStatisticArrayOutput values.
 // You can construct a concrete instance of `GetIndexIndexStatisticArrayInput` via:
 //
-//          GetIndexIndexStatisticArray{ GetIndexIndexStatisticArgs{...} }
+//	GetIndexIndexStatisticArray{ GetIndexIndexStatisticArgs{...} }
 type GetIndexIndexStatisticArrayInput interface {
 	pulumi.Input
 
@@ -3888,7 +7952,7 @@ type GetIndexIndexStatisticFaqStatistic struct {
 // GetIndexIndexStatisticFaqStatisticInput is an input type that accepts GetIndexIndexStatisticFaqStatisticArgs and GetIndexIndexStatisticFaqStatisticOutput values.
 // You can construct a concrete instance of `GetIndexIndexStatisticFaqStatisticInput` via:
 //
-//          GetIndexIndexStatisticFaqStatisticArgs{...}
+//	GetIndexIndexStatisticFaqStatisticArgs{...}
 type GetIndexIndexStatisticFaqStatisticInput interface {
 	pulumi.Input
 
@@ -3916,7 +7980,7 @@ func (i GetIndexIndexStatisticFaqStatisticArgs) ToGetIndexIndexStatisticFaqStati
 // GetIndexIndexStatisticFaqStatisticArrayInput is an input type that accepts GetIndexIndexStatisticFaqStatisticArray and GetIndexIndexStatisticFaqStatisticArrayOutput values.
 // You can construct a concrete instance of `GetIndexIndexStatisticFaqStatisticArrayInput` via:
 //
-//          GetIndexIndexStatisticFaqStatisticArray{ GetIndexIndexStatisticFaqStatisticArgs{...} }
+//	GetIndexIndexStatisticFaqStatisticArray{ GetIndexIndexStatisticFaqStatisticArgs{...} }
 type GetIndexIndexStatisticFaqStatisticArrayInput interface {
 	pulumi.Input
 
@@ -3987,7 +8051,7 @@ type GetIndexIndexStatisticTextDocumentStatistic struct {
 // GetIndexIndexStatisticTextDocumentStatisticInput is an input type that accepts GetIndexIndexStatisticTextDocumentStatisticArgs and GetIndexIndexStatisticTextDocumentStatisticOutput values.
 // You can construct a concrete instance of `GetIndexIndexStatisticTextDocumentStatisticInput` via:
 //
-//          GetIndexIndexStatisticTextDocumentStatisticArgs{...}
+//	GetIndexIndexStatisticTextDocumentStatisticArgs{...}
 type GetIndexIndexStatisticTextDocumentStatisticInput interface {
 	pulumi.Input
 
@@ -4017,7 +8081,7 @@ func (i GetIndexIndexStatisticTextDocumentStatisticArgs) ToGetIndexIndexStatisti
 // GetIndexIndexStatisticTextDocumentStatisticArrayInput is an input type that accepts GetIndexIndexStatisticTextDocumentStatisticArray and GetIndexIndexStatisticTextDocumentStatisticArrayOutput values.
 // You can construct a concrete instance of `GetIndexIndexStatisticTextDocumentStatisticArrayInput` via:
 //
-//          GetIndexIndexStatisticTextDocumentStatisticArray{ GetIndexIndexStatisticTextDocumentStatisticArgs{...} }
+//	GetIndexIndexStatisticTextDocumentStatisticArray{ GetIndexIndexStatisticTextDocumentStatisticArgs{...} }
 type GetIndexIndexStatisticTextDocumentStatisticArrayInput interface {
 	pulumi.Input
 
@@ -4091,7 +8155,7 @@ type GetIndexServerSideEncryptionConfiguration struct {
 // GetIndexServerSideEncryptionConfigurationInput is an input type that accepts GetIndexServerSideEncryptionConfigurationArgs and GetIndexServerSideEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `GetIndexServerSideEncryptionConfigurationInput` via:
 //
-//          GetIndexServerSideEncryptionConfigurationArgs{...}
+//	GetIndexServerSideEncryptionConfigurationArgs{...}
 type GetIndexServerSideEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -4119,7 +8183,7 @@ func (i GetIndexServerSideEncryptionConfigurationArgs) ToGetIndexServerSideEncry
 // GetIndexServerSideEncryptionConfigurationArrayInput is an input type that accepts GetIndexServerSideEncryptionConfigurationArray and GetIndexServerSideEncryptionConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetIndexServerSideEncryptionConfigurationArrayInput` via:
 //
-//          GetIndexServerSideEncryptionConfigurationArray{ GetIndexServerSideEncryptionConfigurationArgs{...} }
+//	GetIndexServerSideEncryptionConfigurationArray{ GetIndexServerSideEncryptionConfigurationArgs{...} }
 type GetIndexServerSideEncryptionConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -4188,7 +8252,7 @@ type GetIndexUserGroupResolutionConfiguration struct {
 // GetIndexUserGroupResolutionConfigurationInput is an input type that accepts GetIndexUserGroupResolutionConfigurationArgs and GetIndexUserGroupResolutionConfigurationOutput values.
 // You can construct a concrete instance of `GetIndexUserGroupResolutionConfigurationInput` via:
 //
-//          GetIndexUserGroupResolutionConfigurationArgs{...}
+//	GetIndexUserGroupResolutionConfigurationArgs{...}
 type GetIndexUserGroupResolutionConfigurationInput interface {
 	pulumi.Input
 
@@ -4216,7 +8280,7 @@ func (i GetIndexUserGroupResolutionConfigurationArgs) ToGetIndexUserGroupResolut
 // GetIndexUserGroupResolutionConfigurationArrayInput is an input type that accepts GetIndexUserGroupResolutionConfigurationArray and GetIndexUserGroupResolutionConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetIndexUserGroupResolutionConfigurationArrayInput` via:
 //
-//          GetIndexUserGroupResolutionConfigurationArray{ GetIndexUserGroupResolutionConfigurationArgs{...} }
+//	GetIndexUserGroupResolutionConfigurationArray{ GetIndexUserGroupResolutionConfigurationArgs{...} }
 type GetIndexUserGroupResolutionConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -4287,7 +8351,7 @@ type GetIndexUserTokenConfiguration struct {
 // GetIndexUserTokenConfigurationInput is an input type that accepts GetIndexUserTokenConfigurationArgs and GetIndexUserTokenConfigurationOutput values.
 // You can construct a concrete instance of `GetIndexUserTokenConfigurationInput` via:
 //
-//          GetIndexUserTokenConfigurationArgs{...}
+//	GetIndexUserTokenConfigurationArgs{...}
 type GetIndexUserTokenConfigurationInput interface {
 	pulumi.Input
 
@@ -4317,7 +8381,7 @@ func (i GetIndexUserTokenConfigurationArgs) ToGetIndexUserTokenConfigurationOutp
 // GetIndexUserTokenConfigurationArrayInput is an input type that accepts GetIndexUserTokenConfigurationArray and GetIndexUserTokenConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetIndexUserTokenConfigurationArrayInput` via:
 //
-//          GetIndexUserTokenConfigurationArray{ GetIndexUserTokenConfigurationArgs{...} }
+//	GetIndexUserTokenConfigurationArray{ GetIndexUserTokenConfigurationArgs{...} }
 type GetIndexUserTokenConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -4397,7 +8461,7 @@ type GetIndexUserTokenConfigurationJsonTokenTypeConfiguration struct {
 // GetIndexUserTokenConfigurationJsonTokenTypeConfigurationInput is an input type that accepts GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs and GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput values.
 // You can construct a concrete instance of `GetIndexUserTokenConfigurationJsonTokenTypeConfigurationInput` via:
 //
-//          GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs{...}
+//	GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs{...}
 type GetIndexUserTokenConfigurationJsonTokenTypeConfigurationInput interface {
 	pulumi.Input
 
@@ -4427,7 +8491,7 @@ func (i GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs) ToGetIndex
 // GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayInput is an input type that accepts GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArray and GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayInput` via:
 //
-//          GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArray{ GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs{...} }
+//	GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArray{ GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs{...} }
 type GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -4515,7 +8579,7 @@ type GetIndexUserTokenConfigurationJwtTokenTypeConfiguration struct {
 // GetIndexUserTokenConfigurationJwtTokenTypeConfigurationInput is an input type that accepts GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs and GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput values.
 // You can construct a concrete instance of `GetIndexUserTokenConfigurationJwtTokenTypeConfigurationInput` via:
 //
-//          GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs{...}
+//	GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs{...}
 type GetIndexUserTokenConfigurationJwtTokenTypeConfigurationInput interface {
 	pulumi.Input
 
@@ -4555,7 +8619,7 @@ func (i GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs) ToGetIndexU
 // GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayInput is an input type that accepts GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArray and GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayInput` via:
 //
-//          GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArray{ GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs{...} }
+//	GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArray{ GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs{...} }
 type GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -4658,7 +8722,7 @@ type GetQuerySuggestionsBlockListSourceS3Path struct {
 // GetQuerySuggestionsBlockListSourceS3PathInput is an input type that accepts GetQuerySuggestionsBlockListSourceS3PathArgs and GetQuerySuggestionsBlockListSourceS3PathOutput values.
 // You can construct a concrete instance of `GetQuerySuggestionsBlockListSourceS3PathInput` via:
 //
-//          GetQuerySuggestionsBlockListSourceS3PathArgs{...}
+//	GetQuerySuggestionsBlockListSourceS3PathArgs{...}
 type GetQuerySuggestionsBlockListSourceS3PathInput interface {
 	pulumi.Input
 
@@ -4688,7 +8752,7 @@ func (i GetQuerySuggestionsBlockListSourceS3PathArgs) ToGetQuerySuggestionsBlock
 // GetQuerySuggestionsBlockListSourceS3PathArrayInput is an input type that accepts GetQuerySuggestionsBlockListSourceS3PathArray and GetQuerySuggestionsBlockListSourceS3PathArrayOutput values.
 // You can construct a concrete instance of `GetQuerySuggestionsBlockListSourceS3PathArrayInput` via:
 //
-//          GetQuerySuggestionsBlockListSourceS3PathArray{ GetQuerySuggestionsBlockListSourceS3PathArgs{...} }
+//	GetQuerySuggestionsBlockListSourceS3PathArray{ GetQuerySuggestionsBlockListSourceS3PathArgs{...} }
 type GetQuerySuggestionsBlockListSourceS3PathArrayInput interface {
 	pulumi.Input
 
@@ -4764,7 +8828,7 @@ type GetThesaurusSourceS3Path struct {
 // GetThesaurusSourceS3PathInput is an input type that accepts GetThesaurusSourceS3PathArgs and GetThesaurusSourceS3PathOutput values.
 // You can construct a concrete instance of `GetThesaurusSourceS3PathInput` via:
 //
-//          GetThesaurusSourceS3PathArgs{...}
+//	GetThesaurusSourceS3PathArgs{...}
 type GetThesaurusSourceS3PathInput interface {
 	pulumi.Input
 
@@ -4794,7 +8858,7 @@ func (i GetThesaurusSourceS3PathArgs) ToGetThesaurusSourceS3PathOutputWithContex
 // GetThesaurusSourceS3PathArrayInput is an input type that accepts GetThesaurusSourceS3PathArray and GetThesaurusSourceS3PathArrayOutput values.
 // You can construct a concrete instance of `GetThesaurusSourceS3PathArrayInput` via:
 //
-//          GetThesaurusSourceS3PathArray{ GetThesaurusSourceS3PathArgs{...} }
+//	GetThesaurusSourceS3PathArray{ GetThesaurusSourceS3PathArgs{...} }
 type GetThesaurusSourceS3PathArrayInput interface {
 	pulumi.Input
 
@@ -4861,6 +8925,52 @@ func (o GetThesaurusSourceS3PathArrayOutput) Index(i pulumi.IntInput) GetThesaur
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput)(nil)).Elem(), DataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationPtrInput)(nil)).Elem(), DataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationS3ConfigurationInput)(nil)).Elem(), DataSourceConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationS3ConfigurationPtrInput)(nil)).Elem(), DataSourceConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationS3ConfigurationAccessControlListConfigurationInput)(nil)).Elem(), DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrInput)(nil)).Elem(), DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationInput)(nil)).Elem(), DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrInput)(nil)).Elem(), DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationPtrInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationUrlsInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationUrlsPtrInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrInput)(nil)).Elem(), DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPtrInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput)(nil)).Elem(), DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperienceConfigurationInput)(nil)).Elem(), ExperienceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperienceConfigurationPtrInput)(nil)).Elem(), ExperienceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperienceConfigurationContentSourceConfigurationInput)(nil)).Elem(), ExperienceConfigurationContentSourceConfigurationArgs{})
@@ -4937,6 +9047,52 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetQuerySuggestionsBlockListSourceS3PathArrayInput)(nil)).Elem(), GetQuerySuggestionsBlockListSourceS3PathArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetThesaurusSourceS3PathInput)(nil)).Elem(), GetThesaurusSourceS3PathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetThesaurusSourceS3PathArrayInput)(nil)).Elem(), GetThesaurusSourceS3PathArray{})
+	pulumi.RegisterOutputType(DataSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationS3ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationUrlsOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationUrlsPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueOutput{})
+	pulumi.RegisterOutputType(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput{})
 	pulumi.RegisterOutputType(ExperienceConfigurationOutput{})
 	pulumi.RegisterOutputType(ExperienceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ExperienceConfigurationContentSourceConfigurationOutput{})

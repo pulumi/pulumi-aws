@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda.Inputs
 {
 
-    public sealed class FunctionEventInvokeConfigDestinationConfigArgs : Pulumi.ResourceArgs
+    public sealed class FunctionEventInvokeConfigDestinationConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block with destination configuration for failed asynchronous invocations. See below for details.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Lambda.Inputs
         public FunctionEventInvokeConfigDestinationConfigArgs()
         {
         }
+        public static new FunctionEventInvokeConfigDestinationConfigArgs Empty => new FunctionEventInvokeConfigDestinationConfigArgs();
     }
 }

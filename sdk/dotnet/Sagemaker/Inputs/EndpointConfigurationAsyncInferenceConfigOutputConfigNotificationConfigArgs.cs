@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs()
         {
         }
+        public static new EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs Empty => new EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs();
     }
 }

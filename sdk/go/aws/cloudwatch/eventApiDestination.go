@@ -21,33 +21,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudwatch.NewEventApiDestination(ctx, "test", &cloudwatch.EventApiDestinationArgs{
-// 			Description:                  pulumi.String("An API Destination"),
-// 			InvocationEndpoint:           pulumi.String("https://api.destination.com/endpoint"),
-// 			HttpMethod:                   pulumi.String("POST"),
-// 			InvocationRateLimitPerSecond: pulumi.Int(20),
-// 			ConnectionArn:                pulumi.Any(aws_cloudwatch_event_connection.Test.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewEventApiDestination(ctx, "test", &cloudwatch.EventApiDestinationArgs{
+//				Description:                  pulumi.String("An API Destination"),
+//				InvocationEndpoint:           pulumi.String("https://api.destination.com/endpoint"),
+//				HttpMethod:                   pulumi.String("POST"),
+//				InvocationRateLimitPerSecond: pulumi.Int(20),
+//				ConnectionArn:                pulumi.Any(aws_cloudwatch_event_connection.Test.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// EventBridge API Destinations can be imported using the `name`, e.g., console
+// # EventBridge API Destinations can be imported using the `name`, e.g., console
 //
 // ```sh
-//  $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
+//
+//	$ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
+//
 // ```
 type EventApiDestination struct {
 	pulumi.CustomResourceState
@@ -200,7 +205,7 @@ func (i *EventApiDestination) ToEventApiDestinationOutputWithContext(ctx context
 // EventApiDestinationArrayInput is an input type that accepts EventApiDestinationArray and EventApiDestinationArrayOutput values.
 // You can construct a concrete instance of `EventApiDestinationArrayInput` via:
 //
-//          EventApiDestinationArray{ EventApiDestinationArgs{...} }
+//	EventApiDestinationArray{ EventApiDestinationArgs{...} }
 type EventApiDestinationArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +230,7 @@ func (i EventApiDestinationArray) ToEventApiDestinationArrayOutputWithContext(ct
 // EventApiDestinationMapInput is an input type that accepts EventApiDestinationMap and EventApiDestinationMapOutput values.
 // You can construct a concrete instance of `EventApiDestinationMapInput` via:
 //
-//          EventApiDestinationMap{ "key": EventApiDestinationArgs{...} }
+//	EventApiDestinationMap{ "key": EventApiDestinationArgs{...} }
 type EventApiDestinationMapInput interface {
 	pulumi.Input
 

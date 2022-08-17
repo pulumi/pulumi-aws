@@ -20,7 +20,7 @@ type DomainEndpointOptions struct {
 // DomainEndpointOptionsInput is an input type that accepts DomainEndpointOptionsArgs and DomainEndpointOptionsOutput values.
 // You can construct a concrete instance of `DomainEndpointOptionsInput` via:
 //
-//          DomainEndpointOptionsArgs{...}
+//	DomainEndpointOptionsArgs{...}
 type DomainEndpointOptionsInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i DomainEndpointOptionsArgs) ToDomainEndpointOptionsPtrOutputWithContext(c
 // DomainEndpointOptionsPtrInput is an input type that accepts DomainEndpointOptionsArgs, DomainEndpointOptionsPtr and DomainEndpointOptionsPtrOutput values.
 // You can construct a concrete instance of `DomainEndpointOptionsPtrInput` via:
 //
-//          DomainEndpointOptionsArgs{...}
+//	        DomainEndpointOptionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DomainEndpointOptionsPtrInput interface {
 	pulumi.Input
 
@@ -192,7 +192,7 @@ type DomainIndexField struct {
 // DomainIndexFieldInput is an input type that accepts DomainIndexFieldArgs and DomainIndexFieldOutput values.
 // You can construct a concrete instance of `DomainIndexFieldInput` via:
 //
-//          DomainIndexFieldArgs{...}
+//	DomainIndexFieldArgs{...}
 type DomainIndexFieldInput interface {
 	pulumi.Input
 
@@ -238,7 +238,7 @@ func (i DomainIndexFieldArgs) ToDomainIndexFieldOutputWithContext(ctx context.Co
 // DomainIndexFieldArrayInput is an input type that accepts DomainIndexFieldArray and DomainIndexFieldArrayOutput values.
 // You can construct a concrete instance of `DomainIndexFieldArrayInput` via:
 //
-//          DomainIndexFieldArray{ DomainIndexFieldArgs{...} }
+//	DomainIndexFieldArray{ DomainIndexFieldArgs{...} }
 type DomainIndexFieldArrayInput interface {
 	pulumi.Input
 
@@ -356,7 +356,7 @@ type DomainScalingParameters struct {
 // DomainScalingParametersInput is an input type that accepts DomainScalingParametersArgs and DomainScalingParametersOutput values.
 // You can construct a concrete instance of `DomainScalingParametersInput` via:
 //
-//          DomainScalingParametersArgs{...}
+//	DomainScalingParametersArgs{...}
 type DomainScalingParametersInput interface {
 	pulumi.Input
 
@@ -396,11 +396,11 @@ func (i DomainScalingParametersArgs) ToDomainScalingParametersPtrOutputWithConte
 // DomainScalingParametersPtrInput is an input type that accepts DomainScalingParametersArgs, DomainScalingParametersPtr and DomainScalingParametersPtrOutput values.
 // You can construct a concrete instance of `DomainScalingParametersPtrInput` via:
 //
-//          DomainScalingParametersArgs{...}
+//	        DomainScalingParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DomainScalingParametersPtrInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ServiceCatalog.Inputs
 {
 
-    public sealed class ProvisionedProductOutputGetArgs : Pulumi.ResourceArgs
+    public sealed class ProvisionedProductOutputGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the output.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.ServiceCatalog.Inputs
         public ProvisionedProductOutputGetArgs()
         {
         }
+        public static new ProvisionedProductOutputGetArgs Empty => new ProvisionedProductOutputGetArgs();
     }
 }

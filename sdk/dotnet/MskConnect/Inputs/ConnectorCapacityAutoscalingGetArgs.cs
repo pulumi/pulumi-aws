@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MskConnect.Inputs
 {
 
-    public sealed class ConnectorCapacityAutoscalingGetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorCapacityAutoscalingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of workers allocated to the connector.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public ConnectorCapacityAutoscalingGetArgs()
         {
         }
+        public static new ConnectorCapacityAutoscalingGetArgs Empty => new ConnectorCapacityAutoscalingGetArgs();
     }
 }

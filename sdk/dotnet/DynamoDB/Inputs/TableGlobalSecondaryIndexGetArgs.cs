@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DynamoDB.Inputs
 {
 
-    public sealed class TableGlobalSecondaryIndexGetArgs : Pulumi.ResourceArgs
+    public sealed class TableGlobalSecondaryIndexGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the hash key in the index; must be defined as an attribute in the resource.
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public TableGlobalSecondaryIndexGetArgs()
         {
         }
+        public static new TableGlobalSecondaryIndexGetArgs Empty => new TableGlobalSecondaryIndexGetArgs();
     }
 }

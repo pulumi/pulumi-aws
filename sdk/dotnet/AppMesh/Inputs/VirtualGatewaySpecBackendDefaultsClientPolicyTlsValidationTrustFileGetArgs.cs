@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileGetArgs()
         {
         }
+        public static new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileGetArgs Empty => new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileGetArgs();
     }
 }

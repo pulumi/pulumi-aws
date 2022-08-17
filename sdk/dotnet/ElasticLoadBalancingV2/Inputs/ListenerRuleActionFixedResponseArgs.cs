@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class ListenerRuleActionFixedResponseArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleActionFixedResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
         public ListenerRuleActionFixedResponseArgs()
         {
         }
+        public static new ListenerRuleActionFixedResponseArgs Empty => new ListenerRuleActionFixedResponseArgs();
     }
 }

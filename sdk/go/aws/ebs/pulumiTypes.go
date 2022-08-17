@@ -24,7 +24,7 @@ type SnapshotImportClientData struct {
 // SnapshotImportClientDataInput is an input type that accepts SnapshotImportClientDataArgs and SnapshotImportClientDataOutput values.
 // You can construct a concrete instance of `SnapshotImportClientDataInput` via:
 //
-//          SnapshotImportClientDataArgs{...}
+//	SnapshotImportClientDataArgs{...}
 type SnapshotImportClientDataInput interface {
 	pulumi.Input
 
@@ -66,11 +66,11 @@ func (i SnapshotImportClientDataArgs) ToSnapshotImportClientDataPtrOutputWithCon
 // SnapshotImportClientDataPtrInput is an input type that accepts SnapshotImportClientDataArgs, SnapshotImportClientDataPtr and SnapshotImportClientDataPtrOutput values.
 // You can construct a concrete instance of `SnapshotImportClientDataPtrInput` via:
 //
-//          SnapshotImportClientDataArgs{...}
+//	        SnapshotImportClientDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SnapshotImportClientDataPtrInput interface {
 	pulumi.Input
 
@@ -218,7 +218,7 @@ type SnapshotImportDiskContainer struct {
 // SnapshotImportDiskContainerInput is an input type that accepts SnapshotImportDiskContainerArgs and SnapshotImportDiskContainerOutput values.
 // You can construct a concrete instance of `SnapshotImportDiskContainerInput` via:
 //
-//          SnapshotImportDiskContainerArgs{...}
+//	SnapshotImportDiskContainerArgs{...}
 type SnapshotImportDiskContainerInput interface {
 	pulumi.Input
 
@@ -260,11 +260,11 @@ func (i SnapshotImportDiskContainerArgs) ToSnapshotImportDiskContainerPtrOutputW
 // SnapshotImportDiskContainerPtrInput is an input type that accepts SnapshotImportDiskContainerArgs, SnapshotImportDiskContainerPtr and SnapshotImportDiskContainerPtrOutput values.
 // You can construct a concrete instance of `SnapshotImportDiskContainerPtrInput` via:
 //
-//          SnapshotImportDiskContainerArgs{...}
+//	        SnapshotImportDiskContainerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SnapshotImportDiskContainerPtrInput interface {
 	pulumi.Input
 
@@ -408,7 +408,7 @@ type SnapshotImportDiskContainerUserBucket struct {
 // SnapshotImportDiskContainerUserBucketInput is an input type that accepts SnapshotImportDiskContainerUserBucketArgs and SnapshotImportDiskContainerUserBucketOutput values.
 // You can construct a concrete instance of `SnapshotImportDiskContainerUserBucketInput` via:
 //
-//          SnapshotImportDiskContainerUserBucketArgs{...}
+//	SnapshotImportDiskContainerUserBucketArgs{...}
 type SnapshotImportDiskContainerUserBucketInput interface {
 	pulumi.Input
 
@@ -446,11 +446,11 @@ func (i SnapshotImportDiskContainerUserBucketArgs) ToSnapshotImportDiskContainer
 // SnapshotImportDiskContainerUserBucketPtrInput is an input type that accepts SnapshotImportDiskContainerUserBucketArgs, SnapshotImportDiskContainerUserBucketPtr and SnapshotImportDiskContainerUserBucketPtrOutput values.
 // You can construct a concrete instance of `SnapshotImportDiskContainerUserBucketPtrInput` via:
 //
-//          SnapshotImportDiskContainerUserBucketArgs{...}
+//	        SnapshotImportDiskContainerUserBucketArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SnapshotImportDiskContainerUserBucketPtrInput interface {
 	pulumi.Input
 
@@ -567,7 +567,7 @@ type GetEbsVolumesFilter struct {
 // GetEbsVolumesFilterInput is an input type that accepts GetEbsVolumesFilterArgs and GetEbsVolumesFilterOutput values.
 // You can construct a concrete instance of `GetEbsVolumesFilterInput` via:
 //
-//          GetEbsVolumesFilterArgs{...}
+//	GetEbsVolumesFilterArgs{...}
 type GetEbsVolumesFilterInput interface {
 	pulumi.Input
 
@@ -600,7 +600,7 @@ func (i GetEbsVolumesFilterArgs) ToGetEbsVolumesFilterOutputWithContext(ctx cont
 // GetEbsVolumesFilterArrayInput is an input type that accepts GetEbsVolumesFilterArray and GetEbsVolumesFilterArrayOutput values.
 // You can construct a concrete instance of `GetEbsVolumesFilterArrayInput` via:
 //
-//          GetEbsVolumesFilterArray{ GetEbsVolumesFilterArgs{...} }
+//	GetEbsVolumesFilterArray{ GetEbsVolumesFilterArgs{...} }
 type GetEbsVolumesFilterArrayInput interface {
 	pulumi.Input
 
@@ -677,7 +677,7 @@ type GetSnapshotFilter struct {
 // GetSnapshotFilterInput is an input type that accepts GetSnapshotFilterArgs and GetSnapshotFilterOutput values.
 // You can construct a concrete instance of `GetSnapshotFilterInput` via:
 //
-//          GetSnapshotFilterArgs{...}
+//	GetSnapshotFilterArgs{...}
 type GetSnapshotFilterInput interface {
 	pulumi.Input
 
@@ -705,7 +705,7 @@ func (i GetSnapshotFilterArgs) ToGetSnapshotFilterOutputWithContext(ctx context.
 // GetSnapshotFilterArrayInput is an input type that accepts GetSnapshotFilterArray and GetSnapshotFilterArrayOutput values.
 // You can construct a concrete instance of `GetSnapshotFilterArrayInput` via:
 //
-//          GetSnapshotFilterArray{ GetSnapshotFilterArgs{...} }
+//	GetSnapshotFilterArray{ GetSnapshotFilterArgs{...} }
 type GetSnapshotFilterArrayInput interface {
 	pulumi.Input
 
@@ -777,7 +777,7 @@ type GetSnapshotIdsFilter struct {
 // GetSnapshotIdsFilterInput is an input type that accepts GetSnapshotIdsFilterArgs and GetSnapshotIdsFilterOutput values.
 // You can construct a concrete instance of `GetSnapshotIdsFilterInput` via:
 //
-//          GetSnapshotIdsFilterArgs{...}
+//	GetSnapshotIdsFilterArgs{...}
 type GetSnapshotIdsFilterInput interface {
 	pulumi.Input
 
@@ -805,7 +805,7 @@ func (i GetSnapshotIdsFilterArgs) ToGetSnapshotIdsFilterOutputWithContext(ctx co
 // GetSnapshotIdsFilterArrayInput is an input type that accepts GetSnapshotIdsFilterArray and GetSnapshotIdsFilterArrayOutput values.
 // You can construct a concrete instance of `GetSnapshotIdsFilterArrayInput` via:
 //
-//          GetSnapshotIdsFilterArray{ GetSnapshotIdsFilterArgs{...} }
+//	GetSnapshotIdsFilterArray{ GetSnapshotIdsFilterArgs{...} }
 type GetSnapshotIdsFilterArrayInput interface {
 	pulumi.Input
 
@@ -877,7 +877,7 @@ type GetVolumeFilter struct {
 // GetVolumeFilterInput is an input type that accepts GetVolumeFilterArgs and GetVolumeFilterOutput values.
 // You can construct a concrete instance of `GetVolumeFilterInput` via:
 //
-//          GetVolumeFilterArgs{...}
+//	GetVolumeFilterArgs{...}
 type GetVolumeFilterInput interface {
 	pulumi.Input
 
@@ -905,7 +905,7 @@ func (i GetVolumeFilterArgs) ToGetVolumeFilterOutputWithContext(ctx context.Cont
 // GetVolumeFilterArrayInput is an input type that accepts GetVolumeFilterArray and GetVolumeFilterArrayOutput values.
 // You can construct a concrete instance of `GetVolumeFilterArrayInput` via:
 //
-//          GetVolumeFilterArray{ GetVolumeFilterArgs{...} }
+//	GetVolumeFilterArray{ GetVolumeFilterArgs{...} }
 type GetVolumeFilterArrayInput interface {
 	pulumi.Input
 

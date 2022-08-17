@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterLoggingInfoBrokerLogsCloudwatchLogsGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterLoggingInfoBrokerLogsCloudwatchLogsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Controls whether provisioned throughput is enabled or not. Default value: `false`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterLoggingInfoBrokerLogsCloudwatchLogsGetArgs()
         {
         }
+        public static new ClusterLoggingInfoBrokerLogsCloudwatchLogsGetArgs Empty => new ClusterLoggingInfoBrokerLogsCloudwatchLogsGetArgs();
     }
 }

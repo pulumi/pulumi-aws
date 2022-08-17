@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventConnectionAuthParametersArgs : Pulumi.ResourceArgs
+    public sealed class EventConnectionAuthParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventConnectionAuthParametersArgs()
         {
         }
+        public static new EventConnectionAuthParametersArgs Empty => new EventConnectionAuthParametersArgs();
     }
 }

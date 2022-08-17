@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppRunner.Inputs
 {
 
-    public sealed class ServiceSourceConfigurationImageRepositoryGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSourceConfigurationImageRepositoryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration for running the identified image. See Image Configuration below for more details.
@@ -34,5 +34,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public ServiceSourceConfigurationImageRepositoryGetArgs()
         {
         }
+        public static new ServiceSourceConfigurationImageRepositoryGetArgs Empty => new ServiceSourceConfigurationImageRepositoryGetArgs();
     }
 }

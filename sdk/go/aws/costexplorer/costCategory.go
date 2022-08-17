@@ -19,65 +19,68 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := costexplorer.NewCostCategory(ctx, "test", &costexplorer.CostCategoryArgs{
-// 			Rules: costexplorer.CostCategoryRuleArray{
-// 				&costexplorer.CostCategoryRuleArgs{
-// 					Rule: &costexplorer.CostCategoryRuleRuleArgs{
-// 						Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
-// 							Key: pulumi.String("LINKED_ACCOUNT_NAME"),
-// 							MatchOptions: pulumi.StringArray{
-// 								pulumi.String("ENDS_WITH"),
-// 							},
-// 							Values: pulumi.StringArray{
-// 								pulumi.String("-prod"),
-// 							},
-// 						},
-// 					},
-// 					Value: pulumi.String("production"),
-// 				},
-// 				&costexplorer.CostCategoryRuleArgs{
-// 					Rule: &costexplorer.CostCategoryRuleRuleArgs{
-// 						Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
-// 							Key: pulumi.String("LINKED_ACCOUNT_NAME"),
-// 							MatchOptions: pulumi.StringArray{
-// 								pulumi.String("ENDS_WITH"),
-// 							},
-// 							Values: pulumi.StringArray{
-// 								pulumi.String("-stg"),
-// 							},
-// 						},
-// 					},
-// 					Value: pulumi.String("staging"),
-// 				},
-// 				&costexplorer.CostCategoryRuleArgs{
-// 					Rule: &costexplorer.CostCategoryRuleRuleArgs{
-// 						Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
-// 							Key: pulumi.String("LINKED_ACCOUNT_NAME"),
-// 							MatchOptions: pulumi.StringArray{
-// 								pulumi.String("ENDS_WITH"),
-// 							},
-// 							Values: pulumi.StringArray{
-// 								pulumi.String("-dev"),
-// 							},
-// 						},
-// 					},
-// 					Value: pulumi.String("testing"),
-// 				},
-// 			},
-// 			RuleVersion: pulumi.String("CostCategoryExpression.v1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := costexplorer.NewCostCategory(ctx, "test", &costexplorer.CostCategoryArgs{
+//				Rules: costexplorer.CostCategoryRuleArray{
+//					&costexplorer.CostCategoryRuleArgs{
+//						Rule: &costexplorer.CostCategoryRuleRuleArgs{
+//							Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
+//								Key: pulumi.String("LINKED_ACCOUNT_NAME"),
+//								MatchOptions: pulumi.StringArray{
+//									pulumi.String("ENDS_WITH"),
+//								},
+//								Values: pulumi.StringArray{
+//									pulumi.String("-prod"),
+//								},
+//							},
+//						},
+//						Value: pulumi.String("production"),
+//					},
+//					&costexplorer.CostCategoryRuleArgs{
+//						Rule: &costexplorer.CostCategoryRuleRuleArgs{
+//							Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
+//								Key: pulumi.String("LINKED_ACCOUNT_NAME"),
+//								MatchOptions: pulumi.StringArray{
+//									pulumi.String("ENDS_WITH"),
+//								},
+//								Values: pulumi.StringArray{
+//									pulumi.String("-stg"),
+//								},
+//							},
+//						},
+//						Value: pulumi.String("staging"),
+//					},
+//					&costexplorer.CostCategoryRuleArgs{
+//						Rule: &costexplorer.CostCategoryRuleRuleArgs{
+//							Dimension: &costexplorer.CostCategoryRuleRuleDimensionArgs{
+//								Key: pulumi.String("LINKED_ACCOUNT_NAME"),
+//								MatchOptions: pulumi.StringArray{
+//									pulumi.String("ENDS_WITH"),
+//								},
+//								Values: pulumi.StringArray{
+//									pulumi.String("-dev"),
+//								},
+//							},
+//						},
+//						Value: pulumi.String("testing"),
+//					},
+//				},
+//				RuleVersion: pulumi.String("CostCategoryExpression.v1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -85,7 +88,9 @@ import (
 // `aws_ce_cost_category` can be imported using the id, e.g.
 //
 // ```sh
-//  $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+//
+//	$ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+//
 // ```
 type CostCategory struct {
 	pulumi.CustomResourceState
@@ -106,10 +111,8 @@ type CostCategory struct {
 	Rules CostCategoryRuleArrayOutput `pulumi:"rules"`
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules CostCategorySplitChargeRuleArrayOutput `pulumi:"splitChargeRules"`
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Tags             pulumi.StringMapOutput                 `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput                 `pulumi:"tagsAll"`
 }
 
 // NewCostCategory registers a new resource with the given unique name, arguments, and options.
@@ -163,10 +166,8 @@ type costCategoryState struct {
 	Rules []CostCategoryRule `pulumi:"rules"`
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules []CostCategorySplitChargeRule `pulumi:"splitChargeRules"`
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags             map[string]string             `pulumi:"tags"`
+	TagsAll          map[string]string             `pulumi:"tagsAll"`
 }
 
 type CostCategoryState struct {
@@ -186,10 +187,8 @@ type CostCategoryState struct {
 	Rules CostCategoryRuleArrayInput
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules CostCategorySplitChargeRuleArrayInput
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
 }
 
 func (CostCategoryState) ElementType() reflect.Type {
@@ -207,10 +206,7 @@ type costCategoryArgs struct {
 	Rules []CostCategoryRule `pulumi:"rules"`
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules []CostCategorySplitChargeRule `pulumi:"splitChargeRules"`
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags             map[string]string             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CostCategory resource.
@@ -225,10 +221,7 @@ type CostCategoryArgs struct {
 	Rules CostCategoryRuleArrayInput
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules CostCategorySplitChargeRuleArrayInput
-	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
+	Tags             pulumi.StringMapInput
 }
 
 func (CostCategoryArgs) ElementType() reflect.Type {
@@ -257,7 +250,7 @@ func (i *CostCategory) ToCostCategoryOutputWithContext(ctx context.Context) Cost
 // CostCategoryArrayInput is an input type that accepts CostCategoryArray and CostCategoryArrayOutput values.
 // You can construct a concrete instance of `CostCategoryArrayInput` via:
 //
-//          CostCategoryArray{ CostCategoryArgs{...} }
+//	CostCategoryArray{ CostCategoryArgs{...} }
 type CostCategoryArrayInput interface {
 	pulumi.Input
 
@@ -282,7 +275,7 @@ func (i CostCategoryArray) ToCostCategoryArrayOutputWithContext(ctx context.Cont
 // CostCategoryMapInput is an input type that accepts CostCategoryMap and CostCategoryMapOutput values.
 // You can construct a concrete instance of `CostCategoryMapInput` via:
 //
-//          CostCategoryMap{ "key": CostCategoryArgs{...} }
+//	CostCategoryMap{ "key": CostCategoryArgs{...} }
 type CostCategoryMapInput interface {
 	pulumi.Input
 
@@ -358,12 +351,10 @@ func (o CostCategoryOutput) SplitChargeRules() CostCategorySplitChargeRuleArrayO
 	return o.ApplyT(func(v *CostCategory) CostCategorySplitChargeRuleArrayOutput { return v.SplitChargeRules }).(CostCategorySplitChargeRuleArrayOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CostCategoryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CostCategory) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o CostCategoryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CostCategory) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

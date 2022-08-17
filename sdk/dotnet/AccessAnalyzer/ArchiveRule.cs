@@ -21,7 +21,7 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// ```
     /// </summary>
     [AwsResourceType("aws:accessanalyzer/archiveRule:ArchiveRule")]
-    public partial class ArchiveRule : Pulumi.CustomResource
+    public partial class ArchiveRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Analyzer name.
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.AccessAnalyzer
         }
     }
 
-    public sealed class ArchiveRuleArgs : Pulumi.ResourceArgs
+    public sealed class ArchiveRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Analyzer name.
@@ -114,9 +114,10 @@ namespace Pulumi.Aws.AccessAnalyzer
         public ArchiveRuleArgs()
         {
         }
+        public static new ArchiveRuleArgs Empty => new ArchiveRuleArgs();
     }
 
-    public sealed class ArchiveRuleState : Pulumi.ResourceArgs
+    public sealed class ArchiveRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Analyzer name.
@@ -145,5 +146,6 @@ namespace Pulumi.Aws.AccessAnalyzer
         public ArchiveRuleState()
         {
         }
+        public static new ArchiveRuleState Empty => new ArchiveRuleState();
     }
 }

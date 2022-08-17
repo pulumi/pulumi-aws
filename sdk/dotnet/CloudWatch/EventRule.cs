@@ -17,68 +17,68 @@ namespace Pulumi.Aws.CloudWatch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var console = new Aws.CloudWatch.EventRule("console", new()
     ///     {
-    ///         var console = new Aws.CloudWatch.EventRule("console", new Aws.CloudWatch.EventRuleArgs
-    ///         {
-    ///             Description = "Capture each AWS Console Sign In",
-    ///             EventPattern = @"{
+    ///         Description = "Capture each AWS Console Sign In",
+    ///         EventPattern = @"{
     ///   ""detail-type"": [
     ///     ""AWS Console Sign In via CloudTrail""
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var awsLogins = new Aws.Sns.Topic("awsLogins", new Aws.Sns.TopicArgs
+    ///     });
+    /// 
+    ///     var awsLogins = new Aws.Sns.Topic("awsLogins");
+    /// 
+    ///     var sns = new Aws.CloudWatch.EventTarget("sns", new()
+    ///     {
+    ///         Rule = console.Name,
+    ///         Arn = awsLogins.Arn,
+    ///     });
+    /// 
+    ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
     ///         {
-    ///         });
-    ///         var sns = new Aws.CloudWatch.EventTarget("sns", new Aws.CloudWatch.EventTargetArgs
-    ///         {
-    ///             Rule = console.Name,
-    ///             Arn = awsLogins.Arn,
-    ///         });
-    ///         var snsTopicPolicy = awsLogins.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
-    ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
     ///                 {
-    ///                     Effect = "Allow",
-    ///                     Actions = 
+    ///                     "SNS:Publish",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "SNS:Publish",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Type = "Service",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "events.amazonaws.com",
-    ///                             },
+    ///                             "events.amazonaws.com",
     ///                         },
     ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         arn,
-    ///                     },
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     awsLogins.Arn,
     ///                 },
     ///             },
-    ///         }));
-    ///         var @default = new Aws.Sns.TopicPolicy("default", new Aws.Sns.TopicPolicyArgs
-    ///         {
-    ///             Arn = awsLogins.Arn,
-    ///             Policy = snsTopicPolicy.Apply(snsTopicPolicy =&gt; snsTopicPolicy.Json),
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var @default = new Aws.Sns.TopicPolicy("default", new()
+    ///     {
+    ///         Arn = awsLogins.Arn,
+    ///         Policy = snsTopicPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventRule:EventRule")]
-    public partial class EventRule : Pulumi.CustomResource
+    public partial class EventRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the rule.
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class EventRuleArgs : Pulumi.ResourceArgs
+    public sealed class EventRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the rule.
@@ -267,9 +267,10 @@ namespace Pulumi.Aws.CloudWatch
         public EventRuleArgs()
         {
         }
+        public static new EventRuleArgs Empty => new EventRuleArgs();
     }
 
-    public sealed class EventRuleState : Pulumi.ResourceArgs
+    public sealed class EventRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the rule.
@@ -341,7 +342,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -352,5 +353,6 @@ namespace Pulumi.Aws.CloudWatch
         public EventRuleState()
         {
         }
+        public static new EventRuleState Empty => new EventRuleState();
     }
 }

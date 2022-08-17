@@ -15,28 +15,26 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.GlobalAccelerator.EndpointGroup("example", new()
     ///     {
-    ///         var example = new Aws.GlobalAccelerator.EndpointGroup("example", new Aws.GlobalAccelerator.EndpointGroupArgs
+    ///         ListenerArn = aws_globalaccelerator_listener.Example.Id,
+    ///         EndpointConfigurations = new[]
     ///         {
-    ///             ListenerArn = aws_globalaccelerator_listener.Example.Id,
-    ///             EndpointConfigurations = 
+    ///             new Aws.GlobalAccelerator.Inputs.EndpointGroupEndpointConfigurationArgs
     ///             {
-    ///                 new Aws.GlobalAccelerator.Inputs.EndpointGroupEndpointConfigurationArgs
-    ///                 {
-    ///                     EndpointId = aws_lb.Example.Arn,
-    ///                     Weight = 100,
-    ///                 },
+    ///                 EndpointId = aws_lb.Example.Arn,
+    ///                 Weight = 100,
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// ```
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/endpointGroup:EndpointGroup")]
-    public partial class EndpointGroup : Pulumi.CustomResource
+    public partial class EndpointGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the endpoint group.
@@ -161,7 +159,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         }
     }
 
-    public sealed class EndpointGroupArgs : Pulumi.ResourceArgs
+    public sealed class EndpointGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointConfigurations")]
         private InputList<Inputs.EndpointGroupEndpointConfigurationArgs>? _endpointConfigurations;
@@ -239,9 +237,10 @@ namespace Pulumi.Aws.GlobalAccelerator
         public EndpointGroupArgs()
         {
         }
+        public static new EndpointGroupArgs Empty => new EndpointGroupArgs();
     }
 
-    public sealed class EndpointGroupState : Pulumi.ResourceArgs
+    public sealed class EndpointGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the endpoint group.
@@ -325,5 +324,6 @@ namespace Pulumi.Aws.GlobalAccelerator
         public EndpointGroupState()
         {
         }
+        public static new EndpointGroupState Empty => new EndpointGroupState();
     }
 }

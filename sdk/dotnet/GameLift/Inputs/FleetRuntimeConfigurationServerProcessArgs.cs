@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift.Inputs
 {
 
-    public sealed class FleetRuntimeConfigurationServerProcessArgs : Pulumi.ResourceArgs
+    public sealed class FleetRuntimeConfigurationServerProcessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of server processes using this configuration to run concurrently on an instance.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.GameLift.Inputs
         public FleetRuntimeConfigurationServerProcessArgs()
         {
         }
+        public static new FleetRuntimeConfigurationServerProcessArgs Empty => new FleetRuntimeConfigurationServerProcessArgs();
     }
 }

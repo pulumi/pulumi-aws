@@ -23,16 +23,15 @@ namespace Pulumi.Aws.Connect
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Connect.ContactFlowModule("example", new()
     ///     {
-    ///         var example = new Aws.Connect.ContactFlowModule("example", new Aws.Connect.ContactFlowModuleArgs
-    ///         {
-    ///             Content = @"    {
+    ///         Content = @"    {
     /// 		""Version"": ""2019-10-30"",
     /// 		""StartAction"": ""12345678-1234-1234-1234-123456789012"",
     /// 		""Actions"": [
@@ -74,18 +73,17 @@ namespace Pulumi.Aws.Connect
     /// 	}
     ///     
     /// ",
-    ///             Description = "Example Contact Flow Module Description",
-    ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///             Tags = 
-    ///             {
-    ///                 { "Application", "Terraform" },
-    ///                 { "Method", "Create" },
-    ///                 { "Name", "Example Contact Flow Module" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Description = "Example Contact Flow Module Description",
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Tags = 
+    ///         {
+    ///             { "Application", "Terraform" },
+    ///             { "Method", "Create" },
+    ///             { "Name", "Example Contact Flow Module" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -97,7 +95,7 @@ namespace Pulumi.Aws.Connect
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/contactFlowModule:ContactFlowModule")]
-    public partial class ContactFlowModule : Pulumi.CustomResource
+    public partial class ContactFlowModule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Contact Flow Module.
@@ -150,9 +148,6 @@ namespace Pulumi.Aws.Connect
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -200,7 +195,7 @@ namespace Pulumi.Aws.Connect
         }
     }
 
-    public sealed class ContactFlowModuleArgs : Pulumi.ResourceArgs
+    public sealed class ContactFlowModuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
@@ -250,9 +245,10 @@ namespace Pulumi.Aws.Connect
         public ContactFlowModuleArgs()
         {
         }
+        public static new ContactFlowModuleArgs Empty => new ContactFlowModuleArgs();
     }
 
-    public sealed class ContactFlowModuleState : Pulumi.ResourceArgs
+    public sealed class ContactFlowModuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Contact Flow Module.
@@ -313,10 +309,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -326,5 +318,6 @@ namespace Pulumi.Aws.Connect
         public ContactFlowModuleState()
         {
         }
+        public static new ContactFlowModuleState Empty => new ContactFlowModuleState();
     }
 }

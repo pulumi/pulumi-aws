@@ -20,17 +20,15 @@ namespace Pulumi.Aws.CloudFront
         /// ### All origin access identities in the account
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Aws.CloudFront.GetOriginAccessIdentities.InvokeAsync());
-        ///     }
+        ///     var example = Aws.CloudFront.GetOriginAccessIdentities.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
@@ -39,24 +37,22 @@ namespace Pulumi.Aws.CloudFront
         /// Origin access identities whose comments are `example-comment1`, `example-comment2`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudFront.GetOriginAccessIdentities.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudFront.GetOriginAccessIdentities.InvokeAsync(new Aws.CloudFront.GetOriginAccessIdentitiesArgs
+        ///         Comments = new[]
         ///         {
-        ///             Comments = 
-        ///             {
-        ///                 "example-comment1",
-        ///                 "example-comment2",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "example-comment1",
+        ///             "example-comment2",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,17 +69,15 @@ namespace Pulumi.Aws.CloudFront
         /// ### All origin access identities in the account
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Aws.CloudFront.GetOriginAccessIdentities.InvokeAsync());
-        ///     }
+        ///     var example = Aws.CloudFront.GetOriginAccessIdentities.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
@@ -92,24 +86,22 @@ namespace Pulumi.Aws.CloudFront
         /// Origin access identities whose comments are `example-comment1`, `example-comment2`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudFront.GetOriginAccessIdentities.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudFront.GetOriginAccessIdentities.InvokeAsync(new Aws.CloudFront.GetOriginAccessIdentitiesArgs
+        ///         Comments = new[]
         ///         {
-        ///             Comments = 
-        ///             {
-        ///                 "example-comment1",
-        ///                 "example-comment2",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "example-comment1",
+        ///             "example-comment2",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -119,7 +111,7 @@ namespace Pulumi.Aws.CloudFront
     }
 
 
-    public sealed class GetOriginAccessIdentitiesArgs : Pulumi.InvokeArgs
+    public sealed class GetOriginAccessIdentitiesArgs : global::Pulumi.InvokeArgs
     {
         [Input("comments")]
         private List<string>? _comments;
@@ -136,9 +128,10 @@ namespace Pulumi.Aws.CloudFront
         public GetOriginAccessIdentitiesArgs()
         {
         }
+        public static new GetOriginAccessIdentitiesArgs Empty => new GetOriginAccessIdentitiesArgs();
     }
 
-    public sealed class GetOriginAccessIdentitiesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOriginAccessIdentitiesInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("comments")]
         private InputList<string>? _comments;
@@ -155,6 +148,7 @@ namespace Pulumi.Aws.CloudFront
         public GetOriginAccessIdentitiesInvokeArgs()
         {
         }
+        public static new GetOriginAccessIdentitiesInvokeArgs Empty => new GetOriginAccessIdentitiesInvokeArgs();
     }
 
 

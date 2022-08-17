@@ -21,7 +21,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, arn=None, cluster_arn=None, desired_count=None, id=None, launch_type=None, scheduling_strategy=None, service_name=None, task_definition=None):
+    def __init__(__self__, arn=None, cluster_arn=None, desired_count=None, id=None, launch_type=None, scheduling_strategy=None, service_name=None, tags=None, task_definition=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +43,9 @@ class GetServiceResult:
         if service_name and not isinstance(service_name, str):
             raise TypeError("Expected argument 'service_name' to be a str")
         pulumi.set(__self__, "service_name", service_name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if task_definition and not isinstance(task_definition, str):
             raise TypeError("Expected argument 'task_definition' to be a str")
         pulumi.set(__self__, "task_definition", task_definition)
@@ -98,6 +101,14 @@ class GetServiceResult:
         return pulumi.get(self, "service_name")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> str:
         """
@@ -119,11 +130,13 @@ class AwaitableGetServiceResult(GetServiceResult):
             launch_type=self.launch_type,
             scheduling_strategy=self.scheduling_strategy,
             service_name=self.service_name,
+            tags=self.tags,
             task_definition=self.task_definition)
 
 
 def get_service(cluster_arn: Optional[str] = None,
                 service_name: Optional[str] = None,
+                tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     The ECS Service data source allows access to details of a specific
@@ -142,10 +155,12 @@ def get_service(cluster_arn: Optional[str] = None,
 
     :param str cluster_arn: The arn of the ECS Cluster
     :param str service_name: The name of the ECS Service
+    :param Mapping[str, str] tags: Resource tags.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
     __args__['serviceName'] = service_name
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ecs/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
@@ -157,12 +172,14 @@ def get_service(cluster_arn: Optional[str] = None,
         launch_type=__ret__.launch_type,
         scheduling_strategy=__ret__.scheduling_strategy,
         service_name=__ret__.service_name,
+        tags=__ret__.tags,
         task_definition=__ret__.task_definition)
 
 
 @_utilities.lift_output_func(get_service)
 def get_service_output(cluster_arn: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
+                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     The ECS Service data source allows access to details of a specific
@@ -181,5 +198,6 @@ def get_service_output(cluster_arn: Optional[pulumi.Input[str]] = None,
 
     :param str cluster_arn: The arn of the ECS Cluster
     :param str service_name: The name of the ECS Service
+    :param Mapping[str, str] tags: Resource tags.
     """
     ...

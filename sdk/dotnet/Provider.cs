@@ -16,7 +16,7 @@ namespace Pulumi.Aws
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [AwsResourceType("pulumi:providers:aws")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
         /// The access key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
@@ -114,7 +114,7 @@ namespace Pulumi.Aws
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
@@ -332,5 +332,6 @@ namespace Pulumi.Aws
             SkipMetadataApiCheck = true;
             SkipRegionValidation = true;
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

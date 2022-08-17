@@ -20,51 +20,56 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		lbUser, err := iam.NewUser(ctx, "lbUser", &iam.UserArgs{
-// 			Path: pulumi.String("/system/"),
-// 			Tags: pulumi.StringMap{
-// 				"tag-key": pulumi.String("tag-value"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewAccessKey(ctx, "lbAccessKey", &iam.AccessKeyArgs{
-// 			User: lbUser.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewUserPolicy(ctx, "lbRo", &iam.UserPolicyArgs{
-// 			User: lbUser.Name,
-// 			Policy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": [
-//         "ec2:Describe*"
-//       ],
-//       "Effect": "Allow",
-//       "Resource": "*"
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			lbUser, err := iam.NewUser(ctx, "lbUser", &iam.UserArgs{
+//				Path: pulumi.String("/system/"),
+//				Tags: pulumi.StringMap{
+//					"tag-key": pulumi.String("tag-value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewAccessKey(ctx, "lbAccessKey", &iam.AccessKeyArgs{
+//				User: lbUser.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewUserPolicy(ctx, "lbRo", &iam.UserPolicyArgs{
+//				User: lbUser.Name,
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": [
+//	        "ec2:Describe*"
+//	      ],
+//	      "Effect": "Allow",
+//	      "Resource": "*"
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +77,9 @@ import (
 // IAM Users can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:iam/user:User lb loadbalancer
+//
+//	$ pulumi import aws:iam/user:User lb loadbalancer
+//
 // ```
 type User struct {
 	pulumi.CustomResourceState
@@ -89,9 +96,9 @@ type User struct {
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the user.
 	PermissionsBoundary pulumi.StringPtrOutput `pulumi:"permissionsBoundary"`
-	// Key-value mapping of tags for the IAM user
+	// Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The [unique ID][1] assigned by AWS.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
@@ -138,9 +145,9 @@ type userState struct {
 	Path *string `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the user.
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
-	// Key-value mapping of tags for the IAM user
+	// Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The [unique ID][1] assigned by AWS.
 	UniqueId *string `pulumi:"uniqueId"`
@@ -159,9 +166,9 @@ type UserState struct {
 	Path pulumi.StringPtrInput
 	// The ARN of the policy that is used to set the permissions boundary for the user.
 	PermissionsBoundary pulumi.StringPtrInput
-	// Key-value mapping of tags for the IAM user
+	// Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The [unique ID][1] assigned by AWS.
 	UniqueId pulumi.StringPtrInput
@@ -182,7 +189,7 @@ type userArgs struct {
 	Path *string `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the user.
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
-	// Key-value mapping of tags for the IAM user
+	// Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -198,7 +205,7 @@ type UserArgs struct {
 	Path pulumi.StringPtrInput
 	// The ARN of the policy that is used to set the permissions boundary for the user.
 	PermissionsBoundary pulumi.StringPtrInput
-	// Key-value mapping of tags for the IAM user
+	// Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -228,7 +235,7 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 // UserArrayInput is an input type that accepts UserArray and UserArrayOutput values.
 // You can construct a concrete instance of `UserArrayInput` via:
 //
-//          UserArray{ UserArgs{...} }
+//	UserArray{ UserArgs{...} }
 type UserArrayInput interface {
 	pulumi.Input
 
@@ -253,7 +260,7 @@ func (i UserArray) ToUserArrayOutputWithContext(ctx context.Context) UserArrayOu
 // UserMapInput is an input type that accepts UserMap and UserMapOutput values.
 // You can construct a concrete instance of `UserMapInput` via:
 //
-//          UserMap{ "key": UserArgs{...} }
+//	UserMap{ "key": UserArgs{...} }
 type UserMapInput interface {
 	pulumi.Input
 
@@ -316,12 +323,12 @@ func (o UserOutput) PermissionsBoundary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.PermissionsBoundary }).(pulumi.StringPtrOutput)
 }
 
-// Key-value mapping of tags for the IAM user
+// Key-value mapping of tags for the IAM user. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o UserOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider.
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o UserOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -151,7 +151,7 @@ func (o MetricPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 // MetricInput is an input type that accepts MetricArgs and MetricOutput values.
 // You can construct a concrete instance of `MetricInput` via:
 //
-//          MetricArgs{...}
+//	MetricArgs{...}
 type MetricInput interface {
 	pulumi.Input
 
@@ -315,7 +315,7 @@ func (o MetricsGranularityPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // MetricsGranularityInput is an input type that accepts MetricsGranularityArgs and MetricsGranularityOutput values.
 // You can construct a concrete instance of `MetricsGranularityInput` via:
 //
-//          MetricsGranularityArgs{...}
+//	MetricsGranularityArgs{...}
 type MetricsGranularityInput interface {
 	pulumi.Input
 
@@ -483,7 +483,7 @@ func (o NotificationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // NotificationTypeInput is an input type that accepts NotificationTypeArgs and NotificationTypeOutput values.
 // You can construct a concrete instance of `NotificationTypeInput` via:
 //
-//          NotificationTypeArgs{...}
+//	NotificationTypeArgs{...}
 type NotificationTypeInput interface {
 	pulumi.Input
 

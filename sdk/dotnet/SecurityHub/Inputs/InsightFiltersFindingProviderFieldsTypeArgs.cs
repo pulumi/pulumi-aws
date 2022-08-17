@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SecurityHub.Inputs
 {
 
-    public sealed class InsightFiltersFindingProviderFieldsTypeArgs : Pulumi.ResourceArgs
+    public sealed class InsightFiltersFindingProviderFieldsTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         public InsightFiltersFindingProviderFieldsTypeArgs()
         {
         }
+        public static new InsightFiltersFindingProviderFieldsTypeArgs Empty => new InsightFiltersFindingProviderFieldsTypeArgs();
     }
 }

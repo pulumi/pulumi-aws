@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ProjectLogsConfigArgs : Pulumi.ResourceArgs
+    public sealed class ProjectLogsConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block. Detailed below.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ProjectLogsConfigArgs()
         {
         }
+        public static new ProjectLogsConfigArgs Empty => new ProjectLogsConfigArgs();
     }
 }

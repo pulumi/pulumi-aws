@@ -19,32 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := route53.NewResolverQueryLogConfig(ctx, "example", &route53.ResolverQueryLogConfigArgs{
-// 			DestinationArn: pulumi.Any(aws_s3_bucket.Example.Arn),
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("Prod"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53.NewResolverQueryLogConfig(ctx, "example", &route53.ResolverQueryLogConfigArgs{
+//				DestinationArn: pulumi.Any(aws_s3_bucket.Example.Arn),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Prod"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-//  Route 53 Resolver query logging configurations can be imported using the Route 53 Resolver query logging configuration ID, e.g.,
+//	Route 53 Resolver query logging configurations can be imported using the Route 53 Resolver query logging configuration ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
+//
+//	$ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
+//
 // ```
 type ResolverQueryLogConfig struct {
 	pulumi.CustomResourceState
@@ -64,7 +69,7 @@ type ResolverQueryLogConfig struct {
 	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -115,7 +120,7 @@ type resolverQueryLogConfigState struct {
 	ShareStatus *string `pulumi:"shareStatus"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -135,7 +140,7 @@ type ResolverQueryLogConfigState struct {
 	ShareStatus pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -190,7 +195,7 @@ func (i *ResolverQueryLogConfig) ToResolverQueryLogConfigOutputWithContext(ctx c
 // ResolverQueryLogConfigArrayInput is an input type that accepts ResolverQueryLogConfigArray and ResolverQueryLogConfigArrayOutput values.
 // You can construct a concrete instance of `ResolverQueryLogConfigArrayInput` via:
 //
-//          ResolverQueryLogConfigArray{ ResolverQueryLogConfigArgs{...} }
+//	ResolverQueryLogConfigArray{ ResolverQueryLogConfigArgs{...} }
 type ResolverQueryLogConfigArrayInput interface {
 	pulumi.Input
 
@@ -215,7 +220,7 @@ func (i ResolverQueryLogConfigArray) ToResolverQueryLogConfigArrayOutputWithCont
 // ResolverQueryLogConfigMapInput is an input type that accepts ResolverQueryLogConfigMap and ResolverQueryLogConfigMapOutput values.
 // You can construct a concrete instance of `ResolverQueryLogConfigMapInput` via:
 //
-//          ResolverQueryLogConfigMap{ "key": ResolverQueryLogConfigArgs{...} }
+//	ResolverQueryLogConfigMap{ "key": ResolverQueryLogConfigArgs{...} }
 type ResolverQueryLogConfigMapInput interface {
 	pulumi.Input
 
@@ -284,7 +289,7 @@ func (o ResolverQueryLogConfigOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfig) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResolverQueryLogConfigOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfig) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

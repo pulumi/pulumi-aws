@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := emr.NewStudioSessionMapping(ctx, "example", &emr.StudioSessionMappingArgs{
-// 			StudioId:         pulumi.Any(aws_emr_studio.Example.Id),
-// 			IdentityType:     pulumi.String("USER"),
-// 			IdentityId:       pulumi.String("example"),
-// 			SessionPolicyArn: pulumi.Any(aws_iam_policy.Example.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := emr.NewStudioSessionMapping(ctx, "example", &emr.StudioSessionMappingArgs{
+//				StudioId:         pulumi.Any(aws_emr_studio.Example.Id),
+//				IdentityType:     pulumi.String("USER"),
+//				IdentityId:       pulumi.String("example"),
+//				SessionPolicyArn: pulumi.Any(aws_iam_policy.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // EMR studio session mappings can be imported using the `id`, e.g., `studio-id:identity-type:identity-id`
 //
 // ```sh
-//  $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
+//
+//	$ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
+//
 // ```
 type StudioSessionMapping struct {
 	pulumi.CustomResourceState
@@ -181,7 +186,7 @@ func (i *StudioSessionMapping) ToStudioSessionMappingOutputWithContext(ctx conte
 // StudioSessionMappingArrayInput is an input type that accepts StudioSessionMappingArray and StudioSessionMappingArrayOutput values.
 // You can construct a concrete instance of `StudioSessionMappingArrayInput` via:
 //
-//          StudioSessionMappingArray{ StudioSessionMappingArgs{...} }
+//	StudioSessionMappingArray{ StudioSessionMappingArgs{...} }
 type StudioSessionMappingArrayInput interface {
 	pulumi.Input
 
@@ -206,7 +211,7 @@ func (i StudioSessionMappingArray) ToStudioSessionMappingArrayOutputWithContext(
 // StudioSessionMappingMapInput is an input type that accepts StudioSessionMappingMap and StudioSessionMappingMapOutput values.
 // You can construct a concrete instance of `StudioSessionMappingMapInput` via:
 //
-//          StudioSessionMappingMap{ "key": StudioSessionMappingArgs{...} }
+//	StudioSessionMappingMap{ "key": StudioSessionMappingArgs{...} }
 type StudioSessionMappingMapInput interface {
 	pulumi.Input
 

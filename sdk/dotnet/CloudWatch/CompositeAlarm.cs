@@ -17,26 +17,24 @@ namespace Pulumi.Aws.CloudWatch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CloudWatch.CompositeAlarm("example", new()
     ///     {
-    ///         var example = new Aws.CloudWatch.CompositeAlarm("example", new Aws.CloudWatch.CompositeAlarmArgs
-    ///         {
-    ///             AlarmDescription = "This is a composite alarm!",
-    ///             AlarmName = "example-composite-alarm",
-    ///             AlarmActions = aws_sns_topic.Example.Arn,
-    ///             OkActions = aws_sns_topic.Example.Arn,
-    ///             AlarmRule = @$"ALARM({aws_cloudwatch_metric_alarm.Alpha.Alarm_name}) OR
+    ///         AlarmDescription = "This is a composite alarm!",
+    ///         AlarmName = "example-composite-alarm",
+    ///         AlarmActions = aws_sns_topic.Example.Arn,
+    ///         OkActions = aws_sns_topic.Example.Arn,
+    ///         AlarmRule = @$"ALARM({aws_cloudwatch_metric_alarm.Alpha.Alarm_name}) OR
     /// ALARM({aws_cloudwatch_metric_alarm.Bravo.Alarm_name})
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/compositeAlarm:CompositeAlarm")]
-    public partial class CompositeAlarm : Pulumi.CustomResource
+    public partial class CompositeAlarm : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
@@ -105,7 +103,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -154,7 +152,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class CompositeAlarmArgs : Pulumi.ResourceArgs
+    public sealed class CompositeAlarmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
@@ -231,9 +229,10 @@ namespace Pulumi.Aws.CloudWatch
         public CompositeAlarmArgs()
         {
         }
+        public static new CompositeAlarmArgs Empty => new CompositeAlarmArgs();
     }
 
-    public sealed class CompositeAlarmState : Pulumi.ResourceArgs
+    public sealed class CompositeAlarmState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
@@ -317,7 +316,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -328,5 +327,6 @@ namespace Pulumi.Aws.CloudWatch
         public CompositeAlarmState()
         {
         }
+        public static new CompositeAlarmState Empty => new CompositeAlarmState();
     }
 }

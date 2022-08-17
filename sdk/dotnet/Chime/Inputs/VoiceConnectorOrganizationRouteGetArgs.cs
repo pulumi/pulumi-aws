@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Chime.Inputs
 {
 
-    public sealed class VoiceConnectorOrganizationRouteGetArgs : Pulumi.ResourceArgs
+    public sealed class VoiceConnectorOrganizationRouteGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN or IP address to contact for origination traffic.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Chime.Inputs
         public VoiceConnectorOrganizationRouteGetArgs()
         {
         }
+        public static new VoiceConnectorOrganizationRouteGetArgs Empty => new VoiceConnectorOrganizationRouteGetArgs();
     }
 }

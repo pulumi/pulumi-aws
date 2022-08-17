@@ -20,50 +20,46 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetConnectPeer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetConnectPeer.InvokeAsync(new Aws.Ec2TransitGateway.GetConnectPeerArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2TransitGateway.Inputs.GetConnectPeerFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetConnectPeerFilterArgs
+        ///                 Name = "transit-gateway-attachment-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "transit-gateway-attachment-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "tgw-attach-12345678",
-        ///                     },
+        ///                     "tgw-attach-12345678",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetConnectPeer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetConnectPeer.InvokeAsync(new Aws.Ec2TransitGateway.GetConnectPeerArgs
-        ///         {
-        ///             TransitGatewayConnectPeerId = "tgw-connect-peer-12345678",
-        ///         }));
-        ///     }
+        ///         TransitGatewayConnectPeerId = "tgw-connect-peer-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -80,50 +76,46 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetConnectPeer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetConnectPeer.InvokeAsync(new Aws.Ec2TransitGateway.GetConnectPeerArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2TransitGateway.Inputs.GetConnectPeerFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetConnectPeerFilterArgs
+        ///                 Name = "transit-gateway-attachment-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "transit-gateway-attachment-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "tgw-attach-12345678",
-        ///                     },
+        ///                     "tgw-attach-12345678",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetConnectPeer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetConnectPeer.InvokeAsync(new Aws.Ec2TransitGateway.GetConnectPeerArgs
-        ///         {
-        ///             TransitGatewayConnectPeerId = "tgw-connect-peer-12345678",
-        ///         }));
-        ///     }
+        ///         TransitGatewayConnectPeerId = "tgw-connect-peer-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -133,7 +125,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     }
 
 
-    public sealed class GetConnectPeerArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectPeerArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetConnectPeerFilterArgs>? _filters;
@@ -168,9 +160,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetConnectPeerArgs()
         {
         }
+        public static new GetConnectPeerArgs Empty => new GetConnectPeerArgs();
     }
 
-    public sealed class GetConnectPeerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectPeerInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetConnectPeerFilterInputArgs>? _filters;
@@ -205,6 +198,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetConnectPeerInvokeArgs()
         {
         }
+        public static new GetConnectPeerInvokeArgs Empty => new GetConnectPeerInvokeArgs();
     }
 
 

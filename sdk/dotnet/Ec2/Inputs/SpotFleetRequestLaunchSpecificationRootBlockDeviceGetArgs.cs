@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class SpotFleetRequestLaunchSpecificationRootBlockDeviceGetArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetRequestLaunchSpecificationRootBlockDeviceGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public SpotFleetRequestLaunchSpecificationRootBlockDeviceGetArgs()
         {
         }
+        public static new SpotFleetRequestLaunchSpecificationRootBlockDeviceGetArgs Empty => new SpotFleetRequestLaunchSpecificationRootBlockDeviceGetArgs();
     }
 }

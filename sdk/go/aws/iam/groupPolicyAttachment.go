@@ -21,34 +21,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		group, err := iam.NewGroup(ctx, "group", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
-// 			Description: pulumi.String("A test policy"),
-// 			Policy:      pulumi.Any("{ ... policy JSON ... }"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewGroupPolicyAttachment(ctx, "test-attach", &iam.GroupPolicyAttachmentArgs{
-// 			Group:     group.Name,
-// 			PolicyArn: policy.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			group, err := iam.NewGroup(ctx, "group", nil)
+//			if err != nil {
+//				return err
+//			}
+//			policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
+//				Description: pulumi.String("A test policy"),
+//				Policy:      pulumi.Any("{ ... policy JSON ... }"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewGroupPolicyAttachment(ctx, "test-attach", &iam.GroupPolicyAttachmentArgs{
+//				Group:     group.Name,
+//				PolicyArn: policy.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // IAM group policy attachments can be imported using the group name and policy arn separated by `/`.
 //
 // ```sh
-//  $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+//
+//	$ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+//
 // ```
 type GroupPolicyAttachment struct {
 	pulumi.CustomResourceState
@@ -160,7 +165,7 @@ func (i *GroupPolicyAttachment) ToGroupPolicyAttachmentOutputWithContext(ctx con
 // GroupPolicyAttachmentArrayInput is an input type that accepts GroupPolicyAttachmentArray and GroupPolicyAttachmentArrayOutput values.
 // You can construct a concrete instance of `GroupPolicyAttachmentArrayInput` via:
 //
-//          GroupPolicyAttachmentArray{ GroupPolicyAttachmentArgs{...} }
+//	GroupPolicyAttachmentArray{ GroupPolicyAttachmentArgs{...} }
 type GroupPolicyAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -185,7 +190,7 @@ func (i GroupPolicyAttachmentArray) ToGroupPolicyAttachmentArrayOutputWithContex
 // GroupPolicyAttachmentMapInput is an input type that accepts GroupPolicyAttachmentMap and GroupPolicyAttachmentMapOutput values.
 // You can construct a concrete instance of `GroupPolicyAttachmentMapInput` via:
 //
-//          GroupPolicyAttachmentMap{ "key": GroupPolicyAttachmentArgs{...} }
+//	GroupPolicyAttachmentMap{ "key": GroupPolicyAttachmentArgs{...} }
 type GroupPolicyAttachmentMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementGetArgs()
         {
         }
+        public static new WebAclRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementGetArgs Empty => new WebAclRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementGetArgs();
     }
 }

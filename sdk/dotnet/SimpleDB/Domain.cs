@@ -15,19 +15,15 @@ namespace Pulumi.Aws.SimpleDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var users = new Aws.SimpleDB.Domain("users", new Aws.SimpleDB.DomainArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var users = new Aws.SimpleDB.Domain("users");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.SimpleDB
     /// ```
     /// </summary>
     [AwsResourceType("aws:simpledb/domain:Domain")]
-    public partial class Domain : Pulumi.CustomResource
+    public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the SimpleDB domain
@@ -91,7 +87,7 @@ namespace Pulumi.Aws.SimpleDB
         }
     }
 
-    public sealed class DomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the SimpleDB domain
@@ -102,9 +98,10 @@ namespace Pulumi.Aws.SimpleDB
         public DomainArgs()
         {
         }
+        public static new DomainArgs Empty => new DomainArgs();
     }
 
-    public sealed class DomainState : Pulumi.ResourceArgs
+    public sealed class DomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the SimpleDB domain
@@ -115,5 +112,6 @@ namespace Pulumi.Aws.SimpleDB
         public DomainState()
         {
         }
+        public static new DomainState Empty => new DomainState();
     }
 }

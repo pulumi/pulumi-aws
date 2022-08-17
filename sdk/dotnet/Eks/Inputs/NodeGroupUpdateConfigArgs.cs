@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Eks.Inputs
 {
 
-    public sealed class NodeGroupUpdateConfigArgs : Pulumi.ResourceArgs
+    public sealed class NodeGroupUpdateConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Desired max number of unavailable worker nodes during node group update.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Eks.Inputs
         public NodeGroupUpdateConfigArgs()
         {
         }
+        public static new NodeGroupUpdateConfigArgs Empty => new NodeGroupUpdateConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterBrokerNodeGroupInfoStorageInfoArgs : Pulumi.ResourceArgs
+    public sealed class ClusterBrokerNodeGroupInfoStorageInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A block that contains EBS volume information. See below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterBrokerNodeGroupInfoStorageInfoArgs()
         {
         }
+        public static new ClusterBrokerNodeGroupInfoStorageInfoArgs Empty => new ClusterBrokerNodeGroupInfoStorageInfoArgs();
     }
 }

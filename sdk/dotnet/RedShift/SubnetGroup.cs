@@ -15,52 +15,53 @@ namespace Pulumi.Aws.RedShift
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
     ///     {
-    ///         var fooVpc = new Aws.Ec2.Vpc("fooVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.1.0.0/16",
-    ///         });
-    ///         var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             CidrBlock = "10.1.1.0/24",
-    ///             AvailabilityZone = "us-west-2a",
-    ///             VpcId = fooVpc.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "tf-dbsubnet-test-1" },
-    ///             },
-    ///         });
-    ///         var bar = new Aws.Ec2.Subnet("bar", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             CidrBlock = "10.1.2.0/24",
-    ///             AvailabilityZone = "us-west-2b",
-    ///             VpcId = fooVpc.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "tf-dbsubnet-test-2" },
-    ///             },
-    ///         });
-    ///         var fooSubnetGroup = new Aws.RedShift.SubnetGroup("fooSubnetGroup", new Aws.RedShift.SubnetGroupArgs
-    ///         {
-    ///             SubnetIds = 
-    ///             {
-    ///                 fooSubnet.Id,
-    ///                 bar.Id,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.1.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new()
+    ///     {
+    ///         CidrBlock = "10.1.1.0/24",
+    ///         AvailabilityZone = "us-west-2a",
+    ///         VpcId = fooVpc.Id,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "tf-dbsubnet-test-1" },
+    ///         },
+    ///     });
+    /// 
+    ///     var bar = new Aws.Ec2.Subnet("bar", new()
+    ///     {
+    ///         CidrBlock = "10.1.2.0/24",
+    ///         AvailabilityZone = "us-west-2b",
+    ///         VpcId = fooVpc.Id,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "tf-dbsubnet-test-2" },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooSubnetGroup = new Aws.RedShift.SubnetGroup("fooSubnetGroup", new()
+    ///     {
+    ///         SubnetIds = new[]
+    ///         {
+    ///             fooSubnet.Id,
+    ///             bar.Id,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +73,7 @@ namespace Pulumi.Aws.RedShift
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/subnetGroup:SubnetGroup")]
-    public partial class SubnetGroup : Pulumi.CustomResource
+    public partial class SubnetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Subnet group name
@@ -105,7 +106,7 @@ namespace Pulumi.Aws.RedShift
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -154,7 +155,7 @@ namespace Pulumi.Aws.RedShift
         }
     }
 
-    public sealed class SubnetGroupArgs : Pulumi.ResourceArgs
+    public sealed class SubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the Redshift Subnet group. Defaults to "Managed by Pulumi".
@@ -196,9 +197,10 @@ namespace Pulumi.Aws.RedShift
         {
             Description = "Managed by Pulumi";
         }
+        public static new SubnetGroupArgs Empty => new SubnetGroupArgs();
     }
 
-    public sealed class SubnetGroupState : Pulumi.ResourceArgs
+    public sealed class SubnetGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Subnet group name
@@ -246,7 +248,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -258,5 +260,6 @@ namespace Pulumi.Aws.RedShift
         {
             Description = "Managed by Pulumi";
         }
+        public static new SubnetGroupState Empty => new SubnetGroupState();
     }
 }

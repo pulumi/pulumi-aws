@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AccessAnalyzer.Inputs
 {
 
-    public sealed class ArchiveRuleFilterArgs : Pulumi.ResourceArgs
+    public sealed class ArchiveRuleFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("contains")]
         private InputList<string>? _contains;
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.AccessAnalyzer.Inputs
         public ArchiveRuleFilterArgs()
         {
         }
+        public static new ArchiveRuleFilterArgs Empty => new ArchiveRuleFilterArgs();
     }
 }

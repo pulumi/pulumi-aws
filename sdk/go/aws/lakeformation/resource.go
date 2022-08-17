@@ -21,28 +21,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucket, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
-// 			Bucket: "an-example-bucket",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = lakeformation.NewResource(ctx, "exampleResource", &lakeformation.ResourceArgs{
-// 			Arn: pulumi.String(exampleBucket.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucket, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
+//				Bucket: "an-example-bucket",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lakeformation.NewResource(ctx, "exampleResource", &lakeformation.ResourceArgs{
+//				Arn: pulumi.String(exampleBucket.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Resource struct {
 	pulumi.CustomResourceState
@@ -149,7 +152,7 @@ func (i *Resource) ToResourceOutputWithContext(ctx context.Context) ResourceOutp
 // ResourceArrayInput is an input type that accepts ResourceArray and ResourceArrayOutput values.
 // You can construct a concrete instance of `ResourceArrayInput` via:
 //
-//          ResourceArray{ ResourceArgs{...} }
+//	ResourceArray{ ResourceArgs{...} }
 type ResourceArrayInput interface {
 	pulumi.Input
 
@@ -174,7 +177,7 @@ func (i ResourceArray) ToResourceArrayOutputWithContext(ctx context.Context) Res
 // ResourceMapInput is an input type that accepts ResourceMap and ResourceMapOutput values.
 // You can construct a concrete instance of `ResourceMapInput` via:
 //
-//          ResourceMap{ "key": ResourceArgs{...} }
+//	ResourceMap{ "key": ResourceArgs{...} }
 type ResourceMapInput interface {
 	pulumi.Input
 

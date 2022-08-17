@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Connect.Inputs
 {
 
-    public sealed class RoutingProfileMediaConcurrencyArgs : Pulumi.ResourceArgs
+    public sealed class RoutingProfileMediaConcurrencyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Connect.Inputs
         public RoutingProfileMediaConcurrencyArgs()
         {
         }
+        public static new RoutingProfileMediaConcurrencyArgs Empty => new RoutingProfileMediaConcurrencyArgs();
     }
 }

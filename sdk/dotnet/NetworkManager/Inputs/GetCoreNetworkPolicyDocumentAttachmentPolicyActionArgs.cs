@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager.Inputs
 {
 
-    public sealed class GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs : Pulumi.ResourceArgs
+    public sealed class GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs()
         {
         }
+        public static new GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs Empty => new GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs();
     }
 }

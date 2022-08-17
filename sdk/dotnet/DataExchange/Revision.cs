@@ -15,20 +15,18 @@ namespace Pulumi.Aws.DataExchange
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DataExchange.Revision("example", new()
     ///     {
-    ///         var example = new Aws.DataExchange.Revision("example", new Aws.DataExchange.RevisionArgs
-    ///         {
-    ///             DataSetId = aws_dataexchange_data_set.Example.Id,
-    ///         });
-    ///     }
+    ///         DataSetId = aws_dataexchange_data_set.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.DataExchange
     /// ```
     /// </summary>
     [AwsResourceType("aws:dataexchange/revision:Revision")]
-    public partial class Revision : Pulumi.CustomResource
+    public partial class Revision : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name of this data set.
@@ -72,9 +70,6 @@ namespace Pulumi.Aws.DataExchange
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -122,7 +117,7 @@ namespace Pulumi.Aws.DataExchange
         }
     }
 
-    public sealed class RevisionArgs : Pulumi.ResourceArgs
+    public sealed class RevisionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An optional comment about the revision.
@@ -151,9 +146,10 @@ namespace Pulumi.Aws.DataExchange
         public RevisionArgs()
         {
         }
+        public static new RevisionArgs Empty => new RevisionArgs();
     }
 
-    public sealed class RevisionState : Pulumi.ResourceArgs
+    public sealed class RevisionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name of this data set.
@@ -193,10 +189,6 @@ namespace Pulumi.Aws.DataExchange
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -206,5 +198,6 @@ namespace Pulumi.Aws.DataExchange
         public RevisionState()
         {
         }
+        public static new RevisionState Empty => new RevisionState();
     }
 }

@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := backup.NewRegionSettings(ctx, "test", &backup.RegionSettingsArgs{
-// 			ResourceTypeManagementPreference: pulumi.BoolMap{
-// 				"DynamoDB": pulumi.Bool(true),
-// 				"EFS":      pulumi.Bool(true),
-// 			},
-// 			ResourceTypeOptInPreference: pulumi.BoolMap{
-// 				"Aurora":          pulumi.Bool(true),
-// 				"DocumentDB":      pulumi.Bool(true),
-// 				"DynamoDB":        pulumi.Bool(true),
-// 				"EBS":             pulumi.Bool(true),
-// 				"EC2":             pulumi.Bool(true),
-// 				"EFS":             pulumi.Bool(true),
-// 				"FSx":             pulumi.Bool(true),
-// 				"Neptune":         pulumi.Bool(true),
-// 				"RDS":             pulumi.Bool(true),
-// 				"Storage Gateway": pulumi.Bool(true),
-// 				"VirtualMachine":  pulumi.Bool(true),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.NewRegionSettings(ctx, "test", &backup.RegionSettingsArgs{
+//				ResourceTypeManagementPreference: pulumi.BoolMap{
+//					"DynamoDB": pulumi.Bool(true),
+//					"EFS":      pulumi.Bool(true),
+//				},
+//				ResourceTypeOptInPreference: pulumi.BoolMap{
+//					"Aurora":          pulumi.Bool(true),
+//					"DocumentDB":      pulumi.Bool(true),
+//					"DynamoDB":        pulumi.Bool(true),
+//					"EBS":             pulumi.Bool(true),
+//					"EC2":             pulumi.Bool(true),
+//					"EFS":             pulumi.Bool(true),
+//					"FSx":             pulumi.Bool(true),
+//					"Neptune":         pulumi.Bool(true),
+//					"RDS":             pulumi.Bool(true),
+//					"Storage Gateway": pulumi.Bool(true),
+//					"VirtualMachine":  pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Backup Region Settings can be imported using the `region`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
+//
+//	$ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
+//
 // ```
 type RegionSettings struct {
 	pulumi.CustomResourceState
@@ -158,7 +163,7 @@ func (i *RegionSettings) ToRegionSettingsOutputWithContext(ctx context.Context) 
 // RegionSettingsArrayInput is an input type that accepts RegionSettingsArray and RegionSettingsArrayOutput values.
 // You can construct a concrete instance of `RegionSettingsArrayInput` via:
 //
-//          RegionSettingsArray{ RegionSettingsArgs{...} }
+//	RegionSettingsArray{ RegionSettingsArgs{...} }
 type RegionSettingsArrayInput interface {
 	pulumi.Input
 
@@ -183,7 +188,7 @@ func (i RegionSettingsArray) ToRegionSettingsArrayOutputWithContext(ctx context.
 // RegionSettingsMapInput is an input type that accepts RegionSettingsMap and RegionSettingsMapOutput values.
 // You can construct a concrete instance of `RegionSettingsMapInput` via:
 //
-//          RegionSettingsMap{ "key": RegionSettingsArgs{...} }
+//	RegionSettingsMap{ "key": RegionSettingsArgs{...} }
 type RegionSettingsMapInput interface {
 	pulumi.Input
 

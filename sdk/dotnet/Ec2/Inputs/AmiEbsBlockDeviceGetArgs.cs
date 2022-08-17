@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class AmiEbsBlockDeviceGetArgs : Pulumi.ResourceArgs
+    public sealed class AmiEbsBlockDeviceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean controlling whether the EBS volumes created to
@@ -75,5 +75,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public AmiEbsBlockDeviceGetArgs()
         {
         }
+        public static new AmiEbsBlockDeviceGetArgs Empty => new AmiEbsBlockDeviceGetArgs();
     }
 }

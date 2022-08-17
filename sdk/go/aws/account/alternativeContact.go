@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/account"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/account"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := account.NewAlternativeContact(ctx, "operations", &account.AlternativeContactArgs{
-// 			AlternateContactType: pulumi.String("OPERATIONS"),
-// 			EmailAddress:         pulumi.String("test@example.com"),
-// 			PhoneNumber:          pulumi.String("+1234567890"),
-// 			Title:                pulumi.String("Example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := account.NewAlternativeContact(ctx, "operations", &account.AlternativeContactArgs{
+//				AlternateContactType: pulumi.String("OPERATIONS"),
+//				EmailAddress:         pulumi.String("test@example.com"),
+//				PhoneNumber:          pulumi.String("+1234567890"),
+//				Title:                pulumi.String("Example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,13 +47,17 @@ import (
 // The Alternate Contact for the current account can be imported using the `alternate_contact_type`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
+//
+//	$ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
+//
 // ```
 //
-//  If you provide an account ID, the Alternate Contact can be imported using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`) e.g.,
+//	If you provide an account ID, the Alternate Contact can be imported using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
+//
+//	$ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
+//
 // ```
 type AlternativeContact struct {
 	pulumi.CustomResourceState
@@ -200,7 +207,7 @@ func (i *AlternativeContact) ToAlternativeContactOutputWithContext(ctx context.C
 // AlternativeContactArrayInput is an input type that accepts AlternativeContactArray and AlternativeContactArrayOutput values.
 // You can construct a concrete instance of `AlternativeContactArrayInput` via:
 //
-//          AlternativeContactArray{ AlternativeContactArgs{...} }
+//	AlternativeContactArray{ AlternativeContactArgs{...} }
 type AlternativeContactArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +232,7 @@ func (i AlternativeContactArray) ToAlternativeContactArrayOutputWithContext(ctx 
 // AlternativeContactMapInput is an input type that accepts AlternativeContactMap and AlternativeContactMapOutput values.
 // You can construct a concrete instance of `AlternativeContactMapInput` via:
 //
-//          AlternativeContactMap{ "key": AlternativeContactArgs{...} }
+//	AlternativeContactMap{ "key": AlternativeContactArgs{...} }
 type AlternativeContactMapInput interface {
 	pulumi.Input
 

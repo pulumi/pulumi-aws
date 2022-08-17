@@ -16,67 +16,64 @@ namespace Pulumi.Aws.Sagemaker
     /// ### Cognito Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new Aws.Cognito.UserPoolArgs
-    ///         {
-    ///         });
-    ///         var exampleUserPoolClient = new Aws.Cognito.UserPoolClient("exampleUserPoolClient", new Aws.Cognito.UserPoolClientArgs
-    ///         {
-    ///             GenerateSecret = true,
-    ///             UserPoolId = exampleUserPool.Id,
-    ///         });
-    ///         var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain("exampleUserPoolDomain", new Aws.Cognito.UserPoolDomainArgs
-    ///         {
-    ///             Domain = "example",
-    ///             UserPoolId = exampleUserPool.Id,
-    ///         });
-    ///         var exampleWorkforce = new Aws.Sagemaker.Workforce("exampleWorkforce", new Aws.Sagemaker.WorkforceArgs
-    ///         {
-    ///             WorkforceName = "example",
-    ///             CognitoConfig = new Aws.Sagemaker.Inputs.WorkforceCognitoConfigArgs
-    ///             {
-    ///                 ClientId = exampleUserPoolClient.Id,
-    ///                 UserPool = exampleUserPoolDomain.UserPoolId,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
     /// 
-    /// }
+    ///     var exampleUserPoolClient = new Aws.Cognito.UserPoolClient("exampleUserPoolClient", new()
+    ///     {
+    ///         GenerateSecret = true,
+    ///         UserPoolId = exampleUserPool.Id,
+    ///     });
+    /// 
+    ///     var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain("exampleUserPoolDomain", new()
+    ///     {
+    ///         Domain = "example",
+    ///         UserPoolId = exampleUserPool.Id,
+    ///     });
+    /// 
+    ///     var exampleWorkforce = new Aws.Sagemaker.Workforce("exampleWorkforce", new()
+    ///     {
+    ///         WorkforceName = "example",
+    ///         CognitoConfig = new Aws.Sagemaker.Inputs.WorkforceCognitoConfigArgs
+    ///         {
+    ///             ClientId = exampleUserPoolClient.Id,
+    ///             UserPool = exampleUserPoolDomain.UserPoolId,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Oidc Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.Workforce("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.Workforce("example", new Aws.Sagemaker.WorkforceArgs
+    ///         OidcConfig = new Aws.Sagemaker.Inputs.WorkforceOidcConfigArgs
     ///         {
-    ///             OidcConfig = new Aws.Sagemaker.Inputs.WorkforceOidcConfigArgs
-    ///             {
-    ///                 AuthorizationEndpoint = "https://example.com",
-    ///                 ClientId = "example",
-    ///                 ClientSecret = "example",
-    ///                 Issuer = "https://example.com",
-    ///                 JwksUri = "https://example.com",
-    ///                 LogoutEndpoint = "https://example.com",
-    ///                 TokenEndpoint = "https://example.com",
-    ///                 UserInfoEndpoint = "https://example.com",
-    ///             },
-    ///             WorkforceName = "example",
-    ///         });
-    ///     }
+    ///             AuthorizationEndpoint = "https://example.com",
+    ///             ClientId = "example",
+    ///             ClientSecret = "example",
+    ///             Issuer = "https://example.com",
+    ///             JwksUri = "https://example.com",
+    ///             LogoutEndpoint = "https://example.com",
+    ///             TokenEndpoint = "https://example.com",
+    ///             UserInfoEndpoint = "https://example.com",
+    ///         },
+    ///         WorkforceName = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +85,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/workforce:Workforce")]
-    public partial class Workforce : Pulumi.CustomResource
+    public partial class Workforce : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
@@ -170,7 +167,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class WorkforceArgs : Pulumi.ResourceArgs
+    public sealed class WorkforceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
@@ -199,9 +196,10 @@ namespace Pulumi.Aws.Sagemaker
         public WorkforceArgs()
         {
         }
+        public static new WorkforceArgs Empty => new WorkforceArgs();
     }
 
-    public sealed class WorkforceState : Pulumi.ResourceArgs
+    public sealed class WorkforceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
@@ -242,5 +240,6 @@ namespace Pulumi.Aws.Sagemaker
         public WorkforceState()
         {
         }
+        public static new WorkforceState Empty => new WorkforceState();
     }
 }

@@ -15,60 +15,61 @@ namespace Pulumi.Aws.DirectoryService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new()
     ///     {
-    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
-    ///         {
-    ///             RetentionInDays = 14,
-    ///         });
-    ///         var ad_log_policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
-    ///         {
-    ///             Statements = 
-    ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///                 {
-    ///                     Actions = 
-    ///                     {
-    ///                         "logs:CreateLogStream",
-    ///                         "logs:PutLogEvents",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                         {
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "ds.amazonaws.com",
-    ///                             },
-    ///                             Type = "Service",
-    ///                         },
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
-    ///                     },
-    ///                     Effect = "Allow",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var ad_log_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("ad-log-policyLogResourcePolicy", new Aws.CloudWatch.LogResourcePolicyArgs
-    ///         {
-    ///             PolicyDocument = ad_log_policyPolicyDocument.Apply(ad_log_policyPolicyDocument =&gt; ad_log_policyPolicyDocument.Json),
-    ///             PolicyName = "ad-log-policy",
-    ///         });
-    ///         var exampleLogService = new Aws.DirectoryService.LogService("exampleLogService", new Aws.DirectoryService.LogServiceArgs
-    ///         {
-    ///             DirectoryId = aws_directory_service_directory.Example.Id,
-    ///             LogGroupName = exampleLogGroup.Name,
-    ///         });
-    ///     }
+    ///         RetentionInDays = 14,
+    ///     });
     /// 
-    /// }
+    ///     var ad_log_policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:CreateLogStream",
+    ///                     "logs:PutLogEvents",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "ds.amazonaws.com",
+    ///                         },
+    ///                         Type = "Service",
+    ///                     },
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{exampleLogGroup.Arn}:*",
+    ///                 },
+    ///                 Effect = "Allow",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var ad_log_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("ad-log-policyLogResourcePolicy", new()
+    ///     {
+    ///         PolicyDocument = ad_log_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult).Apply(ad_log_policyPolicyDocument =&gt; ad_log_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///         PolicyName = "ad-log-policy",
+    ///     });
+    /// 
+    ///     var exampleLogService = new Aws.DirectoryService.LogService("exampleLogService", new()
+    ///     {
+    ///         DirectoryId = aws_directory_service_directory.Example.Id,
+    ///         LogGroupName = exampleLogGroup.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -80,7 +81,7 @@ namespace Pulumi.Aws.DirectoryService
     /// ```
     /// </summary>
     [AwsResourceType("aws:directoryservice/logService:LogService")]
-    public partial class LogService : Pulumi.CustomResource
+    public partial class LogService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The id of directory.
@@ -138,7 +139,7 @@ namespace Pulumi.Aws.DirectoryService
         }
     }
 
-    public sealed class LogServiceArgs : Pulumi.ResourceArgs
+    public sealed class LogServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of directory.
@@ -155,9 +156,10 @@ namespace Pulumi.Aws.DirectoryService
         public LogServiceArgs()
         {
         }
+        public static new LogServiceArgs Empty => new LogServiceArgs();
     }
 
-    public sealed class LogServiceState : Pulumi.ResourceArgs
+    public sealed class LogServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of directory.
@@ -174,5 +176,6 @@ namespace Pulumi.Aws.DirectoryService
         public LogServiceState()
         {
         }
+        public static new LogServiceState Empty => new LogServiceState();
     }
 }

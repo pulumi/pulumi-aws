@@ -20,54 +20,51 @@ namespace Pulumi.Aws.Ecr
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var currentCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var currentRegion = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var currentPartition = Output.Create(Aws.GetPartition.InvokeAsync());
-    ///         var example = new Aws.Ecr.RegistryPolicy("example", new Aws.Ecr.RegistryPolicyArgs
-    ///         {
-    ///             Policy = Output.Tuple(currentPartition, currentCallerIdentity, currentPartition, currentRegion, currentCallerIdentity).Apply(values =&gt;
-    ///             {
-    ///                 var currentPartition = values.Item1;
-    ///                 var currentCallerIdentity = values.Item2;
-    ///                 var currentPartition1 = values.Item3;
-    ///                 var currentRegion = values.Item4;
-    ///                 var currentCallerIdentity1 = values.Item5;
-    ///                 return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "Version", "2012-10-17" },
-    ///                     { "Statement", new[]
-    ///                         {
-    ///                             new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "Sid", "testpolicy" },
-    ///                                 { "Effect", "Allow" },
-    ///                                 { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     { "AWS", $"arn:{currentPartition.Partition}:iam::{currentCallerIdentity.AccountId}:root" },
-    ///                                 } },
-    ///                                 { "Action", new[]
-    ///                                     {
-    ///                                         "ecr:ReplicateImage",
-    ///                                     }
-    ///                                  },
-    ///                                 { "Resource", new[]
-    ///                                     {
-    ///                                         $"arn:{currentPartition1.Partition}:ecr:{currentRegion.Name}:{currentCallerIdentity1.AccountId}:repository/*",
-    ///                                     }
-    ///                                  },
-    ///                             },
-    ///                         }
-    ///                      },
-    ///                 });
-    ///             }),
-    ///         });
-    ///     }
+    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
     /// 
-    /// }
+    ///     var currentRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var currentPartition = Aws.GetPartition.Invoke();
+    /// 
+    ///     var example = new Aws.Ecr.RegistryPolicy("example", new()
+    ///     {
+    ///         Policy = Output.Tuple(currentPartition.Apply(getPartitionResult =&gt; getPartitionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), currentPartition.Apply(getPartitionResult =&gt; getPartitionResult), currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult)).Apply(values =&gt;
+    ///         {
+    ///             var currentPartition = values.Item1;
+    ///             var currentCallerIdentity = values.Item2;
+    ///             var currentPartition1 = values.Item3;
+    ///             var currentRegion = values.Item4;
+    ///             var currentCallerIdentity1 = values.Item5;
+    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["Version"] = "2012-10-17",
+    ///                 ["Statement"] = new[]
+    ///                 {
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Sid"] = "testpolicy",
+    ///                         ["Effect"] = "Allow",
+    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["AWS"] = $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
+    ///                         },
+    ///                         ["Action"] = new[]
+    ///                         {
+    ///                             "ecr:ReplicateImage",
+    ///                         },
+    ///                         ["Resource"] = new[]
+    ///                         {
+    ///                             $"arn:{currentPartition1.Partition}:ecr:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity1.AccountId}:repository/*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             });
+    ///         }),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -79,7 +76,7 @@ namespace Pulumi.Aws.Ecr
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecr/registryPolicy:RegistryPolicy")]
-    public partial class RegistryPolicy : Pulumi.CustomResource
+    public partial class RegistryPolicy : global::Pulumi.CustomResource
     {
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -134,7 +131,7 @@ namespace Pulumi.Aws.Ecr
         }
     }
 
-    public sealed class RegistryPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RegistryPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -142,9 +139,10 @@ namespace Pulumi.Aws.Ecr
         public RegistryPolicyArgs()
         {
         }
+        public static new RegistryPolicyArgs Empty => new RegistryPolicyArgs();
     }
 
-    public sealed class RegistryPolicyState : Pulumi.ResourceArgs
+    public sealed class RegistryPolicyState : global::Pulumi.ResourceArgs
     {
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -158,5 +156,6 @@ namespace Pulumi.Aws.Ecr
         public RegistryPolicyState()
         {
         }
+        public static new RegistryPolicyState Empty => new RegistryPolicyState();
     }
 }

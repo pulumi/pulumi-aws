@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecListenerTimeoutArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecListenerTimeoutArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Timeouts for gRPC listeners.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecListenerTimeoutArgs()
         {
         }
+        public static new VirtualNodeSpecListenerTimeoutArgs Empty => new VirtualNodeSpecListenerTimeoutArgs();
     }
 }

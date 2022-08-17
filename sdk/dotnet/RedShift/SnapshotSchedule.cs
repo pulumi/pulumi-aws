@@ -13,24 +13,22 @@ namespace Pulumi.Aws.RedShift
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.RedShift.SnapshotSchedule("default", new()
     ///     {
-    ///         var @default = new Aws.RedShift.SnapshotSchedule("default", new Aws.RedShift.SnapshotScheduleArgs
+    ///         Definitions = new[]
     ///         {
-    ///             Definitions = 
-    ///             {
-    ///                 "rate(12 hours)",
-    ///             },
-    ///             Identifier = "tf-redshift-snapshot-schedule",
-    ///         });
-    ///     }
+    ///             "rate(12 hours)",
+    ///         },
+    ///         Identifier = "tf-redshift-snapshot-schedule",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.RedShift
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/snapshotSchedule:SnapshotSchedule")]
-    public partial class SnapshotSchedule : Pulumi.CustomResource
+    public partial class SnapshotSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
@@ -88,7 +86,7 @@ namespace Pulumi.Aws.RedShift
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -137,7 +135,7 @@ namespace Pulumi.Aws.RedShift
         }
     }
 
-    public sealed class SnapshotScheduleArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("definitions", required: true)]
         private InputList<string>? _definitions;
@@ -191,9 +189,10 @@ namespace Pulumi.Aws.RedShift
         public SnapshotScheduleArgs()
         {
         }
+        public static new SnapshotScheduleArgs Empty => new SnapshotScheduleArgs();
     }
 
-    public sealed class SnapshotScheduleState : Pulumi.ResourceArgs
+    public sealed class SnapshotScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
@@ -254,7 +253,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -265,5 +264,6 @@ namespace Pulumi.Aws.RedShift
         public SnapshotScheduleState()
         {
         }
+        public static new SnapshotScheduleState Empty => new SnapshotScheduleState();
     }
 }

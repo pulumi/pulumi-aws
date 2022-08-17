@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.TimestreamWrite.Inputs
 {
 
-    public sealed class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bucket name of the customer S3 bucket.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.TimestreamWrite.Inputs
         public TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationGetArgs()
         {
         }
+        public static new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationGetArgs Empty => new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationGetArgs();
     }
 }

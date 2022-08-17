@@ -17,22 +17,20 @@ namespace Pulumi.Aws.NetworkManager
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.NetworkManager.LinkAssociation("example", new()
     ///     {
-    ///         var example = new Aws.NetworkManager.LinkAssociation("example", new Aws.NetworkManager.LinkAssociationArgs
-    ///         {
-    ///             GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///             LinkId = aws_networkmanager_link.Example.Id,
-    ///             DeviceId = aws_networkmanager_device.Example.Id,
-    ///         });
-    ///     }
+    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
+    ///         LinkId = aws_networkmanager_link.Example.Id,
+    ///         DeviceId = aws_networkmanager_device.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.NetworkManager
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/linkAssociation:LinkAssociation")]
-    public partial class LinkAssociation : Pulumi.CustomResource
+    public partial class LinkAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the device.
@@ -108,7 +106,7 @@ namespace Pulumi.Aws.NetworkManager
         }
     }
 
-    public sealed class LinkAssociationArgs : Pulumi.ResourceArgs
+    public sealed class LinkAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the device.
@@ -131,9 +129,10 @@ namespace Pulumi.Aws.NetworkManager
         public LinkAssociationArgs()
         {
         }
+        public static new LinkAssociationArgs Empty => new LinkAssociationArgs();
     }
 
-    public sealed class LinkAssociationState : Pulumi.ResourceArgs
+    public sealed class LinkAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the device.
@@ -156,5 +155,6 @@ namespace Pulumi.Aws.NetworkManager
         public LinkAssociationState()
         {
         }
+        public static new LinkAssociationState Empty => new LinkAssociationState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Waf.Inputs
 {
 
-    public sealed class RegexMatchSetRegexMatchTupleGetArgs : Pulumi.ResourceArgs
+    public sealed class RegexMatchSetRegexMatchTupleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The part of a web request that you want to search, such as a specified header or a query string.
@@ -36,5 +36,6 @@ namespace Pulumi.Aws.Waf.Inputs
         public RegexMatchSetRegexMatchTupleGetArgs()
         {
         }
+        public static new RegexMatchSetRegexMatchTupleGetArgs Empty => new RegexMatchSetRegexMatchTupleGetArgs();
     }
 }

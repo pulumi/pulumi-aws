@@ -19,20 +19,18 @@ namespace Pulumi.Aws.CloudFront
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.CloudFront.GetDistribution.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.CloudFront.GetDistribution.InvokeAsync(new Aws.CloudFront.GetDistributionArgs
-        ///         {
-        ///             Id = "EDFDVBD632BHDS5",
-        ///         }));
-        ///     }
+        ///         Id = "EDFDVBD632BHDS5",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.CloudFront
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.CloudFront.GetDistribution.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.CloudFront.GetDistribution.InvokeAsync(new Aws.CloudFront.GetDistributionArgs
-        ///         {
-        ///             Id = "EDFDVBD632BHDS5",
-        ///         }));
-        ///     }
+        ///         Id = "EDFDVBD632BHDS5",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.CloudFront
     }
 
 
-    public sealed class GetDistributionArgs : Pulumi.InvokeArgs
+    public sealed class GetDistributionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.CloudFront
         public GetDistributionArgs()
         {
         }
+        public static new GetDistributionArgs Empty => new GetDistributionArgs();
     }
 
-    public sealed class GetDistributionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDistributionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
@@ -111,6 +108,7 @@ namespace Pulumi.Aws.CloudFront
         public GetDistributionInvokeArgs()
         {
         }
+        public static new GetDistributionInvokeArgs Empty => new GetDistributionInvokeArgs();
     }
 
 

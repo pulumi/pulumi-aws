@@ -19,50 +19,55 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		sample, err := emr.NewCluster(ctx, "sample", &emr.ClusterArgs{
-// 			ReleaseLabel: pulumi.String("emr-5.30.0"),
-// 			MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
-// 				InstanceType: pulumi.String("m4.large"),
-// 			},
-// 			CoreInstanceGroup: &emr.ClusterCoreInstanceGroupArgs{
-// 				InstanceType: pulumi.String("c4.large"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = emr.NewManagedScalingPolicy(ctx, "samplepolicy", &emr.ManagedScalingPolicyArgs{
-// 			ClusterId: sample.ID(),
-// 			ComputeLimits: emr.ManagedScalingPolicyComputeLimitArray{
-// 				&emr.ManagedScalingPolicyComputeLimitArgs{
-// 					UnitType:                     pulumi.String("Instances"),
-// 					MinimumCapacityUnits:         pulumi.Int(2),
-// 					MaximumCapacityUnits:         pulumi.Int(10),
-// 					MaximumOndemandCapacityUnits: pulumi.Int(2),
-// 					MaximumCoreCapacityUnits:     pulumi.Int(10),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			sample, err := emr.NewCluster(ctx, "sample", &emr.ClusterArgs{
+//				ReleaseLabel: pulumi.String("emr-5.30.0"),
+//				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
+//					InstanceType: pulumi.String("m4.large"),
+//				},
+//				CoreInstanceGroup: &emr.ClusterCoreInstanceGroupArgs{
+//					InstanceType: pulumi.String("c4.large"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = emr.NewManagedScalingPolicy(ctx, "samplepolicy", &emr.ManagedScalingPolicyArgs{
+//				ClusterId: sample.ID(),
+//				ComputeLimits: emr.ManagedScalingPolicyComputeLimitArray{
+//					&emr.ManagedScalingPolicyComputeLimitArgs{
+//						UnitType:                     pulumi.String("Instances"),
+//						MinimumCapacityUnits:         pulumi.Int(2),
+//						MaximumCapacityUnits:         pulumi.Int(10),
+//						MaximumOndemandCapacityUnits: pulumi.Int(2),
+//						MaximumCoreCapacityUnits:     pulumi.Int(10),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// EMR Managed Scaling Policies can be imported via the EMR Cluster identifier, e.g., console
+// # EMR Managed Scaling Policies can be imported via the EMR Cluster identifier, e.g., console
 //
 // ```sh
-//  $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
+//
+//	$ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
+//
 // ```
 type ManagedScalingPolicy struct {
 	pulumi.CustomResourceState
@@ -166,7 +171,7 @@ func (i *ManagedScalingPolicy) ToManagedScalingPolicyOutputWithContext(ctx conte
 // ManagedScalingPolicyArrayInput is an input type that accepts ManagedScalingPolicyArray and ManagedScalingPolicyArrayOutput values.
 // You can construct a concrete instance of `ManagedScalingPolicyArrayInput` via:
 //
-//          ManagedScalingPolicyArray{ ManagedScalingPolicyArgs{...} }
+//	ManagedScalingPolicyArray{ ManagedScalingPolicyArgs{...} }
 type ManagedScalingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +196,7 @@ func (i ManagedScalingPolicyArray) ToManagedScalingPolicyArrayOutputWithContext(
 // ManagedScalingPolicyMapInput is an input type that accepts ManagedScalingPolicyMap and ManagedScalingPolicyMapOutput values.
 // You can construct a concrete instance of `ManagedScalingPolicyMapInput` via:
 //
-//          ManagedScalingPolicyMap{ "key": ManagedScalingPolicyArgs{...} }
+//	ManagedScalingPolicyMap{ "key": ManagedScalingPolicyArgs{...} }
 type ManagedScalingPolicyMapInput interface {
 	pulumi.Input
 

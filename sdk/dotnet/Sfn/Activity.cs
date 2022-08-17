@@ -15,19 +15,15 @@ namespace Pulumi.Aws.Sfn
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var sfnActivity = new Aws.Sfn.Activity("sfnActivity", new Aws.Sfn.ActivityArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var sfnActivity = new Aws.Sfn.Activity("sfnActivity");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.Sfn
     /// ```
     /// </summary>
     [AwsResourceType("aws:sfn/activity:Activity")]
-    public partial class Activity : Pulumi.CustomResource
+    public partial class Activity : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The date the activity was created.
@@ -60,7 +56,7 @@ namespace Pulumi.Aws.Sfn
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -109,7 +105,7 @@ namespace Pulumi.Aws.Sfn
         }
     }
 
-    public sealed class ActivityArgs : Pulumi.ResourceArgs
+    public sealed class ActivityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the activity to create.
@@ -132,9 +128,10 @@ namespace Pulumi.Aws.Sfn
         public ActivityArgs()
         {
         }
+        public static new ActivityArgs Empty => new ActivityArgs();
     }
 
-    public sealed class ActivityState : Pulumi.ResourceArgs
+    public sealed class ActivityState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The date the activity was created.
@@ -164,7 +161,7 @@ namespace Pulumi.Aws.Sfn
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -175,5 +172,6 @@ namespace Pulumi.Aws.Sfn
         public ActivityState()
         {
         }
+        public static new ActivityState Empty => new ActivityState();
     }
 }

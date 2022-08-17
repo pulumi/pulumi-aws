@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DataSync.Inputs
 {
 
-    public sealed class FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs : Pulumi.ResourceArgs
+    public sealed class FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.DataSync.Inputs
         public FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs()
         {
         }
+        public static new FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs Empty => new FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs();
     }
 }

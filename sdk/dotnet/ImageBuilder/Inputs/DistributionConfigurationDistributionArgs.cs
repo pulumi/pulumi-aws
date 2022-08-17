@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class DistributionConfigurationDistributionArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationDistributionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
@@ -69,5 +69,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public DistributionConfigurationDistributionArgs()
         {
         }
+        public static new DistributionConfigurationDistributionArgs Empty => new DistributionConfigurationDistributionArgs();
     }
 }

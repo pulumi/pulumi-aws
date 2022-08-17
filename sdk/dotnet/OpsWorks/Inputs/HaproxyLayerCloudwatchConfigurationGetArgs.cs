@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class HaproxyLayerCloudwatchConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class HaproxyLayerCloudwatchConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public HaproxyLayerCloudwatchConfigurationGetArgs()
         {
         }
+        public static new HaproxyLayerCloudwatchConfigurationGetArgs Empty => new HaproxyLayerCloudwatchConfigurationGetArgs();
     }
 }

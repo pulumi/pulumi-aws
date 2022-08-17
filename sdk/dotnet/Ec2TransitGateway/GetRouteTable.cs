@@ -20,58 +20,54 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetRouteTable.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetRouteTable.InvokeAsync(new Aws.Ec2TransitGateway.GetRouteTableArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2TransitGateway.Inputs.GetRouteTableFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetRouteTableFilterArgs
+        ///                 Name = "default-association-route-table",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "default-association-route-table",
-        ///                     Values = 
-        ///                     {
-        ///                         "true",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetRouteTableFilterArgs
-        ///                 {
-        ///                     Name = "transit-gateway-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "tgw-12345678",
-        ///                     },
+        ///                     "true",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///             new Aws.Ec2TransitGateway.Inputs.GetRouteTableFilterInputArgs
+        ///             {
+        ///                 Name = "transit-gateway-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "tgw-12345678",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetRouteTable.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetRouteTable.InvokeAsync(new Aws.Ec2TransitGateway.GetRouteTableArgs
-        ///         {
-        ///             Id = "tgw-rtb-12345678",
-        ///         }));
-        ///     }
+        ///         Id = "tgw-rtb-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -88,58 +84,54 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetRouteTable.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetRouteTable.InvokeAsync(new Aws.Ec2TransitGateway.GetRouteTableArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2TransitGateway.Inputs.GetRouteTableFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetRouteTableFilterArgs
+        ///                 Name = "default-association-route-table",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "default-association-route-table",
-        ///                     Values = 
-        ///                     {
-        ///                         "true",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetRouteTableFilterArgs
-        ///                 {
-        ///                     Name = "transit-gateway-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "tgw-12345678",
-        ///                     },
+        ///                     "true",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///             new Aws.Ec2TransitGateway.Inputs.GetRouteTableFilterInputArgs
+        ///             {
+        ///                 Name = "transit-gateway-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "tgw-12345678",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetRouteTable.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetRouteTable.InvokeAsync(new Aws.Ec2TransitGateway.GetRouteTableArgs
-        ///         {
-        ///             Id = "tgw-rtb-12345678",
-        ///         }));
-        ///     }
+        ///         Id = "tgw-rtb-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -149,7 +141,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     }
 
 
-    public sealed class GetRouteTableArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteTableArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetRouteTableFilterArgs>? _filters;
@@ -184,9 +176,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetRouteTableArgs()
         {
         }
+        public static new GetRouteTableArgs Empty => new GetRouteTableArgs();
     }
 
-    public sealed class GetRouteTableInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteTableInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetRouteTableFilterInputArgs>? _filters;
@@ -221,6 +214,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetRouteTableInvokeArgs()
         {
         }
+        public static new GetRouteTableInvokeArgs Empty => new GetRouteTableInvokeArgs();
     }
 
 

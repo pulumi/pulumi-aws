@@ -21,23 +21,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := networkmanager.NewLinkAssociation(ctx, "example", &networkmanager.LinkAssociationArgs{
-// 			GlobalNetworkId: pulumi.Any(aws_networkmanager_global_network.Example.Id),
-// 			LinkId:          pulumi.Any(aws_networkmanager_link.Example.Id),
-// 			DeviceId:        pulumi.Any(aws_networkmanager_device.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkmanager.NewLinkAssociation(ctx, "example", &networkmanager.LinkAssociationArgs{
+//				GlobalNetworkId: pulumi.Any(aws_networkmanager_global_network.Example.Id),
+//				LinkId:          pulumi.Any(aws_networkmanager_link.Example.Id),
+//				DeviceId:        pulumi.Any(aws_networkmanager_device.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // `aws_networkmanager_link_association` can be imported using the global network ID, link ID and device ID, e.g.
 //
 // ```sh
-//  $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
+//
+//	$ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
+//
 // ```
 type LinkAssociation struct {
 	pulumi.CustomResourceState
@@ -162,7 +167,7 @@ func (i *LinkAssociation) ToLinkAssociationOutputWithContext(ctx context.Context
 // LinkAssociationArrayInput is an input type that accepts LinkAssociationArray and LinkAssociationArrayOutput values.
 // You can construct a concrete instance of `LinkAssociationArrayInput` via:
 //
-//          LinkAssociationArray{ LinkAssociationArgs{...} }
+//	LinkAssociationArray{ LinkAssociationArgs{...} }
 type LinkAssociationArrayInput interface {
 	pulumi.Input
 
@@ -187,7 +192,7 @@ func (i LinkAssociationArray) ToLinkAssociationArrayOutputWithContext(ctx contex
 // LinkAssociationMapInput is an input type that accepts LinkAssociationMap and LinkAssociationMapOutput values.
 // You can construct a concrete instance of `LinkAssociationMapInput` via:
 //
-//          LinkAssociationMap{ "key": LinkAssociationArgs{...} }
+//	LinkAssociationMap{ "key": LinkAssociationArgs{...} }
 type LinkAssociationMapInput interface {
 	pulumi.Input
 

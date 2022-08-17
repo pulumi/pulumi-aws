@@ -20,32 +20,31 @@ namespace Pulumi.Aws.Elb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var main = Output.Create(Aws.Elb.GetHostedZoneId.InvokeAsync());
-        ///         var www = new Aws.Route53.Record("www", new Aws.Route53.RecordArgs
-        ///         {
-        ///             ZoneId = aws_route53_zone.Primary.Zone_id,
-        ///             Name = "example.com",
-        ///             Type = "A",
-        ///             Aliases = 
-        ///             {
-        ///                 new Aws.Route53.Inputs.RecordAliasArgs
-        ///                 {
-        ///                     Name = aws_elb.Main.Dns_name,
-        ///                     ZoneId = main.Apply(main =&gt; main.Id),
-        ///                     EvaluateTargetHealth = true,
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        ///     var main = Aws.Elb.GetHostedZoneId.Invoke();
         /// 
-        /// }
+        ///     var www = new Aws.Route53.Record("www", new()
+        ///     {
+        ///         ZoneId = aws_route53_zone.Primary.Zone_id,
+        ///         Name = "example.com",
+        ///         Type = "A",
+        ///         Aliases = new[]
+        ///         {
+        ///             new Aws.Route53.Inputs.RecordAliasArgs
+        ///             {
+        ///                 Name = aws_elb.Main.Dns_name,
+        ///                 ZoneId = main.Apply(getHostedZoneIdResult =&gt; getHostedZoneIdResult.Id),
+        ///                 EvaluateTargetHealth = true,
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -62,32 +61,31 @@ namespace Pulumi.Aws.Elb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var main = Output.Create(Aws.Elb.GetHostedZoneId.InvokeAsync());
-        ///         var www = new Aws.Route53.Record("www", new Aws.Route53.RecordArgs
-        ///         {
-        ///             ZoneId = aws_route53_zone.Primary.Zone_id,
-        ///             Name = "example.com",
-        ///             Type = "A",
-        ///             Aliases = 
-        ///             {
-        ///                 new Aws.Route53.Inputs.RecordAliasArgs
-        ///                 {
-        ///                     Name = aws_elb.Main.Dns_name,
-        ///                     ZoneId = main.Apply(main =&gt; main.Id),
-        ///                     EvaluateTargetHealth = true,
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        ///     var main = Aws.Elb.GetHostedZoneId.Invoke();
         /// 
-        /// }
+        ///     var www = new Aws.Route53.Record("www", new()
+        ///     {
+        ///         ZoneId = aws_route53_zone.Primary.Zone_id,
+        ///         Name = "example.com",
+        ///         Type = "A",
+        ///         Aliases = new[]
+        ///         {
+        ///             new Aws.Route53.Inputs.RecordAliasArgs
+        ///             {
+        ///                 Name = aws_elb.Main.Dns_name,
+        ///                 ZoneId = main.Apply(getHostedZoneIdResult =&gt; getHostedZoneIdResult.Id),
+        ///                 EvaluateTargetHealth = true,
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -97,7 +95,7 @@ namespace Pulumi.Aws.Elb
     }
 
 
-    public sealed class GetHostedZoneIdArgs : Pulumi.InvokeArgs
+    public sealed class GetHostedZoneIdArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the region whose AWS ELB HostedZoneId is desired.
@@ -109,9 +107,10 @@ namespace Pulumi.Aws.Elb
         public GetHostedZoneIdArgs()
         {
         }
+        public static new GetHostedZoneIdArgs Empty => new GetHostedZoneIdArgs();
     }
 
-    public sealed class GetHostedZoneIdInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHostedZoneIdInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the region whose AWS ELB HostedZoneId is desired.
@@ -123,6 +122,7 @@ namespace Pulumi.Aws.Elb
         public GetHostedZoneIdInvokeArgs()
         {
         }
+        public static new GetHostedZoneIdInvokeArgs Empty => new GetHostedZoneIdInvokeArgs();
     }
 
 

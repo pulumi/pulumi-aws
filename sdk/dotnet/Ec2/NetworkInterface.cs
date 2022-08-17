@@ -15,36 +15,34 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Ec2.NetworkInterface("test", new()
     ///     {
-    ///         var test = new Aws.Ec2.NetworkInterface("test", new Aws.Ec2.NetworkInterfaceArgs
+    ///         SubnetId = aws_subnet.Public_a.Id,
+    ///         PrivateIps = new[]
     ///         {
-    ///             SubnetId = aws_subnet.Public_a.Id,
-    ///             PrivateIps = 
+    ///             "10.0.0.50",
+    ///         },
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             aws_security_group.Web.Id,
+    ///         },
+    ///         Attachments = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.NetworkInterfaceAttachmentArgs
     ///             {
-    ///                 "10.0.0.50",
+    ///                 Instance = aws_instance.Test.Id,
+    ///                 DeviceIndex = 1,
     ///             },
-    ///             SecurityGroups = 
-    ///             {
-    ///                 aws_security_group.Web.Id,
-    ///             },
-    ///             Attachments = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.NetworkInterfaceAttachmentArgs
-    ///                 {
-    ///                     Instance = aws_instance.Test.Id,
-    ///                     DeviceIndex = 1,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example of Managing Multiple IPs on a Network Interface
     /// 
@@ -72,7 +70,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkInterface:NetworkInterface")]
-    public partial class NetworkInterface : Pulumi.CustomResource
+    public partial class NetworkInterface : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the network interface.
@@ -215,9 +213,6 @@ namespace Pulumi.Aws.Ec2
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -265,7 +260,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class NetworkInterfaceArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
         [Input("attachments")]
         private InputList<Inputs.NetworkInterfaceAttachmentArgs>? _attachments;
@@ -438,9 +433,10 @@ namespace Pulumi.Aws.Ec2
         public NetworkInterfaceArgs()
         {
         }
+        public static new NetworkInterfaceArgs Empty => new NetworkInterfaceArgs();
     }
 
-    public sealed class NetworkInterfaceState : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the network interface.
@@ -639,10 +635,6 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -652,5 +644,6 @@ namespace Pulumi.Aws.Ec2
         public NetworkInterfaceState()
         {
         }
+        public static new NetworkInterfaceState Empty => new NetworkInterfaceState();
     }
 }

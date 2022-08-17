@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGateway.Inputs
 {
 
-    public sealed class StageAccessLogSettingsArgs : Pulumi.ResourceArgs
+    public sealed class StageAccessLogSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
@@ -28,5 +28,6 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         public StageAccessLogSettingsArgs()
         {
         }
+        public static new StageAccessLogSettingsArgs Empty => new StageAccessLogSettingsArgs();
     }
 }

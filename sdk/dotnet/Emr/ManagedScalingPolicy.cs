@@ -15,44 +15,43 @@ namespace Pulumi.Aws.Emr
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sample = new Aws.Emr.Cluster("sample", new()
     ///     {
-    ///         var sample = new Aws.Emr.Cluster("sample", new Aws.Emr.ClusterArgs
+    ///         ReleaseLabel = "emr-5.30.0",
+    ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
     ///         {
-    ///             ReleaseLabel = "emr-5.30.0",
-    ///             MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
-    ///             {
-    ///                 InstanceType = "m4.large",
-    ///             },
-    ///             CoreInstanceGroup = new Aws.Emr.Inputs.ClusterCoreInstanceGroupArgs
-    ///             {
-    ///                 InstanceType = "c4.large",
-    ///             },
-    ///         });
-    ///         // skip ...
-    ///         var samplepolicy = new Aws.Emr.ManagedScalingPolicy("samplepolicy", new Aws.Emr.ManagedScalingPolicyArgs
+    ///             InstanceType = "m4.large",
+    ///         },
+    ///         CoreInstanceGroup = new Aws.Emr.Inputs.ClusterCoreInstanceGroupArgs
     ///         {
-    ///             ClusterId = sample.Id,
-    ///             ComputeLimits = 
-    ///             {
-    ///                 new Aws.Emr.Inputs.ManagedScalingPolicyComputeLimitArgs
-    ///                 {
-    ///                     UnitType = "Instances",
-    ///                     MinimumCapacityUnits = 2,
-    ///                     MaximumCapacityUnits = 10,
-    ///                     MaximumOndemandCapacityUnits = 2,
-    ///                     MaximumCoreCapacityUnits = 10,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///             InstanceType = "c4.large",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     // skip ...
+    ///     var samplepolicy = new Aws.Emr.ManagedScalingPolicy("samplepolicy", new()
+    ///     {
+    ///         ClusterId = sample.Id,
+    ///         ComputeLimits = new[]
+    ///         {
+    ///             new Aws.Emr.Inputs.ManagedScalingPolicyComputeLimitArgs
+    ///             {
+    ///                 UnitType = "Instances",
+    ///                 MinimumCapacityUnits = 2,
+    ///                 MaximumCapacityUnits = 10,
+    ///                 MaximumOndemandCapacityUnits = 2,
+    ///                 MaximumCoreCapacityUnits = 10,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +63,7 @@ namespace Pulumi.Aws.Emr
     /// ```
     /// </summary>
     [AwsResourceType("aws:emr/managedScalingPolicy:ManagedScalingPolicy")]
-    public partial class ManagedScalingPolicy : Pulumi.CustomResource
+    public partial class ManagedScalingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The id of the EMR cluster
@@ -122,7 +121,7 @@ namespace Pulumi.Aws.Emr
         }
     }
 
-    public sealed class ManagedScalingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ManagedScalingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of the EMR cluster
@@ -145,9 +144,10 @@ namespace Pulumi.Aws.Emr
         public ManagedScalingPolicyArgs()
         {
         }
+        public static new ManagedScalingPolicyArgs Empty => new ManagedScalingPolicyArgs();
     }
 
-    public sealed class ManagedScalingPolicyState : Pulumi.ResourceArgs
+    public sealed class ManagedScalingPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of the EMR cluster
@@ -170,5 +170,6 @@ namespace Pulumi.Aws.Emr
         public ManagedScalingPolicyState()
         {
         }
+        public static new ManagedScalingPolicyState Empty => new ManagedScalingPolicyState();
     }
 }

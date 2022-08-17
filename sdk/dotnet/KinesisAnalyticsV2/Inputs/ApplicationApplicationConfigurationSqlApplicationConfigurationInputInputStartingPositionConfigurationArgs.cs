@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs Empty => new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs();
     }
 }

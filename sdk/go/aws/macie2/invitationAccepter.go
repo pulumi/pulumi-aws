@@ -19,42 +19,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		primaryAccount, err := macie2.NewAccount(ctx, "primaryAccount", nil, pulumi.Provider("awsalternate"))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = macie2.NewAccount(ctx, "memberAccount", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		primaryMember, err := macie2.NewMember(ctx, "primaryMember", &macie2.MemberArgs{
-// 			AccountId:         pulumi.String("ACCOUNT ID"),
-// 			Email:             pulumi.String("EMAIL"),
-// 			Invite:            pulumi.Bool(true),
-// 			InvitationMessage: pulumi.String("Message of the invite"),
-// 		}, pulumi.Provider("awsalternate"), pulumi.DependsOn([]pulumi.Resource{
-// 			primaryAccount,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = macie2.NewInvitationAccepter(ctx, "memberInvitationAccepter", &macie2.InvitationAccepterArgs{
-// 			AdministratorAccountId: pulumi.String("ADMINISTRATOR ACCOUNT ID"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			primaryMember,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primaryAccount, err := macie2.NewAccount(ctx, "primaryAccount", nil, pulumi.Provider("awsalternate"))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = macie2.NewAccount(ctx, "memberAccount", nil)
+//			if err != nil {
+//				return err
+//			}
+//			primaryMember, err := macie2.NewMember(ctx, "primaryMember", &macie2.MemberArgs{
+//				AccountId:         pulumi.String("ACCOUNT ID"),
+//				Email:             pulumi.String("EMAIL"),
+//				Invite:            pulumi.Bool(true),
+//				InvitationMessage: pulumi.String("Message of the invite"),
+//			}, pulumi.Provider("awsalternate"), pulumi.DependsOn([]pulumi.Resource{
+//				primaryAccount,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = macie2.NewInvitationAccepter(ctx, "memberInvitationAccepter", &macie2.InvitationAccepterArgs{
+//				AdministratorAccountId: pulumi.String("ADMINISTRATOR ACCOUNT ID"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				primaryMember,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +65,9 @@ import (
 // `aws_macie2_invitation_accepter` can be imported using the admin account ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
+//
+//	$ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
+//
 // ```
 type InvitationAccepter struct {
 	pulumi.CustomResourceState
@@ -159,7 +164,7 @@ func (i *InvitationAccepter) ToInvitationAccepterOutputWithContext(ctx context.C
 // InvitationAccepterArrayInput is an input type that accepts InvitationAccepterArray and InvitationAccepterArrayOutput values.
 // You can construct a concrete instance of `InvitationAccepterArrayInput` via:
 //
-//          InvitationAccepterArray{ InvitationAccepterArgs{...} }
+//	InvitationAccepterArray{ InvitationAccepterArgs{...} }
 type InvitationAccepterArrayInput interface {
 	pulumi.Input
 
@@ -184,7 +189,7 @@ func (i InvitationAccepterArray) ToInvitationAccepterArrayOutputWithContext(ctx 
 // InvitationAccepterMapInput is an input type that accepts InvitationAccepterMap and InvitationAccepterMapOutput values.
 // You can construct a concrete instance of `InvitationAccepterMapInput` via:
 //
-//          InvitationAccepterMap{ "key": InvitationAccepterArgs{...} }
+//	InvitationAccepterMap{ "key": InvitationAccepterArgs{...} }
 type InvitationAccepterMapInput interface {
 	pulumi.Input
 

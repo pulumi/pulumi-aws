@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class GatewayRouteSpecHttp2RouteMatchHostnameArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteSpecHttp2RouteMatchHostnameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The exact host name to match on.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public GatewayRouteSpecHttp2RouteMatchHostnameArgs()
         {
         }
+        public static new GatewayRouteSpecHttp2RouteMatchHostnameArgs Empty => new GatewayRouteSpecHttp2RouteMatchHostnameArgs();
     }
 }

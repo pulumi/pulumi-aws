@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdGetArgs : Pulumi.ResourceArgs
+    public sealed class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdGetArgs()
         {
         }
+        public static new FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdGetArgs Empty => new FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdGetArgs();
     }
 }

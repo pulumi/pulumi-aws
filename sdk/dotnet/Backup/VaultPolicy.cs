@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Backup
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleVault = new Aws.Backup.Vault("exampleVault");
+    /// 
+    ///     var exampleVaultPolicy = new Aws.Backup.VaultPolicy("exampleVaultPolicy", new()
     ///     {
-    ///         var exampleVault = new Aws.Backup.Vault("exampleVault", new Aws.Backup.VaultArgs
-    ///         {
-    ///         });
-    ///         var exampleVaultPolicy = new Aws.Backup.VaultPolicy("exampleVaultPolicy", new Aws.Backup.VaultPolicyArgs
-    ///         {
-    ///             BackupVaultName = exampleVault.Name,
-    ///             Policy = exampleVault.Arn.Apply(arn =&gt; @$"{{
+    ///         BackupVaultName = exampleVault.Name,
+    ///         Policy = exampleVault.Arn.Apply(arn =&gt; @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Id"": ""default"",
     ///   ""Statement"": [
@@ -53,10 +51,9 @@ namespace Pulumi.Aws.Backup
     ///   ]
     /// }}
     /// "),
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +65,7 @@ namespace Pulumi.Aws.Backup
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/vaultPolicy:VaultPolicy")]
-    public partial class VaultPolicy : Pulumi.CustomResource
+    public partial class VaultPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the vault.
@@ -132,7 +129,7 @@ namespace Pulumi.Aws.Backup
         }
     }
 
-    public sealed class VaultPolicyArgs : Pulumi.ResourceArgs
+    public sealed class VaultPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the backup vault to add policy for.
@@ -149,9 +146,10 @@ namespace Pulumi.Aws.Backup
         public VaultPolicyArgs()
         {
         }
+        public static new VaultPolicyArgs Empty => new VaultPolicyArgs();
     }
 
-    public sealed class VaultPolicyState : Pulumi.ResourceArgs
+    public sealed class VaultPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the vault.
@@ -174,5 +172,6 @@ namespace Pulumi.Aws.Backup
         public VaultPolicyState()
         {
         }
+        public static new VaultPolicyState Empty => new VaultPolicyState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class UserProfileUserSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class UserProfileUserSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The execution role ARN for the user.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public UserProfileUserSettingsGetArgs()
         {
         }
+        public static new UserProfileUserSettingsGetArgs Empty => new UserProfileUserSettingsGetArgs();
     }
 }

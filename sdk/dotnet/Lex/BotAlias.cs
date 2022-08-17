@@ -16,23 +16,21 @@ namespace Pulumi.Aws.Lex
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var orderFlowersProd = new Aws.Lex.BotAlias("orderFlowersProd", new()
     ///     {
-    ///         var orderFlowersProd = new Aws.Lex.BotAlias("orderFlowersProd", new Aws.Lex.BotAliasArgs
-    ///         {
-    ///             BotName = "OrderFlowers",
-    ///             BotVersion = "1",
-    ///             Description = "Production Version of the OrderFlowers Bot.",
-    ///             Name = "OrderFlowersProd",
-    ///         });
-    ///     }
+    ///         BotName = "OrderFlowers",
+    ///         BotVersion = "1",
+    ///         Description = "Production Version of the OrderFlowers Bot.",
+    ///         Name = "OrderFlowersProd",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.Lex
     /// ```
     /// </summary>
     [AwsResourceType("aws:lex/botAlias:BotAlias")]
-    public partial class BotAlias : Pulumi.CustomResource
+    public partial class BotAlias : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the bot alias.
@@ -144,7 +142,7 @@ namespace Pulumi.Aws.Lex
         }
     }
 
-    public sealed class BotAliasArgs : Pulumi.ResourceArgs
+    public sealed class BotAliasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bot.
@@ -179,9 +177,10 @@ namespace Pulumi.Aws.Lex
         public BotAliasArgs()
         {
         }
+        public static new BotAliasArgs Empty => new BotAliasArgs();
     }
 
-    public sealed class BotAliasState : Pulumi.ResourceArgs
+    public sealed class BotAliasState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the bot alias.
@@ -240,5 +239,6 @@ namespace Pulumi.Aws.Lex
         public BotAliasState()
         {
         }
+        public static new BotAliasState Empty => new BotAliasState();
     }
 }

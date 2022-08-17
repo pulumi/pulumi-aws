@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeGetArgs : Pulumi.ResourceArgs
+    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The object key for the Amazon S3 bucket in which the source files are stored.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeGetArgs()
         {
         }
+        public static new FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeGetArgs Empty => new FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeGetArgs();
     }
 }

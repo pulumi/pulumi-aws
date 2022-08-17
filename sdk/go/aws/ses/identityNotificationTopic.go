@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ses.NewIdentityNotificationTopic(ctx, "test", &ses.IdentityNotificationTopicArgs{
-// 			TopicArn:               pulumi.Any(aws_sns_topic.Example.Arn),
-// 			NotificationType:       pulumi.String("Bounce"),
-// 			Identity:               pulumi.Any(aws_ses_domain_identity.Example.Domain),
-// 			IncludeOriginalHeaders: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewIdentityNotificationTopic(ctx, "test", &ses.IdentityNotificationTopicArgs{
+//				TopicArn:               pulumi.Any(aws_sns_topic.Example.Arn),
+//				NotificationType:       pulumi.String("Bounce"),
+//				Identity:               pulumi.Any(aws_ses_domain_identity.Example.Domain),
+//				IncludeOriginalHeaders: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // Identity Notification Topics can be imported using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type.
 //
 // ```sh
-//  $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
+//
+//	$ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
+//
 // ```
 type IdentityNotificationTopic struct {
 	pulumi.CustomResourceState
@@ -168,7 +173,7 @@ func (i *IdentityNotificationTopic) ToIdentityNotificationTopicOutputWithContext
 // IdentityNotificationTopicArrayInput is an input type that accepts IdentityNotificationTopicArray and IdentityNotificationTopicArrayOutput values.
 // You can construct a concrete instance of `IdentityNotificationTopicArrayInput` via:
 //
-//          IdentityNotificationTopicArray{ IdentityNotificationTopicArgs{...} }
+//	IdentityNotificationTopicArray{ IdentityNotificationTopicArgs{...} }
 type IdentityNotificationTopicArrayInput interface {
 	pulumi.Input
 
@@ -193,7 +198,7 @@ func (i IdentityNotificationTopicArray) ToIdentityNotificationTopicArrayOutputWi
 // IdentityNotificationTopicMapInput is an input type that accepts IdentityNotificationTopicMap and IdentityNotificationTopicMapOutput values.
 // You can construct a concrete instance of `IdentityNotificationTopicMapInput` via:
 //
-//          IdentityNotificationTopicMap{ "key": IdentityNotificationTopicArgs{...} }
+//	IdentityNotificationTopicMap{ "key": IdentityNotificationTopicArgs{...} }
 type IdentityNotificationTopicMapInput interface {
 	pulumi.Input
 

@@ -19,21 +19,19 @@ namespace Pulumi.Aws.WafV2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.WafV2.GetIpSet.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.WafV2.GetIpSet.InvokeAsync(new Aws.WafV2.GetIpSetArgs
-        ///         {
-        ///             Name = "some-ip-set",
-        ///             Scope = "REGIONAL",
-        ///         }));
-        ///     }
+        ///         Name = "some-ip-set",
+        ///         Scope = "REGIONAL",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.WafV2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.WafV2.GetIpSet.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.WafV2.GetIpSet.InvokeAsync(new Aws.WafV2.GetIpSetArgs
-        ///         {
-        ///             Name = "some-ip-set",
-        ///             Scope = "REGIONAL",
-        ///         }));
-        ///     }
+        ///         Name = "some-ip-set",
+        ///         Scope = "REGIONAL",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.WafV2
     }
 
 
-    public sealed class GetIpSetArgs : Pulumi.InvokeArgs
+    public sealed class GetIpSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the WAFv2 IP Set.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.WafV2
         public GetIpSetArgs()
         {
         }
+        public static new GetIpSetArgs Empty => new GetIpSetArgs();
     }
 
-    public sealed class GetIpSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIpSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the WAFv2 IP Set.
@@ -109,6 +106,7 @@ namespace Pulumi.Aws.WafV2
         public GetIpSetInvokeArgs()
         {
         }
+        public static new GetIpSetInvokeArgs Empty => new GetIpSetInvokeArgs();
     }
 
 

@@ -15,31 +15,28 @@ namespace Pulumi.Aws.SecurityHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleAccount = new Aws.SecurityHub.Account("exampleAccount", new Aws.SecurityHub.AccountArgs
-    ///         {
-    ///         });
-    ///         var exampleMember = new Aws.SecurityHub.Member("exampleMember", new Aws.SecurityHub.MemberArgs
-    ///         {
-    ///             AccountId = "123456789012",
-    ///             Email = "example@example.com",
-    ///             Invite = true,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAccount,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
     /// 
-    /// }
+    ///     var exampleMember = new Aws.SecurityHub.Member("exampleMember", new()
+    ///     {
+    ///         AccountId = "123456789012",
+    ///         Email = "example@example.com",
+    ///         Invite = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAccount,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +48,7 @@ namespace Pulumi.Aws.SecurityHub
     /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/member:Member")]
-    public partial class Member : Pulumi.CustomResource
+    public partial class Member : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the member AWS account.
@@ -127,7 +124,7 @@ namespace Pulumi.Aws.SecurityHub
         }
     }
 
-    public sealed class MemberArgs : Pulumi.ResourceArgs
+    public sealed class MemberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the member AWS account.
@@ -150,9 +147,10 @@ namespace Pulumi.Aws.SecurityHub
         public MemberArgs()
         {
         }
+        public static new MemberArgs Empty => new MemberArgs();
     }
 
-    public sealed class MemberState : Pulumi.ResourceArgs
+    public sealed class MemberState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the member AWS account.
@@ -187,5 +185,6 @@ namespace Pulumi.Aws.SecurityHub
         public MemberState()
         {
         }
+        public static new MemberState Empty => new MemberState();
     }
 }

@@ -21,38 +21,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := aws.GetRegion(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "exampleVpcIpam", &ec2.VpcIpamArgs{
-// 			OperatingRegions: ec2.VpcIpamOperatingRegionArray{
-// 				&ec2.VpcIpamOperatingRegionArgs{
-// 					RegionName: pulumi.String(current.Name),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewVpcIpamPool(ctx, "exampleVpcIpamPool", &ec2.VpcIpamPoolArgs{
-// 			AddressFamily: pulumi.String("ipv4"),
-// 			IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
-// 			Locale:        pulumi.String(current.Name),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "exampleVpcIpam", &ec2.VpcIpamArgs{
+//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
+//					&ec2.VpcIpamOperatingRegionArgs{
+//						RegionName: pulumi.String(current.Name),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpamPool(ctx, "exampleVpcIpamPool", &ec2.VpcIpamPoolArgs{
+//				AddressFamily: pulumi.String("ipv4"),
+//				IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
+//				Locale:        pulumi.String(current.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Nested Pools:
@@ -61,60 +64,63 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := aws.GetRegion(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
-// 			OperatingRegions: ec2.VpcIpamOperatingRegionArray{
-// 				&ec2.VpcIpamOperatingRegionArgs{
-// 					RegionName: pulumi.String(current.Name),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		parent, err := ec2.NewVpcIpamPool(ctx, "parent", &ec2.VpcIpamPoolArgs{
-// 			AddressFamily: pulumi.String("ipv4"),
-// 			IpamScopeId:   example.PrivateDefaultScopeId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewVpcIpamPoolCidr(ctx, "parentTest", &ec2.VpcIpamPoolCidrArgs{
-// 			IpamPoolId: parent.ID(),
-// 			Cidr:       pulumi.String("172.2.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		child, err := ec2.NewVpcIpamPool(ctx, "child", &ec2.VpcIpamPoolArgs{
-// 			AddressFamily:    pulumi.String("ipv4"),
-// 			IpamScopeId:      example.PrivateDefaultScopeId,
-// 			Locale:           pulumi.String(current.Name),
-// 			SourceIpamPoolId: parent.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewVpcIpamPoolCidr(ctx, "childTest", &ec2.VpcIpamPoolCidrArgs{
-// 			IpamPoolId: child.ID(),
-// 			Cidr:       pulumi.String("172.2.0.0/24"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
+//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
+//					&ec2.VpcIpamOperatingRegionArgs{
+//						RegionName: pulumi.String(current.Name),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			parent, err := ec2.NewVpcIpamPool(ctx, "parent", &ec2.VpcIpamPoolArgs{
+//				AddressFamily: pulumi.String("ipv4"),
+//				IpamScopeId:   example.PrivateDefaultScopeId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "parentTest", &ec2.VpcIpamPoolCidrArgs{
+//				IpamPoolId: parent.ID(),
+//				Cidr:       pulumi.String("172.2.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			child, err := ec2.NewVpcIpamPool(ctx, "child", &ec2.VpcIpamPoolArgs{
+//				AddressFamily:    pulumi.String("ipv4"),
+//				IpamScopeId:      example.PrivateDefaultScopeId,
+//				Locale:           pulumi.String(current.Name),
+//				SourceIpamPoolId: parent.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpamPoolCidr(ctx, "childTest", &ec2.VpcIpamPoolCidrArgs{
+//				IpamPoolId: child.ID(),
+//				Cidr:       pulumi.String("172.2.0.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -122,7 +128,9 @@ import (
 // IPAMs can be imported using the `ipam pool id`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
+//
+//	$ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
+//
 // ```
 type VpcIpamPool struct {
 	pulumi.CustomResourceState
@@ -365,7 +373,7 @@ func (i *VpcIpamPool) ToVpcIpamPoolOutputWithContext(ctx context.Context) VpcIpa
 // VpcIpamPoolArrayInput is an input type that accepts VpcIpamPoolArray and VpcIpamPoolArrayOutput values.
 // You can construct a concrete instance of `VpcIpamPoolArrayInput` via:
 //
-//          VpcIpamPoolArray{ VpcIpamPoolArgs{...} }
+//	VpcIpamPoolArray{ VpcIpamPoolArgs{...} }
 type VpcIpamPoolArrayInput interface {
 	pulumi.Input
 
@@ -390,7 +398,7 @@ func (i VpcIpamPoolArray) ToVpcIpamPoolArrayOutputWithContext(ctx context.Contex
 // VpcIpamPoolMapInput is an input type that accepts VpcIpamPoolMap and VpcIpamPoolMapOutput values.
 // You can construct a concrete instance of `VpcIpamPoolMapInput` via:
 //
-//          VpcIpamPoolMap{ "key": VpcIpamPoolArgs{...} }
+//	VpcIpamPoolMap{ "key": VpcIpamPoolArgs{...} }
 type VpcIpamPoolMapInput interface {
 	pulumi.Input
 

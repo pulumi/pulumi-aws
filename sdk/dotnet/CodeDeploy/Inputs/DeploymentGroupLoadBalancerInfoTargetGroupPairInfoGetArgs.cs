@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoGetArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for the production traffic route (documented below).
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentGroupLoadBalancerInfoTargetGroupPairInfoGetArgs()
         {
         }
+        public static new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoGetArgs Empty => new DeploymentGroupLoadBalancerInfoTargetGroupPairInfoGetArgs();
     }
 }

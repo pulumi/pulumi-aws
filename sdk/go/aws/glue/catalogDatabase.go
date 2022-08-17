@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := glue.NewCatalogDatabase(ctx, "awsGlueCatalogDatabase", &glue.CatalogDatabaseArgs{
-// 			Name: pulumi.String("MyCatalogDatabase"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewCatalogDatabase(ctx, "awsGlueCatalogDatabase", &glue.CatalogDatabaseArgs{
+//				Name: pulumi.String("MyCatalogDatabase"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Create Table Default Permissions
 //
@@ -40,31 +43,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := glue.NewCatalogDatabase(ctx, "awsGlueCatalogDatabase", &glue.CatalogDatabaseArgs{
-// 			CreateTableDefaultPermissions: glue.CatalogDatabaseCreateTableDefaultPermissionArray{
-// 				&glue.CatalogDatabaseCreateTableDefaultPermissionArgs{
-// 					Permissions: pulumi.StringArray{
-// 						pulumi.String("SELECT"),
-// 					},
-// 					Principal: &glue.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs{
-// 						DataLakePrincipalIdentifier: pulumi.String("IAM_ALLOWED_PRINCIPALS"),
-// 					},
-// 				},
-// 			},
-// 			Name: pulumi.String("MyCatalogDatabase"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewCatalogDatabase(ctx, "awsGlueCatalogDatabase", &glue.CatalogDatabaseArgs{
+//				CreateTableDefaultPermissions: glue.CatalogDatabaseCreateTableDefaultPermissionArray{
+//					&glue.CatalogDatabaseCreateTableDefaultPermissionArgs{
+//						Permissions: pulumi.StringArray{
+//							pulumi.String("SELECT"),
+//						},
+//						Principal: &glue.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs{
+//							DataLakePrincipalIdentifier: pulumi.String("IAM_ALLOWED_PRINCIPALS"),
+//						},
+//					},
+//				},
+//				Name: pulumi.String("MyCatalogDatabase"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +78,9 @@ import (
 // Glue Catalog Databases can be imported using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
+//
+//	$ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
+//
 // ```
 type CatalogDatabase struct {
 	pulumi.CustomResourceState
@@ -226,7 +234,7 @@ func (i *CatalogDatabase) ToCatalogDatabaseOutputWithContext(ctx context.Context
 // CatalogDatabaseArrayInput is an input type that accepts CatalogDatabaseArray and CatalogDatabaseArrayOutput values.
 // You can construct a concrete instance of `CatalogDatabaseArrayInput` via:
 //
-//          CatalogDatabaseArray{ CatalogDatabaseArgs{...} }
+//	CatalogDatabaseArray{ CatalogDatabaseArgs{...} }
 type CatalogDatabaseArrayInput interface {
 	pulumi.Input
 
@@ -251,7 +259,7 @@ func (i CatalogDatabaseArray) ToCatalogDatabaseArrayOutputWithContext(ctx contex
 // CatalogDatabaseMapInput is an input type that accepts CatalogDatabaseMap and CatalogDatabaseMapOutput values.
 // You can construct a concrete instance of `CatalogDatabaseMapInput` via:
 //
-//          CatalogDatabaseMap{ "key": CatalogDatabaseArgs{...} }
+//	CatalogDatabaseMap{ "key": CatalogDatabaseArgs{...} }
 type CatalogDatabaseMapInput interface {
 	pulumi.Input
 

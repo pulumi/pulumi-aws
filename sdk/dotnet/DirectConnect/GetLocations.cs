@@ -22,17 +22,15 @@ namespace Pulumi.Aws.DirectConnect
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var available = Output.Create(Aws.DirectConnect.GetLocations.InvokeAsync());
-        ///     }
+        ///     var available = Aws.DirectConnect.GetLocations.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class UserProfileUserSettingsSharingSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class UserProfileUserSettingsSharingSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public UserProfileUserSettingsSharingSettingsGetArgs()
         {
         }
+        public static new UserProfileUserSettingsSharingSettingsGetArgs Empty => new UserProfileUserSettingsSharingSettingsGetArgs();
     }
 }

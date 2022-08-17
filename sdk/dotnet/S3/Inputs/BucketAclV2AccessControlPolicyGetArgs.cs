@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketAclV2AccessControlPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketAclV2AccessControlPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("grants")]
         private InputList<Inputs.BucketAclV2AccessControlPolicyGrantGetArgs>? _grants;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketAclV2AccessControlPolicyGetArgs()
         {
         }
+        public static new BucketAclV2AccessControlPolicyGetArgs Empty => new BucketAclV2AccessControlPolicyGetArgs();
     }
 }

@@ -16,112 +16,105 @@ namespace Pulumi.Aws.Route53
     /// ### Connectivity and HTTP Status Code Check
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Route53.HealthCheck("example", new()
     ///     {
-    ///         var example = new Aws.Route53.HealthCheck("example", new Aws.Route53.HealthCheckArgs
+    ///         FailureThreshold = 5,
+    ///         Fqdn = "example.com",
+    ///         Port = 80,
+    ///         RequestInterval = 30,
+    ///         ResourcePath = "/",
+    ///         Tags = 
     ///         {
-    ///             FailureThreshold = 5,
-    ///             Fqdn = "example.com",
-    ///             Port = 80,
-    ///             RequestInterval = 30,
-    ///             ResourcePath = "/",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "tf-test-health-check" },
-    ///             },
-    ///             Type = "HTTP",
-    ///         });
-    ///     }
+    ///             { "Name", "tf-test-health-check" },
+    ///         },
+    ///         Type = "HTTP",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Connectivity and String Matching Check
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Route53.HealthCheck("example", new()
     ///     {
-    ///         var example = new Aws.Route53.HealthCheck("example", new Aws.Route53.HealthCheckArgs
-    ///         {
-    ///             FailureThreshold = 5,
-    ///             Fqdn = "example.com",
-    ///             Port = 443,
-    ///             RequestInterval = 30,
-    ///             ResourcePath = "/",
-    ///             SearchString = "example",
-    ///             Type = "HTTPS_STR_MATCH",
-    ///         });
-    ///     }
+    ///         FailureThreshold = 5,
+    ///         Fqdn = "example.com",
+    ///         Port = 443,
+    ///         RequestInterval = 30,
+    ///         ResourcePath = "/",
+    ///         SearchString = "example",
+    ///         Type = "HTTPS_STR_MATCH",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Aggregate Check
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var parent = new Aws.Route53.HealthCheck("parent", new()
     ///     {
-    ///         var parent = new Aws.Route53.HealthCheck("parent", new Aws.Route53.HealthCheckArgs
+    ///         Type = "CALCULATED",
+    ///         ChildHealthThreshold = 1,
+    ///         ChildHealthchecks = new[]
     ///         {
-    ///             Type = "CALCULATED",
-    ///             ChildHealthThreshold = 1,
-    ///             ChildHealthchecks = 
-    ///             {
-    ///                 aws_route53_health_check.Child.Id,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "tf-test-calculated-health-check" },
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_route53_health_check.Child.Id,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "tf-test-calculated-health-check" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### CloudWatch Alarm Check
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foobar = new Aws.CloudWatch.MetricAlarm("foobar", new()
     ///     {
-    ///         var foobar = new Aws.CloudWatch.MetricAlarm("foobar", new Aws.CloudWatch.MetricAlarmArgs
-    ///         {
-    ///             ComparisonOperator = "GreaterThanOrEqualToThreshold",
-    ///             EvaluationPeriods = 2,
-    ///             MetricName = "CPUUtilization",
-    ///             Namespace = "AWS/EC2",
-    ///             Period = 120,
-    ///             Statistic = "Average",
-    ///             Threshold = 80,
-    ///             AlarmDescription = "This metric monitors ec2 cpu utilization",
-    ///         });
-    ///         var foo = new Aws.Route53.HealthCheck("foo", new Aws.Route53.HealthCheckArgs
-    ///         {
-    ///             Type = "CLOUDWATCH_METRIC",
-    ///             CloudwatchAlarmName = foobar.Name,
-    ///             CloudwatchAlarmRegion = "us-west-2",
-    ///             InsufficientDataHealthStatus = "Healthy",
-    ///         });
-    ///     }
+    ///         ComparisonOperator = "GreaterThanOrEqualToThreshold",
+    ///         EvaluationPeriods = 2,
+    ///         MetricName = "CPUUtilization",
+    ///         Namespace = "AWS/EC2",
+    ///         Period = 120,
+    ///         Statistic = "Average",
+    ///         Threshold = 80,
+    ///         AlarmDescription = "This metric monitors ec2 cpu utilization",
+    ///     });
     /// 
-    /// }
+    ///     var foo = new Aws.Route53.HealthCheck("foo", new()
+    ///     {
+    ///         Type = "CLOUDWATCH_METRIC",
+    ///         CloudwatchAlarmName = foobar.Name,
+    ///         CloudwatchAlarmRegion = "us-west-2",
+    ///         InsufficientDataHealthStatus = "Healthy",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -133,7 +126,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/healthCheck:HealthCheck")]
-    public partial class HealthCheck : Pulumi.CustomResource
+    public partial class HealthCheck : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Health Check.
@@ -266,7 +259,7 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -321,7 +314,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class HealthCheckArgs : Pulumi.ResourceArgs
+    public sealed class HealthCheckArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
@@ -474,9 +467,10 @@ namespace Pulumi.Aws.Route53
         public HealthCheckArgs()
         {
         }
+        public static new HealthCheckArgs Empty => new HealthCheckArgs();
     }
 
-    public sealed class HealthCheckState : Pulumi.ResourceArgs
+    public sealed class HealthCheckState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Health Check.
@@ -630,7 +624,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -647,5 +641,6 @@ namespace Pulumi.Aws.Route53
         public HealthCheckState()
         {
         }
+        public static new HealthCheckState Empty => new HealthCheckState();
     }
 }

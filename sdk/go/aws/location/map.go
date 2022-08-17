@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := location.NewMap(ctx, "example", &location.MapArgs{
-// 			Configuration: &location.MapConfigurationArgs{
-// 				Style: pulumi.String("VectorHereBerlin"),
-// 			},
-// 			MapName: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := location.NewMap(ctx, "example", &location.MapArgs{
+//				Configuration: &location.MapConfigurationArgs{
+//					Style: pulumi.String("VectorHereBerlin"),
+//				},
+//				MapName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // `aws_location_map` resources can be imported using the map name, e.g.
 //
 // ```sh
-//  $ pulumi import aws:location/map:Map example example
+//
+//	$ pulumi import aws:location/map:Map example example
+//
 // ```
 type Map struct {
 	pulumi.CustomResourceState
@@ -184,7 +189,7 @@ func (i *Map) ToMapOutputWithContext(ctx context.Context) MapOutput {
 // MapArrayInput is an input type that accepts MapArray and MapArrayOutput values.
 // You can construct a concrete instance of `MapArrayInput` via:
 //
-//          MapArray{ MapArgs{...} }
+//	MapArray{ MapArgs{...} }
 type MapArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +214,7 @@ func (i MapArray) ToMapArrayOutputWithContext(ctx context.Context) MapArrayOutpu
 // MapMapInput is an input type that accepts MapMap and MapMapOutput values.
 // You can construct a concrete instance of `MapMapInput` via:
 //
-//          MapMap{ "key": MapArgs{...} }
+//	MapMap{ "key": MapArgs{...} }
 type MapMapInput interface {
 	pulumi.Input
 

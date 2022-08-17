@@ -19,36 +19,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleFleet, err := appstream.NewFleet(ctx, "exampleFleet", &appstream.FleetArgs{
-// 			ImageName:    pulumi.String("Amazon-AppStream2-Sample-Image-02-04-2019"),
-// 			InstanceType: pulumi.String("stream.standard.small"),
-// 			ComputeCapacity: &appstream.FleetComputeCapacityArgs{
-// 				DesiredInstances: pulumi.Int(1),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleStack, err := appstream.NewStack(ctx, "exampleStack", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appstream.NewFleetStackAssociation(ctx, "exampleFleetStackAssociation", &appstream.FleetStackAssociationArgs{
-// 			FleetName: exampleFleet.Name,
-// 			StackName: exampleStack.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleFleet, err := appstream.NewFleet(ctx, "exampleFleet", &appstream.FleetArgs{
+//				ImageName:    pulumi.String("Amazon-AppStream2-Sample-Image-02-04-2019"),
+//				InstanceType: pulumi.String("stream.standard.small"),
+//				ComputeCapacity: &appstream.FleetComputeCapacityArgs{
+//					DesiredInstances: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleStack, err := appstream.NewStack(ctx, "exampleStack", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appstream.NewFleetStackAssociation(ctx, "exampleFleetStackAssociation", &appstream.FleetStackAssociationArgs{
+//				FleetName: exampleFleet.Name,
+//				StackName: exampleStack.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // AppStream Stack Fleet Association can be imported by using the `fleet_name` and `stack_name` separated by a slash (`/`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
+//
+//	$ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
+//
 // ```
 type FleetStackAssociation struct {
 	pulumi.CustomResourceState
@@ -160,7 +165,7 @@ func (i *FleetStackAssociation) ToFleetStackAssociationOutputWithContext(ctx con
 // FleetStackAssociationArrayInput is an input type that accepts FleetStackAssociationArray and FleetStackAssociationArrayOutput values.
 // You can construct a concrete instance of `FleetStackAssociationArrayInput` via:
 //
-//          FleetStackAssociationArray{ FleetStackAssociationArgs{...} }
+//	FleetStackAssociationArray{ FleetStackAssociationArgs{...} }
 type FleetStackAssociationArrayInput interface {
 	pulumi.Input
 
@@ -185,7 +190,7 @@ func (i FleetStackAssociationArray) ToFleetStackAssociationArrayOutputWithContex
 // FleetStackAssociationMapInput is an input type that accepts FleetStackAssociationMap and FleetStackAssociationMapOutput values.
 // You can construct a concrete instance of `FleetStackAssociationMapInput` via:
 //
-//          FleetStackAssociationMap{ "key": FleetStackAssociationArgs{...} }
+//	FleetStackAssociationMap{ "key": FleetStackAssociationArgs{...} }
 type FleetStackAssociationMapInput interface {
 	pulumi.Input
 

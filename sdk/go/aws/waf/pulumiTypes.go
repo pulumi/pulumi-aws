@@ -34,7 +34,7 @@ type ByteMatchSetByteMatchTuple struct {
 // ByteMatchSetByteMatchTupleInput is an input type that accepts ByteMatchSetByteMatchTupleArgs and ByteMatchSetByteMatchTupleOutput values.
 // You can construct a concrete instance of `ByteMatchSetByteMatchTupleInput` via:
 //
-//          ByteMatchSetByteMatchTupleArgs{...}
+//	ByteMatchSetByteMatchTupleArgs{...}
 type ByteMatchSetByteMatchTupleInput interface {
 	pulumi.Input
 
@@ -78,7 +78,7 @@ func (i ByteMatchSetByteMatchTupleArgs) ToByteMatchSetByteMatchTupleOutputWithCo
 // ByteMatchSetByteMatchTupleArrayInput is an input type that accepts ByteMatchSetByteMatchTupleArray and ByteMatchSetByteMatchTupleArrayOutput values.
 // You can construct a concrete instance of `ByteMatchSetByteMatchTupleArrayInput` via:
 //
-//          ByteMatchSetByteMatchTupleArray{ ByteMatchSetByteMatchTupleArgs{...} }
+//	ByteMatchSetByteMatchTupleArray{ ByteMatchSetByteMatchTupleArgs{...} }
 type ByteMatchSetByteMatchTupleArrayInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ type ByteMatchSetByteMatchTupleFieldToMatch struct {
 // ByteMatchSetByteMatchTupleFieldToMatchInput is an input type that accepts ByteMatchSetByteMatchTupleFieldToMatchArgs and ByteMatchSetByteMatchTupleFieldToMatchOutput values.
 // You can construct a concrete instance of `ByteMatchSetByteMatchTupleFieldToMatchInput` via:
 //
-//          ByteMatchSetByteMatchTupleFieldToMatchArgs{...}
+//	ByteMatchSetByteMatchTupleFieldToMatchArgs{...}
 type ByteMatchSetByteMatchTupleFieldToMatchInput interface {
 	pulumi.Input
 
@@ -249,7 +249,7 @@ type GeoMatchSetGeoMatchConstraint struct {
 // GeoMatchSetGeoMatchConstraintInput is an input type that accepts GeoMatchSetGeoMatchConstraintArgs and GeoMatchSetGeoMatchConstraintOutput values.
 // You can construct a concrete instance of `GeoMatchSetGeoMatchConstraintInput` via:
 //
-//          GeoMatchSetGeoMatchConstraintArgs{...}
+//	GeoMatchSetGeoMatchConstraintArgs{...}
 type GeoMatchSetGeoMatchConstraintInput interface {
 	pulumi.Input
 
@@ -281,7 +281,7 @@ func (i GeoMatchSetGeoMatchConstraintArgs) ToGeoMatchSetGeoMatchConstraintOutput
 // GeoMatchSetGeoMatchConstraintArrayInput is an input type that accepts GeoMatchSetGeoMatchConstraintArray and GeoMatchSetGeoMatchConstraintArrayOutput values.
 // You can construct a concrete instance of `GeoMatchSetGeoMatchConstraintArrayInput` via:
 //
-//          GeoMatchSetGeoMatchConstraintArray{ GeoMatchSetGeoMatchConstraintArgs{...} }
+//	GeoMatchSetGeoMatchConstraintArray{ GeoMatchSetGeoMatchConstraintArgs{...} }
 type GeoMatchSetGeoMatchConstraintArrayInput interface {
 	pulumi.Input
 
@@ -359,7 +359,7 @@ type IpSetIpSetDescriptor struct {
 // IpSetIpSetDescriptorInput is an input type that accepts IpSetIpSetDescriptorArgs and IpSetIpSetDescriptorOutput values.
 // You can construct a concrete instance of `IpSetIpSetDescriptorInput` via:
 //
-//          IpSetIpSetDescriptorArgs{...}
+//	IpSetIpSetDescriptorArgs{...}
 type IpSetIpSetDescriptorInput interface {
 	pulumi.Input
 
@@ -389,7 +389,7 @@ func (i IpSetIpSetDescriptorArgs) ToIpSetIpSetDescriptorOutputWithContext(ctx co
 // IpSetIpSetDescriptorArrayInput is an input type that accepts IpSetIpSetDescriptorArray and IpSetIpSetDescriptorArrayOutput values.
 // You can construct a concrete instance of `IpSetIpSetDescriptorArrayInput` via:
 //
-//          IpSetIpSetDescriptorArray{ IpSetIpSetDescriptorArgs{...} }
+//	IpSetIpSetDescriptorArray{ IpSetIpSetDescriptorArgs{...} }
 type IpSetIpSetDescriptorArrayInput interface {
 	pulumi.Input
 
@@ -470,7 +470,7 @@ type RateBasedRulePredicate struct {
 // RateBasedRulePredicateInput is an input type that accepts RateBasedRulePredicateArgs and RateBasedRulePredicateOutput values.
 // You can construct a concrete instance of `RateBasedRulePredicateInput` via:
 //
-//          RateBasedRulePredicateArgs{...}
+//	RateBasedRulePredicateArgs{...}
 type RateBasedRulePredicateInput interface {
 	pulumi.Input
 
@@ -505,7 +505,7 @@ func (i RateBasedRulePredicateArgs) ToRateBasedRulePredicateOutputWithContext(ct
 // RateBasedRulePredicateArrayInput is an input type that accepts RateBasedRulePredicateArray and RateBasedRulePredicateArrayOutput values.
 // You can construct a concrete instance of `RateBasedRulePredicateArrayInput` via:
 //
-//          RateBasedRulePredicateArray{ RateBasedRulePredicateArgs{...} }
+//	RateBasedRulePredicateArray{ RateBasedRulePredicateArgs{...} }
 type RateBasedRulePredicateArrayInput interface {
 	pulumi.Input
 
@@ -594,7 +594,7 @@ type RegexMatchSetRegexMatchTuple struct {
 // RegexMatchSetRegexMatchTupleInput is an input type that accepts RegexMatchSetRegexMatchTupleArgs and RegexMatchSetRegexMatchTupleOutput values.
 // You can construct a concrete instance of `RegexMatchSetRegexMatchTupleInput` via:
 //
-//          RegexMatchSetRegexMatchTupleArgs{...}
+//	RegexMatchSetRegexMatchTupleArgs{...}
 type RegexMatchSetRegexMatchTupleInput interface {
 	pulumi.Input
 
@@ -629,7 +629,7 @@ func (i RegexMatchSetRegexMatchTupleArgs) ToRegexMatchSetRegexMatchTupleOutputWi
 // RegexMatchSetRegexMatchTupleArrayInput is an input type that accepts RegexMatchSetRegexMatchTupleArray and RegexMatchSetRegexMatchTupleArrayOutput values.
 // You can construct a concrete instance of `RegexMatchSetRegexMatchTupleArrayInput` via:
 //
-//          RegexMatchSetRegexMatchTupleArray{ RegexMatchSetRegexMatchTupleArgs{...} }
+//	RegexMatchSetRegexMatchTupleArray{ RegexMatchSetRegexMatchTupleArgs{...} }
 type RegexMatchSetRegexMatchTupleArrayInput interface {
 	pulumi.Input
 
@@ -717,7 +717,7 @@ type RegexMatchSetRegexMatchTupleFieldToMatch struct {
 // RegexMatchSetRegexMatchTupleFieldToMatchInput is an input type that accepts RegexMatchSetRegexMatchTupleFieldToMatchArgs and RegexMatchSetRegexMatchTupleFieldToMatchOutput values.
 // You can construct a concrete instance of `RegexMatchSetRegexMatchTupleFieldToMatchInput` via:
 //
-//          RegexMatchSetRegexMatchTupleFieldToMatchArgs{...}
+//	RegexMatchSetRegexMatchTupleFieldToMatchArgs{...}
 type RegexMatchSetRegexMatchTupleFieldToMatchInput interface {
 	pulumi.Input
 
@@ -790,7 +790,7 @@ type RuleGroupActivatedRule struct {
 // RuleGroupActivatedRuleInput is an input type that accepts RuleGroupActivatedRuleArgs and RuleGroupActivatedRuleOutput values.
 // You can construct a concrete instance of `RuleGroupActivatedRuleInput` via:
 //
-//          RuleGroupActivatedRuleArgs{...}
+//	RuleGroupActivatedRuleArgs{...}
 type RuleGroupActivatedRuleInput interface {
 	pulumi.Input
 
@@ -824,7 +824,7 @@ func (i RuleGroupActivatedRuleArgs) ToRuleGroupActivatedRuleOutputWithContext(ct
 // RuleGroupActivatedRuleArrayInput is an input type that accepts RuleGroupActivatedRuleArray and RuleGroupActivatedRuleArrayOutput values.
 // You can construct a concrete instance of `RuleGroupActivatedRuleArrayInput` via:
 //
-//          RuleGroupActivatedRuleArray{ RuleGroupActivatedRuleArgs{...} }
+//	RuleGroupActivatedRuleArray{ RuleGroupActivatedRuleArgs{...} }
 type RuleGroupActivatedRuleArrayInput interface {
 	pulumi.Input
 
@@ -908,7 +908,7 @@ type RuleGroupActivatedRuleAction struct {
 // RuleGroupActivatedRuleActionInput is an input type that accepts RuleGroupActivatedRuleActionArgs and RuleGroupActivatedRuleActionOutput values.
 // You can construct a concrete instance of `RuleGroupActivatedRuleActionInput` via:
 //
-//          RuleGroupActivatedRuleActionArgs{...}
+//	RuleGroupActivatedRuleActionArgs{...}
 type RuleGroupActivatedRuleActionInput interface {
 	pulumi.Input
 
@@ -967,7 +967,7 @@ type RulePredicate struct {
 // RulePredicateInput is an input type that accepts RulePredicateArgs and RulePredicateOutput values.
 // You can construct a concrete instance of `RulePredicateInput` via:
 //
-//          RulePredicateArgs{...}
+//	RulePredicateArgs{...}
 type RulePredicateInput interface {
 	pulumi.Input
 
@@ -1002,7 +1002,7 @@ func (i RulePredicateArgs) ToRulePredicateOutputWithContext(ctx context.Context)
 // RulePredicateArrayInput is an input type that accepts RulePredicateArray and RulePredicateArrayOutput values.
 // You can construct a concrete instance of `RulePredicateArrayInput` via:
 //
-//          RulePredicateArray{ RulePredicateArgs{...} }
+//	RulePredicateArray{ RulePredicateArgs{...} }
 type RulePredicateArrayInput interface {
 	pulumi.Input
 
@@ -1098,7 +1098,7 @@ type SizeConstraintSetSizeConstraint struct {
 // SizeConstraintSetSizeConstraintInput is an input type that accepts SizeConstraintSetSizeConstraintArgs and SizeConstraintSetSizeConstraintOutput values.
 // You can construct a concrete instance of `SizeConstraintSetSizeConstraintInput` via:
 //
-//          SizeConstraintSetSizeConstraintArgs{...}
+//	SizeConstraintSetSizeConstraintArgs{...}
 type SizeConstraintSetSizeConstraintInput interface {
 	pulumi.Input
 
@@ -1140,7 +1140,7 @@ func (i SizeConstraintSetSizeConstraintArgs) ToSizeConstraintSetSizeConstraintOu
 // SizeConstraintSetSizeConstraintArrayInput is an input type that accepts SizeConstraintSetSizeConstraintArray and SizeConstraintSetSizeConstraintArrayOutput values.
 // You can construct a concrete instance of `SizeConstraintSetSizeConstraintArrayInput` via:
 //
-//          SizeConstraintSetSizeConstraintArray{ SizeConstraintSetSizeConstraintArgs{...} }
+//	SizeConstraintSetSizeConstraintArray{ SizeConstraintSetSizeConstraintArgs{...} }
 type SizeConstraintSetSizeConstraintArrayInput interface {
 	pulumi.Input
 
@@ -1240,7 +1240,7 @@ type SizeConstraintSetSizeConstraintFieldToMatch struct {
 // SizeConstraintSetSizeConstraintFieldToMatchInput is an input type that accepts SizeConstraintSetSizeConstraintFieldToMatchArgs and SizeConstraintSetSizeConstraintFieldToMatchOutput values.
 // You can construct a concrete instance of `SizeConstraintSetSizeConstraintFieldToMatchInput` via:
 //
-//          SizeConstraintSetSizeConstraintFieldToMatchArgs{...}
+//	SizeConstraintSetSizeConstraintFieldToMatchArgs{...}
 type SizeConstraintSetSizeConstraintFieldToMatchInput interface {
 	pulumi.Input
 
@@ -1313,7 +1313,7 @@ type SqlInjectionMatchSetSqlInjectionMatchTuple struct {
 // SqlInjectionMatchSetSqlInjectionMatchTupleInput is an input type that accepts SqlInjectionMatchSetSqlInjectionMatchTupleArgs and SqlInjectionMatchSetSqlInjectionMatchTupleOutput values.
 // You can construct a concrete instance of `SqlInjectionMatchSetSqlInjectionMatchTupleInput` via:
 //
-//          SqlInjectionMatchSetSqlInjectionMatchTupleArgs{...}
+//	SqlInjectionMatchSetSqlInjectionMatchTupleArgs{...}
 type SqlInjectionMatchSetSqlInjectionMatchTupleInput interface {
 	pulumi.Input
 
@@ -1347,7 +1347,7 @@ func (i SqlInjectionMatchSetSqlInjectionMatchTupleArgs) ToSqlInjectionMatchSetSq
 // SqlInjectionMatchSetSqlInjectionMatchTupleArrayInput is an input type that accepts SqlInjectionMatchSetSqlInjectionMatchTupleArray and SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput values.
 // You can construct a concrete instance of `SqlInjectionMatchSetSqlInjectionMatchTupleArrayInput` via:
 //
-//          SqlInjectionMatchSetSqlInjectionMatchTupleArray{ SqlInjectionMatchSetSqlInjectionMatchTupleArgs{...} }
+//	SqlInjectionMatchSetSqlInjectionMatchTupleArray{ SqlInjectionMatchSetSqlInjectionMatchTupleArgs{...} }
 type SqlInjectionMatchSetSqlInjectionMatchTupleArrayInput interface {
 	pulumi.Input
 
@@ -1433,7 +1433,7 @@ type SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch struct {
 // SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchInput is an input type that accepts SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs and SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchOutput values.
 // You can construct a concrete instance of `SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchInput` via:
 //
-//          SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs{...}
+//	SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs{...}
 type SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchInput interface {
 	pulumi.Input
 
@@ -1500,7 +1500,7 @@ type WebAclDefaultAction struct {
 // WebAclDefaultActionInput is an input type that accepts WebAclDefaultActionArgs and WebAclDefaultActionOutput values.
 // You can construct a concrete instance of `WebAclDefaultActionInput` via:
 //
-//          WebAclDefaultActionArgs{...}
+//	WebAclDefaultActionArgs{...}
 type WebAclDefaultActionInput interface {
 	pulumi.Input
 
@@ -1536,11 +1536,11 @@ func (i WebAclDefaultActionArgs) ToWebAclDefaultActionPtrOutputWithContext(ctx c
 // WebAclDefaultActionPtrInput is an input type that accepts WebAclDefaultActionArgs, WebAclDefaultActionPtr and WebAclDefaultActionPtrOutput values.
 // You can construct a concrete instance of `WebAclDefaultActionPtrInput` via:
 //
-//          WebAclDefaultActionArgs{...}
+//	        WebAclDefaultActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebAclDefaultActionPtrInput interface {
 	pulumi.Input
 
@@ -1639,7 +1639,7 @@ type WebAclLoggingConfiguration struct {
 // WebAclLoggingConfigurationInput is an input type that accepts WebAclLoggingConfigurationArgs and WebAclLoggingConfigurationOutput values.
 // You can construct a concrete instance of `WebAclLoggingConfigurationInput` via:
 //
-//          WebAclLoggingConfigurationArgs{...}
+//	WebAclLoggingConfigurationArgs{...}
 type WebAclLoggingConfigurationInput interface {
 	pulumi.Input
 
@@ -1677,11 +1677,11 @@ func (i WebAclLoggingConfigurationArgs) ToWebAclLoggingConfigurationPtrOutputWit
 // WebAclLoggingConfigurationPtrInput is an input type that accepts WebAclLoggingConfigurationArgs, WebAclLoggingConfigurationPtr and WebAclLoggingConfigurationPtrOutput values.
 // You can construct a concrete instance of `WebAclLoggingConfigurationPtrInput` via:
 //
-//          WebAclLoggingConfigurationArgs{...}
+//	        WebAclLoggingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebAclLoggingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1793,7 +1793,7 @@ type WebAclLoggingConfigurationRedactedFields struct {
 // WebAclLoggingConfigurationRedactedFieldsInput is an input type that accepts WebAclLoggingConfigurationRedactedFieldsArgs and WebAclLoggingConfigurationRedactedFieldsOutput values.
 // You can construct a concrete instance of `WebAclLoggingConfigurationRedactedFieldsInput` via:
 //
-//          WebAclLoggingConfigurationRedactedFieldsArgs{...}
+//	WebAclLoggingConfigurationRedactedFieldsArgs{...}
 type WebAclLoggingConfigurationRedactedFieldsInput interface {
 	pulumi.Input
 
@@ -1829,11 +1829,11 @@ func (i WebAclLoggingConfigurationRedactedFieldsArgs) ToWebAclLoggingConfigurati
 // WebAclLoggingConfigurationRedactedFieldsPtrInput is an input type that accepts WebAclLoggingConfigurationRedactedFieldsArgs, WebAclLoggingConfigurationRedactedFieldsPtr and WebAclLoggingConfigurationRedactedFieldsPtrOutput values.
 // You can construct a concrete instance of `WebAclLoggingConfigurationRedactedFieldsPtrInput` via:
 //
-//          WebAclLoggingConfigurationRedactedFieldsArgs{...}
+//	        WebAclLoggingConfigurationRedactedFieldsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebAclLoggingConfigurationRedactedFieldsPtrInput interface {
 	pulumi.Input
 
@@ -1934,7 +1934,7 @@ type WebAclLoggingConfigurationRedactedFieldsFieldToMatch struct {
 // WebAclLoggingConfigurationRedactedFieldsFieldToMatchInput is an input type that accepts WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs and WebAclLoggingConfigurationRedactedFieldsFieldToMatchOutput values.
 // You can construct a concrete instance of `WebAclLoggingConfigurationRedactedFieldsFieldToMatchInput` via:
 //
-//          WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{...}
+//	WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{...}
 type WebAclLoggingConfigurationRedactedFieldsFieldToMatchInput interface {
 	pulumi.Input
 
@@ -1964,7 +1964,7 @@ func (i WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs) ToWebAclLoggin
 // WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayInput is an input type that accepts WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray and WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayOutput values.
 // You can construct a concrete instance of `WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayInput` via:
 //
-//          WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray{ WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{...} }
+//	WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray{ WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs{...} }
 type WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayInput interface {
 	pulumi.Input
 
@@ -2047,7 +2047,7 @@ type WebAclRule struct {
 // WebAclRuleInput is an input type that accepts WebAclRuleArgs and WebAclRuleOutput values.
 // You can construct a concrete instance of `WebAclRuleInput` via:
 //
-//          WebAclRuleArgs{...}
+//	WebAclRuleArgs{...}
 type WebAclRuleInput interface {
 	pulumi.Input
 
@@ -2084,7 +2084,7 @@ func (i WebAclRuleArgs) ToWebAclRuleOutputWithContext(ctx context.Context) WebAc
 // WebAclRuleArrayInput is an input type that accepts WebAclRuleArray and WebAclRuleArrayOutput values.
 // You can construct a concrete instance of `WebAclRuleArrayInput` via:
 //
-//          WebAclRuleArray{ WebAclRuleArgs{...} }
+//	WebAclRuleArray{ WebAclRuleArgs{...} }
 type WebAclRuleArrayInput interface {
 	pulumi.Input
 
@@ -2174,7 +2174,7 @@ type WebAclRuleAction struct {
 // WebAclRuleActionInput is an input type that accepts WebAclRuleActionArgs and WebAclRuleActionOutput values.
 // You can construct a concrete instance of `WebAclRuleActionInput` via:
 //
-//          WebAclRuleActionArgs{...}
+//	WebAclRuleActionArgs{...}
 type WebAclRuleActionInput interface {
 	pulumi.Input
 
@@ -2210,11 +2210,11 @@ func (i WebAclRuleActionArgs) ToWebAclRuleActionPtrOutputWithContext(ctx context
 // WebAclRuleActionPtrInput is an input type that accepts WebAclRuleActionArgs, WebAclRuleActionPtr and WebAclRuleActionPtrOutput values.
 // You can construct a concrete instance of `WebAclRuleActionPtrInput` via:
 //
-//          WebAclRuleActionArgs{...}
+//	        WebAclRuleActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebAclRuleActionPtrInput interface {
 	pulumi.Input
 
@@ -2311,7 +2311,7 @@ type WebAclRuleOverrideAction struct {
 // WebAclRuleOverrideActionInput is an input type that accepts WebAclRuleOverrideActionArgs and WebAclRuleOverrideActionOutput values.
 // You can construct a concrete instance of `WebAclRuleOverrideActionInput` via:
 //
-//          WebAclRuleOverrideActionArgs{...}
+//	WebAclRuleOverrideActionArgs{...}
 type WebAclRuleOverrideActionInput interface {
 	pulumi.Input
 
@@ -2347,11 +2347,11 @@ func (i WebAclRuleOverrideActionArgs) ToWebAclRuleOverrideActionPtrOutputWithCon
 // WebAclRuleOverrideActionPtrInput is an input type that accepts WebAclRuleOverrideActionArgs, WebAclRuleOverrideActionPtr and WebAclRuleOverrideActionPtrOutput values.
 // You can construct a concrete instance of `WebAclRuleOverrideActionPtrInput` via:
 //
-//          WebAclRuleOverrideActionArgs{...}
+//	        WebAclRuleOverrideActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WebAclRuleOverrideActionPtrInput interface {
 	pulumi.Input
 
@@ -2454,7 +2454,7 @@ type XssMatchSetXssMatchTuple struct {
 // XssMatchSetXssMatchTupleInput is an input type that accepts XssMatchSetXssMatchTupleArgs and XssMatchSetXssMatchTupleOutput values.
 // You can construct a concrete instance of `XssMatchSetXssMatchTupleInput` via:
 //
-//          XssMatchSetXssMatchTupleArgs{...}
+//	XssMatchSetXssMatchTupleArgs{...}
 type XssMatchSetXssMatchTupleInput interface {
 	pulumi.Input
 
@@ -2488,7 +2488,7 @@ func (i XssMatchSetXssMatchTupleArgs) ToXssMatchSetXssMatchTupleOutputWithContex
 // XssMatchSetXssMatchTupleArrayInput is an input type that accepts XssMatchSetXssMatchTupleArray and XssMatchSetXssMatchTupleArrayOutput values.
 // You can construct a concrete instance of `XssMatchSetXssMatchTupleArrayInput` via:
 //
-//          XssMatchSetXssMatchTupleArray{ XssMatchSetXssMatchTupleArgs{...} }
+//	XssMatchSetXssMatchTupleArray{ XssMatchSetXssMatchTupleArgs{...} }
 type XssMatchSetXssMatchTupleArrayInput interface {
 	pulumi.Input
 
@@ -2572,7 +2572,7 @@ type XssMatchSetXssMatchTupleFieldToMatch struct {
 // XssMatchSetXssMatchTupleFieldToMatchInput is an input type that accepts XssMatchSetXssMatchTupleFieldToMatchArgs and XssMatchSetXssMatchTupleFieldToMatchOutput values.
 // You can construct a concrete instance of `XssMatchSetXssMatchTupleFieldToMatchInput` via:
 //
-//          XssMatchSetXssMatchTupleFieldToMatchArgs{...}
+//	XssMatchSetXssMatchTupleFieldToMatchArgs{...}
 type XssMatchSetXssMatchTupleFieldToMatchInput interface {
 	pulumi.Input
 

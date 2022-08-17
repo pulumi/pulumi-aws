@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra.Inputs
 {
 
-    public sealed class ExperienceEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ExperienceEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The endpoint of your Amazon Kendra experience.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Kendra.Inputs
         public ExperienceEndpointArgs()
         {
         }
+        public static new ExperienceEndpointArgs Empty => new ExperienceEndpointArgs();
     }
 }

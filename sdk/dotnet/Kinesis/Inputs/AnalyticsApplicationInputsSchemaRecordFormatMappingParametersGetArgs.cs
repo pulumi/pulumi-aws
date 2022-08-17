@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersGetArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Mapping information when the record format uses delimiters.
@@ -29,5 +29,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public AnalyticsApplicationInputsSchemaRecordFormatMappingParametersGetArgs()
         {
         }
+        public static new AnalyticsApplicationInputsSchemaRecordFormatMappingParametersGetArgs Empty => new AnalyticsApplicationInputsSchemaRecordFormatMappingParametersGetArgs();
     }
 }

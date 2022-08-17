@@ -15,25 +15,24 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
     ///     {
-    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", new Aws.ServiceDiscovery.PrivateDnsNamespaceArgs
-    ///         {
-    ///             Description = "example",
-    ///             Vpc = exampleVpc.Id,
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", new()
+    ///     {
+    ///         Description = "example",
+    ///         Vpc = exampleVpc.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +44,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace")]
-    public partial class PrivateDnsNamespace : Pulumi.CustomResource
+    public partial class PrivateDnsNamespace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN that Amazon Route 53 assigns to the namespace when you create it.
@@ -72,13 +71,13 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the namespace. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -133,7 +132,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         }
     }
 
-    public sealed class PrivateDnsNamespaceArgs : Pulumi.ResourceArgs
+    public sealed class PrivateDnsNamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description that you specify for the namespace when you create it.
@@ -151,7 +150,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the namespace. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -168,9 +167,10 @@ namespace Pulumi.Aws.ServiceDiscovery
         public PrivateDnsNamespaceArgs()
         {
         }
+        public static new PrivateDnsNamespaceArgs Empty => new PrivateDnsNamespaceArgs();
     }
 
-    public sealed class PrivateDnsNamespaceState : Pulumi.ResourceArgs
+    public sealed class PrivateDnsNamespaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN that Amazon Route 53 assigns to the namespace when you create it.
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the namespace. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -229,5 +229,6 @@ namespace Pulumi.Aws.ServiceDiscovery
         public PrivateDnsNamespaceState()
         {
         }
+        public static new PrivateDnsNamespaceState Empty => new PrivateDnsNamespaceState();
     }
 }

@@ -15,35 +15,35 @@ namespace Pulumi.Aws.GuardDuty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var primary = new Aws.GuardDuty.Detector("primary", new()
     ///     {
-    ///         var primary = new Aws.GuardDuty.Detector("primary", new Aws.GuardDuty.DetectorArgs
-    ///         {
-    ///             Enable = true,
-    ///         });
-    ///         var memberDetector = new Aws.GuardDuty.Detector("memberDetector", new Aws.GuardDuty.DetectorArgs
-    ///         {
-    ///             Enable = true,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Dev,
-    ///         });
-    ///         var memberMember = new Aws.GuardDuty.Member("memberMember", new Aws.GuardDuty.MemberArgs
-    ///         {
-    ///             AccountId = memberDetector.AccountId,
-    ///             DetectorId = primary.Id,
-    ///             Email = "required@example.com",
-    ///             Invite = true,
-    ///             InvitationMessage = "please accept guardduty invitation",
-    ///         });
-    ///     }
+    ///         Enable = true,
+    ///     });
     /// 
-    /// }
+    ///     var memberDetector = new Aws.GuardDuty.Detector("memberDetector", new()
+    ///     {
+    ///         Enable = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Dev,
+    ///     });
+    /// 
+    ///     var memberMember = new Aws.GuardDuty.Member("memberMember", new()
+    ///     {
+    ///         AccountId = memberDetector.AccountId,
+    ///         DetectorId = primary.Id,
+    ///         Email = "required@example.com",
+    ///         Invite = true,
+    ///         InvitationMessage = "please accept guardduty invitation",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.GuardDuty
     /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/member:Member")]
-    public partial class Member : Pulumi.CustomResource
+    public partial class Member : global::Pulumi.CustomResource
     {
         /// <summary>
         /// AWS account ID for member account.
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.GuardDuty
         }
     }
 
-    public sealed class MemberArgs : Pulumi.ResourceArgs
+    public sealed class MemberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AWS account ID for member account.
@@ -184,9 +184,10 @@ namespace Pulumi.Aws.GuardDuty
         public MemberArgs()
         {
         }
+        public static new MemberArgs Empty => new MemberArgs();
     }
 
-    public sealed class MemberState : Pulumi.ResourceArgs
+    public sealed class MemberState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AWS account ID for member account.
@@ -233,5 +234,6 @@ namespace Pulumi.Aws.GuardDuty
         public MemberState()
         {
         }
+        public static new MemberState Empty => new MemberState();
     }
 }

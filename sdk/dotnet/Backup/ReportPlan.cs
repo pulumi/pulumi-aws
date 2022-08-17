@@ -15,37 +15,35 @@ namespace Pulumi.Aws.Backup
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Backup.ReportPlan("example", new()
     ///     {
-    ///         var example = new Aws.Backup.ReportPlan("example", new Aws.Backup.ReportPlanArgs
+    ///         Description = "example description",
+    ///         ReportDeliveryChannel = new Aws.Backup.Inputs.ReportPlanReportDeliveryChannelArgs
     ///         {
-    ///             Description = "example description",
-    ///             ReportDeliveryChannel = new Aws.Backup.Inputs.ReportPlanReportDeliveryChannelArgs
+    ///             Formats = new[]
     ///             {
-    ///                 Formats = 
-    ///                 {
-    ///                     "CSV",
-    ///                     "JSON",
-    ///                 },
-    ///                 S3BucketName = "example-bucket-name",
+    ///                 "CSV",
+    ///                 "JSON",
     ///             },
-    ///             ReportSetting = new Aws.Backup.Inputs.ReportPlanReportSettingArgs
-    ///             {
-    ///                 ReportTemplate = "RESTORE_JOB_REPORT",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example Report Plan" },
-    ///             },
-    ///         });
-    ///     }
+    ///             S3BucketName = "example-bucket-name",
+    ///         },
+    ///         ReportSetting = new Aws.Backup.Inputs.ReportPlanReportSettingArgs
+    ///         {
+    ///             ReportTemplate = "RESTORE_JOB_REPORT",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Report Plan" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +55,7 @@ namespace Pulumi.Aws.Backup
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/reportPlan:ReportPlan")]
-    public partial class ReportPlan : Pulumi.CustomResource
+    public partial class ReportPlan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the backup report plan.
@@ -107,9 +105,6 @@ namespace Pulumi.Aws.Backup
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -157,7 +152,7 @@ namespace Pulumi.Aws.Backup
         }
     }
 
-    public sealed class ReportPlanArgs : Pulumi.ResourceArgs
+    public sealed class ReportPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the report plan with a maximum of 1,024 characters
@@ -198,9 +193,10 @@ namespace Pulumi.Aws.Backup
         public ReportPlanArgs()
         {
         }
+        public static new ReportPlanArgs Empty => new ReportPlanArgs();
     }
 
-    public sealed class ReportPlanState : Pulumi.ResourceArgs
+    public sealed class ReportPlanState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the backup report plan.
@@ -258,10 +254,6 @@ namespace Pulumi.Aws.Backup
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -271,5 +263,6 @@ namespace Pulumi.Aws.Backup
         public ReportPlanState()
         {
         }
+        public static new ReportPlanState Empty => new ReportPlanState();
     }
 }

@@ -15,32 +15,30 @@ namespace Pulumi.Aws.Waf
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var geoMatchSet = new Aws.Waf.GeoMatchSet("geoMatchSet", new()
     ///     {
-    ///         var geoMatchSet = new Aws.Waf.GeoMatchSet("geoMatchSet", new Aws.Waf.GeoMatchSetArgs
+    ///         GeoMatchConstraints = new[]
     ///         {
-    ///             GeoMatchConstraints = 
+    ///             new Aws.Waf.Inputs.GeoMatchSetGeoMatchConstraintArgs
     ///             {
-    ///                 new Aws.Waf.Inputs.GeoMatchSetGeoMatchConstraintArgs
-    ///                 {
-    ///                     Type = "Country",
-    ///                     Value = "US",
-    ///                 },
-    ///                 new Aws.Waf.Inputs.GeoMatchSetGeoMatchConstraintArgs
-    ///                 {
-    ///                     Type = "Country",
-    ///                     Value = "CA",
-    ///                 },
+    ///                 Type = "Country",
+    ///                 Value = "US",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.Waf.Inputs.GeoMatchSetGeoMatchConstraintArgs
+    ///             {
+    ///                 Type = "Country",
+    ///                 Value = "CA",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Aws.Waf
     /// ```
     /// </summary>
     [AwsResourceType("aws:waf/geoMatchSet:GeoMatchSet")]
-    public partial class GeoMatchSet : Pulumi.CustomResource
+    public partial class GeoMatchSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN)
@@ -116,7 +114,7 @@ namespace Pulumi.Aws.Waf
         }
     }
 
-    public sealed class GeoMatchSetArgs : Pulumi.ResourceArgs
+    public sealed class GeoMatchSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("geoMatchConstraints")]
         private InputList<Inputs.GeoMatchSetGeoMatchConstraintArgs>? _geoMatchConstraints;
@@ -139,9 +137,10 @@ namespace Pulumi.Aws.Waf
         public GeoMatchSetArgs()
         {
         }
+        public static new GeoMatchSetArgs Empty => new GeoMatchSetArgs();
     }
 
-    public sealed class GeoMatchSetState : Pulumi.ResourceArgs
+    public sealed class GeoMatchSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN)
@@ -170,5 +169,6 @@ namespace Pulumi.Aws.Waf
         public GeoMatchSetState()
         {
         }
+        public static new GeoMatchSetState Empty => new GeoMatchSetState();
     }
 }

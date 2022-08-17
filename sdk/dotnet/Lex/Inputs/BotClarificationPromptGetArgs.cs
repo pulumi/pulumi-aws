@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex.Inputs
 {
 
-    public sealed class BotClarificationPromptGetArgs : Pulumi.ResourceArgs
+    public sealed class BotClarificationPromptGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of times to prompt the user for information.
@@ -43,5 +43,6 @@ namespace Pulumi.Aws.Lex.Inputs
         public BotClarificationPromptGetArgs()
         {
         }
+        public static new BotClarificationPromptGetArgs Empty => new BotClarificationPromptGetArgs();
     }
 }

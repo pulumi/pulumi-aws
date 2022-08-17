@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda.Inputs
 {
 
-    public sealed class CodeSigningConfigAllowedPublishersGetArgs : Pulumi.ResourceArgs
+    public sealed class CodeSigningConfigAllowedPublishersGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("signingProfileVersionArns", required: true)]
         private InputList<string>? _signingProfileVersionArns;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Lambda.Inputs
         public CodeSigningConfigAllowedPublishersGetArgs()
         {
         }
+        public static new CodeSigningConfigAllowedPublishersGetArgs Empty => new CodeSigningConfigAllowedPublishersGetArgs();
     }
 }

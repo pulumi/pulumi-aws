@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SecretsManager.Inputs
 {
 
-    public sealed class GetSecretsFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetSecretsFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.SecretsManager.Inputs
         public GetSecretsFilterArgs()
         {
         }
+        public static new GetSecretsFilterArgs Empty => new GetSecretsFilterArgs();
     }
 }

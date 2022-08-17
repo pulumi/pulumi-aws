@@ -23,21 +23,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ecs.NewAccountSettingDefault(ctx, "test", &ecs.AccountSettingDefaultArgs{
-// 			Value: pulumi.String("enabled"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewAccountSettingDefault(ctx, "test", &ecs.AccountSettingDefaultArgs{
+//				Value: pulumi.String("enabled"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // ECS Account Setting defaults can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
+//
+//	$ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
+//
 // ```
 type AccountSettingDefault struct {
 	pulumi.CustomResourceState
@@ -149,7 +154,7 @@ func (i *AccountSettingDefault) ToAccountSettingDefaultOutputWithContext(ctx con
 // AccountSettingDefaultArrayInput is an input type that accepts AccountSettingDefaultArray and AccountSettingDefaultArrayOutput values.
 // You can construct a concrete instance of `AccountSettingDefaultArrayInput` via:
 //
-//          AccountSettingDefaultArray{ AccountSettingDefaultArgs{...} }
+//	AccountSettingDefaultArray{ AccountSettingDefaultArgs{...} }
 type AccountSettingDefaultArrayInput interface {
 	pulumi.Input
 
@@ -174,7 +179,7 @@ func (i AccountSettingDefaultArray) ToAccountSettingDefaultArrayOutputWithContex
 // AccountSettingDefaultMapInput is an input type that accepts AccountSettingDefaultMap and AccountSettingDefaultMapOutput values.
 // You can construct a concrete instance of `AccountSettingDefaultMapInput` via:
 //
-//          AccountSettingDefaultMap{ "key": AccountSettingDefaultArgs{...} }
+//	AccountSettingDefaultMap{ "key": AccountSettingDefaultArgs{...} }
 type AccountSettingDefaultMapInput interface {
 	pulumi.Input
 

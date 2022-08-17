@@ -23,21 +23,19 @@ namespace Pulumi.Aws.Ec2
     /// Basic usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var snEc2 = new Aws.Ec2.VpcEndpointSubnetAssociation("snEc2", new()
     ///     {
-    ///         var snEc2 = new Aws.Ec2.VpcEndpointSubnetAssociation("snEc2", new Aws.Ec2.VpcEndpointSubnetAssociationArgs
-    ///         {
-    ///             VpcEndpointId = aws_vpc_endpoint.Ec2.Id,
-    ///             SubnetId = aws_subnet.Sn.Id,
-    ///         });
-    ///     }
+    ///         VpcEndpointId = aws_vpc_endpoint.Ec2.Id,
+    ///         SubnetId = aws_subnet.Sn.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation")]
-    public partial class VpcEndpointSubnetAssociation : Pulumi.CustomResource
+    public partial class VpcEndpointSubnetAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the subnet to be associated with the VPC endpoint.
@@ -107,7 +105,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcEndpointSubnetAssociationArgs : Pulumi.ResourceArgs
+    public sealed class VpcEndpointSubnetAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the subnet to be associated with the VPC endpoint.
@@ -124,9 +122,10 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointSubnetAssociationArgs()
         {
         }
+        public static new VpcEndpointSubnetAssociationArgs Empty => new VpcEndpointSubnetAssociationArgs();
     }
 
-    public sealed class VpcEndpointSubnetAssociationState : Pulumi.ResourceArgs
+    public sealed class VpcEndpointSubnetAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the subnet to be associated with the VPC endpoint.
@@ -143,5 +142,6 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointSubnetAssociationState()
         {
         }
+        public static new VpcEndpointSubnetAssociationState Empty => new VpcEndpointSubnetAssociationState();
     }
 }

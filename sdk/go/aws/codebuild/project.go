@@ -19,222 +19,229 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-// 			Bucket: exampleBucketV2.ID(),
-// 			Acl:    pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Effect": "Allow",
-//       "Principal": {
-//         "Service": "codebuild.amazonaws.com"
-//       },
-//       "Action": "sts:AssumeRole"
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "Service": "codebuild.amazonaws.com"
+//	      },
+//	      "Action": "sts:AssumeRole"
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
-// 			Role: exampleRole.Name,
-// 			Policy: pulumi.All(exampleBucketV2.Arn, exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
-// 				exampleBucketV2Arn := _args[0].(string)
-// 				exampleBucketV2Arn1 := _args[1].(string)
-// 				return fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Effect": "Allow",
-//       "Resource": [
-//         "*"
-//       ],
-//       "Action": [
-//         "logs:CreateLogGroup",
-//         "logs:CreateLogStream",
-//         "logs:PutLogEvents"
-//       ]
-//     },
-//     {
-//       "Effect": "Allow",
-//       "Action": [
-//         "ec2:CreateNetworkInterface",
-//         "ec2:DescribeDhcpOptions",
-//         "ec2:DescribeNetworkInterfaces",
-//         "ec2:DeleteNetworkInterface",
-//         "ec2:DescribeSubnets",
-//         "ec2:DescribeSecurityGroups",
-//         "ec2:DescribeVpcs"
-//       ],
-//       "Resource": "*"
-//     },
-//     {
-//       "Effect": "Allow",
-//       "Action": [
-//         "ec2:CreateNetworkInterfacePermission"
-//       ],
-//       "Resource": [
-//         "arn:aws:ec2:us-east-1:123456789012:network-interface/*"
-//       ],
-//       "Condition": {
-//         "StringEquals": {
-//           "ec2:Subnet": [
-//             "%v",
-//             "%v"
-//           ],
-//           "ec2:AuthorizedService": "codebuild.amazonaws.com"
-//         }
-//       }
-//     },
-//     {
-//       "Effect": "Allow",
-//       "Action": [
-//         "s3:*"
-//       ],
-//       "Resource": [
-//         "%v",
-//         "%v/*"
-//       ]
-//     }
-//   ]
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
+//				Role: exampleRole.Name,
+//				Policy: pulumi.All(exampleBucketV2.Arn, exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
+//					exampleBucketV2Arn := _args[0].(string)
+//					exampleBucketV2Arn1 := _args[1].(string)
+//					return fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Effect": "Allow",
+//	      "Resource": [
+//	        "*"
+//	      ],
+//	      "Action": [
+//	        "logs:CreateLogGroup",
+//	        "logs:CreateLogStream",
+//	        "logs:PutLogEvents"
+//	      ]
+//	    },
+//	    {
+//	      "Effect": "Allow",
+//	      "Action": [
+//	        "ec2:CreateNetworkInterface",
+//	        "ec2:DescribeDhcpOptions",
+//	        "ec2:DescribeNetworkInterfaces",
+//	        "ec2:DeleteNetworkInterface",
+//	        "ec2:DescribeSubnets",
+//	        "ec2:DescribeSecurityGroups",
+//	        "ec2:DescribeVpcs"
+//	      ],
+//	      "Resource": "*"
+//	    },
+//	    {
+//	      "Effect": "Allow",
+//	      "Action": [
+//	        "ec2:CreateNetworkInterfacePermission"
+//	      ],
+//	      "Resource": [
+//	        "arn:aws:ec2:us-east-1:123456789012:network-interface/*"
+//	      ],
+//	      "Condition": {
+//	        "StringEquals": {
+//	          "ec2:Subnet": [
+//	            "%v",
+//	            "%v"
+//	          ],
+//	          "ec2:AuthorizedService": "codebuild.amazonaws.com"
+//	        }
+//	      }
+//	    },
+//	    {
+//	      "Effect": "Allow",
+//	      "Action": [
+//	        "s3:*"
+//	      ],
+//	      "Resource": [
+//	        "%v",
+//	        "%v/*"
+//	      ]
+//	    }
+//	  ]
+//	}
+//
 // `, aws_subnet.Example1.Arn, aws_subnet.Example2.Arn, exampleBucketV2Arn, exampleBucketV2Arn1), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = codebuild.NewProject(ctx, "exampleProject", &codebuild.ProjectArgs{
-// 			Description:  pulumi.String("test_codebuild_project"),
-// 			BuildTimeout: pulumi.Int(5),
-// 			ServiceRole:  exampleRole.Arn,
-// 			Artifacts: &codebuild.ProjectArtifactsArgs{
-// 				Type: pulumi.String("NO_ARTIFACTS"),
-// 			},
-// 			Cache: &codebuild.ProjectCacheArgs{
-// 				Type:     pulumi.String("S3"),
-// 				Location: exampleBucketV2.Bucket,
-// 			},
-// 			Environment: &codebuild.ProjectEnvironmentArgs{
-// 				ComputeType:              pulumi.String("BUILD_GENERAL1_SMALL"),
-// 				Image:                    pulumi.String("aws/codebuild/standard:1.0"),
-// 				Type:                     pulumi.String("LINUX_CONTAINER"),
-// 				ImagePullCredentialsType: pulumi.String("CODEBUILD"),
-// 				EnvironmentVariables: codebuild.ProjectEnvironmentEnvironmentVariableArray{
-// 					&codebuild.ProjectEnvironmentEnvironmentVariableArgs{
-// 						Name:  pulumi.String("SOME_KEY1"),
-// 						Value: pulumi.String("SOME_VALUE1"),
-// 					},
-// 					&codebuild.ProjectEnvironmentEnvironmentVariableArgs{
-// 						Name:  pulumi.String("SOME_KEY2"),
-// 						Value: pulumi.String("SOME_VALUE2"),
-// 						Type:  pulumi.String("PARAMETER_STORE"),
-// 					},
-// 				},
-// 			},
-// 			LogsConfig: &codebuild.ProjectLogsConfigArgs{
-// 				CloudwatchLogs: &codebuild.ProjectLogsConfigCloudwatchLogsArgs{
-// 					GroupName:  pulumi.String("log-group"),
-// 					StreamName: pulumi.String("log-stream"),
-// 				},
-// 				S3Logs: &codebuild.ProjectLogsConfigS3LogsArgs{
-// 					Status: pulumi.String("ENABLED"),
-// 					Location: exampleBucketV2.ID().ApplyT(func(id string) (string, error) {
-// 						return fmt.Sprintf("%v/build-log", id), nil
-// 					}).(pulumi.StringOutput),
-// 				},
-// 			},
-// 			Source: &codebuild.ProjectSourceArgs{
-// 				Type:          pulumi.String("GITHUB"),
-// 				Location:      pulumi.String("https://github.com/mitchellh/packer.git"),
-// 				GitCloneDepth: pulumi.Int(1),
-// 				GitSubmodulesConfig: &codebuild.ProjectSourceGitSubmodulesConfigArgs{
-// 					FetchSubmodules: pulumi.Bool(true),
-// 				},
-// 			},
-// 			SourceVersion: pulumi.String("master"),
-// 			VpcConfig: &codebuild.ProjectVpcConfigArgs{
-// 				VpcId: pulumi.Any(aws_vpc.Example.Id),
-// 				Subnets: pulumi.StringArray{
-// 					pulumi.Any(aws_subnet.Example1.Id),
-// 					pulumi.Any(aws_subnet.Example2.Id),
-// 				},
-// 				SecurityGroupIds: pulumi.StringArray{
-// 					pulumi.Any(aws_security_group.Example1.Id),
-// 					pulumi.Any(aws_security_group.Example2.Id),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("Test"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = codebuild.NewProject(ctx, "project-with-cache", &codebuild.ProjectArgs{
-// 			Description:   pulumi.String("test_codebuild_project_cache"),
-// 			BuildTimeout:  pulumi.Int(5),
-// 			QueuedTimeout: pulumi.Int(5),
-// 			ServiceRole:   exampleRole.Arn,
-// 			Artifacts: &codebuild.ProjectArtifactsArgs{
-// 				Type: pulumi.String("NO_ARTIFACTS"),
-// 			},
-// 			Cache: &codebuild.ProjectCacheArgs{
-// 				Type: pulumi.String("LOCAL"),
-// 				Modes: pulumi.StringArray{
-// 					pulumi.String("LOCAL_DOCKER_LAYER_CACHE"),
-// 					pulumi.String("LOCAL_SOURCE_CACHE"),
-// 				},
-// 			},
-// 			Environment: &codebuild.ProjectEnvironmentArgs{
-// 				ComputeType:              pulumi.String("BUILD_GENERAL1_SMALL"),
-// 				Image:                    pulumi.String("aws/codebuild/standard:1.0"),
-// 				Type:                     pulumi.String("LINUX_CONTAINER"),
-// 				ImagePullCredentialsType: pulumi.String("CODEBUILD"),
-// 				EnvironmentVariables: codebuild.ProjectEnvironmentEnvironmentVariableArray{
-// 					&codebuild.ProjectEnvironmentEnvironmentVariableArgs{
-// 						Name:  pulumi.String("SOME_KEY1"),
-// 						Value: pulumi.String("SOME_VALUE1"),
-// 					},
-// 				},
-// 			},
-// 			Source: &codebuild.ProjectSourceArgs{
-// 				Type:          pulumi.String("GITHUB"),
-// 				Location:      pulumi.String("https://github.com/mitchellh/packer.git"),
-// 				GitCloneDepth: pulumi.Int(1),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("Test"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codebuild.NewProject(ctx, "exampleProject", &codebuild.ProjectArgs{
+//				Description:  pulumi.String("test_codebuild_project"),
+//				BuildTimeout: pulumi.Int(5),
+//				ServiceRole:  exampleRole.Arn,
+//				Artifacts: &codebuild.ProjectArtifactsArgs{
+//					Type: pulumi.String("NO_ARTIFACTS"),
+//				},
+//				Cache: &codebuild.ProjectCacheArgs{
+//					Type:     pulumi.String("S3"),
+//					Location: exampleBucketV2.Bucket,
+//				},
+//				Environment: &codebuild.ProjectEnvironmentArgs{
+//					ComputeType:              pulumi.String("BUILD_GENERAL1_SMALL"),
+//					Image:                    pulumi.String("aws/codebuild/standard:1.0"),
+//					Type:                     pulumi.String("LINUX_CONTAINER"),
+//					ImagePullCredentialsType: pulumi.String("CODEBUILD"),
+//					EnvironmentVariables: codebuild.ProjectEnvironmentEnvironmentVariableArray{
+//						&codebuild.ProjectEnvironmentEnvironmentVariableArgs{
+//							Name:  pulumi.String("SOME_KEY1"),
+//							Value: pulumi.String("SOME_VALUE1"),
+//						},
+//						&codebuild.ProjectEnvironmentEnvironmentVariableArgs{
+//							Name:  pulumi.String("SOME_KEY2"),
+//							Value: pulumi.String("SOME_VALUE2"),
+//							Type:  pulumi.String("PARAMETER_STORE"),
+//						},
+//					},
+//				},
+//				LogsConfig: &codebuild.ProjectLogsConfigArgs{
+//					CloudwatchLogs: &codebuild.ProjectLogsConfigCloudwatchLogsArgs{
+//						GroupName:  pulumi.String("log-group"),
+//						StreamName: pulumi.String("log-stream"),
+//					},
+//					S3Logs: &codebuild.ProjectLogsConfigS3LogsArgs{
+//						Status: pulumi.String("ENABLED"),
+//						Location: exampleBucketV2.ID().ApplyT(func(id string) (string, error) {
+//							return fmt.Sprintf("%v/build-log", id), nil
+//						}).(pulumi.StringOutput),
+//					},
+//				},
+//				Source: &codebuild.ProjectSourceArgs{
+//					Type:          pulumi.String("GITHUB"),
+//					Location:      pulumi.String("https://github.com/mitchellh/packer.git"),
+//					GitCloneDepth: pulumi.Int(1),
+//					GitSubmodulesConfig: &codebuild.ProjectSourceGitSubmodulesConfigArgs{
+//						FetchSubmodules: pulumi.Bool(true),
+//					},
+//				},
+//				SourceVersion: pulumi.String("master"),
+//				VpcConfig: &codebuild.ProjectVpcConfigArgs{
+//					VpcId: pulumi.Any(aws_vpc.Example.Id),
+//					Subnets: pulumi.StringArray{
+//						pulumi.Any(aws_subnet.Example1.Id),
+//						pulumi.Any(aws_subnet.Example2.Id),
+//					},
+//					SecurityGroupIds: pulumi.StringArray{
+//						pulumi.Any(aws_security_group.Example1.Id),
+//						pulumi.Any(aws_security_group.Example2.Id),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codebuild.NewProject(ctx, "project-with-cache", &codebuild.ProjectArgs{
+//				Description:   pulumi.String("test_codebuild_project_cache"),
+//				BuildTimeout:  pulumi.Int(5),
+//				QueuedTimeout: pulumi.Int(5),
+//				ServiceRole:   exampleRole.Arn,
+//				Artifacts: &codebuild.ProjectArtifactsArgs{
+//					Type: pulumi.String("NO_ARTIFACTS"),
+//				},
+//				Cache: &codebuild.ProjectCacheArgs{
+//					Type: pulumi.String("LOCAL"),
+//					Modes: pulumi.StringArray{
+//						pulumi.String("LOCAL_DOCKER_LAYER_CACHE"),
+//						pulumi.String("LOCAL_SOURCE_CACHE"),
+//					},
+//				},
+//				Environment: &codebuild.ProjectEnvironmentArgs{
+//					ComputeType:              pulumi.String("BUILD_GENERAL1_SMALL"),
+//					Image:                    pulumi.String("aws/codebuild/standard:1.0"),
+//					Type:                     pulumi.String("LINUX_CONTAINER"),
+//					ImagePullCredentialsType: pulumi.String("CODEBUILD"),
+//					EnvironmentVariables: codebuild.ProjectEnvironmentEnvironmentVariableArray{
+//						&codebuild.ProjectEnvironmentEnvironmentVariableArgs{
+//							Name:  pulumi.String("SOME_KEY1"),
+//							Value: pulumi.String("SOME_VALUE1"),
+//						},
+//					},
+//				},
+//				Source: &codebuild.ProjectSourceArgs{
+//					Type:          pulumi.String("GITHUB"),
+//					Location:      pulumi.String("https://github.com/mitchellh/packer.git"),
+//					GitCloneDepth: pulumi.Int(1),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -242,7 +249,9 @@ import (
 // CodeBuild Project can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:codebuild/project:Project name project-name
+//
+//	$ pulumi import aws:codebuild/project:Project name project-name
+//
 // ```
 type Project struct {
 	pulumi.CustomResourceState
@@ -295,7 +304,7 @@ type Project struct {
 	Source ProjectSourceOutput `pulumi:"source"`
 	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
 	SourceVersion pulumi.StringPtrOutput `pulumi:"sourceVersion"`
-	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -392,7 +401,7 @@ type projectState struct {
 	Source *ProjectSource `pulumi:"source"`
 	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
 	SourceVersion *string `pulumi:"sourceVersion"`
-	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -449,7 +458,7 @@ type ProjectState struct {
 	Source ProjectSourcePtrInput
 	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
 	SourceVersion pulumi.StringPtrInput
-	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -504,7 +513,7 @@ type projectArgs struct {
 	Source ProjectSource `pulumi:"source"`
 	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
 	SourceVersion *string `pulumi:"sourceVersion"`
-	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block. Detailed below.
 	VpcConfig *ProjectVpcConfig `pulumi:"vpcConfig"`
@@ -554,7 +563,7 @@ type ProjectArgs struct {
 	Source ProjectSourceInput
 	// The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
 	SourceVersion pulumi.StringPtrInput
-	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block. Detailed below.
 	VpcConfig ProjectVpcConfigPtrInput
@@ -586,7 +595,7 @@ func (i *Project) ToProjectOutputWithContext(ctx context.Context) ProjectOutput 
 // ProjectArrayInput is an input type that accepts ProjectArray and ProjectArrayOutput values.
 // You can construct a concrete instance of `ProjectArrayInput` via:
 //
-//          ProjectArray{ ProjectArgs{...} }
+//	ProjectArray{ ProjectArgs{...} }
 type ProjectArrayInput interface {
 	pulumi.Input
 
@@ -611,7 +620,7 @@ func (i ProjectArray) ToProjectArrayOutputWithContext(ctx context.Context) Proje
 // ProjectMapInput is an input type that accepts ProjectMap and ProjectMapOutput values.
 // You can construct a concrete instance of `ProjectMapInput` via:
 //
-//          ProjectMap{ "key": ProjectArgs{...} }
+//	ProjectMap{ "key": ProjectArgs{...} }
 type ProjectMapInput interface {
 	pulumi.Input
 
@@ -767,7 +776,7 @@ func (o ProjectOutput) SourceVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.SourceVersion }).(pulumi.StringPtrOutput)
 }
 
-// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProjectOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

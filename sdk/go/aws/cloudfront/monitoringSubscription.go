@@ -19,26 +19,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudfront.NewMonitoringSubscription(ctx, "example", &cloudfront.MonitoringSubscriptionArgs{
-// 			DistributionId: pulumi.Any(aws_cloudfront_distribution.Example.Id),
-// 			MonitoringSubscription: &cloudfront.MonitoringSubscriptionMonitoringSubscriptionArgs{
-// 				RealtimeMetricsSubscriptionConfig: &cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{
-// 					RealtimeMetricsSubscriptionStatus: pulumi.String("Enabled"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewMonitoringSubscription(ctx, "example", &cloudfront.MonitoringSubscriptionArgs{
+//				DistributionId: pulumi.Any(aws_cloudfront_distribution.Example.Id),
+//				MonitoringSubscription: &cloudfront.MonitoringSubscriptionMonitoringSubscriptionArgs{
+//					RealtimeMetricsSubscriptionConfig: &cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{
+//						RealtimeMetricsSubscriptionStatus: pulumi.String("Enabled"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // CloudFront monitoring subscription can be imported using the id, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
+//
+//	$ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
+//
 // ```
 type MonitoringSubscription struct {
 	pulumi.CustomResourceState
@@ -150,7 +155,7 @@ func (i *MonitoringSubscription) ToMonitoringSubscriptionOutputWithContext(ctx c
 // MonitoringSubscriptionArrayInput is an input type that accepts MonitoringSubscriptionArray and MonitoringSubscriptionArrayOutput values.
 // You can construct a concrete instance of `MonitoringSubscriptionArrayInput` via:
 //
-//          MonitoringSubscriptionArray{ MonitoringSubscriptionArgs{...} }
+//	MonitoringSubscriptionArray{ MonitoringSubscriptionArgs{...} }
 type MonitoringSubscriptionArrayInput interface {
 	pulumi.Input
 
@@ -175,7 +180,7 @@ func (i MonitoringSubscriptionArray) ToMonitoringSubscriptionArrayOutputWithCont
 // MonitoringSubscriptionMapInput is an input type that accepts MonitoringSubscriptionMap and MonitoringSubscriptionMapOutput values.
 // You can construct a concrete instance of `MonitoringSubscriptionMapInput` via:
 //
-//          MonitoringSubscriptionMap{ "key": MonitoringSubscriptionArgs{...} }
+//	MonitoringSubscriptionMap{ "key": MonitoringSubscriptionArgs{...} }
 type MonitoringSubscriptionMapInput interface {
 	pulumi.Input
 

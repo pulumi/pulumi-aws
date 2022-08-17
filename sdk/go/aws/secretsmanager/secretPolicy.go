@@ -20,42 +20,47 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleSecret, err := secretsmanager.NewSecret(ctx, "exampleSecret", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = secretsmanager.NewSecretPolicy(ctx, "exampleSecretPolicy", &secretsmanager.SecretPolicyArgs{
-// 			SecretArn: exampleSecret.Arn,
-// 			Policy: pulumi.String(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-// 	{
-// 	  "Sid": "EnableAnotherAWSAccountToReadTheSecret",
-// 	  "Effect": "Allow",
-// 	  "Principal": {
-// 		"AWS": "arn:aws:iam::123456789012:root"
-// 	  },
-// 	  "Action": "secretsmanager:GetSecretValue",
-// 	  "Resource": "*"
-// 	}
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleSecret, err := secretsmanager.NewSecret(ctx, "exampleSecret", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = secretsmanager.NewSecretPolicy(ctx, "exampleSecretPolicy", &secretsmanager.SecretPolicyArgs{
+//				SecretArn: exampleSecret.Arn,
+//				Policy: pulumi.String(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//		{
+//		  "Sid": "EnableAnotherAWSAccountToReadTheSecret",
+//		  "Effect": "Allow",
+//		  "Principal": {
+//			"AWS": "arn:aws:iam::123456789012:root"
+//		  },
+//		  "Action": "secretsmanager:GetSecretValue",
+//		  "Resource": "*"
+//		}
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +68,9 @@ import (
 // `aws_secretsmanager_secret_policy` can be imported by using the secret Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+//
+//	$ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+//
 // ```
 type SecretPolicy struct {
 	pulumi.CustomResourceState
@@ -177,7 +184,7 @@ func (i *SecretPolicy) ToSecretPolicyOutputWithContext(ctx context.Context) Secr
 // SecretPolicyArrayInput is an input type that accepts SecretPolicyArray and SecretPolicyArrayOutput values.
 // You can construct a concrete instance of `SecretPolicyArrayInput` via:
 //
-//          SecretPolicyArray{ SecretPolicyArgs{...} }
+//	SecretPolicyArray{ SecretPolicyArgs{...} }
 type SecretPolicyArrayInput interface {
 	pulumi.Input
 
@@ -202,7 +209,7 @@ func (i SecretPolicyArray) ToSecretPolicyArrayOutputWithContext(ctx context.Cont
 // SecretPolicyMapInput is an input type that accepts SecretPolicyMap and SecretPolicyMapOutput values.
 // You can construct a concrete instance of `SecretPolicyMapInput` via:
 //
-//          SecretPolicyMap{ "key": SecretPolicyArgs{...} }
+//	SecretPolicyMap{ "key": SecretPolicyArgs{...} }
 type SecretPolicyMapInput interface {
 	pulumi.Input
 

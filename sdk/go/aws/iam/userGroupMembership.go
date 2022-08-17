@@ -24,50 +24,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		user1, err := iam.NewUser(ctx, "user1", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		group1, err := iam.NewGroup(ctx, "group1", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		group2, err := iam.NewGroup(ctx, "group2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewUserGroupMembership(ctx, "example1", &iam.UserGroupMembershipArgs{
-// 			User: user1.Name,
-// 			Groups: pulumi.StringArray{
-// 				group1.Name,
-// 				group2.Name,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		group3, err := iam.NewGroup(ctx, "group3", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewUserGroupMembership(ctx, "example2", &iam.UserGroupMembershipArgs{
-// 			User: user1.Name,
-// 			Groups: pulumi.StringArray{
-// 				group3.Name,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			user1, err := iam.NewUser(ctx, "user1", nil)
+//			if err != nil {
+//				return err
+//			}
+//			group1, err := iam.NewGroup(ctx, "group1", nil)
+//			if err != nil {
+//				return err
+//			}
+//			group2, err := iam.NewGroup(ctx, "group2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewUserGroupMembership(ctx, "example1", &iam.UserGroupMembershipArgs{
+//				User: user1.Name,
+//				Groups: pulumi.StringArray{
+//					group1.Name,
+//					group2.Name,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			group3, err := iam.NewGroup(ctx, "group3", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewUserGroupMembership(ctx, "example2", &iam.UserGroupMembershipArgs{
+//				User: user1.Name,
+//				Groups: pulumi.StringArray{
+//					group3.Name,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,7 +78,9 @@ import (
 // IAM user group membership can be imported using the user name and group names separated by `/`.
 //
 // ```sh
-//  $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+//
+//	$ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+//
 // ```
 type UserGroupMembership struct {
 	pulumi.CustomResourceState
@@ -179,7 +184,7 @@ func (i *UserGroupMembership) ToUserGroupMembershipOutputWithContext(ctx context
 // UserGroupMembershipArrayInput is an input type that accepts UserGroupMembershipArray and UserGroupMembershipArrayOutput values.
 // You can construct a concrete instance of `UserGroupMembershipArrayInput` via:
 //
-//          UserGroupMembershipArray{ UserGroupMembershipArgs{...} }
+//	UserGroupMembershipArray{ UserGroupMembershipArgs{...} }
 type UserGroupMembershipArrayInput interface {
 	pulumi.Input
 
@@ -204,7 +209,7 @@ func (i UserGroupMembershipArray) ToUserGroupMembershipArrayOutputWithContext(ct
 // UserGroupMembershipMapInput is an input type that accepts UserGroupMembershipMap and UserGroupMembershipMapOutput values.
 // You can construct a concrete instance of `UserGroupMembershipMapInput` via:
 //
-//          UserGroupMembershipMap{ "key": UserGroupMembershipArgs{...} }
+//	UserGroupMembershipMap{ "key": UserGroupMembershipArgs{...} }
 type UserGroupMembershipMapInput interface {
 	pulumi.Input
 

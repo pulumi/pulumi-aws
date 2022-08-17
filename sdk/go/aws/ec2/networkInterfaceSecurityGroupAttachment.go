@@ -34,57 +34,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		ami, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-// 			MostRecent: pulumi.BoolRef(true),
-// 			Filters: []ec2.GetAmiFilter{
-// 				ec2.GetAmiFilter{
-// 					Name: "name",
-// 					Values: []string{
-// 						"amzn-ami-hvm-*",
-// 					},
-// 				},
-// 			},
-// 			Owners: []string{
-// 				"amazon",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		instance, err := ec2.NewInstance(ctx, "instance", &ec2.InstanceArgs{
-// 			InstanceType: pulumi.String("t2.micro"),
-// 			Ami:          pulumi.String(ami.Id),
-// 			Tags: pulumi.StringMap{
-// 				"type": pulumi.String("test-instance"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		sg, err := ec2.NewSecurityGroup(ctx, "sg", &ec2.SecurityGroupArgs{
-// 			Tags: pulumi.StringMap{
-// 				"type": pulumi.String("test-security-group"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sgAttachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
-// 			SecurityGroupId:    sg.ID(),
-// 			NetworkInterfaceId: instance.PrimaryNetworkInterfaceId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ami, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//				MostRecent: pulumi.BoolRef(true),
+//				Filters: []ec2.GetAmiFilter{
+//					ec2.GetAmiFilter{
+//						Name: "name",
+//						Values: []string{
+//							"amzn-ami-hvm-*",
+//						},
+//					},
+//				},
+//				Owners: []string{
+//					"amazon",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			instance, err := ec2.NewInstance(ctx, "instance", &ec2.InstanceArgs{
+//				InstanceType: pulumi.String("t2.micro"),
+//				Ami:          pulumi.String(ami.Id),
+//				Tags: pulumi.StringMap{
+//					"type": pulumi.String("test-instance"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			sg, err := ec2.NewSecurityGroup(ctx, "sg", &ec2.SecurityGroupArgs{
+//				Tags: pulumi.StringMap{
+//					"type": pulumi.String("test-security-group"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sgAttachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
+//				SecurityGroupId:    sg.ID(),
+//				NetworkInterfaceId: instance.PrimaryNetworkInterfaceId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // In this example, `instance` is provided by the `ec2.Instance` data source,
@@ -95,36 +98,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		instance, err := ec2.LookupInstance(ctx, &ec2.LookupInstanceArgs{
-// 			InstanceId: pulumi.StringRef("i-1234567890abcdef0"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		sg, err := ec2.NewSecurityGroup(ctx, "sg", &ec2.SecurityGroupArgs{
-// 			Tags: pulumi.StringMap{
-// 				"type": pulumi.String("test-security-group"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sgAttachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
-// 			SecurityGroupId:    sg.ID(),
-// 			NetworkInterfaceId: pulumi.String(instance.NetworkInterfaceId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			instance, err := ec2.LookupInstance(ctx, &ec2.LookupInstanceArgs{
+//				InstanceId: pulumi.StringRef("i-1234567890abcdef0"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			sg, err := ec2.NewSecurityGroup(ctx, "sg", &ec2.SecurityGroupArgs{
+//				Tags: pulumi.StringMap{
+//					"type": pulumi.String("test-security-group"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sgAttachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
+//				SecurityGroupId:    sg.ID(),
+//				NetworkInterfaceId: pulumi.String(instance.NetworkInterfaceId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type NetworkInterfaceSecurityGroupAttachment struct {
 	pulumi.CustomResourceState
@@ -228,7 +234,7 @@ func (i *NetworkInterfaceSecurityGroupAttachment) ToNetworkInterfaceSecurityGrou
 // NetworkInterfaceSecurityGroupAttachmentArrayInput is an input type that accepts NetworkInterfaceSecurityGroupAttachmentArray and NetworkInterfaceSecurityGroupAttachmentArrayOutput values.
 // You can construct a concrete instance of `NetworkInterfaceSecurityGroupAttachmentArrayInput` via:
 //
-//          NetworkInterfaceSecurityGroupAttachmentArray{ NetworkInterfaceSecurityGroupAttachmentArgs{...} }
+//	NetworkInterfaceSecurityGroupAttachmentArray{ NetworkInterfaceSecurityGroupAttachmentArgs{...} }
 type NetworkInterfaceSecurityGroupAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -253,7 +259,7 @@ func (i NetworkInterfaceSecurityGroupAttachmentArray) ToNetworkInterfaceSecurity
 // NetworkInterfaceSecurityGroupAttachmentMapInput is an input type that accepts NetworkInterfaceSecurityGroupAttachmentMap and NetworkInterfaceSecurityGroupAttachmentMapOutput values.
 // You can construct a concrete instance of `NetworkInterfaceSecurityGroupAttachmentMapInput` via:
 //
-//          NetworkInterfaceSecurityGroupAttachmentMap{ "key": NetworkInterfaceSecurityGroupAttachmentArgs{...} }
+//	NetworkInterfaceSecurityGroupAttachmentMap{ "key": NetworkInterfaceSecurityGroupAttachmentArgs{...} }
 type NetworkInterfaceSecurityGroupAttachmentMapInput interface {
 	pulumi.Input
 

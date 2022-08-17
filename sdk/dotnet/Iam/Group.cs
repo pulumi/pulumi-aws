@@ -13,20 +13,18 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var developers = new Aws.Iam.Group("developers", new()
     ///     {
-    ///         var developers = new Aws.Iam.Group("developers", new Aws.Iam.GroupArgs
-    ///         {
-    ///             Path = "/users/",
-    ///         });
-    ///     }
+    ///         Path = "/users/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -38,7 +36,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/group:Group")]
-    public partial class Group : Pulumi.CustomResource
+    public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN assigned by AWS for this group.
@@ -108,7 +106,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class GroupArgs : Pulumi.ResourceArgs
+    public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
@@ -125,9 +123,10 @@ namespace Pulumi.Aws.Iam
         public GroupArgs()
         {
         }
+        public static new GroupArgs Empty => new GroupArgs();
     }
 
-    public sealed class GroupState : Pulumi.ResourceArgs
+    public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN assigned by AWS for this group.
@@ -156,5 +155,6 @@ namespace Pulumi.Aws.Iam
         public GroupState()
         {
         }
+        public static new GroupState Empty => new GroupState();
     }
 }

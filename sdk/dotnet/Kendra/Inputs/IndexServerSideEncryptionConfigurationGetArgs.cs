@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra.Inputs
 {
 
-    public sealed class IndexServerSideEncryptionConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class IndexServerSideEncryptionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Kendra.Inputs
         public IndexServerSideEncryptionConfigurationGetArgs()
         {
         }
+        public static new IndexServerSideEncryptionConfigurationGetArgs Empty => new IndexServerSideEncryptionConfigurationGetArgs();
     }
 }

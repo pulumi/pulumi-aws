@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Budgets.Inputs
 {
 
-    public sealed class BudgetActionSubscriberGetArgs : Pulumi.ResourceArgs
+    public sealed class BudgetActionSubscriberGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address that AWS sends budget notifications to, either an SNS topic or an email.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Budgets.Inputs
         public BudgetActionSubscriberGetArgs()
         {
         }
+        public static new BudgetActionSubscriberGetArgs Empty => new BudgetActionSubscriberGetArgs();
     }
 }

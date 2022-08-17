@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AutoScaling
     /// ```
     /// </summary>
     [AwsResourceType("aws:autoscaling/tag:Tag")]
-    public partial class Tag : Pulumi.CustomResource
+    public partial class Tag : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Autoscaling Group to apply the tag to.
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.AutoScaling
         }
     }
 
-    public sealed class TagArgs : Pulumi.ResourceArgs
+    public sealed class TagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Autoscaling Group to apply the tag to.
@@ -94,9 +94,10 @@ namespace Pulumi.Aws.AutoScaling
         public TagArgs()
         {
         }
+        public static new TagArgs Empty => new TagArgs();
     }
 
-    public sealed class TagState : Pulumi.ResourceArgs
+    public sealed class TagState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Autoscaling Group to apply the tag to.
@@ -113,5 +114,6 @@ namespace Pulumi.Aws.AutoScaling
         public TagState()
         {
         }
+        public static new TagState Empty => new TagState();
     }
 }

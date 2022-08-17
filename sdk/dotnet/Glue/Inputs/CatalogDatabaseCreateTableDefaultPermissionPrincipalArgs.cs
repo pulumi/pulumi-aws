@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs : Pulumi.ResourceArgs
+    public sealed class CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An identifier for the Lake Formation principal.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs()
         {
         }
+        public static new CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs Empty => new CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs();
     }
 }

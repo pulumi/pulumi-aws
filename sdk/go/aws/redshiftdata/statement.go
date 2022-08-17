@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshiftdata"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshiftdata"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := redshiftdata.NewStatement(ctx, "example", &redshiftdata.StatementArgs{
-// 			ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
-// 			Database:          pulumi.Any(aws_redshift_cluster.Example.Database_name),
-// 			DbUser:            pulumi.Any(aws_redshift_cluster.Example.Master_username),
-// 			Sql:               pulumi.String("CREATE GROUP group_name;"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := redshiftdata.NewStatement(ctx, "example", &redshiftdata.StatementArgs{
+//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
+//				Database:          pulumi.Any(aws_redshift_cluster.Example.Database_name),
+//				DbUser:            pulumi.Any(aws_redshift_cluster.Example.Master_username),
+//				Sql:               pulumi.String("CREATE GROUP group_name;"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // Redshift Data Statements can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:redshiftdata/statement:Statement example example
+//
+//	$ pulumi import aws:redshiftdata/statement:Statement example example
+//
 // ```
 type Statement struct {
 	pulumi.CustomResourceState
@@ -206,7 +211,7 @@ func (i *Statement) ToStatementOutputWithContext(ctx context.Context) StatementO
 // StatementArrayInput is an input type that accepts StatementArray and StatementArrayOutput values.
 // You can construct a concrete instance of `StatementArrayInput` via:
 //
-//          StatementArray{ StatementArgs{...} }
+//	StatementArray{ StatementArgs{...} }
 type StatementArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +236,7 @@ func (i StatementArray) ToStatementArrayOutputWithContext(ctx context.Context) S
 // StatementMapInput is an input type that accepts StatementMap and StatementMapOutput values.
 // You can construct a concrete instance of `StatementMapInput` via:
 //
-//          StatementMap{ "key": StatementArgs{...} }
+//	StatementMap{ "key": StatementArgs{...} }
 type StatementMapInput interface {
 	pulumi.Input
 

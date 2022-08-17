@@ -24,25 +24,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
-// 			Bucket: exampleBucketV2.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
+//				Bucket: exampleBucketV2.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### S3 on Outposts Bucket
 //
@@ -50,38 +53,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucket, err := s3control.NewBucket(ctx, "exampleBucket", &s3control.BucketArgs{
-// 			Bucket: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.0.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
-// 			Bucket: exampleBucket.Arn,
-// 			VpcConfiguration: &s3.AccessPointVpcConfigurationArgs{
-// 				VpcId: exampleVpc.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucket, err := s3control.NewBucket(ctx, "exampleBucket", &s3control.BucketArgs{
+//				Bucket: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
+//				Bucket: exampleBucket.Arn,
+//				VpcConfiguration: &s3.AccessPointVpcConfigurationArgs{
+//					VpcId: exampleVpc.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -89,13 +95,17 @@ import (
 // For Access Points associated with an AWS Partition S3 Bucket, this resource can be imported using the `account_id` and `name` separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
+//
+//	$ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
+//
 // ```
 //
-//  For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the Amazon Resource Name (ARN), e.g.,
+//	For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
+//
+//	$ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
+//
 // ```
 type AccessPoint struct {
 	pulumi.CustomResourceState
@@ -275,7 +285,7 @@ func (i *AccessPoint) ToAccessPointOutputWithContext(ctx context.Context) Access
 // AccessPointArrayInput is an input type that accepts AccessPointArray and AccessPointArrayOutput values.
 // You can construct a concrete instance of `AccessPointArrayInput` via:
 //
-//          AccessPointArray{ AccessPointArgs{...} }
+//	AccessPointArray{ AccessPointArgs{...} }
 type AccessPointArrayInput interface {
 	pulumi.Input
 
@@ -300,7 +310,7 @@ func (i AccessPointArray) ToAccessPointArrayOutputWithContext(ctx context.Contex
 // AccessPointMapInput is an input type that accepts AccessPointMap and AccessPointMapOutput values.
 // You can construct a concrete instance of `AccessPointMapInput` via:
 //
-//          AccessPointMap{ "key": AccessPointArgs{...} }
+//	AccessPointMap{ "key": AccessPointArgs{...} }
 type AccessPointMapInput interface {
 	pulumi.Input
 

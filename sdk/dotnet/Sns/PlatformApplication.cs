@@ -16,41 +16,37 @@ namespace Pulumi.Aws.Sns
     /// ### Apple Push Notification Service (APNS)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var apnsApplication = new Aws.Sns.PlatformApplication("apnsApplication", new()
     ///     {
-    ///         var apnsApplication = new Aws.Sns.PlatformApplication("apnsApplication", new Aws.Sns.PlatformApplicationArgs
-    ///         {
-    ///             Platform = "APNS",
-    ///             PlatformCredential = "&lt;APNS PRIVATE KEY&gt;",
-    ///             PlatformPrincipal = "&lt;APNS CERTIFICATE&gt;",
-    ///         });
-    ///     }
+    ///         Platform = "APNS",
+    ///         PlatformCredential = "&lt;APNS PRIVATE KEY&gt;",
+    ///         PlatformPrincipal = "&lt;APNS CERTIFICATE&gt;",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Google Cloud Messaging (GCM)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var gcmApplication = new Aws.Sns.PlatformApplication("gcmApplication", new()
     ///     {
-    ///         var gcmApplication = new Aws.Sns.PlatformApplication("gcmApplication", new Aws.Sns.PlatformApplicationArgs
-    ///         {
-    ///             Platform = "GCM",
-    ///             PlatformCredential = "&lt;GCM API KEY&gt;",
-    ///         });
-    ///     }
+    ///         Platform = "GCM",
+    ///         PlatformCredential = "&lt;GCM API KEY&gt;",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +58,7 @@ namespace Pulumi.Aws.Sns
     /// ```
     /// </summary>
     [AwsResourceType("aws:sns/platformApplication:PlatformApplication")]
-    public partial class PlatformApplication : Pulumi.CustomResource
+    public partial class PlatformApplication : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the SNS platform application
@@ -180,7 +176,7 @@ namespace Pulumi.Aws.Sns
         }
     }
 
-    public sealed class PlatformApplicationArgs : Pulumi.ResourceArgs
+    public sealed class PlatformApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
@@ -251,9 +247,10 @@ namespace Pulumi.Aws.Sns
         public PlatformApplicationArgs()
         {
         }
+        public static new PlatformApplicationArgs Empty => new PlatformApplicationArgs();
     }
 
-    public sealed class PlatformApplicationState : Pulumi.ResourceArgs
+    public sealed class PlatformApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the SNS platform application
@@ -330,5 +327,6 @@ namespace Pulumi.Aws.Sns
         public PlatformApplicationState()
         {
         }
+        public static new PlatformApplicationState Empty => new PlatformApplicationState();
     }
 }

@@ -19,35 +19,34 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var my_domain = Aws.Iam.GetServerCertificate.Invoke(new()
         ///     {
-        ///         var my_domain = Output.Create(Aws.Iam.GetServerCertificate.InvokeAsync(new Aws.Iam.GetServerCertificateArgs
-        ///         {
-        ///             NamePrefix = "my-domain.org",
-        ///             Latest = true,
-        ///         }));
-        ///         var elb = new Aws.Elb.LoadBalancer("elb", new Aws.Elb.LoadBalancerArgs
-        ///         {
-        ///             Listeners = 
-        ///             {
-        ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
-        ///                 {
-        ///                     InstancePort = 8000,
-        ///                     InstanceProtocol = "https",
-        ///                     LbPort = 443,
-        ///                     LbProtocol = "https",
-        ///                     SslCertificateId = my_domain.Apply(my_domain =&gt; my_domain.Arn),
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        ///         NamePrefix = "my-domain.org",
+        ///         Latest = true,
+        ///     });
         /// 
-        /// }
+        ///     var elb = new Aws.Elb.LoadBalancer("elb", new()
+        ///     {
+        ///         Listeners = new[]
+        ///         {
+        ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+        ///             {
+        ///                 InstancePort = 8000,
+        ///                 InstanceProtocol = "https",
+        ///                 LbPort = 443,
+        ///                 LbProtocol = "https",
+        ///                 SslCertificateId = my_domain.Apply(getServerCertificateResult =&gt; getServerCertificateResult).Apply(my_domain =&gt; my_domain.Apply(getServerCertificateResult =&gt; getServerCertificateResult.Arn)),
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -63,35 +62,34 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var my_domain = Aws.Iam.GetServerCertificate.Invoke(new()
         ///     {
-        ///         var my_domain = Output.Create(Aws.Iam.GetServerCertificate.InvokeAsync(new Aws.Iam.GetServerCertificateArgs
-        ///         {
-        ///             NamePrefix = "my-domain.org",
-        ///             Latest = true,
-        ///         }));
-        ///         var elb = new Aws.Elb.LoadBalancer("elb", new Aws.Elb.LoadBalancerArgs
-        ///         {
-        ///             Listeners = 
-        ///             {
-        ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
-        ///                 {
-        ///                     InstancePort = 8000,
-        ///                     InstanceProtocol = "https",
-        ///                     LbPort = 443,
-        ///                     LbProtocol = "https",
-        ///                     SslCertificateId = my_domain.Apply(my_domain =&gt; my_domain.Arn),
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        ///         NamePrefix = "my-domain.org",
+        ///         Latest = true,
+        ///     });
         /// 
-        /// }
+        ///     var elb = new Aws.Elb.LoadBalancer("elb", new()
+        ///     {
+        ///         Listeners = new[]
+        ///         {
+        ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+        ///             {
+        ///                 InstancePort = 8000,
+        ///                 InstanceProtocol = "https",
+        ///                 LbPort = 443,
+        ///                 LbProtocol = "https",
+        ///                 SslCertificateId = my_domain.Apply(getServerCertificateResult =&gt; getServerCertificateResult).Apply(my_domain =&gt; my_domain.Apply(getServerCertificateResult =&gt; getServerCertificateResult.Arn)),
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -101,7 +99,7 @@ namespace Pulumi.Aws.Iam
     }
 
 
-    public sealed class GetServerCertificateArgs : Pulumi.InvokeArgs
+    public sealed class GetServerCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// sort results by expiration date. returns the certificate with expiration date in furthest in the future.
@@ -130,9 +128,10 @@ namespace Pulumi.Aws.Iam
         public GetServerCertificateArgs()
         {
         }
+        public static new GetServerCertificateArgs Empty => new GetServerCertificateArgs();
     }
 
-    public sealed class GetServerCertificateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// sort results by expiration date. returns the certificate with expiration date in furthest in the future.
@@ -161,6 +160,7 @@ namespace Pulumi.Aws.Iam
         public GetServerCertificateInvokeArgs()
         {
         }
+        public static new GetServerCertificateInvokeArgs Empty => new GetServerCertificateInvokeArgs();
     }
 
 

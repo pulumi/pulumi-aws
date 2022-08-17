@@ -16,60 +16,55 @@ namespace Pulumi.Aws.Ec2
     /// ### AWS Account ID
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.AmiLaunchPermission("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.AmiLaunchPermission("example", new Aws.Ec2.AmiLaunchPermissionArgs
-    ///         {
-    ///             AccountId = "123456789012",
-    ///             ImageId = "ami-12345678",
-    ///         });
-    ///     }
+    ///         AccountId = "123456789012",
+    ///         ImageId = "ami-12345678",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Public Access
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.AmiLaunchPermission("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.AmiLaunchPermission("example", new Aws.Ec2.AmiLaunchPermissionArgs
-    ///         {
-    ///             Group = "all",
-    ///             ImageId = "ami-12345678",
-    ///         });
-    ///     }
+    ///         Group = "all",
+    ///         ImageId = "ami-12345678",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Organization Access
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Aws.Organizations.GetOrganization.InvokeAsync());
-    ///         var example = new Aws.Ec2.AmiLaunchPermission("example", new Aws.Ec2.AmiLaunchPermissionArgs
-    ///         {
-    ///             ImageId = "ami-12345678",
-    ///             OrganizationArn = current.Apply(current =&gt; current.Arn),
-    ///         });
-    ///     }
+    ///     var current = Aws.Organizations.GetOrganization.Invoke();
     /// 
-    /// }
+    ///     var example = new Aws.Ec2.AmiLaunchPermission("example", new()
+    ///     {
+    ///         ImageId = "ami-12345678",
+    ///         OrganizationArn = current.Apply(getOrganizationResult =&gt; getOrganizationResult.Arn),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -81,7 +76,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/amiLaunchPermission:AmiLaunchPermission")]
-    public partial class AmiLaunchPermission : Pulumi.CustomResource
+    public partial class AmiLaunchPermission : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AWS account ID for the launch permission.
@@ -157,7 +152,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class AmiLaunchPermissionArgs : Pulumi.ResourceArgs
+    public sealed class AmiLaunchPermissionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS account ID for the launch permission.
@@ -192,9 +187,10 @@ namespace Pulumi.Aws.Ec2
         public AmiLaunchPermissionArgs()
         {
         }
+        public static new AmiLaunchPermissionArgs Empty => new AmiLaunchPermissionArgs();
     }
 
-    public sealed class AmiLaunchPermissionState : Pulumi.ResourceArgs
+    public sealed class AmiLaunchPermissionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS account ID for the launch permission.
@@ -229,5 +225,6 @@ namespace Pulumi.Aws.Ec2
         public AmiLaunchPermissionState()
         {
         }
+        public static new AmiLaunchPermissionState Empty => new AmiLaunchPermissionState();
     }
 }

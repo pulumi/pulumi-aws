@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class FleetLaunchTemplateConfigArgs : Pulumi.ResourceArgs
+    public sealed class FleetLaunchTemplateConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Nested argument containing EC2 Launch Template to use. Defined below.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public FleetLaunchTemplateConfigArgs()
         {
         }
+        public static new FleetLaunchTemplateConfigArgs Empty => new FleetLaunchTemplateConfigArgs();
     }
 }

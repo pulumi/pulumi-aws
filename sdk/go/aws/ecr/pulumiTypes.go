@@ -20,7 +20,7 @@ type RegistryScanningConfigurationRule struct {
 // RegistryScanningConfigurationRuleInput is an input type that accepts RegistryScanningConfigurationRuleArgs and RegistryScanningConfigurationRuleOutput values.
 // You can construct a concrete instance of `RegistryScanningConfigurationRuleInput` via:
 //
-//          RegistryScanningConfigurationRuleArgs{...}
+//	RegistryScanningConfigurationRuleArgs{...}
 type RegistryScanningConfigurationRuleInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i RegistryScanningConfigurationRuleArgs) ToRegistryScanningConfigurationRu
 // RegistryScanningConfigurationRuleArrayInput is an input type that accepts RegistryScanningConfigurationRuleArray and RegistryScanningConfigurationRuleArrayOutput values.
 // You can construct a concrete instance of `RegistryScanningConfigurationRuleArrayInput` via:
 //
-//          RegistryScanningConfigurationRuleArray{ RegistryScanningConfigurationRuleArgs{...} }
+//	RegistryScanningConfigurationRuleArray{ RegistryScanningConfigurationRuleArgs{...} }
 type RegistryScanningConfigurationRuleArrayInput interface {
 	pulumi.Input
 
@@ -126,7 +126,7 @@ type RegistryScanningConfigurationRuleRepositoryFilter struct {
 // RegistryScanningConfigurationRuleRepositoryFilterInput is an input type that accepts RegistryScanningConfigurationRuleRepositoryFilterArgs and RegistryScanningConfigurationRuleRepositoryFilterOutput values.
 // You can construct a concrete instance of `RegistryScanningConfigurationRuleRepositoryFilterInput` via:
 //
-//          RegistryScanningConfigurationRuleRepositoryFilterArgs{...}
+//	RegistryScanningConfigurationRuleRepositoryFilterArgs{...}
 type RegistryScanningConfigurationRuleRepositoryFilterInput interface {
 	pulumi.Input
 
@@ -154,7 +154,7 @@ func (i RegistryScanningConfigurationRuleRepositoryFilterArgs) ToRegistryScannin
 // RegistryScanningConfigurationRuleRepositoryFilterArrayInput is an input type that accepts RegistryScanningConfigurationRuleRepositoryFilterArray and RegistryScanningConfigurationRuleRepositoryFilterArrayOutput values.
 // You can construct a concrete instance of `RegistryScanningConfigurationRuleRepositoryFilterArrayInput` via:
 //
-//          RegistryScanningConfigurationRuleRepositoryFilterArray{ RegistryScanningConfigurationRuleRepositoryFilterArgs{...} }
+//	RegistryScanningConfigurationRuleRepositoryFilterArray{ RegistryScanningConfigurationRuleRepositoryFilterArgs{...} }
 type RegistryScanningConfigurationRuleRepositoryFilterArrayInput interface {
 	pulumi.Input
 
@@ -226,7 +226,7 @@ type ReplicationConfigurationReplicationConfiguration struct {
 // ReplicationConfigurationReplicationConfigurationInput is an input type that accepts ReplicationConfigurationReplicationConfigurationArgs and ReplicationConfigurationReplicationConfigurationOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationInput` via:
 //
-//          ReplicationConfigurationReplicationConfigurationArgs{...}
+//	ReplicationConfigurationReplicationConfigurationArgs{...}
 type ReplicationConfigurationReplicationConfigurationInput interface {
 	pulumi.Input
 
@@ -262,11 +262,11 @@ func (i ReplicationConfigurationReplicationConfigurationArgs) ToReplicationConfi
 // ReplicationConfigurationReplicationConfigurationPtrInput is an input type that accepts ReplicationConfigurationReplicationConfigurationArgs, ReplicationConfigurationReplicationConfigurationPtr and ReplicationConfigurationReplicationConfigurationPtrOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationPtrInput` via:
 //
-//          ReplicationConfigurationReplicationConfigurationArgs{...}
+//	        ReplicationConfigurationReplicationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReplicationConfigurationReplicationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -367,7 +367,7 @@ type ReplicationConfigurationReplicationConfigurationRule struct {
 // ReplicationConfigurationReplicationConfigurationRuleInput is an input type that accepts ReplicationConfigurationReplicationConfigurationRuleArgs and ReplicationConfigurationReplicationConfigurationRuleOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationRuleInput` via:
 //
-//          ReplicationConfigurationReplicationConfigurationRuleArgs{...}
+//	ReplicationConfigurationReplicationConfigurationRuleArgs{...}
 type ReplicationConfigurationReplicationConfigurationRuleInput interface {
 	pulumi.Input
 
@@ -397,7 +397,7 @@ func (i ReplicationConfigurationReplicationConfigurationRuleArgs) ToReplicationC
 // ReplicationConfigurationReplicationConfigurationRuleArrayInput is an input type that accepts ReplicationConfigurationReplicationConfigurationRuleArray and ReplicationConfigurationReplicationConfigurationRuleArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationRuleArrayInput` via:
 //
-//          ReplicationConfigurationReplicationConfigurationRuleArray{ ReplicationConfigurationReplicationConfigurationRuleArgs{...} }
+//	ReplicationConfigurationReplicationConfigurationRuleArray{ ReplicationConfigurationReplicationConfigurationRuleArgs{...} }
 type ReplicationConfigurationReplicationConfigurationRuleArrayInput interface {
 	pulumi.Input
 
@@ -477,7 +477,7 @@ type ReplicationConfigurationReplicationConfigurationRuleDestination struct {
 // ReplicationConfigurationReplicationConfigurationRuleDestinationInput is an input type that accepts ReplicationConfigurationReplicationConfigurationRuleDestinationArgs and ReplicationConfigurationReplicationConfigurationRuleDestinationOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationRuleDestinationInput` via:
 //
-//          ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{...}
+//	ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{...}
 type ReplicationConfigurationReplicationConfigurationRuleDestinationInput interface {
 	pulumi.Input
 
@@ -507,7 +507,7 @@ func (i ReplicationConfigurationReplicationConfigurationRuleDestinationArgs) ToR
 // ReplicationConfigurationReplicationConfigurationRuleDestinationArrayInput is an input type that accepts ReplicationConfigurationReplicationConfigurationRuleDestinationArray and ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationRuleDestinationArrayInput` via:
 //
-//          ReplicationConfigurationReplicationConfigurationRuleDestinationArray{ ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{...} }
+//	ReplicationConfigurationReplicationConfigurationRuleDestinationArray{ ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{...} }
 type ReplicationConfigurationReplicationConfigurationRuleDestinationArrayInput interface {
 	pulumi.Input
 
@@ -583,7 +583,7 @@ type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter struct
 // ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterInput is an input type that accepts ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs and ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterInput` via:
 //
-//          ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs{...}
+//	ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs{...}
 type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterInput interface {
 	pulumi.Input
 
@@ -613,7 +613,7 @@ func (i ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs
 // ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayInput is an input type that accepts ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray and ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayInput` via:
 //
-//          ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray{ ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs{...} }
+//	ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray{ ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs{...} }
 type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayInput interface {
 	pulumi.Input
 
@@ -691,7 +691,7 @@ type RepositoryEncryptionConfiguration struct {
 // RepositoryEncryptionConfigurationInput is an input type that accepts RepositoryEncryptionConfigurationArgs and RepositoryEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `RepositoryEncryptionConfigurationInput` via:
 //
-//          RepositoryEncryptionConfigurationArgs{...}
+//	RepositoryEncryptionConfigurationArgs{...}
 type RepositoryEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -721,7 +721,7 @@ func (i RepositoryEncryptionConfigurationArgs) ToRepositoryEncryptionConfigurati
 // RepositoryEncryptionConfigurationArrayInput is an input type that accepts RepositoryEncryptionConfigurationArray and RepositoryEncryptionConfigurationArrayOutput values.
 // You can construct a concrete instance of `RepositoryEncryptionConfigurationArrayInput` via:
 //
-//          RepositoryEncryptionConfigurationArray{ RepositoryEncryptionConfigurationArgs{...} }
+//	RepositoryEncryptionConfigurationArray{ RepositoryEncryptionConfigurationArgs{...} }
 type RepositoryEncryptionConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -795,7 +795,7 @@ type RepositoryImageScanningConfiguration struct {
 // RepositoryImageScanningConfigurationInput is an input type that accepts RepositoryImageScanningConfigurationArgs and RepositoryImageScanningConfigurationOutput values.
 // You can construct a concrete instance of `RepositoryImageScanningConfigurationInput` via:
 //
-//          RepositoryImageScanningConfigurationArgs{...}
+//	RepositoryImageScanningConfigurationArgs{...}
 type RepositoryImageScanningConfigurationInput interface {
 	pulumi.Input
 
@@ -831,11 +831,11 @@ func (i RepositoryImageScanningConfigurationArgs) ToRepositoryImageScanningConfi
 // RepositoryImageScanningConfigurationPtrInput is an input type that accepts RepositoryImageScanningConfigurationArgs, RepositoryImageScanningConfigurationPtr and RepositoryImageScanningConfigurationPtrOutput values.
 // You can construct a concrete instance of `RepositoryImageScanningConfigurationPtrInput` via:
 //
-//          RepositoryImageScanningConfigurationArgs{...}
+//	        RepositoryImageScanningConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RepositoryImageScanningConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -934,7 +934,7 @@ type GetRepositoryEncryptionConfiguration struct {
 // GetRepositoryEncryptionConfigurationInput is an input type that accepts GetRepositoryEncryptionConfigurationArgs and GetRepositoryEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `GetRepositoryEncryptionConfigurationInput` via:
 //
-//          GetRepositoryEncryptionConfigurationArgs{...}
+//	GetRepositoryEncryptionConfigurationArgs{...}
 type GetRepositoryEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -964,7 +964,7 @@ func (i GetRepositoryEncryptionConfigurationArgs) ToGetRepositoryEncryptionConfi
 // GetRepositoryEncryptionConfigurationArrayInput is an input type that accepts GetRepositoryEncryptionConfigurationArray and GetRepositoryEncryptionConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryEncryptionConfigurationArrayInput` via:
 //
-//          GetRepositoryEncryptionConfigurationArray{ GetRepositoryEncryptionConfigurationArgs{...} }
+//	GetRepositoryEncryptionConfigurationArray{ GetRepositoryEncryptionConfigurationArgs{...} }
 type GetRepositoryEncryptionConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -1038,7 +1038,7 @@ type GetRepositoryImageScanningConfiguration struct {
 // GetRepositoryImageScanningConfigurationInput is an input type that accepts GetRepositoryImageScanningConfigurationArgs and GetRepositoryImageScanningConfigurationOutput values.
 // You can construct a concrete instance of `GetRepositoryImageScanningConfigurationInput` via:
 //
-//          GetRepositoryImageScanningConfigurationArgs{...}
+//	GetRepositoryImageScanningConfigurationArgs{...}
 type GetRepositoryImageScanningConfigurationInput interface {
 	pulumi.Input
 
@@ -1066,7 +1066,7 @@ func (i GetRepositoryImageScanningConfigurationArgs) ToGetRepositoryImageScannin
 // GetRepositoryImageScanningConfigurationArrayInput is an input type that accepts GetRepositoryImageScanningConfigurationArray and GetRepositoryImageScanningConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryImageScanningConfigurationArrayInput` via:
 //
-//          GetRepositoryImageScanningConfigurationArray{ GetRepositoryImageScanningConfigurationArgs{...} }
+//	GetRepositoryImageScanningConfigurationArray{ GetRepositoryImageScanningConfigurationArgs{...} }
 type GetRepositoryImageScanningConfigurationArrayInput interface {
 	pulumi.Input
 

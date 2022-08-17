@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds.Inputs
 {
 
-    public sealed class SecurityGroupIngressGetArgs : Pulumi.ResourceArgs
+    public sealed class SecurityGroupIngressGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CIDR block to accept
@@ -40,5 +40,6 @@ namespace Pulumi.Aws.Rds.Inputs
         public SecurityGroupIngressGetArgs()
         {
         }
+        public static new SecurityGroupIngressGetArgs Empty => new SecurityGroupIngressGetArgs();
     }
 }

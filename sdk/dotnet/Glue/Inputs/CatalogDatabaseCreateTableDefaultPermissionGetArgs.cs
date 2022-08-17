@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class CatalogDatabaseCreateTableDefaultPermissionGetArgs : Pulumi.ResourceArgs
+    public sealed class CatalogDatabaseCreateTableDefaultPermissionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("permissions")]
         private InputList<string>? _permissions;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public CatalogDatabaseCreateTableDefaultPermissionGetArgs()
         {
         }
+        public static new CatalogDatabaseCreateTableDefaultPermissionGetArgs Empty => new CatalogDatabaseCreateTableDefaultPermissionGetArgs();
     }
 }

@@ -16,38 +16,41 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"deadLetterTargetArn": aws_sqs_queue.Queue_deadletter.Arn,
-// 			"maxReceiveCount":     4,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
-// 			DelaySeconds:            pulumi.Int(90),
-// 			MaxMessageSize:          pulumi.Int(2048),
-// 			MessageRetentionSeconds: pulumi.Int(86400),
-// 			ReceiveWaitTimeSeconds:  pulumi.Int(10),
-// 			RedrivePolicy:           pulumi.String(json0),
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"deadLetterTargetArn": aws_sqs_queue.Queue_deadletter.Arn,
+//				"maxReceiveCount":     4,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
+//				DelaySeconds:            pulumi.Int(90),
+//				MaxMessageSize:          pulumi.Int(2048),
+//				MessageRetentionSeconds: pulumi.Int(86400),
+//				ReceiveWaitTimeSeconds:  pulumi.Int(10),
+//				RedrivePolicy:           pulumi.String(json0),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## FIFO queue
 //
@@ -55,22 +58,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
-// 			ContentBasedDeduplication: pulumi.Bool(true),
-// 			FifoQueue:                 pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
+//				ContentBasedDeduplication: pulumi.Bool(true),
+//				FifoQueue:                 pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## High-throughput FIFO queue
@@ -79,23 +85,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sqs.NewQueue(ctx, "terraformQueue", &sqs.QueueArgs{
-// 			DeduplicationScope:  pulumi.String("messageGroup"),
-// 			FifoQueue:           pulumi.Bool(true),
-// 			FifoThroughputLimit: pulumi.String("perMessageGroupId"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sqs.NewQueue(ctx, "terraformQueue", &sqs.QueueArgs{
+//				DeduplicationScope:  pulumi.String("messageGroup"),
+//				FifoQueue:           pulumi.Bool(true),
+//				FifoThroughputLimit: pulumi.String("perMessageGroupId"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Dead-letter queue
@@ -104,33 +113,36 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"redrivePermission": "byQueue",
-// 			"sourceQueueArns": []interface{}{
-// 				aws_sqs_queue.Terraform_queue.Arn,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = sqs.NewQueue(ctx, "terraformQueueDeadletter", &sqs.QueueArgs{
-// 			RedriveAllowPolicy: pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"redrivePermission": "byQueue",
+//				"sourceQueueArns": []interface{}{
+//					aws_sqs_queue.Terraform_queue.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = sqs.NewQueue(ctx, "terraformQueueDeadletter", &sqs.QueueArgs{
+//				RedriveAllowPolicy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Server-side encryption (SSE)
@@ -141,21 +153,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sqs.NewQueue(ctx, "terraformQueue", &sqs.QueueArgs{
-// 			SqsManagedSseEnabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sqs.NewQueue(ctx, "terraformQueue", &sqs.QueueArgs{
+//				SqsManagedSseEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
@@ -164,22 +179,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
-// 			KmsDataKeyReusePeriodSeconds: pulumi.Int(300),
-// 			KmsMasterKeyId:               pulumi.String("alias/aws/sqs"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
+//				KmsDataKeyReusePeriodSeconds: pulumi.Int(300),
+//				KmsMasterKeyId:               pulumi.String("alias/aws/sqs"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -187,7 +205,9 @@ import (
 // SQS Queues can be imported using the `queue url`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+//
+//	$ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+//
 // ```
 type Queue struct {
 	pulumi.CustomResourceState
@@ -228,7 +248,7 @@ type Queue struct {
 	SqsManagedSseEnabled pulumi.BoolPtrOutput `pulumi:"sqsManagedSseEnabled"`
 	// A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Same as `id`: The URL for the created Amazon SQS queue.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -301,7 +321,7 @@ type queueState struct {
 	SqsManagedSseEnabled *bool `pulumi:"sqsManagedSseEnabled"`
 	// A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Same as `id`: The URL for the created Amazon SQS queue.
 	Url *string `pulumi:"url"`
@@ -346,7 +366,7 @@ type QueueState struct {
 	SqsManagedSseEnabled pulumi.BoolPtrInput
 	// A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Same as `id`: The URL for the created Amazon SQS queue.
 	Url pulumi.StringPtrInput
@@ -463,7 +483,7 @@ func (i *Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 // QueueArrayInput is an input type that accepts QueueArray and QueueArrayOutput values.
 // You can construct a concrete instance of `QueueArrayInput` via:
 //
-//          QueueArray{ QueueArgs{...} }
+//	QueueArray{ QueueArgs{...} }
 type QueueArrayInput interface {
 	pulumi.Input
 
@@ -488,7 +508,7 @@ func (i QueueArray) ToQueueArrayOutputWithContext(ctx context.Context) QueueArra
 // QueueMapInput is an input type that accepts QueueMap and QueueMapOutput values.
 // You can construct a concrete instance of `QueueMapInput` via:
 //
-//          QueueMap{ "key": QueueArgs{...} }
+//	QueueMap{ "key": QueueArgs{...} }
 type QueueMapInput interface {
 	pulumi.Input
 
@@ -614,7 +634,7 @@ func (o QueueOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider.
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o QueueOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

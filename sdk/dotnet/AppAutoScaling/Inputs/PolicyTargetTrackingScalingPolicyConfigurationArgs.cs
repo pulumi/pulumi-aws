@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppAutoScaling.Inputs
 {
 
-    public sealed class PolicyTargetTrackingScalingPolicyConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class PolicyTargetTrackingScalingPolicyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
         public PolicyTargetTrackingScalingPolicyConfigurationArgs()
         {
         }
+        public static new PolicyTargetTrackingScalingPolicyConfigurationArgs Empty => new PolicyTargetTrackingScalingPolicyConfigurationArgs();
     }
 }

@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Cognito
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var main = Aws.Cognito.GetUserPoolClients.Invoke(new()
         ///     {
-        ///         var main = Output.Create(Aws.Cognito.GetUserPoolClients.InvokeAsync(new Aws.Cognito.GetUserPoolClientsArgs
-        ///         {
-        ///             UserPoolId = aws_cognito_user_pool.Main.Id,
-        ///         }));
-        ///     }
+        ///         UserPoolId = aws_cognito_user_pool.Main.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Cognito
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var main = Aws.Cognito.GetUserPoolClients.Invoke(new()
         ///     {
-        ///         var main = Output.Create(Aws.Cognito.GetUserPoolClients.InvokeAsync(new Aws.Cognito.GetUserPoolClientsArgs
-        ///         {
-        ///             UserPoolId = aws_cognito_user_pool.Main.Id,
-        ///         }));
-        ///     }
+        ///         UserPoolId = aws_cognito_user_pool.Main.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Cognito
     }
 
 
-    public sealed class GetUserPoolClientsArgs : Pulumi.InvokeArgs
+    public sealed class GetUserPoolClientsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Cognito user pool ID.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Cognito
         public GetUserPoolClientsArgs()
         {
         }
+        public static new GetUserPoolClientsArgs Empty => new GetUserPoolClientsArgs();
     }
 
-    public sealed class GetUserPoolClientsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserPoolClientsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Cognito user pool ID.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Cognito
         public GetUserPoolClientsInvokeArgs()
         {
         }
+        public static new GetUserPoolClientsInvokeArgs Empty => new GetUserPoolClientsInvokeArgs();
     }
 
 

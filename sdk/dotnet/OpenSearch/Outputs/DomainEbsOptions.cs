@@ -18,9 +18,13 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// </summary>
         public readonly bool EbsEnabled;
         /// <summary>
-        /// Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+        /// Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
         /// </summary>
         public readonly int? Iops;
+        /// <summary>
+        /// Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+        /// </summary>
+        public readonly int? Throughput;
         /// <summary>
         /// Size of EBS volumes attached to data nodes (in GiB).
         /// </summary>
@@ -36,12 +40,15 @@ namespace Pulumi.Aws.OpenSearch.Outputs
 
             int? iops,
 
+            int? throughput,
+
             int? volumeSize,
 
             string? volumeType)
         {
             EbsEnabled = ebsEnabled;
             Iops = iops;
+            Throughput = throughput;
             VolumeSize = volumeSize;
             VolumeType = volumeType;
         }

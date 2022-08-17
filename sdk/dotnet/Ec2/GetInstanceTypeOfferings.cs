@@ -19,40 +19,38 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetInstanceTypeOfferings.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetInstanceTypeOfferings.InvokeAsync(new Aws.Ec2.GetInstanceTypeOfferingsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetInstanceTypeOfferingsFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetInstanceTypeOfferingsFilterArgs
+        ///                 Name = "instance-type",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "instance-type",
-        ///                     Values = 
-        ///                     {
-        ///                         "t2.micro",
-        ///                         "t3.micro",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2.Inputs.GetInstanceTypeOfferingsFilterArgs
-        ///                 {
-        ///                     Name = "location",
-        ///                     Values = 
-        ///                     {
-        ///                         "usw2-az4",
-        ///                     },
+        ///                     "t2.micro",
+        ///                     "t3.micro",
         ///                 },
         ///             },
-        ///             LocationType = "availability-zone-id",
-        ///         }));
-        ///     }
+        ///             new Aws.Ec2.Inputs.GetInstanceTypeOfferingsFilterInputArgs
+        ///             {
+        ///                 Name = "location",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "usw2-az4",
+        ///                 },
+        ///             },
+        ///         },
+        ///         LocationType = "availability-zone-id",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -68,40 +66,38 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetInstanceTypeOfferings.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetInstanceTypeOfferings.InvokeAsync(new Aws.Ec2.GetInstanceTypeOfferingsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetInstanceTypeOfferingsFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetInstanceTypeOfferingsFilterArgs
+        ///                 Name = "instance-type",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "instance-type",
-        ///                     Values = 
-        ///                     {
-        ///                         "t2.micro",
-        ///                         "t3.micro",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2.Inputs.GetInstanceTypeOfferingsFilterArgs
-        ///                 {
-        ///                     Name = "location",
-        ///                     Values = 
-        ///                     {
-        ///                         "usw2-az4",
-        ///                     },
+        ///                     "t2.micro",
+        ///                     "t3.micro",
         ///                 },
         ///             },
-        ///             LocationType = "availability-zone-id",
-        ///         }));
-        ///     }
+        ///             new Aws.Ec2.Inputs.GetInstanceTypeOfferingsFilterInputArgs
+        ///             {
+        ///                 Name = "location",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "usw2-az4",
+        ///                 },
+        ///             },
+        ///         },
+        ///         LocationType = "availability-zone-id",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -111,7 +107,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetInstanceTypeOfferingsArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceTypeOfferingsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetInstanceTypeOfferingsFilterArgs>? _filters;
@@ -134,9 +130,10 @@ namespace Pulumi.Aws.Ec2
         public GetInstanceTypeOfferingsArgs()
         {
         }
+        public static new GetInstanceTypeOfferingsArgs Empty => new GetInstanceTypeOfferingsArgs();
     }
 
-    public sealed class GetInstanceTypeOfferingsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceTypeOfferingsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetInstanceTypeOfferingsFilterInputArgs>? _filters;
@@ -159,6 +156,7 @@ namespace Pulumi.Aws.Ec2
         public GetInstanceTypeOfferingsInvokeArgs()
         {
         }
+        public static new GetInstanceTypeOfferingsInvokeArgs Empty => new GetInstanceTypeOfferingsInvokeArgs();
     }
 
 

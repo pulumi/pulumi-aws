@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformationArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformationArgs()
         {
         }
+        public static new RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformationArgs Empty => new RuleGroupRuleStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformationArgs();
     }
 }

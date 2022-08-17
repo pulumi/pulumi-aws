@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/detective"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/detective"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := detective.NewGraph(ctx, "example", &detective.GraphArgs{
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example-detective-graph"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := detective.NewGraph(ctx, "example", &detective.GraphArgs{
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-detective-graph"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // `aws_detective_graph` can be imported using the ARN, e.g.
 //
 // ```sh
-//  $ pulumi import aws:detective/graph:Graph example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+//
+//	$ pulumi import aws:detective/graph:Graph example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+//
 // ```
 type Graph struct {
 	pulumi.CustomResourceState
@@ -145,7 +150,7 @@ func (i *Graph) ToGraphOutputWithContext(ctx context.Context) GraphOutput {
 // GraphArrayInput is an input type that accepts GraphArray and GraphArrayOutput values.
 // You can construct a concrete instance of `GraphArrayInput` via:
 //
-//          GraphArray{ GraphArgs{...} }
+//	GraphArray{ GraphArgs{...} }
 type GraphArrayInput interface {
 	pulumi.Input
 
@@ -170,7 +175,7 @@ func (i GraphArray) ToGraphArrayOutputWithContext(ctx context.Context) GraphArra
 // GraphMapInput is an input type that accepts GraphMap and GraphMapOutput values.
 // You can construct a concrete instance of `GraphMapInput` via:
 //
-//          GraphMap{ "key": GraphArgs{...} }
+//	GraphMap{ "key": GraphArgs{...} }
 type GraphMapInput interface {
 	pulumi.Input
 

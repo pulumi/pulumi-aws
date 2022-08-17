@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentConfigMinimumHealthyHostsArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentConfigMinimumHealthyHostsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
@@ -30,5 +30,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentConfigMinimumHealthyHostsArgs()
         {
         }
+        public static new DeploymentConfigMinimumHealthyHostsArgs Empty => new DeploymentConfigMinimumHealthyHostsArgs();
     }
 }

@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testUser, err := elasticache.NewUser(ctx, "testUser", &elasticache.UserArgs{
-// 			UserId:       pulumi.String("testUserId"),
-// 			UserName:     pulumi.String("default"),
-// 			AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
-// 			Engine:       pulumi.String("REDIS"),
-// 			Passwords: pulumi.StringArray{
-// 				pulumi.String("password123456789"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = elasticache.NewUserGroup(ctx, "testUserGroup", &elasticache.UserGroupArgs{
-// 			Engine:      pulumi.String("REDIS"),
-// 			UserGroupId: pulumi.String("userGroupId"),
-// 			UserIds: pulumi.StringArray{
-// 				testUser.UserId,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testUser, err := elasticache.NewUser(ctx, "testUser", &elasticache.UserArgs{
+//				UserId:       pulumi.String("testUserId"),
+//				UserName:     pulumi.String("default"),
+//				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
+//				Engine:       pulumi.String("REDIS"),
+//				Passwords: pulumi.StringArray{
+//					pulumi.String("password123456789"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticache.NewUserGroup(ctx, "testUserGroup", &elasticache.UserGroupArgs{
+//				Engine:      pulumi.String("REDIS"),
+//				UserGroupId: pulumi.String("userGroupId"),
+//				UserIds: pulumi.StringArray{
+//					testUser.UserId,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // ElastiCache user groups can be imported using the `user_group_id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
+//
+//	$ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
+//
 // ```
 type UserGroup struct {
 	pulumi.CustomResourceState
@@ -184,7 +189,7 @@ func (i *UserGroup) ToUserGroupOutputWithContext(ctx context.Context) UserGroupO
 // UserGroupArrayInput is an input type that accepts UserGroupArray and UserGroupArrayOutput values.
 // You can construct a concrete instance of `UserGroupArrayInput` via:
 //
-//          UserGroupArray{ UserGroupArgs{...} }
+//	UserGroupArray{ UserGroupArgs{...} }
 type UserGroupArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +214,7 @@ func (i UserGroupArray) ToUserGroupArrayOutputWithContext(ctx context.Context) U
 // UserGroupMapInput is an input type that accepts UserGroupMap and UserGroupMapOutput values.
 // You can construct a concrete instance of `UserGroupMapInput` via:
 //
-//          UserGroupMap{ "key": UserGroupArgs{...} }
+//	UserGroupMap{ "key": UserGroupArgs{...} }
 type UserGroupMapInput interface {
 	pulumi.Input
 

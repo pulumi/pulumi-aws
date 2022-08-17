@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class FirehoseDeliveryStreamServerSideEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class FirehoseDeliveryStreamServerSideEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable encryption at rest. Default is `false`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public FirehoseDeliveryStreamServerSideEncryptionArgs()
         {
         }
+        public static new FirehoseDeliveryStreamServerSideEncryptionArgs Empty => new FirehoseDeliveryStreamServerSideEncryptionArgs();
     }
 }

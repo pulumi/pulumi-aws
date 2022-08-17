@@ -16,56 +16,50 @@ namespace Pulumi.Aws.CodeDeploy
     /// ### ECS Application
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CodeDeploy.Application("example", new()
     ///     {
-    ///         var example = new Aws.CodeDeploy.Application("example", new Aws.CodeDeploy.ApplicationArgs
-    ///         {
-    ///             ComputePlatform = "ECS",
-    ///         });
-    ///     }
+    ///         ComputePlatform = "ECS",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Lambda Application
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CodeDeploy.Application("example", new()
     ///     {
-    ///         var example = new Aws.CodeDeploy.Application("example", new Aws.CodeDeploy.ApplicationArgs
-    ///         {
-    ///             ComputePlatform = "Lambda",
-    ///         });
-    ///     }
+    ///         ComputePlatform = "Lambda",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Server Application
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CodeDeploy.Application("example", new()
     ///     {
-    ///         var example = new Aws.CodeDeploy.Application("example", new Aws.CodeDeploy.ApplicationArgs
-    ///         {
-    ///             ComputePlatform = "Server",
-    ///         });
-    ///     }
+    ///         ComputePlatform = "Server",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -77,7 +71,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// ```
     /// </summary>
     [AwsResourceType("aws:codedeploy/application:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application ID.
@@ -122,7 +116,7 @@ namespace Pulumi.Aws.CodeDeploy
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -171,7 +165,7 @@ namespace Pulumi.Aws.CodeDeploy
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
@@ -200,9 +194,10 @@ namespace Pulumi.Aws.CodeDeploy
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 
-    public sealed class ApplicationState : Pulumi.ResourceArgs
+    public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -256,7 +251,7 @@ namespace Pulumi.Aws.CodeDeploy
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -267,5 +262,6 @@ namespace Pulumi.Aws.CodeDeploy
         public ApplicationState()
         {
         }
+        public static new ApplicationState Empty => new ApplicationState();
     }
 }

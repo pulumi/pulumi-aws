@@ -16,52 +16,48 @@ namespace Pulumi.Aws.Route53
     /// ### System rule
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sys = new Aws.Route53.ResolverRule("sys", new()
     ///     {
-    ///         var sys = new Aws.Route53.ResolverRule("sys", new Aws.Route53.ResolverRuleArgs
-    ///         {
-    ///             DomainName = "subdomain.example.com",
-    ///             RuleType = "SYSTEM",
-    ///         });
-    ///     }
+    ///         DomainName = "subdomain.example.com",
+    ///         RuleType = "SYSTEM",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Forward rule
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var fwd = new Aws.Route53.ResolverRule("fwd", new()
     ///     {
-    ///         var fwd = new Aws.Route53.ResolverRule("fwd", new Aws.Route53.ResolverRuleArgs
+    ///         DomainName = "example.com",
+    ///         RuleType = "FORWARD",
+    ///         ResolverEndpointId = aws_route53_resolver_endpoint.Foo.Id,
+    ///         TargetIps = new[]
     ///         {
-    ///             DomainName = "example.com",
-    ///             RuleType = "FORWARD",
-    ///             ResolverEndpointId = aws_route53_resolver_endpoint.Foo.Id,
-    ///             TargetIps = 
+    ///             new Aws.Route53.Inputs.ResolverRuleTargetIpArgs
     ///             {
-    ///                 new Aws.Route53.Inputs.ResolverRuleTargetIpArgs
-    ///                 {
-    ///                     Ip = "123.45.67.89",
-    ///                 },
+    ///                 Ip = "123.45.67.89",
     ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Prod" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Prod" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverRule:ResolverRule")]
-    public partial class ResolverRule : Pulumi.CustomResource
+    public partial class ResolverRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) for the resolver rule.
@@ -126,7 +122,7 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -182,7 +178,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class ResolverRuleArgs : Pulumi.ResourceArgs
+    public sealed class ResolverRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
@@ -237,9 +233,10 @@ namespace Pulumi.Aws.Route53
         public ResolverRuleArgs()
         {
         }
+        public static new ResolverRuleArgs Empty => new ResolverRuleArgs();
     }
 
-    public sealed class ResolverRuleState : Pulumi.ResourceArgs
+    public sealed class ResolverRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) for the resolver rule.
@@ -301,7 +298,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -325,5 +322,6 @@ namespace Pulumi.Aws.Route53
         public ResolverRuleState()
         {
         }
+        public static new ResolverRuleState Empty => new ResolverRuleState();
     }
 }

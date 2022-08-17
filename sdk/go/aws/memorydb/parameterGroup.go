@@ -21,27 +21,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := memorydb.NewParameterGroup(ctx, "example", &memorydb.ParameterGroupArgs{
-// 			Family: pulumi.String("memorydb_redis6"),
-// 			Parameters: memorydb.ParameterGroupParameterArray{
-// 				&memorydb.ParameterGroupParameterArgs{
-// 					Name:  pulumi.String("activedefrag"),
-// 					Value: pulumi.String("yes"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := memorydb.NewParameterGroup(ctx, "example", &memorydb.ParameterGroupArgs{
+//				Family: pulumi.String("memorydb_redis6"),
+//				Parameters: memorydb.ParameterGroupParameterArray{
+//					&memorydb.ParameterGroupParameterArgs{
+//						Name:  pulumi.String("activedefrag"),
+//						Value: pulumi.String("yes"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Use the `name` to import a parameter group. For example
 //
 // ```sh
-//  $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
+//
+//	$ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
+//
 // ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState
@@ -66,8 +71,7 @@ type ParameterGroup struct {
 	// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
 	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -115,8 +119,7 @@ type parameterGroupState struct {
 	// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -133,8 +136,7 @@ type ParameterGroupState struct {
 	// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
 	Parameters ParameterGroupParameterArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -197,7 +199,7 @@ func (i *ParameterGroup) ToParameterGroupOutputWithContext(ctx context.Context) 
 // ParameterGroupArrayInput is an input type that accepts ParameterGroupArray and ParameterGroupArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupArrayInput` via:
 //
-//          ParameterGroupArray{ ParameterGroupArgs{...} }
+//	ParameterGroupArray{ ParameterGroupArgs{...} }
 type ParameterGroupArrayInput interface {
 	pulumi.Input
 
@@ -222,7 +224,7 @@ func (i ParameterGroupArray) ToParameterGroupArrayOutputWithContext(ctx context.
 // ParameterGroupMapInput is an input type that accepts ParameterGroupMap and ParameterGroupMapOutput values.
 // You can construct a concrete instance of `ParameterGroupMapInput` via:
 //
-//          ParameterGroupMap{ "key": ParameterGroupArgs{...} }
+//	ParameterGroupMap{ "key": ParameterGroupArgs{...} }
 type ParameterGroupMapInput interface {
 	pulumi.Input
 
@@ -292,7 +294,6 @@ func (o ParameterGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o ParameterGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

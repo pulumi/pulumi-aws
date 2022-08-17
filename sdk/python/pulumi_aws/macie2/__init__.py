@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .account import *
+from .classification_export_configuration import *
 from .classification_job import *
 from .invitation_accepter import *
 from .member import *

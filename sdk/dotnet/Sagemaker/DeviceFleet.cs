@@ -16,25 +16,23 @@ namespace Pulumi.Aws.Sagemaker
     /// ### Basic usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.DeviceFleet("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.DeviceFleet("example", new Aws.Sagemaker.DeviceFleetArgs
+    ///         DeviceFleetName = "example",
+    ///         RoleArn = aws_iam_role.Test.Arn,
+    ///         OutputConfig = new Aws.Sagemaker.Inputs.DeviceFleetOutputConfigArgs
     ///         {
-    ///             DeviceFleetName = "example",
-    ///             RoleArn = aws_iam_role.Test.Arn,
-    ///             OutputConfig = new Aws.Sagemaker.Inputs.DeviceFleetOutputConfigArgs
-    ///             {
-    ///                 S3OutputLocation = $"s3://{aws_s3_bucket.Example.Bucket}/prefix/",
-    ///             },
-    ///         });
-    ///     }
+    ///             S3OutputLocation = $"s3://{aws_s3_bucket.Example.Bucket}/prefix/",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/deviceFleet:DeviceFleet")]
-    public partial class DeviceFleet : Pulumi.CustomResource
+    public partial class DeviceFleet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
@@ -143,7 +141,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class DeviceFleetArgs : Pulumi.ResourceArgs
+    public sealed class DeviceFleetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the fleet.
@@ -190,9 +188,10 @@ namespace Pulumi.Aws.Sagemaker
         public DeviceFleetArgs()
         {
         }
+        public static new DeviceFleetArgs Empty => new DeviceFleetArgs();
     }
 
-    public sealed class DeviceFleetState : Pulumi.ResourceArgs
+    public sealed class DeviceFleetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
@@ -260,5 +259,6 @@ namespace Pulumi.Aws.Sagemaker
         public DeviceFleetState()
         {
         }
+        public static new DeviceFleetState Empty => new DeviceFleetState();
     }
 }

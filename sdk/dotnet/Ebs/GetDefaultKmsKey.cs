@@ -19,23 +19,22 @@ namespace Pulumi.Aws.Ebs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.Ebs.GetDefaultKmsKey.InvokeAsync());
-        ///         var example = new Aws.Ebs.Volume("example", new Aws.Ebs.VolumeArgs
-        ///         {
-        ///             AvailabilityZone = "us-west-2a",
-        ///             Encrypted = true,
-        ///             KmsKeyId = current.Apply(current =&gt; current.KeyArn),
-        ///         });
-        ///     }
+        ///     var current = Aws.Ebs.GetDefaultKmsKey.Invoke();
         /// 
-        /// }
+        ///     var example = new Aws.Ebs.Volume("example", new()
+        ///     {
+        ///         AvailabilityZone = "us-west-2a",
+        ///         Encrypted = true,
+        ///         KmsKeyId = current.Apply(getDefaultKmsKeyResult =&gt; getDefaultKmsKeyResult.KeyArn),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

@@ -17,24 +17,21 @@ namespace Pulumi.Aws.DeviceFarm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleProject = new Aws.DeviceFarm.Project("exampleProject", new Aws.DeviceFarm.ProjectArgs
-    ///         {
-    ///         });
-    ///         var exampleUpload = new Aws.DeviceFarm.Upload("exampleUpload", new Aws.DeviceFarm.UploadArgs
-    ///         {
-    ///             ProjectArn = exampleProject.Arn,
-    ///             Type = "APPIUM_JAVA_TESTNG_TEST_SPEC",
-    ///         });
-    ///     }
+    ///     var exampleProject = new Aws.DeviceFarm.Project("exampleProject");
     /// 
-    /// }
+    ///     var exampleUpload = new Aws.DeviceFarm.Upload("exampleUpload", new()
+    ///     {
+    ///         ProjectArn = exampleProject.Arn,
+    ///         Type = "APPIUM_JAVA_TESTNG_TEST_SPEC",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +43,7 @@ namespace Pulumi.Aws.DeviceFarm
     /// ```
     /// </summary>
     [AwsResourceType("aws:devicefarm/upload:Upload")]
-    public partial class Upload : Pulumi.CustomResource
+    public partial class Upload : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name of this upload.
@@ -140,7 +137,7 @@ namespace Pulumi.Aws.DeviceFarm
         }
     }
 
-    public sealed class UploadArgs : Pulumi.ResourceArgs
+    public sealed class UploadArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The upload's content type (for example, application/octet-stream).
@@ -169,9 +166,10 @@ namespace Pulumi.Aws.DeviceFarm
         public UploadArgs()
         {
         }
+        public static new UploadArgs Empty => new UploadArgs();
     }
 
-    public sealed class UploadState : Pulumi.ResourceArgs
+    public sealed class UploadState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name of this upload.
@@ -224,5 +222,6 @@ namespace Pulumi.Aws.DeviceFarm
         public UploadState()
         {
         }
+        public static new UploadState Empty => new UploadState();
     }
 }

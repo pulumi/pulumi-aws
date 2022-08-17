@@ -15,21 +15,19 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Route53RecoveryReadiness.ReadinessCheck("example", new()
     ///     {
-    ///         var example = new Aws.Route53RecoveryReadiness.ReadinessCheck("example", new Aws.Route53RecoveryReadiness.ReadinessCheckArgs
-    ///         {
-    ///             ReadinessCheckName = my_cw_alarm_check,
-    ///             ResourceSetName = my_cw_alarm_set,
-    ///         });
-    ///     }
+    ///         ReadinessCheckName = my_cw_alarm_check,
+    ///         ResourceSetName = my_cw_alarm_set,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53recoveryreadiness/readinessCheck:ReadinessCheck")]
-    public partial class ReadinessCheck : Pulumi.CustomResource
+    public partial class ReadinessCheck : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the readiness_check
@@ -62,7 +60,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         public Output<string> ResourceSetName { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -117,7 +115,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         }
     }
 
-    public sealed class ReadinessCheckArgs : Pulumi.ResourceArgs
+    public sealed class ReadinessCheckArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Unique name describing the readiness check.
@@ -135,7 +133,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -146,9 +144,10 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         public ReadinessCheckArgs()
         {
         }
+        public static new ReadinessCheckArgs Empty => new ReadinessCheckArgs();
     }
 
-    public sealed class ReadinessCheckState : Pulumi.ResourceArgs
+    public sealed class ReadinessCheckState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the readiness_check
@@ -172,7 +171,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -195,5 +194,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         public ReadinessCheckState()
         {
         }
+        public static new ReadinessCheckState Empty => new ReadinessCheckState();
     }
 }

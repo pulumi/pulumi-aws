@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScalingPlans.Inputs
 {
 
-    public sealed class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
         public ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs()
         {
         }
+        public static new ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs Empty => new ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs();
     }
 }

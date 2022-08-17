@@ -18,35 +18,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-// 			Bucket: exampleBucketV2.ID(),
-// 			Acl:    pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketVersioningV2(ctx, "versioningExample", &s3.BucketVersioningV2Args{
-// 			Bucket: exampleBucketV2.ID(),
-// 			VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-// 				Status: pulumi.String("Enabled"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketVersioningV2(ctx, "versioningExample", &s3.BucketVersioningV2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//					Status: pulumi.String("Enabled"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With Versioning Disabled
 //
@@ -54,35 +57,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-// 			Bucket: exampleBucketV2.ID(),
-// 			Acl:    pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketVersioningV2(ctx, "versioningExample", &s3.BucketVersioningV2Args{
-// 			Bucket: exampleBucketV2.ID(),
-// 			VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-// 				Status: pulumi.String("Disabled"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketVersioningV2(ctx, "versioningExample", &s3.BucketVersioningV2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//					Status: pulumi.String("Disabled"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Object Dependency On Versioning
 //
@@ -96,36 +102,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3.BucketVersioningV2Args{
-// 			Bucket: exampleBucketV2.ID(),
-// 			VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
-// 				Status: pulumi.String("Enabled"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-// 			Bucket: exampleBucketVersioningV2.Bucket,
-// 			Key:    pulumi.String("droeloe"),
-// 			Source: pulumi.NewFileAsset("example.txt"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "exampleBucketVersioningV2", &s3.BucketVersioningV2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
+//					Status: pulumi.String("Enabled"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//				Bucket: exampleBucketVersioningV2.Bucket,
+//				Key:    pulumi.String("droeloe"),
+//				Source: pulumi.NewFileAsset("example.txt"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -133,13 +142,17 @@ import (
 // S3 bucket versioning can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
+//
+//	$ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
+//
 // ```
 //
-//  If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+//	If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
+//
+//	$ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
+//
 // ```
 type BucketVersioningV2 struct {
 	pulumi.CustomResourceState
@@ -263,7 +276,7 @@ func (i *BucketVersioningV2) ToBucketVersioningV2OutputWithContext(ctx context.C
 // BucketVersioningV2ArrayInput is an input type that accepts BucketVersioningV2Array and BucketVersioningV2ArrayOutput values.
 // You can construct a concrete instance of `BucketVersioningV2ArrayInput` via:
 //
-//          BucketVersioningV2Array{ BucketVersioningV2Args{...} }
+//	BucketVersioningV2Array{ BucketVersioningV2Args{...} }
 type BucketVersioningV2ArrayInput interface {
 	pulumi.Input
 
@@ -288,7 +301,7 @@ func (i BucketVersioningV2Array) ToBucketVersioningV2ArrayOutputWithContext(ctx 
 // BucketVersioningV2MapInput is an input type that accepts BucketVersioningV2Map and BucketVersioningV2MapOutput values.
 // You can construct a concrete instance of `BucketVersioningV2MapInput` via:
 //
-//          BucketVersioningV2Map{ "key": BucketVersioningV2Args{...} }
+//	BucketVersioningV2Map{ "key": BucketVersioningV2Args{...} }
 type BucketVersioningV2MapInput interface {
 	pulumi.Input
 

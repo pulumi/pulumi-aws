@@ -23,25 +23,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.NewBotAssociation(ctx, "example", &connect.BotAssociationArgs{
-// 			InstanceId: pulumi.Any(aws_connect_instance.Example.Id),
-// 			LexBot: &connect.BotAssociationLexBotArgs{
-// 				LexRegion: pulumi.String("us-west-2"),
-// 				Name:      pulumi.String("Test"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewBotAssociation(ctx, "example", &connect.BotAssociationArgs{
+//				InstanceId: pulumi.Any(aws_connect_instance.Example.Id),
+//				LexBot: &connect.BotAssociationLexBotArgs{
+//					LexRegion: pulumi.String("us-west-2"),
+//					Name:      pulumi.String("Test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Including a sample Lex bot
 //
@@ -49,75 +52,78 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lex"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lex"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := aws.GetRegion(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleIntent, err := lex.NewIntent(ctx, "exampleIntent", &lex.IntentArgs{
-// 			CreateVersion: pulumi.Bool(true),
-// 			Name:          pulumi.String("connect_lex_intent"),
-// 			FulfillmentActivity: &lex.IntentFulfillmentActivityArgs{
-// 				Type: pulumi.String("ReturnIntent"),
-// 			},
-// 			SampleUtterances: pulumi.StringArray{
-// 				pulumi.String("I would like to pick up flowers."),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleBot, err := lex.NewBot(ctx, "exampleBot", &lex.BotArgs{
-// 			AbortStatement: &lex.BotAbortStatementArgs{
-// 				Messages: lex.BotAbortStatementMessageArray{
-// 					&lex.BotAbortStatementMessageArgs{
-// 						Content:     pulumi.String("Sorry, I am not able to assist at this time."),
-// 						ContentType: pulumi.String("PlainText"),
-// 					},
-// 				},
-// 			},
-// 			ClarificationPrompt: &lex.BotClarificationPromptArgs{
-// 				MaxAttempts: pulumi.Int(2),
-// 				Messages: lex.BotClarificationPromptMessageArray{
-// 					&lex.BotClarificationPromptMessageArgs{
-// 						Content:     pulumi.String("I didn't understand you, what would you like to do?"),
-// 						ContentType: pulumi.String("PlainText"),
-// 					},
-// 				},
-// 			},
-// 			Intents: lex.BotIntentArray{
-// 				&lex.BotIntentArgs{
-// 					IntentName:    exampleIntent.Name,
-// 					IntentVersion: pulumi.String("1"),
-// 				},
-// 			},
-// 			ChildDirected:   pulumi.Bool(false),
-// 			Name:            pulumi.String("connect_lex_bot"),
-// 			ProcessBehavior: pulumi.String("BUILD"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = connect.NewBotAssociation(ctx, "exampleBotAssociation", &connect.BotAssociationArgs{
-// 			InstanceId: pulumi.Any(aws_connect_instance.Example.Id),
-// 			LexBot: &connect.BotAssociationLexBotArgs{
-// 				LexRegion: pulumi.String(current.Name),
-// 				Name:      exampleBot.Name,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleIntent, err := lex.NewIntent(ctx, "exampleIntent", &lex.IntentArgs{
+//				CreateVersion: pulumi.Bool(true),
+//				Name:          pulumi.String("connect_lex_intent"),
+//				FulfillmentActivity: &lex.IntentFulfillmentActivityArgs{
+//					Type: pulumi.String("ReturnIntent"),
+//				},
+//				SampleUtterances: pulumi.StringArray{
+//					pulumi.String("I would like to pick up flowers."),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBot, err := lex.NewBot(ctx, "exampleBot", &lex.BotArgs{
+//				AbortStatement: &lex.BotAbortStatementArgs{
+//					Messages: lex.BotAbortStatementMessageArray{
+//						&lex.BotAbortStatementMessageArgs{
+//							Content:     pulumi.String("Sorry, I am not able to assist at this time."),
+//							ContentType: pulumi.String("PlainText"),
+//						},
+//					},
+//				},
+//				ClarificationPrompt: &lex.BotClarificationPromptArgs{
+//					MaxAttempts: pulumi.Int(2),
+//					Messages: lex.BotClarificationPromptMessageArray{
+//						&lex.BotClarificationPromptMessageArgs{
+//							Content:     pulumi.String("I didn't understand you, what would you like to do?"),
+//							ContentType: pulumi.String("PlainText"),
+//						},
+//					},
+//				},
+//				Intents: lex.BotIntentArray{
+//					&lex.BotIntentArgs{
+//						IntentName:    exampleIntent.Name,
+//						IntentVersion: pulumi.String("1"),
+//					},
+//				},
+//				ChildDirected:   pulumi.Bool(false),
+//				Name:            pulumi.String("connect_lex_bot"),
+//				ProcessBehavior: pulumi.String("BUILD"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = connect.NewBotAssociation(ctx, "exampleBotAssociation", &connect.BotAssociationArgs{
+//				InstanceId: pulumi.Any(aws_connect_instance.Example.Id),
+//				LexBot: &connect.BotAssociationLexBotArgs{
+//					LexRegion: pulumi.String(current.Name),
+//					Name:      exampleBot.Name,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -125,7 +131,9 @@ import (
 // `aws_connect_bot_association` can be imported by using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`), e.g.
 //
 // ```sh
-//  $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
+//
+//	$ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
+//
 // ```
 type BotAssociation struct {
 	pulumi.CustomResourceState
@@ -229,7 +237,7 @@ func (i *BotAssociation) ToBotAssociationOutputWithContext(ctx context.Context) 
 // BotAssociationArrayInput is an input type that accepts BotAssociationArray and BotAssociationArrayOutput values.
 // You can construct a concrete instance of `BotAssociationArrayInput` via:
 //
-//          BotAssociationArray{ BotAssociationArgs{...} }
+//	BotAssociationArray{ BotAssociationArgs{...} }
 type BotAssociationArrayInput interface {
 	pulumi.Input
 
@@ -254,7 +262,7 @@ func (i BotAssociationArray) ToBotAssociationArrayOutputWithContext(ctx context.
 // BotAssociationMapInput is an input type that accepts BotAssociationMap and BotAssociationMapOutput values.
 // You can construct a concrete instance of `BotAssociationMapInput` via:
 //
-//          BotAssociationMap{ "key": BotAssociationArgs{...} }
+//	BotAssociationMap{ "key": BotAssociationArgs{...} }
 type BotAssociationMapInput interface {
 	pulumi.Input
 

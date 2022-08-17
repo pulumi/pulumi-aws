@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupRuleStatementByteMatchStatementFieldToMatchMethodGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleStatementByteMatchStatementFieldToMatchMethodGetArgs : global::Pulumi.ResourceArgs
     {
         public RuleGroupRuleStatementByteMatchStatementFieldToMatchMethodGetArgs()
         {
         }
+        public static new RuleGroupRuleStatementByteMatchStatementFieldToMatchMethodGetArgs Empty => new RuleGroupRuleStatementByteMatchStatementFieldToMatchMethodGetArgs();
     }
 }

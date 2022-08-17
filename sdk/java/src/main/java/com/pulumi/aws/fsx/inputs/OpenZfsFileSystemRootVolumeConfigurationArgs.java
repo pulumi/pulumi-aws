@@ -8,6 +8,7 @@ import com.pulumi.aws.fsx.inputs.OpenZfsFileSystemRootVolumeConfigurationUserAnd
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -80,6 +81,21 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
     }
 
     /**
+     * - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+     * 
+     */
+    @Import(name="recordSizeKib")
+    private @Nullable Output<Integer> recordSizeKib;
+
+    /**
+     * @return - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+     * 
+     */
+    public Optional<Output<Integer>> recordSizeKib() {
+        return Optional.ofNullable(this.recordSizeKib);
+    }
+
+    /**
      * - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
      * 
      */
@@ -101,6 +117,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         this.dataCompressionType = $.dataCompressionType;
         this.nfsExports = $.nfsExports;
         this.readOnly = $.readOnly;
+        this.recordSizeKib = $.recordSizeKib;
         this.userAndGroupQuotas = $.userAndGroupQuotas;
     }
 
@@ -204,6 +221,27 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
          */
         public Builder readOnly(Boolean readOnly) {
             return readOnly(Output.of(readOnly));
+        }
+
+        /**
+         * @param recordSizeKib - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recordSizeKib(@Nullable Output<Integer> recordSizeKib) {
+            $.recordSizeKib = recordSizeKib;
+            return this;
+        }
+
+        /**
+         * @param recordSizeKib - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recordSizeKib(Integer recordSizeKib) {
+            return recordSizeKib(Output.of(recordSizeKib));
         }
 
         /**

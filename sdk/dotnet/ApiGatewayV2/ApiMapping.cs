@@ -17,22 +17,20 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ApiGatewayV2.ApiMapping("example", new()
     ///     {
-    ///         var example = new Aws.ApiGatewayV2.ApiMapping("example", new Aws.ApiGatewayV2.ApiMappingArgs
-    ///         {
-    ///             ApiId = aws_apigatewayv2_api.Example.Id,
-    ///             DomainName = aws_apigatewayv2_domain_name.Example.Id,
-    ///             Stage = aws_apigatewayv2_stage.Example.Id,
-    ///         });
-    ///     }
+    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         DomainName = aws_apigatewayv2_domain_name.Example.Id,
+    ///         Stage = aws_apigatewayv2_stage.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/apiMapping:ApiMapping")]
-    public partial class ApiMapping : Pulumi.CustomResource
+    public partial class ApiMapping : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The API identifier.
@@ -114,7 +112,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
     }
 
-    public sealed class ApiMappingArgs : Pulumi.ResourceArgs
+    public sealed class ApiMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API identifier.
@@ -143,9 +141,10 @@ namespace Pulumi.Aws.ApiGatewayV2
         public ApiMappingArgs()
         {
         }
+        public static new ApiMappingArgs Empty => new ApiMappingArgs();
     }
 
-    public sealed class ApiMappingState : Pulumi.ResourceArgs
+    public sealed class ApiMappingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API identifier.
@@ -174,5 +173,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         public ApiMappingState()
         {
         }
+        public static new ApiMappingState Empty => new ApiMappingState();
     }
 }

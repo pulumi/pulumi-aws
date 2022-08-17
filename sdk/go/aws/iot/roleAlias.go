@@ -19,41 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Effect": "Allow",
-//       "Principal": {"Service": "credentials.iot.amazonaws.com",
-//       "Action": "sts:AssumeRole"
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Effect": "Allow",
+//	      "Principal": {"Service": "credentials.iot.amazonaws.com",
+//	      "Action": "sts:AssumeRole"
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewRoleAlias(ctx, "alias", &iot.RoleAliasArgs{
-// 			Alias:   pulumi.String("Thermostat-dynamodb-access-role-alias"),
-// 			RoleArn: role.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewRoleAlias(ctx, "alias", &iot.RoleAliasArgs{
+//				Alias:   pulumi.String("Thermostat-dynamodb-access-role-alias"),
+//				RoleArn: role.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +66,9 @@ import (
 // IOT Role Alias can be imported via the alias, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
+//
+//	$ pulumi import aws:iot/roleAlias:RoleAlias example myalias
+//
 // ```
 type RoleAlias struct {
 	pulumi.CustomResourceState
@@ -181,7 +188,7 @@ func (i *RoleAlias) ToRoleAliasOutputWithContext(ctx context.Context) RoleAliasO
 // RoleAliasArrayInput is an input type that accepts RoleAliasArray and RoleAliasArrayOutput values.
 // You can construct a concrete instance of `RoleAliasArrayInput` via:
 //
-//          RoleAliasArray{ RoleAliasArgs{...} }
+//	RoleAliasArray{ RoleAliasArgs{...} }
 type RoleAliasArrayInput interface {
 	pulumi.Input
 
@@ -206,7 +213,7 @@ func (i RoleAliasArray) ToRoleAliasArrayOutputWithContext(ctx context.Context) R
 // RoleAliasMapInput is an input type that accepts RoleAliasMap and RoleAliasMapOutput values.
 // You can construct a concrete instance of `RoleAliasMapInput` via:
 //
-//          RoleAliasMap{ "key": RoleAliasArgs{...} }
+//	RoleAliasMap{ "key": RoleAliasArgs{...} }
 type RoleAliasMapInput interface {
 	pulumi.Input
 

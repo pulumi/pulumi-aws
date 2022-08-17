@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterBrokerNodeGroupInfoConnectivityInfoGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterBrokerNodeGroupInfoConnectivityInfoGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access control settings for brokers. See below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterBrokerNodeGroupInfoConnectivityInfoGetArgs()
         {
         }
+        public static new ClusterBrokerNodeGroupInfoConnectivityInfoGetArgs Empty => new ClusterBrokerNodeGroupInfoConnectivityInfoGetArgs();
     }
 }

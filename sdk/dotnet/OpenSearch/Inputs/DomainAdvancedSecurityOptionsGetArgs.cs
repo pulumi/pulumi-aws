@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpenSearch.Inputs
 {
 
-    public sealed class DomainAdvancedSecurityOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class DomainAdvancedSecurityOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public DomainAdvancedSecurityOptionsGetArgs()
         {
         }
+        public static new DomainAdvancedSecurityOptionsGetArgs Empty => new DomainAdvancedSecurityOptionsGetArgs();
     }
 }

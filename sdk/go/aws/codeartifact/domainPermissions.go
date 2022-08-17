@@ -19,51 +19,56 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codeartifact"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codeartifact"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-// 			Description: pulumi.String("domain key"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDomain, err := codeartifact.NewDomain(ctx, "exampleDomain", &codeartifact.DomainArgs{
-// 			Domain:        pulumi.String("example"),
-// 			EncryptionKey: exampleKey.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = codeartifact.NewDomainPermissions(ctx, "test", &codeartifact.DomainPermissionsArgs{
-// 			Domain: exampleDomain.Domain,
-// 			PolicyDocument: exampleDomain.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf(`{
-//     "Version": "2012-10-17",
-//     "Statement": [
-//         {
-//             "Action": "codeartifact:CreateRepository",
-//             "Effect": "Allow",
-//             "Principal": "*",
-//             "Resource": "%v"
-//         }
-//     ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//				Description: pulumi.String("domain key"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDomain, err := codeartifact.NewDomain(ctx, "exampleDomain", &codeartifact.DomainArgs{
+//				Domain:        pulumi.String("example"),
+//				EncryptionKey: exampleKey.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codeartifact.NewDomainPermissions(ctx, "test", &codeartifact.DomainPermissionsArgs{
+//				Domain: exampleDomain.Domain,
+//				PolicyDocument: exampleDomain.Arn.ApplyT(func(arn string) (string, error) {
+//					return fmt.Sprintf(`{
+//	    "Version": "2012-10-17",
+//	    "Statement": [
+//	        {
+//	            "Action": "codeartifact:CreateRepository",
+//	            "Effect": "Allow",
+//	            "Principal": "*",
+//	            "Resource": "%v"
+//	        }
+//	    ]
+//	}
+//
 // `, arn), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +76,9 @@ import (
 // CodeArtifact Domain Permissions Policies can be imported using the CodeArtifact Domain ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
+//
+//	$ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
+//
 // ```
 type DomainPermissions struct {
 	pulumi.CustomResourceState
@@ -201,7 +208,7 @@ func (i *DomainPermissions) ToDomainPermissionsOutputWithContext(ctx context.Con
 // DomainPermissionsArrayInput is an input type that accepts DomainPermissionsArray and DomainPermissionsArrayOutput values.
 // You can construct a concrete instance of `DomainPermissionsArrayInput` via:
 //
-//          DomainPermissionsArray{ DomainPermissionsArgs{...} }
+//	DomainPermissionsArray{ DomainPermissionsArgs{...} }
 type DomainPermissionsArrayInput interface {
 	pulumi.Input
 
@@ -226,7 +233,7 @@ func (i DomainPermissionsArray) ToDomainPermissionsArrayOutputWithContext(ctx co
 // DomainPermissionsMapInput is an input type that accepts DomainPermissionsMap and DomainPermissionsMapOutput values.
 // You can construct a concrete instance of `DomainPermissionsMapInput` via:
 //
-//          DomainPermissionsMap{ "key": DomainPermissionsArgs{...} }
+//	DomainPermissionsMap{ "key": DomainPermissionsArgs{...} }
 type DomainPermissionsMapInput interface {
 	pulumi.Input
 

@@ -15,39 +15,36 @@ namespace Pulumi.Aws.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var parent = new Aws.Iot.ThingGroup("parent", new Aws.Iot.ThingGroupArgs
-    ///         {
-    ///         });
-    ///         var example = new Aws.Iot.ThingGroup("example", new Aws.Iot.ThingGroupArgs
-    ///         {
-    ///             ParentGroupName = parent.Name,
-    ///             Properties = new Aws.Iot.Inputs.ThingGroupPropertiesArgs
-    ///             {
-    ///                 AttributePayload = new Aws.Iot.Inputs.ThingGroupPropertiesAttributePayloadArgs
-    ///                 {
-    ///                     Attributes = 
-    ///                     {
-    ///                         { "One", "11111" },
-    ///                         { "Two", "TwoTwo" },
-    ///                     },
-    ///                 },
-    ///                 Description = "This is my thing group",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "terraform", "true" },
-    ///             },
-    ///         });
-    ///     }
+    ///     var parent = new Aws.Iot.ThingGroup("parent");
     /// 
-    /// }
+    ///     var example = new Aws.Iot.ThingGroup("example", new()
+    ///     {
+    ///         ParentGroupName = parent.Name,
+    ///         Properties = new Aws.Iot.Inputs.ThingGroupPropertiesArgs
+    ///         {
+    ///             AttributePayload = new Aws.Iot.Inputs.ThingGroupPropertiesAttributePayloadArgs
+    ///             {
+    ///                 Attributes = 
+    ///                 {
+    ///                     { "One", "11111" },
+    ///                     { "Two", "TwoTwo" },
+    ///                 },
+    ///             },
+    ///             Description = "This is my thing group",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "terraform", "true" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +56,7 @@ namespace Pulumi.Aws.Iot
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/thingGroup:ThingGroup")]
-    public partial class ThingGroup : Pulumi.CustomResource
+    public partial class ThingGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Thing Group.
@@ -147,7 +144,7 @@ namespace Pulumi.Aws.Iot
         }
     }
 
-    public sealed class ThingGroupArgs : Pulumi.ResourceArgs
+    public sealed class ThingGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Thing Group.
@@ -182,9 +179,10 @@ namespace Pulumi.Aws.Iot
         public ThingGroupArgs()
         {
         }
+        public static new ThingGroupArgs Empty => new ThingGroupArgs();
     }
 
-    public sealed class ThingGroupState : Pulumi.ResourceArgs
+    public sealed class ThingGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Thing Group.
@@ -247,5 +245,6 @@ namespace Pulumi.Aws.Iot
         public ThingGroupState()
         {
         }
+        public static new ThingGroupState Empty => new ThingGroupState();
     }
 }

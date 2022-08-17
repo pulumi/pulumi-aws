@@ -18,27 +18,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
-// 			Principal: pulumi.Any(aws_iam_role.Workflow_role.Arn),
-// 			Permissions: pulumi.StringArray{
-// 				pulumi.String("ALL"),
-// 			},
-// 			DataLocation: &lakeformation.PermissionsDataLocationArgs{
-// 				Arn: pulumi.Any(aws_lakeformation_resource.Example.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
+//				Principal: pulumi.Any(aws_iam_role.Workflow_role.Arn),
+//				Permissions: pulumi.StringArray{
+//					pulumi.String("ALL"),
+//				},
+//				DataLocation: &lakeformation.PermissionsDataLocationArgs{
+//					Arn: pulumi.Any(aws_lakeformation_resource.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Grant Permissions For A Glue Catalog Database
 //
@@ -46,30 +49,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
-// 			Principal: pulumi.Any(aws_iam_role.Workflow_role.Arn),
-// 			Permissions: pulumi.StringArray{
-// 				pulumi.String("CREATE_TABLE"),
-// 				pulumi.String("ALTER"),
-// 				pulumi.String("DROP"),
-// 			},
-// 			Database: &lakeformation.PermissionsDatabaseArgs{
-// 				Name:      pulumi.Any(aws_glue_catalog_database.Example.Name),
-// 				CatalogId: pulumi.String("110376042874"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
+//				Principal: pulumi.Any(aws_iam_role.Workflow_role.Arn),
+//				Permissions: pulumi.StringArray{
+//					pulumi.String("CREATE_TABLE"),
+//					pulumi.String("ALTER"),
+//					pulumi.String("DROP"),
+//				},
+//				Database: &lakeformation.PermissionsDatabaseArgs{
+//					Name:      pulumi.Any(aws_glue_catalog_database.Example.Name),
+//					CatalogId: pulumi.String("110376042874"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Grant Permissions Using Tag-Based Access Control
 //
@@ -77,44 +83,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lakeformation.NewPermissions(ctx, "test", &lakeformation.PermissionsArgs{
-// 			Principal: pulumi.Any(aws_iam_role.Sales_role.Arn),
-// 			Permissions: pulumi.StringArray{
-// 				pulumi.String("CREATE_TABLE"),
-// 				pulumi.String("ALTER"),
-// 				pulumi.String("DROP"),
-// 			},
-// 			LfTagPolicy: &lakeformation.PermissionsLfTagPolicyArgs{
-// 				ResourceType: pulumi.String("DATABASE"),
-// 				Expressions: lakeformation.PermissionsLfTagPolicyExpressionArray{
-// 					&lakeformation.PermissionsLfTagPolicyExpressionArgs{
-// 						Key: pulumi.String("Team"),
-// 						Values: pulumi.StringArray{
-// 							pulumi.String("Sales"),
-// 						},
-// 					},
-// 					&lakeformation.PermissionsLfTagPolicyExpressionArgs{
-// 						Key: pulumi.String("Environment"),
-// 						Values: pulumi.StringArray{
-// 							pulumi.String("Dev"),
-// 							pulumi.String("Production"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lakeformation.NewPermissions(ctx, "test", &lakeformation.PermissionsArgs{
+//				Principal: pulumi.Any(aws_iam_role.Sales_role.Arn),
+//				Permissions: pulumi.StringArray{
+//					pulumi.String("CREATE_TABLE"),
+//					pulumi.String("ALTER"),
+//					pulumi.String("DROP"),
+//				},
+//				LfTagPolicy: &lakeformation.PermissionsLfTagPolicyArgs{
+//					ResourceType: pulumi.String("DATABASE"),
+//					Expressions: lakeformation.PermissionsLfTagPolicyExpressionArray{
+//						&lakeformation.PermissionsLfTagPolicyExpressionArgs{
+//							Key: pulumi.String("Team"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("Sales"),
+//							},
+//						},
+//						&lakeformation.PermissionsLfTagPolicyExpressionArgs{
+//							Key: pulumi.String("Environment"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("Dev"),
+//								pulumi.String("Production"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Permissions struct {
 	pulumi.CustomResourceState
@@ -308,7 +317,7 @@ func (i *Permissions) ToPermissionsOutputWithContext(ctx context.Context) Permis
 // PermissionsArrayInput is an input type that accepts PermissionsArray and PermissionsArrayOutput values.
 // You can construct a concrete instance of `PermissionsArrayInput` via:
 //
-//          PermissionsArray{ PermissionsArgs{...} }
+//	PermissionsArray{ PermissionsArgs{...} }
 type PermissionsArrayInput interface {
 	pulumi.Input
 
@@ -333,7 +342,7 @@ func (i PermissionsArray) ToPermissionsArrayOutputWithContext(ctx context.Contex
 // PermissionsMapInput is an input type that accepts PermissionsMap and PermissionsMapOutput values.
 // You can construct a concrete instance of `PermissionsMapInput` via:
 //
-//          PermissionsMap{ "key": PermissionsArgs{...} }
+//	PermissionsMap{ "key": PermissionsArgs{...} }
 type PermissionsMapInput interface {
 	pulumi.Input
 

@@ -17,28 +17,27 @@ namespace Pulumi.Aws.LakeFormation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleBucket = Aws.S3.GetBucket.Invoke(new()
     ///     {
-    ///         var exampleBucket = Output.Create(Aws.S3.GetBucket.InvokeAsync(new Aws.S3.GetBucketArgs
-    ///         {
-    ///             Bucket = "an-example-bucket",
-    ///         }));
-    ///         var exampleResource = new Aws.LakeFormation.Resource("exampleResource", new Aws.LakeFormation.ResourceArgs
-    ///         {
-    ///             Arn = exampleBucket.Apply(exampleBucket =&gt; exampleBucket.Arn),
-    ///         });
-    ///     }
+    ///         Bucket = "an-example-bucket",
+    ///     });
     /// 
-    /// }
+    ///     var exampleResource = new Aws.LakeFormation.Resource("exampleResource", new()
+    ///     {
+    ///         Arn = exampleBucket.Apply(getBucketResult =&gt; getBucketResult.Arn),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:lakeformation/resource:Resource")]
-    public partial class Resource : Pulumi.CustomResource
+    public partial class Resource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the resource, an S3 path.
@@ -102,7 +101,7 @@ namespace Pulumi.Aws.LakeFormation
         }
     }
 
-    public sealed class ResourceArgs : Pulumi.ResourceArgs
+    public sealed class ResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the resource, an S3 path.
@@ -119,9 +118,10 @@ namespace Pulumi.Aws.LakeFormation
         public ResourceArgs()
         {
         }
+        public static new ResourceArgs Empty => new ResourceArgs();
     }
 
-    public sealed class ResourceState : Pulumi.ResourceArgs
+    public sealed class ResourceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the resource, an S3 path.
@@ -144,5 +144,6 @@ namespace Pulumi.Aws.LakeFormation
         public ResourceState()
         {
         }
+        public static new ResourceState Empty => new ResourceState();
     }
 }

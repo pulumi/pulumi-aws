@@ -22,23 +22,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rds.NewClusterRoleAssociation(ctx, "example", &rds.ClusterRoleAssociationArgs{
-// 			DbClusterIdentifier: pulumi.Any(aws_rds_cluster.Example.Id),
-// 			FeatureName:         pulumi.String("S3_INTEGRATION"),
-// 			RoleArn:             pulumi.Any(aws_iam_role.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewClusterRoleAssociation(ctx, "example", &rds.ClusterRoleAssociationArgs{
+//				DbClusterIdentifier: pulumi.Any(aws_rds_cluster.Example.Id),
+//				FeatureName:         pulumi.String("S3_INTEGRATION"),
+//				RoleArn:             pulumi.Any(aws_iam_role.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // `aws_rds_cluster_role_association` can be imported using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
+//
+//	$ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
+//
 // ```
 type ClusterRoleAssociation struct {
 	pulumi.CustomResourceState
@@ -163,7 +168,7 @@ func (i *ClusterRoleAssociation) ToClusterRoleAssociationOutputWithContext(ctx c
 // ClusterRoleAssociationArrayInput is an input type that accepts ClusterRoleAssociationArray and ClusterRoleAssociationArrayOutput values.
 // You can construct a concrete instance of `ClusterRoleAssociationArrayInput` via:
 //
-//          ClusterRoleAssociationArray{ ClusterRoleAssociationArgs{...} }
+//	ClusterRoleAssociationArray{ ClusterRoleAssociationArgs{...} }
 type ClusterRoleAssociationArrayInput interface {
 	pulumi.Input
 
@@ -188,7 +193,7 @@ func (i ClusterRoleAssociationArray) ToClusterRoleAssociationArrayOutputWithCont
 // ClusterRoleAssociationMapInput is an input type that accepts ClusterRoleAssociationMap and ClusterRoleAssociationMapOutput values.
 // You can construct a concrete instance of `ClusterRoleAssociationMapInput` via:
 //
-//          ClusterRoleAssociationMap{ "key": ClusterRoleAssociationArgs{...} }
+//	ClusterRoleAssociationMap{ "key": ClusterRoleAssociationArgs{...} }
 type ClusterRoleAssociationMapInput interface {
 	pulumi.Input
 

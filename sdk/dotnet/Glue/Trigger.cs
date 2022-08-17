@@ -16,165 +16,155 @@ namespace Pulumi.Aws.Glue
     /// ### Conditional Trigger
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
-    ///         var example = new Aws.Glue.Trigger("example", new Aws.Glue.TriggerArgs
+    ///         Type = "CONDITIONAL",
+    ///         Actions = new[]
     ///         {
-    ///             Type = "CONDITIONAL",
-    ///             Actions = 
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 new Aws.Glue.Inputs.TriggerActionArgs
+    ///                 JobName = aws_glue_job.Example1.Name,
+    ///             },
+    ///         },
+    ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
+    ///         {
+    ///             Conditions = new[]
+    ///             {
+    ///                 new Aws.Glue.Inputs.TriggerPredicateConditionArgs
     ///                 {
-    ///                     JobName = aws_glue_job.Example1.Name,
+    ///                     JobName = aws_glue_job.Example2.Name,
+    ///                     State = "SUCCEEDED",
     ///                 },
     ///             },
-    ///             Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
-    ///             {
-    ///                 Conditions = 
-    ///                 {
-    ///                     new Aws.Glue.Inputs.TriggerPredicateConditionArgs
-    ///                     {
-    ///                         JobName = aws_glue_job.Example2.Name,
-    ///                         State = "SUCCEEDED",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### On-Demand Trigger
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
-    ///         var example = new Aws.Glue.Trigger("example", new Aws.Glue.TriggerArgs
+    ///         Type = "ON_DEMAND",
+    ///         Actions = new[]
     ///         {
-    ///             Type = "ON_DEMAND",
-    ///             Actions = 
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 new Aws.Glue.Inputs.TriggerActionArgs
-    ///                 {
-    ///                     JobName = aws_glue_job.Example.Name,
-    ///                 },
+    ///                 JobName = aws_glue_job.Example.Name,
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Scheduled Trigger
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
-    ///         var example = new Aws.Glue.Trigger("example", new Aws.Glue.TriggerArgs
+    ///         Schedule = "cron(15 12 * * ? *)",
+    ///         Type = "SCHEDULED",
+    ///         Actions = new[]
     ///         {
-    ///             Schedule = "cron(15 12 * * ? *)",
-    ///             Type = "SCHEDULED",
-    ///             Actions = 
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 new Aws.Glue.Inputs.TriggerActionArgs
-    ///                 {
-    ///                     JobName = aws_glue_job.Example.Name,
-    ///                 },
+    ///                 JobName = aws_glue_job.Example.Name,
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Conditional Trigger with Crawler Action
     /// 
     /// **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
-    ///         var example = new Aws.Glue.Trigger("example", new Aws.Glue.TriggerArgs
+    ///         Type = "CONDITIONAL",
+    ///         Actions = new[]
     ///         {
-    ///             Type = "CONDITIONAL",
-    ///             Actions = 
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 new Aws.Glue.Inputs.TriggerActionArgs
+    ///                 CrawlerName = aws_glue_crawler.Example1.Name,
+    ///             },
+    ///         },
+    ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
+    ///         {
+    ///             Conditions = new[]
+    ///             {
+    ///                 new Aws.Glue.Inputs.TriggerPredicateConditionArgs
     ///                 {
-    ///                     CrawlerName = aws_glue_crawler.Example1.Name,
+    ///                     JobName = aws_glue_job.Example2.Name,
+    ///                     State = "SUCCEEDED",
     ///                 },
     ///             },
-    ///             Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
-    ///             {
-    ///                 Conditions = 
-    ///                 {
-    ///                     new Aws.Glue.Inputs.TriggerPredicateConditionArgs
-    ///                     {
-    ///                         JobName = aws_glue_job.Example2.Name,
-    ///                         State = "SUCCEEDED",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Conditional Trigger with Crawler Condition
     /// 
     /// **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Glue.Trigger("example", new()
     ///     {
-    ///         var example = new Aws.Glue.Trigger("example", new Aws.Glue.TriggerArgs
+    ///         Type = "CONDITIONAL",
+    ///         Actions = new[]
     ///         {
-    ///             Type = "CONDITIONAL",
-    ///             Actions = 
+    ///             new Aws.Glue.Inputs.TriggerActionArgs
     ///             {
-    ///                 new Aws.Glue.Inputs.TriggerActionArgs
+    ///                 JobName = aws_glue_job.Example1.Name,
+    ///             },
+    ///         },
+    ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
+    ///         {
+    ///             Conditions = new[]
+    ///             {
+    ///                 new Aws.Glue.Inputs.TriggerPredicateConditionArgs
     ///                 {
-    ///                     JobName = aws_glue_job.Example1.Name,
+    ///                     CrawlerName = aws_glue_crawler.Example2.Name,
+    ///                     CrawlState = "SUCCEEDED",
     ///                 },
     ///             },
-    ///             Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
-    ///             {
-    ///                 Conditions = 
-    ///                 {
-    ///                     new Aws.Glue.Inputs.TriggerPredicateConditionArgs
-    ///                     {
-    ///                         CrawlerName = aws_glue_crawler.Example2.Name,
-    ///                         CrawlState = "SUCCEEDED",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -186,7 +176,7 @@ namespace Pulumi.Aws.Glue
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/trigger:Trigger")]
-    public partial class Trigger : Pulumi.CustomResource
+    public partial class Trigger : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of actions initiated by this trigger when it fires. See Actions Below.
@@ -316,7 +306,7 @@ namespace Pulumi.Aws.Glue
         }
     }
 
-    public sealed class TriggerArgs : Pulumi.ResourceArgs
+    public sealed class TriggerArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<Inputs.TriggerActionArgs>? _actions;
@@ -405,9 +395,10 @@ namespace Pulumi.Aws.Glue
         public TriggerArgs()
         {
         }
+        public static new TriggerArgs Empty => new TriggerArgs();
     }
 
-    public sealed class TriggerState : Pulumi.ResourceArgs
+    public sealed class TriggerState : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<Inputs.TriggerActionGetArgs>? _actions;
@@ -520,5 +511,6 @@ namespace Pulumi.Aws.Glue
         public TriggerState()
         {
         }
+        public static new TriggerState Empty => new TriggerState();
     }
 }

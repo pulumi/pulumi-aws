@@ -15,20 +15,19 @@ namespace Pulumi.Aws.CloudFormation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var network = new Aws.CloudFormation.Stack("network", new()
     ///     {
-    ///         var network = new Aws.CloudFormation.Stack("network", new Aws.CloudFormation.StackArgs
+    ///         Parameters = 
     ///         {
-    ///             Parameters = 
-    ///             {
-    ///                 { "VPCCidr", "10.0.0.0/16" },
-    ///             },
-    ///             TemplateBody = @"{
+    ///             { "VPCCidr", "10.0.0.0/16" },
+    ///         },
+    ///         TemplateBody = @"{
     ///   ""Parameters"" : {
     ///     ""VPCCidr"" : {
     ///       ""Type"" : ""String"",
@@ -50,10 +49,9 @@ namespace Pulumi.Aws.CloudFormation
     /// }
     /// 
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +63,7 @@ namespace Pulumi.Aws.CloudFormation
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudformation/stack:Stack")]
-    public partial class Stack : Pulumi.CustomResource
+    public partial class Stack : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of capabilities.
@@ -139,7 +137,7 @@ namespace Pulumi.Aws.CloudFormation
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -206,7 +204,7 @@ namespace Pulumi.Aws.CloudFormation
         }
     }
 
-    public sealed class StackArgs : Pulumi.ResourceArgs
+    public sealed class StackArgs : global::Pulumi.ResourceArgs
     {
         [Input("capabilities")]
         private InputList<string>? _capabilities;
@@ -318,9 +316,10 @@ namespace Pulumi.Aws.CloudFormation
         public StackArgs()
         {
         }
+        public static new StackArgs Empty => new StackArgs();
     }
 
-    public sealed class StackState : Pulumi.ResourceArgs
+    public sealed class StackState : global::Pulumi.ResourceArgs
     {
         [Input("capabilities")]
         private InputList<string>? _capabilities;
@@ -427,7 +426,7 @@ namespace Pulumi.Aws.CloudFormation
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -456,5 +455,6 @@ namespace Pulumi.Aws.CloudFormation
         public StackState()
         {
         }
+        public static new StackState Empty => new StackState();
     }
 }

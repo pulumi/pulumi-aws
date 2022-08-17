@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift.Inputs
 {
 
-    public sealed class GameSessionQueuePlayerLatencyPolicyArgs : Pulumi.ResourceArgs
+    public sealed class GameSessionQueuePlayerLatencyPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum latency value that is allowed for any player.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.GameLift.Inputs
         public GameSessionQueuePlayerLatencyPolicyArgs()
         {
         }
+        public static new GameSessionQueuePlayerLatencyPolicyArgs Empty => new GameSessionQueuePlayerLatencyPolicyArgs();
     }
 }

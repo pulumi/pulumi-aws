@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class FleetOnDemandOptionsArgs : Pulumi.ResourceArgs
+    public sealed class FleetOnDemandOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public FleetOnDemandOptionsArgs()
         {
         }
+        public static new FleetOnDemandOptionsArgs Empty => new FleetOnDemandOptionsArgs();
     }
 }

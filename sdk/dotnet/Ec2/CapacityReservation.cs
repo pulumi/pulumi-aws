@@ -15,23 +15,21 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Ec2.CapacityReservation("default", new()
     ///     {
-    ///         var @default = new Aws.Ec2.CapacityReservation("default", new Aws.Ec2.CapacityReservationArgs
-    ///         {
-    ///             AvailabilityZone = "eu-west-1a",
-    ///             InstanceCount = 1,
-    ///             InstancePlatform = "Linux/UNIX",
-    ///             InstanceType = "t2.micro",
-    ///         });
-    ///     }
+    ///         AvailabilityZone = "eu-west-1a",
+    ///         InstanceCount = 1,
+    ///         InstancePlatform = "Linux/UNIX",
+    ///         InstanceType = "t2.micro",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/capacityReservation:CapacityReservation")]
-    public partial class CapacityReservation : Pulumi.CustomResource
+    public partial class CapacityReservation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Capacity Reservation.
@@ -176,7 +174,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class CapacityReservationArgs : Pulumi.ResourceArgs
+    public sealed class CapacityReservationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Availability Zone in which to create the Capacity Reservation.
@@ -259,9 +257,10 @@ namespace Pulumi.Aws.Ec2
         public CapacityReservationArgs()
         {
         }
+        public static new CapacityReservationArgs Empty => new CapacityReservationArgs();
     }
 
-    public sealed class CapacityReservationState : Pulumi.ResourceArgs
+    public sealed class CapacityReservationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Capacity Reservation.
@@ -364,5 +363,6 @@ namespace Pulumi.Aws.Ec2
         public CapacityReservationState()
         {
         }
+        public static new CapacityReservationState Empty => new CapacityReservationState();
     }
 }

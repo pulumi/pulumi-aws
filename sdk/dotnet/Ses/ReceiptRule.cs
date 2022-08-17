@@ -15,44 +15,42 @@ namespace Pulumi.Aws.Ses
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Add a header to the email and store it in S3
+    ///     var store = new Aws.Ses.ReceiptRule("store", new()
     ///     {
-    ///         // Add a header to the email and store it in S3
-    ///         var store = new Aws.Ses.ReceiptRule("store", new Aws.Ses.ReceiptRuleArgs
+    ///         AddHeaderActions = new[]
     ///         {
-    ///             AddHeaderActions = 
+    ///             new Aws.Ses.Inputs.ReceiptRuleAddHeaderActionArgs
     ///             {
-    ///                 new Aws.Ses.Inputs.ReceiptRuleAddHeaderActionArgs
-    ///                 {
-    ///                     HeaderName = "Custom-Header",
-    ///                     HeaderValue = "Added by SES",
-    ///                     Position = 1,
-    ///                 },
+    ///                 HeaderName = "Custom-Header",
+    ///                 HeaderValue = "Added by SES",
+    ///                 Position = 1,
     ///             },
-    ///             Enabled = true,
-    ///             Recipients = 
+    ///         },
+    ///         Enabled = true,
+    ///         Recipients = new[]
+    ///         {
+    ///             "karen@example.com",
+    ///         },
+    ///         RuleSetName = "default-rule-set",
+    ///         S3Actions = new[]
+    ///         {
+    ///             new Aws.Ses.Inputs.ReceiptRuleS3ActionArgs
     ///             {
-    ///                 "karen@example.com",
+    ///                 BucketName = "emails",
+    ///                 Position = 2,
     ///             },
-    ///             RuleSetName = "default-rule-set",
-    ///             S3Actions = 
-    ///             {
-    ///                 new Aws.Ses.Inputs.ReceiptRuleS3ActionArgs
-    ///                 {
-    ///                     BucketName = "emails",
-    ///                     Position = 2,
-    ///                 },
-    ///             },
-    ///             ScanEnabled = true,
-    ///         });
-    ///     }
+    ///         },
+    ///         ScanEnabled = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +62,7 @@ namespace Pulumi.Aws.Ses
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/receiptRule:ReceiptRule")]
-    public partial class ReceiptRule : Pulumi.CustomResource
+    public partial class ReceiptRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of Add Header Action blocks. Documented below.
@@ -200,7 +198,7 @@ namespace Pulumi.Aws.Ses
         }
     }
 
-    public sealed class ReceiptRuleArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("addHeaderActions")]
         private InputList<Inputs.ReceiptRuleAddHeaderActionArgs>? _addHeaderActions;
@@ -337,9 +335,10 @@ namespace Pulumi.Aws.Ses
         public ReceiptRuleArgs()
         {
         }
+        public static new ReceiptRuleArgs Empty => new ReceiptRuleArgs();
     }
 
-    public sealed class ReceiptRuleState : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleState : global::Pulumi.ResourceArgs
     {
         [Input("addHeaderActions")]
         private InputList<Inputs.ReceiptRuleAddHeaderActionGetArgs>? _addHeaderActions;
@@ -482,5 +481,6 @@ namespace Pulumi.Aws.Ses
         public ReceiptRuleState()
         {
         }
+        public static new ReceiptRuleState Empty => new ReceiptRuleState();
     }
 }

@@ -22,7 +22,7 @@ type AccessPointPosixUser struct {
 // AccessPointPosixUserInput is an input type that accepts AccessPointPosixUserArgs and AccessPointPosixUserOutput values.
 // You can construct a concrete instance of `AccessPointPosixUserInput` via:
 //
-//          AccessPointPosixUserArgs{...}
+//	AccessPointPosixUserArgs{...}
 type AccessPointPosixUserInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i AccessPointPosixUserArgs) ToAccessPointPosixUserPtrOutputWithContext(ctx
 // AccessPointPosixUserPtrInput is an input type that accepts AccessPointPosixUserArgs, AccessPointPosixUserPtr and AccessPointPosixUserPtrOutput values.
 // You can construct a concrete instance of `AccessPointPosixUserPtrInput` via:
 //
-//          AccessPointPosixUserArgs{...}
+//	        AccessPointPosixUserArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccessPointPosixUserPtrInput interface {
 	pulumi.Input
 
@@ -195,7 +195,7 @@ type AccessPointRootDirectory struct {
 // AccessPointRootDirectoryInput is an input type that accepts AccessPointRootDirectoryArgs and AccessPointRootDirectoryOutput values.
 // You can construct a concrete instance of `AccessPointRootDirectoryInput` via:
 //
-//          AccessPointRootDirectoryArgs{...}
+//	AccessPointRootDirectoryArgs{...}
 type AccessPointRootDirectoryInput interface {
 	pulumi.Input
 
@@ -233,11 +233,11 @@ func (i AccessPointRootDirectoryArgs) ToAccessPointRootDirectoryPtrOutputWithCon
 // AccessPointRootDirectoryPtrInput is an input type that accepts AccessPointRootDirectoryArgs, AccessPointRootDirectoryPtr and AccessPointRootDirectoryPtrOutput values.
 // You can construct a concrete instance of `AccessPointRootDirectoryPtrInput` via:
 //
-//          AccessPointRootDirectoryArgs{...}
+//	        AccessPointRootDirectoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccessPointRootDirectoryPtrInput interface {
 	pulumi.Input
 
@@ -353,7 +353,7 @@ type AccessPointRootDirectoryCreationInfo struct {
 // AccessPointRootDirectoryCreationInfoInput is an input type that accepts AccessPointRootDirectoryCreationInfoArgs and AccessPointRootDirectoryCreationInfoOutput values.
 // You can construct a concrete instance of `AccessPointRootDirectoryCreationInfoInput` via:
 //
-//          AccessPointRootDirectoryCreationInfoArgs{...}
+//	AccessPointRootDirectoryCreationInfoArgs{...}
 type AccessPointRootDirectoryCreationInfoInput interface {
 	pulumi.Input
 
@@ -393,11 +393,11 @@ func (i AccessPointRootDirectoryCreationInfoArgs) ToAccessPointRootDirectoryCrea
 // AccessPointRootDirectoryCreationInfoPtrInput is an input type that accepts AccessPointRootDirectoryCreationInfoArgs, AccessPointRootDirectoryCreationInfoPtr and AccessPointRootDirectoryCreationInfoPtrOutput values.
 // You can construct a concrete instance of `AccessPointRootDirectoryCreationInfoPtrInput` via:
 //
-//          AccessPointRootDirectoryCreationInfoArgs{...}
+//	        AccessPointRootDirectoryCreationInfoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccessPointRootDirectoryCreationInfoPtrInput interface {
 	pulumi.Input
 
@@ -524,7 +524,7 @@ type BackupPolicyBackupPolicy struct {
 // BackupPolicyBackupPolicyInput is an input type that accepts BackupPolicyBackupPolicyArgs and BackupPolicyBackupPolicyOutput values.
 // You can construct a concrete instance of `BackupPolicyBackupPolicyInput` via:
 //
-//          BackupPolicyBackupPolicyArgs{...}
+//	BackupPolicyBackupPolicyArgs{...}
 type BackupPolicyBackupPolicyInput interface {
 	pulumi.Input
 
@@ -560,11 +560,11 @@ func (i BackupPolicyBackupPolicyArgs) ToBackupPolicyBackupPolicyPtrOutputWithCon
 // BackupPolicyBackupPolicyPtrInput is an input type that accepts BackupPolicyBackupPolicyArgs, BackupPolicyBackupPolicyPtr and BackupPolicyBackupPolicyPtrOutput values.
 // You can construct a concrete instance of `BackupPolicyBackupPolicyPtrInput` via:
 //
-//          BackupPolicyBackupPolicyArgs{...}
+//	        BackupPolicyBackupPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BackupPolicyBackupPolicyPtrInput interface {
 	pulumi.Input
 
@@ -663,7 +663,7 @@ type FileSystemLifecyclePolicy struct {
 // FileSystemLifecyclePolicyInput is an input type that accepts FileSystemLifecyclePolicyArgs and FileSystemLifecyclePolicyOutput values.
 // You can construct a concrete instance of `FileSystemLifecyclePolicyInput` via:
 //
-//          FileSystemLifecyclePolicyArgs{...}
+//	FileSystemLifecyclePolicyArgs{...}
 type FileSystemLifecyclePolicyInput interface {
 	pulumi.Input
 
@@ -693,7 +693,7 @@ func (i FileSystemLifecyclePolicyArgs) ToFileSystemLifecyclePolicyOutputWithCont
 // FileSystemLifecyclePolicyArrayInput is an input type that accepts FileSystemLifecyclePolicyArray and FileSystemLifecyclePolicyArrayOutput values.
 // You can construct a concrete instance of `FileSystemLifecyclePolicyArrayInput` via:
 //
-//          FileSystemLifecyclePolicyArray{ FileSystemLifecyclePolicyArgs{...} }
+//	FileSystemLifecyclePolicyArray{ FileSystemLifecyclePolicyArgs{...} }
 type FileSystemLifecyclePolicyArrayInput interface {
 	pulumi.Input
 
@@ -771,7 +771,7 @@ type FileSystemSizeInByte struct {
 // FileSystemSizeInByteInput is an input type that accepts FileSystemSizeInByteArgs and FileSystemSizeInByteOutput values.
 // You can construct a concrete instance of `FileSystemSizeInByteInput` via:
 //
-//          FileSystemSizeInByteArgs{...}
+//	FileSystemSizeInByteArgs{...}
 type FileSystemSizeInByteInput interface {
 	pulumi.Input
 
@@ -803,7 +803,7 @@ func (i FileSystemSizeInByteArgs) ToFileSystemSizeInByteOutputWithContext(ctx co
 // FileSystemSizeInByteArrayInput is an input type that accepts FileSystemSizeInByteArray and FileSystemSizeInByteArrayOutput values.
 // You can construct a concrete instance of `FileSystemSizeInByteArrayInput` via:
 //
-//          FileSystemSizeInByteArray{ FileSystemSizeInByteArgs{...} }
+//	FileSystemSizeInByteArray{ FileSystemSizeInByteArgs{...} }
 type FileSystemSizeInByteArrayInput interface {
 	pulumi.Input
 
@@ -888,7 +888,7 @@ type ReplicationConfigurationDestination struct {
 // ReplicationConfigurationDestinationInput is an input type that accepts ReplicationConfigurationDestinationArgs and ReplicationConfigurationDestinationOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationDestinationInput` via:
 //
-//          ReplicationConfigurationDestinationArgs{...}
+//	ReplicationConfigurationDestinationArgs{...}
 type ReplicationConfigurationDestinationInput interface {
 	pulumi.Input
 
@@ -930,11 +930,11 @@ func (i ReplicationConfigurationDestinationArgs) ToReplicationConfigurationDesti
 // ReplicationConfigurationDestinationPtrInput is an input type that accepts ReplicationConfigurationDestinationArgs, ReplicationConfigurationDestinationPtr and ReplicationConfigurationDestinationPtrOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationDestinationPtrInput` via:
 //
-//          ReplicationConfigurationDestinationArgs{...}
+//	        ReplicationConfigurationDestinationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReplicationConfigurationDestinationPtrInput interface {
 	pulumi.Input
 
@@ -1092,7 +1092,7 @@ type GetAccessPointPosixUser struct {
 // GetAccessPointPosixUserInput is an input type that accepts GetAccessPointPosixUserArgs and GetAccessPointPosixUserOutput values.
 // You can construct a concrete instance of `GetAccessPointPosixUserInput` via:
 //
-//          GetAccessPointPosixUserArgs{...}
+//	GetAccessPointPosixUserArgs{...}
 type GetAccessPointPosixUserInput interface {
 	pulumi.Input
 
@@ -1125,7 +1125,7 @@ func (i GetAccessPointPosixUserArgs) ToGetAccessPointPosixUserOutputWithContext(
 // GetAccessPointPosixUserArrayInput is an input type that accepts GetAccessPointPosixUserArray and GetAccessPointPosixUserArrayOutput values.
 // You can construct a concrete instance of `GetAccessPointPosixUserArrayInput` via:
 //
-//          GetAccessPointPosixUserArray{ GetAccessPointPosixUserArgs{...} }
+//	GetAccessPointPosixUserArray{ GetAccessPointPosixUserArgs{...} }
 type GetAccessPointPosixUserArrayInput interface {
 	pulumi.Input
 
@@ -1207,7 +1207,7 @@ type GetAccessPointRootDirectory struct {
 // GetAccessPointRootDirectoryInput is an input type that accepts GetAccessPointRootDirectoryArgs and GetAccessPointRootDirectoryOutput values.
 // You can construct a concrete instance of `GetAccessPointRootDirectoryInput` via:
 //
-//          GetAccessPointRootDirectoryArgs{...}
+//	GetAccessPointRootDirectoryArgs{...}
 type GetAccessPointRootDirectoryInput interface {
 	pulumi.Input
 
@@ -1237,7 +1237,7 @@ func (i GetAccessPointRootDirectoryArgs) ToGetAccessPointRootDirectoryOutputWith
 // GetAccessPointRootDirectoryArrayInput is an input type that accepts GetAccessPointRootDirectoryArray and GetAccessPointRootDirectoryArrayOutput values.
 // You can construct a concrete instance of `GetAccessPointRootDirectoryArrayInput` via:
 //
-//          GetAccessPointRootDirectoryArray{ GetAccessPointRootDirectoryArgs{...} }
+//	GetAccessPointRootDirectoryArray{ GetAccessPointRootDirectoryArgs{...} }
 type GetAccessPointRootDirectoryArrayInput interface {
 	pulumi.Input
 
@@ -1315,7 +1315,7 @@ type GetAccessPointRootDirectoryCreationInfo struct {
 // GetAccessPointRootDirectoryCreationInfoInput is an input type that accepts GetAccessPointRootDirectoryCreationInfoArgs and GetAccessPointRootDirectoryCreationInfoOutput values.
 // You can construct a concrete instance of `GetAccessPointRootDirectoryCreationInfoInput` via:
 //
-//          GetAccessPointRootDirectoryCreationInfoArgs{...}
+//	GetAccessPointRootDirectoryCreationInfoArgs{...}
 type GetAccessPointRootDirectoryCreationInfoInput interface {
 	pulumi.Input
 
@@ -1347,7 +1347,7 @@ func (i GetAccessPointRootDirectoryCreationInfoArgs) ToGetAccessPointRootDirecto
 // GetAccessPointRootDirectoryCreationInfoArrayInput is an input type that accepts GetAccessPointRootDirectoryCreationInfoArray and GetAccessPointRootDirectoryCreationInfoArrayOutput values.
 // You can construct a concrete instance of `GetAccessPointRootDirectoryCreationInfoArrayInput` via:
 //
-//          GetAccessPointRootDirectoryCreationInfoArray{ GetAccessPointRootDirectoryCreationInfoArgs{...} }
+//	GetAccessPointRootDirectoryCreationInfoArray{ GetAccessPointRootDirectoryCreationInfoArgs{...} }
 type GetAccessPointRootDirectoryCreationInfoArrayInput interface {
 	pulumi.Input
 
@@ -1426,7 +1426,7 @@ type GetFileSystemLifecyclePolicy struct {
 // GetFileSystemLifecyclePolicyInput is an input type that accepts GetFileSystemLifecyclePolicyArgs and GetFileSystemLifecyclePolicyOutput values.
 // You can construct a concrete instance of `GetFileSystemLifecyclePolicyInput` via:
 //
-//          GetFileSystemLifecyclePolicyArgs{...}
+//	GetFileSystemLifecyclePolicyArgs{...}
 type GetFileSystemLifecyclePolicyInput interface {
 	pulumi.Input
 

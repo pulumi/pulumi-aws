@@ -18,54 +18,57 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appstream.NewStack(ctx, "example", &appstream.StackArgs{
-// 			ApplicationSettings: &appstream.StackApplicationSettingsArgs{
-// 				Enabled:       pulumi.Bool(true),
-// 				SettingsGroup: pulumi.String("SettingsGroup"),
-// 			},
-// 			Description: pulumi.String("stack description"),
-// 			DisplayName: pulumi.String("stack display name"),
-// 			FeedbackUrl: pulumi.String("http://your-domain/feedback"),
-// 			RedirectUrl: pulumi.String("http://your-domain/redirect"),
-// 			StorageConnectors: appstream.StackStorageConnectorArray{
-// 				&appstream.StackStorageConnectorArgs{
-// 					ConnectorType: pulumi.String("HOMEFOLDERS"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"TagName": pulumi.String("TagValue"),
-// 			},
-// 			UserSettings: appstream.StackUserSettingArray{
-// 				&appstream.StackUserSettingArgs{
-// 					Action:     pulumi.String("CLIPBOARD_COPY_FROM_LOCAL_DEVICE"),
-// 					Permission: pulumi.String("ENABLED"),
-// 				},
-// 				&appstream.StackUserSettingArgs{
-// 					Action:     pulumi.String("CLIPBOARD_COPY_TO_LOCAL_DEVICE"),
-// 					Permission: pulumi.String("ENABLED"),
-// 				},
-// 				&appstream.StackUserSettingArgs{
-// 					Action:     pulumi.String("FILE_UPLOAD"),
-// 					Permission: pulumi.String("ENABLED"),
-// 				},
-// 				&appstream.StackUserSettingArgs{
-// 					Action:     pulumi.String("FILE_DOWNLOAD"),
-// 					Permission: pulumi.String("ENABLED"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appstream.NewStack(ctx, "example", &appstream.StackArgs{
+//				ApplicationSettings: &appstream.StackApplicationSettingsArgs{
+//					Enabled:       pulumi.Bool(true),
+//					SettingsGroup: pulumi.String("SettingsGroup"),
+//				},
+//				Description: pulumi.String("stack description"),
+//				DisplayName: pulumi.String("stack display name"),
+//				FeedbackUrl: pulumi.String("http://your-domain/feedback"),
+//				RedirectUrl: pulumi.String("http://your-domain/redirect"),
+//				StorageConnectors: appstream.StackStorageConnectorArray{
+//					&appstream.StackStorageConnectorArgs{
+//						ConnectorType: pulumi.String("HOMEFOLDERS"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"TagName": pulumi.String("TagValue"),
+//				},
+//				UserSettings: appstream.StackUserSettingArray{
+//					&appstream.StackUserSettingArgs{
+//						Action:     pulumi.String("CLIPBOARD_COPY_FROM_LOCAL_DEVICE"),
+//						Permission: pulumi.String("ENABLED"),
+//					},
+//					&appstream.StackUserSettingArgs{
+//						Action:     pulumi.String("CLIPBOARD_COPY_TO_LOCAL_DEVICE"),
+//						Permission: pulumi.String("ENABLED"),
+//					},
+//					&appstream.StackUserSettingArgs{
+//						Action:     pulumi.String("FILE_UPLOAD"),
+//						Permission: pulumi.String("ENABLED"),
+//					},
+//					&appstream.StackUserSettingArgs{
+//						Action:     pulumi.String("FILE_DOWNLOAD"),
+//						Permission: pulumi.String("ENABLED"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,11 +76,14 @@ import (
 // `aws_appstream_stack` can be imported using the id, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appstream/stack:Stack example stackID
+//
+//	$ pulumi import aws:appstream/stack:Stack example stackID
+//
 // ```
 type Stack struct {
 	pulumi.CustomResourceState
 
+	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
 	AccessEndpoints StackAccessEndpointArrayOutput `pulumi:"accessEndpoints"`
 	// Settings for application settings persistence.
 	ApplicationSettings StackApplicationSettingsOutput `pulumi:"applicationSettings"`
@@ -134,6 +140,7 @@ func GetStack(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Stack resources.
 type stackState struct {
+	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
 	AccessEndpoints []StackAccessEndpoint `pulumi:"accessEndpoints"`
 	// Settings for application settings persistence.
 	ApplicationSettings *StackApplicationSettings `pulumi:"applicationSettings"`
@@ -162,6 +169,7 @@ type stackState struct {
 }
 
 type StackState struct {
+	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
 	AccessEndpoints StackAccessEndpointArrayInput
 	// Settings for application settings persistence.
 	ApplicationSettings StackApplicationSettingsPtrInput
@@ -194,6 +202,7 @@ func (StackState) ElementType() reflect.Type {
 }
 
 type stackArgs struct {
+	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
 	AccessEndpoints []StackAccessEndpoint `pulumi:"accessEndpoints"`
 	// Settings for application settings persistence.
 	ApplicationSettings *StackApplicationSettings `pulumi:"applicationSettings"`
@@ -218,6 +227,7 @@ type stackArgs struct {
 
 // The set of arguments for constructing a Stack resource.
 type StackArgs struct {
+	// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
 	AccessEndpoints StackAccessEndpointArrayInput
 	// Settings for application settings persistence.
 	ApplicationSettings StackApplicationSettingsPtrInput
@@ -266,7 +276,7 @@ func (i *Stack) ToStackOutputWithContext(ctx context.Context) StackOutput {
 // StackArrayInput is an input type that accepts StackArray and StackArrayOutput values.
 // You can construct a concrete instance of `StackArrayInput` via:
 //
-//          StackArray{ StackArgs{...} }
+//	StackArray{ StackArgs{...} }
 type StackArrayInput interface {
 	pulumi.Input
 
@@ -291,7 +301,7 @@ func (i StackArray) ToStackArrayOutputWithContext(ctx context.Context) StackArra
 // StackMapInput is an input type that accepts StackMap and StackMapOutput values.
 // You can construct a concrete instance of `StackMapInput` via:
 //
-//          StackMap{ "key": StackArgs{...} }
+//	StackMap{ "key": StackArgs{...} }
 type StackMapInput interface {
 	pulumi.Input
 
@@ -327,6 +337,7 @@ func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
 	return o
 }
 
+// Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
 func (o StackOutput) AccessEndpoints() StackAccessEndpointArrayOutput {
 	return o.ApplyT(func(v *Stack) StackAccessEndpointArrayOutput { return v.AccessEndpoints }).(StackAccessEndpointArrayOutput)
 }

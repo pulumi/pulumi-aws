@@ -125,14 +125,14 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
         return this.hostedZoneId;
     }
     /**
-     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      * 
      */
     @Export(name="ipAddressType", type=String.class, parameters={})
     private Output</* @Nullable */ String> ipAddressType;
 
     /**
-     * @return The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+     * @return The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      * 
      */
     public Output<Optional<String>> ipAddressType() {
@@ -181,14 +181,14 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider .
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

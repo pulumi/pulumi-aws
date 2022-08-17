@@ -21,50 +21,49 @@ namespace Pulumi.Aws
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var groups = Aws.AutoScaling.GetAmiIds.Invoke(new()
         ///     {
-        ///         var groups = Output.Create(Aws.AutoScaling.GetAmiIds.InvokeAsync(new Aws.AutoScaling.GetAmiIdsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.AutoScaling.Inputs.GetAmiIdsFilterInputArgs
         ///             {
-        ///                 new Aws.AutoScaling.Inputs.GetAmiIdsFilterArgs
+        ///                 Name = "tag:Team",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "tag:Team",
-        ///                     Values = 
-        ///                     {
-        ///                         "Pets",
-        ///                     },
-        ///                 },
-        ///                 new Aws.AutoScaling.Inputs.GetAmiIdsFilterArgs
-        ///                 {
-        ///                     Name = "tag-key",
-        ///                     Values = 
-        ///                     {
-        ///                         "Environment",
-        ///                     },
+        ///                     "Pets",
         ///                 },
         ///             },
-        ///         }));
-        ///         var slackNotifications = new Aws.AutoScaling.Notification("slackNotifications", new Aws.AutoScaling.NotificationArgs
-        ///         {
-        ///             GroupNames = groups.Apply(groups =&gt; groups.Names),
-        ///             Notifications = 
+        ///             new Aws.AutoScaling.Inputs.GetAmiIdsFilterInputArgs
         ///             {
-        ///                 "autoscaling:EC2_INSTANCE_LAUNCH",
-        ///                 "autoscaling:EC2_INSTANCE_TERMINATE",
-        ///                 "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-        ///                 "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+        ///                 Name = "tag-key",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "Environment",
+        ///                 },
         ///             },
-        ///             TopicArn = "TOPIC ARN",
-        ///         });
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var slackNotifications = new Aws.AutoScaling.Notification("slackNotifications", new()
+        ///     {
+        ///         GroupNames = groups.Apply(getAmiIdsResult =&gt; getAmiIdsResult.Names),
+        ///         Notifications = new[]
+        ///         {
+        ///             "autoscaling:EC2_INSTANCE_LAUNCH",
+        ///             "autoscaling:EC2_INSTANCE_TERMINATE",
+        ///             "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+        ///             "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+        ///         },
+        ///         TopicArn = "TOPIC ARN",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,50 +80,49 @@ namespace Pulumi.Aws
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var groups = Aws.AutoScaling.GetAmiIds.Invoke(new()
         ///     {
-        ///         var groups = Output.Create(Aws.AutoScaling.GetAmiIds.InvokeAsync(new Aws.AutoScaling.GetAmiIdsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.AutoScaling.Inputs.GetAmiIdsFilterInputArgs
         ///             {
-        ///                 new Aws.AutoScaling.Inputs.GetAmiIdsFilterArgs
+        ///                 Name = "tag:Team",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "tag:Team",
-        ///                     Values = 
-        ///                     {
-        ///                         "Pets",
-        ///                     },
-        ///                 },
-        ///                 new Aws.AutoScaling.Inputs.GetAmiIdsFilterArgs
-        ///                 {
-        ///                     Name = "tag-key",
-        ///                     Values = 
-        ///                     {
-        ///                         "Environment",
-        ///                     },
+        ///                     "Pets",
         ///                 },
         ///             },
-        ///         }));
-        ///         var slackNotifications = new Aws.AutoScaling.Notification("slackNotifications", new Aws.AutoScaling.NotificationArgs
-        ///         {
-        ///             GroupNames = groups.Apply(groups =&gt; groups.Names),
-        ///             Notifications = 
+        ///             new Aws.AutoScaling.Inputs.GetAmiIdsFilterInputArgs
         ///             {
-        ///                 "autoscaling:EC2_INSTANCE_LAUNCH",
-        ///                 "autoscaling:EC2_INSTANCE_TERMINATE",
-        ///                 "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-        ///                 "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+        ///                 Name = "tag-key",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "Environment",
+        ///                 },
         ///             },
-        ///             TopicArn = "TOPIC ARN",
-        ///         });
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var slackNotifications = new Aws.AutoScaling.Notification("slackNotifications", new()
+        ///     {
+        ///         GroupNames = groups.Apply(getAmiIdsResult =&gt; getAmiIdsResult.Names),
+        ///         Notifications = new[]
+        ///         {
+        ///             "autoscaling:EC2_INSTANCE_LAUNCH",
+        ///             "autoscaling:EC2_INSTANCE_TERMINATE",
+        ///             "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+        ///             "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+        ///         },
+        ///         TopicArn = "TOPIC ARN",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -134,7 +132,7 @@ namespace Pulumi.Aws
     }
 
 
-    public sealed class GetAutoscalingGroupsArgs : Pulumi.InvokeArgs
+    public sealed class GetAutoscalingGroupsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetAutoscalingGroupsFilterArgs>? _filters;
@@ -163,9 +161,10 @@ namespace Pulumi.Aws
         public GetAutoscalingGroupsArgs()
         {
         }
+        public static new GetAutoscalingGroupsArgs Empty => new GetAutoscalingGroupsArgs();
     }
 
-    public sealed class GetAutoscalingGroupsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAutoscalingGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetAutoscalingGroupsFilterInputArgs>? _filters;
@@ -194,6 +193,7 @@ namespace Pulumi.Aws
         public GetAutoscalingGroupsInvokeArgs()
         {
         }
+        public static new GetAutoscalingGroupsInvokeArgs Empty => new GetAutoscalingGroupsInvokeArgs();
     }
 
 

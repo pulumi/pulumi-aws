@@ -15,29 +15,26 @@ namespace Pulumi.Aws.Amp
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var demoWorkspace = new Aws.Amp.Workspace("demoWorkspace");
+    /// 
+    ///     var demoRuleGroupNamespace = new Aws.Amp.RuleGroupNamespace("demoRuleGroupNamespace", new()
     ///     {
-    ///         var demoWorkspace = new Aws.Amp.Workspace("demoWorkspace", new Aws.Amp.WorkspaceArgs
-    ///         {
-    ///         });
-    ///         var demoRuleGroupNamespace = new Aws.Amp.RuleGroupNamespace("demoRuleGroupNamespace", new Aws.Amp.RuleGroupNamespaceArgs
-    ///         {
-    ///             WorkspaceId = demoWorkspace.Id,
-    ///             Data = @"groups:
+    ///         WorkspaceId = demoWorkspace.Id,
+    ///         Data = @"groups:
     ///   - name: test
     ///     rules:
     ///     - record: metric:recording_rule
     ///       expr: avg(rate(container_cpu_usage_seconds_total[5m]))
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +46,7 @@ namespace Pulumi.Aws.Amp
     /// ```
     /// </summary>
     [AwsResourceType("aws:amp/ruleGroupNamespace:RuleGroupNamespace")]
-    public partial class RuleGroupNamespace : Pulumi.CustomResource
+    public partial class RuleGroupNamespace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
@@ -113,7 +110,7 @@ namespace Pulumi.Aws.Amp
         }
     }
 
-    public sealed class RuleGroupNamespaceArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupNamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
@@ -136,9 +133,10 @@ namespace Pulumi.Aws.Amp
         public RuleGroupNamespaceArgs()
         {
         }
+        public static new RuleGroupNamespaceArgs Empty => new RuleGroupNamespaceArgs();
     }
 
-    public sealed class RuleGroupNamespaceState : Pulumi.ResourceArgs
+    public sealed class RuleGroupNamespaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
@@ -161,5 +159,6 @@ namespace Pulumi.Aws.Amp
         public RuleGroupNamespaceState()
         {
         }
+        public static new RuleGroupNamespaceState Empty => new RuleGroupNamespaceState();
     }
 }

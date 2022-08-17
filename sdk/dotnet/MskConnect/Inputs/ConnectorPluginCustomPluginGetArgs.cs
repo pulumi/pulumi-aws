@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MskConnect.Inputs
 {
 
-    public sealed class ConnectorPluginCustomPluginGetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorPluginCustomPluginGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the worker configuration.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public ConnectorPluginCustomPluginGetArgs()
         {
         }
+        public static new ConnectorPluginCustomPluginGetArgs Empty => new ConnectorPluginCustomPluginGetArgs();
     }
 }

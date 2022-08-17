@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs : global::Pulumi.ResourceArgs
     {
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs();
     }
 }

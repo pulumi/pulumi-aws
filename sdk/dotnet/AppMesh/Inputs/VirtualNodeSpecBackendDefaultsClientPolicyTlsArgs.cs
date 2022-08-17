@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The listener's TLS certificate.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs()
         {
         }
+        public static new VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs Empty => new VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs();
     }
 }

@@ -15,159 +15,176 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
     ///     {
-    ///         var available = Output.Create(Aws.GetAvailabilityZones.InvokeAsync(new Aws.GetAvailabilityZonesArgs
-    ///         {
-    ///             State = "available",
-    ///         }));
-    ///         var amazonLinux = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
-    ///         {
-    ///             MostRecent = true,
-    ///             Owners = 
-    ///             {
-    ///                 "amazon",
-    ///             },
-    ///             Filters = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
-    ///                 {
-    ///                     Name = "name",
-    ///                     Values = 
-    ///                     {
-    ///                         "amzn-ami-hvm-*-x86_64-gp2",
-    ///                     },
-    ///                 },
-    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
-    ///                 {
-    ///                     Name = "owner-alias",
-    ///                     Values = 
-    ///                     {
-    ///                         "amazon",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }));
-    ///         var vpc1 = new Aws.Ec2.Vpc("vpc1", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var vpc2 = new Aws.Ec2.Vpc("vpc2", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.1.0.0/16",
-    ///         });
-    ///         var subnet1 = new Aws.Ec2.Subnet("subnet1", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = vpc1.Id,
-    ///             CidrBlock = "10.0.1.0/24",
-    ///             AvailabilityZone = available.Apply(available =&gt; available.Names?[0]),
-    ///         });
-    ///         var subnet2 = new Aws.Ec2.Subnet("subnet2", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = vpc1.Id,
-    ///             CidrBlock = "10.0.2.0/24",
-    ///             AvailabilityZone = available.Apply(available =&gt; available.Names?[1]),
-    ///         });
-    ///         var subnet3 = new Aws.Ec2.Subnet("subnet3", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = vpc2.Id,
-    ///             CidrBlock = "10.1.1.0/24",
-    ///             AvailabilityZone = available.Apply(available =&gt; available.Names?[0]),
-    ///         });
-    ///         var instance1 = new Aws.Ec2.Instance("instance1", new Aws.Ec2.InstanceArgs
-    ///         {
-    ///             Ami = amazonLinux.Apply(amazonLinux =&gt; amazonLinux.Id),
-    ///             InstanceType = "t2.micro",
-    ///             SubnetId = subnet1.Id,
-    ///         });
-    ///         var instance2 = new Aws.Ec2.Instance("instance2", new Aws.Ec2.InstanceArgs
-    ///         {
-    ///             Ami = amazonLinux.Apply(amazonLinux =&gt; amazonLinux.Id),
-    ///             InstanceType = "t2.micro",
-    ///             SubnetId = subnet2.Id,
-    ///         });
-    ///         var instance3 = new Aws.Ec2.Instance("instance3", new Aws.Ec2.InstanceArgs
-    ///         {
-    ///             Ami = amazonLinux.Apply(amazonLinux =&gt; amazonLinux.Id),
-    ///             InstanceType = "t2.micro",
-    ///             SubnetId = subnet3.Id,
-    ///         });
-    ///         var tgw = new Aws.Ec2TransitGateway.TransitGateway("tgw", new Aws.Ec2TransitGateway.TransitGatewayArgs
-    ///         {
-    ///             MulticastSupport = "enable",
-    ///         });
-    ///         var attachment1 = new Aws.Ec2TransitGateway.VpcAttachment("attachment1", new Aws.Ec2TransitGateway.VpcAttachmentArgs
-    ///         {
-    ///             SubnetIds = 
-    ///             {
-    ///                 subnet1.Id,
-    ///                 subnet2.Id,
-    ///             },
-    ///             TransitGatewayId = tgw.Id,
-    ///             VpcId = vpc1.Id,
-    ///         });
-    ///         var attachment2 = new Aws.Ec2TransitGateway.VpcAttachment("attachment2", new Aws.Ec2TransitGateway.VpcAttachmentArgs
-    ///         {
-    ///             SubnetIds = 
-    ///             {
-    ///                 subnet3.Id,
-    ///             },
-    ///             TransitGatewayId = tgw.Id,
-    ///             VpcId = vpc2.Id,
-    ///         });
-    ///         var domain = new Aws.Ec2TransitGateway.MulticastDomain("domain", new Aws.Ec2TransitGateway.MulticastDomainArgs
-    ///         {
-    ///             TransitGatewayId = tgw.Id,
-    ///             StaticSourcesSupport = "enable",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Transit_Gateway_Multicast_Domain_Example" },
-    ///             },
-    ///         });
-    ///         var association3 = new Aws.Ec2TransitGateway.MulticastDomainAssociation("association3", new Aws.Ec2TransitGateway.MulticastDomainAssociationArgs
-    ///         {
-    ///             SubnetId = subnet3.Id,
-    ///             TransitGatewayAttachmentId = attachment2.Id,
-    ///             TransitGatewayMulticastDomainId = domain.Id,
-    ///         });
-    ///         var source = new Aws.Ec2TransitGateway.MulticastGroupSource("source", new Aws.Ec2TransitGateway.MulticastGroupSourceArgs
-    ///         {
-    ///             GroupIpAddress = "224.0.0.1",
-    ///             NetworkInterfaceId = instance3.PrimaryNetworkInterfaceId,
-    ///             TransitGatewayMulticastDomainId = association3.TransitGatewayMulticastDomainId,
-    ///         });
-    ///         var association1 = new Aws.Ec2TransitGateway.MulticastDomainAssociation("association1", new Aws.Ec2TransitGateway.MulticastDomainAssociationArgs
-    ///         {
-    ///             SubnetId = subnet1.Id,
-    ///             TransitGatewayAttachmentId = attachment1.Id,
-    ///             TransitGatewayMulticastDomainId = domain.Id,
-    ///         });
-    ///         var association2 = new Aws.Ec2TransitGateway.MulticastDomainAssociation("association2", new Aws.Ec2TransitGateway.MulticastDomainAssociationArgs
-    ///         {
-    ///             SubnetId = subnet2.Id,
-    ///             TransitGatewayAttachmentId = attachment2.Id,
-    ///             TransitGatewayMulticastDomainId = domain.Id,
-    ///         });
-    ///         var member1 = new Aws.Ec2TransitGateway.MulticastGroupMember("member1", new Aws.Ec2TransitGateway.MulticastGroupMemberArgs
-    ///         {
-    ///             GroupIpAddress = "224.0.0.1",
-    ///             NetworkInterfaceId = instance1.PrimaryNetworkInterfaceId,
-    ///             TransitGatewayMulticastDomainId = association1.TransitGatewayMulticastDomainId,
-    ///         });
-    ///         var member2 = new Aws.Ec2TransitGateway.MulticastGroupMember("member2", new Aws.Ec2TransitGateway.MulticastGroupMemberArgs
-    ///         {
-    ///             GroupIpAddress = "224.0.0.1",
-    ///             NetworkInterfaceId = instance2.PrimaryNetworkInterfaceId,
-    ///             TransitGatewayMulticastDomainId = association1.TransitGatewayMulticastDomainId,
-    ///         });
-    ///     }
+    ///         State = "available",
+    ///     });
     /// 
-    /// }
+    ///     var amazonLinux = Aws.Ec2.GetAmi.Invoke(new()
+    ///     {
+    ///         MostRecent = true,
+    ///         Owners = new[]
+    ///         {
+    ///             "amazon",
+    ///         },
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
+    ///             {
+    ///                 Name = "name",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "amzn-ami-hvm-*-x86_64-gp2",
+    ///                 },
+    ///             },
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
+    ///             {
+    ///                 Name = "owner-alias",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "amazon",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var vpc1 = new Aws.Ec2.Vpc("vpc1", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var vpc2 = new Aws.Ec2.Vpc("vpc2", new()
+    ///     {
+    ///         CidrBlock = "10.1.0.0/16",
+    ///     });
+    /// 
+    ///     var subnet1 = new Aws.Ec2.Subnet("subnet1", new()
+    ///     {
+    ///         VpcId = vpc1.Id,
+    ///         CidrBlock = "10.0.1.0/24",
+    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
+    ///     });
+    /// 
+    ///     var subnet2 = new Aws.Ec2.Subnet("subnet2", new()
+    ///     {
+    ///         VpcId = vpc1.Id,
+    ///         CidrBlock = "10.0.2.0/24",
+    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[1]),
+    ///     });
+    /// 
+    ///     var subnet3 = new Aws.Ec2.Subnet("subnet3", new()
+    ///     {
+    ///         VpcId = vpc2.Id,
+    ///         CidrBlock = "10.1.1.0/24",
+    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
+    ///     });
+    /// 
+    ///     var instance1 = new Aws.Ec2.Instance("instance1", new()
+    ///     {
+    ///         Ami = amazonLinux.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         InstanceType = "t2.micro",
+    ///         SubnetId = subnet1.Id,
+    ///     });
+    /// 
+    ///     var instance2 = new Aws.Ec2.Instance("instance2", new()
+    ///     {
+    ///         Ami = amazonLinux.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         InstanceType = "t2.micro",
+    ///         SubnetId = subnet2.Id,
+    ///     });
+    /// 
+    ///     var instance3 = new Aws.Ec2.Instance("instance3", new()
+    ///     {
+    ///         Ami = amazonLinux.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         InstanceType = "t2.micro",
+    ///         SubnetId = subnet3.Id,
+    ///     });
+    /// 
+    ///     var tgw = new Aws.Ec2TransitGateway.TransitGateway("tgw", new()
+    ///     {
+    ///         MulticastSupport = "enable",
+    ///     });
+    /// 
+    ///     var attachment1 = new Aws.Ec2TransitGateway.VpcAttachment("attachment1", new()
+    ///     {
+    ///         SubnetIds = new[]
+    ///         {
+    ///             subnet1.Id,
+    ///             subnet2.Id,
+    ///         },
+    ///         TransitGatewayId = tgw.Id,
+    ///         VpcId = vpc1.Id,
+    ///     });
+    /// 
+    ///     var attachment2 = new Aws.Ec2TransitGateway.VpcAttachment("attachment2", new()
+    ///     {
+    ///         SubnetIds = new[]
+    ///         {
+    ///             subnet3.Id,
+    ///         },
+    ///         TransitGatewayId = tgw.Id,
+    ///         VpcId = vpc2.Id,
+    ///     });
+    /// 
+    ///     var domain = new Aws.Ec2TransitGateway.MulticastDomain("domain", new()
+    ///     {
+    ///         TransitGatewayId = tgw.Id,
+    ///         StaticSourcesSupport = "enable",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Transit_Gateway_Multicast_Domain_Example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var association3 = new Aws.Ec2TransitGateway.MulticastDomainAssociation("association3", new()
+    ///     {
+    ///         SubnetId = subnet3.Id,
+    ///         TransitGatewayAttachmentId = attachment2.Id,
+    ///         TransitGatewayMulticastDomainId = domain.Id,
+    ///     });
+    /// 
+    ///     var source = new Aws.Ec2TransitGateway.MulticastGroupSource("source", new()
+    ///     {
+    ///         GroupIpAddress = "224.0.0.1",
+    ///         NetworkInterfaceId = instance3.PrimaryNetworkInterfaceId,
+    ///         TransitGatewayMulticastDomainId = association3.TransitGatewayMulticastDomainId,
+    ///     });
+    /// 
+    ///     var association1 = new Aws.Ec2TransitGateway.MulticastDomainAssociation("association1", new()
+    ///     {
+    ///         SubnetId = subnet1.Id,
+    ///         TransitGatewayAttachmentId = attachment1.Id,
+    ///         TransitGatewayMulticastDomainId = domain.Id,
+    ///     });
+    /// 
+    ///     var association2 = new Aws.Ec2TransitGateway.MulticastDomainAssociation("association2", new()
+    ///     {
+    ///         SubnetId = subnet2.Id,
+    ///         TransitGatewayAttachmentId = attachment2.Id,
+    ///         TransitGatewayMulticastDomainId = domain.Id,
+    ///     });
+    /// 
+    ///     var member1 = new Aws.Ec2TransitGateway.MulticastGroupMember("member1", new()
+    ///     {
+    ///         GroupIpAddress = "224.0.0.1",
+    ///         NetworkInterfaceId = instance1.PrimaryNetworkInterfaceId,
+    ///         TransitGatewayMulticastDomainId = association1.TransitGatewayMulticastDomainId,
+    ///     });
+    /// 
+    ///     var member2 = new Aws.Ec2TransitGateway.MulticastGroupMember("member2", new()
+    ///     {
+    ///         GroupIpAddress = "224.0.0.1",
+    ///         NetworkInterfaceId = instance2.PrimaryNetworkInterfaceId,
+    ///         TransitGatewayMulticastDomainId = association1.TransitGatewayMulticastDomainId,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -179,7 +196,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/multicastDomain:MulticastDomain")]
-    public partial class MulticastDomain : Pulumi.CustomResource
+    public partial class MulticastDomain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
@@ -267,7 +284,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
-    public sealed class MulticastDomainArgs : Pulumi.ResourceArgs
+    public sealed class MulticastDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -304,9 +321,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public MulticastDomainArgs()
         {
         }
+        public static new MulticastDomainArgs Empty => new MulticastDomainArgs();
     }
 
-    public sealed class MulticastDomainState : Pulumi.ResourceArgs
+    public sealed class MulticastDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
@@ -363,5 +381,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public MulticastDomainState()
         {
         }
+        public static new MulticastDomainState Empty => new MulticastDomainState();
     }
 }

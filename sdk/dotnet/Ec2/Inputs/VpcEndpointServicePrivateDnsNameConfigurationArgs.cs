@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class VpcEndpointServicePrivateDnsNameConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VpcEndpointServicePrivateDnsNameConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the record subdomain the service provider needs to create.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public VpcEndpointServicePrivateDnsNameConfigurationArgs()
         {
         }
+        public static new VpcEndpointServicePrivateDnsNameConfigurationArgs Empty => new VpcEndpointServicePrivateDnsNameConfigurationArgs();
     }
 }

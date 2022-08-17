@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./backup";
 export * from "./dataRepositoryAssociation";
+export * from "./getOpenZfsSnapshot";
 export * from "./lustreFileSystem";
 export * from "./ontapFileSystem";
 export * from "./ontapStorageVirtualMachine";

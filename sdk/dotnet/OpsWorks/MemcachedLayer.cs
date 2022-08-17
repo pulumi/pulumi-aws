@@ -15,24 +15,22 @@ namespace Pulumi.Aws.OpsWorks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var cache = new Aws.OpsWorks.MemcachedLayer("cache", new()
     ///     {
-    ///         var cache = new Aws.OpsWorks.MemcachedLayer("cache", new Aws.OpsWorks.MemcachedLayerArgs
-    ///         {
-    ///             StackId = aws_opsworks_stack.Main.Id,
-    ///         });
-    ///     }
+    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/memcachedLayer:MemcachedLayer")]
-    public partial class MemcachedLayer : Pulumi.CustomResource
+    public partial class MemcachedLayer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amount of memory to allocate for the cache on each instance, in megabytes. Defaults to 512MB.
@@ -155,7 +153,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -210,7 +208,7 @@ namespace Pulumi.Aws.OpsWorks
         }
     }
 
-    public sealed class MemcachedLayerArgs : Pulumi.ResourceArgs
+    public sealed class MemcachedLayerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amount of memory to allocate for the cache on each instance, in megabytes. Defaults to 512MB.
@@ -384,9 +382,10 @@ namespace Pulumi.Aws.OpsWorks
         public MemcachedLayerArgs()
         {
         }
+        public static new MemcachedLayerArgs Empty => new MemcachedLayerArgs();
     }
 
-    public sealed class MemcachedLayerState : Pulumi.ResourceArgs
+    public sealed class MemcachedLayerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amount of memory to allocate for the cache on each instance, in megabytes. Defaults to 512MB.
@@ -561,7 +560,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -578,5 +577,6 @@ namespace Pulumi.Aws.OpsWorks
         public MemcachedLayerState()
         {
         }
+        public static new MemcachedLayerState Empty => new MemcachedLayerState();
     }
 }

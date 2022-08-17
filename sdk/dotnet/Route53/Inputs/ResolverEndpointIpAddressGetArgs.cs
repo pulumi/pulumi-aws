@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53.Inputs
 {
 
-    public sealed class ResolverEndpointIpAddressGetArgs : Pulumi.ResourceArgs
+    public sealed class ResolverEndpointIpAddressGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP address in the subnet that you want to use for DNS queries.
@@ -30,5 +30,6 @@ namespace Pulumi.Aws.Route53.Inputs
         public ResolverEndpointIpAddressGetArgs()
         {
         }
+        public static new ResolverEndpointIpAddressGetArgs Empty => new ResolverEndpointIpAddressGetArgs();
     }
 }

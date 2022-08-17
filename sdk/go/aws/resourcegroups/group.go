@@ -19,37 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/resourcegroups"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/resourcegroups"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := resourcegroups.NewGroup(ctx, "test", &resourcegroups.GroupArgs{
-// 			ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
-// 				Query: pulumi.String(fmt.Sprintf(`{
-//   "ResourceTypeFilters": [
-//     "AWS::EC2::Instance"
-//   ],
-//   "TagFilters": [
-//     {
-//       "Key": "Stage",
-//       "Values": ["Test"]
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := resourcegroups.NewGroup(ctx, "test", &resourcegroups.GroupArgs{
+//				ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
+//					Query: pulumi.String(fmt.Sprintf(`{
+//	  "ResourceTypeFilters": [
+//	    "AWS::EC2::Instance"
+//	  ],
+//	  "TagFilters": [
+//	    {
+//	      "Key": "Stage",
+//	      "Values": ["Test"]
+//	    }
+//	  ]
+//	}
 //
 // `)),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +61,9 @@ import (
 // Resource groups can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
+//
+//	$ pulumi import aws:resourcegroups/group:Group foo resource-group-name
+//
 // ```
 type Group struct {
 	pulumi.CustomResourceState
@@ -72,7 +78,7 @@ type Group struct {
 	ResourceQuery GroupResourceQueryOutput `pulumi:"resourceQuery"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -118,7 +124,7 @@ type groupState struct {
 	ResourceQuery *GroupResourceQuery `pulumi:"resourceQuery"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -133,7 +139,7 @@ type GroupState struct {
 	ResourceQuery GroupResourceQueryPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -190,7 +196,7 @@ func (i *Group) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 // GroupArrayInput is an input type that accepts GroupArray and GroupArrayOutput values.
 // You can construct a concrete instance of `GroupArrayInput` via:
 //
-//          GroupArray{ GroupArgs{...} }
+//	GroupArray{ GroupArgs{...} }
 type GroupArrayInput interface {
 	pulumi.Input
 
@@ -215,7 +221,7 @@ func (i GroupArray) ToGroupArrayOutputWithContext(ctx context.Context) GroupArra
 // GroupMapInput is an input type that accepts GroupMap and GroupMapOutput values.
 // You can construct a concrete instance of `GroupMapInput` via:
 //
-//          GroupMap{ "key": GroupArgs{...} }
+//	GroupMap{ "key": GroupArgs{...} }
 type GroupMapInput interface {
 	pulumi.Input
 
@@ -276,7 +282,7 @@ func (o GroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o GroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

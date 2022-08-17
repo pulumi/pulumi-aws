@@ -127,6 +127,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+     */
+    public readonly executionClass!: pulumi.Output<string | undefined>;
+    /**
      * Execution property of the job. Defined below.
      */
     public readonly executionProperty!: pulumi.Output<outputs.glue.JobExecutionProperty>;
@@ -201,6 +205,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["connections"] = state ? state.connections : undefined;
             resourceInputs["defaultArguments"] = state ? state.defaultArguments : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["executionClass"] = state ? state.executionClass : undefined;
             resourceInputs["executionProperty"] = state ? state.executionProperty : undefined;
             resourceInputs["glueVersion"] = state ? state.glueVersion : undefined;
             resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
@@ -227,6 +232,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["connections"] = args ? args.connections : undefined;
             resourceInputs["defaultArguments"] = args ? args.defaultArguments : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["executionClass"] = args ? args.executionClass : undefined;
             resourceInputs["executionProperty"] = args ? args.executionProperty : undefined;
             resourceInputs["glueVersion"] = args ? args.glueVersion : undefined;
             resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
@@ -272,6 +278,10 @@ export interface JobState {
      * Description of the job.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+     */
+    executionClass?: pulumi.Input<string>;
     /**
      * Execution property of the job. Defined below.
      */
@@ -350,6 +360,10 @@ export interface JobArgs {
      * Description of the job.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+     */
+    executionClass?: pulumi.Input<string>;
     /**
      * Execution property of the job. Defined below.
      */

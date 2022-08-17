@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountGetArgs : Pulumi.ResourceArgs
+    public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountGetArgs()
         {
         }
+        public static new GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountGetArgs Empty => new GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountGetArgs();
     }
 }

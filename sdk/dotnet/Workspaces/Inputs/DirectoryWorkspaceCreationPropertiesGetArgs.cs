@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Workspaces.Inputs
 {
 
-    public sealed class DirectoryWorkspaceCreationPropertiesGetArgs : Pulumi.ResourceArgs
+    public sealed class DirectoryWorkspaceCreationPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Workspaces.Inputs
         public DirectoryWorkspaceCreationPropertiesGetArgs()
         {
         }
+        public static new DirectoryWorkspaceCreationPropertiesGetArgs Empty => new DirectoryWorkspaceCreationPropertiesGetArgs();
     }
 }

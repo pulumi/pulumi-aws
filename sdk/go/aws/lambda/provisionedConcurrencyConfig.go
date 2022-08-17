@@ -20,23 +20,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
-// 			FunctionName:                    pulumi.Any(aws_lambda_alias.Example.Function_name),
-// 			ProvisionedConcurrentExecutions: pulumi.Int(1),
-// 			Qualifier:                       pulumi.Any(aws_lambda_alias.Example.Name),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
+//				FunctionName:                    pulumi.Any(aws_lambda_alias.Example.Function_name),
+//				ProvisionedConcurrentExecutions: pulumi.Int(1),
+//				Qualifier:                       pulumi.Any(aws_lambda_alias.Example.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Function Version
 //
@@ -44,23 +47,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
-// 			FunctionName:                    pulumi.Any(aws_lambda_function.Example.Function_name),
-// 			ProvisionedConcurrentExecutions: pulumi.Int(1),
-// 			Qualifier:                       pulumi.Any(aws_lambda_function.Example.Version),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewProvisionedConcurrencyConfig(ctx, "example", &lambda.ProvisionedConcurrencyConfigArgs{
+//				FunctionName:                    pulumi.Any(aws_lambda_function.Example.Function_name),
+//				ProvisionedConcurrentExecutions: pulumi.Int(1),
+//				Qualifier:                       pulumi.Any(aws_lambda_function.Example.Version),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +74,9 @@ import (
 // Lambda Provisioned Concurrency Configs can be imported using the `function_name` and `qualifier` separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function:production
+//
+//	$ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function:production
+//
 // ```
 type ProvisionedConcurrencyConfig struct {
 	pulumi.CustomResourceState
@@ -185,7 +193,7 @@ func (i *ProvisionedConcurrencyConfig) ToProvisionedConcurrencyConfigOutputWithC
 // ProvisionedConcurrencyConfigArrayInput is an input type that accepts ProvisionedConcurrencyConfigArray and ProvisionedConcurrencyConfigArrayOutput values.
 // You can construct a concrete instance of `ProvisionedConcurrencyConfigArrayInput` via:
 //
-//          ProvisionedConcurrencyConfigArray{ ProvisionedConcurrencyConfigArgs{...} }
+//	ProvisionedConcurrencyConfigArray{ ProvisionedConcurrencyConfigArgs{...} }
 type ProvisionedConcurrencyConfigArrayInput interface {
 	pulumi.Input
 
@@ -210,7 +218,7 @@ func (i ProvisionedConcurrencyConfigArray) ToProvisionedConcurrencyConfigArrayOu
 // ProvisionedConcurrencyConfigMapInput is an input type that accepts ProvisionedConcurrencyConfigMap and ProvisionedConcurrencyConfigMapOutput values.
 // You can construct a concrete instance of `ProvisionedConcurrencyConfigMapInput` via:
 //
-//          ProvisionedConcurrencyConfigMap{ "key": ProvisionedConcurrencyConfigArgs{...} }
+//	ProvisionedConcurrencyConfigMap{ "key": ProvisionedConcurrencyConfigArgs{...} }
 type ProvisionedConcurrencyConfigMapInput interface {
 	pulumi.Input
 

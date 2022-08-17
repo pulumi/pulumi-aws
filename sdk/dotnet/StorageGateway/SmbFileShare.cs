@@ -18,46 +18,42 @@ namespace Pulumi.Aws.StorageGateway
     /// &gt; **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creation. e.g. via "SMB Settings" in the AWS Storage Gateway console or `smb_active_directory_settings` in the `aws.storagegateway.Gateway` resource.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.StorageGateway.SmbFileShare("example", new()
     ///     {
-    ///         var example = new Aws.StorageGateway.SmbFileShare("example", new Aws.StorageGateway.SmbFileShareArgs
-    ///         {
-    ///             Authentication = "ActiveDirectory",
-    ///             GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///             LocationArn = aws_s3_bucket.Example.Arn,
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///         });
-    ///     }
+    ///         Authentication = "ActiveDirectory",
+    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
+    ///         LocationArn = aws_s3_bucket.Example.Arn,
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Guest Authentication
     /// 
     /// &gt; **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creation. e.g. via "SMB Settings" in the AWS Storage Gateway console or `smb_guest_password` in the `aws.storagegateway.Gateway` resource.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.StorageGateway.SmbFileShare("example", new()
     ///     {
-    ///         var example = new Aws.StorageGateway.SmbFileShare("example", new Aws.StorageGateway.SmbFileShareArgs
-    ///         {
-    ///             Authentication = "GuestAccess",
-    ///             GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///             LocationArn = aws_s3_bucket.Example.Arn,
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///         });
-    ///     }
+    ///         Authentication = "GuestAccess",
+    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
+    ///         LocationArn = aws_s3_bucket.Example.Arn,
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -69,7 +65,7 @@ namespace Pulumi.Aws.StorageGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:storagegateway/smbFileShare:SmbFileShare")]
-    public partial class SmbFileShare : Pulumi.CustomResource
+    public partial class SmbFileShare : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The files and folders on this share will only be visible to users with read access. Default value is `false`.
@@ -228,7 +224,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -289,7 +285,7 @@ namespace Pulumi.Aws.StorageGateway
         }
     }
 
-    public sealed class SmbFileShareArgs : Pulumi.ResourceArgs
+    public sealed class SmbFileShareArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The files and folders on this share will only be visible to users with read access. Default value is `false`.
@@ -468,9 +464,10 @@ namespace Pulumi.Aws.StorageGateway
         public SmbFileShareArgs()
         {
         }
+        public static new SmbFileShareArgs Empty => new SmbFileShareArgs();
     }
 
-    public sealed class SmbFileShareState : Pulumi.ResourceArgs
+    public sealed class SmbFileShareState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The files and folders on this share will only be visible to users with read access. Default value is `false`.
@@ -650,7 +647,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -679,5 +676,6 @@ namespace Pulumi.Aws.StorageGateway
         public SmbFileShareState()
         {
         }
+        public static new SmbFileShareState Empty => new SmbFileShareState();
     }
 }

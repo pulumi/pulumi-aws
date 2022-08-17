@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateInstanceRequirementsGetArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateInstanceRequirementsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
@@ -183,5 +183,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateInstanceRequirementsGetArgs()
         {
         }
+        public static new LaunchTemplateInstanceRequirementsGetArgs Empty => new LaunchTemplateInstanceRequirementsGetArgs();
     }
 }

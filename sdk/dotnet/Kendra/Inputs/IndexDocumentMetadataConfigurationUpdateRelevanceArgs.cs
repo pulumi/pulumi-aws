@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra.Inputs
 {
 
-    public sealed class IndexDocumentMetadataConfigurationUpdateRelevanceArgs : Pulumi.ResourceArgs
+    public sealed class IndexDocumentMetadataConfigurationUpdateRelevanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Kendra.Inputs
         public IndexDocumentMetadataConfigurationUpdateRelevanceArgs()
         {
         }
+        public static new IndexDocumentMetadataConfigurationUpdateRelevanceArgs Empty => new IndexDocumentMetadataConfigurationUpdateRelevanceArgs();
     }
 }

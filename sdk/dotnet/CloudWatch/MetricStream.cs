@@ -16,17 +16,16 @@ namespace Pulumi.Aws.CloudWatch
     /// ### Filters
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
+    ///     var metricStreamToFirehoseRole = new Aws.Iam.Role("metricStreamToFirehoseRole", new()
     ///     {
-    ///         // https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
-    ///         var metricStreamToFirehoseRole = new Aws.Iam.Role("metricStreamToFirehoseRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -40,13 +39,13 @@ namespace Pulumi.Aws.CloudWatch
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var firehoseToS3Role = new Aws.Iam.Role("firehoseToS3Role", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///     });
+    /// 
+    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    /// 
+    ///     var firehoseToS3Role = new Aws.Iam.Role("firehoseToS3Role", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -60,38 +59,41 @@ namespace Pulumi.Aws.CloudWatch
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var s3Stream = new Aws.Kinesis.FirehoseDeliveryStream("s3Stream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///     });
+    /// 
+    ///     var s3Stream = new Aws.Kinesis.FirehoseDeliveryStream("s3Stream", new()
+    ///     {
+    ///         Destination = "s3",
+    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
     ///         {
-    ///             Destination = "s3",
-    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///             RoleArn = firehoseToS3Role.Arn,
+    ///             BucketArn = bucket.Arn,
+    ///         },
+    ///     });
+    /// 
+    ///     var main = new Aws.CloudWatch.MetricStream("main", new()
+    ///     {
+    ///         RoleArn = metricStreamToFirehoseRole.Arn,
+    ///         FirehoseArn = s3Stream.Arn,
+    ///         OutputFormat = "json",
+    ///         IncludeFilters = new[]
+    ///         {
+    ///             new Aws.CloudWatch.Inputs.MetricStreamIncludeFilterArgs
     ///             {
-    ///                 RoleArn = firehoseToS3Role.Arn,
-    ///                 BucketArn = bucket.Arn,
+    ///                 Namespace = "AWS/EC2",
     ///             },
-    ///         });
-    ///         var main = new Aws.CloudWatch.MetricStream("main", new Aws.CloudWatch.MetricStreamArgs
-    ///         {
-    ///             RoleArn = metricStreamToFirehoseRole.Arn,
-    ///             FirehoseArn = s3Stream.Arn,
-    ///             OutputFormat = "json",
-    ///             IncludeFilters = 
+    ///             new Aws.CloudWatch.Inputs.MetricStreamIncludeFilterArgs
     ///             {
-    ///                 new Aws.CloudWatch.Inputs.MetricStreamIncludeFilterArgs
-    ///                 {
-    ///                     Namespace = "AWS/EC2",
-    ///                 },
-    ///                 new Aws.CloudWatch.Inputs.MetricStreamIncludeFilterArgs
-    ///                 {
-    ///                     Namespace = "AWS/EBS",
-    ///                 },
+    ///                 Namespace = "AWS/EBS",
     ///             },
-    ///         });
-    ///         // https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
-    ///         var metricStreamToFirehoseRolePolicy = new Aws.Iam.RolePolicy("metricStreamToFirehoseRolePolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = metricStreamToFirehoseRole.Id,
-    ///             Policy = s3Stream.Arn.Apply(arn =&gt; @$"{{
+    ///         },
+    ///     });
+    /// 
+    ///     // https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
+    ///     var metricStreamToFirehoseRolePolicy = new Aws.Iam.RolePolicy("metricStreamToFirehoseRolePolicy", new()
+    ///     {
+    ///         Role = metricStreamToFirehoseRole.Id,
+    ///         Policy = s3Stream.Arn.Apply(arn =&gt; @$"{{
     ///     ""Version"": ""2012-10-17"",
     ///     ""Statement"": [
     ///         {{
@@ -105,20 +107,22 @@ namespace Pulumi.Aws.CloudWatch
     ///     ]
     /// }}
     /// "),
-    ///         });
-    ///         var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new Aws.S3.BucketAclV2Args
+    ///     });
+    /// 
+    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var firehoseToS3RolePolicy = new Aws.Iam.RolePolicy("firehoseToS3RolePolicy", new()
+    ///     {
+    ///         Role = firehoseToS3Role.Id,
+    ///         Policy = Output.Tuple(bucket.Arn, bucket.Arn).Apply(values =&gt;
     ///         {
-    ///             Bucket = bucket.Id,
-    ///             Acl = "private",
-    ///         });
-    ///         var firehoseToS3RolePolicy = new Aws.Iam.RolePolicy("firehoseToS3RolePolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = firehoseToS3Role.Id,
-    ///             Policy = Output.Tuple(bucket.Arn, bucket.Arn).Apply(values =&gt;
-    ///             {
-    ///                 var bucketArn = values.Item1;
-    ///                 var bucketArn1 = values.Item2;
-    ///                 return @$"{{
+    ///             var bucketArn = values.Item1;
+    ///             var bucketArn1 = values.Item2;
+    ///             return @$"{{
     ///     ""Version"": ""2012-10-17"",
     ///     ""Statement"": [
     ///         {{
@@ -139,65 +143,62 @@ namespace Pulumi.Aws.CloudWatch
     ///     ]
     /// }}
     /// ";
-    ///             }),
-    ///         });
-    ///     }
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Additional Statistics
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.CloudWatch.MetricStream("main", new()
     ///     {
-    ///         var main = new Aws.CloudWatch.MetricStream("main", new Aws.CloudWatch.MetricStreamArgs
+    ///         RoleArn = aws_iam_role.Metric_stream_to_firehose.Arn,
+    ///         FirehoseArn = aws_kinesis_firehose_delivery_stream.S3_stream.Arn,
+    ///         OutputFormat = "json",
+    ///         StatisticsConfigurations = new[]
     ///         {
-    ///             RoleArn = aws_iam_role.Metric_stream_to_firehose.Arn,
-    ///             FirehoseArn = aws_kinesis_firehose_delivery_stream.S3_stream.Arn,
-    ///             OutputFormat = "json",
-    ///             StatisticsConfigurations = 
+    ///             new Aws.CloudWatch.Inputs.MetricStreamStatisticsConfigurationArgs
     ///             {
-    ///                 new Aws.CloudWatch.Inputs.MetricStreamStatisticsConfigurationArgs
+    ///                 AdditionalStatistics = new[]
     ///                 {
-    ///                     AdditionalStatistics = 
-    ///                     {
-    ///                         "p1",
-    ///                         "tm99",
-    ///                     },
-    ///                     IncludeMetrics = 
-    ///                     {
-    ///                         new Aws.CloudWatch.Inputs.MetricStreamStatisticsConfigurationIncludeMetricArgs
-    ///                         {
-    ///                             MetricName = "CPUUtilization",
-    ///                             Namespace = "AWS/EC2",
-    ///                         },
-    ///                     },
+    ///                     "p1",
+    ///                     "tm99",
     ///                 },
-    ///                 new Aws.CloudWatch.Inputs.MetricStreamStatisticsConfigurationArgs
+    ///                 IncludeMetrics = new[]
     ///                 {
-    ///                     AdditionalStatistics = 
+    ///                     new Aws.CloudWatch.Inputs.MetricStreamStatisticsConfigurationIncludeMetricArgs
     ///                     {
-    ///                         "TS(50.5:)",
-    ///                     },
-    ///                     IncludeMetrics = 
-    ///                     {
-    ///                         new Aws.CloudWatch.Inputs.MetricStreamStatisticsConfigurationIncludeMetricArgs
-    ///                         {
-    ///                             MetricName = "CPUUtilization",
-    ///                             Namespace = "AWS/EC2",
-    ///                         },
+    ///                         MetricName = "CPUUtilization",
+    ///                         Namespace = "AWS/EC2",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.CloudWatch.Inputs.MetricStreamStatisticsConfigurationArgs
+    ///             {
+    ///                 AdditionalStatistics = new[]
+    ///                 {
+    ///                     "TS(50.5:)",
+    ///                 },
+    ///                 IncludeMetrics = new[]
+    ///                 {
+    ///                     new Aws.CloudWatch.Inputs.MetricStreamStatisticsConfigurationIncludeMetricArgs
+    ///                     {
+    ///                         MetricName = "CPUUtilization",
+    ///                         Namespace = "AWS/EC2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -209,7 +210,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/metricStream:MetricStream")]
-    public partial class MetricStream : Pulumi.CustomResource
+    public partial class MetricStream : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the metric stream.
@@ -336,7 +337,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class MetricStreamArgs : Pulumi.ResourceArgs
+    public sealed class MetricStreamArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludeFilters")]
         private InputList<Inputs.MetricStreamExcludeFilterArgs>? _excludeFilters;
@@ -416,9 +417,10 @@ namespace Pulumi.Aws.CloudWatch
         public MetricStreamArgs()
         {
         }
+        public static new MetricStreamArgs Empty => new MetricStreamArgs();
     }
 
-    public sealed class MetricStreamState : Pulumi.ResourceArgs
+    public sealed class MetricStreamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the metric stream.
@@ -534,5 +536,6 @@ namespace Pulumi.Aws.CloudWatch
         public MetricStreamState()
         {
         }
+        public static new MetricStreamState Empty => new MetricStreamState();
     }
 }

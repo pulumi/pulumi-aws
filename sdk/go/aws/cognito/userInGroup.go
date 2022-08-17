@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", &cognito.UserPoolArgs{
-// 			PasswordPolicy: &cognito.UserPoolPasswordPolicyArgs{
-// 				TemporaryPasswordValidityDays: pulumi.Int(7),
-// 				MinimumLength:                 pulumi.Int(6),
-// 				RequireUppercase:              pulumi.Bool(false),
-// 				RequireSymbols:                pulumi.Bool(false),
-// 				RequireNumbers:                pulumi.Bool(false),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUser, err := cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
-// 			UserPoolId: pulumi.Any(aws_cognito_user_pool.Test.Id),
-// 			Username:   pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUserGroup, err := cognito.NewUserGroup(ctx, "exampleUserGroup", &cognito.UserGroupArgs{
-// 			UserPoolId: pulumi.Any(aws_cognito_user_pool.Test.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cognito.NewUserInGroup(ctx, "exampleUserInGroup", &cognito.UserInGroupArgs{
-// 			UserPoolId: exampleUserPool.ID(),
-// 			GroupName:  exampleUserGroup.Name,
-// 			Username:   exampleUser.Username,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", &cognito.UserPoolArgs{
+//				PasswordPolicy: &cognito.UserPoolPasswordPolicyArgs{
+//					TemporaryPasswordValidityDays: pulumi.Int(7),
+//					MinimumLength:                 pulumi.Int(6),
+//					RequireUppercase:              pulumi.Bool(false),
+//					RequireSymbols:                pulumi.Bool(false),
+//					RequireNumbers:                pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUser, err := cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
+//				UserPoolId: pulumi.Any(aws_cognito_user_pool.Test.Id),
+//				Username:   pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserGroup, err := cognito.NewUserGroup(ctx, "exampleUserGroup", &cognito.UserGroupArgs{
+//				UserPoolId: pulumi.Any(aws_cognito_user_pool.Test.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUserInGroup(ctx, "exampleUserInGroup", &cognito.UserInGroupArgs{
+//				UserPoolId: exampleUserPool.ID(),
+//				GroupName:  exampleUserGroup.Name,
+//				Username:   exampleUser.Username,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type UserInGroup struct {
 	pulumi.CustomResourceState
@@ -177,7 +180,7 @@ func (i *UserInGroup) ToUserInGroupOutputWithContext(ctx context.Context) UserIn
 // UserInGroupArrayInput is an input type that accepts UserInGroupArray and UserInGroupArrayOutput values.
 // You can construct a concrete instance of `UserInGroupArrayInput` via:
 //
-//          UserInGroupArray{ UserInGroupArgs{...} }
+//	UserInGroupArray{ UserInGroupArgs{...} }
 type UserInGroupArrayInput interface {
 	pulumi.Input
 
@@ -202,7 +205,7 @@ func (i UserInGroupArray) ToUserInGroupArrayOutputWithContext(ctx context.Contex
 // UserInGroupMapInput is an input type that accepts UserInGroupMap and UserInGroupMapOutput values.
 // You can construct a concrete instance of `UserInGroupMapInput` via:
 //
-//          UserInGroupMap{ "key": UserInGroupArgs{...} }
+//	UserInGroupMap{ "key": UserInGroupArgs{...} }
 type UserInGroupMapInput interface {
 	pulumi.Input
 

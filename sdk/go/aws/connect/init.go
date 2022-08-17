@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &HoursOfOperation{}
 	case "aws:connect/instance:Instance":
 		r = &Instance{}
+	case "aws:connect/instanceStorageConfig:InstanceStorageConfig":
+		r = &InstanceStorageConfig{}
 	case "aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation":
 		r = &LambdaFunctionAssociation{}
 	case "aws:connect/queue:Queue":
@@ -85,6 +87,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"connect/instance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"connect/instanceStorageConfig",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

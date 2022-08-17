@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class UserPoolSchemaStringAttributeConstraintsArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolSchemaStringAttributeConstraintsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum length of an attribute value of the string type.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public UserPoolSchemaStringAttributeConstraintsArgs()
         {
         }
+        public static new UserPoolSchemaStringAttributeConstraintsArgs Empty => new UserPoolSchemaStringAttributeConstraintsArgs();
     }
 }

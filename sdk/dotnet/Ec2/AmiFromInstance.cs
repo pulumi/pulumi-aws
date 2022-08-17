@@ -31,24 +31,22 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.AmiFromInstance("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.AmiFromInstance("example", new Aws.Ec2.AmiFromInstanceArgs
-    ///         {
-    ///             SourceInstanceId = "i-xxxxxxxx",
-    ///         });
-    ///     }
+    ///         SourceInstanceId = "i-xxxxxxxx",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/amiFromInstance:AmiFromInstance")]
-    public partial class AmiFromInstance : Pulumi.CustomResource
+    public partial class AmiFromInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Machine architecture for created instances. Defaults to "x86_64".
@@ -252,7 +250,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class AmiFromInstanceArgs : Pulumi.ResourceArgs
+    public sealed class AmiFromInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -328,9 +326,10 @@ namespace Pulumi.Aws.Ec2
         public AmiFromInstanceArgs()
         {
         }
+        public static new AmiFromInstanceArgs Empty => new AmiFromInstanceArgs();
     }
 
-    public sealed class AmiFromInstanceState : Pulumi.ResourceArgs
+    public sealed class AmiFromInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Machine architecture for created instances. Defaults to "x86_64".
@@ -516,5 +515,6 @@ namespace Pulumi.Aws.Ec2
         public AmiFromInstanceState()
         {
         }
+        public static new AmiFromInstanceState Empty => new AmiFromInstanceState();
     }
 }

@@ -20,37 +20,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := s3.NewBucketWebsiteConfigurationV2(ctx, "example", &s3.BucketWebsiteConfigurationV2Args{
-// 			Bucket: pulumi.Any(aws_s3_bucket.Example.Bucket),
-// 			IndexDocument: &s3.BucketWebsiteConfigurationV2IndexDocumentArgs{
-// 				Suffix: pulumi.String("index.html"),
-// 			},
-// 			ErrorDocument: &s3.BucketWebsiteConfigurationV2ErrorDocumentArgs{
-// 				Key: pulumi.String("error.html"),
-// 			},
-// 			RoutingRules: s3.BucketWebsiteConfigurationV2RoutingRuleArray{
-// 				&s3.BucketWebsiteConfigurationV2RoutingRuleArgs{
-// 					Condition: &s3.BucketWebsiteConfigurationV2RoutingRuleConditionArgs{
-// 						KeyPrefixEquals: pulumi.String("docs/"),
-// 					},
-// 					Redirect: &s3.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs{
-// 						ReplaceKeyPrefixWith: pulumi.String("documents/"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewBucketWebsiteConfigurationV2(ctx, "example", &s3.BucketWebsiteConfigurationV2Args{
+//				Bucket: pulumi.Any(aws_s3_bucket.Example.Bucket),
+//				IndexDocument: &s3.BucketWebsiteConfigurationV2IndexDocumentArgs{
+//					Suffix: pulumi.String("index.html"),
+//				},
+//				ErrorDocument: &s3.BucketWebsiteConfigurationV2ErrorDocumentArgs{
+//					Key: pulumi.String("error.html"),
+//				},
+//				RoutingRules: s3.BucketWebsiteConfigurationV2RoutingRuleArray{
+//					&s3.BucketWebsiteConfigurationV2RoutingRuleArgs{
+//						Condition: &s3.BucketWebsiteConfigurationV2RoutingRuleConditionArgs{
+//							KeyPrefixEquals: pulumi.String("docs/"),
+//						},
+//						Redirect: &s3.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs{
+//							ReplaceKeyPrefixWith: pulumi.String("documents/"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With `routingRules` configured
 //
@@ -58,38 +61,43 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := s3.NewBucketWebsiteConfigurationV2(ctx, "example", &s3.BucketWebsiteConfigurationV2Args{
-// 			Bucket: pulumi.Any(aws_s3_bucket.Example.Bucket),
-// 			IndexDocument: &s3.BucketWebsiteConfigurationV2IndexDocumentArgs{
-// 				Suffix: pulumi.String("index.html"),
-// 			},
-// 			ErrorDocument: &s3.BucketWebsiteConfigurationV2ErrorDocumentArgs{
-// 				Key: pulumi.String("error.html"),
-// 			},
-// 			RoutingRuleDetails: pulumi.String(fmt.Sprintf(`[{
-//     "Condition": {
-//         "KeyPrefixEquals": "docs/"
-//     },
-//     "Redirect": {
-//         "ReplaceKeyPrefixWith": ""
-//     }
-// }]
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewBucketWebsiteConfigurationV2(ctx, "example", &s3.BucketWebsiteConfigurationV2Args{
+//				Bucket: pulumi.Any(aws_s3_bucket.Example.Bucket),
+//				IndexDocument: &s3.BucketWebsiteConfigurationV2IndexDocumentArgs{
+//					Suffix: pulumi.String("index.html"),
+//				},
+//				ErrorDocument: &s3.BucketWebsiteConfigurationV2ErrorDocumentArgs{
+//					Key: pulumi.String("error.html"),
+//				},
+//				RoutingRuleDetails: pulumi.String(fmt.Sprintf(`[{
+//	    "Condition": {
+//	        "KeyPrefixEquals": "docs/"
+//	    },
+//	    "Redirect": {
+//	        "ReplaceKeyPrefixWith": ""
+//	    }
+//	}]
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -97,13 +105,17 @@ import (
 // S3 bucket website configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket website configuration resource should be imported using the `bucket` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name
+//
+//	$ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name
+//
 // ```
 //
-//  If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket website configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+//	If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket website configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
+//
+//	$ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
+//
 // ```
 type BucketWebsiteConfigurationV2 struct {
 	pulumi.CustomResourceState
@@ -271,7 +283,7 @@ func (i *BucketWebsiteConfigurationV2) ToBucketWebsiteConfigurationV2OutputWithC
 // BucketWebsiteConfigurationV2ArrayInput is an input type that accepts BucketWebsiteConfigurationV2Array and BucketWebsiteConfigurationV2ArrayOutput values.
 // You can construct a concrete instance of `BucketWebsiteConfigurationV2ArrayInput` via:
 //
-//          BucketWebsiteConfigurationV2Array{ BucketWebsiteConfigurationV2Args{...} }
+//	BucketWebsiteConfigurationV2Array{ BucketWebsiteConfigurationV2Args{...} }
 type BucketWebsiteConfigurationV2ArrayInput interface {
 	pulumi.Input
 
@@ -296,7 +308,7 @@ func (i BucketWebsiteConfigurationV2Array) ToBucketWebsiteConfigurationV2ArrayOu
 // BucketWebsiteConfigurationV2MapInput is an input type that accepts BucketWebsiteConfigurationV2Map and BucketWebsiteConfigurationV2MapOutput values.
 // You can construct a concrete instance of `BucketWebsiteConfigurationV2MapInput` via:
 //
-//          BucketWebsiteConfigurationV2Map{ "key": BucketWebsiteConfigurationV2Args{...} }
+//	BucketWebsiteConfigurationV2Map{ "key": BucketWebsiteConfigurationV2Args{...} }
 type BucketWebsiteConfigurationV2MapInput interface {
 	pulumi.Input
 

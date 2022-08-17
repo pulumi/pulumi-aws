@@ -15,29 +15,27 @@ namespace Pulumi.Aws.DocDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DocDB.ClusterParameterGroup("example", new()
     ///     {
-    ///         var example = new Aws.DocDB.ClusterParameterGroup("example", new Aws.DocDB.ClusterParameterGroupArgs
+    ///         Description = "docdb cluster parameter group",
+    ///         Family = "docdb3.6",
+    ///         Parameters = new[]
     ///         {
-    ///             Description = "docdb cluster parameter group",
-    ///             Family = "docdb3.6",
-    ///             Parameters = 
+    ///             new Aws.DocDB.Inputs.ClusterParameterGroupParameterArgs
     ///             {
-    ///                 new Aws.DocDB.Inputs.ClusterParameterGroupParameterArgs
-    ///                 {
-    ///                     Name = "tls",
-    ///                     Value = "enabled",
-    ///                 },
+    ///                 Name = "tls",
+    ///                 Value = "enabled",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.DocDB
     /// ```
     /// </summary>
     [AwsResourceType("aws:docdb/clusterParameterGroup:ClusterParameterGroup")]
-    public partial class ClusterParameterGroup : Pulumi.CustomResource
+    public partial class ClusterParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the documentDB cluster parameter group.
@@ -94,7 +92,7 @@ namespace Pulumi.Aws.DocDB
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -143,7 +141,7 @@ namespace Pulumi.Aws.DocDB
         }
     }
 
-    public sealed class ClusterParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class ClusterParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the documentDB cluster parameter group. Defaults to "Managed by Pulumi".
@@ -196,9 +194,10 @@ namespace Pulumi.Aws.DocDB
         public ClusterParameterGroupArgs()
         {
         }
+        public static new ClusterParameterGroupArgs Empty => new ClusterParameterGroupArgs();
     }
 
-    public sealed class ClusterParameterGroupState : Pulumi.ResourceArgs
+    public sealed class ClusterParameterGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the documentDB cluster parameter group.
@@ -258,7 +257,7 @@ namespace Pulumi.Aws.DocDB
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -269,5 +268,6 @@ namespace Pulumi.Aws.DocDB
         public ClusterParameterGroupState()
         {
         }
+        public static new ClusterParameterGroupState Empty => new ClusterParameterGroupState();
     }
 }

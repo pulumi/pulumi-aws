@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs : Pulumi.ResourceArgs
+    public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs()
         {
         }
+        public static new FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs Empty => new FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs();
     }
 }

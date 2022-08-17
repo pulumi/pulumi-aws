@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsworks.NewRailsAppLayer(ctx, "app", &opsworks.RailsAppLayerArgs{
-// 			StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsworks.NewRailsAppLayer(ctx, "app", &opsworks.RailsAppLayerArgs{
+//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type RailsAppLayer struct {
 	pulumi.CustomResourceState
@@ -88,7 +91,7 @@ type RailsAppLayer struct {
 	SystemPackages pulumi.StringArrayOutput `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrOutput `pulumi:"useEbsOptimizedInstances"`
@@ -176,7 +179,7 @@ type railsAppLayerState struct {
 	SystemPackages []string `pulumi:"systemPackages"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
@@ -233,7 +236,7 @@ type RailsAppLayerState struct {
 	SystemPackages pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
@@ -376,7 +379,7 @@ func (i *RailsAppLayer) ToRailsAppLayerOutputWithContext(ctx context.Context) Ra
 // RailsAppLayerArrayInput is an input type that accepts RailsAppLayerArray and RailsAppLayerArrayOutput values.
 // You can construct a concrete instance of `RailsAppLayerArrayInput` via:
 //
-//          RailsAppLayerArray{ RailsAppLayerArgs{...} }
+//	RailsAppLayerArray{ RailsAppLayerArgs{...} }
 type RailsAppLayerArrayInput interface {
 	pulumi.Input
 
@@ -401,7 +404,7 @@ func (i RailsAppLayerArray) ToRailsAppLayerArrayOutputWithContext(ctx context.Co
 // RailsAppLayerMapInput is an input type that accepts RailsAppLayerMap and RailsAppLayerMapOutput values.
 // You can construct a concrete instance of `RailsAppLayerMapInput` via:
 //
-//          RailsAppLayerMap{ "key": RailsAppLayerArgs{...} }
+//	RailsAppLayerMap{ "key": RailsAppLayerArgs{...} }
 type RailsAppLayerMapInput interface {
 	pulumi.Input
 
@@ -571,7 +574,7 @@ func (o RailsAppLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RailsAppLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RailsAppLayerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RailsAppLayer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

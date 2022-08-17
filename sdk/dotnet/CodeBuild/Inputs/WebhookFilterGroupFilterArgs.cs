@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class WebhookFilterGroupFilterArgs : Pulumi.ResourceArgs
+    public sealed class WebhookFilterGroupFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public WebhookFilterGroupFilterArgs()
         {
         }
+        public static new WebhookFilterGroupFilterArgs Empty => new WebhookFilterGroupFilterArgs();
     }
 }

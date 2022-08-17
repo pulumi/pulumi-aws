@@ -20,59 +20,62 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/grafana"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/grafana"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"Version": "2012-10-17",
-// 			"Statement": []map[string]interface{}{
-// 				map[string]interface{}{
-// 					"Action": "sts:AssumeRole",
-// 					"Effect": "Allow",
-// 					"Sid":    "",
-// 					"Principal": map[string]interface{}{
-// 						"Service": "grafana.amazonaws.com",
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		assume, err := iam.NewRole(ctx, "assume", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWorkspace, err := grafana.NewWorkspace(ctx, "exampleWorkspace", &grafana.WorkspaceArgs{
-// 			AccountAccessType: pulumi.String("CURRENT_ACCOUNT"),
-// 			AuthenticationProviders: pulumi.StringArray{
-// 				pulumi.String("SAML"),
-// 			},
-// 			PermissionType: pulumi.String("SERVICE_MANAGED"),
-// 			RoleArn:        assume.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = grafana.NewLicenseAssociation(ctx, "exampleLicenseAssociation", &grafana.LicenseAssociationArgs{
-// 			LicenseType: pulumi.String("ENTERPRISE_FREE_TRIAL"),
-// 			WorkspaceId: exampleWorkspace.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": "sts:AssumeRole",
+//						"Effect": "Allow",
+//						"Sid":    "",
+//						"Principal": map[string]interface{}{
+//							"Service": "grafana.amazonaws.com",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			assume, err := iam.NewRole(ctx, "assume", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := grafana.NewWorkspace(ctx, "exampleWorkspace", &grafana.WorkspaceArgs{
+//				AccountAccessType: pulumi.String("CURRENT_ACCOUNT"),
+//				AuthenticationProviders: pulumi.StringArray{
+//					pulumi.String("SAML"),
+//				},
+//				PermissionType: pulumi.String("SERVICE_MANAGED"),
+//				RoleArn:        assume.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = grafana.NewLicenseAssociation(ctx, "exampleLicenseAssociation", &grafana.LicenseAssociationArgs{
+//				LicenseType: pulumi.String("ENTERPRISE_FREE_TRIAL"),
+//				WorkspaceId: exampleWorkspace.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -80,7 +83,9 @@ import (
 // Grafana workspace license association can be imported using the workspace's `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
+//
+//	$ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
+//
 // ```
 type LicenseAssociation struct {
 	pulumi.CustomResourceState
@@ -196,7 +201,7 @@ func (i *LicenseAssociation) ToLicenseAssociationOutputWithContext(ctx context.C
 // LicenseAssociationArrayInput is an input type that accepts LicenseAssociationArray and LicenseAssociationArrayOutput values.
 // You can construct a concrete instance of `LicenseAssociationArrayInput` via:
 //
-//          LicenseAssociationArray{ LicenseAssociationArgs{...} }
+//	LicenseAssociationArray{ LicenseAssociationArgs{...} }
 type LicenseAssociationArrayInput interface {
 	pulumi.Input
 
@@ -221,7 +226,7 @@ func (i LicenseAssociationArray) ToLicenseAssociationArrayOutputWithContext(ctx 
 // LicenseAssociationMapInput is an input type that accepts LicenseAssociationMap and LicenseAssociationMapOutput values.
 // You can construct a concrete instance of `LicenseAssociationMapInput` via:
 //
-//          LicenseAssociationMap{ "key": LicenseAssociationArgs{...} }
+//	LicenseAssociationMap{ "key": LicenseAssociationArgs{...} }
 type LicenseAssociationMapInput interface {
 	pulumi.Input
 

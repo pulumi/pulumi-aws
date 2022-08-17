@@ -19,22 +19,20 @@ namespace Pulumi.Aws.CloudFront
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var functionName = config.Require("functionName");
+        ///     var existing = Aws.CloudFront.GetFunction.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var functionName = config.Require("functionName");
-        ///         var existing = Output.Create(Aws.CloudFront.GetFunction.InvokeAsync(new Aws.CloudFront.GetFunctionArgs
-        ///         {
-        ///             Name = functionName,
-        ///         }));
-        ///     }
+        ///         Name = functionName,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Aws.CloudFront
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var functionName = config.Require("functionName");
+        ///     var existing = Aws.CloudFront.GetFunction.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var functionName = config.Require("functionName");
-        ///         var existing = Output.Create(Aws.CloudFront.GetFunction.InvokeAsync(new Aws.CloudFront.GetFunctionArgs
-        ///         {
-        ///             Name = functionName,
-        ///         }));
-        ///     }
+        ///         Name = functionName,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.CloudFront
     }
 
 
-    public sealed class GetFunctionArgs : Pulumi.InvokeArgs
+    public sealed class GetFunctionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the CloudFront function.
@@ -92,9 +88,10 @@ namespace Pulumi.Aws.CloudFront
         public GetFunctionArgs()
         {
         }
+        public static new GetFunctionArgs Empty => new GetFunctionArgs();
     }
 
-    public sealed class GetFunctionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFunctionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the CloudFront function.
@@ -111,6 +108,7 @@ namespace Pulumi.Aws.CloudFront
         public GetFunctionInvokeArgs()
         {
         }
+        public static new GetFunctionInvokeArgs Empty => new GetFunctionInvokeArgs();
     }
 
 

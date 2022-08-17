@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScalingPlans.Inputs
 {
 
-    public sealed class ScalingPlanApplicationSourceGetArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPlanApplicationSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AutoScalingPlans.Inputs
         public ScalingPlanApplicationSourceGetArgs()
         {
         }
+        public static new ScalingPlanApplicationSourceGetArgs Empty => new ScalingPlanApplicationSourceGetArgs();
     }
 }

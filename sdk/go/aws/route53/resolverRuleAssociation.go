@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := route53.NewResolverRuleAssociation(ctx, "example", &route53.ResolverRuleAssociationArgs{
-// 			ResolverRuleId: pulumi.Any(aws_route53_resolver_rule.Sys.Id),
-// 			VpcId:          pulumi.Any(aws_vpc.Foo.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53.NewResolverRuleAssociation(ctx, "example", &route53.ResolverRuleAssociationArgs{
+//				ResolverRuleId: pulumi.Any(aws_route53_resolver_rule.Sys.Id),
+//				VpcId:          pulumi.Any(aws_vpc.Foo.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // Route53 Resolver rule associations can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
+//
+//	$ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
+//
 // ```
 type ResolverRuleAssociation struct {
 	pulumi.CustomResourceState
@@ -156,7 +161,7 @@ func (i *ResolverRuleAssociation) ToResolverRuleAssociationOutputWithContext(ctx
 // ResolverRuleAssociationArrayInput is an input type that accepts ResolverRuleAssociationArray and ResolverRuleAssociationArrayOutput values.
 // You can construct a concrete instance of `ResolverRuleAssociationArrayInput` via:
 //
-//          ResolverRuleAssociationArray{ ResolverRuleAssociationArgs{...} }
+//	ResolverRuleAssociationArray{ ResolverRuleAssociationArgs{...} }
 type ResolverRuleAssociationArrayInput interface {
 	pulumi.Input
 
@@ -181,7 +186,7 @@ func (i ResolverRuleAssociationArray) ToResolverRuleAssociationArrayOutputWithCo
 // ResolverRuleAssociationMapInput is an input type that accepts ResolverRuleAssociationMap and ResolverRuleAssociationMapOutput values.
 // You can construct a concrete instance of `ResolverRuleAssociationMapInput` via:
 //
-//          ResolverRuleAssociationMap{ "key": ResolverRuleAssociationArgs{...} }
+//	ResolverRuleAssociationMap{ "key": ResolverRuleAssociationArgs{...} }
 type ResolverRuleAssociationMapInput interface {
 	pulumi.Input
 

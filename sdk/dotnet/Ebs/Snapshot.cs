@@ -15,33 +15,32 @@ namespace Pulumi.Aws.Ebs
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ebs.Volume("example", new()
     ///     {
-    ///         var example = new Aws.Ebs.Volume("example", new Aws.Ebs.VolumeArgs
+    ///         AvailabilityZone = "us-west-2a",
+    ///         Size = 40,
+    ///         Tags = 
     ///         {
-    ///             AvailabilityZone = "us-west-2a",
-    ///             Size = 40,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "HelloWorld" },
-    ///             },
-    ///         });
-    ///         var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new Aws.Ebs.SnapshotArgs
-    ///         {
-    ///             VolumeId = example.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "HelloWorld_snap" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "HelloWorld" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new()
+    ///     {
+    ///         VolumeId = example.Id,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "HelloWorld_snap" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +52,7 @@ namespace Pulumi.Aws.Ebs
     /// ```
     /// </summary>
     [AwsResourceType("aws:ebs/snapshot:Snapshot")]
-    public partial class Snapshot : Pulumi.CustomResource
+    public partial class Snapshot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the EBS Snapshot.
@@ -189,7 +188,7 @@ namespace Pulumi.Aws.Ebs
         }
     }
 
-    public sealed class SnapshotArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of what the snapshot is.
@@ -242,9 +241,10 @@ namespace Pulumi.Aws.Ebs
         public SnapshotArgs()
         {
         }
+        public static new SnapshotArgs Empty => new SnapshotArgs();
     }
 
-    public sealed class SnapshotState : Pulumi.ResourceArgs
+    public sealed class SnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the EBS Snapshot.
@@ -351,5 +351,6 @@ namespace Pulumi.Aws.Ebs
         public SnapshotState()
         {
         }
+        public static new SnapshotState Empty => new SnapshotState();
     }
 }

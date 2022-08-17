@@ -18,114 +18,117 @@ import (
 // package main
 //
 // import (
-// 	"crypto/sha1"
-// 	"encoding/json"
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"crypto/sha1"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func sha1Hash(input string) string {
-// 	hash := sha1.Sum([]byte(input))
-// 	return hex.EncodeToString(hash[:])
-// }
+//	func sha1Hash(input string) string {
+//		hash := sha1.Sum([]byte(input))
+//		return hex.EncodeToString(hash[:])
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"openapi": "3.0.1",
-// 			"info": map[string]interface{}{
-// 				"title":   "example",
-// 				"version": "1.0",
-// 			},
-// 			"paths": map[string]interface{}{
-// 				"/path1": map[string]interface{}{
-// 					"get": map[string]interface{}{
-// 						"x-amazon-apigateway-integration": map[string]interface{}{
-// 							"httpMethod":           "GET",
-// 							"payloadFormatVersion": "1.0",
-// 							"type":                 "HTTP_PROXY",
-// 							"uri":                  "https://ip-ranges.amazonaws.com/ip-ranges.json",
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", &apigateway.RestApiArgs{
-// 			Body: pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
-// 			RestApi: exampleRestApi.ID(),
-// 			Triggers: pulumi.StringMap{
-// 				"redeployment": exampleRestApi.Body.ApplyT(func(body string) (pulumi.String, error) {
-// 					var _zero pulumi.String
-// 					tmpJSON1, err := json.Marshal(body)
-// 					if err != nil {
-// 						return _zero, err
-// 					}
-// 					json1 := string(tmpJSON1)
-// 					return json1, nil
-// 				}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
-// 					return sha1Hash(toJSON), nil
-// 				}).(pulumi.StringOutput),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		development, err := apigateway.NewStage(ctx, "development", &apigateway.StageArgs{
-// 			Deployment: exampleDeployment.ID(),
-// 			RestApi:    exampleRestApi.ID(),
-// 			StageName:  pulumi.String("development"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		production, err := apigateway.NewStage(ctx, "production", &apigateway.StageArgs{
-// 			Deployment: exampleDeployment.ID(),
-// 			RestApi:    exampleRestApi.ID(),
-// 			StageName:  pulumi.String("production"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.NewUsagePlan(ctx, "exampleUsagePlan", &apigateway.UsagePlanArgs{
-// 			Description: pulumi.String("my description"),
-// 			ProductCode: pulumi.String("MYCODE"),
-// 			ApiStages: apigateway.UsagePlanApiStageArray{
-// 				&apigateway.UsagePlanApiStageArgs{
-// 					ApiId: exampleRestApi.ID(),
-// 					Stage: development.StageName,
-// 				},
-// 				&apigateway.UsagePlanApiStageArgs{
-// 					ApiId: exampleRestApi.ID(),
-// 					Stage: production.StageName,
-// 				},
-// 			},
-// 			QuotaSettings: &apigateway.UsagePlanQuotaSettingsArgs{
-// 				Limit:  pulumi.Int(20),
-// 				Offset: pulumi.Int(2),
-// 				Period: pulumi.String("WEEK"),
-// 			},
-// 			ThrottleSettings: &apigateway.UsagePlanThrottleSettingsArgs{
-// 				BurstLimit: pulumi.Int(5),
-// 				RateLimit:  pulumi.Float64(10),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"openapi": "3.0.1",
+//				"info": map[string]interface{}{
+//					"title":   "example",
+//					"version": "1.0",
+//				},
+//				"paths": map[string]interface{}{
+//					"/path1": map[string]interface{}{
+//						"get": map[string]interface{}{
+//							"x-amazon-apigateway-integration": map[string]interface{}{
+//								"httpMethod":           "GET",
+//								"payloadFormatVersion": "1.0",
+//								"type":                 "HTTP_PROXY",
+//								"uri":                  "https://ip-ranges.amazonaws.com/ip-ranges.json",
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", &apigateway.RestApiArgs{
+//				Body: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
+//				RestApi: exampleRestApi.ID(),
+//				Triggers: pulumi.StringMap{
+//					"redeployment": exampleRestApi.Body.ApplyT(func(body string) (pulumi.String, error) {
+//						var _zero pulumi.String
+//						tmpJSON1, err := json.Marshal(body)
+//						if err != nil {
+//							return _zero, err
+//						}
+//						json1 := string(tmpJSON1)
+//						return json1, nil
+//					}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
+//						return sha1Hash(toJSON), nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			development, err := apigateway.NewStage(ctx, "development", &apigateway.StageArgs{
+//				Deployment: exampleDeployment.ID(),
+//				RestApi:    exampleRestApi.ID(),
+//				StageName:  pulumi.String("development"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			production, err := apigateway.NewStage(ctx, "production", &apigateway.StageArgs{
+//				Deployment: exampleDeployment.ID(),
+//				RestApi:    exampleRestApi.ID(),
+//				StageName:  pulumi.String("production"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewUsagePlan(ctx, "exampleUsagePlan", &apigateway.UsagePlanArgs{
+//				Description: pulumi.String("my description"),
+//				ProductCode: pulumi.String("MYCODE"),
+//				ApiStages: apigateway.UsagePlanApiStageArray{
+//					&apigateway.UsagePlanApiStageArgs{
+//						ApiId: exampleRestApi.ID(),
+//						Stage: development.StageName,
+//					},
+//					&apigateway.UsagePlanApiStageArgs{
+//						ApiId: exampleRestApi.ID(),
+//						Stage: production.StageName,
+//					},
+//				},
+//				QuotaSettings: &apigateway.UsagePlanQuotaSettingsArgs{
+//					Limit:  pulumi.Int(20),
+//					Offset: pulumi.Int(2),
+//					Period: pulumi.String("WEEK"),
+//				},
+//				ThrottleSettings: &apigateway.UsagePlanThrottleSettingsArgs{
+//					BurstLimit: pulumi.Int(5),
+//					RateLimit:  pulumi.Float64(10),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -133,7 +136,9 @@ import (
 // AWS API Gateway Usage Plan can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
+//
+//	$ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
+//
 // ```
 type UsagePlan struct {
 	pulumi.CustomResourceState
@@ -150,9 +155,9 @@ type UsagePlan struct {
 	ProductCode pulumi.StringPtrOutput `pulumi:"productCode"`
 	// The quota settings of the usage plan.
 	QuotaSettings UsagePlanQuotaSettingsPtrOutput `pulumi:"quotaSettings"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The throttling limits of the usage plan.
 	ThrottleSettings UsagePlanThrottleSettingsPtrOutput `pulumi:"throttleSettings"`
@@ -199,9 +204,9 @@ type usagePlanState struct {
 	ProductCode *string `pulumi:"productCode"`
 	// The quota settings of the usage plan.
 	QuotaSettings *UsagePlanQuotaSettings `pulumi:"quotaSettings"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The throttling limits of the usage plan.
 	ThrottleSettings *UsagePlanThrottleSettings `pulumi:"throttleSettings"`
@@ -220,9 +225,9 @@ type UsagePlanState struct {
 	ProductCode pulumi.StringPtrInput
 	// The quota settings of the usage plan.
 	QuotaSettings UsagePlanQuotaSettingsPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The throttling limits of the usage plan.
 	ThrottleSettings UsagePlanThrottleSettingsPtrInput
@@ -243,7 +248,7 @@ type usagePlanArgs struct {
 	ProductCode *string `pulumi:"productCode"`
 	// The quota settings of the usage plan.
 	QuotaSettings *UsagePlanQuotaSettings `pulumi:"quotaSettings"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The throttling limits of the usage plan.
 	ThrottleSettings *UsagePlanThrottleSettings `pulumi:"throttleSettings"`
@@ -261,7 +266,7 @@ type UsagePlanArgs struct {
 	ProductCode pulumi.StringPtrInput
 	// The quota settings of the usage plan.
 	QuotaSettings UsagePlanQuotaSettingsPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The throttling limits of the usage plan.
 	ThrottleSettings UsagePlanThrottleSettingsPtrInput
@@ -293,7 +298,7 @@ func (i *UsagePlan) ToUsagePlanOutputWithContext(ctx context.Context) UsagePlanO
 // UsagePlanArrayInput is an input type that accepts UsagePlanArray and UsagePlanArrayOutput values.
 // You can construct a concrete instance of `UsagePlanArrayInput` via:
 //
-//          UsagePlanArray{ UsagePlanArgs{...} }
+//	UsagePlanArray{ UsagePlanArgs{...} }
 type UsagePlanArrayInput interface {
 	pulumi.Input
 
@@ -318,7 +323,7 @@ func (i UsagePlanArray) ToUsagePlanArrayOutputWithContext(ctx context.Context) U
 // UsagePlanMapInput is an input type that accepts UsagePlanMap and UsagePlanMapOutput values.
 // You can construct a concrete instance of `UsagePlanMapInput` via:
 //
-//          UsagePlanMap{ "key": UsagePlanArgs{...} }
+//	UsagePlanMap{ "key": UsagePlanArgs{...} }
 type UsagePlanMapInput interface {
 	pulumi.Input
 
@@ -384,12 +389,12 @@ func (o UsagePlanOutput) QuotaSettings() UsagePlanQuotaSettingsPtrOutput {
 	return o.ApplyT(func(v *UsagePlan) UsagePlanQuotaSettingsPtrOutput { return v.QuotaSettings }).(UsagePlanQuotaSettingsPtrOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o UsagePlanOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UsagePlan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o UsagePlanOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UsagePlan) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

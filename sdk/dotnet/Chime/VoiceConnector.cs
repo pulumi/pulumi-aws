@@ -15,21 +15,19 @@ namespace Pulumi.Aws.Chime
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Chime.VoiceConnector("test", new()
     ///     {
-    ///         var test = new Aws.Chime.VoiceConnector("test", new Aws.Chime.VoiceConnectorArgs
-    ///         {
-    ///             AwsRegion = "us-east-1",
-    ///             RequireEncryption = true,
-    ///         });
-    ///     }
+    ///         AwsRegion = "us-east-1",
+    ///         RequireEncryption = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Chime
     /// ```
     /// </summary>
     [AwsResourceType("aws:chime/voiceConnector:VoiceConnector")]
-    public partial class VoiceConnector : Pulumi.CustomResource
+    public partial class VoiceConnector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
@@ -111,7 +109,7 @@ namespace Pulumi.Aws.Chime
         }
     }
 
-    public sealed class VoiceConnectorArgs : Pulumi.ResourceArgs
+    public sealed class VoiceConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
@@ -134,9 +132,10 @@ namespace Pulumi.Aws.Chime
         public VoiceConnectorArgs()
         {
         }
+        public static new VoiceConnectorArgs Empty => new VoiceConnectorArgs();
     }
 
-    public sealed class VoiceConnectorState : Pulumi.ResourceArgs
+    public sealed class VoiceConnectorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
@@ -165,5 +164,6 @@ namespace Pulumi.Aws.Chime
         public VoiceConnectorState()
         {
         }
+        public static new VoiceConnectorState Empty => new VoiceConnectorState();
     }
 }

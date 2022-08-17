@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesGetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesGetArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesGetArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesGetArgs();
     }
 }

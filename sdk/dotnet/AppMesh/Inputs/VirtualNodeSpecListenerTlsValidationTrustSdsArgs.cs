@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecListenerTlsValidationTrustSdsArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecListenerTlsValidationTrustSdsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecListenerTlsValidationTrustSdsArgs()
         {
         }
+        public static new VirtualNodeSpecListenerTlsValidationTrustSdsArgs Empty => new VirtualNodeSpecListenerTlsValidationTrustSdsArgs();
     }
 }

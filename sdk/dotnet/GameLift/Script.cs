@@ -15,25 +15,23 @@ namespace Pulumi.Aws.GameLift
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.GameLift.Script("example", new()
     ///     {
-    ///         var example = new Aws.GameLift.Script("example", new Aws.GameLift.ScriptArgs
+    ///         StorageLocation = new Aws.GameLift.Inputs.ScriptStorageLocationArgs
     ///         {
-    ///             StorageLocation = new Aws.GameLift.Inputs.ScriptStorageLocationArgs
-    ///             {
-    ///                 Bucket = aws_s3_bucket.Example.Bucket,
-    ///                 Key = aws_s3_object.Example.Key,
-    ///                 RoleArn = aws_iam_role.Example.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             Bucket = aws_s3_bucket.Example.Bucket,
+    ///             Key = aws_s3_object.Example.Key,
+    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.GameLift
     /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/script:Script")]
-    public partial class Script : Pulumi.CustomResource
+    public partial class Script : global::Pulumi.CustomResource
     {
         /// <summary>
         /// GameLift Script ARN.
@@ -71,9 +69,6 @@ namespace Pulumi.Aws.GameLift
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -133,7 +128,7 @@ namespace Pulumi.Aws.GameLift
         }
     }
 
-    public sealed class ScriptArgs : Pulumi.ResourceArgs
+    public sealed class ScriptArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the script
@@ -174,9 +169,10 @@ namespace Pulumi.Aws.GameLift
         public ScriptArgs()
         {
         }
+        public static new ScriptArgs Empty => new ScriptArgs();
     }
 
-    public sealed class ScriptState : Pulumi.ResourceArgs
+    public sealed class ScriptState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// GameLift Script ARN.
@@ -210,10 +206,6 @@ namespace Pulumi.Aws.GameLift
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -235,5 +227,6 @@ namespace Pulumi.Aws.GameLift
         public ScriptState()
         {
         }
+        public static new ScriptState Empty => new ScriptState();
     }
 }

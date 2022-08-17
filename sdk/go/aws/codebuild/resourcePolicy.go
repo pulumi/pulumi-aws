@@ -19,70 +19,73 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleReportGroup, err := codebuild.NewReportGroup(ctx, "exampleReportGroup", &codebuild.ReportGroupArgs{
-// 			Type: pulumi.String("TEST"),
-// 			ExportConfig: &codebuild.ReportGroupExportConfigArgs{
-// 				Type: pulumi.String("NO_EXPORT"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		currentPartition, err := aws.GetPartition(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = codebuild.NewResourcePolicy(ctx, "exampleResourcePolicy", &codebuild.ResourcePolicyArgs{
-// 			ResourceArn: exampleReportGroup.Arn,
-// 			Policy: exampleReportGroup.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-// 				var _zero pulumi.String
-// 				tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 					"Version": "2012-10-17",
-// 					"Id":      "default",
-// 					"Statement": []map[string]interface{}{
-// 						map[string]interface{}{
-// 							"Sid":    "default",
-// 							"Effect": "Allow",
-// 							"Principal": map[string]interface{}{
-// 								"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentPartition.Partition, currentCallerIdentity.AccountId),
-// 							},
-// 							"Action": []string{
-// 								"codebuild:BatchGetReportGroups",
-// 								"codebuild:BatchGetReports",
-// 								"codebuild:ListReportsForReportGroup",
-// 								"codebuild:DescribeTestCases",
-// 							},
-// 							"Resource": arn,
-// 						},
-// 					},
-// 				})
-// 				if err != nil {
-// 					return _zero, err
-// 				}
-// 				json0 := string(tmpJSON0)
-// 				return json0, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleReportGroup, err := codebuild.NewReportGroup(ctx, "exampleReportGroup", &codebuild.ReportGroupArgs{
+//				Type: pulumi.String("TEST"),
+//				ExportConfig: &codebuild.ReportGroupExportConfigArgs{
+//					Type: pulumi.String("NO_EXPORT"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codebuild.NewResourcePolicy(ctx, "exampleResourcePolicy", &codebuild.ResourcePolicyArgs{
+//				ResourceArn: exampleReportGroup.Arn,
+//				Policy: exampleReportGroup.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"Version": "2012-10-17",
+//						"Id":      "default",
+//						"Statement": []map[string]interface{}{
+//							map[string]interface{}{
+//								"Sid":    "default",
+//								"Effect": "Allow",
+//								"Principal": map[string]interface{}{
+//									"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentPartition.Partition, currentCallerIdentity.AccountId),
+//								},
+//								"Action": []string{
+//									"codebuild:BatchGetReportGroups",
+//									"codebuild:BatchGetReports",
+//									"codebuild:ListReportsForReportGroup",
+//									"codebuild:DescribeTestCases",
+//								},
+//								"Resource": arn,
+//							},
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return json0, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -90,7 +93,9 @@ import (
 // CodeBuild Resource Policy can be imported using the CodeBuild Resource Policy arn, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:codebuild/resourcePolicy:ResourcePolicy example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+//
+//	$ pulumi import aws:codebuild/resourcePolicy:ResourcePolicy example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+//
 // ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
@@ -194,7 +199,7 @@ func (i *ResourcePolicy) ToResourcePolicyOutputWithContext(ctx context.Context) 
 // ResourcePolicyArrayInput is an input type that accepts ResourcePolicyArray and ResourcePolicyArrayOutput values.
 // You can construct a concrete instance of `ResourcePolicyArrayInput` via:
 //
-//          ResourcePolicyArray{ ResourcePolicyArgs{...} }
+//	ResourcePolicyArray{ ResourcePolicyArgs{...} }
 type ResourcePolicyArrayInput interface {
 	pulumi.Input
 
@@ -219,7 +224,7 @@ func (i ResourcePolicyArray) ToResourcePolicyArrayOutputWithContext(ctx context.
 // ResourcePolicyMapInput is an input type that accepts ResourcePolicyMap and ResourcePolicyMapOutput values.
 // You can construct a concrete instance of `ResourcePolicyMapInput` via:
 //
-//          ResourcePolicyMap{ "key": ResourcePolicyArgs{...} }
+//	ResourcePolicyMap{ "key": ResourcePolicyArgs{...} }
 type ResourcePolicyMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupRuleStatementXssMatchStatementArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleStatementXssMatchStatementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public RuleGroupRuleStatementXssMatchStatementArgs()
         {
         }
+        public static new RuleGroupRuleStatementXssMatchStatementArgs Empty => new RuleGroupRuleStatementXssMatchStatementArgs();
     }
 }

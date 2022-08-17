@@ -21,69 +21,72 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Sid: pulumi.StringRef("1"),
-// 					Actions: []string{
-// 						"s3:ListAllMyBuckets",
-// 						"s3:GetBucketLocation",
-// 					},
-// 					Resources: []string{
-// 						"arn:aws:s3:::*",
-// 					},
-// 				},
-// 				iam.GetPolicyDocumentStatement{
-// 					Actions: []string{
-// 						"s3:ListBucket",
-// 					},
-// 					Resources: []string{
-// 						fmt.Sprintf("arn:aws:s3:::%v", _var.S3_bucket_name),
-// 					},
-// 					Conditions: []iam.GetPolicyDocumentStatementCondition{
-// 						iam.GetPolicyDocumentStatementCondition{
-// 							Test:     "StringLike",
-// 							Variable: "s3:prefix",
-// 							Values: []string{
-// 								"",
-// 								"home/",
-// 								"home/&{aws:username}/",
-// 							},
-// 						},
-// 					},
-// 				},
-// 				iam.GetPolicyDocumentStatement{
-// 					Actions: []string{
-// 						"s3:*",
-// 					},
-// 					Resources: []string{
-// 						fmt.Sprintf("arn:aws:s3:::%v/home/&{aws:username}", _var.S3_bucket_name),
-// 						fmt.Sprintf("arn:aws:s3:::%v/home/&{aws:username}/*", _var.S3_bucket_name),
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
-// 			Path:   pulumi.String("/"),
-// 			Policy: pulumi.String(examplePolicyDocument.Json),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					iam.GetPolicyDocumentStatement{
+//						Sid: pulumi.StringRef("1"),
+//						Actions: []string{
+//							"s3:ListAllMyBuckets",
+//							"s3:GetBucketLocation",
+//						},
+//						Resources: []string{
+//							"arn:aws:s3:::*",
+//						},
+//					},
+//					iam.GetPolicyDocumentStatement{
+//						Actions: []string{
+//							"s3:ListBucket",
+//						},
+//						Resources: []string{
+//							fmt.Sprintf("arn:aws:s3:::%v", _var.S3_bucket_name),
+//						},
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							iam.GetPolicyDocumentStatementCondition{
+//								Test:     "StringLike",
+//								Variable: "s3:prefix",
+//								Values: []string{
+//									"",
+//									"home/",
+//									"home/&{aws:username}/",
+//								},
+//							},
+//						},
+//					},
+//					iam.GetPolicyDocumentStatement{
+//						Actions: []string{
+//							"s3:*",
+//						},
+//						Resources: []string{
+//							fmt.Sprintf("arn:aws:s3:::%v/home/&{aws:username}", _var.S3_bucket_name),
+//							fmt.Sprintf("arn:aws:s3:::%v/home/&{aws:username}/*", _var.S3_bucket_name),
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
+//				Path:   pulumi.String("/"),
+//				Policy: pulumi.String(examplePolicyDocument.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Example Multiple Condition Keys and Values
 //
@@ -93,55 +96,58 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Actions: []string{
-// 						"kms:Decrypt",
-// 						"kms:GenerateDataKey",
-// 					},
-// 					Conditions: []iam.GetPolicyDocumentStatementCondition{
-// 						iam.GetPolicyDocumentStatementCondition{
-// 							Test: "ForAnyValue:StringEquals",
-// 							Values: []string{
-// 								"pi",
-// 							},
-// 							Variable: "kms:EncryptionContext:service",
-// 						},
-// 						iam.GetPolicyDocumentStatementCondition{
-// 							Test: "ForAnyValue:StringEquals",
-// 							Values: []string{
-// 								"rds",
-// 							},
-// 							Variable: "kms:EncryptionContext:aws:pi:service",
-// 						},
-// 						iam.GetPolicyDocumentStatementCondition{
-// 							Test: "ForAnyValue:StringEquals",
-// 							Values: []string{
-// 								"db-AAAAABBBBBCCCCCDDDDDEEEEE",
-// 								"db-EEEEEDDDDDCCCCCBBBBBAAAAA",
-// 							},
-// 							Variable: "kms:EncryptionContext:aws:rds:db-id",
-// 						},
-// 					},
-// 					Resources: []string{
-// 						"*",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					iam.GetPolicyDocumentStatement{
+//						Actions: []string{
+//							"kms:Decrypt",
+//							"kms:GenerateDataKey",
+//						},
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							iam.GetPolicyDocumentStatementCondition{
+//								Test: "ForAnyValue:StringEquals",
+//								Values: []string{
+//									"pi",
+//								},
+//								Variable: "kms:EncryptionContext:service",
+//							},
+//							iam.GetPolicyDocumentStatementCondition{
+//								Test: "ForAnyValue:StringEquals",
+//								Values: []string{
+//									"rds",
+//								},
+//								Variable: "kms:EncryptionContext:aws:pi:service",
+//							},
+//							iam.GetPolicyDocumentStatementCondition{
+//								Test: "ForAnyValue:StringEquals",
+//								Values: []string{
+//									"db-AAAAABBBBBCCCCCDDDDDEEEEE",
+//									"db-EEEEEDDDDDCCCCCBBBBBAAAAA",
+//								},
+//								Variable: "kms:EncryptionContext:aws:rds:db-id",
+//							},
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
@@ -150,14 +156,17 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetPolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetPolicyDocumentResult, error) {
 	var rv GetPolicyDocumentResult

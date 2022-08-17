@@ -21,22 +21,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewAvailabilityZoneGroup(ctx, "example", &ec2.AvailabilityZoneGroupArgs{
-// 			GroupName:   pulumi.String("us-west-2-lax-1"),
-// 			OptInStatus: pulumi.String("opted-in"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewAvailabilityZoneGroup(ctx, "example", &ec2.AvailabilityZoneGroupArgs{
+//				GroupName:   pulumi.String("us-west-2-lax-1"),
+//				OptInStatus: pulumi.String("opted-in"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // EC2 Availability Zone Groups can be imported using the group name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
+//
+//	$ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
+//
 // ```
 type AvailabilityZoneGroup struct {
 	pulumi.CustomResourceState
@@ -148,7 +153,7 @@ func (i *AvailabilityZoneGroup) ToAvailabilityZoneGroupOutputWithContext(ctx con
 // AvailabilityZoneGroupArrayInput is an input type that accepts AvailabilityZoneGroupArray and AvailabilityZoneGroupArrayOutput values.
 // You can construct a concrete instance of `AvailabilityZoneGroupArrayInput` via:
 //
-//          AvailabilityZoneGroupArray{ AvailabilityZoneGroupArgs{...} }
+//	AvailabilityZoneGroupArray{ AvailabilityZoneGroupArgs{...} }
 type AvailabilityZoneGroupArrayInput interface {
 	pulumi.Input
 
@@ -173,7 +178,7 @@ func (i AvailabilityZoneGroupArray) ToAvailabilityZoneGroupArrayOutputWithContex
 // AvailabilityZoneGroupMapInput is an input type that accepts AvailabilityZoneGroupMap and AvailabilityZoneGroupMapOutput values.
 // You can construct a concrete instance of `AvailabilityZoneGroupMapInput` via:
 //
-//          AvailabilityZoneGroupMap{ "key": AvailabilityZoneGroupArgs{...} }
+//	AvailabilityZoneGroupMap{ "key": AvailabilityZoneGroupArgs{...} }
 type AvailabilityZoneGroupMapInput interface {
 	pulumi.Input
 

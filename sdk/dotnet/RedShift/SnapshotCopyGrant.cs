@@ -17,28 +17,27 @@ namespace Pulumi.Aws.RedShift
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testSnapshotCopyGrant = new Aws.RedShift.SnapshotCopyGrant("testSnapshotCopyGrant", new()
     ///     {
-    ///         var testSnapshotCopyGrant = new Aws.RedShift.SnapshotCopyGrant("testSnapshotCopyGrant", new Aws.RedShift.SnapshotCopyGrantArgs
-    ///         {
-    ///             SnapshotCopyGrantName = "my-grant",
-    ///         });
-    ///         var testCluster = new Aws.RedShift.Cluster("testCluster", new Aws.RedShift.ClusterArgs
-    ///         {
-    ///             SnapshotCopy = new Aws.RedShift.Inputs.ClusterSnapshotCopyArgs
-    ///             {
-    ///                 DestinationRegion = "us-east-2",
-    ///                 GrantName = testSnapshotCopyGrant.SnapshotCopyGrantName,
-    ///             },
-    ///         });
-    ///     }
+    ///         SnapshotCopyGrantName = "my-grant",
+    ///     });
     /// 
-    /// }
+    ///     var testCluster = new Aws.RedShift.Cluster("testCluster", new()
+    ///     {
+    ///         SnapshotCopy = new Aws.RedShift.Inputs.ClusterSnapshotCopyArgs
+    ///         {
+    ///             DestinationRegion = "us-east-2",
+    ///             GrantName = testSnapshotCopyGrant.SnapshotCopyGrantName,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +49,7 @@ namespace Pulumi.Aws.RedShift
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/snapshotCopyGrant:SnapshotCopyGrant")]
-    public partial class SnapshotCopyGrant : Pulumi.CustomResource
+    public partial class SnapshotCopyGrant : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of snapshot copy grant
@@ -77,7 +76,7 @@ namespace Pulumi.Aws.RedShift
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -126,7 +125,7 @@ namespace Pulumi.Aws.RedShift
         }
     }
 
-    public sealed class SnapshotCopyGrantArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotCopyGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
@@ -155,9 +154,10 @@ namespace Pulumi.Aws.RedShift
         public SnapshotCopyGrantArgs()
         {
         }
+        public static new SnapshotCopyGrantArgs Empty => new SnapshotCopyGrantArgs();
     }
 
-    public sealed class SnapshotCopyGrantState : Pulumi.ResourceArgs
+    public sealed class SnapshotCopyGrantState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of snapshot copy grant
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -204,5 +204,6 @@ namespace Pulumi.Aws.RedShift
         public SnapshotCopyGrantState()
         {
         }
+        public static new SnapshotCopyGrantState Empty => new SnapshotCopyGrantState();
     }
 }

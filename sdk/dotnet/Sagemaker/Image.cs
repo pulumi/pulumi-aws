@@ -16,21 +16,19 @@ namespace Pulumi.Aws.Sagemaker
     /// ### Basic usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.Image("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.Image("example", new Aws.Sagemaker.ImageArgs
-    ///         {
-    ///             ImageName = "example",
-    ///             RoleArn = aws_iam_role.Test.Arn,
-    ///         });
-    ///     }
+    ///         ImageName = "example",
+    ///         RoleArn = aws_iam_role.Test.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/image:Image")]
-    public partial class Image : Pulumi.CustomResource
+    public partial class Image : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Image.
@@ -81,7 +79,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -130,7 +128,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class ImageArgs : Pulumi.ResourceArgs
+    public sealed class ImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the image.
@@ -171,9 +169,10 @@ namespace Pulumi.Aws.Sagemaker
         public ImageArgs()
         {
         }
+        public static new ImageArgs Empty => new ImageArgs();
     }
 
-    public sealed class ImageState : Pulumi.ResourceArgs
+    public sealed class ImageState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Image.
@@ -221,7 +220,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -232,5 +231,6 @@ namespace Pulumi.Aws.Sagemaker
         public ImageState()
         {
         }
+        public static new ImageState Empty => new ImageState();
     }
 }

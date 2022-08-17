@@ -22,20 +22,18 @@ namespace Pulumi.Aws.Ebs
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ebs.DefaultKmsKey("example", new()
     ///     {
-    ///         var example = new Aws.Ebs.DefaultKmsKey("example", new Aws.Ebs.DefaultKmsKeyArgs
-    ///         {
-    ///             KeyArn = aws_kms_key.Example.Arn,
-    ///         });
-    ///     }
+    ///         KeyArn = aws_kms_key.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Aws.Ebs
     /// ```
     /// </summary>
     [AwsResourceType("aws:ebs/defaultKmsKey:DefaultKmsKey")]
-    public partial class DefaultKmsKey : Pulumi.CustomResource
+    public partial class DefaultKmsKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
@@ -99,7 +97,7 @@ namespace Pulumi.Aws.Ebs
         }
     }
 
-    public sealed class DefaultKmsKeyArgs : Pulumi.ResourceArgs
+    public sealed class DefaultKmsKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
@@ -110,9 +108,10 @@ namespace Pulumi.Aws.Ebs
         public DefaultKmsKeyArgs()
         {
         }
+        public static new DefaultKmsKeyArgs Empty => new DefaultKmsKeyArgs();
     }
 
-    public sealed class DefaultKmsKeyState : Pulumi.ResourceArgs
+    public sealed class DefaultKmsKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
@@ -123,5 +122,6 @@ namespace Pulumi.Aws.Ebs
         public DefaultKmsKeyState()
         {
         }
+        public static new DefaultKmsKeyState Empty => new DefaultKmsKeyState();
     }
 }

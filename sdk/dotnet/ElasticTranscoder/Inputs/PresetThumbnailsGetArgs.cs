@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticTranscoder.Inputs
 {
 
-    public sealed class PresetThumbnailsGetArgs : Pulumi.ResourceArgs
+    public sealed class PresetThumbnailsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
         public PresetThumbnailsGetArgs()
         {
         }
+        public static new PresetThumbnailsGetArgs Empty => new PresetThumbnailsGetArgs();
     }
 }

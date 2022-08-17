@@ -22,7 +22,7 @@ class GetDirectoryResult:
     """
     A collection of values returned by getDirectory.
     """
-    def __init__(__self__, access_url=None, alias=None, connect_settings=None, description=None, directory_id=None, dns_ip_addresses=None, edition=None, enable_sso=None, id=None, name=None, security_group_id=None, short_name=None, size=None, tags=None, type=None, vpc_settings=None):
+    def __init__(__self__, access_url=None, alias=None, connect_settings=None, description=None, directory_id=None, dns_ip_addresses=None, edition=None, enable_sso=None, id=None, name=None, radius_settings=None, security_group_id=None, short_name=None, size=None, tags=None, type=None, vpc_settings=None):
         if access_url and not isinstance(access_url, str):
             raise TypeError("Expected argument 'access_url' to be a str")
         pulumi.set(__self__, "access_url", access_url)
@@ -53,6 +53,9 @@ class GetDirectoryResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if radius_settings and not isinstance(radius_settings, list):
+            raise TypeError("Expected argument 'radius_settings' to be a list")
+        pulumi.set(__self__, "radius_settings", radius_settings)
         if security_group_id and not isinstance(security_group_id, str):
             raise TypeError("Expected argument 'security_group_id' to be a str")
         pulumi.set(__self__, "security_group_id", security_group_id)
@@ -147,6 +150,11 @@ class GetDirectoryResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="radiusSettings")
+    def radius_settings(self) -> Sequence['outputs.GetDirectoryRadiusSettingResult']:
+        return pulumi.get(self, "radius_settings")
+
+    @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> str:
         """
@@ -172,7 +180,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> Mapping[str, str]:
         """
         A map of tags assigned to the directory/connector.
         """
@@ -208,6 +216,7 @@ class AwaitableGetDirectoryResult(GetDirectoryResult):
             enable_sso=self.enable_sso,
             id=self.id,
             name=self.name,
+            radius_settings=self.radius_settings,
             security_group_id=self.security_group_id,
             short_name=self.short_name,
             size=self.size,
@@ -252,6 +261,7 @@ def get_directory(directory_id: Optional[str] = None,
         enable_sso=__ret__.enable_sso,
         id=__ret__.id,
         name=__ret__.name,
+        radius_settings=__ret__.radius_settings,
         security_group_id=__ret__.security_group_id,
         short_name=__ret__.short_name,
         size=__ret__.size,

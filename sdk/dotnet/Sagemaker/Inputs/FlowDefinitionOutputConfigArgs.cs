@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class FlowDefinitionOutputConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowDefinitionOutputConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public FlowDefinitionOutputConfigArgs()
         {
         }
+        public static new FlowDefinitionOutputConfigArgs Empty => new FlowDefinitionOutputConfigArgs();
     }
 }

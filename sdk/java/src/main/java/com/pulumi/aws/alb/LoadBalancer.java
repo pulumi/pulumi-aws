@@ -364,6 +364,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.namePrefix);
     }
     /**
+     * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+     * 
+     */
+    @Export(name="preserveHostHeader", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> preserveHostHeader;
+
+    /**
+     * @return Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> preserveHostHeader() {
+        return Codegen.optional(this.preserveHostHeader);
+    }
+    /**
      * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      * 
      */
@@ -424,14 +438,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider .
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

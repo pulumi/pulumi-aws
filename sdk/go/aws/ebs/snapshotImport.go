@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ebs.NewSnapshotImport(ctx, "example", &ebs.SnapshotImportArgs{
-// 			DiskContainer: &ebs.SnapshotImportDiskContainerArgs{
-// 				Format: pulumi.String("VHD"),
-// 				UserBucket: &ebs.SnapshotImportDiskContainerUserBucketArgs{
-// 					S3Bucket: pulumi.String("disk-images"),
-// 					S3Key:    pulumi.String("source.vhd"),
-// 				},
-// 			},
-// 			RoleName: pulumi.String("disk-image-import"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("HelloWorld"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ebs.NewSnapshotImport(ctx, "example", &ebs.SnapshotImportArgs{
+//				DiskContainer: &ebs.SnapshotImportDiskContainerArgs{
+//					Format: pulumi.String("VHD"),
+//					UserBucket: &ebs.SnapshotImportDiskContainerUserBucketArgs{
+//						S3Bucket: pulumi.String("disk-images"),
+//						S3Key:    pulumi.String("source.vhd"),
+//					},
+//				},
+//				RoleName: pulumi.String("disk-image-import"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("HelloWorld"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type SnapshotImport struct {
 	pulumi.CustomResourceState
@@ -263,7 +266,7 @@ func (i *SnapshotImport) ToSnapshotImportOutputWithContext(ctx context.Context) 
 // SnapshotImportArrayInput is an input type that accepts SnapshotImportArray and SnapshotImportArrayOutput values.
 // You can construct a concrete instance of `SnapshotImportArrayInput` via:
 //
-//          SnapshotImportArray{ SnapshotImportArgs{...} }
+//	SnapshotImportArray{ SnapshotImportArgs{...} }
 type SnapshotImportArrayInput interface {
 	pulumi.Input
 
@@ -288,7 +291,7 @@ func (i SnapshotImportArray) ToSnapshotImportArrayOutputWithContext(ctx context.
 // SnapshotImportMapInput is an input type that accepts SnapshotImportMap and SnapshotImportMapOutput values.
 // You can construct a concrete instance of `SnapshotImportMapInput` via:
 //
-//          SnapshotImportMap{ "key": SnapshotImportArgs{...} }
+//	SnapshotImportMap{ "key": SnapshotImportArgs{...} }
 type SnapshotImportMapInput interface {
 	pulumi.Input
 

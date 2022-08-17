@@ -17,29 +17,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := kendra.NewThesaurus(ctx, "example", &kendra.ThesaurusArgs{
-// 			IndexId: pulumi.Any(aws_kendra_index.Example.Id),
-// 			RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 			SourceS3Path: &kendra.ThesaurusSourceS3PathArgs{
-// 				Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-// 				Key:    pulumi.Any(aws_s3_object.Example.Key),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Example Kendra Thesaurus"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kendra.NewThesaurus(ctx, "example", &kendra.ThesaurusArgs{
+//				IndexId: pulumi.Any(aws_kendra_index.Example.Id),
+//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				SourceS3Path: &kendra.ThesaurusSourceS3PathArgs{
+//					Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
+//					Key:    pulumi.Any(aws_s3_object.Example.Key),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example Kendra Thesaurus"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // `aws_kendra_thesaurus` can be imported using the unique identifiers of the thesaurus and index separated by a slash (`/`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
+//
+//	$ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
+//
 // ```
 type Thesaurus struct {
 	pulumi.CustomResourceState
@@ -65,9 +70,8 @@ type Thesaurus struct {
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
 	SourceS3Path ThesaurusSourceS3PathOutput `pulumi:"sourceS3Path"`
 	// The current status of the thesaurus.
-	Status pulumi.StringOutput    `pulumi:"status"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Status      pulumi.StringOutput    `pulumi:"status"`
+	Tags        pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 	ThesaurusId pulumi.StringOutput    `pulumi:"thesaurusId"`
 }
@@ -123,9 +127,8 @@ type thesaurusState struct {
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
 	SourceS3Path *ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
 	// The current status of the thesaurus.
-	Status *string           `pulumi:"status"`
-	Tags   map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Status      *string           `pulumi:"status"`
+	Tags        map[string]string `pulumi:"tags"`
 	TagsAll     map[string]string `pulumi:"tagsAll"`
 	ThesaurusId *string           `pulumi:"thesaurusId"`
 }
@@ -144,9 +147,8 @@ type ThesaurusState struct {
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
 	SourceS3Path ThesaurusSourceS3PathPtrInput
 	// The current status of the thesaurus.
-	Status pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Status      pulumi.StringPtrInput
+	Tags        pulumi.StringMapInput
 	TagsAll     pulumi.StringMapInput
 	ThesaurusId pulumi.StringPtrInput
 }
@@ -167,8 +169,6 @@ type thesaurusArgs struct {
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
 	SourceS3Path ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
 	Tags         map[string]string     `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Thesaurus resource.
@@ -184,8 +184,6 @@ type ThesaurusArgs struct {
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
 	SourceS3Path ThesaurusSourceS3PathInput
 	Tags         pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
 }
 
 func (ThesaurusArgs) ElementType() reflect.Type {
@@ -214,7 +212,7 @@ func (i *Thesaurus) ToThesaurusOutputWithContext(ctx context.Context) ThesaurusO
 // ThesaurusArrayInput is an input type that accepts ThesaurusArray and ThesaurusArrayOutput values.
 // You can construct a concrete instance of `ThesaurusArrayInput` via:
 //
-//          ThesaurusArray{ ThesaurusArgs{...} }
+//	ThesaurusArray{ ThesaurusArgs{...} }
 type ThesaurusArrayInput interface {
 	pulumi.Input
 
@@ -239,7 +237,7 @@ func (i ThesaurusArray) ToThesaurusArrayOutputWithContext(ctx context.Context) T
 // ThesaurusMapInput is an input type that accepts ThesaurusMap and ThesaurusMapOutput values.
 // You can construct a concrete instance of `ThesaurusMapInput` via:
 //
-//          ThesaurusMap{ "key": ThesaurusArgs{...} }
+//	ThesaurusMap{ "key": ThesaurusArgs{...} }
 type ThesaurusMapInput interface {
 	pulumi.Input
 
@@ -314,7 +312,6 @@ func (o ThesaurusOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o ThesaurusOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

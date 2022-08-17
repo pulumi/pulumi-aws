@@ -17,57 +17,59 @@ namespace Pulumi.Aws.Ec2
     /// Basic usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new Aws.Ec2.VpcIpamArgs
-    ///         {
-    ///             OperatingRegions = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
-    ///                 {
-    ///                     RegionName = current.Apply(current =&gt; current.Name),
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("exampleVpcIpamPool", new Aws.Ec2.VpcIpamPoolArgs
-    ///         {
-    ///             AddressFamily = "ipv4",
-    ///             IpamScopeId = exampleVpcIpam.PrivateDefaultScopeId,
-    ///             Locale = current.Apply(current =&gt; current.Name),
-    ///         });
-    ///         var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", new Aws.Ec2.VpcIpamPoolCidrArgs
-    ///         {
-    ///             IpamPoolId = exampleVpcIpamPool.Id,
-    ///             Cidr = "172.2.0.0/16",
-    ///         });
-    ///         var exampleVpcIpamPreviewNextCidr = new Aws.Ec2.VpcIpamPreviewNextCidr("exampleVpcIpamPreviewNextCidr", new Aws.Ec2.VpcIpamPreviewNextCidrArgs
-    ///         {
-    ///             IpamPoolId = exampleVpcIpamPool.Id,
-    ///             NetmaskLength = 28,
-    ///             DisallowedCidrs = 
-    ///             {
-    ///                 "172.2.0.0/32",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleVpcIpamPoolCidr,
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
-    /// }
+    ///     var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new()
+    ///     {
+    ///         OperatingRegions = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
+    ///             {
+    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("exampleVpcIpamPool", new()
+    ///     {
+    ///         AddressFamily = "ipv4",
+    ///         IpamScopeId = exampleVpcIpam.PrivateDefaultScopeId,
+    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///     });
+    /// 
+    ///     var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", new()
+    ///     {
+    ///         IpamPoolId = exampleVpcIpamPool.Id,
+    ///         Cidr = "172.2.0.0/16",
+    ///     });
+    /// 
+    ///     var exampleVpcIpamPreviewNextCidr = new Aws.Ec2.VpcIpamPreviewNextCidr("exampleVpcIpamPreviewNextCidr", new()
+    ///     {
+    ///         IpamPoolId = exampleVpcIpamPool.Id,
+    ///         NetmaskLength = 28,
+    ///         DisallowedCidrs = new[]
+    ///         {
+    ///             "172.2.0.0/32",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleVpcIpamPoolCidr,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr")]
-    public partial class VpcIpamPreviewNextCidr : Pulumi.CustomResource
+    public partial class VpcIpamPreviewNextCidr : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The previewed CIDR from the pool.
@@ -137,7 +139,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcIpamPreviewNextCidrArgs : Pulumi.ResourceArgs
+    public sealed class VpcIpamPreviewNextCidrArgs : global::Pulumi.ResourceArgs
     {
         [Input("disallowedCidrs")]
         private InputList<string>? _disallowedCidrs;
@@ -166,9 +168,10 @@ namespace Pulumi.Aws.Ec2
         public VpcIpamPreviewNextCidrArgs()
         {
         }
+        public static new VpcIpamPreviewNextCidrArgs Empty => new VpcIpamPreviewNextCidrArgs();
     }
 
-    public sealed class VpcIpamPreviewNextCidrState : Pulumi.ResourceArgs
+    public sealed class VpcIpamPreviewNextCidrState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The previewed CIDR from the pool.
@@ -203,5 +206,6 @@ namespace Pulumi.Aws.Ec2
         public VpcIpamPreviewNextCidrState()
         {
         }
+        public static new VpcIpamPreviewNextCidrState Empty => new VpcIpamPreviewNextCidrState();
     }
 }

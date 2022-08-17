@@ -45,7 +45,7 @@ namespace Pulumi.Aws
     }
 
 
-    public sealed class GetAvailabilityZoneArgs : Pulumi.InvokeArgs
+    public sealed class GetAvailabilityZoneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
@@ -86,9 +86,10 @@ namespace Pulumi.Aws
         public GetAvailabilityZoneArgs()
         {
         }
+        public static new GetAvailabilityZoneArgs Empty => new GetAvailabilityZoneArgs();
     }
 
-    public sealed class GetAvailabilityZoneInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAvailabilityZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
@@ -129,6 +130,7 @@ namespace Pulumi.Aws
         public GetAvailabilityZoneInvokeArgs()
         {
         }
+        public static new GetAvailabilityZoneInvokeArgs Empty => new GetAvailabilityZoneInvokeArgs();
     }
 
 

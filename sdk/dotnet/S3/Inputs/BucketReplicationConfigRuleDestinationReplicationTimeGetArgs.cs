@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigRuleDestinationReplicationTimeGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigRuleDestinationReplicationTimeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The status of the Replication Time Control. Either `"Enabled"` or `"Disabled"`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigRuleDestinationReplicationTimeGetArgs()
         {
         }
+        public static new BucketReplicationConfigRuleDestinationReplicationTimeGetArgs Empty => new BucketReplicationConfigRuleDestinationReplicationTimeGetArgs();
     }
 }

@@ -21,39 +21,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleMember, err := securityhub.NewMember(ctx, "exampleMember", &securityhub.MemberArgs{
-// 			AccountId: pulumi.String("123456789012"),
-// 			Email:     pulumi.String("example@example.com"),
-// 			Invite:    pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		inviteeAccount, err := securityhub.NewAccount(ctx, "inviteeAccount", nil, pulumi.Provider("aws.invitee"))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = securityhub.NewInviteAccepter(ctx, "inviteeInviteAccepter", &securityhub.InviteAccepterArgs{
-// 			MasterId: exampleMember.MasterId,
-// 		}, pulumi.Provider("aws.invitee"), pulumi.DependsOn([]pulumi.Resource{
-// 			inviteeAccount,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleMember, err := securityhub.NewMember(ctx, "exampleMember", &securityhub.MemberArgs{
+//				AccountId: pulumi.String("123456789012"),
+//				Email:     pulumi.String("example@example.com"),
+//				Invite:    pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			inviteeAccount, err := securityhub.NewAccount(ctx, "inviteeAccount", nil, pulumi.Provider("aws.invitee"))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewInviteAccepter(ctx, "inviteeInviteAccepter", &securityhub.InviteAccepterArgs{
+//				MasterId: exampleMember.MasterId,
+//			}, pulumi.Provider("aws.invitee"), pulumi.DependsOn([]pulumi.Resource{
+//				inviteeAccount,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // Security Hub invite acceptance can be imported using the account ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
+//
+//	$ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
+//
 // ```
 type InviteAccepter struct {
 	pulumi.CustomResourceState
@@ -158,7 +163,7 @@ func (i *InviteAccepter) ToInviteAccepterOutputWithContext(ctx context.Context) 
 // InviteAccepterArrayInput is an input type that accepts InviteAccepterArray and InviteAccepterArrayOutput values.
 // You can construct a concrete instance of `InviteAccepterArrayInput` via:
 //
-//          InviteAccepterArray{ InviteAccepterArgs{...} }
+//	InviteAccepterArray{ InviteAccepterArgs{...} }
 type InviteAccepterArrayInput interface {
 	pulumi.Input
 
@@ -183,7 +188,7 @@ func (i InviteAccepterArray) ToInviteAccepterArrayOutputWithContext(ctx context.
 // InviteAccepterMapInput is an input type that accepts InviteAccepterMap and InviteAccepterMapOutput values.
 // You can construct a concrete instance of `InviteAccepterMapInput` via:
 //
-//          InviteAccepterMap{ "key": InviteAccepterArgs{...} }
+//	InviteAccepterMap{ "key": InviteAccepterArgs{...} }
 type InviteAccepterMapInput interface {
 	pulumi.Input
 

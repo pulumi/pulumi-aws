@@ -49,14 +49,14 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+     * @return The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -164,7 +164,7 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+         * @param ipAddressType The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class AcceleratorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+         * @param ipAddressType The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
          * 
          * @return builder
          * 

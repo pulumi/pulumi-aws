@@ -17,29 +17,30 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lbUser = new Aws.Iam.User("lbUser", new()
     ///     {
-    ///         var lbUser = new Aws.Iam.User("lbUser", new Aws.Iam.UserArgs
+    ///         Path = "/system/",
+    ///         Tags = 
     ///         {
-    ///             Path = "/system/",
-    ///             Tags = 
-    ///             {
-    ///                 { "tag-key", "tag-value" },
-    ///             },
-    ///         });
-    ///         var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new Aws.Iam.AccessKeyArgs
-    ///         {
-    ///             User = lbUser.Name,
-    ///         });
-    ///         var lbRo = new Aws.Iam.UserPolicy("lbRo", new Aws.Iam.UserPolicyArgs
-    ///         {
-    ///             User = lbUser.Name,
-    ///             Policy = @"{
+    ///             { "tag-key", "tag-value" },
+    ///         },
+    ///     });
+    /// 
+    ///     var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new()
+    ///     {
+    ///         User = lbUser.Name,
+    ///     });
+    /// 
+    ///     var lbRo = new Aws.Iam.UserPolicy("lbRo", new()
+    ///     {
+    ///         User = lbUser.Name,
+    ///         Policy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -52,10 +53,9 @@ namespace Pulumi.Aws.Iam
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/user:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN assigned by AWS for this user.
@@ -102,13 +102,13 @@ namespace Pulumi.Aws.Iam
         public Output<string?> PermissionsBoundary { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of tags for the IAM user
+        /// Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When destroying this user, destroy even if it
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the IAM user
+        /// Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -206,9 +206,10 @@ namespace Pulumi.Aws.Iam
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 
-    public sealed class UserState : Pulumi.ResourceArgs
+    public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN assigned by AWS for this user.
@@ -246,7 +247,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the IAM user
+        /// Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -258,7 +259,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -275,5 +276,6 @@ namespace Pulumi.Aws.Iam
         public UserState()
         {
         }
+        public static new UserState Empty => new UserState();
     }
 }

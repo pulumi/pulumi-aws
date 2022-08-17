@@ -22,68 +22,62 @@ namespace Pulumi.Aws.StorageGateway
     /// ### Create Empty Cached iSCSI Volume
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.StorageGateway.CachesIscsiVolume("example", new()
     ///     {
-    ///         var example = new Aws.StorageGateway.CachesIscsiVolume("example", new Aws.StorageGateway.CachesIscsiVolumeArgs
-    ///         {
-    ///             GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
-    ///             NetworkInterfaceId = aws_instance.Example.Private_ip,
-    ///             TargetName = "example",
-    ///             VolumeSizeInBytes = 5368709120,
-    ///         });
-    ///         // 5 GB
-    ///     }
+    ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
+    ///         NetworkInterfaceId = aws_instance.Example.Private_ip,
+    ///         TargetName = "example",
+    ///         VolumeSizeInBytes = 5368709120,
+    ///     });
     /// 
-    /// }
+    ///     // 5 GB
+    /// });
     /// ```
     /// ### Create Cached iSCSI Volume From Snapshot
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.StorageGateway.CachesIscsiVolume("example", new()
     ///     {
-    ///         var example = new Aws.StorageGateway.CachesIscsiVolume("example", new Aws.StorageGateway.CachesIscsiVolumeArgs
-    ///         {
-    ///             GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
-    ///             NetworkInterfaceId = aws_instance.Example.Private_ip,
-    ///             SnapshotId = aws_ebs_snapshot.Example.Id,
-    ///             TargetName = "example",
-    ///             VolumeSizeInBytes = aws_ebs_snapshot.Example.Volume_size * 1024 * 1024 * 1024,
-    ///         });
-    ///     }
+    ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
+    ///         NetworkInterfaceId = aws_instance.Example.Private_ip,
+    ///         SnapshotId = aws_ebs_snapshot.Example.Id,
+    ///         TargetName = "example",
+    ///         VolumeSizeInBytes = aws_ebs_snapshot.Example.Volume_size * 1024 * 1024 * 1024,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Create Cached iSCSI Volume From Source Volume
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.StorageGateway.CachesIscsiVolume("example", new()
     ///     {
-    ///         var example = new Aws.StorageGateway.CachesIscsiVolume("example", new Aws.StorageGateway.CachesIscsiVolumeArgs
-    ///         {
-    ///             GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
-    ///             NetworkInterfaceId = aws_instance.Example.Private_ip,
-    ///             SourceVolumeArn = aws_storagegateway_cached_iscsi_volume.Existing.Arn,
-    ///             TargetName = "example",
-    ///             VolumeSizeInBytes = aws_storagegateway_cached_iscsi_volume.Existing.Volume_size_in_bytes,
-    ///         });
-    ///     }
+    ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
+    ///         NetworkInterfaceId = aws_instance.Example.Private_ip,
+    ///         SourceVolumeArn = aws_storagegateway_cached_iscsi_volume.Existing.Arn,
+    ///         TargetName = "example",
+    ///         VolumeSizeInBytes = aws_storagegateway_cached_iscsi_volume.Existing.Volume_size_in_bytes,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -95,7 +89,7 @@ namespace Pulumi.Aws.StorageGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume")]
-    public partial class CachesIscsiVolume : Pulumi.CustomResource
+    public partial class CachesIscsiVolume : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
@@ -243,7 +237,7 @@ namespace Pulumi.Aws.StorageGateway
         }
     }
 
-    public sealed class CachesIscsiVolumeArgs : Pulumi.ResourceArgs
+    public sealed class CachesIscsiVolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the gateway.
@@ -308,9 +302,10 @@ namespace Pulumi.Aws.StorageGateway
         public CachesIscsiVolumeArgs()
         {
         }
+        public static new CachesIscsiVolumeArgs Empty => new CachesIscsiVolumeArgs();
     }
 
-    public sealed class CachesIscsiVolumeState : Pulumi.ResourceArgs
+    public sealed class CachesIscsiVolumeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
@@ -429,5 +424,6 @@ namespace Pulumi.Aws.StorageGateway
         public CachesIscsiVolumeState()
         {
         }
+        public static new CachesIscsiVolumeState Empty => new CachesIscsiVolumeState();
     }
 }

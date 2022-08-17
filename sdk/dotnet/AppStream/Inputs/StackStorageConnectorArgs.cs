@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppStream.Inputs
 {
 
-    public sealed class StackStorageConnectorArgs : Pulumi.ResourceArgs
+    public sealed class StackStorageConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppStream.Inputs
         public StackStorageConnectorArgs()
         {
         }
+        public static new StackStorageConnectorArgs Empty => new StackStorageConnectorArgs();
     }
 }

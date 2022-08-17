@@ -26,7 +26,7 @@ type BucketLifecycleConfigurationRule struct {
 // BucketLifecycleConfigurationRuleInput is an input type that accepts BucketLifecycleConfigurationRuleArgs and BucketLifecycleConfigurationRuleOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationRuleInput` via:
 //
-//          BucketLifecycleConfigurationRuleArgs{...}
+//	BucketLifecycleConfigurationRuleArgs{...}
 type BucketLifecycleConfigurationRuleInput interface {
 	pulumi.Input
 
@@ -62,7 +62,7 @@ func (i BucketLifecycleConfigurationRuleArgs) ToBucketLifecycleConfigurationRule
 // BucketLifecycleConfigurationRuleArrayInput is an input type that accepts BucketLifecycleConfigurationRuleArray and BucketLifecycleConfigurationRuleArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationRuleArrayInput` via:
 //
-//          BucketLifecycleConfigurationRuleArray{ BucketLifecycleConfigurationRuleArgs{...} }
+//	BucketLifecycleConfigurationRuleArray{ BucketLifecycleConfigurationRuleArgs{...} }
 type BucketLifecycleConfigurationRuleArrayInput interface {
 	pulumi.Input
 
@@ -155,7 +155,7 @@ type BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload struct {
 // BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadInput is an input type that accepts BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs and BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadInput` via:
 //
-//          BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs{...}
+//	BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs{...}
 type BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadInput interface {
 	pulumi.Input
 
@@ -191,11 +191,11 @@ func (i BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs) ToBu
 // BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrInput is an input type that accepts BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs, BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtr and BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrInput` via:
 //
-//          BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs{...}
+//	        BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrInput interface {
 	pulumi.Input
 
@@ -298,7 +298,7 @@ type BucketLifecycleConfigurationRuleExpiration struct {
 // BucketLifecycleConfigurationRuleExpirationInput is an input type that accepts BucketLifecycleConfigurationRuleExpirationArgs and BucketLifecycleConfigurationRuleExpirationOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationRuleExpirationInput` via:
 //
-//          BucketLifecycleConfigurationRuleExpirationArgs{...}
+//	BucketLifecycleConfigurationRuleExpirationArgs{...}
 type BucketLifecycleConfigurationRuleExpirationInput interface {
 	pulumi.Input
 
@@ -338,11 +338,11 @@ func (i BucketLifecycleConfigurationRuleExpirationArgs) ToBucketLifecycleConfigu
 // BucketLifecycleConfigurationRuleExpirationPtrInput is an input type that accepts BucketLifecycleConfigurationRuleExpirationArgs, BucketLifecycleConfigurationRuleExpirationPtr and BucketLifecycleConfigurationRuleExpirationPtrOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationRuleExpirationPtrInput` via:
 //
-//          BucketLifecycleConfigurationRuleExpirationArgs{...}
+//	        BucketLifecycleConfigurationRuleExpirationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketLifecycleConfigurationRuleExpirationPtrInput interface {
 	pulumi.Input
 
@@ -471,7 +471,7 @@ type BucketLifecycleConfigurationRuleFilter struct {
 // BucketLifecycleConfigurationRuleFilterInput is an input type that accepts BucketLifecycleConfigurationRuleFilterArgs and BucketLifecycleConfigurationRuleFilterOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationRuleFilterInput` via:
 //
-//          BucketLifecycleConfigurationRuleFilterArgs{...}
+//	BucketLifecycleConfigurationRuleFilterArgs{...}
 type BucketLifecycleConfigurationRuleFilterInput interface {
 	pulumi.Input
 
@@ -509,11 +509,11 @@ func (i BucketLifecycleConfigurationRuleFilterArgs) ToBucketLifecycleConfigurati
 // BucketLifecycleConfigurationRuleFilterPtrInput is an input type that accepts BucketLifecycleConfigurationRuleFilterArgs, BucketLifecycleConfigurationRuleFilterPtr and BucketLifecycleConfigurationRuleFilterPtrOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationRuleFilterPtrInput` via:
 //
-//          BucketLifecycleConfigurationRuleFilterArgs{...}
+//	        BucketLifecycleConfigurationRuleFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketLifecycleConfigurationRuleFilterPtrInput interface {
 	pulumi.Input
 
@@ -618,18 +618,15 @@ func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Tags() pulumi.StringMap
 }
 
 type MultiRegionAccessPointDetails struct {
-	// The name of the Multi-Region Access Point.
-	Name string `pulumi:"name"`
-	// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+	Name              string                                          `pulumi:"name"`
 	PublicAccessBlock *MultiRegionAccessPointDetailsPublicAccessBlock `pulumi:"publicAccessBlock"`
-	// The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-	Regions []MultiRegionAccessPointDetailsRegion `pulumi:"regions"`
+	Regions           []MultiRegionAccessPointDetailsRegion           `pulumi:"regions"`
 }
 
 // MultiRegionAccessPointDetailsInput is an input type that accepts MultiRegionAccessPointDetailsArgs and MultiRegionAccessPointDetailsOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointDetailsInput` via:
 //
-//          MultiRegionAccessPointDetailsArgs{...}
+//	MultiRegionAccessPointDetailsArgs{...}
 type MultiRegionAccessPointDetailsInput interface {
 	pulumi.Input
 
@@ -638,12 +635,9 @@ type MultiRegionAccessPointDetailsInput interface {
 }
 
 type MultiRegionAccessPointDetailsArgs struct {
-	// The name of the Multi-Region Access Point.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+	Name              pulumi.StringInput                                     `pulumi:"name"`
 	PublicAccessBlock MultiRegionAccessPointDetailsPublicAccessBlockPtrInput `pulumi:"publicAccessBlock"`
-	// The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-	Regions MultiRegionAccessPointDetailsRegionArrayInput `pulumi:"regions"`
+	Regions           MultiRegionAccessPointDetailsRegionArrayInput          `pulumi:"regions"`
 }
 
 func (MultiRegionAccessPointDetailsArgs) ElementType() reflect.Type {
@@ -669,11 +663,11 @@ func (i MultiRegionAccessPointDetailsArgs) ToMultiRegionAccessPointDetailsPtrOut
 // MultiRegionAccessPointDetailsPtrInput is an input type that accepts MultiRegionAccessPointDetailsArgs, MultiRegionAccessPointDetailsPtr and MultiRegionAccessPointDetailsPtrOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointDetailsPtrInput` via:
 //
-//          MultiRegionAccessPointDetailsArgs{...}
+//	        MultiRegionAccessPointDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MultiRegionAccessPointDetailsPtrInput interface {
 	pulumi.Input
 
@@ -723,19 +717,16 @@ func (o MultiRegionAccessPointDetailsOutput) ToMultiRegionAccessPointDetailsPtrO
 	}).(MultiRegionAccessPointDetailsPtrOutput)
 }
 
-// The name of the Multi-Region Access Point.
 func (o MultiRegionAccessPointDetailsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetails) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
 func (o MultiRegionAccessPointDetailsOutput) PublicAccessBlock() MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetails) *MultiRegionAccessPointDetailsPublicAccessBlock {
 		return v.PublicAccessBlock
 	}).(MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput)
 }
 
-// The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
 func (o MultiRegionAccessPointDetailsOutput) Regions() MultiRegionAccessPointDetailsRegionArrayOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetails) []MultiRegionAccessPointDetailsRegion { return v.Regions }).(MultiRegionAccessPointDetailsRegionArrayOutput)
 }
@@ -764,7 +755,6 @@ func (o MultiRegionAccessPointDetailsPtrOutput) Elem() MultiRegionAccessPointDet
 	}).(MultiRegionAccessPointDetailsOutput)
 }
 
-// The name of the Multi-Region Access Point.
 func (o MultiRegionAccessPointDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointDetails) *string {
 		if v == nil {
@@ -774,7 +764,6 @@ func (o MultiRegionAccessPointDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
 func (o MultiRegionAccessPointDetailsPtrOutput) PublicAccessBlock() MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointDetails) *MultiRegionAccessPointDetailsPublicAccessBlock {
 		if v == nil {
@@ -784,7 +773,6 @@ func (o MultiRegionAccessPointDetailsPtrOutput) PublicAccessBlock() MultiRegionA
 	}).(MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput)
 }
 
-// The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
 func (o MultiRegionAccessPointDetailsPtrOutput) Regions() MultiRegionAccessPointDetailsRegionArrayOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointDetails) []MultiRegionAccessPointDetailsRegion {
 		if v == nil {
@@ -795,26 +783,16 @@ func (o MultiRegionAccessPointDetailsPtrOutput) Regions() MultiRegionAccessPoint
 }
 
 type MultiRegionAccessPointDetailsPublicAccessBlock struct {
-	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-	// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-	// * PUT Object calls fail if the request includes a public ACL.
-	// * PUT Bucket calls fail if the request includes a public ACL.
-	BlockPublicAcls *bool `pulumi:"blockPublicAcls"`
-	// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-	// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
-	// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-	// * Ignore all public ACLs on buckets in this account and any objects that they contain.
-	IgnorePublicAcls *bool `pulumi:"ignorePublicAcls"`
-	// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-	// * Only the bucket owner and AWS Services can access buckets with public policies.
+	BlockPublicAcls       *bool `pulumi:"blockPublicAcls"`
+	BlockPublicPolicy     *bool `pulumi:"blockPublicPolicy"`
+	IgnorePublicAcls      *bool `pulumi:"ignorePublicAcls"`
 	RestrictPublicBuckets *bool `pulumi:"restrictPublicBuckets"`
 }
 
 // MultiRegionAccessPointDetailsPublicAccessBlockInput is an input type that accepts MultiRegionAccessPointDetailsPublicAccessBlockArgs and MultiRegionAccessPointDetailsPublicAccessBlockOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointDetailsPublicAccessBlockInput` via:
 //
-//          MultiRegionAccessPointDetailsPublicAccessBlockArgs{...}
+//	MultiRegionAccessPointDetailsPublicAccessBlockArgs{...}
 type MultiRegionAccessPointDetailsPublicAccessBlockInput interface {
 	pulumi.Input
 
@@ -823,19 +801,9 @@ type MultiRegionAccessPointDetailsPublicAccessBlockInput interface {
 }
 
 type MultiRegionAccessPointDetailsPublicAccessBlockArgs struct {
-	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-	// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-	// * PUT Object calls fail if the request includes a public ACL.
-	// * PUT Bucket calls fail if the request includes a public ACL.
-	BlockPublicAcls pulumi.BoolPtrInput `pulumi:"blockPublicAcls"`
-	// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-	// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-	BlockPublicPolicy pulumi.BoolPtrInput `pulumi:"blockPublicPolicy"`
-	// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-	// * Ignore all public ACLs on buckets in this account and any objects that they contain.
-	IgnorePublicAcls pulumi.BoolPtrInput `pulumi:"ignorePublicAcls"`
-	// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-	// * Only the bucket owner and AWS Services can access buckets with public policies.
+	BlockPublicAcls       pulumi.BoolPtrInput `pulumi:"blockPublicAcls"`
+	BlockPublicPolicy     pulumi.BoolPtrInput `pulumi:"blockPublicPolicy"`
+	IgnorePublicAcls      pulumi.BoolPtrInput `pulumi:"ignorePublicAcls"`
 	RestrictPublicBuckets pulumi.BoolPtrInput `pulumi:"restrictPublicBuckets"`
 }
 
@@ -862,11 +830,11 @@ func (i MultiRegionAccessPointDetailsPublicAccessBlockArgs) ToMultiRegionAccessP
 // MultiRegionAccessPointDetailsPublicAccessBlockPtrInput is an input type that accepts MultiRegionAccessPointDetailsPublicAccessBlockArgs, MultiRegionAccessPointDetailsPublicAccessBlockPtr and MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointDetailsPublicAccessBlockPtrInput` via:
 //
-//          MultiRegionAccessPointDetailsPublicAccessBlockArgs{...}
+//	        MultiRegionAccessPointDetailsPublicAccessBlockArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MultiRegionAccessPointDetailsPublicAccessBlockPtrInput interface {
 	pulumi.Input
 
@@ -916,28 +884,18 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) ToMultiRegionAcces
 	}).(MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput)
 }
 
-// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-// * PUT Object calls fail if the request includes a public ACL.
-// * PUT Bucket calls fail if the request includes a public ACL.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetailsPublicAccessBlock) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
 }
 
-// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetailsPublicAccessBlock) *bool { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
 }
 
-// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-// * Ignore all public ACLs on buckets in this account and any objects that they contain.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetailsPublicAccessBlock) *bool { return v.IgnorePublicAcls }).(pulumi.BoolPtrOutput)
 }
 
-// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-// * Only the bucket owner and AWS Services can access buckets with public policies.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetailsPublicAccessBlock) *bool { return v.RestrictPublicBuckets }).(pulumi.BoolPtrOutput)
 }
@@ -966,10 +924,6 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) Elem() MultiReg
 	}).(MultiRegionAccessPointDetailsPublicAccessBlockOutput)
 }
 
-// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-// * PUT Object calls fail if the request includes a public ACL.
-// * PUT Bucket calls fail if the request includes a public ACL.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointDetailsPublicAccessBlock) *bool {
 		if v == nil {
@@ -979,8 +933,6 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) BlockPublicAcls
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointDetailsPublicAccessBlock) *bool {
 		if v == nil {
@@ -990,8 +942,6 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) BlockPublicPoli
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-// * Ignore all public ACLs on buckets in this account and any objects that they contain.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointDetailsPublicAccessBlock) *bool {
 		if v == nil {
@@ -1001,8 +951,6 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) IgnorePublicAcl
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-// * Only the bucket owner and AWS Services can access buckets with public policies.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointDetailsPublicAccessBlock) *bool {
 		if v == nil {
@@ -1013,14 +961,13 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) RestrictPublicB
 }
 
 type MultiRegionAccessPointDetailsRegion struct {
-	// The name of the associated bucket for the Region.
 	Bucket string `pulumi:"bucket"`
 }
 
 // MultiRegionAccessPointDetailsRegionInput is an input type that accepts MultiRegionAccessPointDetailsRegionArgs and MultiRegionAccessPointDetailsRegionOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointDetailsRegionInput` via:
 //
-//          MultiRegionAccessPointDetailsRegionArgs{...}
+//	MultiRegionAccessPointDetailsRegionArgs{...}
 type MultiRegionAccessPointDetailsRegionInput interface {
 	pulumi.Input
 
@@ -1029,7 +976,6 @@ type MultiRegionAccessPointDetailsRegionInput interface {
 }
 
 type MultiRegionAccessPointDetailsRegionArgs struct {
-	// The name of the associated bucket for the Region.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 }
 
@@ -1048,7 +994,7 @@ func (i MultiRegionAccessPointDetailsRegionArgs) ToMultiRegionAccessPointDetails
 // MultiRegionAccessPointDetailsRegionArrayInput is an input type that accepts MultiRegionAccessPointDetailsRegionArray and MultiRegionAccessPointDetailsRegionArrayOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointDetailsRegionArrayInput` via:
 //
-//          MultiRegionAccessPointDetailsRegionArray{ MultiRegionAccessPointDetailsRegionArgs{...} }
+//	MultiRegionAccessPointDetailsRegionArray{ MultiRegionAccessPointDetailsRegionArgs{...} }
 type MultiRegionAccessPointDetailsRegionArrayInput interface {
 	pulumi.Input
 
@@ -1084,7 +1030,6 @@ func (o MultiRegionAccessPointDetailsRegionOutput) ToMultiRegionAccessPointDetai
 	return o
 }
 
-// The name of the associated bucket for the Region.
 func (o MultiRegionAccessPointDetailsRegionOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetailsRegion) string { return v.Bucket }).(pulumi.StringOutput)
 }
@@ -1119,7 +1064,7 @@ type MultiRegionAccessPointPolicyDetails struct {
 // MultiRegionAccessPointPolicyDetailsInput is an input type that accepts MultiRegionAccessPointPolicyDetailsArgs and MultiRegionAccessPointPolicyDetailsOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointPolicyDetailsInput` via:
 //
-//          MultiRegionAccessPointPolicyDetailsArgs{...}
+//	MultiRegionAccessPointPolicyDetailsArgs{...}
 type MultiRegionAccessPointPolicyDetailsInput interface {
 	pulumi.Input
 
@@ -1157,11 +1102,11 @@ func (i MultiRegionAccessPointPolicyDetailsArgs) ToMultiRegionAccessPointPolicyD
 // MultiRegionAccessPointPolicyDetailsPtrInput is an input type that accepts MultiRegionAccessPointPolicyDetailsArgs, MultiRegionAccessPointPolicyDetailsPtr and MultiRegionAccessPointPolicyDetailsPtrOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointPolicyDetailsPtrInput` via:
 //
-//          MultiRegionAccessPointPolicyDetailsArgs{...}
+//	        MultiRegionAccessPointPolicyDetailsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MultiRegionAccessPointPolicyDetailsPtrInput interface {
 	pulumi.Input
 
@@ -1279,7 +1224,7 @@ type ObjectLambdaAccessPointConfiguration struct {
 // ObjectLambdaAccessPointConfigurationInput is an input type that accepts ObjectLambdaAccessPointConfigurationArgs and ObjectLambdaAccessPointConfigurationOutput values.
 // You can construct a concrete instance of `ObjectLambdaAccessPointConfigurationInput` via:
 //
-//          ObjectLambdaAccessPointConfigurationArgs{...}
+//	ObjectLambdaAccessPointConfigurationArgs{...}
 type ObjectLambdaAccessPointConfigurationInput interface {
 	pulumi.Input
 
@@ -1321,11 +1266,11 @@ func (i ObjectLambdaAccessPointConfigurationArgs) ToObjectLambdaAccessPointConfi
 // ObjectLambdaAccessPointConfigurationPtrInput is an input type that accepts ObjectLambdaAccessPointConfigurationArgs, ObjectLambdaAccessPointConfigurationPtr and ObjectLambdaAccessPointConfigurationPtrOutput values.
 // You can construct a concrete instance of `ObjectLambdaAccessPointConfigurationPtrInput` via:
 //
-//          ObjectLambdaAccessPointConfigurationArgs{...}
+//	        ObjectLambdaAccessPointConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ObjectLambdaAccessPointConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1471,7 +1416,7 @@ type ObjectLambdaAccessPointConfigurationTransformationConfiguration struct {
 // ObjectLambdaAccessPointConfigurationTransformationConfigurationInput is an input type that accepts ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs and ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput values.
 // You can construct a concrete instance of `ObjectLambdaAccessPointConfigurationTransformationConfigurationInput` via:
 //
-//          ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs{...}
+//	ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs{...}
 type ObjectLambdaAccessPointConfigurationTransformationConfigurationInput interface {
 	pulumi.Input
 
@@ -1501,7 +1446,7 @@ func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs) ToO
 // ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayInput is an input type that accepts ObjectLambdaAccessPointConfigurationTransformationConfigurationArray and ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput values.
 // You can construct a concrete instance of `ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayInput` via:
 //
-//          ObjectLambdaAccessPointConfigurationTransformationConfigurationArray{ ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs{...} }
+//	ObjectLambdaAccessPointConfigurationTransformationConfigurationArray{ ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs{...} }
 type ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -1577,7 +1522,7 @@ type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTrans
 // ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationInput is an input type that accepts ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs and ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput values.
 // You can construct a concrete instance of `ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationInput` via:
 //
-//          ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs{...}
+//	ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs{...}
 type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationInput interface {
 	pulumi.Input
 
@@ -1633,7 +1578,7 @@ type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTrans
 // ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaInput is an input type that accepts ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs and ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput values.
 // You can construct a concrete instance of `ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaInput` via:
 //
-//          ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs{...}
+//	ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs{...}
 type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaInput interface {
 	pulumi.Input
 

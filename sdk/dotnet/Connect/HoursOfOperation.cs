@@ -16,57 +16,55 @@ namespace Pulumi.Aws.Connect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Connect.HoursOfOperation("test", new()
     ///     {
-    ///         var test = new Aws.Connect.HoursOfOperation("test", new Aws.Connect.HoursOfOperationArgs
+    ///         Configs = new[]
     ///         {
-    ///             Configs = 
+    ///             new Aws.Connect.Inputs.HoursOfOperationConfigArgs
     ///             {
-    ///                 new Aws.Connect.Inputs.HoursOfOperationConfigArgs
+    ///                 Day = "MONDAY",
+    ///                 EndTime = new Aws.Connect.Inputs.HoursOfOperationConfigEndTimeArgs
     ///                 {
-    ///                     Day = "MONDAY",
-    ///                     EndTime = new Aws.Connect.Inputs.HoursOfOperationConfigEndTimeArgs
-    ///                     {
-    ///                         Hours = 23,
-    ///                         Minutes = 8,
-    ///                     },
-    ///                     StartTime = new Aws.Connect.Inputs.HoursOfOperationConfigStartTimeArgs
-    ///                     {
-    ///                         Hours = 8,
-    ///                         Minutes = 0,
-    ///                     },
+    ///                     Hours = 23,
+    ///                     Minutes = 8,
     ///                 },
-    ///                 new Aws.Connect.Inputs.HoursOfOperationConfigArgs
+    ///                 StartTime = new Aws.Connect.Inputs.HoursOfOperationConfigStartTimeArgs
     ///                 {
-    ///                     Day = "TUESDAY",
-    ///                     EndTime = new Aws.Connect.Inputs.HoursOfOperationConfigEndTimeArgs
-    ///                     {
-    ///                         Hours = 21,
-    ///                         Minutes = 0,
-    ///                     },
-    ///                     StartTime = new Aws.Connect.Inputs.HoursOfOperationConfigStartTimeArgs
-    ///                     {
-    ///                         Hours = 9,
-    ///                         Minutes = 0,
-    ///                     },
+    ///                     Hours = 8,
+    ///                     Minutes = 0,
     ///                 },
     ///             },
-    ///             Description = "Monday office hours",
-    ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///             Tags = 
+    ///             new Aws.Connect.Inputs.HoursOfOperationConfigArgs
     ///             {
-    ///                 { "Name", "Example Hours of Operation" },
+    ///                 Day = "TUESDAY",
+    ///                 EndTime = new Aws.Connect.Inputs.HoursOfOperationConfigEndTimeArgs
+    ///                 {
+    ///                     Hours = 21,
+    ///                     Minutes = 0,
+    ///                 },
+    ///                 StartTime = new Aws.Connect.Inputs.HoursOfOperationConfigStartTimeArgs
+    ///                 {
+    ///                     Hours = 9,
+    ///                     Minutes = 0,
+    ///                 },
     ///             },
-    ///             TimeZone = "EST",
-    ///         });
-    ///     }
+    ///         },
+    ///         Description = "Monday office hours",
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Hours of Operation" },
+    ///         },
+    ///         TimeZone = "EST",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +76,7 @@ namespace Pulumi.Aws.Connect
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/hoursOfOperation:HoursOfOperation")]
-    public partial class HoursOfOperation : Pulumi.CustomResource
+    public partial class HoursOfOperation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Hours of Operation.
@@ -184,7 +182,7 @@ namespace Pulumi.Aws.Connect
         }
     }
 
-    public sealed class HoursOfOperationArgs : Pulumi.ResourceArgs
+    public sealed class HoursOfOperationArgs : global::Pulumi.ResourceArgs
     {
         [Input("configs", required: true)]
         private InputList<Inputs.HoursOfOperationConfigArgs>? _configs;
@@ -237,9 +235,10 @@ namespace Pulumi.Aws.Connect
         public HoursOfOperationArgs()
         {
         }
+        public static new HoursOfOperationArgs Empty => new HoursOfOperationArgs();
     }
 
-    public sealed class HoursOfOperationState : Pulumi.ResourceArgs
+    public sealed class HoursOfOperationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Hours of Operation.
@@ -322,5 +321,6 @@ namespace Pulumi.Aws.Connect
         public HoursOfOperationState()
         {
         }
+        public static new HoursOfOperationState Empty => new HoursOfOperationState();
     }
 }

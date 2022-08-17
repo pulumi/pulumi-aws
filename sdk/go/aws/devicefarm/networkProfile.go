@@ -21,33 +21,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/devicefarm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/devicefarm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := devicefarm.NewProject(ctx, "exampleProject", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = devicefarm.NewNetworkProfile(ctx, "exampleNetworkProfile", &devicefarm.NetworkProfileArgs{
-// 			ProjectArn: exampleProject.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := devicefarm.NewProject(ctx, "exampleProject", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = devicefarm.NewNetworkProfile(ctx, "exampleNetworkProfile", &devicefarm.NetworkProfileArgs{
+//				ProjectArn: exampleProject.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// DeviceFarm Network Profiles can be imported by their arn
+// # DeviceFarm Network Profiles can be imported by their arn
 //
 // ```sh
-//  $ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+//
+//	$ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+//
 // ```
 type NetworkProfile struct {
 	pulumi.CustomResourceState
@@ -69,8 +74,7 @@ type NetworkProfile struct {
 	// The ARN of the project for the network profile.
 	ProjectArn pulumi.StringOutput `pulumi:"projectArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -133,8 +137,7 @@ type networkProfileState struct {
 	// The ARN of the project for the network profile.
 	ProjectArn *string `pulumi:"projectArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
 	Type *string `pulumi:"type"`
@@ -166,8 +169,7 @@ type NetworkProfileState struct {
 	// The ARN of the project for the network profile.
 	ProjectArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
 	Type pulumi.StringPtrInput
@@ -270,7 +272,7 @@ func (i *NetworkProfile) ToNetworkProfileOutputWithContext(ctx context.Context) 
 // NetworkProfileArrayInput is an input type that accepts NetworkProfileArray and NetworkProfileArrayOutput values.
 // You can construct a concrete instance of `NetworkProfileArrayInput` via:
 //
-//          NetworkProfileArray{ NetworkProfileArgs{...} }
+//	NetworkProfileArray{ NetworkProfileArgs{...} }
 type NetworkProfileArrayInput interface {
 	pulumi.Input
 
@@ -295,7 +297,7 @@ func (i NetworkProfileArray) ToNetworkProfileArrayOutputWithContext(ctx context.
 // NetworkProfileMapInput is an input type that accepts NetworkProfileMap and NetworkProfileMapOutput values.
 // You can construct a concrete instance of `NetworkProfileMapInput` via:
 //
-//          NetworkProfileMap{ "key": NetworkProfileArgs{...} }
+//	NetworkProfileMap{ "key": NetworkProfileArgs{...} }
 type NetworkProfileMapInput interface {
 	pulumi.Input
 
@@ -376,7 +378,6 @@ func (o NetworkProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o NetworkProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

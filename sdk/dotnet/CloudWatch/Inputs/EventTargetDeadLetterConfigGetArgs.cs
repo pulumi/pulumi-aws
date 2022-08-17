@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventTargetDeadLetterConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class EventTargetDeadLetterConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - ARN of the SQS queue specified as the target for the dead-letter queue.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventTargetDeadLetterConfigGetArgs()
         {
         }
+        public static new EventTargetDeadLetterConfigGetArgs Empty => new EventTargetDeadLetterConfigGetArgs();
     }
 }

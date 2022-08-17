@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Batch.Inputs
 {
 
-    public sealed class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Batch.Inputs
         public ComputeEnvironmentComputeResourcesEc2ConfigurationArgs()
         {
         }
+        public static new ComputeEnvironmentComputeResourcesEc2ConfigurationArgs Empty => new ComputeEnvironmentComputeResourcesEc2ConfigurationArgs();
     }
 }

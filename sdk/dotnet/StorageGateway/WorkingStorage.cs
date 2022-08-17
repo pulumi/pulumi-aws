@@ -17,21 +17,19 @@ namespace Pulumi.Aws.StorageGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.StorageGateway.WorkingStorage("example", new()
     ///     {
-    ///         var example = new Aws.StorageGateway.WorkingStorage("example", new Aws.StorageGateway.WorkingStorageArgs
-    ///         {
-    ///             DiskId = data.Aws_storagegateway_local_disk.Example.Id,
-    ///             GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///         });
-    ///     }
+    ///         DiskId = data.Aws_storagegateway_local_disk.Example.Id,
+    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.StorageGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:storagegateway/workingStorage:WorkingStorage")]
-    public partial class WorkingStorage : Pulumi.CustomResource
+    public partial class WorkingStorage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
@@ -101,7 +99,7 @@ namespace Pulumi.Aws.StorageGateway
         }
     }
 
-    public sealed class WorkingStorageArgs : Pulumi.ResourceArgs
+    public sealed class WorkingStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
@@ -118,9 +116,10 @@ namespace Pulumi.Aws.StorageGateway
         public WorkingStorageArgs()
         {
         }
+        public static new WorkingStorageArgs Empty => new WorkingStorageArgs();
     }
 
-    public sealed class WorkingStorageState : Pulumi.ResourceArgs
+    public sealed class WorkingStorageState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
@@ -137,5 +136,6 @@ namespace Pulumi.Aws.StorageGateway
         public WorkingStorageState()
         {
         }
+        public static new WorkingStorageState Empty => new WorkingStorageState();
     }
 }

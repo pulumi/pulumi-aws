@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password that corresponds to the user name.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs();
     }
 }

@@ -14,16 +14,15 @@ namespace Pulumi.Aws.RedShift
     /// ### Pause Cluster Action
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
     ///     {
-    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -39,10 +38,11 @@ namespace Pulumi.Aws.RedShift
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var examplePolicy = new Aws.Iam.Policy("examplePolicy", new Aws.Iam.PolicyArgs
-    ///         {
-    ///             PolicyDocument = @"{
+    ///     });
+    /// 
+    ///     var examplePolicy = new Aws.Iam.Policy("examplePolicy", new()
+    ///     {
+    ///         PolicyDocument = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///       {
@@ -58,56 +58,55 @@ namespace Pulumi.Aws.RedShift
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             PolicyArn = examplePolicy.Arn,
-    ///             Role = exampleRole.Name,
-    ///         });
-    ///         var exampleScheduledAction = new Aws.RedShift.ScheduledAction("exampleScheduledAction", new Aws.RedShift.ScheduledActionArgs
-    ///         {
-    ///             Schedule = "cron(00 23 * * ? *)",
-    ///             IamRole = exampleRole.Arn,
-    ///             TargetAction = new Aws.RedShift.Inputs.ScheduledActionTargetActionArgs
-    ///             {
-    ///                 PauseCluster = new Aws.RedShift.Inputs.ScheduledActionTargetActionPauseClusterArgs
-    ///                 {
-    ///                     ClusterIdentifier = "tf-redshift001",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
+    ///     {
+    ///         PolicyArn = examplePolicy.Arn,
+    ///         Role = exampleRole.Name,
+    ///     });
+    /// 
+    ///     var exampleScheduledAction = new Aws.RedShift.ScheduledAction("exampleScheduledAction", new()
+    ///     {
+    ///         Schedule = "cron(00 23 * * ? *)",
+    ///         IamRole = exampleRole.Arn,
+    ///         TargetAction = new Aws.RedShift.Inputs.ScheduledActionTargetActionArgs
+    ///         {
+    ///             PauseCluster = new Aws.RedShift.Inputs.ScheduledActionTargetActionPauseClusterArgs
+    ///             {
+    ///                 ClusterIdentifier = "tf-redshift001",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Resize Cluster Action
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.RedShift.ScheduledAction("example", new()
     ///     {
-    ///         var example = new Aws.RedShift.ScheduledAction("example", new Aws.RedShift.ScheduledActionArgs
+    ///         Schedule = "cron(00 23 * * ? *)",
+    ///         IamRole = aws_iam_role.Example.Arn,
+    ///         TargetAction = new Aws.RedShift.Inputs.ScheduledActionTargetActionArgs
     ///         {
-    ///             Schedule = "cron(00 23 * * ? *)",
-    ///             IamRole = aws_iam_role.Example.Arn,
-    ///             TargetAction = new Aws.RedShift.Inputs.ScheduledActionTargetActionArgs
+    ///             ResizeCluster = new Aws.RedShift.Inputs.ScheduledActionTargetActionResizeClusterArgs
     ///             {
-    ///                 ResizeCluster = new Aws.RedShift.Inputs.ScheduledActionTargetActionResizeClusterArgs
-    ///                 {
-    ///                     ClusterIdentifier = "tf-redshift001",
-    ///                     ClusterType = "multi-node",
-    ///                     NodeType = "dc1.large",
-    ///                     NumberOfNodes = 2,
-    ///                 },
+    ///                 ClusterIdentifier = "tf-redshift001",
+    ///                 ClusterType = "multi-node",
+    ///                 NodeType = "dc1.large",
+    ///                 NumberOfNodes = 2,
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -119,7 +118,7 @@ namespace Pulumi.Aws.RedShift
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/scheduledAction:ScheduledAction")]
-    public partial class ScheduledAction : Pulumi.CustomResource
+    public partial class ScheduledAction : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the scheduled action.
@@ -213,7 +212,7 @@ namespace Pulumi.Aws.RedShift
         }
     }
 
-    public sealed class ScheduledActionArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the scheduled action.
@@ -266,9 +265,10 @@ namespace Pulumi.Aws.RedShift
         public ScheduledActionArgs()
         {
         }
+        public static new ScheduledActionArgs Empty => new ScheduledActionArgs();
     }
 
-    public sealed class ScheduledActionState : Pulumi.ResourceArgs
+    public sealed class ScheduledActionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the scheduled action.
@@ -321,5 +321,6 @@ namespace Pulumi.Aws.RedShift
         public ScheduledActionState()
         {
         }
+        public static new ScheduledActionState Empty => new ScheduledActionState();
     }
 }

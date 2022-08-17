@@ -20,46 +20,42 @@ namespace Pulumi.Aws.CloudWatch
     /// ### Account Access
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var devAccountAccess = new Aws.CloudWatch.EventPermission("devAccountAccess", new()
     ///     {
-    ///         var devAccountAccess = new Aws.CloudWatch.EventPermission("devAccountAccess", new Aws.CloudWatch.EventPermissionArgs
-    ///         {
-    ///             Principal = "123456789012",
-    ///             StatementId = "DevAccountAccess",
-    ///         });
-    ///     }
+    ///         Principal = "123456789012",
+    ///         StatementId = "DevAccountAccess",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Organization Access
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var organizationAccess = new Aws.CloudWatch.EventPermission("organizationAccess", new()
     ///     {
-    ///         var organizationAccess = new Aws.CloudWatch.EventPermission("organizationAccess", new Aws.CloudWatch.EventPermissionArgs
+    ///         Principal = "*",
+    ///         StatementId = "OrganizationAccess",
+    ///         Condition = new Aws.CloudWatch.Inputs.EventPermissionConditionArgs
     ///         {
-    ///             Principal = "*",
-    ///             StatementId = "OrganizationAccess",
-    ///             Condition = new Aws.CloudWatch.Inputs.EventPermissionConditionArgs
-    ///             {
-    ///                 Key = "aws:PrincipalOrgID",
-    ///                 Type = "StringEquals",
-    ///                 Value = aws_organizations_organization.Example.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///             Key = "aws:PrincipalOrgID",
+    ///             Type = "StringEquals",
+    ///             Value = aws_organizations_organization.Example.Id,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventPermission:EventPermission")]
-    public partial class EventPermission : Pulumi.CustomResource
+    public partial class EventPermission : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
@@ -147,7 +143,7 @@ namespace Pulumi.Aws.CloudWatch
         }
     }
 
-    public sealed class EventPermissionArgs : Pulumi.ResourceArgs
+    public sealed class EventPermissionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
@@ -182,9 +178,10 @@ namespace Pulumi.Aws.CloudWatch
         public EventPermissionArgs()
         {
         }
+        public static new EventPermissionArgs Empty => new EventPermissionArgs();
     }
 
-    public sealed class EventPermissionState : Pulumi.ResourceArgs
+    public sealed class EventPermissionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
@@ -219,5 +216,6 @@ namespace Pulumi.Aws.CloudWatch
         public EventPermissionState()
         {
         }
+        public static new EventPermissionState Empty => new EventPermissionState();
     }
 }

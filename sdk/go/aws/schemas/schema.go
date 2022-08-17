@@ -21,54 +21,57 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/schemas"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/schemas"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testRegistry, err := schemas.NewRegistry(ctx, "testRegistry", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"openapi": "3.0.0",
-// 			"info": map[string]interface{}{
-// 				"version": "1.0.0",
-// 				"title":   "Event",
-// 			},
-// 			"paths": nil,
-// 			"components": map[string]interface{}{
-// 				"schemas": map[string]interface{}{
-// 					"Event": map[string]interface{}{
-// 						"type": "object",
-// 						"properties": map[string]interface{}{
-// 							"name": map[string]interface{}{
-// 								"type": "string",
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = schemas.NewSchema(ctx, "testSchema", &schemas.SchemaArgs{
-// 			RegistryName: testRegistry.Name,
-// 			Type:         pulumi.String("OpenApi3"),
-// 			Description:  pulumi.String("The schema definition for my event"),
-// 			Content:      pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testRegistry, err := schemas.NewRegistry(ctx, "testRegistry", nil)
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"openapi": "3.0.0",
+//				"info": map[string]interface{}{
+//					"version": "1.0.0",
+//					"title":   "Event",
+//				},
+//				"paths": nil,
+//				"components": map[string]interface{}{
+//					"schemas": map[string]interface{}{
+//						"Event": map[string]interface{}{
+//							"type": "object",
+//							"properties": map[string]interface{}{
+//								"name": map[string]interface{}{
+//									"type": "string",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = schemas.NewSchema(ctx, "testSchema", &schemas.SchemaArgs{
+//				RegistryName: testRegistry.Name,
+//				Type:         pulumi.String("OpenApi3"),
+//				Description:  pulumi.String("The schema definition for my event"),
+//				Content:      pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -76,7 +79,9 @@ import (
 // EventBridge schema can be imported using the `name` and `registry_name`, e.g., console
 //
 // ```sh
-//  $ pulumi import aws:schemas/schema:Schema test name/registry
+//
+//	$ pulumi import aws:schemas/schema:Schema test name/registry
+//
 // ```
 type Schema struct {
 	pulumi.CustomResourceState
@@ -253,7 +258,7 @@ func (i *Schema) ToSchemaOutputWithContext(ctx context.Context) SchemaOutput {
 // SchemaArrayInput is an input type that accepts SchemaArray and SchemaArrayOutput values.
 // You can construct a concrete instance of `SchemaArrayInput` via:
 //
-//          SchemaArray{ SchemaArgs{...} }
+//	SchemaArray{ SchemaArgs{...} }
 type SchemaArrayInput interface {
 	pulumi.Input
 
@@ -278,7 +283,7 @@ func (i SchemaArray) ToSchemaArrayOutputWithContext(ctx context.Context) SchemaA
 // SchemaMapInput is an input type that accepts SchemaMap and SchemaMapOutput values.
 // You can construct a concrete instance of `SchemaMapInput` via:
 //
-//          SchemaMap{ "key": SchemaArgs{...} }
+//	SchemaMap{ "key": SchemaArgs{...} }
 type SchemaMapInput interface {
 	pulumi.Input
 

@@ -24,36 +24,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
-// 			BgpAsn:    pulumi.String("65000"),
-// 			IpAddress: pulumi.String("172.0.0.1"),
-// 			Type:      pulumi.String("ipsec.1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
-// 			CustomerGatewayId: exampleCustomerGateway.ID(),
-// 			TransitGatewayId:  exampleTransitGateway.ID(),
-// 			Type:              exampleCustomerGateway.Type,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
+//				BgpAsn:    pulumi.String("65000"),
+//				IpAddress: pulumi.String("172.0.0.1"),
+//				Type:      pulumi.String("ipsec.1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
+//				CustomerGatewayId: exampleCustomerGateway.ID(),
+//				TransitGatewayId:  exampleTransitGateway.ID(),
+//				Type:              exampleCustomerGateway.Type,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Virtual Private Gateway
 //
@@ -61,44 +64,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.0.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		vpnGateway, err := ec2.NewVpnGateway(ctx, "vpnGateway", &ec2.VpnGatewayArgs{
-// 			VpcId: vpc.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		customerGateway, err := ec2.NewCustomerGateway(ctx, "customerGateway", &ec2.CustomerGatewayArgs{
-// 			BgpAsn:    pulumi.String("65000"),
-// 			IpAddress: pulumi.String("172.0.0.1"),
-// 			Type:      pulumi.String("ipsec.1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewVpnConnection(ctx, "main", &ec2.VpnConnectionArgs{
-// 			VpnGatewayId:      vpnGateway.ID(),
-// 			CustomerGatewayId: customerGateway.ID(),
-// 			Type:              pulumi.String("ipsec.1"),
-// 			StaticRoutesOnly:  pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			vpnGateway, err := ec2.NewVpnGateway(ctx, "vpnGateway", &ec2.VpnGatewayArgs{
+//				VpcId: vpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			customerGateway, err := ec2.NewCustomerGateway(ctx, "customerGateway", &ec2.CustomerGatewayArgs{
+//				BgpAsn:    pulumi.String("65000"),
+//				IpAddress: pulumi.String("172.0.0.1"),
+//				Type:      pulumi.String("ipsec.1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpnConnection(ctx, "main", &ec2.VpnConnectionArgs{
+//				VpnGatewayId:      vpnGateway.ID(),
+//				CustomerGatewayId: customerGateway.ID(),
+//				Type:              pulumi.String("ipsec.1"),
+//				StaticRoutesOnly:  pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### AWS Site to Site Private VPN
 //
@@ -106,73 +112,76 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
-// 			AmazonSideAsn: pulumi.String("64512"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway.TransitGatewayArgs{
-// 			AmazonSideAsn: pulumi.Int(64513),
-// 			Description:   pulumi.String("terraform_ipsec_vpn_example"),
-// 			TransitGatewayCidrBlocks: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
-// 			BgpAsn:    pulumi.String("64514"),
-// 			IpAddress: pulumi.String("10.0.0.1"),
-// 			Type:      pulumi.String("ipsec.1"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("terraform_ipsec_vpn_example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
-// 			DxGatewayId:         exampleGateway.ID(),
-// 			AssociatedGatewayId: exampleTransitGateway.ID(),
-// 			AllowedPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/8"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDirectConnectGatewayAttachment := ec2transitgateway.GetDirectConnectGatewayAttachmentOutput(ctx, ec2transitgateway.GetDirectConnectGatewayAttachmentOutputArgs{
-// 			TransitGatewayId: exampleTransitGateway.ID(),
-// 			DxGatewayId:      exampleGateway.ID(),
-// 		}, nil)
-// 		_, err = ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
-// 			CustomerGatewayId:    exampleCustomerGateway.ID(),
-// 			OutsideIpAddressType: pulumi.String("PrivateIpv4"),
-// 			TransitGatewayId:     exampleTransitGateway.ID(),
-// 			TransportTransitGatewayAttachmentId: exampleDirectConnectGatewayAttachment.ApplyT(func(exampleDirectConnectGatewayAttachment ec2transitgateway.GetDirectConnectGatewayAttachmentResult) (string, error) {
-// 				return exampleDirectConnectGatewayAttachment.Id, nil
-// 			}).(pulumi.StringOutput),
-// 			Type: pulumi.String("ipsec.1"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("terraform_ipsec_vpn_example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
+//				AmazonSideAsn: pulumi.String("64512"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway.TransitGatewayArgs{
+//				AmazonSideAsn: pulumi.Int(64513),
+//				Description:   pulumi.String("terraform_ipsec_vpn_example"),
+//				TransitGatewayCidrBlocks: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
+//				BgpAsn:    pulumi.String("64514"),
+//				IpAddress: pulumi.String("10.0.0.1"),
+//				Type:      pulumi.String("ipsec.1"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("terraform_ipsec_vpn_example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
+//				DxGatewayId:         exampleGateway.ID(),
+//				AssociatedGatewayId: exampleTransitGateway.ID(),
+//				AllowedPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/8"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDirectConnectGatewayAttachment := ec2transitgateway.GetDirectConnectGatewayAttachmentOutput(ctx, ec2transitgateway.GetDirectConnectGatewayAttachmentOutputArgs{
+//				TransitGatewayId: exampleTransitGateway.ID(),
+//				DxGatewayId:      exampleGateway.ID(),
+//			}, nil)
+//			_, err = ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
+//				CustomerGatewayId:    exampleCustomerGateway.ID(),
+//				OutsideIpAddressType: pulumi.String("PrivateIpv4"),
+//				TransitGatewayId:     exampleTransitGateway.ID(),
+//				TransportTransitGatewayAttachmentId: exampleDirectConnectGatewayAttachment.ApplyT(func(exampleDirectConnectGatewayAttachment ec2transitgateway.GetDirectConnectGatewayAttachmentResult) (string, error) {
+//					return exampleDirectConnectGatewayAttachment.Id, nil
+//				}).(pulumi.StringOutput),
+//				Type: pulumi.String("ipsec.1"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("terraform_ipsec_vpn_example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -180,7 +189,9 @@ import (
 // VPN Connections can be imported using the `vpn connection id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
+//
+//	$ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
+//
 // ```
 type VpnConnection struct {
 	pulumi.CustomResourceState
@@ -211,9 +222,9 @@ type VpnConnection struct {
 	Routes VpnConnectionRouteTypeArrayOutput `pulumi:"routes"`
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly pulumi.BoolOutput `pulumi:"staticRoutesOnly"`
-	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
@@ -384,9 +395,9 @@ type vpnConnectionState struct {
 	Routes []VpnConnectionRouteType `pulumi:"routes"`
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
-	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
@@ -523,9 +534,9 @@ type VpnConnectionState struct {
 	Routes VpnConnectionRouteTypeArrayInput
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly pulumi.BoolPtrInput
-	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
@@ -656,7 +667,7 @@ type vpnConnectionArgs struct {
 	RemoteIpv6NetworkCidr *string `pulumi:"remoteIpv6NetworkCidr"`
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
-	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
@@ -760,7 +771,7 @@ type VpnConnectionArgs struct {
 	RemoteIpv6NetworkCidr pulumi.StringPtrInput
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly pulumi.BoolPtrInput
-	// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput
@@ -872,7 +883,7 @@ func (i *VpnConnection) ToVpnConnectionOutputWithContext(ctx context.Context) Vp
 // VpnConnectionArrayInput is an input type that accepts VpnConnectionArray and VpnConnectionArrayOutput values.
 // You can construct a concrete instance of `VpnConnectionArrayInput` via:
 //
-//          VpnConnectionArray{ VpnConnectionArgs{...} }
+//	VpnConnectionArray{ VpnConnectionArgs{...} }
 type VpnConnectionArrayInput interface {
 	pulumi.Input
 
@@ -897,7 +908,7 @@ func (i VpnConnectionArray) ToVpnConnectionArrayOutputWithContext(ctx context.Co
 // VpnConnectionMapInput is an input type that accepts VpnConnectionMap and VpnConnectionMapOutput values.
 // You can construct a concrete instance of `VpnConnectionMapInput` via:
 //
-//          VpnConnectionMap{ "key": VpnConnectionArgs{...} }
+//	VpnConnectionMap{ "key": VpnConnectionArgs{...} }
 type VpnConnectionMapInput interface {
 	pulumi.Input
 
@@ -998,12 +1009,12 @@ func (o VpnConnectionOutput) StaticRoutesOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.BoolOutput { return v.StaticRoutesOnly }).(pulumi.BoolOutput)
 }
 
-// Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Tags to apply to the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpnConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider.
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpnConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

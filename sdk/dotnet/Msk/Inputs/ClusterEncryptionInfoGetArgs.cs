@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterEncryptionInfoGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterEncryptionInfoGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterEncryptionInfoGetArgs()
         {
         }
+        public static new ClusterEncryptionInfoGetArgs Empty => new ClusterEncryptionInfoGetArgs();
     }
 }

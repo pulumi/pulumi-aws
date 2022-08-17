@@ -18,7 +18,9 @@ import (
 // SSO Account Assignments can be imported using the `principal_id`, `principal_type`, `target_id`, `target_type`, `permission_set_arn`, `instance_arn` separated by commas (`,`) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ssoadmin/accountAssignment:AccountAssignment example f81d4fae-7dec-11d0-a765-00a0c91e6bf6,GROUP,1234567890,AWS_ACCOUNT,arn:aws:sso:::permissionSet/ssoins-0123456789abcdef/ps-0123456789abcdef,arn:aws:sso:::instance/ssoins-0123456789abcdef
+//
+//	$ pulumi import aws:ssoadmin/accountAssignment:AccountAssignment example f81d4fae-7dec-11d0-a765-00a0c91e6bf6,GROUP,1234567890,AWS_ACCOUNT,arn:aws:sso:::permissionSet/ssoins-0123456789abcdef/ps-0123456789abcdef,arn:aws:sso:::instance/ssoins-0123456789abcdef
+//
 // ```
 type AccountAssignment struct {
 	pulumi.CustomResourceState
@@ -171,7 +173,7 @@ func (i *AccountAssignment) ToAccountAssignmentOutputWithContext(ctx context.Con
 // AccountAssignmentArrayInput is an input type that accepts AccountAssignmentArray and AccountAssignmentArrayOutput values.
 // You can construct a concrete instance of `AccountAssignmentArrayInput` via:
 //
-//          AccountAssignmentArray{ AccountAssignmentArgs{...} }
+//	AccountAssignmentArray{ AccountAssignmentArgs{...} }
 type AccountAssignmentArrayInput interface {
 	pulumi.Input
 
@@ -196,7 +198,7 @@ func (i AccountAssignmentArray) ToAccountAssignmentArrayOutputWithContext(ctx co
 // AccountAssignmentMapInput is an input type that accepts AccountAssignmentMap and AccountAssignmentMapOutput values.
 // You can construct a concrete instance of `AccountAssignmentMapInput` via:
 //
-//          AccountAssignmentMap{ "key": AccountAssignmentArgs{...} }
+//	AccountAssignmentMap{ "key": AccountAssignmentArgs{...} }
 type AccountAssignmentMapInput interface {
 	pulumi.Input
 

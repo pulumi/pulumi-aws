@@ -19,58 +19,56 @@ namespace Pulumi.Aws.Fis
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Fis.ExperimentTemplate("example", new()
     ///     {
-    ///         var example = new Aws.Fis.ExperimentTemplate("example", new Aws.Fis.ExperimentTemplateArgs
+    ///         Description = "example",
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         StopConditions = new[]
     ///         {
-    ///             Description = "example",
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             StopConditions = 
+    ///             new Aws.Fis.Inputs.ExperimentTemplateStopConditionArgs
     ///             {
-    ///                 new Aws.Fis.Inputs.ExperimentTemplateStopConditionArgs
+    ///                 Source = "none",
+    ///             },
+    ///         },
+    ///         Actions = new[]
+    ///         {
+    ///             new Aws.Fis.Inputs.ExperimentTemplateActionArgs
+    ///             {
+    ///                 Name = "example-action",
+    ///                 ActionId = "aws:ec2:terminate-instances",
+    ///                 Target = new Aws.Fis.Inputs.ExperimentTemplateActionTargetArgs
     ///                 {
-    ///                     Source = "none",
+    ///                     Key = "Instances",
+    ///                     Value = "example-target",
     ///                 },
     ///             },
-    ///             Actions = 
+    ///         },
+    ///         Targets = new[]
+    ///         {
+    ///             new Aws.Fis.Inputs.ExperimentTemplateTargetArgs
     ///             {
-    ///                 new Aws.Fis.Inputs.ExperimentTemplateActionArgs
+    ///                 Name = "example-target",
+    ///                 ResourceType = "aws:ec2:instance",
+    ///                 SelectionMode = "COUNT(1)",
+    ///                 ResourceTags = new[]
     ///                 {
-    ///                     Name = "example-action",
-    ///                     ActionId = "aws:ec2:terminate-instances",
-    ///                     Target = new Aws.Fis.Inputs.ExperimentTemplateActionTargetArgs
+    ///                     new Aws.Fis.Inputs.ExperimentTemplateTargetResourceTagArgs
     ///                     {
-    ///                         Key = "Instances",
-    ///                         Value = "example-target",
+    ///                         Key = "env",
+    ///                         Value = "example",
     ///                     },
     ///                 },
     ///             },
-    ///             Targets = 
-    ///             {
-    ///                 new Aws.Fis.Inputs.ExperimentTemplateTargetArgs
-    ///                 {
-    ///                     Name = "example-target",
-    ///                     ResourceType = "aws:ec2:instance",
-    ///                     SelectionMode = "COUNT(1)",
-    ///                     ResourceTags = 
-    ///                     {
-    ///                         new Aws.Fis.Inputs.ExperimentTemplateTargetResourceTagArgs
-    ///                         {
-    ///                             Key = "env",
-    ///                             Value = "example",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -82,7 +80,7 @@ namespace Pulumi.Aws.Fis
     /// ```
     /// </summary>
     [AwsResourceType("aws:fis/experimentTemplate:ExperimentTemplate")]
-    public partial class ExperimentTemplate : Pulumi.CustomResource
+    public partial class ExperimentTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Action to be performed during an experiment. See below.
@@ -108,9 +106,6 @@ namespace Pulumi.Aws.Fis
         [Output("stopConditions")]
         public Output<ImmutableArray<Outputs.ExperimentTemplateStopCondition>> StopConditions { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value mapping of tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -167,7 +162,7 @@ namespace Pulumi.Aws.Fis
         }
     }
 
-    public sealed class ExperimentTemplateArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentTemplateArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<Inputs.ExperimentTemplateActionArgs>? _actions;
@@ -207,22 +202,10 @@ namespace Pulumi.Aws.Fis
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         [Input("targets")]
@@ -240,9 +223,10 @@ namespace Pulumi.Aws.Fis
         public ExperimentTemplateArgs()
         {
         }
+        public static new ExperimentTemplateArgs Empty => new ExperimentTemplateArgs();
     }
 
-    public sealed class ExperimentTemplateState : Pulumi.ResourceArgs
+    public sealed class ExperimentTemplateState : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<Inputs.ExperimentTemplateActionGetArgs>? _actions;
@@ -282,10 +266,6 @@ namespace Pulumi.Aws.Fis
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value mapping of tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -315,5 +295,6 @@ namespace Pulumi.Aws.Fis
         public ExperimentTemplateState()
         {
         }
+        public static new ExperimentTemplateState Empty => new ExperimentTemplateState();
     }
 }

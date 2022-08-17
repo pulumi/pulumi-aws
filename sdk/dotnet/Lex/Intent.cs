@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Lex
     /// ```
     /// </summary>
     [AwsResourceType("aws:lex/intent:Intent")]
-    public partial class Intent : Pulumi.CustomResource
+    public partial class Intent : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Lex intent.
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Lex
         }
     }
 
-    public sealed class IntentArgs : Pulumi.ResourceArgs
+    public sealed class IntentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The statement that you want Amazon Lex to convey to the user
@@ -302,9 +302,10 @@ namespace Pulumi.Aws.Lex
         public IntentArgs()
         {
         }
+        public static new IntentArgs Empty => new IntentArgs();
     }
 
-    public sealed class IntentState : Pulumi.ResourceArgs
+    public sealed class IntentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Lex intent.
@@ -445,5 +446,6 @@ namespace Pulumi.Aws.Lex
         public IntentState()
         {
         }
+        public static new IntentState Empty => new IntentState();
     }
 }

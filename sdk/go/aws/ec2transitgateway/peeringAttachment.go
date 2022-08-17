@@ -20,61 +20,63 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/providers"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := providers.Newaws(ctx, "local", &providers.awsArgs{
-// 			Region: "us-east-1",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = providers.Newaws(ctx, "peer", &providers.awsArgs{
-// 			Region: "us-west-2",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		peerRegion, err := aws.GetRegion(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		localTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "localTransitGateway", &ec2transitgateway.TransitGatewayArgs{
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Local TGW"),
-// 			},
-// 		}, pulumi.Provider(aws.Local))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		peerTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "peerTransitGateway", &ec2transitgateway.TransitGatewayArgs{
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Peer TGW"),
-// 			},
-// 		}, pulumi.Provider(aws.Peer))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2transitgateway.NewPeeringAttachment(ctx, "example", &ec2transitgateway.PeeringAttachmentArgs{
-// 			PeerAccountId:        peerTransitGateway.OwnerId,
-// 			PeerRegion:           pulumi.String(peerRegion.Name),
-// 			PeerTransitGatewayId: peerTransitGateway.ID(),
-// 			TransitGatewayId:     localTransitGateway.ID(),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("TGW Peering Requestor"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewProvider(ctx, "local", &aws.ProviderArgs{
+//				Region: pulumi.String("us-east-1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = aws.NewProvider(ctx, "peer", &aws.ProviderArgs{
+//				Region: pulumi.String("us-west-2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			peerRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			localTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "localTransitGateway", &ec2transitgateway.TransitGatewayArgs{
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Local TGW"),
+//				},
+//			}, pulumi.Provider(aws.Local))
+//			if err != nil {
+//				return err
+//			}
+//			peerTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "peerTransitGateway", &ec2transitgateway.TransitGatewayArgs{
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Peer TGW"),
+//				},
+//			}, pulumi.Provider(aws.Peer))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2transitgateway.NewPeeringAttachment(ctx, "example", &ec2transitgateway.PeeringAttachmentArgs{
+//				PeerAccountId:        peerTransitGateway.OwnerId,
+//				PeerRegion:           pulumi.String(peerRegion.Name),
+//				PeerTransitGatewayId: peerTransitGateway.ID(),
+//				TransitGatewayId:     localTransitGateway.ID(),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("TGW Peering Requestor"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -82,7 +84,9 @@ import (
 // `aws_ec2_transit_gateway_peering_attachment` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
+//
+//	$ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
+//
 // ```
 type PeeringAttachment struct {
 	pulumi.CustomResourceState
@@ -225,7 +229,7 @@ func (i *PeeringAttachment) ToPeeringAttachmentOutputWithContext(ctx context.Con
 // PeeringAttachmentArrayInput is an input type that accepts PeeringAttachmentArray and PeeringAttachmentArrayOutput values.
 // You can construct a concrete instance of `PeeringAttachmentArrayInput` via:
 //
-//          PeeringAttachmentArray{ PeeringAttachmentArgs{...} }
+//	PeeringAttachmentArray{ PeeringAttachmentArgs{...} }
 type PeeringAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -250,7 +254,7 @@ func (i PeeringAttachmentArray) ToPeeringAttachmentArrayOutputWithContext(ctx co
 // PeeringAttachmentMapInput is an input type that accepts PeeringAttachmentMap and PeeringAttachmentMapOutput values.
 // You can construct a concrete instance of `PeeringAttachmentMapInput` via:
 //
-//          PeeringAttachmentMap{ "key": PeeringAttachmentArgs{...} }
+//	PeeringAttachmentMap{ "key": PeeringAttachmentArgs{...} }
 type PeeringAttachmentMapInput interface {
 	pulumi.Input
 

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Eks
     }
 
 
-    public sealed class GetNodeGroupsArgs : Pulumi.InvokeArgs
+    public sealed class GetNodeGroupsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -36,9 +36,10 @@ namespace Pulumi.Aws.Eks
         public GetNodeGroupsArgs()
         {
         }
+        public static new GetNodeGroupsArgs Empty => new GetNodeGroupsArgs();
     }
 
-    public sealed class GetNodeGroupsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNodeGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -49,6 +50,7 @@ namespace Pulumi.Aws.Eks
         public GetNodeGroupsInvokeArgs()
         {
         }
+        public static new GetNodeGroupsInvokeArgs Empty => new GetNodeGroupsInvokeArgs();
     }
 
 

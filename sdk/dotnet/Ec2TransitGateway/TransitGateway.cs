@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2TransitGateway.TransitGateway("example", new()
     ///     {
-    ///         var example = new Aws.Ec2TransitGateway.TransitGateway("example", new Aws.Ec2TransitGateway.TransitGatewayArgs
-    ///         {
-    ///             Description = "example",
-    ///         });
-    ///     }
+    ///         Description = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/transitGateway:TransitGateway")]
-    public partial class TransitGateway : Pulumi.CustomResource
+    public partial class TransitGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
@@ -176,7 +174,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
-    public sealed class TransitGatewayArgs : Pulumi.ResourceArgs
+    public sealed class TransitGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
@@ -253,9 +251,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public TransitGatewayArgs()
         {
         }
+        public static new TransitGatewayArgs Empty => new TransitGatewayArgs();
     }
 
-    public sealed class TransitGatewayState : Pulumi.ResourceArgs
+    public sealed class TransitGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
@@ -368,5 +367,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public TransitGatewayState()
         {
         }
+        public static new TransitGatewayState Empty => new TransitGatewayState();
     }
 }

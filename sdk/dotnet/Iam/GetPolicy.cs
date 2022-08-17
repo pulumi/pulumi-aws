@@ -21,40 +21,36 @@ namespace Pulumi.Aws.Iam
         /// ### By ARN
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetPolicy.InvokeAsync(new Aws.Iam.GetPolicyArgs
-        ///         {
-        ///             Arn = "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Name
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetPolicy.InvokeAsync(new Aws.Iam.GetPolicyArgs
-        ///         {
-        ///             Name = "test_policy",
-        ///         }));
-        ///     }
+        ///         Name = "test_policy",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -72,40 +68,36 @@ namespace Pulumi.Aws.Iam
         /// ### By ARN
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetPolicy.InvokeAsync(new Aws.Iam.GetPolicyArgs
-        ///         {
-        ///             Arn = "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Name
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetPolicy.InvokeAsync(new Aws.Iam.GetPolicyArgs
-        ///         {
-        ///             Name = "test_policy",
-        ///         }));
-        ///     }
+        ///         Name = "test_policy",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -115,7 +107,7 @@ namespace Pulumi.Aws.Iam
     }
 
 
-    public sealed class GetPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the IAM policy.
@@ -154,9 +146,10 @@ namespace Pulumi.Aws.Iam
         public GetPolicyArgs()
         {
         }
+        public static new GetPolicyArgs Empty => new GetPolicyArgs();
     }
 
-    public sealed class GetPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the IAM policy.
@@ -195,6 +188,7 @@ namespace Pulumi.Aws.Iam
         public GetPolicyInvokeArgs()
         {
         }
+        public static new GetPolicyInvokeArgs Empty => new GetPolicyInvokeArgs();
     }
 
 

@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleIntegration = new Integration(&#34;exampleIntegration&#34;, IntegrationArgs.builder()        
  *             .apiId(aws_apigatewayv2_api.example().id())
- *             .integrationType(&#34;AWS&#34;)
+ *             .integrationType(&#34;AWS_PROXY&#34;)
  *             .connectionType(&#34;INTERNET&#34;)
  *             .contentHandlingStrategy(&#34;CONVERT_TO_TEXT&#34;)
  *             .description(&#34;Lambda example&#34;)

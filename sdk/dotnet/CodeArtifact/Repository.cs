@@ -15,89 +15,87 @@ namespace Pulumi.Aws.CodeArtifact
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
     ///     {
-    ///         var exampleKey = new Aws.Kms.Key("exampleKey", new Aws.Kms.KeyArgs
-    ///         {
-    ///             Description = "domain key",
-    ///         });
-    ///         var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new Aws.CodeArtifact.DomainArgs
-    ///         {
-    ///             DomainName = "example",
-    ///             EncryptionKey = exampleKey.Arn,
-    ///         });
-    ///         var test = new Aws.CodeArtifact.Repository("test", new Aws.CodeArtifact.RepositoryArgs
-    ///         {
-    ///             RepositoryName = "example",
-    ///             Domain = exampleDomain.DomainName,
-    ///         });
-    ///     }
+    ///         Description = "domain key",
+    ///     });
     /// 
-    /// }
+    ///     var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new()
+    ///     {
+    ///         DomainName = "example",
+    ///         EncryptionKey = exampleKey.Arn,
+    ///     });
+    /// 
+    ///     var test = new Aws.CodeArtifact.Repository("test", new()
+    ///     {
+    ///         RepositoryName = "example",
+    ///         Domain = exampleDomain.DomainName,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### With Upstream Repository
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var upstream = new Aws.CodeArtifact.Repository("upstream", new()
     ///     {
-    ///         var upstream = new Aws.CodeArtifact.Repository("upstream", new Aws.CodeArtifact.RepositoryArgs
-    ///         {
-    ///             RepositoryName = "upstream",
-    ///             Domain = aws_codeartifact_domain.Test.Domain,
-    ///         });
-    ///         var test = new Aws.CodeArtifact.Repository("test", new Aws.CodeArtifact.RepositoryArgs
-    ///         {
-    ///             RepositoryName = "example",
-    ///             Domain = aws_codeartifact_domain.Example.Domain,
-    ///             Upstreams = 
-    ///             {
-    ///                 new Aws.CodeArtifact.Inputs.RepositoryUpstreamArgs
-    ///                 {
-    ///                     RepositoryName = upstream.RepositoryName,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         RepositoryName = "upstream",
+    ///         Domain = aws_codeartifact_domain.Test.Domain,
+    ///     });
     /// 
-    /// }
+    ///     var test = new Aws.CodeArtifact.Repository("test", new()
+    ///     {
+    ///         RepositoryName = "example",
+    ///         Domain = aws_codeartifact_domain.Example.Domain,
+    ///         Upstreams = new[]
+    ///         {
+    ///             new Aws.CodeArtifact.Inputs.RepositoryUpstreamArgs
+    ///             {
+    ///                 RepositoryName = upstream.RepositoryName,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### With External Connection
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var upstream = new Aws.CodeArtifact.Repository("upstream", new()
     ///     {
-    ///         var upstream = new Aws.CodeArtifact.Repository("upstream", new Aws.CodeArtifact.RepositoryArgs
-    ///         {
-    ///             RepositoryName = "upstream",
-    ///             Domain = aws_codeartifact_domain.Test.Domain,
-    ///         });
-    ///         var test = new Aws.CodeArtifact.Repository("test", new Aws.CodeArtifact.RepositoryArgs
-    ///         {
-    ///             RepositoryName = "example",
-    ///             Domain = aws_codeartifact_domain.Example.Domain,
-    ///             ExternalConnections = new Aws.CodeArtifact.Inputs.RepositoryExternalConnectionsArgs
-    ///             {
-    ///                 ExternalConnectionName = "public:npmjs",
-    ///             },
-    ///         });
-    ///     }
+    ///         RepositoryName = "upstream",
+    ///         Domain = aws_codeartifact_domain.Test.Domain,
+    ///     });
     /// 
-    /// }
+    ///     var test = new Aws.CodeArtifact.Repository("test", new()
+    ///     {
+    ///         RepositoryName = "example",
+    ///         Domain = aws_codeartifact_domain.Example.Domain,
+    ///         ExternalConnections = new Aws.CodeArtifact.Inputs.RepositoryExternalConnectionsArgs
+    ///         {
+    ///             ExternalConnectionName = "public:npmjs",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -109,7 +107,7 @@ namespace Pulumi.Aws.CodeArtifact
     /// ```
     /// </summary>
     [AwsResourceType("aws:codeartifact/repository:Repository")]
-    public partial class Repository : Pulumi.CustomResource
+    public partial class Repository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The account number of the AWS account that manages the repository.
@@ -160,7 +158,7 @@ namespace Pulumi.Aws.CodeArtifact
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -215,7 +213,7 @@ namespace Pulumi.Aws.CodeArtifact
         }
     }
 
-    public sealed class RepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the repository.
@@ -274,9 +272,10 @@ namespace Pulumi.Aws.CodeArtifact
         public RepositoryArgs()
         {
         }
+        public static new RepositoryArgs Empty => new RepositoryArgs();
     }
 
-    public sealed class RepositoryState : Pulumi.ResourceArgs
+    public sealed class RepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account number of the AWS account that manages the repository.
@@ -336,7 +335,7 @@ namespace Pulumi.Aws.CodeArtifact
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -359,5 +358,6 @@ namespace Pulumi.Aws.CodeArtifact
         public RepositoryState()
         {
         }
+        public static new RepositoryState Empty => new RepositoryState();
     }
 }

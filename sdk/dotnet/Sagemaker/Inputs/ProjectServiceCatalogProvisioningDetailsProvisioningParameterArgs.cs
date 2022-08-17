@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs : Pulumi.ResourceArgs
+    public sealed class ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key that identifies a provisioning parameter.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs()
         {
         }
+        public static new ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs Empty => new ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs();
     }
 }

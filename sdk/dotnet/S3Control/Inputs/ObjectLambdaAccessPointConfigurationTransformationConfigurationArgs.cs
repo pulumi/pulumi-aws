@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3Control.Inputs
 {
 
-    public sealed class ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<string>? _actions;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.S3Control.Inputs
         public ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs()
         {
         }
+        public static new ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs Empty => new ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs();
     }
 }

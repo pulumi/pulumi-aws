@@ -17,10 +17,12 @@ import (
 //
 // ## Import
 //
-// DLM lifecycle policies can be imported by their policy ID
+// # DLM lifecycle policies can be imported by their policy ID
 //
 // ```sh
-//  $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
+//
+//	$ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
+//
 // ```
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
@@ -37,7 +39,7 @@ type LifecyclePolicy struct {
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -91,7 +93,7 @@ type lifecyclePolicyState struct {
 	State *string `pulumi:"state"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -108,7 +110,7 @@ type LifecyclePolicyState struct {
 	State pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -169,7 +171,7 @@ func (i *LifecyclePolicy) ToLifecyclePolicyOutputWithContext(ctx context.Context
 // LifecyclePolicyArrayInput is an input type that accepts LifecyclePolicyArray and LifecyclePolicyArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyArrayInput` via:
 //
-//          LifecyclePolicyArray{ LifecyclePolicyArgs{...} }
+//	LifecyclePolicyArray{ LifecyclePolicyArgs{...} }
 type LifecyclePolicyArrayInput interface {
 	pulumi.Input
 
@@ -194,7 +196,7 @@ func (i LifecyclePolicyArray) ToLifecyclePolicyArrayOutputWithContext(ctx contex
 // LifecyclePolicyMapInput is an input type that accepts LifecyclePolicyMap and LifecyclePolicyMapOutput values.
 // You can construct a concrete instance of `LifecyclePolicyMapInput` via:
 //
-//          LifecyclePolicyMap{ "key": LifecyclePolicyArgs{...} }
+//	LifecyclePolicyMap{ "key": LifecyclePolicyArgs{...} }
 type LifecyclePolicyMapInput interface {
 	pulumi.Input
 
@@ -260,7 +262,7 @@ func (o LifecyclePolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LifecyclePolicyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

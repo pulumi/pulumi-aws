@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleActionCaptchaGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleActionCaptchaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines custom handling for the web request. See Custom Request Handling below for details.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclRuleActionCaptchaGetArgs()
         {
         }
+        public static new WebAclRuleActionCaptchaGetArgs Empty => new WebAclRuleActionCaptchaGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Waf.Inputs
 {
 
-    public sealed class RuleGroupActivatedRuleActionArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupActivatedRuleActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Waf.Inputs
         public RuleGroupActivatedRuleActionArgs()
         {
         }
+        public static new RuleGroupActivatedRuleActionArgs Empty => new RuleGroupActivatedRuleActionArgs();
     }
 }

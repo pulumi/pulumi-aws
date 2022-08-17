@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionDefaultCacheBehaviorFunctionAssociationGetArgs : Pulumi.ResourceArgs
+    public sealed class DistributionDefaultCacheBehaviorFunctionAssociationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The specific event to trigger this function.
@@ -28,5 +28,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionDefaultCacheBehaviorFunctionAssociationGetArgs()
         {
         }
+        public static new DistributionDefaultCacheBehaviorFunctionAssociationGetArgs Empty => new DistributionDefaultCacheBehaviorFunctionAssociationGetArgs();
     }
 }

@@ -15,50 +15,48 @@ namespace Pulumi.Aws.CloudFront
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.CloudFront.FieldLevelEncryptionConfig("test", new()
     ///     {
-    ///         var test = new Aws.CloudFront.FieldLevelEncryptionConfig("test", new Aws.CloudFront.FieldLevelEncryptionConfigArgs
+    ///         Comment = "test comment",
+    ///         ContentTypeProfileConfig = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigArgs
     ///         {
-    ///             Comment = "test comment",
-    ///             ContentTypeProfileConfig = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigArgs
+    ///             ForwardWhenContentTypeIsUnknown = true,
+    ///             ContentTypeProfiles = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs
     ///             {
-    ///                 ForwardWhenContentTypeIsUnknown = true,
-    ///                 ContentTypeProfiles = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs
+    ///                 Items = new[]
     ///                 {
-    ///                     Items = 
+    ///                     new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs
     ///                     {
-    ///                         new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs
-    ///                         {
-    ///                             ContentType = "application/x-www-form-urlencoded",
-    ///                             Format = "URLEncoded",
-    ///                         },
+    ///                         ContentType = "application/x-www-form-urlencoded",
+    ///                         Format = "URLEncoded",
     ///                     },
     ///                 },
     ///             },
-    ///             QueryArgProfileConfig = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigArgs
+    ///         },
+    ///         QueryArgProfileConfig = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigArgs
+    ///         {
+    ///             ForwardWhenQueryArgProfileIsUnknown = true,
+    ///             QueryArgProfiles = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs
     ///             {
-    ///                 ForwardWhenQueryArgProfileIsUnknown = true,
-    ///                 QueryArgProfiles = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs
+    ///                 Items = new[]
     ///                 {
-    ///                     Items = 
+    ///                     new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs
     ///                     {
-    ///                         new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs
-    ///                         {
-    ///                             ProfileId = aws_cloudfront_field_level_encryption_profile.Test.Id,
-    ///                             QueryArg = "Arg1",
-    ///                         },
+    ///                         ProfileId = aws_cloudfront_field_level_encryption_profile.Test.Id,
+    ///                         QueryArg = "Arg1",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +68,7 @@ namespace Pulumi.Aws.CloudFront
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig")]
-    public partial class FieldLevelEncryptionConfig : Pulumi.CustomResource
+    public partial class FieldLevelEncryptionConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
@@ -146,7 +144,7 @@ namespace Pulumi.Aws.CloudFront
         }
     }
 
-    public sealed class FieldLevelEncryptionConfigArgs : Pulumi.ResourceArgs
+    public sealed class FieldLevelEncryptionConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An optional comment about the Field Level Encryption Config.
@@ -169,9 +167,10 @@ namespace Pulumi.Aws.CloudFront
         public FieldLevelEncryptionConfigArgs()
         {
         }
+        public static new FieldLevelEncryptionConfigArgs Empty => new FieldLevelEncryptionConfigArgs();
     }
 
-    public sealed class FieldLevelEncryptionConfigState : Pulumi.ResourceArgs
+    public sealed class FieldLevelEncryptionConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
@@ -206,5 +205,6 @@ namespace Pulumi.Aws.CloudFront
         public FieldLevelEncryptionConfigState()
         {
         }
+        public static new FieldLevelEncryptionConfigState Empty => new FieldLevelEncryptionConfigState();
     }
 }

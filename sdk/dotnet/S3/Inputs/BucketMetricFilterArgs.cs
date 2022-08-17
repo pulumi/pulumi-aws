@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketMetricFilterArgs : Pulumi.ResourceArgs
+    public sealed class BucketMetricFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Object prefix for filtering (singular).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketMetricFilterArgs()
         {
         }
+        public static new BucketMetricFilterArgs Empty => new BucketMetricFilterArgs();
     }
 }

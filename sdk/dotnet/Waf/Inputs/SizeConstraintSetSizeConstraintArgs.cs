@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Waf.Inputs
 {
 
-    public sealed class SizeConstraintSetSizeConstraintArgs : Pulumi.ResourceArgs
+    public sealed class SizeConstraintSetSizeConstraintArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of comparison you want to perform.
@@ -47,5 +47,6 @@ namespace Pulumi.Aws.Waf.Inputs
         public SizeConstraintSetSizeConstraintArgs()
         {
         }
+        public static new SizeConstraintSetSizeConstraintArgs Empty => new SizeConstraintSetSizeConstraintArgs();
     }
 }

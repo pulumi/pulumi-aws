@@ -22,70 +22,73 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
-// 			Description: pulumi.String("This is my API for demonstration purposes"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		myDemoResource, err := apigateway.NewResource(ctx, "myDemoResource", &apigateway.ResourceArgs{
-// 			RestApi:  myDemoAPI.ID(),
-// 			ParentId: myDemoAPI.RootResourceId,
-// 			PathPart: pulumi.String("mydemoresource"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		myDemoMethod, err := apigateway.NewMethod(ctx, "myDemoMethod", &apigateway.MethodArgs{
-// 			RestApi:       myDemoAPI.ID(),
-// 			ResourceId:    myDemoResource.ID(),
-// 			HttpMethod:    pulumi.String("GET"),
-// 			Authorization: pulumi.String("NONE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.NewIntegration(ctx, "myDemoIntegration", &apigateway.IntegrationArgs{
-// 			RestApi:    myDemoAPI.ID(),
-// 			ResourceId: myDemoResource.ID(),
-// 			HttpMethod: myDemoMethod.HttpMethod,
-// 			Type:       pulumi.String("MOCK"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		response200, err := apigateway.NewMethodResponse(ctx, "response200", &apigateway.MethodResponseArgs{
-// 			RestApi:    myDemoAPI.ID(),
-// 			ResourceId: myDemoResource.ID(),
-// 			HttpMethod: myDemoMethod.HttpMethod,
-// 			StatusCode: pulumi.String("200"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.NewIntegrationResponse(ctx, "myDemoIntegrationResponse", &apigateway.IntegrationResponseArgs{
-// 			RestApi:    myDemoAPI.ID(),
-// 			ResourceId: myDemoResource.ID(),
-// 			HttpMethod: myDemoMethod.HttpMethod,
-// 			StatusCode: response200.StatusCode,
-// 			ResponseTemplates: pulumi.StringMap{
-// 				"application/xml": pulumi.String(fmt.Sprintf("#set($inputRoot = $input.path('$'))\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<message>\n    $inputRoot.body\n</message>\n")),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
+//				Description: pulumi.String("This is my API for demonstration purposes"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			myDemoResource, err := apigateway.NewResource(ctx, "myDemoResource", &apigateway.ResourceArgs{
+//				RestApi:  myDemoAPI.ID(),
+//				ParentId: myDemoAPI.RootResourceId,
+//				PathPart: pulumi.String("mydemoresource"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			myDemoMethod, err := apigateway.NewMethod(ctx, "myDemoMethod", &apigateway.MethodArgs{
+//				RestApi:       myDemoAPI.ID(),
+//				ResourceId:    myDemoResource.ID(),
+//				HttpMethod:    pulumi.String("GET"),
+//				Authorization: pulumi.String("NONE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewIntegration(ctx, "myDemoIntegration", &apigateway.IntegrationArgs{
+//				RestApi:    myDemoAPI.ID(),
+//				ResourceId: myDemoResource.ID(),
+//				HttpMethod: myDemoMethod.HttpMethod,
+//				Type:       pulumi.String("MOCK"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			response200, err := apigateway.NewMethodResponse(ctx, "response200", &apigateway.MethodResponseArgs{
+//				RestApi:    myDemoAPI.ID(),
+//				ResourceId: myDemoResource.ID(),
+//				HttpMethod: myDemoMethod.HttpMethod,
+//				StatusCode: pulumi.String("200"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewIntegrationResponse(ctx, "myDemoIntegrationResponse", &apigateway.IntegrationResponseArgs{
+//				RestApi:    myDemoAPI.ID(),
+//				ResourceId: myDemoResource.ID(),
+//				HttpMethod: myDemoMethod.HttpMethod,
+//				StatusCode: response200.StatusCode,
+//				ResponseTemplates: pulumi.StringMap{
+//					"application/xml": pulumi.String(fmt.Sprintf("#set($inputRoot = $input.path('$'))\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<message>\n    $inputRoot.body\n</message>\n")),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -93,7 +96,9 @@ import (
 // `aws_api_gateway_integration_response` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
+//
+//	$ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
+//
 // ```
 type IntegrationResponse struct {
 	pulumi.CustomResourceState
@@ -283,7 +288,7 @@ func (i *IntegrationResponse) ToIntegrationResponseOutputWithContext(ctx context
 // IntegrationResponseArrayInput is an input type that accepts IntegrationResponseArray and IntegrationResponseArrayOutput values.
 // You can construct a concrete instance of `IntegrationResponseArrayInput` via:
 //
-//          IntegrationResponseArray{ IntegrationResponseArgs{...} }
+//	IntegrationResponseArray{ IntegrationResponseArgs{...} }
 type IntegrationResponseArrayInput interface {
 	pulumi.Input
 
@@ -308,7 +313,7 @@ func (i IntegrationResponseArray) ToIntegrationResponseArrayOutputWithContext(ct
 // IntegrationResponseMapInput is an input type that accepts IntegrationResponseMap and IntegrationResponseMapOutput values.
 // You can construct a concrete instance of `IntegrationResponseMapInput` via:
 //
-//          IntegrationResponseMap{ "key": IntegrationResponseArgs{...} }
+//	IntegrationResponseMap{ "key": IntegrationResponseArgs{...} }
 type IntegrationResponseMapInput interface {
 	pulumi.Input
 

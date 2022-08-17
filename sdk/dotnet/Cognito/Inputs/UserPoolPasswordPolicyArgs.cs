@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class UserPoolPasswordPolicyArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolPasswordPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Minimum length of the password policy that you have set.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public UserPoolPasswordPolicyArgs()
         {
         }
+        public static new UserPoolPasswordPolicyArgs Empty => new UserPoolPasswordPolicyArgs();
     }
 }

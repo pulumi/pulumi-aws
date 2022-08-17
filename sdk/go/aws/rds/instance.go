@@ -41,29 +41,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
-// 			AllocatedStorage:   pulumi.Int(10),
-// 			Engine:             pulumi.String("mysql"),
-// 			EngineVersion:      pulumi.String("5.7"),
-// 			InstanceClass:      pulumi.String("db.t3.micro"),
-// 			Name:               pulumi.String("mydb"),
-// 			ParameterGroupName: pulumi.String("default.mysql5.7"),
-// 			Password:           pulumi.String("foobarbaz"),
-// 			SkipFinalSnapshot:  pulumi.Bool(true),
-// 			Username:           pulumi.String("foo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
+//				AllocatedStorage:   pulumi.Int(10),
+//				Engine:             pulumi.String("mysql"),
+//				EngineVersion:      pulumi.String("5.7"),
+//				InstanceClass:      pulumi.String("db.t3.micro"),
+//				Name:               pulumi.String("mydb"),
+//				ParameterGroupName: pulumi.String("default.mysql5.7"),
+//				Password:           pulumi.String("foobarbaz"),
+//				SkipFinalSnapshot:  pulumi.Bool(true),
+//				Username:           pulumi.String("foo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Storage Autoscaling
 //
@@ -73,22 +76,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rds.NewInstance(ctx, "example", &rds.InstanceArgs{
-// 			AllocatedStorage:    pulumi.Int(50),
-// 			MaxAllocatedStorage: pulumi.Int(100),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewInstance(ctx, "example", &rds.InstanceArgs{
+//				AllocatedStorage:    pulumi.Int(50),
+//				MaxAllocatedStorage: pulumi.Int(100),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -96,7 +102,9 @@ import (
 // DB Instances can be imported using the `identifier`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
+//
+//	$ pulumi import aws:rds/instance:Instance default mydb-rds-instance
+//
 // ```
 type Instance struct {
 	pulumi.CustomResourceState
@@ -302,7 +310,7 @@ type Instance struct {
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -551,7 +559,7 @@ type instanceState struct {
 	StorageType *string `pulumi:"storageType"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -769,7 +777,7 @@ type InstanceState struct {
 	StorageType pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Time zone of the DB instance. `timezone` is currently
 	// only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -1212,7 +1220,7 @@ func (i *Instance) ToInstanceOutputWithContext(ctx context.Context) InstanceOutp
 // InstanceArrayInput is an input type that accepts InstanceArray and InstanceArrayOutput values.
 // You can construct a concrete instance of `InstanceArrayInput` via:
 //
-//          InstanceArray{ InstanceArgs{...} }
+//	InstanceArray{ InstanceArgs{...} }
 type InstanceArrayInput interface {
 	pulumi.Input
 
@@ -1237,7 +1245,7 @@ func (i InstanceArray) ToInstanceArrayOutputWithContext(ctx context.Context) Ins
 // InstanceMapInput is an input type that accepts InstanceMap and InstanceMapOutput values.
 // You can construct a concrete instance of `InstanceMapInput` via:
 //
-//          InstanceMap{ "key": InstanceArgs{...} }
+//	InstanceMap{ "key": InstanceArgs{...} }
 type InstanceMapInput interface {
 	pulumi.Input
 
@@ -1660,7 +1668,7 @@ func (o InstanceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o InstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

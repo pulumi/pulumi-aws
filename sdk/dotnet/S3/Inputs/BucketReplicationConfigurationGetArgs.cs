@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigurationGetArgs()
         {
         }
+        public static new BucketReplicationConfigurationGetArgs Empty => new BucketReplicationConfigurationGetArgs();
     }
 }

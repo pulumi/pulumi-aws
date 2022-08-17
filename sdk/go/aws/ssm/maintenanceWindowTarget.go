@@ -20,39 +20,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		window, err := ssm.NewMaintenanceWindow(ctx, "window", &ssm.MaintenanceWindowArgs{
-// 			Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
-// 			Duration: pulumi.Int(3),
-// 			Cutoff:   pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ssm.NewMaintenanceWindowTarget(ctx, "target1", &ssm.MaintenanceWindowTargetArgs{
-// 			WindowId:     window.ID(),
-// 			Description:  pulumi.String("This is a maintenance window target"),
-// 			ResourceType: pulumi.String("INSTANCE"),
-// 			Targets: ssm.MaintenanceWindowTargetTargetArray{
-// 				&ssm.MaintenanceWindowTargetTargetArgs{
-// 					Key: pulumi.String("tag:Name"),
-// 					Values: pulumi.StringArray{
-// 						pulumi.String("acceptance_test"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			window, err := ssm.NewMaintenanceWindow(ctx, "window", &ssm.MaintenanceWindowArgs{
+//				Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
+//				Duration: pulumi.Int(3),
+//				Cutoff:   pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssm.NewMaintenanceWindowTarget(ctx, "target1", &ssm.MaintenanceWindowTargetArgs{
+//				WindowId:     window.ID(),
+//				Description:  pulumi.String("This is a maintenance window target"),
+//				ResourceType: pulumi.String("INSTANCE"),
+//				Targets: ssm.MaintenanceWindowTargetTargetArray{
+//					&ssm.MaintenanceWindowTargetTargetArgs{
+//						Key: pulumi.String("tag:Name"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("acceptance_test"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Resource Group Target
 //
@@ -60,39 +63,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		window, err := ssm.NewMaintenanceWindow(ctx, "window", &ssm.MaintenanceWindowArgs{
-// 			Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
-// 			Duration: pulumi.Int(3),
-// 			Cutoff:   pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ssm.NewMaintenanceWindowTarget(ctx, "target1", &ssm.MaintenanceWindowTargetArgs{
-// 			WindowId:     window.ID(),
-// 			Description:  pulumi.String("This is a maintenance window target"),
-// 			ResourceType: pulumi.String("RESOURCE_GROUP"),
-// 			Targets: ssm.MaintenanceWindowTargetTargetArray{
-// 				&ssm.MaintenanceWindowTargetTargetArgs{
-// 					Key: pulumi.String("resource-groups:ResourceTypeFilters"),
-// 					Values: pulumi.StringArray{
-// 						pulumi.String("AWS::EC2::Instance"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			window, err := ssm.NewMaintenanceWindow(ctx, "window", &ssm.MaintenanceWindowArgs{
+//				Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
+//				Duration: pulumi.Int(3),
+//				Cutoff:   pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ssm.NewMaintenanceWindowTarget(ctx, "target1", &ssm.MaintenanceWindowTargetArgs{
+//				WindowId:     window.ID(),
+//				Description:  pulumi.String("This is a maintenance window target"),
+//				ResourceType: pulumi.String("RESOURCE_GROUP"),
+//				Targets: ssm.MaintenanceWindowTargetTargetArray{
+//					&ssm.MaintenanceWindowTargetTargetArgs{
+//						Key: pulumi.String("resource-groups:ResourceTypeFilters"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("AWS::EC2::Instance"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -100,7 +106,9 @@ import (
 // SSM Maintenance Window targets can be imported using `WINDOW_ID/WINDOW_TARGET_ID`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
+//
+//	$ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
+//
 // ```
 type MaintenanceWindowTarget struct {
 	pulumi.CustomResourceState
@@ -252,7 +260,7 @@ func (i *MaintenanceWindowTarget) ToMaintenanceWindowTargetOutputWithContext(ctx
 // MaintenanceWindowTargetArrayInput is an input type that accepts MaintenanceWindowTargetArray and MaintenanceWindowTargetArrayOutput values.
 // You can construct a concrete instance of `MaintenanceWindowTargetArrayInput` via:
 //
-//          MaintenanceWindowTargetArray{ MaintenanceWindowTargetArgs{...} }
+//	MaintenanceWindowTargetArray{ MaintenanceWindowTargetArgs{...} }
 type MaintenanceWindowTargetArrayInput interface {
 	pulumi.Input
 
@@ -277,7 +285,7 @@ func (i MaintenanceWindowTargetArray) ToMaintenanceWindowTargetArrayOutputWithCo
 // MaintenanceWindowTargetMapInput is an input type that accepts MaintenanceWindowTargetMap and MaintenanceWindowTargetMapOutput values.
 // You can construct a concrete instance of `MaintenanceWindowTargetMapInput` via:
 //
-//          MaintenanceWindowTargetMap{ "key": MaintenanceWindowTargetArgs{...} }
+//	MaintenanceWindowTargetMap{ "key": MaintenanceWindowTargetArgs{...} }
 type MaintenanceWindowTargetMapInput interface {
 	pulumi.Input
 

@@ -19,45 +19,45 @@ namespace Pulumi.Aws.Cfg
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var examplePermission = new Aws.Lambda.Permission("examplePermission", new()
     ///     {
-    ///         var examplePermission = new Aws.Lambda.Permission("examplePermission", new Aws.Lambda.PermissionArgs
-    ///         {
-    ///             Action = "lambda:InvokeFunction",
-    ///             Function = aws_lambda_function.Example.Arn,
-    ///             Principal = "config.amazonaws.com",
-    ///         });
-    ///         var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new Aws.Organizations.OrganizationArgs
-    ///         {
-    ///             AwsServiceAccessPrincipals = 
-    ///             {
-    ///                 "config-multiaccountsetup.amazonaws.com",
-    ///             },
-    ///             FeatureSet = "ALL",
-    ///         });
-    ///         var exampleOrganizationCustomRule = new Aws.Cfg.OrganizationCustomRule("exampleOrganizationCustomRule", new Aws.Cfg.OrganizationCustomRuleArgs
-    ///         {
-    ///             LambdaFunctionArn = aws_lambda_function.Example.Arn,
-    ///             TriggerTypes = 
-    ///             {
-    ///                 "ConfigurationItemChangeNotification",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 examplePermission,
-    ///                 exampleOrganization,
-    ///             },
-    ///         });
-    ///     }
+    ///         Action = "lambda:InvokeFunction",
+    ///         Function = aws_lambda_function.Example.Arn,
+    ///         Principal = "config.amazonaws.com",
+    ///     });
     /// 
-    /// }
+    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
+    ///     {
+    ///         AwsServiceAccessPrincipals = new[]
+    ///         {
+    ///             "config-multiaccountsetup.amazonaws.com",
+    ///         },
+    ///         FeatureSet = "ALL",
+    ///     });
+    /// 
+    ///     var exampleOrganizationCustomRule = new Aws.Cfg.OrganizationCustomRule("exampleOrganizationCustomRule", new()
+    ///     {
+    ///         LambdaFunctionArn = aws_lambda_function.Example.Arn,
+    ///         TriggerTypes = new[]
+    ///         {
+    ///             "ConfigurationItemChangeNotification",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             examplePermission,
+    ///             exampleOrganization,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Cfg
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/organizationCustomRule:OrganizationCustomRule")]
-    public partial class OrganizationCustomRule : Pulumi.CustomResource
+    public partial class OrganizationCustomRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the rule
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Cfg
         }
     }
 
-    public sealed class OrganizationCustomRuleArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationCustomRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the rule
@@ -276,9 +276,10 @@ namespace Pulumi.Aws.Cfg
         public OrganizationCustomRuleArgs()
         {
         }
+        public static new OrganizationCustomRuleArgs Empty => new OrganizationCustomRuleArgs();
     }
 
-    public sealed class OrganizationCustomRuleState : Pulumi.ResourceArgs
+    public sealed class OrganizationCustomRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the rule
@@ -373,5 +374,6 @@ namespace Pulumi.Aws.Cfg
         public OrganizationCustomRuleState()
         {
         }
+        public static new OrganizationCustomRuleState Empty => new OrganizationCustomRuleState();
     }
 }

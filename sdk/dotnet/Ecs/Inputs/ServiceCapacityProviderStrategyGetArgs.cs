@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class ServiceCapacityProviderStrategyGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceCapacityProviderStrategyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public ServiceCapacityProviderStrategyGetArgs()
         {
         }
+        public static new ServiceCapacityProviderStrategyGetArgs Empty => new ServiceCapacityProviderStrategyGetArgs();
     }
 }

@@ -20,32 +20,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ecr.NewRegistryScanningConfiguration(ctx, "configuration", &ecr.RegistryScanningConfigurationArgs{
-// 			Rules: ecr.RegistryScanningConfigurationRuleArray{
-// 				&ecr.RegistryScanningConfigurationRuleArgs{
-// 					RepositoryFilters: ecr.RegistryScanningConfigurationRuleRepositoryFilterArray{
-// 						&ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs{
-// 							Filter:     pulumi.String("example"),
-// 							FilterType: pulumi.String("WILDCARD"),
-// 						},
-// 					},
-// 					ScanFrequency: pulumi.String("CONTINUOUS_SCAN"),
-// 				},
-// 			},
-// 			ScanType: pulumi.String("ENHANCED"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecr.NewRegistryScanningConfiguration(ctx, "configuration", &ecr.RegistryScanningConfigurationArgs{
+//				Rules: ecr.RegistryScanningConfigurationRuleArray{
+//					&ecr.RegistryScanningConfigurationRuleArgs{
+//						RepositoryFilters: ecr.RegistryScanningConfigurationRuleRepositoryFilterArray{
+//							&ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs{
+//								Filter:     pulumi.String("example"),
+//								FilterType: pulumi.String("WILDCARD"),
+//							},
+//						},
+//						ScanFrequency: pulumi.String("CONTINUOUS_SCAN"),
+//					},
+//				},
+//				ScanType: pulumi.String("ENHANCED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Multiple rules
 //
@@ -53,41 +56,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ecr.NewRegistryScanningConfiguration(ctx, "test", &ecr.RegistryScanningConfigurationArgs{
-// 			Rules: ecr.RegistryScanningConfigurationRuleArray{
-// 				&ecr.RegistryScanningConfigurationRuleArgs{
-// 					RepositoryFilters: ecr.RegistryScanningConfigurationRuleRepositoryFilterArray{
-// 						&ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs{
-// 							Filter:     pulumi.String("*"),
-// 							FilterType: pulumi.String("WILDCARD"),
-// 						},
-// 					},
-// 					ScanFrequency: pulumi.String("SCAN_ON_PUSH"),
-// 				},
-// 				&ecr.RegistryScanningConfigurationRuleArgs{
-// 					RepositoryFilters: ecr.RegistryScanningConfigurationRuleRepositoryFilterArray{
-// 						&ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs{
-// 							Filter:     pulumi.String("example"),
-// 							FilterType: pulumi.String("WILDCARD"),
-// 						},
-// 					},
-// 					ScanFrequency: pulumi.String("CONTINUOUS_SCAN"),
-// 				},
-// 			},
-// 			ScanType: pulumi.String("ENHANCED"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecr.NewRegistryScanningConfiguration(ctx, "test", &ecr.RegistryScanningConfigurationArgs{
+//				Rules: ecr.RegistryScanningConfigurationRuleArray{
+//					&ecr.RegistryScanningConfigurationRuleArgs{
+//						RepositoryFilters: ecr.RegistryScanningConfigurationRuleRepositoryFilterArray{
+//							&ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs{
+//								Filter:     pulumi.String("*"),
+//								FilterType: pulumi.String("WILDCARD"),
+//							},
+//						},
+//						ScanFrequency: pulumi.String("SCAN_ON_PUSH"),
+//					},
+//					&ecr.RegistryScanningConfigurationRuleArgs{
+//						RepositoryFilters: ecr.RegistryScanningConfigurationRuleRepositoryFilterArray{
+//							&ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs{
+//								Filter:     pulumi.String("example"),
+//								FilterType: pulumi.String("WILDCARD"),
+//							},
+//						},
+//						ScanFrequency: pulumi.String("CONTINUOUS_SCAN"),
+//					},
+//				},
+//				ScanType: pulumi.String("ENHANCED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -95,7 +101,9 @@ import (
 // ECR Scanning Configurations can be imported using the `registry_id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
+//
+//	$ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
+//
 // ```
 type RegistryScanningConfiguration struct {
 	pulumi.CustomResourceState
@@ -202,7 +210,7 @@ func (i *RegistryScanningConfiguration) ToRegistryScanningConfigurationOutputWit
 // RegistryScanningConfigurationArrayInput is an input type that accepts RegistryScanningConfigurationArray and RegistryScanningConfigurationArrayOutput values.
 // You can construct a concrete instance of `RegistryScanningConfigurationArrayInput` via:
 //
-//          RegistryScanningConfigurationArray{ RegistryScanningConfigurationArgs{...} }
+//	RegistryScanningConfigurationArray{ RegistryScanningConfigurationArgs{...} }
 type RegistryScanningConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -227,7 +235,7 @@ func (i RegistryScanningConfigurationArray) ToRegistryScanningConfigurationArray
 // RegistryScanningConfigurationMapInput is an input type that accepts RegistryScanningConfigurationMap and RegistryScanningConfigurationMapOutput values.
 // You can construct a concrete instance of `RegistryScanningConfigurationMapInput` via:
 //
-//          RegistryScanningConfigurationMap{ "key": RegistryScanningConfigurationArgs{...} }
+//	RegistryScanningConfigurationMap{ "key": RegistryScanningConfigurationArgs{...} }
 type RegistryScanningConfigurationMapInput interface {
 	pulumi.Input
 

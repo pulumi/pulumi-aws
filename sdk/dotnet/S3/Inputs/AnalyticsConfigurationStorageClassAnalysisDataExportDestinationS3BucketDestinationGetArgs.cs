@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationGetArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account ID that owns the destination bucket.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.S3.Inputs
         public AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationGetArgs()
         {
         }
+        public static new AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationGetArgs Empty => new AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationGetArgs();
     }
 }

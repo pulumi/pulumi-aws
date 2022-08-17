@@ -21,58 +21,61 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProxy, err := rds.NewProxy(ctx, "exampleProxy", &rds.ProxyArgs{
-// 			DebugLogging:      pulumi.Bool(false),
-// 			EngineFamily:      pulumi.String("MYSQL"),
-// 			IdleClientTimeout: pulumi.Int(1800),
-// 			RequireTls:        pulumi.Bool(true),
-// 			RoleArn:           pulumi.Any(aws_iam_role.Example.Arn),
-// 			VpcSecurityGroupIds: pulumi.StringArray{
-// 				pulumi.Any(aws_security_group.Example.Id),
-// 			},
-// 			VpcSubnetIds: pulumi.StringArray{
-// 				pulumi.Any(aws_subnet.Example.Id),
-// 			},
-// 			Auths: rds.ProxyAuthArray{
-// 				&rds.ProxyAuthArgs{
-// 					AuthScheme:  pulumi.String("SECRETS"),
-// 					Description: pulumi.String("example"),
-// 					IamAuth:     pulumi.String("DISABLED"),
-// 					SecretArn:   pulumi.Any(aws_secretsmanager_secret.Example.Arn),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example"),
-// 				"Key":  pulumi.String("value"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = rds.NewProxyDefaultTargetGroup(ctx, "exampleProxyDefaultTargetGroup", &rds.ProxyDefaultTargetGroupArgs{
-// 			DbProxyName: exampleProxy.Name,
-// 			ConnectionPoolConfig: &rds.ProxyDefaultTargetGroupConnectionPoolConfigArgs{
-// 				ConnectionBorrowTimeout:   pulumi.Int(120),
-// 				InitQuery:                 pulumi.String("SET x=1, y=2"),
-// 				MaxConnectionsPercent:     pulumi.Int(100),
-// 				MaxIdleConnectionsPercent: pulumi.Int(50),
-// 				SessionPinningFilters: pulumi.StringArray{
-// 					pulumi.String("EXCLUDE_VARIABLE_SETS"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProxy, err := rds.NewProxy(ctx, "exampleProxy", &rds.ProxyArgs{
+//				DebugLogging:      pulumi.Bool(false),
+//				EngineFamily:      pulumi.String("MYSQL"),
+//				IdleClientTimeout: pulumi.Int(1800),
+//				RequireTls:        pulumi.Bool(true),
+//				RoleArn:           pulumi.Any(aws_iam_role.Example.Arn),
+//				VpcSecurityGroupIds: pulumi.StringArray{
+//					pulumi.Any(aws_security_group.Example.Id),
+//				},
+//				VpcSubnetIds: pulumi.StringArray{
+//					pulumi.Any(aws_subnet.Example.Id),
+//				},
+//				Auths: rds.ProxyAuthArray{
+//					&rds.ProxyAuthArgs{
+//						AuthScheme:  pulumi.String("SECRETS"),
+//						Description: pulumi.String("example"),
+//						IamAuth:     pulumi.String("DISABLED"),
+//						SecretArn:   pulumi.Any(aws_secretsmanager_secret.Example.Arn),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example"),
+//					"Key":  pulumi.String("value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rds.NewProxyDefaultTargetGroup(ctx, "exampleProxyDefaultTargetGroup", &rds.ProxyDefaultTargetGroupArgs{
+//				DbProxyName: exampleProxy.Name,
+//				ConnectionPoolConfig: &rds.ProxyDefaultTargetGroupConnectionPoolConfigArgs{
+//					ConnectionBorrowTimeout:   pulumi.Int(120),
+//					InitQuery:                 pulumi.String("SET x=1, y=2"),
+//					MaxConnectionsPercent:     pulumi.Int(100),
+//					MaxIdleConnectionsPercent: pulumi.Int(50),
+//					SessionPinningFilters: pulumi.StringArray{
+//						pulumi.String("EXCLUDE_VARIABLE_SETS"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -80,7 +83,9 @@ import (
 // DB proxy default target groups can be imported using the `db_proxy_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
+//
+//	$ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
+//
 // ```
 type ProxyDefaultTargetGroup struct {
 	pulumi.CustomResourceState
@@ -193,7 +198,7 @@ func (i *ProxyDefaultTargetGroup) ToProxyDefaultTargetGroupOutputWithContext(ctx
 // ProxyDefaultTargetGroupArrayInput is an input type that accepts ProxyDefaultTargetGroupArray and ProxyDefaultTargetGroupArrayOutput values.
 // You can construct a concrete instance of `ProxyDefaultTargetGroupArrayInput` via:
 //
-//          ProxyDefaultTargetGroupArray{ ProxyDefaultTargetGroupArgs{...} }
+//	ProxyDefaultTargetGroupArray{ ProxyDefaultTargetGroupArgs{...} }
 type ProxyDefaultTargetGroupArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +223,7 @@ func (i ProxyDefaultTargetGroupArray) ToProxyDefaultTargetGroupArrayOutputWithCo
 // ProxyDefaultTargetGroupMapInput is an input type that accepts ProxyDefaultTargetGroupMap and ProxyDefaultTargetGroupMapOutput values.
 // You can construct a concrete instance of `ProxyDefaultTargetGroupMapInput` via:
 //
-//          ProxyDefaultTargetGroupMap{ "key": ProxyDefaultTargetGroupArgs{...} }
+//	ProxyDefaultTargetGroupMap{ "key": ProxyDefaultTargetGroupArgs{...} }
 type ProxyDefaultTargetGroupMapInput interface {
 	pulumi.Input
 

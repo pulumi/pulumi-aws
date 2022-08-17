@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupRuleStatementOrStatementStatementNotStatementStatementGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleStatementOrStatementStatementNotStatementStatementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public RuleGroupRuleStatementOrStatementStatementNotStatementStatementGetArgs()
         {
         }
+        public static new RuleGroupRuleStatementOrStatementStatementNotStatementStatementGetArgs Empty => new RuleGroupRuleStatementOrStatementStatementNotStatementStatementGetArgs();
     }
 }

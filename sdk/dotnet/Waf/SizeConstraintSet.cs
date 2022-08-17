@@ -15,32 +15,30 @@ namespace Pulumi.Aws.Waf
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sizeConstraintSet = new Aws.Waf.SizeConstraintSet("sizeConstraintSet", new()
     ///     {
-    ///         var sizeConstraintSet = new Aws.Waf.SizeConstraintSet("sizeConstraintSet", new Aws.Waf.SizeConstraintSetArgs
+    ///         SizeConstraints = new[]
     ///         {
-    ///             SizeConstraints = 
+    ///             new Aws.Waf.Inputs.SizeConstraintSetSizeConstraintArgs
     ///             {
-    ///                 new Aws.Waf.Inputs.SizeConstraintSetSizeConstraintArgs
+    ///                 ComparisonOperator = "EQ",
+    ///                 FieldToMatch = new Aws.Waf.Inputs.SizeConstraintSetSizeConstraintFieldToMatchArgs
     ///                 {
-    ///                     ComparisonOperator = "EQ",
-    ///                     FieldToMatch = new Aws.Waf.Inputs.SizeConstraintSetSizeConstraintFieldToMatchArgs
-    ///                     {
-    ///                         Type = "BODY",
-    ///                     },
-    ///                     Size = 4096,
-    ///                     TextTransformation = "NONE",
+    ///                     Type = "BODY",
     ///                 },
+    ///                 Size = 4096,
+    ///                 TextTransformation = "NONE",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Aws.Waf
     /// ```
     /// </summary>
     [AwsResourceType("aws:waf/sizeConstraintSet:SizeConstraintSet")]
-    public partial class SizeConstraintSet : Pulumi.CustomResource
+    public partial class SizeConstraintSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN)
@@ -116,7 +114,7 @@ namespace Pulumi.Aws.Waf
         }
     }
 
-    public sealed class SizeConstraintSetArgs : Pulumi.ResourceArgs
+    public sealed class SizeConstraintSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name or description of the Size Constraint Set.
@@ -139,9 +137,10 @@ namespace Pulumi.Aws.Waf
         public SizeConstraintSetArgs()
         {
         }
+        public static new SizeConstraintSetArgs Empty => new SizeConstraintSetArgs();
     }
 
-    public sealed class SizeConstraintSetState : Pulumi.ResourceArgs
+    public sealed class SizeConstraintSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN)
@@ -170,5 +169,6 @@ namespace Pulumi.Aws.Waf
         public SizeConstraintSetState()
         {
         }
+        public static new SizeConstraintSetState Empty => new SizeConstraintSetState();
     }
 }

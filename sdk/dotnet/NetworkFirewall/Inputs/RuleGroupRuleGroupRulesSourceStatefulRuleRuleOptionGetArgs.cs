@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Keyword defined by open source detection systems like Snort or Suricata for stateful rule inspection.
@@ -34,5 +34,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionGetArgs()
         {
         }
+        public static new RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionGetArgs Empty => new RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionGetArgs();
     }
 }

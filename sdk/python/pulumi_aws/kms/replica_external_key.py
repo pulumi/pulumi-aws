@@ -442,9 +442,8 @@ class ReplicaExternalKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        primary = pulumi.providers.Aws("primary", region="us-east-1")
+        primary = aws.Provider("primary", region="us-east-1")
         primary_external_key = aws.kms.ExternalKey("primaryExternalKey",
             description="Multi-Region primary key",
             deletion_window_in_days=30,
@@ -498,9 +497,8 @@ class ReplicaExternalKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        primary = pulumi.providers.Aws("primary", region="us-east-1")
+        primary = aws.Provider("primary", region="us-east-1")
         primary_external_key = aws.kms.ExternalKey("primaryExternalKey",
             description="Multi-Region primary key",
             deletion_window_in_days=30,

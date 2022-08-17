@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		pool, err := cognito.NewUserPool(ctx, "pool", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
-// 			Identifier: pulumi.String("https://example.com"),
-// 			UserPoolId: pool.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			pool, err := cognito.NewUserPool(ctx, "pool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
+//				Identifier: pulumi.String("https://example.com"),
+//				UserPoolId: pool.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Create a resource server with sample-scope
 //
@@ -47,32 +50,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		pool, err := cognito.NewUserPool(ctx, "pool", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
-// 			Identifier: pulumi.String("https://example.com"),
-// 			Scopes: cognito.ResourceServerScopeArray{
-// 				&cognito.ResourceServerScopeArgs{
-// 					ScopeName:        pulumi.String("sample-scope"),
-// 					ScopeDescription: pulumi.String("a Sample Scope Description"),
-// 				},
-// 			},
-// 			UserPoolId: pool.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			pool, err := cognito.NewUserPool(ctx, "pool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
+//				Identifier: pulumi.String("https://example.com"),
+//				Scopes: cognito.ResourceServerScopeArray{
+//					&cognito.ResourceServerScopeArgs{
+//						ScopeName:        pulumi.String("sample-scope"),
+//						ScopeDescription: pulumi.String("a Sample Scope Description"),
+//					},
+//				},
+//				UserPoolId: pool.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -80,7 +86,9 @@ import (
 // `aws_cognito_resource_server` can be imported using their User Pool ID and Identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cognito/resourceServer:ResourceServer example us-west-2_abc123:https://example.com
+//
+//	$ pulumi import aws:cognito/resourceServer:ResourceServer example us-west-2_abc123:https://example.com
+//
 // ```
 type ResourceServer struct {
 	pulumi.CustomResourceState
@@ -205,7 +213,7 @@ func (i *ResourceServer) ToResourceServerOutputWithContext(ctx context.Context) 
 // ResourceServerArrayInput is an input type that accepts ResourceServerArray and ResourceServerArrayOutput values.
 // You can construct a concrete instance of `ResourceServerArrayInput` via:
 //
-//          ResourceServerArray{ ResourceServerArgs{...} }
+//	ResourceServerArray{ ResourceServerArgs{...} }
 type ResourceServerArrayInput interface {
 	pulumi.Input
 
@@ -230,7 +238,7 @@ func (i ResourceServerArray) ToResourceServerArrayOutputWithContext(ctx context.
 // ResourceServerMapInput is an input type that accepts ResourceServerMap and ResourceServerMapOutput values.
 // You can construct a concrete instance of `ResourceServerMapInput` via:
 //
-//          ResourceServerMap{ "key": ResourceServerArgs{...} }
+//	ResourceServerMap{ "key": ResourceServerArgs{...} }
 type ResourceServerMapInput interface {
 	pulumi.Input
 

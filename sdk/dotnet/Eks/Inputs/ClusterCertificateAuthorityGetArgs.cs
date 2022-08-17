@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Eks.Inputs
 {
 
-    public sealed class ClusterCertificateAuthorityGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCertificateAuthorityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Eks.Inputs
         public ClusterCertificateAuthorityGetArgs()
         {
         }
+        public static new ClusterCertificateAuthorityGetArgs Empty => new ClusterCertificateAuthorityGetArgs();
     }
 }

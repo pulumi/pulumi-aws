@@ -18,43 +18,48 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-// 			Path: pulumi.String("/"),
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//     "Version": "2012-10-17",
-//     "Statement": [
-//         {
-//             "Action": "sts:AssumeRole",
-//             "Principal": {
-//                "Service": "ec2.amazonaws.com"
-//             },
-//             "Effect": "Allow",
-//             "Sid": ""
-//         }
-//     ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+//				Path: pulumi.String("/"),
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	    "Version": "2012-10-17",
+//	    "Statement": [
+//	        {
+//	            "Action": "sts:AssumeRole",
+//	            "Principal": {
+//	               "Service": "ec2.amazonaws.com"
+//	            },
+//	            "Effect": "Allow",
+//	            "Sid": ""
+//	        }
+//	    ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewInstanceProfile(ctx, "testProfile", &iam.InstanceProfileArgs{
-// 			Role: role.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewInstanceProfile(ctx, "testProfile", &iam.InstanceProfileArgs{
+//				Role: role.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +67,9 @@ import (
 // Instance Profiles can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
+//
+//	$ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
+//
 // ```
 type InstanceProfile struct {
 	pulumi.CustomResourceState
@@ -79,9 +86,9 @@ type InstanceProfile struct {
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// Name of the role to add to the profile.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
-	// Map of resource tags for the IAM Instance Profile. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the IAM Instance Profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// [Unique ID][1] assigned by AWS.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
@@ -128,9 +135,9 @@ type instanceProfileState struct {
 	Path *string `pulumi:"path"`
 	// Name of the role to add to the profile.
 	Role interface{} `pulumi:"role"`
-	// Map of resource tags for the IAM Instance Profile. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the IAM Instance Profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// [Unique ID][1] assigned by AWS.
 	UniqueId *string `pulumi:"uniqueId"`
@@ -149,9 +156,9 @@ type InstanceProfileState struct {
 	Path pulumi.StringPtrInput
 	// Name of the role to add to the profile.
 	Role pulumi.Input
-	// Map of resource tags for the IAM Instance Profile. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the IAM Instance Profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// [Unique ID][1] assigned by AWS.
 	UniqueId pulumi.StringPtrInput
@@ -170,7 +177,7 @@ type instanceProfileArgs struct {
 	Path *string `pulumi:"path"`
 	// Name of the role to add to the profile.
 	Role interface{} `pulumi:"role"`
-	// Map of resource tags for the IAM Instance Profile. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the IAM Instance Profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -184,7 +191,7 @@ type InstanceProfileArgs struct {
 	Path pulumi.StringPtrInput
 	// Name of the role to add to the profile.
 	Role pulumi.Input
-	// Map of resource tags for the IAM Instance Profile. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags for the IAM Instance Profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -214,7 +221,7 @@ func (i *InstanceProfile) ToInstanceProfileOutputWithContext(ctx context.Context
 // InstanceProfileArrayInput is an input type that accepts InstanceProfileArray and InstanceProfileArrayOutput values.
 // You can construct a concrete instance of `InstanceProfileArrayInput` via:
 //
-//          InstanceProfileArray{ InstanceProfileArgs{...} }
+//	InstanceProfileArray{ InstanceProfileArgs{...} }
 type InstanceProfileArrayInput interface {
 	pulumi.Input
 
@@ -239,7 +246,7 @@ func (i InstanceProfileArray) ToInstanceProfileArrayOutputWithContext(ctx contex
 // InstanceProfileMapInput is an input type that accepts InstanceProfileMap and InstanceProfileMapOutput values.
 // You can construct a concrete instance of `InstanceProfileMapInput` via:
 //
-//          InstanceProfileMap{ "key": InstanceProfileArgs{...} }
+//	InstanceProfileMap{ "key": InstanceProfileArgs{...} }
 type InstanceProfileMapInput interface {
 	pulumi.Input
 
@@ -305,12 +312,12 @@ func (o InstanceProfileOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// Map of resource tags for the IAM Instance Profile. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of resource tags for the IAM Instance Profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o InstanceProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o InstanceProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

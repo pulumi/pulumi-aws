@@ -20,177 +20,184 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("192.168.0.0/22"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		azs, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
-// 			State: pulumi.StringRef("available"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		subnetAz1, err := ec2.NewSubnet(ctx, "subnetAz1", &ec2.SubnetArgs{
-// 			AvailabilityZone: pulumi.String(azs.Names[0]),
-// 			CidrBlock:        pulumi.String("192.168.0.0/24"),
-// 			VpcId:            vpc.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		subnetAz2, err := ec2.NewSubnet(ctx, "subnetAz2", &ec2.SubnetArgs{
-// 			AvailabilityZone: pulumi.String(azs.Names[1]),
-// 			CidrBlock:        pulumi.String("192.168.1.0/24"),
-// 			VpcId:            vpc.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		subnetAz3, err := ec2.NewSubnet(ctx, "subnetAz3", &ec2.SubnetArgs{
-// 			AvailabilityZone: pulumi.String(azs.Names[2]),
-// 			CidrBlock:        pulumi.String("192.168.2.0/24"),
-// 			VpcId:            vpc.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		sg, err := ec2.NewSecurityGroup(ctx, "sg", &ec2.SecurityGroupArgs{
-// 			VpcId: vpc.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		kms, err := kms.NewKey(ctx, "kms", &kms.KeyArgs{
-// 			Description: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		test, err := cloudwatch.NewLogGroup(ctx, "test", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
-// 			Bucket: bucket.ID(),
-// 			Acl:    pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		firehoseRole, err := iam.NewRole(ctx, "firehoseRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("192.168.0.0/22"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			azs, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
+//				State: pulumi.StringRef("available"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			subnetAz1, err := ec2.NewSubnet(ctx, "subnetAz1", &ec2.SubnetArgs{
+//				AvailabilityZone: pulumi.String(azs.Names[0]),
+//				CidrBlock:        pulumi.String("192.168.0.0/24"),
+//				VpcId:            vpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			subnetAz2, err := ec2.NewSubnet(ctx, "subnetAz2", &ec2.SubnetArgs{
+//				AvailabilityZone: pulumi.String(azs.Names[1]),
+//				CidrBlock:        pulumi.String("192.168.1.0/24"),
+//				VpcId:            vpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			subnetAz3, err := ec2.NewSubnet(ctx, "subnetAz3", &ec2.SubnetArgs{
+//				AvailabilityZone: pulumi.String(azs.Names[2]),
+//				CidrBlock:        pulumi.String("192.168.2.0/24"),
+//				VpcId:            vpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			sg, err := ec2.NewSecurityGroup(ctx, "sg", &ec2.SecurityGroupArgs{
+//				VpcId: vpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			kms, err := kms.NewKey(ctx, "kms", &kms.KeyArgs{
+//				Description: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			test, err := cloudwatch.NewLogGroup(ctx, "test", nil)
+//			if err != nil {
+//				return err
+//			}
+//			bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
+//				Bucket: bucket.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			firehoseRole, err := iam.NewRole(ctx, "firehoseRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//
 // "Version": "2012-10-17",
 // "Statement": [
-//   {
-//     "Action": "sts:AssumeRole",
-//     "Principal": {
-//       "Service": "firehose.amazonaws.com"
-//     },
-//     "Effect": "Allow",
-//     "Sid": ""
-//   }
-//   ]
-// }
+//
+//	  {
+//	    "Action": "sts:AssumeRole",
+//	    "Principal": {
+//	      "Service": "firehose.amazonaws.com"
+//	    },
+//	    "Effect": "Allow",
+//	    "Sid": ""
+//	  }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
-// 			Destination: pulumi.String("s3"),
-// 			S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
-// 				RoleArn:   firehoseRole.Arn,
-// 				BucketArn: bucket.Arn,
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"LogDeliveryEnabled": pulumi.String("placeholder"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
-// 			KafkaVersion:        pulumi.String("3.2.0"),
-// 			NumberOfBrokerNodes: pulumi.Int(3),
-// 			BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
-// 				InstanceType: pulumi.String("kafka.m5.large"),
-// 				ClientSubnets: pulumi.StringArray{
-// 					subnetAz1.ID(),
-// 					subnetAz2.ID(),
-// 					subnetAz3.ID(),
-// 				},
-// 				StorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoArgs{
-// 					EbsStorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{
-// 						VolumeSize: pulumi.Int(1000),
-// 					},
-// 				},
-// 				SecurityGroups: pulumi.StringArray{
-// 					sg.ID(),
-// 				},
-// 			},
-// 			EncryptionInfo: &msk.ClusterEncryptionInfoArgs{
-// 				EncryptionAtRestKmsKeyArn: kms.Arn,
-// 			},
-// 			OpenMonitoring: &msk.ClusterOpenMonitoringArgs{
-// 				Prometheus: &msk.ClusterOpenMonitoringPrometheusArgs{
-// 					JmxExporter: &msk.ClusterOpenMonitoringPrometheusJmxExporterArgs{
-// 						EnabledInBroker: pulumi.Bool(true),
-// 					},
-// 					NodeExporter: &msk.ClusterOpenMonitoringPrometheusNodeExporterArgs{
-// 						EnabledInBroker: pulumi.Bool(true),
-// 					},
-// 				},
-// 			},
-// 			LoggingInfo: &msk.ClusterLoggingInfoArgs{
-// 				BrokerLogs: &msk.ClusterLoggingInfoBrokerLogsArgs{
-// 					CloudwatchLogs: &msk.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs{
-// 						Enabled:  pulumi.Bool(true),
-// 						LogGroup: test.Name,
-// 					},
-// 					Firehose: &msk.ClusterLoggingInfoBrokerLogsFirehoseArgs{
-// 						Enabled:        pulumi.Bool(true),
-// 						DeliveryStream: testStream.Name,
-// 					},
-// 					S3: &msk.ClusterLoggingInfoBrokerLogsS3Args{
-// 						Enabled: pulumi.Bool(true),
-// 						Bucket:  bucket.ID(),
-// 						Prefix:  pulumi.String("logs/msk-"),
-// 					},
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"foo": pulumi.String("bar"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("zookeeperConnectString", example.ZookeeperConnectString)
-// 		ctx.Export("bootstrapBrokersTls", example.BootstrapBrokersTls)
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
+//				Destination: pulumi.String("s3"),
+//				S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
+//					RoleArn:   firehoseRole.Arn,
+//					BucketArn: bucket.Arn,
+//				},
+//				Tags: pulumi.StringMap{
+//					"LogDeliveryEnabled": pulumi.String("placeholder"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
+//				KafkaVersion:        pulumi.String("3.2.0"),
+//				NumberOfBrokerNodes: pulumi.Int(3),
+//				BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
+//					InstanceType: pulumi.String("kafka.m5.large"),
+//					ClientSubnets: pulumi.StringArray{
+//						subnetAz1.ID(),
+//						subnetAz2.ID(),
+//						subnetAz3.ID(),
+//					},
+//					StorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoArgs{
+//						EbsStorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{
+//							VolumeSize: pulumi.Int(1000),
+//						},
+//					},
+//					SecurityGroups: pulumi.StringArray{
+//						sg.ID(),
+//					},
+//				},
+//				EncryptionInfo: &msk.ClusterEncryptionInfoArgs{
+//					EncryptionAtRestKmsKeyArn: kms.Arn,
+//				},
+//				OpenMonitoring: &msk.ClusterOpenMonitoringArgs{
+//					Prometheus: &msk.ClusterOpenMonitoringPrometheusArgs{
+//						JmxExporter: &msk.ClusterOpenMonitoringPrometheusJmxExporterArgs{
+//							EnabledInBroker: pulumi.Bool(true),
+//						},
+//						NodeExporter: &msk.ClusterOpenMonitoringPrometheusNodeExporterArgs{
+//							EnabledInBroker: pulumi.Bool(true),
+//						},
+//					},
+//				},
+//				LoggingInfo: &msk.ClusterLoggingInfoArgs{
+//					BrokerLogs: &msk.ClusterLoggingInfoBrokerLogsArgs{
+//						CloudwatchLogs: &msk.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs{
+//							Enabled:  pulumi.Bool(true),
+//							LogGroup: test.Name,
+//						},
+//						Firehose: &msk.ClusterLoggingInfoBrokerLogsFirehoseArgs{
+//							Enabled:        pulumi.Bool(true),
+//							DeliveryStream: testStream.Name,
+//						},
+//						S3: &msk.ClusterLoggingInfoBrokerLogsS3Args{
+//							Enabled: pulumi.Bool(true),
+//							Bucket:  bucket.ID(),
+//							Prefix:  pulumi.String("logs/msk-"),
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("zookeeperConnectString", example.ZookeeperConnectString)
+//			ctx.Export("bootstrapBrokersTls", example.BootstrapBrokersTls)
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With volumeThroughput argument
 //
@@ -198,42 +205,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
-// 			KafkaVersion:        pulumi.String("2.7.1"),
-// 			NumberOfBrokerNodes: pulumi.Int(3),
-// 			BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
-// 				InstanceType: pulumi.String("kafka.m5.4xlarge"),
-// 				ClientSubnets: pulumi.StringArray{
-// 					pulumi.Any(aws_subnet.Subnet_az1.Id),
-// 					pulumi.Any(aws_subnet.Subnet_az2.Id),
-// 					pulumi.Any(aws_subnet.Subnet_az3.Id),
-// 				},
-// 				StorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoArgs{
-// 					EbsStorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{
-// 						ProvisionedThroughput: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs{
-// 							Enabled:          pulumi.Bool(true),
-// 							VolumeThroughput: pulumi.Int(250),
-// 						},
-// 						VolumeSize: pulumi.Int(1000),
-// 					},
-// 				},
-// 				SecurityGroups: pulumi.StringArray{
-// 					pulumi.Any(aws_security_group.Sg.Id),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
+//				KafkaVersion:        pulumi.String("2.7.1"),
+//				NumberOfBrokerNodes: pulumi.Int(3),
+//				BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
+//					InstanceType: pulumi.String("kafka.m5.4xlarge"),
+//					ClientSubnets: pulumi.StringArray{
+//						pulumi.Any(aws_subnet.Subnet_az1.Id),
+//						pulumi.Any(aws_subnet.Subnet_az2.Id),
+//						pulumi.Any(aws_subnet.Subnet_az3.Id),
+//					},
+//					StorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoArgs{
+//						EbsStorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{
+//							ProvisionedThroughput: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs{
+//								Enabled:          pulumi.Bool(true),
+//								VolumeThroughput: pulumi.Int(250),
+//							},
+//							VolumeSize: pulumi.Int(1000),
+//						},
+//					},
+//					SecurityGroups: pulumi.StringArray{
+//						pulumi.Any(aws_security_group.Sg.Id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -241,7 +251,9 @@ import (
 // MSK clusters can be imported using the cluster `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+//
+//	$ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+//
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -513,7 +525,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 // ClusterArrayInput is an input type that accepts ClusterArray and ClusterArrayOutput values.
 // You can construct a concrete instance of `ClusterArrayInput` via:
 //
-//          ClusterArray{ ClusterArgs{...} }
+//	ClusterArray{ ClusterArgs{...} }
 type ClusterArrayInput interface {
 	pulumi.Input
 
@@ -538,7 +550,7 @@ func (i ClusterArray) ToClusterArrayOutputWithContext(ctx context.Context) Clust
 // ClusterMapInput is an input type that accepts ClusterMap and ClusterMapOutput values.
 // You can construct a concrete instance of `ClusterMapInput` via:
 //
-//          ClusterMap{ "key": ClusterArgs{...} }
+//	ClusterMap{ "key": ClusterArgs{...} }
 type ClusterMapInput interface {
 	pulumi.Input
 

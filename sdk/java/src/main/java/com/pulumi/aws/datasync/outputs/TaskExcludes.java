@@ -17,7 +17,7 @@ public final class TaskExcludes {
      */
     private final @Nullable String filterType;
     /**
-     * @return A single filter string that consists of the patterns to include or exclude. The patterns are delimited by &#34;|&#34; (that is, a pipe), for example: `/folder1|/folder2`
+     * @return A single filter string that consists of the patterns to exclude. The patterns are delimited by &#34;|&#34; (that is, a pipe), for example: `/folder1|/folder2`
      * 
      */
     private final @Nullable String value;
@@ -38,7 +38,7 @@ public final class TaskExcludes {
         return Optional.ofNullable(this.filterType);
     }
     /**
-     * @return A single filter string that consists of the patterns to include or exclude. The patterns are delimited by &#34;|&#34; (that is, a pipe), for example: `/folder1|/folder2`
+     * @return A single filter string that consists of the patterns to exclude. The patterns are delimited by &#34;|&#34; (that is, a pipe), for example: `/folder1|/folder2`
      * 
      */
     public Optional<String> value() {

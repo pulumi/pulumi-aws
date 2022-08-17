@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Route53RecoveryReadiness.RecoveryGroup("example", new()
     ///     {
-    ///         var example = new Aws.Route53RecoveryReadiness.RecoveryGroup("example", new Aws.Route53RecoveryReadiness.RecoveryGroupArgs
-    ///         {
-    ///             RecoveryGroupName = "my-high-availability-app",
-    ///         });
-    ///     }
+    ///         RecoveryGroupName = "my-high-availability-app",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup")]
-    public partial class RecoveryGroup : Pulumi.CustomResource
+    public partial class RecoveryGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the recovery group
@@ -61,7 +59,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         public Output<string> RecoveryGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -116,7 +114,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         }
     }
 
-    public sealed class RecoveryGroupArgs : Pulumi.ResourceArgs
+    public sealed class RecoveryGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("cells")]
         private InputList<string>? _cells;
@@ -140,7 +138,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -151,9 +149,10 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         public RecoveryGroupArgs()
         {
         }
+        public static new RecoveryGroupArgs Empty => new RecoveryGroupArgs();
     }
 
-    public sealed class RecoveryGroupState : Pulumi.ResourceArgs
+    public sealed class RecoveryGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the recovery group
@@ -183,7 +182,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -206,5 +205,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         public RecoveryGroupState()
         {
         }
+        public static new RecoveryGroupState Empty => new RecoveryGroupState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ServiceCatalog.Inputs
 {
 
-    public sealed class ProvisionedProductProvisioningParameterArgs : Pulumi.ResourceArgs
+    public sealed class ProvisionedProductProvisioningParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Parameter key.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.ServiceCatalog.Inputs
         public ProvisionedProductProvisioningParameterArgs()
         {
         }
+        public static new ProvisionedProductProvisioningParameterArgs Empty => new ProvisionedProductProvisioningParameterArgs();
     }
 }

@@ -17,41 +17,40 @@ namespace Pulumi.Aws.Workspaces
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var valueWindows10 = Aws.Workspaces.GetBundle.Invoke(new()
     ///     {
-    ///         var valueWindows10 = Output.Create(Aws.Workspaces.GetBundle.InvokeAsync(new Aws.Workspaces.GetBundleArgs
-    ///         {
-    ///             BundleId = "wsb-bh8rsxt14",
-    ///         }));
-    ///         var example = new Aws.Workspaces.Workspace("example", new Aws.Workspaces.WorkspaceArgs
-    ///         {
-    ///             DirectoryId = aws_workspaces_directory.Example.Id,
-    ///             BundleId = valueWindows10.Apply(valueWindows10 =&gt; valueWindows10.Id),
-    ///             UserName = "john.doe",
-    ///             RootVolumeEncryptionEnabled = true,
-    ///             UserVolumeEncryptionEnabled = true,
-    ///             VolumeEncryptionKey = "alias/aws/workspaces",
-    ///             WorkspaceProperties = new Aws.Workspaces.Inputs.WorkspaceWorkspacePropertiesArgs
-    ///             {
-    ///                 ComputeTypeName = "VALUE",
-    ///                 UserVolumeSizeGib = 10,
-    ///                 RootVolumeSizeGib = 80,
-    ///                 RunningMode = "AUTO_STOP",
-    ///                 RunningModeAutoStopTimeoutInMinutes = 60,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Department", "IT" },
-    ///             },
-    ///         });
-    ///     }
+    ///         BundleId = "wsb-bh8rsxt14",
+    ///     });
     /// 
-    /// }
+    ///     var example = new Aws.Workspaces.Workspace("example", new()
+    ///     {
+    ///         DirectoryId = aws_workspaces_directory.Example.Id,
+    ///         BundleId = valueWindows10.Apply(getBundleResult =&gt; getBundleResult.Id),
+    ///         UserName = "john.doe",
+    ///         RootVolumeEncryptionEnabled = true,
+    ///         UserVolumeEncryptionEnabled = true,
+    ///         VolumeEncryptionKey = "alias/aws/workspaces",
+    ///         WorkspaceProperties = new Aws.Workspaces.Inputs.WorkspaceWorkspacePropertiesArgs
+    ///         {
+    ///             ComputeTypeName = "VALUE",
+    ///             UserVolumeSizeGib = 10,
+    ///             RootVolumeSizeGib = 80,
+    ///             RunningMode = "AUTO_STOP",
+    ///             RunningModeAutoStopTimeoutInMinutes = 60,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Department", "IT" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +62,7 @@ namespace Pulumi.Aws.Workspaces
     /// ```
     /// </summary>
     [AwsResourceType("aws:workspaces/workspace:Workspace")]
-    public partial class Workspace : Pulumi.CustomResource
+    public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the bundle for the WorkSpace.
@@ -102,13 +101,13 @@ namespace Pulumi.Aws.Workspaces
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// The tags for the WorkSpace. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -181,7 +180,7 @@ namespace Pulumi.Aws.Workspaces
         }
     }
 
-    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the bundle for the WorkSpace.
@@ -205,7 +204,7 @@ namespace Pulumi.Aws.Workspaces
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags for the WorkSpace. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -240,9 +239,10 @@ namespace Pulumi.Aws.Workspaces
         public WorkspaceArgs()
         {
         }
+        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 
-    public sealed class WorkspaceState : Pulumi.ResourceArgs
+    public sealed class WorkspaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the bundle for the WorkSpace.
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.Workspaces
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags for the WorkSpace. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Workspaces
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -331,5 +331,6 @@ namespace Pulumi.Aws.Workspaces
         public WorkspaceState()
         {
         }
+        public static new WorkspaceState Empty => new WorkspaceState();
     }
 }

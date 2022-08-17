@@ -20,63 +20,66 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/grafana"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/grafana"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"Version": "2012-10-17",
-// 			"Statement": []map[string]interface{}{
-// 				map[string]interface{}{
-// 					"Action": "sts:AssumeRole",
-// 					"Effect": "Allow",
-// 					"Sid":    "",
-// 					"Principal": map[string]interface{}{
-// 						"Service": "grafana.amazonaws.com",
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		assume, err := iam.NewRole(ctx, "assume", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWorkspace, err := grafana.NewWorkspace(ctx, "exampleWorkspace", &grafana.WorkspaceArgs{
-// 			AccountAccessType: pulumi.String("CURRENT_ACCOUNT"),
-// 			AuthenticationProviders: pulumi.StringArray{
-// 				pulumi.String("SAML"),
-// 			},
-// 			PermissionType: pulumi.String("SERVICE_MANAGED"),
-// 			RoleArn:        assume.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = grafana.NewRoleAssociation(ctx, "exampleRoleAssociation", &grafana.RoleAssociationArgs{
-// 			Role: pulumi.String("ADMIN"),
-// 			UserIds: pulumi.StringArray{
-// 				pulumi.String("USER_ID_1"),
-// 				pulumi.String("USER_ID_2"),
-// 			},
-// 			WorkspaceId: exampleWorkspace.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": "sts:AssumeRole",
+//						"Effect": "Allow",
+//						"Sid":    "",
+//						"Principal": map[string]interface{}{
+//							"Service": "grafana.amazonaws.com",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			assume, err := iam.NewRole(ctx, "assume", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := grafana.NewWorkspace(ctx, "exampleWorkspace", &grafana.WorkspaceArgs{
+//				AccountAccessType: pulumi.String("CURRENT_ACCOUNT"),
+//				AuthenticationProviders: pulumi.StringArray{
+//					pulumi.String("SAML"),
+//				},
+//				PermissionType: pulumi.String("SERVICE_MANAGED"),
+//				RoleArn:        assume.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = grafana.NewRoleAssociation(ctx, "exampleRoleAssociation", &grafana.RoleAssociationArgs{
+//				Role: pulumi.String("ADMIN"),
+//				UserIds: pulumi.StringArray{
+//					pulumi.String("USER_ID_1"),
+//					pulumi.String("USER_ID_2"),
+//				},
+//				WorkspaceId: exampleWorkspace.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type RoleAssociation struct {
 	pulumi.CustomResourceState
@@ -200,7 +203,7 @@ func (i *RoleAssociation) ToRoleAssociationOutputWithContext(ctx context.Context
 // RoleAssociationArrayInput is an input type that accepts RoleAssociationArray and RoleAssociationArrayOutput values.
 // You can construct a concrete instance of `RoleAssociationArrayInput` via:
 //
-//          RoleAssociationArray{ RoleAssociationArgs{...} }
+//	RoleAssociationArray{ RoleAssociationArgs{...} }
 type RoleAssociationArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +228,7 @@ func (i RoleAssociationArray) ToRoleAssociationArrayOutputWithContext(ctx contex
 // RoleAssociationMapInput is an input type that accepts RoleAssociationMap and RoleAssociationMapOutput values.
 // You can construct a concrete instance of `RoleAssociationMapInput` via:
 //
-//          RoleAssociationMap{ "key": RoleAssociationArgs{...} }
+//	RoleAssociationMap{ "key": RoleAssociationArgs{...} }
 type RoleAssociationMapInput interface {
 	pulumi.Input
 

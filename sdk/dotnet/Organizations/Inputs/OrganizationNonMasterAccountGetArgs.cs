@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Organizations.Inputs
 {
 
-    public sealed class OrganizationNonMasterAccountGetArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationNonMasterAccountGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the root
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Organizations.Inputs
         public OrganizationNonMasterAccountGetArgs()
         {
         }
+        public static new OrganizationNonMasterAccountGetArgs Empty => new OrganizationNonMasterAccountGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DynamoDB.Inputs
 {
 
-    public sealed class TableLocalSecondaryIndexArgs : Pulumi.ResourceArgs
+    public sealed class TableLocalSecondaryIndexArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the index
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public TableLocalSecondaryIndexArgs()
         {
         }
+        public static new TableLocalSecondaryIndexArgs Empty => new TableLocalSecondaryIndexArgs();
     }
 }

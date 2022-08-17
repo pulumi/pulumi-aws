@@ -21,24 +21,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := redshift.NewClusterIamRoles(ctx, "example", &redshift.ClusterIamRolesArgs{
-// 			ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
-// 			IamRoleArns: pulumi.StringArray{
-// 				pulumi.Any(aws_iam_role.Example.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := redshift.NewClusterIamRoles(ctx, "example", &redshift.ClusterIamRolesArgs{
+//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
+//				IamRoleArns: pulumi.StringArray{
+//					pulumi.Any(aws_iam_role.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // Redshift Cluster IAM Roless can be imported using the `cluster_identifier`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
+//
+//	$ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
+//
 // ```
 type ClusterIamRoles struct {
 	pulumi.CustomResourceState
@@ -157,7 +162,7 @@ func (i *ClusterIamRoles) ToClusterIamRolesOutputWithContext(ctx context.Context
 // ClusterIamRolesArrayInput is an input type that accepts ClusterIamRolesArray and ClusterIamRolesArrayOutput values.
 // You can construct a concrete instance of `ClusterIamRolesArrayInput` via:
 //
-//          ClusterIamRolesArray{ ClusterIamRolesArgs{...} }
+//	ClusterIamRolesArray{ ClusterIamRolesArgs{...} }
 type ClusterIamRolesArrayInput interface {
 	pulumi.Input
 
@@ -182,7 +187,7 @@ func (i ClusterIamRolesArray) ToClusterIamRolesArrayOutputWithContext(ctx contex
 // ClusterIamRolesMapInput is an input type that accepts ClusterIamRolesMap and ClusterIamRolesMapOutput values.
 // You can construct a concrete instance of `ClusterIamRolesMapInput` via:
 //
-//          ClusterIamRolesMap{ "key": ClusterIamRolesArgs{...} }
+//	ClusterIamRolesMap{ "key": ClusterIamRolesArgs{...} }
 type ClusterIamRolesMapInput interface {
 	pulumi.Input
 

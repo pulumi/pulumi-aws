@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DataSync.Inputs
 {
 
-    public sealed class FsxOpenZfsFileSystemProtocolNfsGetArgs : Pulumi.ResourceArgs
+    public sealed class FsxOpenZfsFileSystemProtocolNfsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents the mount options that are available for DataSync to access an NFS location. See below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.DataSync.Inputs
         public FsxOpenZfsFileSystemProtocolNfsGetArgs()
         {
         }
+        public static new FsxOpenZfsFileSystemProtocolNfsGetArgs Empty => new FsxOpenZfsFileSystemProtocolNfsGetArgs();
     }
 }

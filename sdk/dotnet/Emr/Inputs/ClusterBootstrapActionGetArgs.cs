@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Emr.Inputs
 {
 
-    public sealed class ClusterBootstrapActionGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterBootstrapActionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("args")]
         private InputList<string>? _args;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Emr.Inputs
         public ClusterBootstrapActionGetArgs()
         {
         }
+        public static new ClusterBootstrapActionGetArgs Empty => new ClusterBootstrapActionGetArgs();
     }
 }

@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
-// 			AvailabilityZone: pulumi.String("us-west-2a"),
-// 			Size:             pulumi.Int(40),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("HelloWorld"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ebs.NewSnapshot(ctx, "exampleSnapshot", &ebs.SnapshotArgs{
-// 			VolumeId: example.ID(),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("HelloWorld_snap"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
+//				AvailabilityZone: pulumi.String("us-west-2a"),
+//				Size:             pulumi.Int(40),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("HelloWorld"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ebs.NewSnapshot(ctx, "exampleSnapshot", &ebs.SnapshotArgs{
+//				VolumeId: example.ID(),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("HelloWorld_snap"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // EBS Snapshot can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
+//
+//	$ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
+//
 // ```
 type Snapshot struct {
 	pulumi.CustomResourceState
@@ -253,7 +258,7 @@ func (i *Snapshot) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutp
 // SnapshotArrayInput is an input type that accepts SnapshotArray and SnapshotArrayOutput values.
 // You can construct a concrete instance of `SnapshotArrayInput` via:
 //
-//          SnapshotArray{ SnapshotArgs{...} }
+//	SnapshotArray{ SnapshotArgs{...} }
 type SnapshotArrayInput interface {
 	pulumi.Input
 
@@ -278,7 +283,7 @@ func (i SnapshotArray) ToSnapshotArrayOutputWithContext(ctx context.Context) Sna
 // SnapshotMapInput is an input type that accepts SnapshotMap and SnapshotMapOutput values.
 // You can construct a concrete instance of `SnapshotMapInput` via:
 //
-//          SnapshotMap{ "key": SnapshotArgs{...} }
+//	SnapshotMap{ "key": SnapshotArgs{...} }
 type SnapshotMapInput interface {
 	pulumi.Input
 

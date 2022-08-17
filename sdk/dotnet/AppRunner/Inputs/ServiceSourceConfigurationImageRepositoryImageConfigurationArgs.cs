@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppRunner.Inputs
 {
 
-    public sealed class ServiceSourceConfigurationImageRepositoryImageConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSourceConfigurationImageRepositoryImageConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The port that your application listens to in the container. Defaults to `"8080"`.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public ServiceSourceConfigurationImageRepositoryImageConfigurationArgs()
         {
         }
+        public static new ServiceSourceConfigurationImageRepositoryImageConfigurationArgs Empty => new ServiceSourceConfigurationImageRepositoryImageConfigurationArgs();
     }
 }

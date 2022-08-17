@@ -15,26 +15,24 @@ namespace Pulumi.Aws.Eks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Eks.IdentityProviderConfig("example", new()
     ///     {
-    ///         var example = new Aws.Eks.IdentityProviderConfig("example", new Aws.Eks.IdentityProviderConfigArgs
+    ///         ClusterName = aws_eks_cluster.Example.Name,
+    ///         Oidc = new Aws.Eks.Inputs.IdentityProviderConfigOidcArgs
     ///         {
-    ///             ClusterName = aws_eks_cluster.Example.Name,
-    ///             Oidc = new Aws.Eks.Inputs.IdentityProviderConfigOidcArgs
-    ///             {
-    ///                 ClientId = "your client_id",
-    ///                 IdentityProviderConfigName = "example",
-    ///                 IssuerUrl = "your issuer_url",
-    ///             },
-    ///         });
-    ///     }
+    ///             ClientId = "your client_id",
+    ///             IdentityProviderConfigName = "example",
+    ///             IssuerUrl = "your issuer_url",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Aws.Eks
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/identityProviderConfig:IdentityProviderConfig")]
-    public partial class IdentityProviderConfig : Pulumi.CustomResource
+    public partial class IdentityProviderConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
@@ -128,7 +126,7 @@ namespace Pulumi.Aws.Eks
         }
     }
 
-    public sealed class IdentityProviderConfigArgs : Pulumi.ResourceArgs
+    public sealed class IdentityProviderConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the EKS Cluster.
@@ -157,9 +155,10 @@ namespace Pulumi.Aws.Eks
         public IdentityProviderConfigArgs()
         {
         }
+        public static new IdentityProviderConfigArgs Empty => new IdentityProviderConfigArgs();
     }
 
-    public sealed class IdentityProviderConfigState : Pulumi.ResourceArgs
+    public sealed class IdentityProviderConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
@@ -212,5 +211,6 @@ namespace Pulumi.Aws.Eks
         public IdentityProviderConfigState()
         {
         }
+        public static new IdentityProviderConfigState Empty => new IdentityProviderConfigState();
     }
 }

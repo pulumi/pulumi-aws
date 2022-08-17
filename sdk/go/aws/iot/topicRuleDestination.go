@@ -16,7 +16,9 @@ import (
 // IoT topic rule destinations can be imported using the `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
+//
+//	$ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
+//
 // ```
 type TopicRuleDestination struct {
 	pulumi.CustomResourceState
@@ -123,7 +125,7 @@ func (i *TopicRuleDestination) ToTopicRuleDestinationOutputWithContext(ctx conte
 // TopicRuleDestinationArrayInput is an input type that accepts TopicRuleDestinationArray and TopicRuleDestinationArrayOutput values.
 // You can construct a concrete instance of `TopicRuleDestinationArrayInput` via:
 //
-//          TopicRuleDestinationArray{ TopicRuleDestinationArgs{...} }
+//	TopicRuleDestinationArray{ TopicRuleDestinationArgs{...} }
 type TopicRuleDestinationArrayInput interface {
 	pulumi.Input
 
@@ -148,7 +150,7 @@ func (i TopicRuleDestinationArray) ToTopicRuleDestinationArrayOutputWithContext(
 // TopicRuleDestinationMapInput is an input type that accepts TopicRuleDestinationMap and TopicRuleDestinationMapOutput values.
 // You can construct a concrete instance of `TopicRuleDestinationMapInput` via:
 //
-//          TopicRuleDestinationMap{ "key": TopicRuleDestinationArgs{...} }
+//	TopicRuleDestinationMap{ "key": TopicRuleDestinationArgs{...} }
 type TopicRuleDestinationMapInput interface {
 	pulumi.Input
 

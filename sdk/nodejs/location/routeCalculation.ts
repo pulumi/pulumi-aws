@@ -76,7 +76,7 @@ export class RouteCalculation extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The timestamp for when the route calculator resource was last update in ISO 8601.
      */
@@ -115,9 +115,9 @@ export class RouteCalculation extends pulumi.CustomResource {
             resourceInputs["dataSource"] = args ? args.dataSource : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["calculatorArn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -174,5 +174,4 @@ export interface RouteCalculationArgs {
      */
     description?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

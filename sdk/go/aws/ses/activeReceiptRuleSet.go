@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ses.NewActiveReceiptRuleSet(ctx, "main", &ses.ActiveReceiptRuleSetArgs{
-// 			RuleSetName: pulumi.String("primary-rules"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewActiveReceiptRuleSet(ctx, "main", &ses.ActiveReceiptRuleSetArgs{
+//				RuleSetName: pulumi.String("primary-rules"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type ActiveReceiptRuleSet struct {
 	pulumi.CustomResourceState
@@ -130,7 +133,7 @@ func (i *ActiveReceiptRuleSet) ToActiveReceiptRuleSetOutputWithContext(ctx conte
 // ActiveReceiptRuleSetArrayInput is an input type that accepts ActiveReceiptRuleSetArray and ActiveReceiptRuleSetArrayOutput values.
 // You can construct a concrete instance of `ActiveReceiptRuleSetArrayInput` via:
 //
-//          ActiveReceiptRuleSetArray{ ActiveReceiptRuleSetArgs{...} }
+//	ActiveReceiptRuleSetArray{ ActiveReceiptRuleSetArgs{...} }
 type ActiveReceiptRuleSetArrayInput interface {
 	pulumi.Input
 
@@ -155,7 +158,7 @@ func (i ActiveReceiptRuleSetArray) ToActiveReceiptRuleSetArrayOutputWithContext(
 // ActiveReceiptRuleSetMapInput is an input type that accepts ActiveReceiptRuleSetMap and ActiveReceiptRuleSetMapOutput values.
 // You can construct a concrete instance of `ActiveReceiptRuleSetMapInput` via:
 //
-//          ActiveReceiptRuleSetMap{ "key": ActiveReceiptRuleSetArgs{...} }
+//	ActiveReceiptRuleSetMap{ "key": ActiveReceiptRuleSetArgs{...} }
 type ActiveReceiptRuleSetMapInput interface {
 	pulumi.Input
 

@@ -16,76 +16,74 @@ namespace Pulumi.Aws.Ssm
     /// ### Instance Target
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var window = new Aws.Ssm.MaintenanceWindow("window", new()
     ///     {
-    ///         var window = new Aws.Ssm.MaintenanceWindow("window", new Aws.Ssm.MaintenanceWindowArgs
+    ///         Schedule = "cron(0 16 ? * TUE *)",
+    ///         Duration = 3,
+    ///         Cutoff = 1,
+    ///     });
+    /// 
+    ///     var target1 = new Aws.Ssm.MaintenanceWindowTarget("target1", new()
+    ///     {
+    ///         WindowId = window.Id,
+    ///         Description = "This is a maintenance window target",
+    ///         ResourceType = "INSTANCE",
+    ///         Targets = new[]
     ///         {
-    ///             Schedule = "cron(0 16 ? * TUE *)",
-    ///             Duration = 3,
-    ///             Cutoff = 1,
-    ///         });
-    ///         var target1 = new Aws.Ssm.MaintenanceWindowTarget("target1", new Aws.Ssm.MaintenanceWindowTargetArgs
-    ///         {
-    ///             WindowId = window.Id,
-    ///             Description = "This is a maintenance window target",
-    ///             ResourceType = "INSTANCE",
-    ///             Targets = 
+    ///             new Aws.Ssm.Inputs.MaintenanceWindowTargetTargetArgs
     ///             {
-    ///                 new Aws.Ssm.Inputs.MaintenanceWindowTargetTargetArgs
+    ///                 Key = "tag:Name",
+    ///                 Values = new[]
     ///                 {
-    ///                     Key = "tag:Name",
-    ///                     Values = 
-    ///                     {
-    ///                         "acceptance_test",
-    ///                     },
+    ///                     "acceptance_test",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Resource Group Target
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var window = new Aws.Ssm.MaintenanceWindow("window", new()
     ///     {
-    ///         var window = new Aws.Ssm.MaintenanceWindow("window", new Aws.Ssm.MaintenanceWindowArgs
+    ///         Schedule = "cron(0 16 ? * TUE *)",
+    ///         Duration = 3,
+    ///         Cutoff = 1,
+    ///     });
+    /// 
+    ///     var target1 = new Aws.Ssm.MaintenanceWindowTarget("target1", new()
+    ///     {
+    ///         WindowId = window.Id,
+    ///         Description = "This is a maintenance window target",
+    ///         ResourceType = "RESOURCE_GROUP",
+    ///         Targets = new[]
     ///         {
-    ///             Schedule = "cron(0 16 ? * TUE *)",
-    ///             Duration = 3,
-    ///             Cutoff = 1,
-    ///         });
-    ///         var target1 = new Aws.Ssm.MaintenanceWindowTarget("target1", new Aws.Ssm.MaintenanceWindowTargetArgs
-    ///         {
-    ///             WindowId = window.Id,
-    ///             Description = "This is a maintenance window target",
-    ///             ResourceType = "RESOURCE_GROUP",
-    ///             Targets = 
+    ///             new Aws.Ssm.Inputs.MaintenanceWindowTargetTargetArgs
     ///             {
-    ///                 new Aws.Ssm.Inputs.MaintenanceWindowTargetTargetArgs
+    ///                 Key = "resource-groups:ResourceTypeFilters",
+    ///                 Values = new[]
     ///                 {
-    ///                     Key = "resource-groups:ResourceTypeFilters",
-    ///                     Values = 
-    ///                     {
-    ///                         "AWS::EC2::Instance",
-    ///                     },
+    ///                     "AWS::EC2::Instance",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -97,7 +95,7 @@ namespace Pulumi.Aws.Ssm
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget")]
-    public partial class MaintenanceWindowTarget : Pulumi.CustomResource
+    public partial class MaintenanceWindowTarget : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the maintenance window target.
@@ -180,7 +178,7 @@ namespace Pulumi.Aws.Ssm
         }
     }
 
-    public sealed class MaintenanceWindowTargetArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the maintenance window target.
@@ -228,9 +226,10 @@ namespace Pulumi.Aws.Ssm
         public MaintenanceWindowTargetArgs()
         {
         }
+        public static new MaintenanceWindowTargetArgs Empty => new MaintenanceWindowTargetArgs();
     }
 
-    public sealed class MaintenanceWindowTargetState : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the maintenance window target.
@@ -278,5 +277,6 @@ namespace Pulumi.Aws.Ssm
         public MaintenanceWindowTargetState()
         {
         }
+        public static new MaintenanceWindowTargetState Empty => new MaintenanceWindowTargetState();
     }
 }

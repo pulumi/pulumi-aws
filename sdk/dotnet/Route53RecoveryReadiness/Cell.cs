@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Route53RecoveryReadiness.Cell("example", new()
     ///     {
-    ///         var example = new Aws.Route53RecoveryReadiness.Cell("example", new Aws.Route53RecoveryReadiness.CellArgs
-    ///         {
-    ///             CellName = "us-west-2-failover-cell",
-    ///         });
-    ///     }
+    ///         CellName = "us-west-2-failover-cell",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53recoveryreadiness/cell:Cell")]
-    public partial class Cell : Pulumi.CustomResource
+    public partial class Cell : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the cell
@@ -67,7 +65,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         public Output<ImmutableArray<string>> ParentReadinessScopes { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -122,7 +120,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         }
     }
 
-    public sealed class CellArgs : Pulumi.ResourceArgs
+    public sealed class CellArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Unique name describing the cell.
@@ -146,7 +144,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -157,9 +155,10 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         public CellArgs()
         {
         }
+        public static new CellArgs Empty => new CellArgs();
     }
 
-    public sealed class CellState : Pulumi.ResourceArgs
+    public sealed class CellState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the cell
@@ -201,7 +200,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -224,5 +223,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         public CellState()
         {
         }
+        public static new CellState Empty => new CellState();
     }
 }

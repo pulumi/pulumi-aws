@@ -17,33 +17,33 @@ namespace Pulumi.Aws.MemoryDb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
     ///     {
-    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var exampleSubnet = new Aws.Ec2.Subnet("exampleSubnet", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = exampleVpc.Id,
-    ///             CidrBlock = "10.0.0.0/24",
-    ///             AvailabilityZone = "us-west-2a",
-    ///         });
-    ///         var exampleSubnetGroup = new Aws.MemoryDb.SubnetGroup("exampleSubnetGroup", new Aws.MemoryDb.SubnetGroupArgs
-    ///         {
-    ///             SubnetIds = 
-    ///             {
-    ///                 exampleSubnet.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSubnet = new Aws.Ec2.Subnet("exampleSubnet", new()
+    ///     {
+    ///         VpcId = exampleVpc.Id,
+    ///         CidrBlock = "10.0.0.0/24",
+    ///         AvailabilityZone = "us-west-2a",
+    ///     });
+    /// 
+    ///     var exampleSubnetGroup = new Aws.MemoryDb.SubnetGroup("exampleSubnetGroup", new()
+    ///     {
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleSubnet.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.MemoryDb
     /// ```
     /// </summary>
     [AwsResourceType("aws:memorydb/subnetGroup:SubnetGroup")]
-    public partial class SubnetGroup : Pulumi.CustomResource
+    public partial class SubnetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the subnet group.
@@ -87,9 +87,6 @@ namespace Pulumi.Aws.MemoryDb
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -143,7 +140,7 @@ namespace Pulumi.Aws.MemoryDb
         }
     }
 
-    public sealed class SubnetGroupArgs : Pulumi.ResourceArgs
+    public sealed class SubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -184,9 +181,10 @@ namespace Pulumi.Aws.MemoryDb
         public SubnetGroupArgs()
         {
         }
+        public static new SubnetGroupArgs Empty => new SubnetGroupArgs();
     }
 
-    public sealed class SubnetGroupState : Pulumi.ResourceArgs
+    public sealed class SubnetGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the subnet group.
@@ -232,10 +230,6 @@ namespace Pulumi.Aws.MemoryDb
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -251,5 +245,6 @@ namespace Pulumi.Aws.MemoryDb
         public SubnetGroupState()
         {
         }
+        public static new SubnetGroupState Empty => new SubnetGroupState();
     }
 }

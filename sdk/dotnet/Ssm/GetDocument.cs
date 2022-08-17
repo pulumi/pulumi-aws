@@ -21,44 +21,41 @@ namespace Pulumi.Aws.Ssm
         /// To get the contents of the document owned by AWS.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Aws.Ssm.GetDocument.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Aws.Ssm.GetDocument.InvokeAsync(new Aws.Ssm.GetDocumentArgs
-        ///         {
-        ///             Name = "AWS-GatherSoftwareInventory",
-        ///             DocumentFormat = "YAML",
-        ///         }));
-        ///         this.Content = foo.Apply(foo =&gt; foo.Content);
-        ///     }
+        ///         Name = "AWS-GatherSoftwareInventory",
+        ///         DocumentFormat = "YAML",
+        ///     });
         /// 
-        ///     [Output("content")]
-        ///     public Output&lt;string&gt; Content { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["content"] = foo.Apply(getDocumentResult =&gt; getDocumentResult.Content),
+        ///     };
+        /// });
         /// ```
         /// 
         /// To get the contents of the custom document.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Ssm.GetDocument.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Ssm.GetDocument.InvokeAsync(new Aws.Ssm.GetDocumentArgs
-        ///         {
-        ///             Name = aws_ssm_document.Test.Name,
-        ///             DocumentFormat = "JSON",
-        ///         }));
-        ///     }
+        ///         Name = aws_ssm_document.Test.Name,
+        ///         DocumentFormat = "JSON",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -76,44 +73,41 @@ namespace Pulumi.Aws.Ssm
         /// To get the contents of the document owned by AWS.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Aws.Ssm.GetDocument.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Aws.Ssm.GetDocument.InvokeAsync(new Aws.Ssm.GetDocumentArgs
-        ///         {
-        ///             Name = "AWS-GatherSoftwareInventory",
-        ///             DocumentFormat = "YAML",
-        ///         }));
-        ///         this.Content = foo.Apply(foo =&gt; foo.Content);
-        ///     }
+        ///         Name = "AWS-GatherSoftwareInventory",
+        ///         DocumentFormat = "YAML",
+        ///     });
         /// 
-        ///     [Output("content")]
-        ///     public Output&lt;string&gt; Content { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["content"] = foo.Apply(getDocumentResult =&gt; getDocumentResult.Content),
+        ///     };
+        /// });
         /// ```
         /// 
         /// To get the contents of the custom document.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Ssm.GetDocument.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Ssm.GetDocument.InvokeAsync(new Aws.Ssm.GetDocumentArgs
-        ///         {
-        ///             Name = aws_ssm_document.Test.Name,
-        ///             DocumentFormat = "JSON",
-        ///         }));
-        ///     }
+        ///         Name = aws_ssm_document.Test.Name,
+        ///         DocumentFormat = "JSON",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -123,7 +117,7 @@ namespace Pulumi.Aws.Ssm
     }
 
 
-    public sealed class GetDocumentArgs : Pulumi.InvokeArgs
+    public sealed class GetDocumentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
@@ -146,9 +140,10 @@ namespace Pulumi.Aws.Ssm
         public GetDocumentArgs()
         {
         }
+        public static new GetDocumentArgs Empty => new GetDocumentArgs();
     }
 
-    public sealed class GetDocumentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDocumentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
@@ -171,6 +166,7 @@ namespace Pulumi.Aws.Ssm
         public GetDocumentInvokeArgs()
         {
         }
+        public static new GetDocumentInvokeArgs Empty => new GetDocumentInvokeArgs();
     }
 
 

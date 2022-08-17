@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbGetArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbGetArgs()
         {
         }
+        public static new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbGetArgs Empty => new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs : Pulumi.ResourceArgs
+    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique name of the Amazon Connect Customer Profiles domain.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs()
         {
         }
+        public static new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs Empty => new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs();
     }
 }

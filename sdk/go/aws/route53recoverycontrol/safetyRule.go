@@ -19,63 +19,69 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := route53recoverycontrol.NewSafetyRule(ctx, "example", &route53recoverycontrol.SafetyRuleArgs{
-// 			AssertedControls: pulumi.StringArray{
-// 				pulumi.Any(aws_route53recoverycontrolconfig_routing_control.Example.Arn),
-// 			},
-// 			ControlPanelArn: pulumi.String("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8"),
-// 			WaitPeriodMs:    pulumi.Int(5000),
-// 			RuleConfig: &route53recoverycontrol.SafetyRuleRuleConfigArgs{
-// 				Inverted:  pulumi.Bool(false),
-// 				Threshold: pulumi.Int(1),
-// 				Type:      pulumi.String("ATLEAST"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53recoverycontrol.NewSafetyRule(ctx, "example", &route53recoverycontrol.SafetyRuleArgs{
+//				AssertedControls: pulumi.StringArray{
+//					pulumi.Any(aws_route53recoverycontrolconfig_routing_control.Example.Arn),
+//				},
+//				ControlPanelArn: pulumi.String("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8"),
+//				WaitPeriodMs:    pulumi.Int(5000),
+//				RuleConfig: &route53recoverycontrol.SafetyRuleRuleConfigArgs{
+//					Inverted:  pulumi.Bool(false),
+//					Threshold: pulumi.Int(1),
+//					Type:      pulumi.String("ATLEAST"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := route53recoverycontrol.NewSafetyRule(ctx, "example", &route53recoverycontrol.SafetyRuleArgs{
-// 			ControlPanelArn: pulumi.String("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8"),
-// 			WaitPeriodMs:    pulumi.Int(5000),
-// 			GatingControls: pulumi.StringArray{
-// 				pulumi.Any(aws_route53recoverycontrolconfig_routing_control.Example.Arn),
-// 			},
-// 			TargetControls: pulumi.StringArray{
-// 				pulumi.Any(aws_route53recoverycontrolconfig_routing_control.Example.Arn),
-// 			},
-// 			RuleConfig: &route53recoverycontrol.SafetyRuleRuleConfigArgs{
-// 				Inverted:  pulumi.Bool(false),
-// 				Threshold: pulumi.Int(1),
-// 				Type:      pulumi.String("ATLEAST"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53recoverycontrol.NewSafetyRule(ctx, "example", &route53recoverycontrol.SafetyRuleArgs{
+//				ControlPanelArn: pulumi.String("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8"),
+//				WaitPeriodMs:    pulumi.Int(5000),
+//				GatingControls: pulumi.StringArray{
+//					pulumi.Any(aws_route53recoverycontrolconfig_routing_control.Example.Arn),
+//				},
+//				TargetControls: pulumi.StringArray{
+//					pulumi.Any(aws_route53recoverycontrolconfig_routing_control.Example.Arn),
+//				},
+//				RuleConfig: &route53recoverycontrol.SafetyRuleRuleConfigArgs{
+//					Inverted:  pulumi.Bool(false),
+//					Threshold: pulumi.Int(1),
+//					Type:      pulumi.String("ATLEAST"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -83,7 +89,9 @@ import (
 // Route53 Recovery Control Config Safety Rule can be imported via the safety rule ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
+//
+//	$ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
+//
 // ```
 type SafetyRule struct {
 	pulumi.CustomResourceState
@@ -252,7 +260,7 @@ func (i *SafetyRule) ToSafetyRuleOutputWithContext(ctx context.Context) SafetyRu
 // SafetyRuleArrayInput is an input type that accepts SafetyRuleArray and SafetyRuleArrayOutput values.
 // You can construct a concrete instance of `SafetyRuleArrayInput` via:
 //
-//          SafetyRuleArray{ SafetyRuleArgs{...} }
+//	SafetyRuleArray{ SafetyRuleArgs{...} }
 type SafetyRuleArrayInput interface {
 	pulumi.Input
 
@@ -277,7 +285,7 @@ func (i SafetyRuleArray) ToSafetyRuleArrayOutputWithContext(ctx context.Context)
 // SafetyRuleMapInput is an input type that accepts SafetyRuleMap and SafetyRuleMapOutput values.
 // You can construct a concrete instance of `SafetyRuleMapInput` via:
 //
-//          SafetyRuleMap{ "key": SafetyRuleArgs{...} }
+//	SafetyRuleMap{ "key": SafetyRuleArgs{...} }
 type SafetyRuleMapInput interface {
 	pulumi.Input
 

@@ -19,69 +19,72 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
-// 			AvailabilityZones: pulumi.StringArray{
-// 				pulumi.String("us-east-1a"),
-// 			},
-// 			Listeners: elb.LoadBalancerListenerArray{
-// 				&elb.LoadBalancerListenerArgs{
-// 					InstancePort:     pulumi.Int(8000),
-// 					InstanceProtocol: pulumi.String("https"),
-// 					LbPort:           pulumi.Int(443),
-// 					LbProtocol:       pulumi.String("https"),
-// 					SslCertificateId: pulumi.String("arn:aws:iam::123456789012:server-certificate/certName"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = elb.NewSslNegotiationPolicy(ctx, "foo", &elb.SslNegotiationPolicyArgs{
-// 			LoadBalancer: lb.ID(),
-// 			LbPort:       pulumi.Int(443),
-// 			Attributes: elb.SslNegotiationPolicyAttributeArray{
-// 				&elb.SslNegotiationPolicyAttributeArgs{
-// 					Name:  pulumi.String("Protocol-TLSv1"),
-// 					Value: pulumi.String("false"),
-// 				},
-// 				&elb.SslNegotiationPolicyAttributeArgs{
-// 					Name:  pulumi.String("Protocol-TLSv1.1"),
-// 					Value: pulumi.String("false"),
-// 				},
-// 				&elb.SslNegotiationPolicyAttributeArgs{
-// 					Name:  pulumi.String("Protocol-TLSv1.2"),
-// 					Value: pulumi.String("true"),
-// 				},
-// 				&elb.SslNegotiationPolicyAttributeArgs{
-// 					Name:  pulumi.String("Server-Defined-Cipher-Order"),
-// 					Value: pulumi.String("true"),
-// 				},
-// 				&elb.SslNegotiationPolicyAttributeArgs{
-// 					Name:  pulumi.String("ECDHE-RSA-AES128-GCM-SHA256"),
-// 					Value: pulumi.String("true"),
-// 				},
-// 				&elb.SslNegotiationPolicyAttributeArgs{
-// 					Name:  pulumi.String("AES128-GCM-SHA256"),
-// 					Value: pulumi.String("true"),
-// 				},
-// 				&elb.SslNegotiationPolicyAttributeArgs{
-// 					Name:  pulumi.String("EDH-RSA-DES-CBC3-SHA"),
-// 					Value: pulumi.String("false"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-east-1a"),
+//				},
+//				Listeners: elb.LoadBalancerListenerArray{
+//					&elb.LoadBalancerListenerArgs{
+//						InstancePort:     pulumi.Int(8000),
+//						InstanceProtocol: pulumi.String("https"),
+//						LbPort:           pulumi.Int(443),
+//						LbProtocol:       pulumi.String("https"),
+//						SslCertificateId: pulumi.String("arn:aws:iam::123456789012:server-certificate/certName"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elb.NewSslNegotiationPolicy(ctx, "foo", &elb.SslNegotiationPolicyArgs{
+//				LoadBalancer: lb.ID(),
+//				LbPort:       pulumi.Int(443),
+//				Attributes: elb.SslNegotiationPolicyAttributeArray{
+//					&elb.SslNegotiationPolicyAttributeArgs{
+//						Name:  pulumi.String("Protocol-TLSv1"),
+//						Value: pulumi.String("false"),
+//					},
+//					&elb.SslNegotiationPolicyAttributeArgs{
+//						Name:  pulumi.String("Protocol-TLSv1.1"),
+//						Value: pulumi.String("false"),
+//					},
+//					&elb.SslNegotiationPolicyAttributeArgs{
+//						Name:  pulumi.String("Protocol-TLSv1.2"),
+//						Value: pulumi.String("true"),
+//					},
+//					&elb.SslNegotiationPolicyAttributeArgs{
+//						Name:  pulumi.String("Server-Defined-Cipher-Order"),
+//						Value: pulumi.String("true"),
+//					},
+//					&elb.SslNegotiationPolicyAttributeArgs{
+//						Name:  pulumi.String("ECDHE-RSA-AES128-GCM-SHA256"),
+//						Value: pulumi.String("true"),
+//					},
+//					&elb.SslNegotiationPolicyAttributeArgs{
+//						Name:  pulumi.String("AES128-GCM-SHA256"),
+//						Value: pulumi.String("true"),
+//					},
+//					&elb.SslNegotiationPolicyAttributeArgs{
+//						Name:  pulumi.String("EDH-RSA-DES-CBC3-SHA"),
+//						Value: pulumi.String("false"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Deprecated: aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy
@@ -222,7 +225,7 @@ func (i *SslNegotiationPolicy) ToSslNegotiationPolicyOutputWithContext(ctx conte
 // SslNegotiationPolicyArrayInput is an input type that accepts SslNegotiationPolicyArray and SslNegotiationPolicyArrayOutput values.
 // You can construct a concrete instance of `SslNegotiationPolicyArrayInput` via:
 //
-//          SslNegotiationPolicyArray{ SslNegotiationPolicyArgs{...} }
+//	SslNegotiationPolicyArray{ SslNegotiationPolicyArgs{...} }
 type SslNegotiationPolicyArrayInput interface {
 	pulumi.Input
 
@@ -247,7 +250,7 @@ func (i SslNegotiationPolicyArray) ToSslNegotiationPolicyArrayOutputWithContext(
 // SslNegotiationPolicyMapInput is an input type that accepts SslNegotiationPolicyMap and SslNegotiationPolicyMapOutput values.
 // You can construct a concrete instance of `SslNegotiationPolicyMapInput` via:
 //
-//          SslNegotiationPolicyMap{ "key": SslNegotiationPolicyArgs{...} }
+//	SslNegotiationPolicyMap{ "key": SslNegotiationPolicyArgs{...} }
 type SslNegotiationPolicyMapInput interface {
 	pulumi.Input
 

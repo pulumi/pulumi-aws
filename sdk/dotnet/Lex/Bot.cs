@@ -16,58 +16,56 @@ namespace Pulumi.Aws.Lex
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var orderFlowersBot = new Aws.Lex.Bot("orderFlowersBot", new()
     ///     {
-    ///         var orderFlowersBot = new Aws.Lex.Bot("orderFlowersBot", new Aws.Lex.BotArgs
+    ///         AbortStatement = new Aws.Lex.Inputs.BotAbortStatementArgs
     ///         {
-    ///             AbortStatement = new Aws.Lex.Inputs.BotAbortStatementArgs
+    ///             Messages = new[]
     ///             {
-    ///                 Messages = 
+    ///                 new Aws.Lex.Inputs.BotAbortStatementMessageArgs
     ///                 {
-    ///                     new Aws.Lex.Inputs.BotAbortStatementMessageArgs
-    ///                     {
-    ///                         Content = "Sorry, I am not able to assist at this time",
-    ///                         ContentType = "PlainText",
-    ///                     },
+    ///                     Content = "Sorry, I am not able to assist at this time",
+    ///                     ContentType = "PlainText",
     ///                 },
     ///             },
-    ///             ChildDirected = false,
-    ///             ClarificationPrompt = new Aws.Lex.Inputs.BotClarificationPromptArgs
+    ///         },
+    ///         ChildDirected = false,
+    ///         ClarificationPrompt = new Aws.Lex.Inputs.BotClarificationPromptArgs
+    ///         {
+    ///             MaxAttempts = 2,
+    ///             Messages = new[]
     ///             {
-    ///                 MaxAttempts = 2,
-    ///                 Messages = 
+    ///                 new Aws.Lex.Inputs.BotClarificationPromptMessageArgs
     ///                 {
-    ///                     new Aws.Lex.Inputs.BotClarificationPromptMessageArgs
-    ///                     {
-    ///                         Content = "I didn't understand you, what would you like to do?",
-    ///                         ContentType = "PlainText",
-    ///                     },
+    ///                     Content = "I didn't understand you, what would you like to do?",
+    ///                     ContentType = "PlainText",
     ///                 },
     ///             },
-    ///             CreateVersion = false,
-    ///             Description = "Bot to order flowers on the behalf of a user",
-    ///             IdleSessionTtlInSeconds = 600,
-    ///             Intents = 
+    ///         },
+    ///         CreateVersion = false,
+    ///         Description = "Bot to order flowers on the behalf of a user",
+    ///         IdleSessionTtlInSeconds = 600,
+    ///         Intents = new[]
+    ///         {
+    ///             new Aws.Lex.Inputs.BotIntentArgs
     ///             {
-    ///                 new Aws.Lex.Inputs.BotIntentArgs
-    ///                 {
-    ///                     IntentName = "OrderFlowers",
-    ///                     IntentVersion = "1",
-    ///                 },
+    ///                 IntentName = "OrderFlowers",
+    ///                 IntentVersion = "1",
     ///             },
-    ///             Locale = "en-US",
-    ///             Name = "OrderFlowers",
-    ///             ProcessBehavior = "BUILD",
-    ///             VoiceId = "Salli",
-    ///         });
-    ///     }
+    ///         },
+    ///         Locale = "en-US",
+    ///         Name = "OrderFlowers",
+    ///         ProcessBehavior = "BUILD",
+    ///         VoiceId = "Salli",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -79,7 +77,7 @@ namespace Pulumi.Aws.Lex
     /// ```
     /// </summary>
     [AwsResourceType("aws:lex/bot:Bot")]
-    public partial class Bot : Pulumi.CustomResource
+    public partial class Bot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
@@ -252,7 +250,7 @@ namespace Pulumi.Aws.Lex
         }
     }
 
-    public sealed class BotArgs : Pulumi.ResourceArgs
+    public sealed class BotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
@@ -347,9 +345,10 @@ namespace Pulumi.Aws.Lex
         public BotArgs()
         {
         }
+        public static new BotArgs Empty => new BotArgs();
     }
 
-    public sealed class BotState : Pulumi.ResourceArgs
+    public sealed class BotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
@@ -487,5 +486,6 @@ namespace Pulumi.Aws.Lex
         public BotState()
         {
         }
+        public static new BotState Empty => new BotState();
     }
 }

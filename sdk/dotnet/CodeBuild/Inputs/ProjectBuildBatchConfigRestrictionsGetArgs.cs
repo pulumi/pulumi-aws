@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ProjectBuildBatchConfigRestrictionsGetArgs : Pulumi.ResourceArgs
+    public sealed class ProjectBuildBatchConfigRestrictionsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("computeTypesAlloweds")]
         private InputList<string>? _computeTypesAlloweds;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ProjectBuildBatchConfigRestrictionsGetArgs()
         {
         }
+        public static new ProjectBuildBatchConfigRestrictionsGetArgs Empty => new ProjectBuildBatchConfigRestrictionsGetArgs();
     }
 }

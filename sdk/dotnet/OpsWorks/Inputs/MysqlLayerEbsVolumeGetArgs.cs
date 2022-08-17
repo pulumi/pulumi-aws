@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class MysqlLayerEbsVolumeGetArgs : Pulumi.ResourceArgs
+    public sealed class MysqlLayerEbsVolumeGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public MysqlLayerEbsVolumeGetArgs()
         {
         }
+        public static new MysqlLayerEbsVolumeGetArgs Empty => new MysqlLayerEbsVolumeGetArgs();
     }
 }

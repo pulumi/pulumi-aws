@@ -15,21 +15,19 @@ namespace Pulumi.Aws.Organizations
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Organizations.DelegatedAdministrator("example", new()
     ///     {
-    ///         var example = new Aws.Organizations.DelegatedAdministrator("example", new Aws.Organizations.DelegatedAdministratorArgs
-    ///         {
-    ///             AccountId = "123456789012",
-    ///             ServicePrincipal = "principal",
-    ///         });
-    ///     }
+    ///         AccountId = "123456789012",
+    ///         ServicePrincipal = "principal",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Organizations
     /// ```
     /// </summary>
     [AwsResourceType("aws:organizations/delegatedAdministrator:DelegatedAdministrator")]
-    public partial class DelegatedAdministrator : Pulumi.CustomResource
+    public partial class DelegatedAdministrator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The account ID number of the member account in the organization to register as a delegated administrator.
@@ -141,7 +139,7 @@ namespace Pulumi.Aws.Organizations
         }
     }
 
-    public sealed class DelegatedAdministratorArgs : Pulumi.ResourceArgs
+    public sealed class DelegatedAdministratorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account ID number of the member account in the organization to register as a delegated administrator.
@@ -158,9 +156,10 @@ namespace Pulumi.Aws.Organizations
         public DelegatedAdministratorArgs()
         {
         }
+        public static new DelegatedAdministratorArgs Empty => new DelegatedAdministratorArgs();
     }
 
-    public sealed class DelegatedAdministratorState : Pulumi.ResourceArgs
+    public sealed class DelegatedAdministratorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account ID number of the member account in the organization to register as a delegated administrator.
@@ -219,5 +218,6 @@ namespace Pulumi.Aws.Organizations
         public DelegatedAdministratorState()
         {
         }
+        public static new DelegatedAdministratorState Empty => new DelegatedAdministratorState();
     }
 }

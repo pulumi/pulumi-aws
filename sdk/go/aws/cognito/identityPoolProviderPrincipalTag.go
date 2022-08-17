@@ -18,7 +18,9 @@ import (
 // Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID and provider name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
+//
+//	$ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
+//
 // ```
 type IdentityPoolProviderPrincipalTag struct {
 	pulumi.CustomResourceState
@@ -142,7 +144,7 @@ func (i *IdentityPoolProviderPrincipalTag) ToIdentityPoolProviderPrincipalTagOut
 // IdentityPoolProviderPrincipalTagArrayInput is an input type that accepts IdentityPoolProviderPrincipalTagArray and IdentityPoolProviderPrincipalTagArrayOutput values.
 // You can construct a concrete instance of `IdentityPoolProviderPrincipalTagArrayInput` via:
 //
-//          IdentityPoolProviderPrincipalTagArray{ IdentityPoolProviderPrincipalTagArgs{...} }
+//	IdentityPoolProviderPrincipalTagArray{ IdentityPoolProviderPrincipalTagArgs{...} }
 type IdentityPoolProviderPrincipalTagArrayInput interface {
 	pulumi.Input
 
@@ -167,7 +169,7 @@ func (i IdentityPoolProviderPrincipalTagArray) ToIdentityPoolProviderPrincipalTa
 // IdentityPoolProviderPrincipalTagMapInput is an input type that accepts IdentityPoolProviderPrincipalTagMap and IdentityPoolProviderPrincipalTagMapOutput values.
 // You can construct a concrete instance of `IdentityPoolProviderPrincipalTagMapInput` via:
 //
-//          IdentityPoolProviderPrincipalTagMap{ "key": IdentityPoolProviderPrincipalTagArgs{...} }
+//	IdentityPoolProviderPrincipalTagMap{ "key": IdentityPoolProviderPrincipalTagArgs{...} }
 type IdentityPoolProviderPrincipalTagMapInput interface {
 	pulumi.Input
 

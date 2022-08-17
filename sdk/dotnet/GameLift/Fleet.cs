@@ -15,33 +15,31 @@ namespace Pulumi.Aws.GameLift
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.GameLift.Fleet("example", new()
     ///     {
-    ///         var example = new Aws.GameLift.Fleet("example", new Aws.GameLift.FleetArgs
+    ///         BuildId = aws_gamelift_build.Example.Id,
+    ///         Ec2InstanceType = "t2.micro",
+    ///         FleetType = "ON_DEMAND",
+    ///         RuntimeConfiguration = new Aws.GameLift.Inputs.FleetRuntimeConfigurationArgs
     ///         {
-    ///             BuildId = aws_gamelift_build.Example.Id,
-    ///             Ec2InstanceType = "t2.micro",
-    ///             FleetType = "ON_DEMAND",
-    ///             RuntimeConfiguration = new Aws.GameLift.Inputs.FleetRuntimeConfigurationArgs
+    ///             ServerProcesses = new[]
     ///             {
-    ///                 ServerProcesses = 
+    ///                 new Aws.GameLift.Inputs.FleetRuntimeConfigurationServerProcessArgs
     ///                 {
-    ///                     new Aws.GameLift.Inputs.FleetRuntimeConfigurationServerProcessArgs
-    ///                     {
-    ///                         ConcurrentExecutions = 1,
-    ///                         LaunchPath = "C:\\game\\GomokuServer.exe",
-    ///                     },
+    ///                     ConcurrentExecutions = 1,
+    ///                     LaunchPath = "C:\\game\\GomokuServer.exe",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Aws.GameLift
     /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/fleet:Fleet")]
-    public partial class Fleet : Pulumi.CustomResource
+    public partial class Fleet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Fleet ARN.
@@ -216,7 +214,7 @@ namespace Pulumi.Aws.GameLift
         }
     }
 
-    public sealed class FleetArgs : Pulumi.ResourceArgs
+    public sealed class FleetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the GameLift Build to be deployed on the fleet.
@@ -323,9 +321,10 @@ namespace Pulumi.Aws.GameLift
         public FleetArgs()
         {
         }
+        public static new FleetArgs Empty => new FleetArgs();
     }
 
-    public sealed class FleetState : Pulumi.ResourceArgs
+    public sealed class FleetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fleet ARN.
@@ -476,5 +475,6 @@ namespace Pulumi.Aws.GameLift
         public FleetState()
         {
         }
+        public static new FleetState Empty => new FleetState();
     }
 }

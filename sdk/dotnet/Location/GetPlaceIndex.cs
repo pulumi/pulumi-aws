@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Location
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Location.GetPlaceIndex.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Location.GetPlaceIndex.InvokeAsync(new Aws.Location.GetPlaceIndexArgs
-        ///         {
-        ///             IndexName = "example",
-        ///         }));
-        ///     }
+        ///         IndexName = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Location
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Location.GetPlaceIndex.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Location.GetPlaceIndex.InvokeAsync(new Aws.Location.GetPlaceIndexArgs
-        ///         {
-        ///             IndexName = "example",
-        ///         }));
-        ///     }
+        ///         IndexName = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Location
     }
 
 
-    public sealed class GetPlaceIndexArgs : Pulumi.InvokeArgs
+    public sealed class GetPlaceIndexArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the place index resource.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.Location
         public GetPlaceIndexArgs()
         {
         }
+        public static new GetPlaceIndexArgs Empty => new GetPlaceIndexArgs();
     }
 
-    public sealed class GetPlaceIndexInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPlaceIndexInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the place index resource.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.Location
         public GetPlaceIndexInvokeArgs()
         {
         }
+        public static new GetPlaceIndexInvokeArgs Empty => new GetPlaceIndexInvokeArgs();
     }
 
 

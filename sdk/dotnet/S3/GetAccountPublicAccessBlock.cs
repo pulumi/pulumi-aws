@@ -19,17 +19,15 @@ namespace Pulumi.Aws.S3
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Aws.S3.GetAccountPublicAccessBlock.InvokeAsync());
-        ///     }
+        ///     var example = Aws.S3.GetAccountPublicAccessBlock.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -45,17 +43,15 @@ namespace Pulumi.Aws.S3
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Aws.S3.GetAccountPublicAccessBlock.InvokeAsync());
-        ///     }
+        ///     var example = Aws.S3.GetAccountPublicAccessBlock.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -65,7 +61,7 @@ namespace Pulumi.Aws.S3
     }
 
 
-    public sealed class GetAccountPublicAccessBlockArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountPublicAccessBlockArgs : global::Pulumi.InvokeArgs
     {
         [Input("accountId")]
         public string? AccountId { get; set; }
@@ -73,9 +69,10 @@ namespace Pulumi.Aws.S3
         public GetAccountPublicAccessBlockArgs()
         {
         }
+        public static new GetAccountPublicAccessBlockArgs Empty => new GetAccountPublicAccessBlockArgs();
     }
 
-    public sealed class GetAccountPublicAccessBlockInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountPublicAccessBlockInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -83,6 +80,7 @@ namespace Pulumi.Aws.S3
         public GetAccountPublicAccessBlockInvokeArgs()
         {
         }
+        public static new GetAccountPublicAccessBlockInvokeArgs Empty => new GetAccountPublicAccessBlockInvokeArgs();
     }
 
 

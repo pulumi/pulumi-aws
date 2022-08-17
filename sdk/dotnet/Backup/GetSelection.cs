@@ -19,21 +19,19 @@ namespace Pulumi.Aws.Backup
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Backup.GetSelection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Backup.GetSelection.InvokeAsync(new Aws.Backup.GetSelectionArgs
-        ///         {
-        ///             PlanId = data.Aws_backup_plan.Example.Id,
-        ///             SelectionId = "selection-id-example",
-        ///         }));
-        ///     }
+        ///         PlanId = data.Aws_backup_plan.Example.Id,
+        ///         SelectionId = "selection-id-example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.Backup
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Backup.GetSelection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Backup.GetSelection.InvokeAsync(new Aws.Backup.GetSelectionArgs
-        ///         {
-        ///             PlanId = data.Aws_backup_plan.Example.Id,
-        ///             SelectionId = "selection-id-example",
-        ///         }));
-        ///     }
+        ///         PlanId = data.Aws_backup_plan.Example.Id,
+        ///         SelectionId = "selection-id-example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Backup
     }
 
 
-    public sealed class GetSelectionArgs : Pulumi.InvokeArgs
+    public sealed class GetSelectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The backup plan ID associated with the selection of resources.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.Backup
         public GetSelectionArgs()
         {
         }
+        public static new GetSelectionArgs Empty => new GetSelectionArgs();
     }
 
-    public sealed class GetSelectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSelectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The backup plan ID associated with the selection of resources.
@@ -109,6 +106,7 @@ namespace Pulumi.Aws.Backup
         public GetSelectionInvokeArgs()
         {
         }
+        public static new GetSelectionInvokeArgs Empty => new GetSelectionInvokeArgs();
     }
 
 

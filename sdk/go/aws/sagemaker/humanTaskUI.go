@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sagemaker.NewHumanTaskUI(ctx, "example", &sagemaker.HumanTaskUIArgs{
-// 			HumanTaskUiName: pulumi.String("example"),
-// 			UiTemplate: &sagemaker.HumanTaskUIUiTemplateArgs{
-// 				Content: readFileOrPanic("sagemaker-human-task-ui-template.html"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sagemaker.NewHumanTaskUI(ctx, "example", &sagemaker.HumanTaskUIArgs{
+//				HumanTaskUiName: pulumi.String("example"),
+//				UiTemplate: &sagemaker.HumanTaskUIUiTemplateArgs{
+//					Content: readFileOrPanic("sagemaker-human-task-ui-template.html"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // SageMaker Human Task UIs can be imported using the `human_task_ui_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
+//
+//	$ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
+//
 // ```
 type HumanTaskUI struct {
 	pulumi.CustomResourceState
@@ -180,7 +185,7 @@ func (i *HumanTaskUI) ToHumanTaskUIOutputWithContext(ctx context.Context) HumanT
 // HumanTaskUIArrayInput is an input type that accepts HumanTaskUIArray and HumanTaskUIArrayOutput values.
 // You can construct a concrete instance of `HumanTaskUIArrayInput` via:
 //
-//          HumanTaskUIArray{ HumanTaskUIArgs{...} }
+//	HumanTaskUIArray{ HumanTaskUIArgs{...} }
 type HumanTaskUIArrayInput interface {
 	pulumi.Input
 
@@ -205,7 +210,7 @@ func (i HumanTaskUIArray) ToHumanTaskUIArrayOutputWithContext(ctx context.Contex
 // HumanTaskUIMapInput is an input type that accepts HumanTaskUIMap and HumanTaskUIMapOutput values.
 // You can construct a concrete instance of `HumanTaskUIMapInput` via:
 //
-//          HumanTaskUIMap{ "key": HumanTaskUIArgs{...} }
+//	HumanTaskUIMap{ "key": HumanTaskUIArgs{...} }
 type HumanTaskUIMapInput interface {
 	pulumi.Input
 

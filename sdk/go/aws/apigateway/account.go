@@ -20,68 +20,75 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		cloudwatchRole, err := iam.NewRole(ctx, "cloudwatchRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Sid": "",
-//       "Effect": "Allow",
-//       "Principal": {
-//         "Service": "apigateway.amazonaws.com"
-//       },
-//       "Action": "sts:AssumeRole"
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cloudwatchRole, err := iam.NewRole(ctx, "cloudwatchRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Sid": "",
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "Service": "apigateway.amazonaws.com"
+//	      },
+//	      "Action": "sts:AssumeRole"
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.NewAccount(ctx, "demo", &apigateway.AccountArgs{
-// 			CloudwatchRoleArn: cloudwatchRole.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicy(ctx, "cloudwatchRolePolicy", &iam.RolePolicyArgs{
-// 			Role: cloudwatchRole.ID(),
-// 			Policy: pulumi.Any(fmt.Sprintf(`{
-//     "Version": "2012-10-17",
-//     "Statement": [
-//         {
-//             "Effect": "Allow",
-//             "Action": [
-//                 "logs:CreateLogGroup",
-//                 "logs:CreateLogStream",
-//                 "logs:DescribeLogGroups",
-//                 "logs:DescribeLogStreams",
-//                 "logs:PutLogEvents",
-//                 "logs:GetLogEvents",
-//                 "logs:FilterLogEvents"
-//             ],
-//             "Resource": "*"
-//         }
-//     ]
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewAccount(ctx, "demo", &apigateway.AccountArgs{
+//				CloudwatchRoleArn: cloudwatchRole.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "cloudwatchRolePolicy", &iam.RolePolicyArgs{
+//				Role: cloudwatchRole.ID(),
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//	    "Version": "2012-10-17",
+//	    "Statement": [
+//	        {
+//	            "Effect": "Allow",
+//	            "Action": [
+//	                "logs:CreateLogGroup",
+//	                "logs:CreateLogStream",
+//	                "logs:DescribeLogGroups",
+//	                "logs:DescribeLogStreams",
+//	                "logs:PutLogEvents",
+//	                "logs:GetLogEvents",
+//	                "logs:FilterLogEvents"
+//	            ],
+//	            "Resource": "*"
+//	        }
+//	    ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -89,7 +96,9 @@ import (
 // API Gateway Accounts can be imported using the word `api-gateway-account`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+//
+//	$ pulumi import aws:apigateway/account:Account demo api-gateway-account
+//
 // ```
 type Account struct {
 	pulumi.CustomResourceState
@@ -183,7 +192,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 // AccountArrayInput is an input type that accepts AccountArray and AccountArrayOutput values.
 // You can construct a concrete instance of `AccountArrayInput` via:
 //
-//          AccountArray{ AccountArgs{...} }
+//	AccountArray{ AccountArgs{...} }
 type AccountArrayInput interface {
 	pulumi.Input
 
@@ -208,7 +217,7 @@ func (i AccountArray) ToAccountArrayOutputWithContext(ctx context.Context) Accou
 // AccountMapInput is an input type that accepts AccountMap and AccountMapOutput values.
 // You can construct a concrete instance of `AccountMapInput` via:
 //
-//          AccountMap{ "key": AccountArgs{...} }
+//	AccountMap{ "key": AccountArgs{...} }
 type AccountMapInput interface {
 	pulumi.Input
 

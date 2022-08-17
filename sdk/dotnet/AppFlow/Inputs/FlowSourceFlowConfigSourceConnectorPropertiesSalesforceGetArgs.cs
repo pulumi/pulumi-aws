@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceGetArgs : Pulumi.ResourceArgs
+    public sealed class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowSourceFlowConfigSourceConnectorPropertiesSalesforceGetArgs()
         {
         }
+        public static new FlowSourceFlowConfigSourceConnectorPropertiesSalesforceGetArgs Empty => new FlowSourceFlowConfigSourceConnectorPropertiesSalesforceGetArgs();
     }
 }

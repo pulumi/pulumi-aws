@@ -18,25 +18,24 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.Ec2.Vpc("main", new()
     ///     {
-    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", new Aws.Ec2.VpcIpv4CidrBlockAssociationArgs
-    ///         {
-    ///             VpcId = main.Id,
-    ///             CidrBlock = "172.2.0.0/16",
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", new()
+    ///     {
+    ///         VpcId = main.Id,
+    ///         CidrBlock = "172.2.0.0/16",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +47,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation")]
-    public partial class VpcIpv4CidrBlockAssociation : Pulumi.CustomResource
+    public partial class VpcIpv4CidrBlockAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
@@ -118,7 +117,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcIpv4CidrBlockAssociationArgs : Pulumi.ResourceArgs
+    public sealed class VpcIpv4CidrBlockAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
@@ -147,9 +146,10 @@ namespace Pulumi.Aws.Ec2
         public VpcIpv4CidrBlockAssociationArgs()
         {
         }
+        public static new VpcIpv4CidrBlockAssociationArgs Empty => new VpcIpv4CidrBlockAssociationArgs();
     }
 
-    public sealed class VpcIpv4CidrBlockAssociationState : Pulumi.ResourceArgs
+    public sealed class VpcIpv4CidrBlockAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
@@ -178,5 +178,6 @@ namespace Pulumi.Aws.Ec2
         public VpcIpv4CidrBlockAssociationState()
         {
         }
+        public static new VpcIpv4CidrBlockAssociationState Empty => new VpcIpv4CidrBlockAssociationState();
     }
 }

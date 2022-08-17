@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs Empty => new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs();
     }
 }

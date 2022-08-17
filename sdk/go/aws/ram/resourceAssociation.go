@@ -21,22 +21,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ram"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ram"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ram.NewResourceAssociation(ctx, "example", &ram.ResourceAssociationArgs{
-// 			ResourceArn:      pulumi.Any(aws_subnet.Example.Arn),
-// 			ResourceShareArn: pulumi.Any(aws_ram_resource_share.Example.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ram.NewResourceAssociation(ctx, "example", &ram.ResourceAssociationArgs{
+//				ResourceArn:      pulumi.Any(aws_subnet.Example.Arn),
+//				ResourceShareArn: pulumi.Any(aws_ram_resource_share.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // RAM Resource Associations can be imported using their Resource Share ARN and Resource ARN separated by a comma, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ram/resourceAssociation:ResourceAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678
+//
+//	$ pulumi import aws:ram/resourceAssociation:ResourceAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678
+//
 // ```
 type ResourceAssociation struct {
 	pulumi.CustomResourceState
@@ -148,7 +153,7 @@ func (i *ResourceAssociation) ToResourceAssociationOutputWithContext(ctx context
 // ResourceAssociationArrayInput is an input type that accepts ResourceAssociationArray and ResourceAssociationArrayOutput values.
 // You can construct a concrete instance of `ResourceAssociationArrayInput` via:
 //
-//          ResourceAssociationArray{ ResourceAssociationArgs{...} }
+//	ResourceAssociationArray{ ResourceAssociationArgs{...} }
 type ResourceAssociationArrayInput interface {
 	pulumi.Input
 
@@ -173,7 +178,7 @@ func (i ResourceAssociationArray) ToResourceAssociationArrayOutputWithContext(ct
 // ResourceAssociationMapInput is an input type that accepts ResourceAssociationMap and ResourceAssociationMapOutput values.
 // You can construct a concrete instance of `ResourceAssociationMapInput` via:
 //
-//          ResourceAssociationMap{ "key": ResourceAssociationArgs{...} }
+//	ResourceAssociationMap{ "key": ResourceAssociationArgs{...} }
 type ResourceAssociationMapInput interface {
 	pulumi.Input
 

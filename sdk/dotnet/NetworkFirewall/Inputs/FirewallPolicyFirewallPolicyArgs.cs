@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class FirewallPolicyFirewallPolicyArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyFirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("statefulDefaultActions")]
         private InputList<string>? _statefulDefaultActions;
@@ -95,5 +95,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public FirewallPolicyFirewallPolicyArgs()
         {
         }
+        public static new FirewallPolicyFirewallPolicyArgs Empty => new FirewallPolicyFirewallPolicyArgs();
     }
 }

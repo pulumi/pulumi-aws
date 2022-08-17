@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetVpcPeeringConnectionsArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcPeeringConnectionsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetVpcPeeringConnectionsFilterArgs>? _filters;
@@ -57,9 +57,10 @@ namespace Pulumi.Aws.Ec2
         public GetVpcPeeringConnectionsArgs()
         {
         }
+        public static new GetVpcPeeringConnectionsArgs Empty => new GetVpcPeeringConnectionsArgs();
     }
 
-    public sealed class GetVpcPeeringConnectionsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcPeeringConnectionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetVpcPeeringConnectionsFilterInputArgs>? _filters;
@@ -89,6 +90,7 @@ namespace Pulumi.Aws.Ec2
         public GetVpcPeeringConnectionsInvokeArgs()
         {
         }
+        public static new GetVpcPeeringConnectionsInvokeArgs Empty => new GetVpcPeeringConnectionsInvokeArgs();
     }
 
 

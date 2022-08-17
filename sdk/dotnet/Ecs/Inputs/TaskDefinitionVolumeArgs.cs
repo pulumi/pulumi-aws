@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class TaskDefinitionVolumeArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionVolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block to configure a docker volume. Detailed below.
@@ -46,5 +46,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public TaskDefinitionVolumeArgs()
         {
         }
+        public static new TaskDefinitionVolumeArgs Empty => new TaskDefinitionVolumeArgs();
     }
 }

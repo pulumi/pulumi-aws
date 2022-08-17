@@ -17,24 +17,22 @@ namespace Pulumi.Aws.Lambda
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lambdaLayerPermission = new Aws.Lambda.LayerVersionPermission("lambdaLayerPermission", new()
     ///     {
-    ///         var lambdaLayerPermission = new Aws.Lambda.LayerVersionPermission("lambdaLayerPermission", new Aws.Lambda.LayerVersionPermissionArgs
-    ///         {
-    ///             Action = "lambda:GetLayerVersion",
-    ///             LayerName = "arn:aws:lambda:us-west-2:123456654321:layer:test_layer1",
-    ///             Principal = "111111111111",
-    ///             StatementId = "dev-account",
-    ///             VersionNumber = 1,
-    ///         });
-    ///     }
+    ///         Action = "lambda:GetLayerVersion",
+    ///         LayerName = "arn:aws:lambda:us-west-2:123456654321:layer:test_layer1",
+    ///         Principal = "111111111111",
+    ///         StatementId = "dev-account",
+    ///         VersionNumber = 1,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Aws.Lambda
     ///  [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
     /// </summary>
     [AwsResourceType("aws:lambda/layerVersionPermission:LayerVersionPermission")]
-    public partial class LayerVersionPermission : Pulumi.CustomResource
+    public partial class LayerVersionPermission : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
@@ -142,7 +140,7 @@ namespace Pulumi.Aws.Lambda
         }
     }
 
-    public sealed class LayerVersionPermissionArgs : Pulumi.ResourceArgs
+    public sealed class LayerVersionPermissionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
@@ -183,9 +181,10 @@ namespace Pulumi.Aws.Lambda
         public LayerVersionPermissionArgs()
         {
         }
+        public static new LayerVersionPermissionArgs Empty => new LayerVersionPermissionArgs();
     }
 
-    public sealed class LayerVersionPermissionState : Pulumi.ResourceArgs
+    public sealed class LayerVersionPermissionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
@@ -238,5 +237,6 @@ namespace Pulumi.Aws.Lambda
         public LayerVersionPermissionState()
         {
         }
+        public static new LayerVersionPermissionState Empty => new LayerVersionPermissionState();
     }
 }

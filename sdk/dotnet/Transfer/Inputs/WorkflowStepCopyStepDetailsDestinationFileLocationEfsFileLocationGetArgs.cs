@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transfer.Inputs
 {
 
-    public sealed class WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the file system, assigned by Amazon EFS.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Transfer.Inputs
         public WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationGetArgs()
         {
         }
+        public static new WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationGetArgs Empty => new WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationGetArgs();
     }
 }

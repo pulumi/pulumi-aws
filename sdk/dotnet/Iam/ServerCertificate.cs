@@ -26,50 +26,46 @@ namespace Pulumi.Aws.Iam
     /// **Using certs on file:**
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testCert = new Aws.Iam.ServerCertificate("testCert", new()
     ///     {
-    ///         var testCert = new Aws.Iam.ServerCertificate("testCert", new Aws.Iam.ServerCertificateArgs
-    ///         {
-    ///             CertificateBody = File.ReadAllText("self-ca-cert.pem"),
-    ///             PrivateKey = File.ReadAllText("test-key.pem"),
-    ///         });
-    ///     }
+    ///         CertificateBody = File.ReadAllText("self-ca-cert.pem"),
+    ///         PrivateKey = File.ReadAllText("test-key.pem"),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// **Example with cert in-line:**
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testCertAlt = new Aws.Iam.ServerCertificate("testCertAlt", new()
     ///     {
-    ///         var testCertAlt = new Aws.Iam.ServerCertificate("testCertAlt", new Aws.Iam.ServerCertificateArgs
-    ///         {
-    ///             CertificateBody = @"-----BEGIN CERTIFICATE-----
+    ///         CertificateBody = @"-----BEGIN CERTIFICATE-----
     /// [......] # cert contents
     /// -----END CERTIFICATE-----
     /// 
     /// ",
-    ///             PrivateKey = @"-----BEGIN RSA PRIVATE KEY-----
+    ///         PrivateKey = @"-----BEGIN RSA PRIVATE KEY-----
     /// [......] # cert contents
     /// -----END RSA PRIVATE KEY-----
     /// 
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// **Use in combination with an AWS ELB resource:**
@@ -82,42 +78,41 @@ namespace Pulumi.Aws.Iam
     /// dependant resources before attempting to destroy the old version.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testCert = new Aws.Iam.ServerCertificate("testCert", new()
     ///     {
-    ///         var testCert = new Aws.Iam.ServerCertificate("testCert", new Aws.Iam.ServerCertificateArgs
-    ///         {
-    ///             NamePrefix = "example-cert",
-    ///             CertificateBody = File.ReadAllText("self-ca-cert.pem"),
-    ///             PrivateKey = File.ReadAllText("test-key.pem"),
-    ///         });
-    ///         var ourapp = new Aws.Elb.LoadBalancer("ourapp", new Aws.Elb.LoadBalancerArgs
-    ///         {
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-west-2a",
-    ///             },
-    ///             CrossZoneLoadBalancing = true,
-    ///             Listeners = 
-    ///             {
-    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///                 {
-    ///                     InstancePort = 8000,
-    ///                     InstanceProtocol = "http",
-    ///                     LbPort = 443,
-    ///                     LbProtocol = "https",
-    ///                     SslCertificateId = testCert.Arn,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         NamePrefix = "example-cert",
+    ///         CertificateBody = File.ReadAllText("self-ca-cert.pem"),
+    ///         PrivateKey = File.ReadAllText("test-key.pem"),
+    ///     });
     /// 
-    /// }
+    ///     var ourapp = new Aws.Elb.LoadBalancer("ourapp", new()
+    ///     {
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             "us-west-2a",
+    ///         },
+    ///         CrossZoneLoadBalancing = true,
+    ///         Listeners = new[]
+    ///         {
+    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///             {
+    ///                 InstancePort = 8000,
+    ///                 InstanceProtocol = "http",
+    ///                 LbPort = 443,
+    ///                 LbProtocol = "https",
+    ///                 SslCertificateId = testCert.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -131,7 +126,7 @@ namespace Pulumi.Aws.Iam
     ///  [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html [lifecycle]/docs/configuration/resources.html
     /// </summary>
     [AwsResourceType("aws:iam/serverCertificate:ServerCertificate")]
-    public partial class ServerCertificate : Pulumi.CustomResource
+    public partial class ServerCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the server certificate.
@@ -196,7 +191,7 @@ namespace Pulumi.Aws.Iam
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -251,7 +246,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class ServerCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ServerCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The contents of the public key certificate in
@@ -312,9 +307,10 @@ namespace Pulumi.Aws.Iam
         public ServerCertificateArgs()
         {
         }
+        public static new ServerCertificateArgs Empty => new ServerCertificateArgs();
     }
 
-    public sealed class ServerCertificateState : Pulumi.ResourceArgs
+    public sealed class ServerCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the server certificate.
@@ -388,7 +384,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -405,5 +401,6 @@ namespace Pulumi.Aws.Iam
         public ServerCertificateState()
         {
         }
+        public static new ServerCertificateState Empty => new ServerCertificateState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppRunner.Inputs
 {
 
-    public sealed class ServiceEncryptionConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEncryptionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the KMS key used for encryption.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public ServiceEncryptionConfigurationGetArgs()
         {
         }
+        public static new ServiceEncryptionConfigurationGetArgs Empty => new ServiceEncryptionConfigurationGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class InstanceNetworkInterfaceGetArgs : Pulumi.ResourceArgs
+    public sealed class InstanceNetworkInterfaceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public InstanceNetworkInterfaceGetArgs()
         {
         }
+        public static new InstanceNetworkInterfaceGetArgs Empty => new InstanceNetworkInterfaceGetArgs();
     }
 }

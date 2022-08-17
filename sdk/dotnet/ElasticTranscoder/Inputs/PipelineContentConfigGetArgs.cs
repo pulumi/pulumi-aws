@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticTranscoder.Inputs
 {
 
-    public sealed class PipelineContentConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class PipelineContentConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ElasticTranscoder.Inputs
         public PipelineContentConfigGetArgs()
         {
         }
+        public static new PipelineContentConfigGetArgs Empty => new PipelineContentConfigGetArgs();
     }
 }

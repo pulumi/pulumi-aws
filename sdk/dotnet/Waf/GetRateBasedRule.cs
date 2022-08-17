@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Waf
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Waf.GetRateBasedRule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Waf.GetRateBasedRule.InvokeAsync(new Aws.Waf.GetRateBasedRuleArgs
-        ///         {
-        ///             Name = "tfWAFRateBasedRule",
-        ///         }));
-        ///     }
+        ///         Name = "tfWAFRateBasedRule",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Waf
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Waf.GetRateBasedRule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Waf.GetRateBasedRule.InvokeAsync(new Aws.Waf.GetRateBasedRuleArgs
-        ///         {
-        ///             Name = "tfWAFRateBasedRule",
-        ///         }));
-        ///     }
+        ///         Name = "tfWAFRateBasedRule",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Waf
     }
 
 
-    public sealed class GetRateBasedRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetRateBasedRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the WAF rate based rule.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Waf
         public GetRateBasedRuleArgs()
         {
         }
+        public static new GetRateBasedRuleArgs Empty => new GetRateBasedRuleArgs();
     }
 
-    public sealed class GetRateBasedRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRateBasedRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the WAF rate based rule.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Waf
         public GetRateBasedRuleInvokeArgs()
         {
         }
+        public static new GetRateBasedRuleInvokeArgs Empty => new GetRateBasedRuleInvokeArgs();
     }
 
 

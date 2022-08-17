@@ -139,7 +139,7 @@ func (o IpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // IpAddressTypeInput is an input type that accepts IpAddressTypeArgs and IpAddressTypeOutput values.
 // You can construct a concrete instance of `IpAddressTypeInput` via:
 //
-//          IpAddressTypeArgs{...}
+//	IpAddressTypeArgs{...}
 type IpAddressTypeInput interface {
 	pulumi.Input
 
@@ -303,7 +303,7 @@ func (o LoadBalancerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // LoadBalancerTypeInput is an input type that accepts LoadBalancerTypeArgs and LoadBalancerTypeOutput values.
 // You can construct a concrete instance of `LoadBalancerTypeInput` via:
 //
-//          LoadBalancerTypeArgs{...}
+//	LoadBalancerTypeArgs{...}
 type LoadBalancerTypeInput interface {
 	pulumi.Input
 

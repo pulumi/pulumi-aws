@@ -17,28 +17,26 @@ namespace Pulumi.Aws.DataSync
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DataSync.NfsLocation("example", new()
     ///     {
-    ///         var example = new Aws.DataSync.NfsLocation("example", new Aws.DataSync.NfsLocationArgs
+    ///         ServerHostname = "nfs.example.com",
+    ///         Subdirectory = "/exported/path",
+    ///         OnPremConfig = new Aws.DataSync.Inputs.NfsLocationOnPremConfigArgs
     ///         {
-    ///             ServerHostname = "nfs.example.com",
-    ///             Subdirectory = "/exported/path",
-    ///             OnPremConfig = new Aws.DataSync.Inputs.NfsLocationOnPremConfigArgs
+    ///             AgentArns = new[]
     ///             {
-    ///                 AgentArns = 
-    ///                 {
-    ///                     aws_datasync_agent.Example.Arn,
-    ///                 },
+    ///                 aws_datasync_agent.Example.Arn,
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.DataSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/nfsLocation:NfsLocation")]
-    public partial class NfsLocation : Pulumi.CustomResource
+    public partial class NfsLocation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
@@ -89,7 +87,7 @@ namespace Pulumi.Aws.DataSync
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -141,7 +139,7 @@ namespace Pulumi.Aws.DataSync
         }
     }
 
-    public sealed class NfsLocationArgs : Pulumi.ResourceArgs
+    public sealed class NfsLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block containing mount options used by DataSync to access the NFS Server.
@@ -182,9 +180,10 @@ namespace Pulumi.Aws.DataSync
         public NfsLocationArgs()
         {
         }
+        public static new NfsLocationArgs Empty => new NfsLocationArgs();
     }
 
-    public sealed class NfsLocationState : Pulumi.ResourceArgs
+    public sealed class NfsLocationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
@@ -232,7 +231,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -246,5 +245,6 @@ namespace Pulumi.Aws.DataSync
         public NfsLocationState()
         {
         }
+        public static new NfsLocationState Empty => new NfsLocationState();
     }
 }

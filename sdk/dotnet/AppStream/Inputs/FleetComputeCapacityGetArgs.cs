@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppStream.Inputs
 {
 
-    public sealed class FleetComputeCapacityGetArgs : Pulumi.ResourceArgs
+    public sealed class FleetComputeCapacityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of currently available instances that can be used to stream sessions.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppStream.Inputs
         public FleetComputeCapacityGetArgs()
         {
         }
+        public static new FleetComputeCapacityGetArgs Empty => new FleetComputeCapacityGetArgs();
     }
 }

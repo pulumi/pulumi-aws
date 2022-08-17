@@ -19,32 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := glue.NewSecurityConfiguration(ctx, "example", &glue.SecurityConfigurationArgs{
-// 			EncryptionConfiguration: &glue.SecurityConfigurationEncryptionConfigurationArgs{
-// 				CloudwatchEncryption: &glue.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs{
-// 					CloudwatchEncryptionMode: pulumi.String("DISABLED"),
-// 				},
-// 				JobBookmarksEncryption: &glue.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs{
-// 					JobBookmarksEncryptionMode: pulumi.String("DISABLED"),
-// 				},
-// 				S3Encryption: &glue.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs{
-// 					KmsKeyArn:        pulumi.Any(data.Aws_kms_key.Example.Arn),
-// 					S3EncryptionMode: pulumi.String("SSE-KMS"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewSecurityConfiguration(ctx, "example", &glue.SecurityConfigurationArgs{
+//				EncryptionConfiguration: &glue.SecurityConfigurationEncryptionConfigurationArgs{
+//					CloudwatchEncryption: &glue.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs{
+//						CloudwatchEncryptionMode: pulumi.String("DISABLED"),
+//					},
+//					JobBookmarksEncryption: &glue.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs{
+//						JobBookmarksEncryptionMode: pulumi.String("DISABLED"),
+//					},
+//					S3Encryption: &glue.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs{
+//						KmsKeyArn:        pulumi.Any(data.Aws_kms_key.Example.Arn),
+//						S3EncryptionMode: pulumi.String("SSE-KMS"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // Glue Security Configurations can be imported using `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
+//
+//	$ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
+//
 // ```
 type SecurityConfiguration struct {
 	pulumi.CustomResourceState
@@ -153,7 +158,7 @@ func (i *SecurityConfiguration) ToSecurityConfigurationOutputWithContext(ctx con
 // SecurityConfigurationArrayInput is an input type that accepts SecurityConfigurationArray and SecurityConfigurationArrayOutput values.
 // You can construct a concrete instance of `SecurityConfigurationArrayInput` via:
 //
-//          SecurityConfigurationArray{ SecurityConfigurationArgs{...} }
+//	SecurityConfigurationArray{ SecurityConfigurationArgs{...} }
 type SecurityConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -178,7 +183,7 @@ func (i SecurityConfigurationArray) ToSecurityConfigurationArrayOutputWithContex
 // SecurityConfigurationMapInput is an input type that accepts SecurityConfigurationMap and SecurityConfigurationMapOutput values.
 // You can construct a concrete instance of `SecurityConfigurationMapInput` via:
 //
-//          SecurityConfigurationMap{ "key": SecurityConfigurationArgs{...} }
+//	SecurityConfigurationMap{ "key": SecurityConfigurationArgs{...} }
 type SecurityConfigurationMapInput interface {
 	pulumi.Input
 

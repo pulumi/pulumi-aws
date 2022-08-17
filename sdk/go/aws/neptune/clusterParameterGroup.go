@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := neptune.NewClusterParameterGroup(ctx, "example", &neptune.ClusterParameterGroupArgs{
-// 			Description: pulumi.String("neptune cluster parameter group"),
-// 			Family:      pulumi.String("neptune1"),
-// 			Parameters: neptune.ClusterParameterGroupParameterArray{
-// 				&neptune.ClusterParameterGroupParameterArgs{
-// 					Name:  pulumi.String("neptune_enable_audit_log"),
-// 					Value: pulumi.String("1"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := neptune.NewClusterParameterGroup(ctx, "example", &neptune.ClusterParameterGroupArgs{
+//				Description: pulumi.String("neptune cluster parameter group"),
+//				Family:      pulumi.String("neptune1"),
+//				Parameters: neptune.ClusterParameterGroupParameterArray{
+//					&neptune.ClusterParameterGroupParameterArgs{
+//						Name:  pulumi.String("neptune_enable_audit_log"),
+//						Value: pulumi.String("1"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Neptune Cluster Parameter Groups can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+//
+//	$ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+//
 // ```
 type ClusterParameterGroup struct {
 	pulumi.CustomResourceState
@@ -67,7 +72,7 @@ type ClusterParameterGroup struct {
 	Parameters ClusterParameterGroupParameterArrayOutput `pulumi:"parameters"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -117,7 +122,7 @@ type clusterParameterGroupState struct {
 	Parameters []ClusterParameterGroupParameter `pulumi:"parameters"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -136,7 +141,7 @@ type ClusterParameterGroupState struct {
 	Parameters ClusterParameterGroupParameterArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -201,7 +206,7 @@ func (i *ClusterParameterGroup) ToClusterParameterGroupOutputWithContext(ctx con
 // ClusterParameterGroupArrayInput is an input type that accepts ClusterParameterGroupArray and ClusterParameterGroupArrayOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupArrayInput` via:
 //
-//          ClusterParameterGroupArray{ ClusterParameterGroupArgs{...} }
+//	ClusterParameterGroupArray{ ClusterParameterGroupArgs{...} }
 type ClusterParameterGroupArrayInput interface {
 	pulumi.Input
 
@@ -226,7 +231,7 @@ func (i ClusterParameterGroupArray) ToClusterParameterGroupArrayOutputWithContex
 // ClusterParameterGroupMapInput is an input type that accepts ClusterParameterGroupMap and ClusterParameterGroupMapOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupMapInput` via:
 //
-//          ClusterParameterGroupMap{ "key": ClusterParameterGroupArgs{...} }
+//	ClusterParameterGroupMap{ "key": ClusterParameterGroupArgs{...} }
 type ClusterParameterGroupMapInput interface {
 	pulumi.Input
 
@@ -297,7 +302,7 @@ func (o ClusterParameterGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClusterParameterGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

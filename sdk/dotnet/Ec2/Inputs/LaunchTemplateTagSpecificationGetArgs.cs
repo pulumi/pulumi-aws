@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateTagSpecificationGetArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateTagSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of resource to tag.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateTagSpecificationGetArgs()
         {
         }
+        public static new LaunchTemplateTagSpecificationGetArgs Empty => new LaunchTemplateTagSpecificationGetArgs();
     }
 }

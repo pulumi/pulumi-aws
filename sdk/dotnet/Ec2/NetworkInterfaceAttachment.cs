@@ -15,26 +15,24 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Ec2.NetworkInterfaceAttachment("test", new()
     ///     {
-    ///         var test = new Aws.Ec2.NetworkInterfaceAttachment("test", new Aws.Ec2.NetworkInterfaceAttachmentArgs
-    ///         {
-    ///             InstanceId = aws_instance.Test.Id,
-    ///             NetworkInterfaceId = aws_network_interface.Test.Id,
-    ///             DeviceIndex = 0,
-    ///         });
-    ///     }
+    ///         InstanceId = aws_instance.Test.Id,
+    ///         NetworkInterfaceId = aws_network_interface.Test.Id,
+    ///         DeviceIndex = 0,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment")]
-    public partial class NetworkInterfaceAttachment : Pulumi.CustomResource
+    public partial class NetworkInterfaceAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ENI Attachment ID.
@@ -110,7 +108,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class NetworkInterfaceAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Network interface index (int).
@@ -133,9 +131,10 @@ namespace Pulumi.Aws.Ec2
         public NetworkInterfaceAttachmentArgs()
         {
         }
+        public static new NetworkInterfaceAttachmentArgs Empty => new NetworkInterfaceAttachmentArgs();
     }
 
-    public sealed class NetworkInterfaceAttachmentState : Pulumi.ResourceArgs
+    public sealed class NetworkInterfaceAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ENI Attachment ID.
@@ -170,5 +169,6 @@ namespace Pulumi.Aws.Ec2
         public NetworkInterfaceAttachmentState()
         {
         }
+        public static new NetworkInterfaceAttachmentState Empty => new NetworkInterfaceAttachmentState();
     }
 }

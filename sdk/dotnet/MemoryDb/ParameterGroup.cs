@@ -17,28 +17,26 @@ namespace Pulumi.Aws.MemoryDb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.MemoryDb.ParameterGroup("example", new()
     ///     {
-    ///         var example = new Aws.MemoryDb.ParameterGroup("example", new Aws.MemoryDb.ParameterGroupArgs
+    ///         Family = "memorydb_redis6",
+    ///         Parameters = new[]
     ///         {
-    ///             Family = "memorydb_redis6",
-    ///             Parameters = 
+    ///             new Aws.MemoryDb.Inputs.ParameterGroupParameterArgs
     ///             {
-    ///                 new Aws.MemoryDb.Inputs.ParameterGroupParameterArgs
-    ///                 {
-    ///                     Name = "activedefrag",
-    ///                     Value = "yes",
-    ///                 },
+    ///                 Name = "activedefrag",
+    ///                 Value = "yes",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.MemoryDb
     /// ```
     /// </summary>
     [AwsResourceType("aws:memorydb/parameterGroup:ParameterGroup")]
-    public partial class ParameterGroup : Pulumi.CustomResource
+    public partial class ParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the parameter group.
@@ -91,9 +89,6 @@ namespace Pulumi.Aws.MemoryDb
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -141,7 +136,7 @@ namespace Pulumi.Aws.MemoryDb
         }
     }
 
-    public sealed class ParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class ParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -191,9 +186,10 @@ namespace Pulumi.Aws.MemoryDb
         public ParameterGroupArgs()
         {
         }
+        public static new ParameterGroupArgs Empty => new ParameterGroupArgs();
     }
 
-    public sealed class ParameterGroupState : Pulumi.ResourceArgs
+    public sealed class ParameterGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the parameter group.
@@ -248,10 +244,6 @@ namespace Pulumi.Aws.MemoryDb
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -261,5 +253,6 @@ namespace Pulumi.Aws.MemoryDb
         public ParameterGroupState()
         {
         }
+        public static new ParameterGroupState Empty => new ParameterGroupState();
     }
 }

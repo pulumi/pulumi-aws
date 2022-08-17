@@ -15,26 +15,24 @@ namespace Pulumi.Aws.Dms
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new certificate
+    ///     var test = new Aws.Dms.Certificate("test", new()
     ///     {
-    ///         // Create a new certificate
-    ///         var test = new Aws.Dms.Certificate("test", new Aws.Dms.CertificateArgs
+    ///         CertificateId = "test-dms-certificate-tf",
+    ///         CertificatePem = "...",
+    ///         Tags = 
     ///         {
-    ///             CertificateId = "test-dms-certificate-tf",
-    ///             CertificatePem = "...",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "test" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "test" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Aws.Dms
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/certificate:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the certificate.
@@ -79,7 +77,7 @@ namespace Pulumi.Aws.Dms
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -128,7 +126,7 @@ namespace Pulumi.Aws.Dms
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The certificate identifier.
@@ -163,9 +161,10 @@ namespace Pulumi.Aws.Dms
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 
-    public sealed class CertificateState : Pulumi.ResourceArgs
+    public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the certificate.
@@ -207,7 +206,7 @@ namespace Pulumi.Aws.Dms
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -218,5 +217,6 @@ namespace Pulumi.Aws.Dms
         public CertificateState()
         {
         }
+        public static new CertificateState Empty => new CertificateState();
     }
 }

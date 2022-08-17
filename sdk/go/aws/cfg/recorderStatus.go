@@ -21,95 +21,102 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fooDeliveryChannel, err := cfg.NewDeliveryChannel(ctx, "fooDeliveryChannel", &cfg.DeliveryChannelArgs{
-// 			S3BucketName: bucketV2.Bucket,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cfg.NewRecorderStatus(ctx, "fooRecorderStatus", &cfg.RecorderStatusArgs{
-// 			IsEnabled: pulumi.Bool(true),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			fooDeliveryChannel,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": "sts:AssumeRole",
-//       "Principal": {
-//         "Service": "config.amazonaws.com"
-//       },
-//       "Effect": "Allow",
-//       "Sid": ""
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			fooDeliveryChannel, err := cfg.NewDeliveryChannel(ctx, "fooDeliveryChannel", &cfg.DeliveryChannelArgs{
+//				S3BucketName: bucketV2.Bucket,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cfg.NewRecorderStatus(ctx, "fooRecorderStatus", &cfg.RecorderStatusArgs{
+//				IsEnabled: pulumi.Bool(true),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				fooDeliveryChannel,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "sts:AssumeRole",
+//	      "Principal": {
+//	        "Service": "config.amazonaws.com"
+//	      },
+//	      "Effect": "Allow",
+//	      "Sid": ""
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "rolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-// 			Role:      role.Name,
-// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSConfigRole"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cfg.NewRecorder(ctx, "fooRecorder", &cfg.RecorderArgs{
-// 			RoleArn: role.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicy(ctx, "rolePolicy", &iam.RolePolicyArgs{
-// 			Role: role.ID(),
-// 			Policy: pulumi.All(bucketV2.Arn, bucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
-// 				bucketV2Arn := _args[0].(string)
-// 				bucketV2Arn1 := _args[1].(string)
-// 				return fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": [
-//         "s3:*"
-//       ],
-//       "Effect": "Allow",
-//       "Resource": [
-//         "%v",
-//         "%v/*"
-//       ]
-//     }
-//   ]
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "rolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//				Role:      role.Name,
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSConfigRole"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cfg.NewRecorder(ctx, "fooRecorder", &cfg.RecorderArgs{
+//				RoleArn: role.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "rolePolicy", &iam.RolePolicyArgs{
+//				Role: role.ID(),
+//				Policy: pulumi.All(bucketV2.Arn, bucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
+//					bucketV2Arn := _args[0].(string)
+//					bucketV2Arn1 := _args[1].(string)
+//					return fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": [
+//	        "s3:*"
+//	      ],
+//	      "Effect": "Allow",
+//	      "Resource": [
+//	        "%v",
+//	        "%v/*"
+//	      ]
+//	    }
+//	  ]
+//	}
+//
 // `, bucketV2Arn, bucketV2Arn1), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -117,7 +124,9 @@ import (
 // Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+//
+//	$ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+//
 // ```
 type RecorderStatus struct {
 	pulumi.CustomResourceState
@@ -218,7 +227,7 @@ func (i *RecorderStatus) ToRecorderStatusOutputWithContext(ctx context.Context) 
 // RecorderStatusArrayInput is an input type that accepts RecorderStatusArray and RecorderStatusArrayOutput values.
 // You can construct a concrete instance of `RecorderStatusArrayInput` via:
 //
-//          RecorderStatusArray{ RecorderStatusArgs{...} }
+//	RecorderStatusArray{ RecorderStatusArgs{...} }
 type RecorderStatusArrayInput interface {
 	pulumi.Input
 
@@ -243,7 +252,7 @@ func (i RecorderStatusArray) ToRecorderStatusArrayOutputWithContext(ctx context.
 // RecorderStatusMapInput is an input type that accepts RecorderStatusMap and RecorderStatusMapOutput values.
 // You can construct a concrete instance of `RecorderStatusMapInput` via:
 //
-//          RecorderStatusMap{ "key": RecorderStatusArgs{...} }
+//	RecorderStatusMap{ "key": RecorderStatusArgs{...} }
 type RecorderStatusMapInput interface {
 	pulumi.Input
 

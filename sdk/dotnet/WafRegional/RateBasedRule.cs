@@ -15,48 +15,47 @@ namespace Pulumi.Aws.WafRegional
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
     ///     {
-    ///         var ipset = new Aws.WafRegional.IpSet("ipset", new Aws.WafRegional.IpSetArgs
+    ///         IpSetDescriptors = new[]
     ///         {
-    ///             IpSetDescriptors = 
+    ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
     ///             {
-    ///                 new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
-    ///                 {
-    ///                     Type = "IPV4",
-    ///                     Value = "192.0.7.0/24",
-    ///                 },
+    ///                 Type = "IPV4",
+    ///                 Value = "192.0.7.0/24",
     ///             },
-    ///         });
-    ///         var wafrule = new Aws.WafRegional.RateBasedRule("wafrule", new Aws.WafRegional.RateBasedRuleArgs
-    ///         {
-    ///             MetricName = "tfWAFRule",
-    ///             RateKey = "IP",
-    ///             RateLimit = 100,
-    ///             Predicates = 
-    ///             {
-    ///                 new Aws.WafRegional.Inputs.RateBasedRulePredicateArgs
-    ///                 {
-    ///                     DataId = ipset.Id,
-    ///                     Negated = false,
-    ///                     Type = "IPMatch",
-    ///                 },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 ipset,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var wafrule = new Aws.WafRegional.RateBasedRule("wafrule", new()
+    ///     {
+    ///         MetricName = "tfWAFRule",
+    ///         RateKey = "IP",
+    ///         RateLimit = 100,
+    ///         Predicates = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.RateBasedRulePredicateArgs
+    ///             {
+    ///                 DataId = ipset.Id,
+    ///                 Negated = false,
+    ///                 Type = "IPMatch",
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             ipset,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.WafRegional
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafregional/rateBasedRule:RateBasedRule")]
-    public partial class RateBasedRule : Pulumi.CustomResource
+    public partial class RateBasedRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the WAF Regional Rate Based Rule.
@@ -113,7 +112,7 @@ namespace Pulumi.Aws.WafRegional
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -162,7 +161,7 @@ namespace Pulumi.Aws.WafRegional
         }
     }
 
-    public sealed class RateBasedRuleArgs : Pulumi.ResourceArgs
+    public sealed class RateBasedRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name or description for the Amazon CloudWatch metric of this rule.
@@ -215,9 +214,10 @@ namespace Pulumi.Aws.WafRegional
         public RateBasedRuleArgs()
         {
         }
+        public static new RateBasedRuleArgs Empty => new RateBasedRuleArgs();
     }
 
-    public sealed class RateBasedRuleState : Pulumi.ResourceArgs
+    public sealed class RateBasedRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the WAF Regional Rate Based Rule.
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.WafRegional
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -288,5 +288,6 @@ namespace Pulumi.Aws.WafRegional
         public RateBasedRuleState()
         {
         }
+        public static new RateBasedRuleState Empty => new RateBasedRuleState();
     }
 }

@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloud9"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloud9"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testEnvironmentEC2, err := cloud9.NewEnvironmentEC2(ctx, "testEnvironmentEC2", &cloud9.EnvironmentEC2Args{
-// 			InstanceType: pulumi.String("t2.micro"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testUser, err := iam.NewUser(ctx, "testUser", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cloud9.NewEnvironmentMembership(ctx, "testEnvironmentMembership", &cloud9.EnvironmentMembershipArgs{
-// 			EnvironmentId: testEnvironmentEC2.ID(),
-// 			Permissions:   pulumi.String("read-only"),
-// 			UserArn:       testUser.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testEnvironmentEC2, err := cloud9.NewEnvironmentEC2(ctx, "testEnvironmentEC2", &cloud9.EnvironmentEC2Args{
+//				InstanceType: pulumi.String("t2.micro"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testUser, err := iam.NewUser(ctx, "testUser", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloud9.NewEnvironmentMembership(ctx, "testEnvironmentMembership", &cloud9.EnvironmentMembershipArgs{
+//				EnvironmentId: testEnvironmentEC2.ID(),
+//				Permissions:   pulumi.String("read-only"),
+//				UserArn:       testUser.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // Cloud9 environment membership can be imported using the `environment-id#user-arn`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
+//
+//	$ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
+//
 // ```
 type EnvironmentMembership struct {
 	pulumi.CustomResourceState
@@ -177,7 +182,7 @@ func (i *EnvironmentMembership) ToEnvironmentMembershipOutputWithContext(ctx con
 // EnvironmentMembershipArrayInput is an input type that accepts EnvironmentMembershipArray and EnvironmentMembershipArrayOutput values.
 // You can construct a concrete instance of `EnvironmentMembershipArrayInput` via:
 //
-//          EnvironmentMembershipArray{ EnvironmentMembershipArgs{...} }
+//	EnvironmentMembershipArray{ EnvironmentMembershipArgs{...} }
 type EnvironmentMembershipArrayInput interface {
 	pulumi.Input
 
@@ -202,7 +207,7 @@ func (i EnvironmentMembershipArray) ToEnvironmentMembershipArrayOutputWithContex
 // EnvironmentMembershipMapInput is an input type that accepts EnvironmentMembershipMap and EnvironmentMembershipMapOutput values.
 // You can construct a concrete instance of `EnvironmentMembershipMapInput` via:
 //
-//          EnvironmentMembershipMap{ "key": EnvironmentMembershipArgs{...} }
+//	EnvironmentMembershipMap{ "key": EnvironmentMembershipArgs{...} }
 type EnvironmentMembershipMapInput interface {
 	pulumi.Input
 

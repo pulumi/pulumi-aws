@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds.Inputs
 {
 
-    public sealed class ProxyAuthGetArgs : Pulumi.ResourceArgs
+    public sealed class ProxyAuthGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Rds.Inputs
         public ProxyAuthGetArgs()
         {
         }
+        public static new ProxyAuthGetArgs Empty => new ProxyAuthGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Workspaces.Inputs
 {
 
-    public sealed class WorkspaceWorkspacePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceWorkspacePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Workspaces.Inputs
         public WorkspaceWorkspacePropertiesArgs()
         {
         }
+        public static new WorkspaceWorkspacePropertiesArgs Empty => new WorkspaceWorkspacePropertiesArgs();
     }
 }

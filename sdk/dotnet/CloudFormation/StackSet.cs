@@ -19,50 +19,51 @@ namespace Pulumi.Aws.CloudFormation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "sts:AssumeRole",
-    ///                     },
-    ///                     Effect = "Allow",
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "cloudformation.amazonaws.com",
-    ///                             },
-    ///                             Type = "Service",
+    ///                             "cloudformation.amazonaws.com",
     ///                         },
+    ///                         Type = "Service",
     ///                     },
     ///                 },
     ///             },
-    ///         }));
-    ///         var aWSCloudFormationStackSetAdministrationRole = new Aws.Iam.Role("aWSCloudFormationStackSetAdministrationRole", new Aws.Iam.RoleArgs
+    ///         },
+    ///     });
+    /// 
+    ///     var aWSCloudFormationStackSetAdministrationRole = new Aws.Iam.Role("aWSCloudFormationStackSetAdministrationRole", new()
+    ///     {
+    ///         AssumeRolePolicy = aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var example = new Aws.CloudFormation.StackSet("example", new()
+    ///     {
+    ///         AdministrationRoleArn = aWSCloudFormationStackSetAdministrationRole.Arn,
+    ///         Parameters = 
     ///         {
-    ///             AssumeRolePolicy = aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.Apply(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy =&gt; aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.Json),
-    ///         });
-    ///         var example = new Aws.CloudFormation.StackSet("example", new Aws.CloudFormation.StackSetArgs
-    ///         {
-    ///             AdministrationRoleArn = aWSCloudFormationStackSetAdministrationRole.Arn,
-    ///             Parameters = 
-    ///             {
-    ///                 { "VPCCidr", "10.0.0.0/16" },
-    ///             },
-    ///             TemplateBody = @"{
+    ///             { "VPCCidr", "10.0.0.0/16" },
+    ///         },
+    ///         TemplateBody = @"{
     ///   ""Parameters"" : {
     ///     ""VPCCidr"" : {
     ///       ""Type"" : ""String"",
@@ -83,33 +84,34 @@ namespace Pulumi.Aws.CloudFormation
     ///   }
     /// }
     /// ",
-    ///         });
-    ///         var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
+    ///     });
+    /// 
+    ///     var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
-    ///                     {
-    ///                         "sts:AssumeRole",
-    ///                     },
-    ///                     Effect = "Allow",
-    ///                     Resources = 
-    ///                     {
-    ///                         example.ExecutionRoleName.Apply(executionRoleName =&gt; $"arn:aws:iam::*:role/{executionRoleName}"),
-    ///                     },
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"arn:aws:iam::*:role/{example.ExecutionRoleName}",
     ///                 },
     ///             },
-    ///         });
-    ///         var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new Aws.Iam.RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Policy = aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.Apply(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument =&gt; aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.Json),
-    ///             Role = aWSCloudFormationStackSetAdministrationRole.Name,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new Aws.Iam.RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", new()
+    ///     {
+    ///         Policy = aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Role = aWSCloudFormationStackSetAdministrationRole.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -121,7 +123,7 @@ namespace Pulumi.Aws.CloudFormation
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudformation/stackSet:StackSet")]
-    public partial class StackSet : Pulumi.CustomResource
+    public partial class StackSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
@@ -202,7 +204,7 @@ namespace Pulumi.Aws.CloudFormation
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -263,7 +265,7 @@ namespace Pulumi.Aws.CloudFormation
         }
     }
 
-    public sealed class StackSetArgs : Pulumi.ResourceArgs
+    public sealed class StackSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
@@ -364,9 +366,10 @@ namespace Pulumi.Aws.CloudFormation
         public StackSetArgs()
         {
         }
+        public static new StackSetArgs Empty => new StackSetArgs();
     }
 
-    public sealed class StackSetState : Pulumi.ResourceArgs
+    public sealed class StackSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
@@ -468,7 +471,7 @@ namespace Pulumi.Aws.CloudFormation
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -491,5 +494,6 @@ namespace Pulumi.Aws.CloudFormation
         public StackSetState()
         {
         }
+        public static new StackSetState Empty => new StackSetState();
     }
 }

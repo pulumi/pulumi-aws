@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda.Inputs
 {
 
-    public sealed class FunctionUrlCorsArgs : Pulumi.ResourceArgs
+    public sealed class FunctionUrlCorsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
@@ -75,5 +75,6 @@ namespace Pulumi.Aws.Lambda.Inputs
         public FunctionUrlCorsArgs()
         {
         }
+        public static new FunctionUrlCorsArgs Empty => new FunctionUrlCorsArgs();
     }
 }

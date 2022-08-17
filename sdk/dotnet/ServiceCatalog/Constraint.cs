@@ -23,24 +23,21 @@ namespace Pulumi.Aws.ServiceCatalog
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ServiceCatalog.Constraint("example", new()
     ///     {
-    ///         var example = new Aws.ServiceCatalog.Constraint("example", new Aws.ServiceCatalog.ConstraintArgs
+    ///         Description = "Back off, man. I'm a scientist.",
+    ///         PortfolioId = aws_servicecatalog_portfolio.Example.Id,
+    ///         ProductId = aws_servicecatalog_product.Example.Id,
+    ///         Type = "LAUNCH",
+    ///         Parameters = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             Description = "Back off, man. I'm a scientist.",
-    ///             PortfolioId = aws_servicecatalog_portfolio.Example.Id,
-    ///             ProductId = aws_servicecatalog_product.Example.Id,
-    ///             Type = "LAUNCH",
-    ///             Parameters = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "RoleArn", "arn:aws:iam::123456789012:role/LaunchRole" },
-    ///             }),
-    ///         });
-    ///     }
+    ///             ["RoleArn"] = "arn:aws:iam::123456789012:role/LaunchRole",
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +49,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/constraint:Constraint")]
-    public partial class Constraint : Pulumi.CustomResource
+    public partial class Constraint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -143,7 +140,7 @@ namespace Pulumi.Aws.ServiceCatalog
         }
     }
 
-    public sealed class ConstraintArgs : Pulumi.ResourceArgs
+    public sealed class ConstraintArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -184,9 +181,10 @@ namespace Pulumi.Aws.ServiceCatalog
         public ConstraintArgs()
         {
         }
+        public static new ConstraintArgs Empty => new ConstraintArgs();
     }
 
-    public sealed class ConstraintState : Pulumi.ResourceArgs
+    public sealed class ConstraintState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -236,5 +234,6 @@ namespace Pulumi.Aws.ServiceCatalog
         public ConstraintState()
         {
         }
+        public static new ConstraintState Empty => new ConstraintState();
     }
 }

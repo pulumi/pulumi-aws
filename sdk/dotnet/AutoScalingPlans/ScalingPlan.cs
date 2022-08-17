@@ -28,7 +28,7 @@ namespace Pulumi.Aws.AutoScalingPlans
     /// ```
     /// </summary>
     [AwsResourceType("aws:autoscalingplans/scalingPlan:ScalingPlan")]
-    public partial class ScalingPlan : Pulumi.CustomResource
+    public partial class ScalingPlan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A CloudFormation stack or set of tags. You can create one scaling plan per application source.
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.AutoScalingPlans
         }
     }
 
-    public sealed class ScalingPlanArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A CloudFormation stack or set of tags. You can create one scaling plan per application source.
@@ -127,9 +127,10 @@ namespace Pulumi.Aws.AutoScalingPlans
         public ScalingPlanArgs()
         {
         }
+        public static new ScalingPlanArgs Empty => new ScalingPlanArgs();
     }
 
-    public sealed class ScalingPlanState : Pulumi.ResourceArgs
+    public sealed class ScalingPlanState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A CloudFormation stack or set of tags. You can create one scaling plan per application source.
@@ -164,5 +165,6 @@ namespace Pulumi.Aws.AutoScalingPlans
         public ScalingPlanState()
         {
         }
+        public static new ScalingPlanState Empty => new ScalingPlanState();
     }
 }

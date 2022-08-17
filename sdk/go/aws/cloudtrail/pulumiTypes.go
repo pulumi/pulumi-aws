@@ -20,7 +20,7 @@ type EventDataStoreAdvancedEventSelector struct {
 // EventDataStoreAdvancedEventSelectorInput is an input type that accepts EventDataStoreAdvancedEventSelectorArgs and EventDataStoreAdvancedEventSelectorOutput values.
 // You can construct a concrete instance of `EventDataStoreAdvancedEventSelectorInput` via:
 //
-//          EventDataStoreAdvancedEventSelectorArgs{...}
+//	EventDataStoreAdvancedEventSelectorArgs{...}
 type EventDataStoreAdvancedEventSelectorInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i EventDataStoreAdvancedEventSelectorArgs) ToEventDataStoreAdvancedEventSe
 // EventDataStoreAdvancedEventSelectorArrayInput is an input type that accepts EventDataStoreAdvancedEventSelectorArray and EventDataStoreAdvancedEventSelectorArrayOutput values.
 // You can construct a concrete instance of `EventDataStoreAdvancedEventSelectorArrayInput` via:
 //
-//          EventDataStoreAdvancedEventSelectorArray{ EventDataStoreAdvancedEventSelectorArgs{...} }
+//	EventDataStoreAdvancedEventSelectorArray{ EventDataStoreAdvancedEventSelectorArgs{...} }
 type EventDataStoreAdvancedEventSelectorArrayInput interface {
 	pulumi.Input
 
@@ -138,7 +138,7 @@ type EventDataStoreAdvancedEventSelectorFieldSelector struct {
 // EventDataStoreAdvancedEventSelectorFieldSelectorInput is an input type that accepts EventDataStoreAdvancedEventSelectorFieldSelectorArgs and EventDataStoreAdvancedEventSelectorFieldSelectorOutput values.
 // You can construct a concrete instance of `EventDataStoreAdvancedEventSelectorFieldSelectorInput` via:
 //
-//          EventDataStoreAdvancedEventSelectorFieldSelectorArgs{...}
+//	EventDataStoreAdvancedEventSelectorFieldSelectorArgs{...}
 type EventDataStoreAdvancedEventSelectorFieldSelectorInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ func (i EventDataStoreAdvancedEventSelectorFieldSelectorArgs) ToEventDataStoreAd
 // EventDataStoreAdvancedEventSelectorFieldSelectorArrayInput is an input type that accepts EventDataStoreAdvancedEventSelectorFieldSelectorArray and EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput values.
 // You can construct a concrete instance of `EventDataStoreAdvancedEventSelectorFieldSelectorArrayInput` via:
 //
-//          EventDataStoreAdvancedEventSelectorFieldSelectorArray{ EventDataStoreAdvancedEventSelectorFieldSelectorArgs{...} }
+//	EventDataStoreAdvancedEventSelectorFieldSelectorArray{ EventDataStoreAdvancedEventSelectorFieldSelectorArgs{...} }
 type EventDataStoreAdvancedEventSelectorFieldSelectorArrayInput interface {
 	pulumi.Input
 
@@ -279,7 +279,7 @@ type TrailAdvancedEventSelector struct {
 // TrailAdvancedEventSelectorInput is an input type that accepts TrailAdvancedEventSelectorArgs and TrailAdvancedEventSelectorOutput values.
 // You can construct a concrete instance of `TrailAdvancedEventSelectorInput` via:
 //
-//          TrailAdvancedEventSelectorArgs{...}
+//	TrailAdvancedEventSelectorArgs{...}
 type TrailAdvancedEventSelectorInput interface {
 	pulumi.Input
 
@@ -309,7 +309,7 @@ func (i TrailAdvancedEventSelectorArgs) ToTrailAdvancedEventSelectorOutputWithCo
 // TrailAdvancedEventSelectorArrayInput is an input type that accepts TrailAdvancedEventSelectorArray and TrailAdvancedEventSelectorArrayOutput values.
 // You can construct a concrete instance of `TrailAdvancedEventSelectorArrayInput` via:
 //
-//          TrailAdvancedEventSelectorArray{ TrailAdvancedEventSelectorArgs{...} }
+//	TrailAdvancedEventSelectorArray{ TrailAdvancedEventSelectorArgs{...} }
 type TrailAdvancedEventSelectorArrayInput interface {
 	pulumi.Input
 
@@ -395,7 +395,7 @@ type TrailAdvancedEventSelectorFieldSelector struct {
 // TrailAdvancedEventSelectorFieldSelectorInput is an input type that accepts TrailAdvancedEventSelectorFieldSelectorArgs and TrailAdvancedEventSelectorFieldSelectorOutput values.
 // You can construct a concrete instance of `TrailAdvancedEventSelectorFieldSelectorInput` via:
 //
-//          TrailAdvancedEventSelectorFieldSelectorArgs{...}
+//	TrailAdvancedEventSelectorFieldSelectorArgs{...}
 type TrailAdvancedEventSelectorFieldSelectorInput interface {
 	pulumi.Input
 
@@ -435,7 +435,7 @@ func (i TrailAdvancedEventSelectorFieldSelectorArgs) ToTrailAdvancedEventSelecto
 // TrailAdvancedEventSelectorFieldSelectorArrayInput is an input type that accepts TrailAdvancedEventSelectorFieldSelectorArray and TrailAdvancedEventSelectorFieldSelectorArrayOutput values.
 // You can construct a concrete instance of `TrailAdvancedEventSelectorFieldSelectorArrayInput` via:
 //
-//          TrailAdvancedEventSelectorFieldSelectorArray{ TrailAdvancedEventSelectorFieldSelectorArgs{...} }
+//	TrailAdvancedEventSelectorFieldSelectorArray{ TrailAdvancedEventSelectorFieldSelectorArgs{...} }
 type TrailAdvancedEventSelectorFieldSelectorArrayInput interface {
 	pulumi.Input
 
@@ -540,7 +540,7 @@ type TrailEventSelector struct {
 // TrailEventSelectorInput is an input type that accepts TrailEventSelectorArgs and TrailEventSelectorOutput values.
 // You can construct a concrete instance of `TrailEventSelectorInput` via:
 //
-//          TrailEventSelectorArgs{...}
+//	TrailEventSelectorArgs{...}
 type TrailEventSelectorInput interface {
 	pulumi.Input
 
@@ -574,7 +574,7 @@ func (i TrailEventSelectorArgs) ToTrailEventSelectorOutputWithContext(ctx contex
 // TrailEventSelectorArrayInput is an input type that accepts TrailEventSelectorArray and TrailEventSelectorArrayOutput values.
 // You can construct a concrete instance of `TrailEventSelectorArrayInput` via:
 //
-//          TrailEventSelectorArray{ TrailEventSelectorArgs{...} }
+//	TrailEventSelectorArray{ TrailEventSelectorArgs{...} }
 type TrailEventSelectorArrayInput interface {
 	pulumi.Input
 
@@ -660,7 +660,7 @@ type TrailEventSelectorDataResource struct {
 // TrailEventSelectorDataResourceInput is an input type that accepts TrailEventSelectorDataResourceArgs and TrailEventSelectorDataResourceOutput values.
 // You can construct a concrete instance of `TrailEventSelectorDataResourceInput` via:
 //
-//          TrailEventSelectorDataResourceArgs{...}
+//	TrailEventSelectorDataResourceArgs{...}
 type TrailEventSelectorDataResourceInput interface {
 	pulumi.Input
 
@@ -690,7 +690,7 @@ func (i TrailEventSelectorDataResourceArgs) ToTrailEventSelectorDataResourceOutp
 // TrailEventSelectorDataResourceArrayInput is an input type that accepts TrailEventSelectorDataResourceArray and TrailEventSelectorDataResourceArrayOutput values.
 // You can construct a concrete instance of `TrailEventSelectorDataResourceArrayInput` via:
 //
-//          TrailEventSelectorDataResourceArray{ TrailEventSelectorDataResourceArgs{...} }
+//	TrailEventSelectorDataResourceArray{ TrailEventSelectorDataResourceArgs{...} }
 type TrailEventSelectorDataResourceArrayInput interface {
 	pulumi.Input
 
@@ -764,7 +764,7 @@ type TrailInsightSelector struct {
 // TrailInsightSelectorInput is an input type that accepts TrailInsightSelectorArgs and TrailInsightSelectorOutput values.
 // You can construct a concrete instance of `TrailInsightSelectorInput` via:
 //
-//          TrailInsightSelectorArgs{...}
+//	TrailInsightSelectorArgs{...}
 type TrailInsightSelectorInput interface {
 	pulumi.Input
 
@@ -792,7 +792,7 @@ func (i TrailInsightSelectorArgs) ToTrailInsightSelectorOutputWithContext(ctx co
 // TrailInsightSelectorArrayInput is an input type that accepts TrailInsightSelectorArray and TrailInsightSelectorArrayOutput values.
 // You can construct a concrete instance of `TrailInsightSelectorArrayInput` via:
 //
-//          TrailInsightSelectorArray{ TrailInsightSelectorArgs{...} }
+//	TrailInsightSelectorArray{ TrailInsightSelectorArgs{...} }
 type TrailInsightSelectorArrayInput interface {
 	pulumi.Input
 

@@ -19,30 +19,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := quicksight.NewDataSource(ctx, "default", &quicksight.DataSourceArgs{
-// 			DataSourceId: pulumi.String("example-id"),
-// 			Parameters: &quicksight.DataSourceParametersArgs{
-// 				S3: &quicksight.DataSourceParametersS3Args{
-// 					ManifestFileLocation: &quicksight.DataSourceParametersS3ManifestFileLocationArgs{
-// 						Bucket: pulumi.String("my-bucket"),
-// 						Key:    pulumi.String("path/to/manifest.json"),
-// 					},
-// 				},
-// 			},
-// 			Type: pulumi.String("S3"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := quicksight.NewDataSource(ctx, "default", &quicksight.DataSourceArgs{
+//				DataSourceId: pulumi.String("example-id"),
+//				Parameters: &quicksight.DataSourceParametersArgs{
+//					S3: &quicksight.DataSourceParametersS3Args{
+//						ManifestFileLocation: &quicksight.DataSourceParametersS3ManifestFileLocationArgs{
+//							Bucket: pulumi.String("my-bucket"),
+//							Key:    pulumi.String("path/to/manifest.json"),
+//						},
+//					},
+//				},
+//				Type: pulumi.String("S3"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // A QuickSight data source can be imported using the AWS account ID, and data source ID name separated by a slash (`/`) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
+//
+//	$ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
+//
 // ```
 type DataSource struct {
 	pulumi.CustomResourceState
@@ -249,7 +254,7 @@ func (i *DataSource) ToDataSourceOutputWithContext(ctx context.Context) DataSour
 // DataSourceArrayInput is an input type that accepts DataSourceArray and DataSourceArrayOutput values.
 // You can construct a concrete instance of `DataSourceArrayInput` via:
 //
-//          DataSourceArray{ DataSourceArgs{...} }
+//	DataSourceArray{ DataSourceArgs{...} }
 type DataSourceArrayInput interface {
 	pulumi.Input
 
@@ -274,7 +279,7 @@ func (i DataSourceArray) ToDataSourceArrayOutputWithContext(ctx context.Context)
 // DataSourceMapInput is an input type that accepts DataSourceMap and DataSourceMapOutput values.
 // You can construct a concrete instance of `DataSourceMapInput` via:
 //
-//          DataSourceMap{ "key": DataSourceArgs{...} }
+//	DataSourceMap{ "key": DataSourceArgs{...} }
 type DataSourceMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class DefaultSecurityGroupIngressArgs : Pulumi.ResourceArgs
+    public sealed class DefaultSecurityGroupIngressArgs : global::Pulumi.ResourceArgs
     {
         [Input("cidrBlocks")]
         private InputList<string>? _cidrBlocks;
@@ -93,5 +93,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public DefaultSecurityGroupIngressArgs()
         {
         }
+        public static new DefaultSecurityGroupIngressArgs Empty => new DefaultSecurityGroupIngressArgs();
     }
 }

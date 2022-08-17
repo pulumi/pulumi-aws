@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex.Inputs
 {
 
-    public sealed class BotAliasConversationLogsLogSettingArgs : Pulumi.ResourceArgs
+    public sealed class BotAliasConversationLogsLogSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Lex.Inputs
         public BotAliasConversationLogsLogSettingArgs()
         {
         }
+        public static new BotAliasConversationLogsLogSettingArgs Empty => new BotAliasConversationLogsLogSettingArgs();
     }
 }

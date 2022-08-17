@@ -21,23 +21,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apigatewayv2.NewIntegrationResponse(ctx, "example", &apigatewayv2.IntegrationResponseArgs{
-// 			ApiId:                  pulumi.Any(aws_apigatewayv2_api.Example.Id),
-// 			IntegrationId:          pulumi.Any(aws_apigatewayv2_integration.Example.Id),
-// 			IntegrationResponseKey: pulumi.String("/200/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigatewayv2.NewIntegrationResponse(ctx, "example", &apigatewayv2.IntegrationResponseArgs{
+//				ApiId:                  pulumi.Any(aws_apigatewayv2_api.Example.Id),
+//				IntegrationId:          pulumi.Any(aws_apigatewayv2_integration.Example.Id),
+//				IntegrationResponseKey: pulumi.String("/200/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // `aws_apigatewayv2_integration_response` can be imported by using the API identifier, integration identifier and integration response identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
+//
+//	$ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
+//
 // ```
 type IntegrationResponse struct {
 	pulumi.CustomResourceState
@@ -192,7 +197,7 @@ func (i *IntegrationResponse) ToIntegrationResponseOutputWithContext(ctx context
 // IntegrationResponseArrayInput is an input type that accepts IntegrationResponseArray and IntegrationResponseArrayOutput values.
 // You can construct a concrete instance of `IntegrationResponseArrayInput` via:
 //
-//          IntegrationResponseArray{ IntegrationResponseArgs{...} }
+//	IntegrationResponseArray{ IntegrationResponseArgs{...} }
 type IntegrationResponseArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +222,7 @@ func (i IntegrationResponseArray) ToIntegrationResponseArrayOutputWithContext(ct
 // IntegrationResponseMapInput is an input type that accepts IntegrationResponseMap and IntegrationResponseMapOutput values.
 // You can construct a concrete instance of `IntegrationResponseMapInput` via:
 //
-//          IntegrationResponseMap{ "key": IntegrationResponseArgs{...} }
+//	IntegrationResponseMap{ "key": IntegrationResponseArgs{...} }
 type IntegrationResponseMapInput interface {
 	pulumi.Input
 

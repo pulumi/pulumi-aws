@@ -18,25 +18,28 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ses.NewTemplate(ctx, "myTemplate", &ses.TemplateArgs{
-// 			Html:    pulumi.String("<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>"),
-// 			Subject: pulumi.String("Greetings, {{name}}!"),
-// 			Text: pulumi.String(fmt.Sprintf("Hello {{name}},\nYour favorite animal is {{favoriteanimal}}.\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewTemplate(ctx, "myTemplate", &ses.TemplateArgs{
+//				Html:    pulumi.String("<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>"),
+//				Subject: pulumi.String("Greetings, {{name}}!"),
+//				Text:    pulumi.String(fmt.Sprintf("Hello {{name}},\nYour favorite animal is {{favoriteanimal}}.\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // SES templates can be imported using the template name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
+//
+//	$ pulumi import aws:ses/template:Template MyTemplate MyTemplate
+//
 // ```
 type Template struct {
 	pulumi.CustomResourceState
@@ -168,7 +173,7 @@ func (i *Template) ToTemplateOutputWithContext(ctx context.Context) TemplateOutp
 // TemplateArrayInput is an input type that accepts TemplateArray and TemplateArrayOutput values.
 // You can construct a concrete instance of `TemplateArrayInput` via:
 //
-//          TemplateArray{ TemplateArgs{...} }
+//	TemplateArray{ TemplateArgs{...} }
 type TemplateArrayInput interface {
 	pulumi.Input
 
@@ -193,7 +198,7 @@ func (i TemplateArray) ToTemplateArrayOutputWithContext(ctx context.Context) Tem
 // TemplateMapInput is an input type that accepts TemplateMap and TemplateMapOutput values.
 // You can construct a concrete instance of `TemplateMapInput` via:
 //
-//          TemplateMap{ "key": TemplateArgs{...} }
+//	TemplateMap{ "key": TemplateArgs{...} }
 type TemplateMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm.Inputs
 {
 
-    public sealed class AssociationOutputLocationArgs : Pulumi.ResourceArgs
+    public sealed class AssociationOutputLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The S3 bucket name.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         public AssociationOutputLocationArgs()
         {
         }
+        public static new AssociationOutputLocationArgs Empty => new AssociationOutputLocationArgs();
     }
 }

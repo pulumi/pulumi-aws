@@ -21,58 +21,56 @@ namespace Pulumi.Aws.Grafana
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var assume = new Aws.Iam.Role("assume", new()
     ///     {
-    ///         var assume = new Aws.Iam.Role("assume", new Aws.Iam.RoleArgs
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 { "Version", "2012-10-17" },
-    ///                 { "Statement", new[]
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Sid"] = "",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", "sts:AssumeRole" },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Sid", "" },
-    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "Service", "grafana.amazonaws.com" },
-    ///                             } },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///         });
-    ///         var exampleWorkspace = new Aws.Grafana.Workspace("exampleWorkspace", new Aws.Grafana.WorkspaceArgs
-    ///         {
-    ///             AccountAccessType = "CURRENT_ACCOUNT",
-    ///             AuthenticationProviders = 
-    ///             {
-    ///                 "SAML",
+    ///                         ["Service"] = "grafana.amazonaws.com",
+    ///                     },
+    ///                 },
     ///             },
-    ///             PermissionType = "SERVICE_MANAGED",
-    ///             RoleArn = assume.Arn,
-    ///         });
-    ///         var exampleRoleAssociation = new Aws.Grafana.RoleAssociation("exampleRoleAssociation", new Aws.Grafana.RoleAssociationArgs
-    ///         {
-    ///             Role = "ADMIN",
-    ///             UserIds = 
-    ///             {
-    ///                 "USER_ID_1",
-    ///                 "USER_ID_2",
-    ///             },
-    ///             WorkspaceId = exampleWorkspace.Id,
-    ///         });
-    ///     }
+    ///         }),
+    ///     });
     /// 
-    /// }
+    ///     var exampleWorkspace = new Aws.Grafana.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         AccountAccessType = "CURRENT_ACCOUNT",
+    ///         AuthenticationProviders = new[]
+    ///         {
+    ///             "SAML",
+    ///         },
+    ///         PermissionType = "SERVICE_MANAGED",
+    ///         RoleArn = assume.Arn,
+    ///     });
+    /// 
+    ///     var exampleRoleAssociation = new Aws.Grafana.RoleAssociation("exampleRoleAssociation", new()
+    ///     {
+    ///         Role = "ADMIN",
+    ///         UserIds = new[]
+    ///         {
+    ///             "USER_ID_1",
+    ///             "USER_ID_2",
+    ///         },
+    ///         WorkspaceId = exampleWorkspace.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:grafana/roleAssociation:RoleAssociation")]
-    public partial class RoleAssociation : Pulumi.CustomResource
+    public partial class RoleAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AWS SSO group ids to be assigned the role given in `role`.
@@ -142,7 +140,7 @@ namespace Pulumi.Aws.Grafana
         }
     }
 
-    public sealed class RoleAssociationArgs : Pulumi.ResourceArgs
+    public sealed class RoleAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupIds")]
         private InputList<string>? _groupIds;
@@ -183,9 +181,10 @@ namespace Pulumi.Aws.Grafana
         public RoleAssociationArgs()
         {
         }
+        public static new RoleAssociationArgs Empty => new RoleAssociationArgs();
     }
 
-    public sealed class RoleAssociationState : Pulumi.ResourceArgs
+    public sealed class RoleAssociationState : global::Pulumi.ResourceArgs
     {
         [Input("groupIds")]
         private InputList<string>? _groupIds;
@@ -226,5 +225,6 @@ namespace Pulumi.Aws.Grafana
         public RoleAssociationState()
         {
         }
+        public static new RoleAssociationState Empty => new RoleAssociationState();
     }
 }

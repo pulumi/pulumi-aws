@@ -15,39 +15,39 @@ namespace Pulumi.Aws.Route53
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResolverFirewallDomainList = new Aws.Route53.ResolverFirewallDomainList("exampleResolverFirewallDomainList", new()
     ///     {
-    ///         var exampleResolverFirewallDomainList = new Aws.Route53.ResolverFirewallDomainList("exampleResolverFirewallDomainList", new Aws.Route53.ResolverFirewallDomainListArgs
+    ///         Domains = new[]
     ///         {
-    ///             Domains = 
-    ///             {
-    ///                 "example.com",
-    ///             },
-    ///             Tags = ,
-    ///         });
-    ///         var exampleResolverFirewallRuleGroup = new Aws.Route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", new Aws.Route53.ResolverFirewallRuleGroupArgs
-    ///         {
-    ///             Tags = ,
-    ///         });
-    ///         var exampleResolverFirewallRule = new Aws.Route53.ResolverFirewallRule("exampleResolverFirewallRule", new Aws.Route53.ResolverFirewallRuleArgs
-    ///         {
-    ///             Action = "BLOCK",
-    ///             BlockOverrideDnsType = "CNAME",
-    ///             BlockOverrideDomain = "example.com",
-    ///             BlockOverrideTtl = 1,
-    ///             BlockResponse = "OVERRIDE",
-    ///             FirewallDomainListId = exampleResolverFirewallDomainList.Id,
-    ///             FirewallRuleGroupId = exampleResolverFirewallRuleGroup.Id,
-    ///             Priority = 100,
-    ///         });
-    ///     }
+    ///             "example.com",
+    ///         },
+    ///         Tags = ,
+    ///     });
     /// 
-    /// }
+    ///     var exampleResolverFirewallRuleGroup = new Aws.Route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", new()
+    ///     {
+    ///         Tags = ,
+    ///     });
+    /// 
+    ///     var exampleResolverFirewallRule = new Aws.Route53.ResolverFirewallRule("exampleResolverFirewallRule", new()
+    ///     {
+    ///         Action = "BLOCK",
+    ///         BlockOverrideDnsType = "CNAME",
+    ///         BlockOverrideDomain = "example.com",
+    ///         BlockOverrideTtl = 1,
+    ///         BlockResponse = "OVERRIDE",
+    ///         FirewallDomainListId = exampleResolverFirewallDomainList.Id,
+    ///         FirewallRuleGroupId = exampleResolverFirewallRuleGroup.Id,
+    ///         Priority = 100,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverFirewallRule:ResolverFirewallRule")]
-    public partial class ResolverFirewallRule : Pulumi.CustomResource
+    public partial class ResolverFirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class ResolverFirewallRuleArgs : Pulumi.ResourceArgs
+    public sealed class ResolverFirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
@@ -218,9 +218,10 @@ namespace Pulumi.Aws.Route53
         public ResolverFirewallRuleArgs()
         {
         }
+        public static new ResolverFirewallRuleArgs Empty => new ResolverFirewallRuleArgs();
     }
 
-    public sealed class ResolverFirewallRuleState : Pulumi.ResourceArgs
+    public sealed class ResolverFirewallRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
@@ -279,5 +280,6 @@ namespace Pulumi.Aws.Route53
         public ResolverFirewallRuleState()
         {
         }
+        public static new ResolverFirewallRuleState Empty => new ResolverFirewallRuleState();
     }
 }

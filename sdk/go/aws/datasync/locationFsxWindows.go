@@ -19,26 +19,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datasync.NewLocationFsxWindows(ctx, "example", &datasync.LocationFsxWindowsArgs{
-// 			FsxFilesystemArn: pulumi.Any(aws_fsx_windows_file_system.Example.Arn),
-// 			User:             pulumi.String("SomeUser"),
-// 			Password:         pulumi.String("SuperSecretPassw0rd"),
-// 			SecurityGroupArns: pulumi.StringArray{
-// 				pulumi.Any(aws_security_group.Example.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datasync.NewLocationFsxWindows(ctx, "example", &datasync.LocationFsxWindowsArgs{
+//				FsxFilesystemArn: pulumi.Any(aws_fsx_windows_file_system.Example.Arn),
+//				User:             pulumi.String("SomeUser"),
+//				Password:         pulumi.String("SuperSecretPassw0rd"),
+//				SecurityGroupArns: pulumi.StringArray{
+//					pulumi.Any(aws_security_group.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // `aws_datasync_location_fsx_windows_file_system` can be imported by using the `DataSync-ARN#FSx-Windows-ARN`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:datasync/locationFsxWindows:LocationFsxWindows example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
+//
+//	$ pulumi import aws:datasync/locationFsxWindows:LocationFsxWindows example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a
+//
 // ```
 type LocationFsxWindows struct {
 	pulumi.CustomResourceState
@@ -67,7 +72,7 @@ type LocationFsxWindows struct {
 	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The URL of the FSx for Windows location that was described.
 	Uri pulumi.StringOutput `pulumi:"uri"`
@@ -132,7 +137,7 @@ type locationFsxWindowsState struct {
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The URL of the FSx for Windows location that was described.
 	Uri *string `pulumi:"uri"`
@@ -157,7 +162,7 @@ type LocationFsxWindowsState struct {
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The URL of the FSx for Windows location that was described.
 	Uri pulumi.StringPtrInput
@@ -230,7 +235,7 @@ func (i *LocationFsxWindows) ToLocationFsxWindowsOutputWithContext(ctx context.C
 // LocationFsxWindowsArrayInput is an input type that accepts LocationFsxWindowsArray and LocationFsxWindowsArrayOutput values.
 // You can construct a concrete instance of `LocationFsxWindowsArrayInput` via:
 //
-//          LocationFsxWindowsArray{ LocationFsxWindowsArgs{...} }
+//	LocationFsxWindowsArray{ LocationFsxWindowsArgs{...} }
 type LocationFsxWindowsArrayInput interface {
 	pulumi.Input
 
@@ -255,7 +260,7 @@ func (i LocationFsxWindowsArray) ToLocationFsxWindowsArrayOutputWithContext(ctx 
 // LocationFsxWindowsMapInput is an input type that accepts LocationFsxWindowsMap and LocationFsxWindowsMapOutput values.
 // You can construct a concrete instance of `LocationFsxWindowsMapInput` via:
 //
-//          LocationFsxWindowsMap{ "key": LocationFsxWindowsArgs{...} }
+//	LocationFsxWindowsMap{ "key": LocationFsxWindowsArgs{...} }
 type LocationFsxWindowsMapInput interface {
 	pulumi.Input
 
@@ -331,7 +336,7 @@ func (o LocationFsxWindowsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o LocationFsxWindowsOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

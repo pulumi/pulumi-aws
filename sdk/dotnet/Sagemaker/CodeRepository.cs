@@ -16,24 +16,22 @@ namespace Pulumi.Aws.Sagemaker
     /// ### Basic usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.CodeRepository("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.CodeRepository("example", new Aws.Sagemaker.CodeRepositoryArgs
+    ///         CodeRepositoryName = "example",
+    ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
     ///         {
-    ///             CodeRepositoryName = "example",
-    ///             GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
-    ///             {
-    ///                 RepositoryUrl = "https://github.com/hashicorp/terraform-provider-aws.git",
-    ///             },
-    ///         });
-    ///     }
+    ///             RepositoryUrl = "https://github.com/hashicorp/terraform-provider-aws.git",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example with Secret
     /// 
@@ -43,40 +41,37 @@ namespace Pulumi.Aws.Sagemaker
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret", new Aws.SecretsManager.SecretArgs
-    ///         {
-    ///         });
-    ///         var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("exampleSecretVersion", new Aws.SecretsManager.SecretVersionArgs
-    ///         {
-    ///             SecretId = exampleSecret.Id,
-    ///             SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "username", "example" },
-    ///                 { "password", "example" },
-    ///             }),
-    ///         });
-    ///         var exampleCodeRepository = new Aws.Sagemaker.CodeRepository("exampleCodeRepository", new Aws.Sagemaker.CodeRepositoryArgs
-    ///         {
-    ///             CodeRepositoryName = "example",
-    ///             GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
-    ///             {
-    ///                 RepositoryUrl = "https://github.com/hashicorp/terraform-provider-aws.git",
-    ///                 SecretArn = exampleSecret.Arn,
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleSecretVersion,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret");
     /// 
-    /// }
+    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("exampleSecretVersion", new()
+    ///     {
+    ///         SecretId = exampleSecret.Id,
+    ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["username"] = "example",
+    ///             ["password"] = "example",
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleCodeRepository = new Aws.Sagemaker.CodeRepository("exampleCodeRepository", new()
+    ///     {
+    ///         CodeRepositoryName = "example",
+    ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
+    ///         {
+    ///             RepositoryUrl = "https://github.com/hashicorp/terraform-provider-aws.git",
+    ///             SecretArn = exampleSecret.Arn,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleSecretVersion,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +83,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/codeRepository:CodeRepository")]
-    public partial class CodeRepository : Pulumi.CustomResource
+    public partial class CodeRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
@@ -164,7 +159,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class CodeRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class CodeRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Code Repository (must be unique).
@@ -193,9 +188,10 @@ namespace Pulumi.Aws.Sagemaker
         public CodeRepositoryArgs()
         {
         }
+        public static new CodeRepositoryArgs Empty => new CodeRepositoryArgs();
     }
 
-    public sealed class CodeRepositoryState : Pulumi.ResourceArgs
+    public sealed class CodeRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
@@ -242,5 +238,6 @@ namespace Pulumi.Aws.Sagemaker
         public CodeRepositoryState()
         {
         }
+        public static new CodeRepositoryState Empty => new CodeRepositoryState();
     }
 }

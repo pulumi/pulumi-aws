@@ -23,7 +23,7 @@ namespace Pulumi.Aws.CostExplorer
     /// ```
     /// </summary>
     [AwsResourceType("aws:costexplorer/anomalySubscription:AnomalySubscription")]
-    public partial class AnomalySubscription : Pulumi.CustomResource
+    public partial class AnomalySubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
@@ -67,9 +67,6 @@ namespace Pulumi.Aws.CostExplorer
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -123,7 +120,7 @@ namespace Pulumi.Aws.CostExplorer
         }
     }
 
-    public sealed class AnomalySubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class AnomalySubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
@@ -179,18 +176,6 @@ namespace Pulumi.Aws.CostExplorer
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// The dollar value that triggers a notification if the threshold is exceeded.
         /// </summary>
@@ -200,9 +185,10 @@ namespace Pulumi.Aws.CostExplorer
         public AnomalySubscriptionArgs()
         {
         }
+        public static new AnomalySubscriptionArgs Empty => new AnomalySubscriptionArgs();
     }
 
-    public sealed class AnomalySubscriptionState : Pulumi.ResourceArgs
+    public sealed class AnomalySubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
@@ -266,10 +252,6 @@ namespace Pulumi.Aws.CostExplorer
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -285,5 +267,6 @@ namespace Pulumi.Aws.CostExplorer
         public AnomalySubscriptionState()
         {
         }
+        public static new AnomalySubscriptionState Empty => new AnomalySubscriptionState();
     }
 }

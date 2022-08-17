@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateInstanceRequirementsTotalLocalStorageGbGetArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateInstanceRequirementsTotalLocalStorageGbGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateInstanceRequirementsTotalLocalStorageGbGetArgs()
         {
         }
+        public static new LaunchTemplateInstanceRequirementsTotalLocalStorageGbGetArgs Empty => new LaunchTemplateInstanceRequirementsTotalLocalStorageGbGetArgs();
     }
 }

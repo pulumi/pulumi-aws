@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Signer
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var buildSigningJob = Aws.Signer.GetSigningJob.Invoke(new()
         ///     {
-        ///         var buildSigningJob = Output.Create(Aws.Signer.GetSigningJob.InvokeAsync(new Aws.Signer.GetSigningJobArgs
-        ///         {
-        ///             JobId = "9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee",
-        ///         }));
-        ///     }
+        ///         JobId = "9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Signer
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var buildSigningJob = Aws.Signer.GetSigningJob.Invoke(new()
         ///     {
-        ///         var buildSigningJob = Output.Create(Aws.Signer.GetSigningJob.InvokeAsync(new Aws.Signer.GetSigningJobArgs
-        ///         {
-        ///             JobId = "9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee",
-        ///         }));
-        ///     }
+        ///         JobId = "9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Signer
     }
 
 
-    public sealed class GetSigningJobArgs : Pulumi.InvokeArgs
+    public sealed class GetSigningJobArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the signing job on output.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Signer
         public GetSigningJobArgs()
         {
         }
+        public static new GetSigningJobArgs Empty => new GetSigningJobArgs();
     }
 
-    public sealed class GetSigningJobInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSigningJobInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the signing job on output.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Signer
         public GetSigningJobInvokeArgs()
         {
         }
+        public static new GetSigningJobInvokeArgs Empty => new GetSigningJobInvokeArgs();
     }
 
 

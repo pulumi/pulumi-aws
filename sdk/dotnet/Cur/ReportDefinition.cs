@@ -19,34 +19,32 @@ namespace Pulumi.Aws.Cur
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleCurReportDefinition = new Aws.Cur.ReportDefinition("exampleCurReportDefinition", new()
     ///     {
-    ///         var exampleCurReportDefinition = new Aws.Cur.ReportDefinition("exampleCurReportDefinition", new Aws.Cur.ReportDefinitionArgs
+    ///         AdditionalArtifacts = new[]
     ///         {
-    ///             AdditionalArtifacts = 
-    ///             {
-    ///                 "REDSHIFT",
-    ///                 "QUICKSIGHT",
-    ///             },
-    ///             AdditionalSchemaElements = 
-    ///             {
-    ///                 "RESOURCES",
-    ///             },
-    ///             Compression = "GZIP",
-    ///             Format = "textORcsv",
-    ///             ReportName = "example-cur-report-definition",
-    ///             S3Bucket = "example-bucket-name",
-    ///             S3Region = "us-east-1",
-    ///             TimeUnit = "HOURLY",
-    ///         });
-    ///     }
+    ///             "REDSHIFT",
+    ///             "QUICKSIGHT",
+    ///         },
+    ///         AdditionalSchemaElements = new[]
+    ///         {
+    ///             "RESOURCES",
+    ///         },
+    ///         Compression = "GZIP",
+    ///         Format = "textORcsv",
+    ///         ReportName = "example-cur-report-definition",
+    ///         S3Bucket = "example-bucket-name",
+    ///         S3Region = "us-east-1",
+    ///         TimeUnit = "HOURLY",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +56,7 @@ namespace Pulumi.Aws.Cur
     /// ```
     /// </summary>
     [AwsResourceType("aws:cur/reportDefinition:ReportDefinition")]
-    public partial class ReportDefinition : Pulumi.CustomResource
+    public partial class ReportDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
@@ -176,7 +174,7 @@ namespace Pulumi.Aws.Cur
         }
     }
 
-    public sealed class ReportDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ReportDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalArtifacts")]
         private InputList<string>? _additionalArtifacts;
@@ -259,9 +257,10 @@ namespace Pulumi.Aws.Cur
         public ReportDefinitionArgs()
         {
         }
+        public static new ReportDefinitionArgs Empty => new ReportDefinitionArgs();
     }
 
-    public sealed class ReportDefinitionState : Pulumi.ResourceArgs
+    public sealed class ReportDefinitionState : global::Pulumi.ResourceArgs
     {
         [Input("additionalArtifacts")]
         private InputList<string>? _additionalArtifacts;
@@ -350,5 +349,6 @@ namespace Pulumi.Aws.Cur
         public ReportDefinitionState()
         {
         }
+        public static new ReportDefinitionState Empty => new ReportDefinitionState();
     }
 }

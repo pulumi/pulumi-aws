@@ -21,29 +21,26 @@ namespace Pulumi.Aws.Ec2
         /// The following shows outputing all Elastic IPs with the a specific tag value.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetEips.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetEips.InvokeAsync(new Aws.Ec2.GetEipsArgs
+        ///         Tags = 
         ///         {
-        ///             Tags = 
-        ///             {
-        ///                 { "Env", "dev" },
-        ///             },
-        ///         }));
-        ///         this.AllocationIds = example.Apply(example =&gt; example.AllocationIds);
-        ///         this.PublicIps = example.Apply(example =&gt; example.PublicIps);
-        ///     }
+        ///             { "Env", "dev" },
+        ///         },
+        ///     });
         /// 
-        ///     [Output("allocationIds")]
-        ///     public Output&lt;string&gt; AllocationIds { get; set; }
-        ///     [Output("publicIps")]
-        ///     public Output&lt;string&gt; PublicIps { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["allocationIds"] = example.Apply(getEipsResult =&gt; getEipsResult.AllocationIds),
+        ///         ["publicIps"] = example.Apply(getEipsResult =&gt; getEipsResult.PublicIps),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -61,29 +58,26 @@ namespace Pulumi.Aws.Ec2
         /// The following shows outputing all Elastic IPs with the a specific tag value.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetEips.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetEips.InvokeAsync(new Aws.Ec2.GetEipsArgs
+        ///         Tags = 
         ///         {
-        ///             Tags = 
-        ///             {
-        ///                 { "Env", "dev" },
-        ///             },
-        ///         }));
-        ///         this.AllocationIds = example.Apply(example =&gt; example.AllocationIds);
-        ///         this.PublicIps = example.Apply(example =&gt; example.PublicIps);
-        ///     }
+        ///             { "Env", "dev" },
+        ///         },
+        ///     });
         /// 
-        ///     [Output("allocationIds")]
-        ///     public Output&lt;string&gt; AllocationIds { get; set; }
-        ///     [Output("publicIps")]
-        ///     public Output&lt;string&gt; PublicIps { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["allocationIds"] = example.Apply(getEipsResult =&gt; getEipsResult.AllocationIds),
+        ///         ["publicIps"] = example.Apply(getEipsResult =&gt; getEipsResult.PublicIps),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -93,7 +87,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetEipsArgs : Pulumi.InvokeArgs
+    public sealed class GetEipsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetEipsFilterArgs>? _filters;
@@ -122,9 +116,10 @@ namespace Pulumi.Aws.Ec2
         public GetEipsArgs()
         {
         }
+        public static new GetEipsArgs Empty => new GetEipsArgs();
     }
 
-    public sealed class GetEipsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEipsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetEipsFilterInputArgs>? _filters;
@@ -153,6 +148,7 @@ namespace Pulumi.Aws.Ec2
         public GetEipsInvokeArgs()
         {
         }
+        public static new GetEipsInvokeArgs Empty => new GetEipsInvokeArgs();
     }
 
 

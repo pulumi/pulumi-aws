@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * // ... other configuration ...
  * const withLb = new aws.lambda.Permission("withLb", {
  *     action: "lambda:InvokeFunction",
- *     "function": testFunction.arn,
+ *     "function": testFunction.name,
  *     principal: "elasticloadbalancing.amazonaws.com",
  *     sourceArn: testTargetGroup.arn,
  * });

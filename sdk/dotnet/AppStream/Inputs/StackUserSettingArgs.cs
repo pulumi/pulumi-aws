@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppStream.Inputs
 {
 
-    public sealed class StackUserSettingArgs : Pulumi.ResourceArgs
+    public sealed class StackUserSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppStream.Inputs
         public StackUserSettingArgs()
         {
         }
+        public static new StackUserSettingArgs Empty => new StackUserSettingArgs();
     }
 }

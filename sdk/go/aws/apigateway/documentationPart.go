@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.NewDocumentationPart(ctx, "exampleDocumentationPart", &apigateway.DocumentationPartArgs{
-// 			Location: &apigateway.DocumentationPartLocationArgs{
-// 				Type:   pulumi.String("METHOD"),
-// 				Method: pulumi.String("GET"),
-// 				Path:   pulumi.String("/example"),
-// 			},
-// 			Properties: pulumi.String("{\"description\":\"Example description\"}"),
-// 			RestApiId:  exampleRestApi.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewDocumentationPart(ctx, "exampleDocumentationPart", &apigateway.DocumentationPartArgs{
+//				Location: &apigateway.DocumentationPartLocationArgs{
+//					Type:   pulumi.String("METHOD"),
+//					Method: pulumi.String("GET"),
+//					Path:   pulumi.String("/example"),
+//				},
+//				Properties: pulumi.String("{\"description\":\"Example description\"}"),
+//				RestApiId:  exampleRestApi.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // API Gateway documentation_parts can be imported using `REST-API-ID/DOC-PART-ID`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
+//
+//	$ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
+//
 // ```
 type DocumentationPart struct {
 	pulumi.CustomResourceState
@@ -168,7 +173,7 @@ func (i *DocumentationPart) ToDocumentationPartOutputWithContext(ctx context.Con
 // DocumentationPartArrayInput is an input type that accepts DocumentationPartArray and DocumentationPartArrayOutput values.
 // You can construct a concrete instance of `DocumentationPartArrayInput` via:
 //
-//          DocumentationPartArray{ DocumentationPartArgs{...} }
+//	DocumentationPartArray{ DocumentationPartArgs{...} }
 type DocumentationPartArrayInput interface {
 	pulumi.Input
 
@@ -193,7 +198,7 @@ func (i DocumentationPartArray) ToDocumentationPartArrayOutputWithContext(ctx co
 // DocumentationPartMapInput is an input type that accepts DocumentationPartMap and DocumentationPartMapOutput values.
 // You can construct a concrete instance of `DocumentationPartMapInput` via:
 //
-//          DocumentationPartMap{ "key": DocumentationPartArgs{...} }
+//	DocumentationPartMap{ "key": DocumentationPartArgs{...} }
 type DocumentationPartMapInput interface {
 	pulumi.Input
 

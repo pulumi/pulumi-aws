@@ -15,23 +15,21 @@ namespace Pulumi.Aws.Ses
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Ses.IdentityNotificationTopic("test", new()
     ///     {
-    ///         var test = new Aws.Ses.IdentityNotificationTopic("test", new Aws.Ses.IdentityNotificationTopicArgs
-    ///         {
-    ///             TopicArn = aws_sns_topic.Example.Arn,
-    ///             NotificationType = "Bounce",
-    ///             Identity = aws_ses_domain_identity.Example.Domain,
-    ///             IncludeOriginalHeaders = true,
-    ///         });
-    ///     }
+    ///         TopicArn = aws_sns_topic.Example.Arn,
+    ///         NotificationType = "Bounce",
+    ///         Identity = aws_ses_domain_identity.Example.Domain,
+    ///         IncludeOriginalHeaders = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.Ses
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/identityNotificationTopic:IdentityNotificationTopic")]
-    public partial class IdentityNotificationTopic : Pulumi.CustomResource
+    public partial class IdentityNotificationTopic : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
@@ -113,7 +111,7 @@ namespace Pulumi.Aws.Ses
         }
     }
 
-    public sealed class IdentityNotificationTopicArgs : Pulumi.ResourceArgs
+    public sealed class IdentityNotificationTopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
@@ -142,9 +140,10 @@ namespace Pulumi.Aws.Ses
         public IdentityNotificationTopicArgs()
         {
         }
+        public static new IdentityNotificationTopicArgs Empty => new IdentityNotificationTopicArgs();
     }
 
-    public sealed class IdentityNotificationTopicState : Pulumi.ResourceArgs
+    public sealed class IdentityNotificationTopicState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
@@ -173,5 +172,6 @@ namespace Pulumi.Aws.Ses
         public IdentityNotificationTopicState()
         {
         }
+        public static new IdentityNotificationTopicState Empty => new IdentityNotificationTopicState();
     }
 }

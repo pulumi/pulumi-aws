@@ -20,39 +20,37 @@ namespace Pulumi.Aws.CloudFront
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleLogDeliveryCanonicalUserId = Aws.CloudFront.GetLogDeliveryCanonicalUserId.Invoke();
+        /// 
+        ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+        /// 
+        ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
         ///     {
-        ///         var exampleLogDeliveryCanonicalUserId = Output.Create(Aws.CloudFront.GetLogDeliveryCanonicalUserId.InvokeAsync());
-        ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
+        ///         Bucket = exampleBucketV2.Id,
+        ///         AccessControlPolicy = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyArgs
         ///         {
-        ///         });
-        ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
-        ///         {
-        ///             Bucket = exampleBucketV2.Id,
-        ///             AccessControlPolicy = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyArgs
+        ///             Grants = new[]
         ///             {
-        ///                 Grants = 
+        ///                 new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
         ///                 {
-        ///                     new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
+        ///                     Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
         ///                     {
-        ///                         Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
-        ///                         {
-        ///                             Id = exampleLogDeliveryCanonicalUserId.Apply(exampleLogDeliveryCanonicalUserId =&gt; exampleLogDeliveryCanonicalUserId.Id),
-        ///                             Type = "CanonicalUser",
-        ///                         },
-        ///                         Permission = "FULL_CONTROL",
+        ///                         Id = exampleLogDeliveryCanonicalUserId.Apply(getLogDeliveryCanonicalUserIdResult =&gt; getLogDeliveryCanonicalUserIdResult.Id),
+        ///                         Type = "CanonicalUser",
         ///                     },
+        ///                     Permission = "FULL_CONTROL",
         ///                 },
         ///             },
-        ///         });
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -69,39 +67,37 @@ namespace Pulumi.Aws.CloudFront
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleLogDeliveryCanonicalUserId = Aws.CloudFront.GetLogDeliveryCanonicalUserId.Invoke();
+        /// 
+        ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+        /// 
+        ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
         ///     {
-        ///         var exampleLogDeliveryCanonicalUserId = Output.Create(Aws.CloudFront.GetLogDeliveryCanonicalUserId.InvokeAsync());
-        ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
+        ///         Bucket = exampleBucketV2.Id,
+        ///         AccessControlPolicy = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyArgs
         ///         {
-        ///         });
-        ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
-        ///         {
-        ///             Bucket = exampleBucketV2.Id,
-        ///             AccessControlPolicy = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyArgs
+        ///             Grants = new[]
         ///             {
-        ///                 Grants = 
+        ///                 new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
         ///                 {
-        ///                     new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
+        ///                     Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
         ///                     {
-        ///                         Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
-        ///                         {
-        ///                             Id = exampleLogDeliveryCanonicalUserId.Apply(exampleLogDeliveryCanonicalUserId =&gt; exampleLogDeliveryCanonicalUserId.Id),
-        ///                             Type = "CanonicalUser",
-        ///                         },
-        ///                         Permission = "FULL_CONTROL",
+        ///                         Id = exampleLogDeliveryCanonicalUserId.Apply(getLogDeliveryCanonicalUserIdResult =&gt; getLogDeliveryCanonicalUserIdResult.Id),
+        ///                         Type = "CanonicalUser",
         ///                     },
+        ///                     Permission = "FULL_CONTROL",
         ///                 },
         ///             },
-        ///         });
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -111,7 +107,7 @@ namespace Pulumi.Aws.CloudFront
     }
 
 
-    public sealed class GetLogDeliveryCanonicalUserIdArgs : Pulumi.InvokeArgs
+    public sealed class GetLogDeliveryCanonicalUserIdArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The region you'd like the zone for. By default, fetches the current region.
@@ -122,9 +118,10 @@ namespace Pulumi.Aws.CloudFront
         public GetLogDeliveryCanonicalUserIdArgs()
         {
         }
+        public static new GetLogDeliveryCanonicalUserIdArgs Empty => new GetLogDeliveryCanonicalUserIdArgs();
     }
 
-    public sealed class GetLogDeliveryCanonicalUserIdInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLogDeliveryCanonicalUserIdInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The region you'd like the zone for. By default, fetches the current region.
@@ -135,6 +132,7 @@ namespace Pulumi.Aws.CloudFront
         public GetLogDeliveryCanonicalUserIdInvokeArgs()
         {
         }
+        public static new GetLogDeliveryCanonicalUserIdInvokeArgs Empty => new GetLogDeliveryCanonicalUserIdInvokeArgs();
     }
 
 

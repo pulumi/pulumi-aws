@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Quicksight.Inputs
 {
 
-    public sealed class DataSourceVpcConnectionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceVpcConnectionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the VPC connection.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public DataSourceVpcConnectionPropertiesArgs()
         {
         }
+        public static new DataSourceVpcConnectionPropertiesArgs Empty => new DataSourceVpcConnectionPropertiesArgs();
     }
 }

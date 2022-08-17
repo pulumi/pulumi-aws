@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecLoggingArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecLoggingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access log configuration for a virtual node.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecLoggingArgs()
         {
         }
+        public static new VirtualNodeSpecLoggingArgs Empty => new VirtualNodeSpecLoggingArgs();
     }
 }

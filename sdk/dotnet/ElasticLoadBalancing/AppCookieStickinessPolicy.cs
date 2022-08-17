@@ -15,39 +15,38 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
     ///     {
-    ///         var lb = new Aws.Elb.LoadBalancer("lb", new Aws.Elb.LoadBalancerArgs
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-east-1a",
-    ///             },
-    ///             Listeners = 
-    ///             {
-    ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///                 {
-    ///                     InstancePort = 8000,
-    ///                     InstanceProtocol = "http",
-    ///                     LbPort = 80,
-    ///                     LbProtocol = "http",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var foo = new Aws.Elb.AppCookieStickinessPolicy("foo", new Aws.Elb.AppCookieStickinessPolicyArgs
+    ///             "us-east-1a",
+    ///         },
+    ///         Listeners = new[]
     ///         {
-    ///             LoadBalancer = lb.Name,
-    ///             LbPort = 80,
-    ///             CookieName = "MyAppCookie",
-    ///         });
-    ///     }
+    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+    ///             {
+    ///                 InstancePort = 8000,
+    ///                 InstanceProtocol = "http",
+    ///                 LbPort = 80,
+    ///                 LbProtocol = "http",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var foo = new Aws.Elb.AppCookieStickinessPolicy("foo", new()
+    ///     {
+    ///         LoadBalancer = lb.Name,
+    ///         LbPort = 80,
+    ///         CookieName = "MyAppCookie",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +59,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// </summary>
     [Obsolete(@"aws.elasticloadbalancing.AppCookieStickinessPolicy has been deprecated in favor of aws.elb.AppCookieStickinessPolicy")]
     [AwsResourceType("aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy")]
-    public partial class AppCookieStickinessPolicy : Pulumi.CustomResource
+    public partial class AppCookieStickinessPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application cookie whose lifetime the ELB's cookie should follow.
@@ -133,7 +132,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         }
     }
 
-    public sealed class AppCookieStickinessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AppCookieStickinessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application cookie whose lifetime the ELB's cookie should follow.
@@ -165,9 +164,10 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         public AppCookieStickinessPolicyArgs()
         {
         }
+        public static new AppCookieStickinessPolicyArgs Empty => new AppCookieStickinessPolicyArgs();
     }
 
-    public sealed class AppCookieStickinessPolicyState : Pulumi.ResourceArgs
+    public sealed class AppCookieStickinessPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application cookie whose lifetime the ELB's cookie should follow.
@@ -199,5 +199,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         public AppCookieStickinessPolicyState()
         {
         }
+        public static new AppCookieStickinessPolicyState Empty => new AppCookieStickinessPolicyState();
     }
 }

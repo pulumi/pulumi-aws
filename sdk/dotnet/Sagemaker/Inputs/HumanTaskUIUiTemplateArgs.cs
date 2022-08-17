@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class HumanTaskUIUiTemplateArgs : Pulumi.ResourceArgs
+    public sealed class HumanTaskUIUiTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of the Liquid template for the worker user interface.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public HumanTaskUIUiTemplateArgs()
         {
         }
+        public static new HumanTaskUIUiTemplateArgs Empty => new HumanTaskUIUiTemplateArgs();
     }
 }

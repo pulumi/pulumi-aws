@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fms.Inputs
 {
 
-    public sealed class PolicyExcludeMapArgs : Pulumi.ResourceArgs
+    public sealed class PolicyExcludeMapArgs : global::Pulumi.ResourceArgs
     {
         [Input("accounts")]
         private InputList<string>? _accounts;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Fms.Inputs
         public PolicyExcludeMapArgs()
         {
         }
+        public static new PolicyExcludeMapArgs Empty => new PolicyExcludeMapArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Macie2.Inputs
 {
 
-    public sealed class ClassificationJobScheduleFrequencyGetArgs : Pulumi.ResourceArgs
+    public sealed class ClassificationJobScheduleFrequencyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a daily recurrence pattern for running the job.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Macie2.Inputs
         public ClassificationJobScheduleFrequencyGetArgs()
         {
         }
+        public static new ClassificationJobScheduleFrequencyGetArgs Empty => new ClassificationJobScheduleFrequencyGetArgs();
     }
 }

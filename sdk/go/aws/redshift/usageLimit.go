@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := redshift.NewUsageLimit(ctx, "example", &redshift.UsageLimitArgs{
-// 			ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Id),
-// 			FeatureType:       pulumi.String("concurrency-scaling"),
-// 			LimitType:         pulumi.String("time"),
-// 			Amount:            pulumi.Int(60),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := redshift.NewUsageLimit(ctx, "example", &redshift.UsageLimitArgs{
+//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Id),
+//				FeatureType:       pulumi.String("concurrency-scaling"),
+//				LimitType:         pulumi.String("time"),
+//				Amount:            pulumi.Int(60),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // Redshift usage limits can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
+//
+//	$ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
+//
 // ```
 type UsageLimit struct {
 	pulumi.CustomResourceState
@@ -64,8 +69,7 @@ type UsageLimit struct {
 	// The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
 	Period pulumi.StringPtrOutput `pulumi:"period"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -125,8 +129,7 @@ type usageLimitState struct {
 	// The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
 	Period *string `pulumi:"period"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -146,8 +149,7 @@ type UsageLimitState struct {
 	// The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
 	Period pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -216,7 +218,7 @@ func (i *UsageLimit) ToUsageLimitOutputWithContext(ctx context.Context) UsageLim
 // UsageLimitArrayInput is an input type that accepts UsageLimitArray and UsageLimitArrayOutput values.
 // You can construct a concrete instance of `UsageLimitArrayInput` via:
 //
-//          UsageLimitArray{ UsageLimitArgs{...} }
+//	UsageLimitArray{ UsageLimitArgs{...} }
 type UsageLimitArrayInput interface {
 	pulumi.Input
 
@@ -241,7 +243,7 @@ func (i UsageLimitArray) ToUsageLimitArrayOutputWithContext(ctx context.Context)
 // UsageLimitMapInput is an input type that accepts UsageLimitMap and UsageLimitMapOutput values.
 // You can construct a concrete instance of `UsageLimitMapInput` via:
 //
-//          UsageLimitMap{ "key": UsageLimitArgs{...} }
+//	UsageLimitMap{ "key": UsageLimitArgs{...} }
 type UsageLimitMapInput interface {
 	pulumi.Input
 
@@ -317,7 +319,6 @@ func (o UsageLimitOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UsageLimit) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o UsageLimitOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UsageLimit) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -17,23 +17,20 @@ namespace Pulumi.Aws.Kms
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var key = new Aws.Kms.Key("key", new Aws.Kms.KeyArgs
-    ///         {
-    ///         });
-    ///         var @alias = new Aws.Kms.Alias("alias", new Aws.Kms.AliasArgs
-    ///         {
-    ///             TargetKeyId = key.KeyId,
-    ///         });
-    ///     }
+    ///     var key = new Aws.Kms.Key("key");
     /// 
-    /// }
+    ///     var @alias = new Aws.Kms.Alias("alias", new()
+    ///     {
+    ///         TargetKeyId = key.KeyId,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +42,7 @@ namespace Pulumi.Aws.Kms
     /// ```
     /// </summary>
     [AwsResourceType("aws:kms/alias:Alias")]
-    public partial class Alias : Pulumi.CustomResource
+    public partial class Alias : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the key alias.
@@ -122,7 +119,7 @@ namespace Pulumi.Aws.Kms
         }
     }
 
-    public sealed class AliasArgs : Pulumi.ResourceArgs
+    public sealed class AliasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
@@ -146,9 +143,10 @@ namespace Pulumi.Aws.Kms
         public AliasArgs()
         {
         }
+        public static new AliasArgs Empty => new AliasArgs();
     }
 
-    public sealed class AliasState : Pulumi.ResourceArgs
+    public sealed class AliasState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the key alias.
@@ -184,5 +182,6 @@ namespace Pulumi.Aws.Kms
         public AliasState()
         {
         }
+        public static new AliasState Empty => new AliasState();
     }
 }

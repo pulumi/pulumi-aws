@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs()
         {
         }
+        public static new ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs Empty => new ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs();
     }
 }

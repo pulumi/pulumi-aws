@@ -19,26 +19,23 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ElasticBeanstalk.GetApplication.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ElasticBeanstalk.GetApplication.InvokeAsync(new Aws.ElasticBeanstalk.GetApplicationArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///         this.Arn = example.Apply(example =&gt; example.Arn);
-        ///         this.Description = example.Apply(example =&gt; example.Description);
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        ///     [Output("arn")]
-        ///     public Output&lt;string&gt; Arn { get; set; }
-        ///     [Output("description")]
-        ///     public Output&lt;string&gt; Description { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["arn"] = example.Apply(getApplicationResult =&gt; getApplicationResult.Arn),
+        ///         ["description"] = example.Apply(getApplicationResult =&gt; getApplicationResult.Description),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,26 +51,23 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ElasticBeanstalk.GetApplication.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ElasticBeanstalk.GetApplication.InvokeAsync(new Aws.ElasticBeanstalk.GetApplicationArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///         this.Arn = example.Apply(example =&gt; example.Arn);
-        ///         this.Description = example.Apply(example =&gt; example.Description);
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        ///     [Output("arn")]
-        ///     public Output&lt;string&gt; Arn { get; set; }
-        ///     [Output("description")]
-        ///     public Output&lt;string&gt; Description { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["arn"] = example.Apply(getApplicationResult =&gt; getApplicationResult.Arn),
+        ///         ["description"] = example.Apply(getApplicationResult =&gt; getApplicationResult.Description),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +77,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     }
 
 
-    public sealed class GetApplicationArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the application
@@ -94,9 +88,10 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public GetApplicationArgs()
         {
         }
+        public static new GetApplicationArgs Empty => new GetApplicationArgs();
     }
 
-    public sealed class GetApplicationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the application
@@ -107,6 +102,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public GetApplicationInvokeArgs()
         {
         }
+        public static new GetApplicationInvokeArgs Empty => new GetApplicationInvokeArgs();
     }
 
 

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.macie2.outputs;
 
+import com.pulumi.aws.macie2.outputs.ClassificationJobS3JobDefinitionBucketCriteria;
 import com.pulumi.aws.macie2.outputs.ClassificationJobS3JobDefinitionBucketDefinition;
 import com.pulumi.aws.macie2.outputs.ClassificationJobS3JobDefinitionScoping;
 import com.pulumi.core.annotations.CustomType;
@@ -14,7 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClassificationJobS3JobDefinition {
     /**
-     * @return An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. (documented below)
+     * @return The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucket_definitions`. (documented below)
+     * 
+     */
+    private final @Nullable ClassificationJobS3JobDefinitionBucketCriteria bucketCriteria;
+    /**
+     * @return An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucket_criteria`. (documented below)
      * 
      */
     private final @Nullable List<ClassificationJobS3JobDefinitionBucketDefinition> bucketDefinitions;
@@ -26,14 +32,23 @@ public final class ClassificationJobS3JobDefinition {
 
     @CustomType.Constructor
     private ClassificationJobS3JobDefinition(
+        @CustomType.Parameter("bucketCriteria") @Nullable ClassificationJobS3JobDefinitionBucketCriteria bucketCriteria,
         @CustomType.Parameter("bucketDefinitions") @Nullable List<ClassificationJobS3JobDefinitionBucketDefinition> bucketDefinitions,
         @CustomType.Parameter("scoping") @Nullable ClassificationJobS3JobDefinitionScoping scoping) {
+        this.bucketCriteria = bucketCriteria;
         this.bucketDefinitions = bucketDefinitions;
         this.scoping = scoping;
     }
 
     /**
-     * @return An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. (documented below)
+     * @return The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucket_definitions`. (documented below)
+     * 
+     */
+    public Optional<ClassificationJobS3JobDefinitionBucketCriteria> bucketCriteria() {
+        return Optional.ofNullable(this.bucketCriteria);
+    }
+    /**
+     * @return An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucket_criteria`. (documented below)
      * 
      */
     public List<ClassificationJobS3JobDefinitionBucketDefinition> bucketDefinitions() {
@@ -56,6 +71,7 @@ public final class ClassificationJobS3JobDefinition {
     }
 
     public static final class Builder {
+        private @Nullable ClassificationJobS3JobDefinitionBucketCriteria bucketCriteria;
         private @Nullable List<ClassificationJobS3JobDefinitionBucketDefinition> bucketDefinitions;
         private @Nullable ClassificationJobS3JobDefinitionScoping scoping;
 
@@ -65,10 +81,15 @@ public final class ClassificationJobS3JobDefinition {
 
         public Builder(ClassificationJobS3JobDefinition defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.bucketCriteria = defaults.bucketCriteria;
     	      this.bucketDefinitions = defaults.bucketDefinitions;
     	      this.scoping = defaults.scoping;
         }
 
+        public Builder bucketCriteria(@Nullable ClassificationJobS3JobDefinitionBucketCriteria bucketCriteria) {
+            this.bucketCriteria = bucketCriteria;
+            return this;
+        }
         public Builder bucketDefinitions(@Nullable List<ClassificationJobS3JobDefinitionBucketDefinition> bucketDefinitions) {
             this.bucketDefinitions = bucketDefinitions;
             return this;
@@ -80,7 +101,7 @@ public final class ClassificationJobS3JobDefinition {
             this.scoping = scoping;
             return this;
         }        public ClassificationJobS3JobDefinition build() {
-            return new ClassificationJobS3JobDefinition(bucketDefinitions, scoping);
+            return new ClassificationJobS3JobDefinition(bucketCriteria, bucketDefinitions, scoping);
         }
     }
 }

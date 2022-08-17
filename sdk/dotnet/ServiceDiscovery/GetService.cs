@@ -19,21 +19,19 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.ServiceDiscovery.GetService.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.ServiceDiscovery.GetService.InvokeAsync(new Aws.ServiceDiscovery.GetServiceArgs
-        ///         {
-        ///             Name = "example",
-        ///             NamespaceId = "NAMESPACE_ID_VALUE",
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///         NamespaceId = "NAMESPACE_ID_VALUE",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.ServiceDiscovery.GetService.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.ServiceDiscovery.GetService.InvokeAsync(new Aws.ServiceDiscovery.GetServiceArgs
-        ///         {
-        ///             Name = "example",
-        ///             NamespaceId = "NAMESPACE_ID_VALUE",
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///         NamespaceId = "NAMESPACE_ID_VALUE",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the service.
@@ -99,24 +95,13 @@ namespace Pulumi.Aws.ServiceDiscovery
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private Dictionary<string, string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public Dictionary<string, string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new Dictionary<string, string>());
-            set => _tagsAll = value;
-        }
-
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the service.
@@ -142,21 +127,10 @@ namespace Pulumi.Aws.ServiceDiscovery
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

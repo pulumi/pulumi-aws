@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class WorkforceSourceIpConfigArgs : Pulumi.ResourceArgs
+    public sealed class WorkforceSourceIpConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("cidrs", required: true)]
         private InputList<string>? _cidrs;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public WorkforceSourceIpConfigArgs()
         {
         }
+        public static new WorkforceSourceIpConfigArgs Empty => new WorkforceSourceIpConfigArgs();
     }
 }

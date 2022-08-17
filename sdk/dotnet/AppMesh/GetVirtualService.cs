@@ -19,41 +19,38 @@ namespace Pulumi.Aws.AppMesh
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.AppMesh.GetVirtualService.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.AppMesh.GetVirtualService.InvokeAsync(new Aws.AppMesh.GetVirtualServiceArgs
-        ///         {
-        ///             MeshName = "example-mesh",
-        ///             Name = "example.mesh.local",
-        ///         }));
-        ///     }
+        ///         MeshName = "example-mesh",
+        ///         Name = "example.mesh.local",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-        ///         var test = current.Apply(current =&gt; Output.Create(Aws.AppMesh.GetVirtualService.InvokeAsync(new Aws.AppMesh.GetVirtualServiceArgs
-        ///         {
-        ///             Name = "example.mesh.local",
-        ///             MeshName = "example-mesh",
-        ///             MeshOwner = current.AccountId,
-        ///         })));
-        ///     }
+        ///     var current = Aws.GetCallerIdentity.Invoke();
         /// 
-        /// }
+        ///     var test = Aws.AppMesh.GetVirtualService.Invoke(new()
+        ///     {
+        ///         Name = "example.mesh.local",
+        ///         MeshName = "example-mesh",
+        ///         MeshOwner = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -69,41 +66,38 @@ namespace Pulumi.Aws.AppMesh
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.AppMesh.GetVirtualService.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.AppMesh.GetVirtualService.InvokeAsync(new Aws.AppMesh.GetVirtualServiceArgs
-        ///         {
-        ///             MeshName = "example-mesh",
-        ///             Name = "example.mesh.local",
-        ///         }));
-        ///     }
+        ///         MeshName = "example-mesh",
+        ///         Name = "example.mesh.local",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-        ///         var test = current.Apply(current =&gt; Output.Create(Aws.AppMesh.GetVirtualService.InvokeAsync(new Aws.AppMesh.GetVirtualServiceArgs
-        ///         {
-        ///             Name = "example.mesh.local",
-        ///             MeshName = "example-mesh",
-        ///             MeshOwner = current.AccountId,
-        ///         })));
-        ///     }
+        ///     var current = Aws.GetCallerIdentity.Invoke();
         /// 
-        /// }
+        ///     var test = Aws.AppMesh.GetVirtualService.Invoke(new()
+        ///     {
+        ///         Name = "example.mesh.local",
+        ///         MeshName = "example-mesh",
+        ///         MeshOwner = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -113,7 +107,7 @@ namespace Pulumi.Aws.AppMesh
     }
 
 
-    public sealed class GetVirtualServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the service mesh in which the virtual service exists.
@@ -148,9 +142,10 @@ namespace Pulumi.Aws.AppMesh
         public GetVirtualServiceArgs()
         {
         }
+        public static new GetVirtualServiceArgs Empty => new GetVirtualServiceArgs();
     }
 
-    public sealed class GetVirtualServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the service mesh in which the virtual service exists.
@@ -185,6 +180,7 @@ namespace Pulumi.Aws.AppMesh
         public GetVirtualServiceInvokeArgs()
         {
         }
+        public static new GetVirtualServiceInvokeArgs Empty => new GetVirtualServiceInvokeArgs();
     }
 
 

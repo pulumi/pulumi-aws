@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3Outposts.Inputs
 {
 
-    public sealed class EndpointNetworkInterfaceGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointNetworkInterfaceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of the Elastic Network Interface (ENI).
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3Outposts.Inputs
         public EndpointNetworkInterfaceGetArgs()
         {
         }
+        public static new EndpointNetworkInterfaceGetArgs Empty => new EndpointNetworkInterfaceGetArgs();
     }
 }

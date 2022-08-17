@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Connect.Inputs
 {
 
-    public sealed class HoursOfOperationConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class HoursOfOperationConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the day that the hours of operation applies to.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Connect.Inputs
         public HoursOfOperationConfigGetArgs()
         {
         }
+        public static new HoursOfOperationConfigGetArgs Empty => new HoursOfOperationConfigGetArgs();
     }
 }

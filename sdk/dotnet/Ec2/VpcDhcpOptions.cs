@@ -17,61 +17,57 @@ namespace Pulumi.Aws.Ec2
     /// Basic usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var dnsResolver = new Aws.Ec2.VpcDhcpOptions("dnsResolver", new()
     ///     {
-    ///         var dnsResolver = new Aws.Ec2.VpcDhcpOptions("dnsResolver", new Aws.Ec2.VpcDhcpOptionsArgs
+    ///         DomainNameServers = new[]
     ///         {
-    ///             DomainNameServers = 
-    ///             {
-    ///                 "8.8.8.8",
-    ///                 "8.8.4.4",
-    ///             },
-    ///         });
-    ///     }
+    ///             "8.8.8.8",
+    ///             "8.8.4.4",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// Full usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Ec2.VpcDhcpOptions("foo", new()
     ///     {
-    ///         var foo = new Aws.Ec2.VpcDhcpOptions("foo", new Aws.Ec2.VpcDhcpOptionsArgs
+    ///         DomainName = "service.consul",
+    ///         DomainNameServers = new[]
     ///         {
-    ///             DomainName = "service.consul",
-    ///             DomainNameServers = 
-    ///             {
-    ///                 "127.0.0.1",
-    ///                 "10.0.0.2",
-    ///             },
-    ///             NetbiosNameServers = 
-    ///             {
-    ///                 "127.0.0.1",
-    ///             },
-    ///             NetbiosNodeType = "2",
-    ///             NtpServers = 
-    ///             {
-    ///                 "127.0.0.1",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "foo-name" },
-    ///             },
-    ///         });
-    ///     }
+    ///             "127.0.0.1",
+    ///             "10.0.0.2",
+    ///         },
+    ///         NetbiosNameServers = new[]
+    ///         {
+    ///             "127.0.0.1",
+    ///         },
+    ///         NetbiosNodeType = "2",
+    ///         NtpServers = new[]
+    ///         {
+    ///             "127.0.0.1",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "foo-name" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Remarks
     /// 
@@ -90,7 +86,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcDhcpOptions:VpcDhcpOptions")]
-    public partial class VpcDhcpOptions : Pulumi.CustomResource
+    public partial class VpcDhcpOptions : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the DHCP Options Set.
@@ -141,7 +137,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -190,7 +186,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcDhcpOptionsArgs : Pulumi.ResourceArgs
+    public sealed class VpcDhcpOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
@@ -255,9 +251,10 @@ namespace Pulumi.Aws.Ec2
         public VpcDhcpOptionsArgs()
         {
         }
+        public static new VpcDhcpOptionsArgs Empty => new VpcDhcpOptionsArgs();
     }
 
-    public sealed class VpcDhcpOptionsState : Pulumi.ResourceArgs
+    public sealed class VpcDhcpOptionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the DHCP Options Set.
@@ -335,7 +332,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -346,5 +343,6 @@ namespace Pulumi.Aws.Ec2
         public VpcDhcpOptionsState()
         {
         }
+        public static new VpcDhcpOptionsState Empty => new VpcDhcpOptionsState();
     }
 }

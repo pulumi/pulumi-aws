@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class UserPoolClientTokenValidityUnitsGetArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolClientTokenValidityUnitsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time unit in for the value in `access_token_validity`, defaults to `hours`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public UserPoolClientTokenValidityUnitsGetArgs()
         {
         }
+        public static new UserPoolClientTokenValidityUnitsGetArgs Empty => new UserPoolClientTokenValidityUnitsGetArgs();
     }
 }

@@ -15,24 +15,22 @@ namespace Pulumi.Aws.AppConfig
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppConfig.Application("example", new()
     ///     {
-    ///         var example = new Aws.AppConfig.Application("example", new Aws.AppConfig.ApplicationArgs
+    ///         Description = "Example AppConfig Application",
+    ///         Tags = 
     ///         {
-    ///             Description = "Example AppConfig Application",
-    ///             Tags = 
-    ///             {
-    ///                 { "Type", "AppConfig Application" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Type", "AppConfig Application" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.AppConfig
     /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/application:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AppConfig Application.
@@ -120,7 +118,7 @@ namespace Pulumi.Aws.AppConfig
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the application. Can be at most 1024 characters.
@@ -149,9 +147,10 @@ namespace Pulumi.Aws.AppConfig
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 
-    public sealed class ApplicationState : Pulumi.ResourceArgs
+    public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AppConfig Application.
@@ -198,5 +197,6 @@ namespace Pulumi.Aws.AppConfig
         public ApplicationState()
         {
         }
+        public static new ApplicationState Empty => new ApplicationState();
     }
 }

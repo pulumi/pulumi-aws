@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx.Inputs
 {
 
-    public sealed class OntapStorageVirtualMachineActiveDirectoryConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class OntapStorageVirtualMachineActiveDirectoryConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
@@ -24,5 +24,6 @@ namespace Pulumi.Aws.Fsx.Inputs
         public OntapStorageVirtualMachineActiveDirectoryConfigurationGetArgs()
         {
         }
+        public static new OntapStorageVirtualMachineActiveDirectoryConfigurationGetArgs Empty => new OntapStorageVirtualMachineActiveDirectoryConfigurationGetArgs();
     }
 }

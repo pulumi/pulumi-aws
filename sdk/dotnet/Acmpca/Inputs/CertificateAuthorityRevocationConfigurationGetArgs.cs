@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Acmpca.Inputs
 {
 
-    public sealed class CertificateAuthorityRevocationConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityRevocationConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
@@ -28,5 +28,6 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public CertificateAuthorityRevocationConfigurationGetArgs()
         {
         }
+        public static new CertificateAuthorityRevocationConfigurationGetArgs Empty => new CertificateAuthorityRevocationConfigurationGetArgs();
     }
 }

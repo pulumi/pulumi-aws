@@ -17,16 +17,15 @@ namespace Pulumi.Aws.Mq
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Mq.Configuration("example", new()
     ///     {
-    ///         var example = new Aws.Mq.Configuration("example", new Aws.Mq.ConfigurationArgs
-    ///         {
-    ///             Data = @"&lt;?xml version=""1.0"" encoding=""UTF-8"" standalone=""yes""?&gt;
+    ///         Data = @"&lt;?xml version=""1.0"" encoding=""UTF-8"" standalone=""yes""?&gt;
     /// &lt;broker xmlns=""http://activemq.apache.org/schema/core""&gt;
     ///   &lt;plugins&gt;
     ///     &lt;forcePersistencyModeBrokerPlugin persistenceFlag=""true""/&gt;
@@ -36,13 +35,12 @@ namespace Pulumi.Aws.Mq
     /// &lt;/broker&gt;
     /// 
     /// ",
-    ///             Description = "Example Configuration",
-    ///             EngineType = "ActiveMQ",
-    ///             EngineVersion = "5.15.0",
-    ///         });
-    ///     }
+    ///         Description = "Example Configuration",
+    ///         EngineType = "ActiveMQ",
+    ///         EngineVersion = "5.15.0",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +52,7 @@ namespace Pulumi.Aws.Mq
     /// ```
     /// </summary>
     [AwsResourceType("aws:mq/configuration:Configuration")]
-    public partial class Configuration : Pulumi.CustomResource
+    public partial class Configuration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the configuration.
@@ -105,13 +103,13 @@ namespace Pulumi.Aws.Mq
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -160,7 +158,7 @@ namespace Pulumi.Aws.Mq
         }
     }
 
-    public sealed class ConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
@@ -202,7 +200,7 @@ namespace Pulumi.Aws.Mq
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -213,9 +211,10 @@ namespace Pulumi.Aws.Mq
         public ConfigurationArgs()
         {
         }
+        public static new ConfigurationArgs Empty => new ConfigurationArgs();
     }
 
-    public sealed class ConfigurationState : Pulumi.ResourceArgs
+    public sealed class ConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the configuration.
@@ -269,7 +268,7 @@ namespace Pulumi.Aws.Mq
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -281,7 +280,7 @@ namespace Pulumi.Aws.Mq
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -292,5 +291,6 @@ namespace Pulumi.Aws.Mq
         public ConfigurationState()
         {
         }
+        public static new ConfigurationState Empty => new ConfigurationState();
     }
 }

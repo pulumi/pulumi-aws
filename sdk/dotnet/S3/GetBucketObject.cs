@@ -27,27 +27,26 @@ namespace Pulumi.Aws.S3
         /// value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var bootstrapScript = Aws.S3.GetBucketObject.Invoke(new()
         ///     {
-        ///         var bootstrapScript = Output.Create(Aws.S3.GetBucketObject.InvokeAsync(new Aws.S3.GetBucketObjectArgs
-        ///         {
-        ///             Bucket = "ourcorp-deploy-config",
-        ///             Key = "ec2-bootstrap-script.sh",
-        ///         }));
-        ///         var example = new Aws.Ec2.Instance("example", new Aws.Ec2.InstanceArgs
-        ///         {
-        ///             InstanceType = "t2.micro",
-        ///             Ami = "ami-2757f631",
-        ///             UserData = bootstrapScript.Apply(bootstrapScript =&gt; bootstrapScript.Body),
-        ///         });
-        ///     }
+        ///         Bucket = "ourcorp-deploy-config",
+        ///         Key = "ec2-bootstrap-script.sh",
+        ///     });
         /// 
-        /// }
+        ///     var example = new Aws.Ec2.Instance("example", new()
+        ///     {
+        ///         InstanceType = "t2.micro",
+        ///         Ami = "ami-2757f631",
+        ///         UserData = bootstrapScript.Apply(getBucketObjectResult =&gt; getBucketObjectResult.Body),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// 
         /// The following, more-complex example retrieves only the metadata for a zip
@@ -57,29 +56,28 @@ namespace Pulumi.Aws.S3
         /// `aws.lambda.Function`.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var lambda = Aws.S3.GetBucketObject.Invoke(new()
         ///     {
-        ///         var lambda = Output.Create(Aws.S3.GetBucketObject.InvokeAsync(new Aws.S3.GetBucketObjectArgs
-        ///         {
-        ///             Bucket = "ourcorp-lambda-functions",
-        ///             Key = "hello-world.zip",
-        ///         }));
-        ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
-        ///         {
-        ///             S3Bucket = lambda.Apply(lambda =&gt; lambda.Bucket),
-        ///             S3Key = lambda.Apply(lambda =&gt; lambda.Key),
-        ///             S3ObjectVersion = lambda.Apply(lambda =&gt; lambda.VersionId),
-        ///             Role = aws_iam_role.Iam_for_lambda.Arn,
-        ///             Handler = "exports.test",
-        ///         });
-        ///     }
+        ///         Bucket = "ourcorp-lambda-functions",
+        ///         Key = "hello-world.zip",
+        ///     });
         /// 
-        /// }
+        ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
+        ///     {
+        ///         S3Bucket = lambda.Apply(getBucketObjectResult =&gt; getBucketObjectResult.Bucket),
+        ///         S3Key = lambda.Apply(getBucketObjectResult =&gt; getBucketObjectResult.Key),
+        ///         S3ObjectVersion = lambda.Apply(getBucketObjectResult =&gt; getBucketObjectResult.VersionId),
+        ///         Role = aws_iam_role.Iam_for_lambda.Arn,
+        ///         Handler = "exports.test",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -103,27 +101,26 @@ namespace Pulumi.Aws.S3
         /// value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var bootstrapScript = Aws.S3.GetBucketObject.Invoke(new()
         ///     {
-        ///         var bootstrapScript = Output.Create(Aws.S3.GetBucketObject.InvokeAsync(new Aws.S3.GetBucketObjectArgs
-        ///         {
-        ///             Bucket = "ourcorp-deploy-config",
-        ///             Key = "ec2-bootstrap-script.sh",
-        ///         }));
-        ///         var example = new Aws.Ec2.Instance("example", new Aws.Ec2.InstanceArgs
-        ///         {
-        ///             InstanceType = "t2.micro",
-        ///             Ami = "ami-2757f631",
-        ///             UserData = bootstrapScript.Apply(bootstrapScript =&gt; bootstrapScript.Body),
-        ///         });
-        ///     }
+        ///         Bucket = "ourcorp-deploy-config",
+        ///         Key = "ec2-bootstrap-script.sh",
+        ///     });
         /// 
-        /// }
+        ///     var example = new Aws.Ec2.Instance("example", new()
+        ///     {
+        ///         InstanceType = "t2.micro",
+        ///         Ami = "ami-2757f631",
+        ///         UserData = bootstrapScript.Apply(getBucketObjectResult =&gt; getBucketObjectResult.Body),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// 
         /// The following, more-complex example retrieves only the metadata for a zip
@@ -133,29 +130,28 @@ namespace Pulumi.Aws.S3
         /// `aws.lambda.Function`.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var lambda = Aws.S3.GetBucketObject.Invoke(new()
         ///     {
-        ///         var lambda = Output.Create(Aws.S3.GetBucketObject.InvokeAsync(new Aws.S3.GetBucketObjectArgs
-        ///         {
-        ///             Bucket = "ourcorp-lambda-functions",
-        ///             Key = "hello-world.zip",
-        ///         }));
-        ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
-        ///         {
-        ///             S3Bucket = lambda.Apply(lambda =&gt; lambda.Bucket),
-        ///             S3Key = lambda.Apply(lambda =&gt; lambda.Key),
-        ///             S3ObjectVersion = lambda.Apply(lambda =&gt; lambda.VersionId),
-        ///             Role = aws_iam_role.Iam_for_lambda.Arn,
-        ///             Handler = "exports.test",
-        ///         });
-        ///     }
+        ///         Bucket = "ourcorp-lambda-functions",
+        ///         Key = "hello-world.zip",
+        ///     });
         /// 
-        /// }
+        ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
+        ///     {
+        ///         S3Bucket = lambda.Apply(getBucketObjectResult =&gt; getBucketObjectResult.Bucket),
+        ///         S3Key = lambda.Apply(getBucketObjectResult =&gt; getBucketObjectResult.Key),
+        ///         S3ObjectVersion = lambda.Apply(getBucketObjectResult =&gt; getBucketObjectResult.VersionId),
+        ///         Role = aws_iam_role.Iam_for_lambda.Arn,
+        ///         Handler = "exports.test",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -165,7 +161,7 @@ namespace Pulumi.Aws.S3
     }
 
 
-    public sealed class GetBucketObjectArgs : Pulumi.InvokeArgs
+    public sealed class GetBucketObjectArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
@@ -203,9 +199,10 @@ namespace Pulumi.Aws.S3
         public GetBucketObjectArgs()
         {
         }
+        public static new GetBucketObjectArgs Empty => new GetBucketObjectArgs();
     }
 
-    public sealed class GetBucketObjectInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBucketObjectInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
@@ -243,6 +240,7 @@ namespace Pulumi.Aws.S3
         public GetBucketObjectInvokeArgs()
         {
         }
+        public static new GetBucketObjectInvokeArgs Empty => new GetBucketObjectInvokeArgs();
     }
 
 

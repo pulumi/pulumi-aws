@@ -163,7 +163,7 @@ func (o RegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 // RegionInput is an input type that accepts RegionArgs and RegionOutput values.
 // You can construct a concrete instance of `RegionInput` via:
 //
-//          RegionArgs{...}
+//	RegionArgs{...}
 type RegionInput interface {
 	pulumi.Input
 

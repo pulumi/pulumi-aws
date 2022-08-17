@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class RailsAppLayerEbsVolumeGetArgs : Pulumi.ResourceArgs
+    public sealed class RailsAppLayerEbsVolumeGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -54,5 +54,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public RailsAppLayerEbsVolumeGetArgs()
         {
         }
+        public static new RailsAppLayerEbsVolumeGetArgs Empty => new RailsAppLayerEbsVolumeGetArgs();
     }
 }

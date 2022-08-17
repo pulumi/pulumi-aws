@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MskConnect.Inputs
 {
 
-    public sealed class ConnectorLogDeliveryWorkerLogDeliveryS3GetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorLogDeliveryWorkerLogDeliveryS3GetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the S3 bucket that is the destination for log delivery.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public ConnectorLogDeliveryWorkerLogDeliveryS3GetArgs()
         {
         }
+        public static new ConnectorLogDeliveryWorkerLogDeliveryS3GetArgs Empty => new ConnectorLogDeliveryWorkerLogDeliveryS3GetArgs();
     }
 }

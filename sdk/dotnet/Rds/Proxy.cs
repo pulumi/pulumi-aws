@@ -15,47 +15,45 @@ namespace Pulumi.Aws.Rds
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Rds.Proxy("example", new()
     ///     {
-    ///         var example = new Aws.Rds.Proxy("example", new Aws.Rds.ProxyArgs
+    ///         DebugLogging = false,
+    ///         EngineFamily = "MYSQL",
+    ///         IdleClientTimeout = 1800,
+    ///         RequireTls = true,
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         VpcSecurityGroupIds = new[]
     ///         {
-    ///             DebugLogging = false,
-    ///             EngineFamily = "MYSQL",
-    ///             IdleClientTimeout = 1800,
-    ///             RequireTls = true,
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             VpcSecurityGroupIds = 
+    ///             aws_security_group.Example.Id,
+    ///         },
+    ///         VpcSubnetIds = new[]
+    ///         {
+    ///             aws_subnet.Example.Id,
+    ///         },
+    ///         Auths = new[]
+    ///         {
+    ///             new Aws.Rds.Inputs.ProxyAuthArgs
     ///             {
-    ///                 aws_security_group.Example.Id,
+    ///                 AuthScheme = "SECRETS",
+    ///                 Description = "example",
+    ///                 IamAuth = "DISABLED",
+    ///                 SecretArn = aws_secretsmanager_secret.Example.Arn,
     ///             },
-    ///             VpcSubnetIds = 
-    ///             {
-    ///                 aws_subnet.Example.Id,
-    ///             },
-    ///             Auths = 
-    ///             {
-    ///                 new Aws.Rds.Inputs.ProxyAuthArgs
-    ///                 {
-    ///                     AuthScheme = "SECRETS",
-    ///                     Description = "example",
-    ///                     IamAuth = "DISABLED",
-    ///                     SecretArn = aws_secretsmanager_secret.Example.Arn,
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example" },
-    ///                 { "Key", "value" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example" },
+    ///             { "Key", "value" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +65,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/proxy:Proxy")]
-    public partial class Proxy : Pulumi.CustomResource
+    public partial class Proxy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the proxy.
@@ -124,13 +122,13 @@ namespace Pulumi.Aws.Rds
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -191,7 +189,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class ProxyArgs : Pulumi.ResourceArgs
+    public sealed class ProxyArgs : global::Pulumi.ResourceArgs
     {
         [Input("auths", required: true)]
         private InputList<Inputs.ProxyAuthArgs>? _auths;
@@ -245,7 +243,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -280,9 +278,10 @@ namespace Pulumi.Aws.Rds
         public ProxyArgs()
         {
         }
+        public static new ProxyArgs Empty => new ProxyArgs();
     }
 
-    public sealed class ProxyState : Pulumi.ResourceArgs
+    public sealed class ProxyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the proxy.
@@ -348,7 +347,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -360,7 +359,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -395,5 +394,6 @@ namespace Pulumi.Aws.Rds
         public ProxyState()
         {
         }
+        public static new ProxyState Empty => new ProxyState();
     }
 }

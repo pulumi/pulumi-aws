@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Alb.Inputs
 {
 
-    public sealed class TargetGroupHealthCheckGetArgs : Pulumi.ResourceArgs
+    public sealed class TargetGroupHealthCheckGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean to enable / disable `stickiness`. Default is `true`.
@@ -69,5 +69,6 @@ namespace Pulumi.Aws.Alb.Inputs
         public TargetGroupHealthCheckGetArgs()
         {
         }
+        public static new TargetGroupHealthCheckGetArgs Empty => new TargetGroupHealthCheckGetArgs();
     }
 }

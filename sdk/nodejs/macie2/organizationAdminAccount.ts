@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.macie2.Account("example", {});
- * const test = new aws.macie2.OrganizationAdminAccount("test", {adminAccountId: "ID OF THE ADMIN ACCOUNT"}, {
- *     dependsOn: [aws_macie2_account.test],
+ * const exampleAccount = new aws.macie2.Account("exampleAccount", {});
+ * const exampleOrganizationAdminAccount = new aws.macie2.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "ID OF THE ADMIN ACCOUNT"}, {
+ *     dependsOn: [exampleAccount],
  * });
  * ```
  *

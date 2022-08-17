@@ -18,20 +18,18 @@ namespace Pulumi.Aws.ApiGateway
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testRestApi = new Aws.ApiGateway.RestApi("testRestApi");
+    /// 
+    ///     var testRestApiPolicy = new Aws.ApiGateway.RestApiPolicy("testRestApiPolicy", new()
     ///     {
-    ///         var testRestApi = new Aws.ApiGateway.RestApi("testRestApi", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///         });
-    ///         var testRestApiPolicy = new Aws.ApiGateway.RestApiPolicy("testRestApiPolicy", new Aws.ApiGateway.RestApiPolicyArgs
-    ///         {
-    ///             RestApiId = testRestApi.Id,
-    ///             Policy = testRestApi.ExecutionArn.Apply(executionArn =&gt; @$"{{
+    ///         RestApiId = testRestApi.Id,
+    ///         Policy = testRestApi.ExecutionArn.Apply(executionArn =&gt; @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {{
@@ -50,10 +48,9 @@ namespace Pulumi.Aws.ApiGateway
     ///   ]
     /// }}
     /// "),
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +62,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/restApiPolicy:RestApiPolicy")]
-    public partial class RestApiPolicy : Pulumi.CustomResource
+    public partial class RestApiPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// JSON formatted policy document that controls access to the API Gateway.
@@ -123,7 +120,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class RestApiPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RestApiPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// JSON formatted policy document that controls access to the API Gateway.
@@ -140,9 +137,10 @@ namespace Pulumi.Aws.ApiGateway
         public RestApiPolicyArgs()
         {
         }
+        public static new RestApiPolicyArgs Empty => new RestApiPolicyArgs();
     }
 
-    public sealed class RestApiPolicyState : Pulumi.ResourceArgs
+    public sealed class RestApiPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// JSON formatted policy document that controls access to the API Gateway.
@@ -159,5 +157,6 @@ namespace Pulumi.Aws.ApiGateway
         public RestApiPolicyState()
         {
         }
+        public static new RestApiPolicyState Empty => new RestApiPolicyState();
     }
 }

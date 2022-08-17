@@ -15,54 +15,54 @@ namespace Pulumi.Aws.Ses
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleDomainIdentity = new Aws.Ses.DomainIdentity("exampleDomainIdentity", new()
     ///     {
-    ///         var exampleDomainIdentity = new Aws.Ses.DomainIdentity("exampleDomainIdentity", new Aws.Ses.DomainIdentityArgs
+    ///         Domain = "example.com",
+    ///     });
+    /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
     ///         {
-    ///             Domain = "example.com",
-    ///         });
-    ///         var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
-    ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "SES:SendEmail",
+    ///                     "SES:SendRawEmail",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleDomainIdentity.Arn,
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "SES:SendEmail",
-    ///                         "SES:SendRawEmail",
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         exampleDomainIdentity.Arn,
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "*",
-    ///                             },
-    ///                             Type = "AWS",
+    ///                             "*",
     ///                         },
+    ///                         Type = "AWS",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleIdentityPolicy = new Aws.Ses.IdentityPolicy("exampleIdentityPolicy", new Aws.Ses.IdentityPolicyArgs
-    ///         {
-    ///             Identity = exampleDomainIdentity.Arn,
-    ///             Policy = examplePolicyDocument.Apply(examplePolicyDocument =&gt; examplePolicyDocument.Json),
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleIdentityPolicy = new Aws.Ses.IdentityPolicy("exampleIdentityPolicy", new()
+    ///     {
+    ///         Identity = exampleDomainIdentity.Arn,
+    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Ses
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/identityPolicy:IdentityPolicy")]
-    public partial class IdentityPolicy : Pulumi.CustomResource
+    public partial class IdentityPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the SES Identity.
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Ses
         }
     }
 
-    public sealed class IdentityPolicyArgs : Pulumi.ResourceArgs
+    public sealed class IdentityPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the SES Identity.
@@ -161,9 +161,10 @@ namespace Pulumi.Aws.Ses
         public IdentityPolicyArgs()
         {
         }
+        public static new IdentityPolicyArgs Empty => new IdentityPolicyArgs();
     }
 
-    public sealed class IdentityPolicyState : Pulumi.ResourceArgs
+    public sealed class IdentityPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the SES Identity.
@@ -186,5 +187,6 @@ namespace Pulumi.Aws.Ses
         public IdentityPolicyState()
         {
         }
+        public static new IdentityPolicyState Empty => new IdentityPolicyState();
     }
 }

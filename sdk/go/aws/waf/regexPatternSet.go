@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := waf.NewRegexPatternSet(ctx, "example", &waf.RegexPatternSetArgs{
-// 			RegexPatternStrings: pulumi.StringArray{
-// 				pulumi.String("one"),
-// 				pulumi.String("two"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := waf.NewRegexPatternSet(ctx, "example", &waf.RegexPatternSetArgs{
+//				RegexPatternStrings: pulumi.StringArray{
+//					pulumi.String("one"),
+//					pulumi.String("two"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // AWS WAF Regex Pattern Set can be imported using their ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:waf/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
+//	$ pulumi import aws:waf/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
 // ```
 type RegexPatternSet struct {
 	pulumi.CustomResourceState
@@ -147,7 +152,7 @@ func (i *RegexPatternSet) ToRegexPatternSetOutputWithContext(ctx context.Context
 // RegexPatternSetArrayInput is an input type that accepts RegexPatternSetArray and RegexPatternSetArrayOutput values.
 // You can construct a concrete instance of `RegexPatternSetArrayInput` via:
 //
-//          RegexPatternSetArray{ RegexPatternSetArgs{...} }
+//	RegexPatternSetArray{ RegexPatternSetArgs{...} }
 type RegexPatternSetArrayInput interface {
 	pulumi.Input
 
@@ -172,7 +177,7 @@ func (i RegexPatternSetArray) ToRegexPatternSetArrayOutputWithContext(ctx contex
 // RegexPatternSetMapInput is an input type that accepts RegexPatternSetMap and RegexPatternSetMapOutput values.
 // You can construct a concrete instance of `RegexPatternSetMapInput` via:
 //
-//          RegexPatternSetMap{ "key": RegexPatternSetArgs{...} }
+//	RegexPatternSetMap{ "key": RegexPatternSetArgs{...} }
 type RegexPatternSetMapInput interface {
 	pulumi.Input
 

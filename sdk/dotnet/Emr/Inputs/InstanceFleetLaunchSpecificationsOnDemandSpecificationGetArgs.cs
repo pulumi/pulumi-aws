@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Emr.Inputs
 {
 
-    public sealed class InstanceFleetLaunchSpecificationsOnDemandSpecificationGetArgs : Pulumi.ResourceArgs
+    public sealed class InstanceFleetLaunchSpecificationsOnDemandSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Emr.Inputs
         public InstanceFleetLaunchSpecificationsOnDemandSpecificationGetArgs()
         {
         }
+        public static new InstanceFleetLaunchSpecificationsOnDemandSpecificationGetArgs Empty => new InstanceFleetLaunchSpecificationsOnDemandSpecificationGetArgs();
     }
 }

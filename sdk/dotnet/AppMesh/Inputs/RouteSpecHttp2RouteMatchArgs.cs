@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class RouteSpecHttp2RouteMatchArgs : Pulumi.ResourceArgs
+    public sealed class RouteSpecHttp2RouteMatchArgs : global::Pulumi.ResourceArgs
     {
         [Input("headers")]
         private InputList<Inputs.RouteSpecHttp2RouteMatchHeaderArgs>? _headers;
@@ -46,5 +46,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public RouteSpecHttp2RouteMatchArgs()
         {
         }
+        public static new RouteSpecHttp2RouteMatchArgs Empty => new RouteSpecHttp2RouteMatchArgs();
     }
 }

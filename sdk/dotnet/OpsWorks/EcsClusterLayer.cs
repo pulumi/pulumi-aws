@@ -15,25 +15,23 @@ namespace Pulumi.Aws.OpsWorks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.OpsWorks.EcsClusterLayer("example", new()
     ///     {
-    ///         var example = new Aws.OpsWorks.EcsClusterLayer("example", new Aws.OpsWorks.EcsClusterLayerArgs
-    ///         {
-    ///             StackId = aws_opsworks_stack.Example.Id,
-    ///             EcsClusterArn = aws_ecs_cluster.Example.Arn,
-    ///         });
-    ///     }
+    ///         StackId = aws_opsworks_stack.Example.Id,
+    ///         EcsClusterArn = aws_ecs_cluster.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/ecsClusterLayer:EcsClusterLayer")]
-    public partial class EcsClusterLayer : Pulumi.CustomResource
+    public partial class EcsClusterLayer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name(ARN) of the layer.
@@ -208,7 +206,7 @@ namespace Pulumi.Aws.OpsWorks
         }
     }
 
-    public sealed class EcsClusterLayerArgs : Pulumi.ResourceArgs
+    public sealed class EcsClusterLayerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to automatically assign an elastic IP address to the layer's instances.
@@ -382,9 +380,10 @@ namespace Pulumi.Aws.OpsWorks
         public EcsClusterLayerArgs()
         {
         }
+        public static new EcsClusterLayerArgs Empty => new EcsClusterLayerArgs();
     }
 
-    public sealed class EcsClusterLayerState : Pulumi.ResourceArgs
+    public sealed class EcsClusterLayerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name(ARN) of the layer.
@@ -572,5 +571,6 @@ namespace Pulumi.Aws.OpsWorks
         public EcsClusterLayerState()
         {
         }
+        public static new EcsClusterLayerState Empty => new EcsClusterLayerState();
     }
 }

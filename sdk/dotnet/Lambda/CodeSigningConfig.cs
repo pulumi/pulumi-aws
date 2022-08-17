@@ -17,32 +17,30 @@ namespace Pulumi.Aws.Lambda
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var newCsc = new Aws.Lambda.CodeSigningConfig("newCsc", new()
     ///     {
-    ///         var newCsc = new Aws.Lambda.CodeSigningConfig("newCsc", new Aws.Lambda.CodeSigningConfigArgs
+    ///         AllowedPublishers = new Aws.Lambda.Inputs.CodeSigningConfigAllowedPublishersArgs
     ///         {
-    ///             AllowedPublishers = new Aws.Lambda.Inputs.CodeSigningConfigAllowedPublishersArgs
+    ///             SigningProfileVersionArns = new[]
     ///             {
-    ///                 SigningProfileVersionArns = 
-    ///                 {
-    ///                     aws_signer_signing_profile.Example1.Arn,
-    ///                     aws_signer_signing_profile.Example2.Arn,
-    ///                 },
+    ///                 aws_signer_signing_profile.Example1.Arn,
+    ///                 aws_signer_signing_profile.Example2.Arn,
     ///             },
-    ///             Policies = new Aws.Lambda.Inputs.CodeSigningConfigPoliciesArgs
-    ///             {
-    ///                 UntrustedArtifactOnDeployment = "Warn",
-    ///             },
-    ///             Description = "My awesome code signing config.",
-    ///         });
-    ///     }
+    ///         },
+    ///         Policies = new Aws.Lambda.Inputs.CodeSigningConfigPoliciesArgs
+    ///         {
+    ///             UntrustedArtifactOnDeployment = "Warn",
+    ///         },
+    ///         Description = "My awesome code signing config.",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +52,7 @@ namespace Pulumi.Aws.Lambda
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/codeSigningConfig:CodeSigningConfig")]
-    public partial class CodeSigningConfig : Pulumi.CustomResource
+    public partial class CodeSigningConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
@@ -136,7 +134,7 @@ namespace Pulumi.Aws.Lambda
         }
     }
 
-    public sealed class CodeSigningConfigArgs : Pulumi.ResourceArgs
+    public sealed class CodeSigningConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
@@ -159,9 +157,10 @@ namespace Pulumi.Aws.Lambda
         public CodeSigningConfigArgs()
         {
         }
+        public static new CodeSigningConfigArgs Empty => new CodeSigningConfigArgs();
     }
 
-    public sealed class CodeSigningConfigState : Pulumi.ResourceArgs
+    public sealed class CodeSigningConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
@@ -202,5 +201,6 @@ namespace Pulumi.Aws.Lambda
         public CodeSigningConfigState()
         {
         }
+        public static new CodeSigningConfigState Empty => new CodeSigningConfigState();
     }
 }

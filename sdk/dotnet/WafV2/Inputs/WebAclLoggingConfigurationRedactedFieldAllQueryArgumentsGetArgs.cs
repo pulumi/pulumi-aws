@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclLoggingConfigurationRedactedFieldAllQueryArgumentsGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclLoggingConfigurationRedactedFieldAllQueryArgumentsGetArgs : global::Pulumi.ResourceArgs
     {
         public WebAclLoggingConfigurationRedactedFieldAllQueryArgumentsGetArgs()
         {
         }
+        public static new WebAclLoggingConfigurationRedactedFieldAllQueryArgumentsGetArgs Empty => new WebAclLoggingConfigurationRedactedFieldAllQueryArgumentsGetArgs();
     }
 }

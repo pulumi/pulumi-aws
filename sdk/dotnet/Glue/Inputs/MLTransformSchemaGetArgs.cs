@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class MLTransformSchemaGetArgs : Pulumi.ResourceArgs
+    public sealed class MLTransformSchemaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of data in the column.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public MLTransformSchemaGetArgs()
         {
         }
+        public static new MLTransformSchemaGetArgs Empty => new MLTransformSchemaGetArgs();
     }
 }

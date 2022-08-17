@@ -23,27 +23,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleStream, err := kinesis.NewStream(ctx, "exampleStream", &kinesis.StreamArgs{
-// 			ShardCount: pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = kinesis.NewStreamConsumer(ctx, "exampleStreamConsumer", &kinesis.StreamConsumerArgs{
-// 			StreamArn: exampleStream.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleStream, err := kinesis.NewStream(ctx, "exampleStream", &kinesis.StreamArgs{
+//				ShardCount: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kinesis.NewStreamConsumer(ctx, "exampleStreamConsumer", &kinesis.StreamConsumerArgs{
+//				StreamArn: exampleStream.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,10 +54,12 @@ import (
 // Kinesis Stream Consumers can be imported using the Amazon Resource Name (ARN) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
+//
+//	$ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
+//
 // ```
 //
-//  [1]https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html
+//	[1]https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html
 type StreamConsumer struct {
 	pulumi.CustomResourceState
 
@@ -166,7 +171,7 @@ func (i *StreamConsumer) ToStreamConsumerOutputWithContext(ctx context.Context) 
 // StreamConsumerArrayInput is an input type that accepts StreamConsumerArray and StreamConsumerArrayOutput values.
 // You can construct a concrete instance of `StreamConsumerArrayInput` via:
 //
-//          StreamConsumerArray{ StreamConsumerArgs{...} }
+//	StreamConsumerArray{ StreamConsumerArgs{...} }
 type StreamConsumerArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +196,7 @@ func (i StreamConsumerArray) ToStreamConsumerArrayOutputWithContext(ctx context.
 // StreamConsumerMapInput is an input type that accepts StreamConsumerMap and StreamConsumerMapOutput values.
 // You can construct a concrete instance of `StreamConsumerMapInput` via:
 //
-//          StreamConsumerMap{ "key": StreamConsumerArgs{...} }
+//	StreamConsumerMap{ "key": StreamConsumerArgs{...} }
 type StreamConsumerMapInput interface {
 	pulumi.Input
 

@@ -20,32 +20,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sagemaker.NewWorkteam(ctx, "example", &sagemaker.WorkteamArgs{
-// 			WorkteamName:  pulumi.String("example"),
-// 			WorkforceName: pulumi.Any(aws_sagemaker_workforce.Example.Id),
-// 			Description:   pulumi.String("example"),
-// 			MemberDefinitions: sagemaker.WorkteamMemberDefinitionArray{
-// 				&sagemaker.WorkteamMemberDefinitionArgs{
-// 					CognitoMemberDefinition: &sagemaker.WorkteamMemberDefinitionCognitoMemberDefinitionArgs{
-// 						ClientId:  pulumi.Any(aws_cognito_user_pool_client.Example.Id),
-// 						UserPool:  pulumi.Any(aws_cognito_user_pool_domain.Example.User_pool_id),
-// 						UserGroup: pulumi.Any(aws_cognito_user_group.Example.Id),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sagemaker.NewWorkteam(ctx, "example", &sagemaker.WorkteamArgs{
+//				WorkteamName:  pulumi.String("example"),
+//				WorkforceName: pulumi.Any(aws_sagemaker_workforce.Example.Id),
+//				Description:   pulumi.String("example"),
+//				MemberDefinitions: sagemaker.WorkteamMemberDefinitionArray{
+//					&sagemaker.WorkteamMemberDefinitionArgs{
+//						CognitoMemberDefinition: &sagemaker.WorkteamMemberDefinitionCognitoMemberDefinitionArgs{
+//							ClientId:  pulumi.Any(aws_cognito_user_pool_client.Example.Id),
+//							UserPool:  pulumi.Any(aws_cognito_user_pool_domain.Example.User_pool_id),
+//							UserGroup: pulumi.Any(aws_cognito_user_group.Example.Id),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Oidc Usage
 //
@@ -53,32 +56,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sagemaker.NewWorkteam(ctx, "example", &sagemaker.WorkteamArgs{
-// 			WorkteamName:  pulumi.String("example"),
-// 			WorkforceName: pulumi.Any(aws_sagemaker_workforce.Example.Id),
-// 			Description:   pulumi.String("example"),
-// 			MemberDefinitions: sagemaker.WorkteamMemberDefinitionArray{
-// 				&sagemaker.WorkteamMemberDefinitionArgs{
-// 					OidcMemberDefinition: &sagemaker.WorkteamMemberDefinitionOidcMemberDefinitionArgs{
-// 						Groups: pulumi.StringArray{
-// 							pulumi.String("example"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sagemaker.NewWorkteam(ctx, "example", &sagemaker.WorkteamArgs{
+//				WorkteamName:  pulumi.String("example"),
+//				WorkforceName: pulumi.Any(aws_sagemaker_workforce.Example.Id),
+//				Description:   pulumi.String("example"),
+//				MemberDefinitions: sagemaker.WorkteamMemberDefinitionArray{
+//					&sagemaker.WorkteamMemberDefinitionArgs{
+//						OidcMemberDefinition: &sagemaker.WorkteamMemberDefinitionOidcMemberDefinitionArgs{
+//							Groups: pulumi.StringArray{
+//								pulumi.String("example"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -86,7 +92,9 @@ import (
 // SageMaker Workteams can be imported using the `workteam_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:sagemaker/workteam:Workteam example example
+//
+//	$ pulumi import aws:sagemaker/workteam:Workteam example example
+//
 // ```
 type Workteam struct {
 	pulumi.CustomResourceState
@@ -254,7 +262,7 @@ func (i *Workteam) ToWorkteamOutputWithContext(ctx context.Context) WorkteamOutp
 // WorkteamArrayInput is an input type that accepts WorkteamArray and WorkteamArrayOutput values.
 // You can construct a concrete instance of `WorkteamArrayInput` via:
 //
-//          WorkteamArray{ WorkteamArgs{...} }
+//	WorkteamArray{ WorkteamArgs{...} }
 type WorkteamArrayInput interface {
 	pulumi.Input
 
@@ -279,7 +287,7 @@ func (i WorkteamArray) ToWorkteamArrayOutputWithContext(ctx context.Context) Wor
 // WorkteamMapInput is an input type that accepts WorkteamMap and WorkteamMapOutput values.
 // You can construct a concrete instance of `WorkteamMapInput` via:
 //
-//          WorkteamMap{ "key": WorkteamArgs{...} }
+//	WorkteamMap{ "key": WorkteamArgs{...} }
 type WorkteamMapInput interface {
 	pulumi.Input
 

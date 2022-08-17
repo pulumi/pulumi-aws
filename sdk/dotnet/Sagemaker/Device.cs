@@ -16,24 +16,22 @@ namespace Pulumi.Aws.Sagemaker
     /// ### Basic usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.Device("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.Device("example", new Aws.Sagemaker.DeviceArgs
+    ///         DeviceFleetName = aws_sagemaker_device_fleet.Example.Device_fleet_name,
+    ///         DeviceDetails = new Aws.Sagemaker.Inputs.DeviceDeviceArgs
     ///         {
-    ///             DeviceFleetName = aws_sagemaker_device_fleet.Example.Device_fleet_name,
-    ///             DeviceDetails = new Aws.Sagemaker.Inputs.DeviceDeviceArgs
-    ///             {
-    ///                 DeviceName = "example",
-    ///             },
-    ///         });
-    ///     }
+    ///             DeviceName = "example",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/device:Device")]
-    public partial class Device : Pulumi.CustomResource
+    public partial class Device : global::Pulumi.CustomResource
     {
         [Output("agentVersion")]
         public Output<string> AgentVersion { get; private set; } = null!;
@@ -112,7 +110,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class DeviceArgs : Pulumi.ResourceArgs
+    public sealed class DeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The device to register with SageMaker Edge Manager. See Device details below.
@@ -129,9 +127,10 @@ namespace Pulumi.Aws.Sagemaker
         public DeviceArgs()
         {
         }
+        public static new DeviceArgs Empty => new DeviceArgs();
     }
 
-    public sealed class DeviceState : Pulumi.ResourceArgs
+    public sealed class DeviceState : global::Pulumi.ResourceArgs
     {
         [Input("agentVersion")]
         public Input<string>? AgentVersion { get; set; }
@@ -157,5 +156,6 @@ namespace Pulumi.Aws.Sagemaker
         public DeviceState()
         {
         }
+        public static new DeviceState Empty => new DeviceState();
     }
 }

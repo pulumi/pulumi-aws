@@ -73,11 +73,11 @@ export class ConfgurationSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Configuration block. Detailed below.
+     * Whether messages that use the configuration set are required to use TLS. See below.
      */
     public readonly deliveryOptions!: pulumi.Output<outputs.ses.ConfgurationSetDeliveryOptions | undefined>;
     /**
-     * The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+     * Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
      */
     public /*out*/ readonly lastFreshStart!: pulumi.Output<string>;
     /**
@@ -92,6 +92,10 @@ export class ConfgurationSet extends pulumi.CustomResource {
      * Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
      */
     public readonly sendingEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+     */
+    public readonly trackingOptions!: pulumi.Output<outputs.ses.ConfgurationSetTrackingOptions | undefined>;
 
     /**
      * Create a ConfgurationSet resource with the given unique name, arguments, and options.
@@ -115,12 +119,14 @@ export class ConfgurationSet extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["reputationMetricsEnabled"] = state ? state.reputationMetricsEnabled : undefined;
             resourceInputs["sendingEnabled"] = state ? state.sendingEnabled : undefined;
+            resourceInputs["trackingOptions"] = state ? state.trackingOptions : undefined;
         } else {
             const args = argsOrState as ConfgurationSetArgs | undefined;
             resourceInputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["reputationMetricsEnabled"] = args ? args.reputationMetricsEnabled : undefined;
             resourceInputs["sendingEnabled"] = args ? args.sendingEnabled : undefined;
+            resourceInputs["trackingOptions"] = args ? args.trackingOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["lastFreshStart"] = undefined /*out*/;
         }
@@ -138,11 +144,11 @@ export interface ConfgurationSetState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Configuration block. Detailed below.
+     * Whether messages that use the configuration set are required to use TLS. See below.
      */
     deliveryOptions?: pulumi.Input<inputs.ses.ConfgurationSetDeliveryOptions>;
     /**
-     * The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+     * Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
      */
     lastFreshStart?: pulumi.Input<string>;
     /**
@@ -157,6 +163,10 @@ export interface ConfgurationSetState {
      * Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
      */
     sendingEnabled?: pulumi.Input<boolean>;
+    /**
+     * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+     */
+    trackingOptions?: pulumi.Input<inputs.ses.ConfgurationSetTrackingOptions>;
 }
 
 /**
@@ -164,7 +174,7 @@ export interface ConfgurationSetState {
  */
 export interface ConfgurationSetArgs {
     /**
-     * Configuration block. Detailed below.
+     * Whether messages that use the configuration set are required to use TLS. See below.
      */
     deliveryOptions?: pulumi.Input<inputs.ses.ConfgurationSetDeliveryOptions>;
     /**
@@ -179,4 +189,8 @@ export interface ConfgurationSetArgs {
      * Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
      */
     sendingEnabled?: pulumi.Input<boolean>;
+    /**
+     * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+     */
+    trackingOptions?: pulumi.Input<inputs.ses.ConfgurationSetTrackingOptions>;
 }

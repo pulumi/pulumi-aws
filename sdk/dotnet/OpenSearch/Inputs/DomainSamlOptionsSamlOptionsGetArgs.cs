@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpenSearch.Inputs
 {
 
-    public sealed class DomainSamlOptionsSamlOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class DomainSamlOptionsSamlOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether SAML authentication is enabled.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public DomainSamlOptionsSamlOptionsGetArgs()
         {
         }
+        public static new DomainSamlOptionsSamlOptionsGetArgs Empty => new DomainSamlOptionsSamlOptionsGetArgs();
     }
 }

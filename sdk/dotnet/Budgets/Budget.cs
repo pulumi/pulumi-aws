@@ -15,171 +15,161 @@ namespace Pulumi.Aws.Budgets
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ec2 = new Aws.Budgets.Budget("ec2", new()
     ///     {
-    ///         var ec2 = new Aws.Budgets.Budget("ec2", new Aws.Budgets.BudgetArgs
+    ///         BudgetType = "COST",
+    ///         CostFilters = new[]
     ///         {
-    ///             BudgetType = "COST",
-    ///             CostFilters = 
+    ///             new Aws.Budgets.Inputs.BudgetCostFilterArgs
     ///             {
-    ///                 new Aws.Budgets.Inputs.BudgetCostFilterArgs
+    ///                 Name = "Service",
+    ///                 Values = new[]
     ///                 {
-    ///                     Name = "Service",
-    ///                     Values = 
-    ///                     {
-    ///                         "Amazon Elastic Compute Cloud - Compute",
-    ///                     },
+    ///                     "Amazon Elastic Compute Cloud - Compute",
     ///                 },
     ///             },
-    ///             LimitAmount = "1200",
-    ///             LimitUnit = "USD",
-    ///             Notifications = 
+    ///         },
+    ///         LimitAmount = "1200",
+    ///         LimitUnit = "USD",
+    ///         Notifications = new[]
+    ///         {
+    ///             new Aws.Budgets.Inputs.BudgetNotificationArgs
     ///             {
-    ///                 new Aws.Budgets.Inputs.BudgetNotificationArgs
+    ///                 ComparisonOperator = "GREATER_THAN",
+    ///                 NotificationType = "FORECASTED",
+    ///                 SubscriberEmailAddresses = new[]
     ///                 {
-    ///                     ComparisonOperator = "GREATER_THAN",
-    ///                     NotificationType = "FORECASTED",
-    ///                     SubscriberEmailAddresses = 
-    ///                     {
-    ///                         "test@example.com",
-    ///                     },
-    ///                     Threshold = 100,
-    ///                     ThresholdType = "PERCENTAGE",
+    ///                     "test@example.com",
     ///                 },
+    ///                 Threshold = 100,
+    ///                 ThresholdType = "PERCENTAGE",
     ///             },
-    ///             TimePeriodEnd = "2087-06-15_00:00",
-    ///             TimePeriodStart = "2017-07-01_00:00",
-    ///             TimeUnit = "MONTHLY",
-    ///         });
-    ///     }
+    ///         },
+    ///         TimePeriodEnd = "2087-06-15_00:00",
+    ///         TimePeriodStart = "2017-07-01_00:00",
+    ///         TimeUnit = "MONTHLY",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// Create a budget for *$100*.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var cost = new Aws.Budgets.Budget("cost", new()
     ///     {
-    ///         var cost = new Aws.Budgets.Budget("cost", new Aws.Budgets.BudgetArgs
-    ///         {
-    ///             BudgetType = "COST",
-    ///             LimitAmount = "100",
-    ///             LimitUnit = "USD",
-    ///         });
-    ///     }
+    ///         BudgetType = "COST",
+    ///         LimitAmount = "100",
+    ///         LimitUnit = "USD",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// Create a budget for s3 with a limit of *3 GB* of storage.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var s3 = new Aws.Budgets.Budget("s3", new()
     ///     {
-    ///         var s3 = new Aws.Budgets.Budget("s3", new Aws.Budgets.BudgetArgs
-    ///         {
-    ///             BudgetType = "USAGE",
-    ///             LimitAmount = "3",
-    ///             LimitUnit = "GB",
-    ///         });
-    ///     }
+    ///         BudgetType = "USAGE",
+    ///         LimitAmount = "3",
+    ///         LimitUnit = "GB",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// Create a Savings Plan Utilization Budget
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var savingsPlanUtilization = new Aws.Budgets.Budget("savingsPlanUtilization", new()
     ///     {
-    ///         var savingsPlanUtilization = new Aws.Budgets.Budget("savingsPlanUtilization", new Aws.Budgets.BudgetArgs
+    ///         BudgetType = "SAVINGS_PLANS_UTILIZATION",
+    ///         CostTypes = new Aws.Budgets.Inputs.BudgetCostTypesArgs
     ///         {
-    ///             BudgetType = "SAVINGS_PLANS_UTILIZATION",
-    ///             CostTypes = new Aws.Budgets.Inputs.BudgetCostTypesArgs
-    ///             {
-    ///                 IncludeCredit = false,
-    ///                 IncludeDiscount = false,
-    ///                 IncludeOtherSubscription = false,
-    ///                 IncludeRecurring = false,
-    ///                 IncludeRefund = false,
-    ///                 IncludeSubscription = true,
-    ///                 IncludeSupport = false,
-    ///                 IncludeTax = false,
-    ///                 IncludeUpfront = false,
-    ///                 UseBlended = false,
-    ///             },
-    ///             LimitAmount = "100.0",
-    ///             LimitUnit = "PERCENTAGE",
-    ///         });
-    ///     }
+    ///             IncludeCredit = false,
+    ///             IncludeDiscount = false,
+    ///             IncludeOtherSubscription = false,
+    ///             IncludeRecurring = false,
+    ///             IncludeRefund = false,
+    ///             IncludeSubscription = true,
+    ///             IncludeSupport = false,
+    ///             IncludeTax = false,
+    ///             IncludeUpfront = false,
+    ///             UseBlended = false,
+    ///         },
+    ///         LimitAmount = "100.0",
+    ///         LimitUnit = "PERCENTAGE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// Create a RI Utilization Budget
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var riUtilization = new Aws.Budgets.Budget("riUtilization", new()
     ///     {
-    ///         var riUtilization = new Aws.Budgets.Budget("riUtilization", new Aws.Budgets.BudgetArgs
+    ///         BudgetType = "RI_UTILIZATION",
+    ///         CostFilters = new[]
     ///         {
-    ///             BudgetType = "RI_UTILIZATION",
-    ///             CostFilters = 
+    ///             new Aws.Budgets.Inputs.BudgetCostFilterArgs
     ///             {
-    ///                 new Aws.Budgets.Inputs.BudgetCostFilterArgs
+    ///                 Name = "Service",
+    ///                 Values = new[]
     ///                 {
-    ///                     Name = "Service",
-    ///                     Values = 
-    ///                     {
-    ///                         "Amazon Relational Database Service",
-    ///                     },
+    ///                     "Amazon Relational Database Service",
     ///                 },
     ///             },
-    ///             CostTypes = new Aws.Budgets.Inputs.BudgetCostTypesArgs
-    ///             {
-    ///                 IncludeCredit = false,
-    ///                 IncludeDiscount = false,
-    ///                 IncludeOtherSubscription = false,
-    ///                 IncludeRecurring = false,
-    ///                 IncludeRefund = false,
-    ///                 IncludeSubscription = true,
-    ///                 IncludeSupport = false,
-    ///                 IncludeTax = false,
-    ///                 IncludeUpfront = false,
-    ///                 UseBlended = false,
-    ///             },
-    ///             LimitAmount = "100.0",
-    ///             LimitUnit = "PERCENTAGE",
-    ///         });
-    ///     }
+    ///         },
+    ///         CostTypes = new Aws.Budgets.Inputs.BudgetCostTypesArgs
+    ///         {
+    ///             IncludeCredit = false,
+    ///             IncludeDiscount = false,
+    ///             IncludeOtherSubscription = false,
+    ///             IncludeRecurring = false,
+    ///             IncludeRefund = false,
+    ///             IncludeSubscription = true,
+    ///             IncludeSupport = false,
+    ///             IncludeTax = false,
+    ///             IncludeUpfront = false,
+    ///             UseBlended = false,
+    ///         },
+    ///         LimitAmount = "100.0",
+    ///         LimitUnit = "PERCENTAGE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -191,7 +181,7 @@ namespace Pulumi.Aws.Budgets
     /// ```
     /// </summary>
     [AwsResourceType("aws:budgets/budget:Budget")]
-    public partial class Budget : Pulumi.CustomResource
+    public partial class Budget : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
@@ -321,7 +311,7 @@ namespace Pulumi.Aws.Budgets
         }
     }
 
-    public sealed class BudgetArgs : Pulumi.ResourceArgs
+    public sealed class BudgetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
@@ -423,9 +413,10 @@ namespace Pulumi.Aws.Budgets
         public BudgetArgs()
         {
         }
+        public static new BudgetArgs Empty => new BudgetArgs();
     }
 
-    public sealed class BudgetState : Pulumi.ResourceArgs
+    public sealed class BudgetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
@@ -533,5 +524,6 @@ namespace Pulumi.Aws.Budgets
         public BudgetState()
         {
         }
+        public static new BudgetState Empty => new BudgetState();
     }
 }

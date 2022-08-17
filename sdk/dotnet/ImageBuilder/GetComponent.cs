@@ -19,20 +19,18 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetComponent.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetComponent.InvokeAsync(new Aws.ImageBuilder.GetComponentArgs
-        ///         {
-        ///             Arn = "arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetComponent.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetComponent.InvokeAsync(new Aws.ImageBuilder.GetComponentArgs
-        ///         {
-        ///             Arn = "arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.ImageBuilder
     }
 
 
-    public sealed class GetComponentArgs : Pulumi.InvokeArgs
+    public sealed class GetComponentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the component.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.ImageBuilder
         public GetComponentArgs()
         {
         }
+        public static new GetComponentArgs Empty => new GetComponentArgs();
     }
 
-    public sealed class GetComponentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetComponentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the component.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.ImageBuilder
         public GetComponentInvokeArgs()
         {
         }
+        public static new GetComponentInvokeArgs Empty => new GetComponentInvokeArgs();
     }
 
 

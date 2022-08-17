@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := route53recoverycontrol.NewControlPanel(ctx, "example", &route53recoverycontrol.ControlPanelArgs{
-// 			ClusterArn: pulumi.String("arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53recoverycontrol.NewControlPanel(ctx, "example", &route53recoverycontrol.ControlPanelArgs{
+//				ClusterArn: pulumi.String("arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Route53 Recovery Control Config Control Panel can be imported via the control panel arn, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
+//
+//	$ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
+//
 // ```
 type ControlPanel struct {
 	pulumi.CustomResourceState
@@ -166,7 +171,7 @@ func (i *ControlPanel) ToControlPanelOutputWithContext(ctx context.Context) Cont
 // ControlPanelArrayInput is an input type that accepts ControlPanelArray and ControlPanelArrayOutput values.
 // You can construct a concrete instance of `ControlPanelArrayInput` via:
 //
-//          ControlPanelArray{ ControlPanelArgs{...} }
+//	ControlPanelArray{ ControlPanelArgs{...} }
 type ControlPanelArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +196,7 @@ func (i ControlPanelArray) ToControlPanelArrayOutputWithContext(ctx context.Cont
 // ControlPanelMapInput is an input type that accepts ControlPanelMap and ControlPanelMapOutput values.
 // You can construct a concrete instance of `ControlPanelMapInput` via:
 //
-//          ControlPanelMap{ "key": ControlPanelArgs{...} }
+//	ControlPanelMap{ "key": ControlPanelArgs{...} }
 type ControlPanelMapInput interface {
 	pulumi.Input
 

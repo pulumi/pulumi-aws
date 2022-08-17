@@ -78,7 +78,7 @@ export class Accelerator extends pulumi.CustomResource {
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     /**
-     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
@@ -94,7 +94,7 @@ export class Accelerator extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -158,7 +158,7 @@ export interface AcceleratorState {
     enabled?: pulumi.Input<boolean>;
     hostedZoneId?: pulumi.Input<string>;
     /**
-     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      */
     ipAddressType?: pulumi.Input<string>;
     /**
@@ -174,7 +174,7 @@ export interface AcceleratorState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -192,7 +192,7 @@ export interface AcceleratorArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      */
     ipAddressType?: pulumi.Input<string>;
     /**

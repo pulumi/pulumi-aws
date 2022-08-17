@@ -17,71 +17,74 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rolesanywhere"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rolesanywhere"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca.CertificateAuthorityArgs{
-// 			PermanentDeletionTimeInDays: pulumi.Int(7),
-// 			Type:                        pulumi.String("ROOT"),
-// 			CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-// 				KeyAlgorithm:     pulumi.String("RSA_4096"),
-// 				SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-// 				Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-// 					CommonName: pulumi.String("example.com"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		current, err := aws.GetPartition(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = acmpca.NewCertificate(ctx, "testCertificate", &acmpca.CertificateArgs{
-// 			CertificateAuthorityArn:   exampleCertificateAuthority.Arn,
-// 			CertificateSigningRequest: exampleCertificateAuthority.CertificateSigningRequest,
-// 			SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
-// 			TemplateArn:               pulumi.String(fmt.Sprintf("arn:%v:acm-pca:::template/RootCACertificate/V1", current.Partition)),
-// 			Validity: &acmpca.CertificateValidityArgs{
-// 				Type:  pulumi.String("YEARS"),
-// 				Value: pulumi.String("1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCertificateAuthorityCertificate, err := acmpca.NewCertificateAuthorityCertificate(ctx, "exampleCertificateAuthorityCertificate", &acmpca.CertificateAuthorityCertificateArgs{
-// 			CertificateAuthorityArn: exampleCertificateAuthority.Arn,
-// 			Certificate:             pulumi.Any(aws_acmpca_certificate.Example.Certificate),
-// 			CertificateChain:        pulumi.Any(aws_acmpca_certificate.Example.Certificate_chain),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = rolesanywhere.NewTrustAnchor(ctx, "testTrustAnchor", &rolesanywhere.TrustAnchorArgs{
-// 			Source: &rolesanywhere.TrustAnchorSourceArgs{
-// 				SourceData: &rolesanywhere.TrustAnchorSourceSourceDataArgs{
-// 					AcmPcaArn: exampleCertificateAuthority.Arn,
-// 				},
-// 				SourceType: pulumi.String("AWS_ACM_PCA"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleCertificateAuthorityCertificate,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca.CertificateAuthorityArgs{
+//				PermanentDeletionTimeInDays: pulumi.Int(7),
+//				Type:                        pulumi.String("ROOT"),
+//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
+//					KeyAlgorithm:     pulumi.String("RSA_4096"),
+//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
+//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
+//						CommonName: pulumi.String("example.com"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = acmpca.NewCertificate(ctx, "testCertificate", &acmpca.CertificateArgs{
+//				CertificateAuthorityArn:   exampleCertificateAuthority.Arn,
+//				CertificateSigningRequest: exampleCertificateAuthority.CertificateSigningRequest,
+//				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
+//				TemplateArn:               pulumi.String(fmt.Sprintf("arn:%v:acm-pca:::template/RootCACertificate/V1", current.Partition)),
+//				Validity: &acmpca.CertificateValidityArgs{
+//					Type:  pulumi.String("YEARS"),
+//					Value: pulumi.String("1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificateAuthorityCertificate, err := acmpca.NewCertificateAuthorityCertificate(ctx, "exampleCertificateAuthorityCertificate", &acmpca.CertificateAuthorityCertificateArgs{
+//				CertificateAuthorityArn: exampleCertificateAuthority.Arn,
+//				Certificate:             pulumi.Any(aws_acmpca_certificate.Example.Certificate),
+//				CertificateChain:        pulumi.Any(aws_acmpca_certificate.Example.Certificate_chain),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rolesanywhere.NewTrustAnchor(ctx, "testTrustAnchor", &rolesanywhere.TrustAnchorArgs{
+//				Source: &rolesanywhere.TrustAnchorSourceArgs{
+//					SourceData: &rolesanywhere.TrustAnchorSourceSourceDataArgs{
+//						AcmPcaArn: exampleCertificateAuthority.Arn,
+//					},
+//					SourceType: pulumi.String("AWS_ACM_PCA"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleCertificateAuthorityCertificate,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -89,7 +92,9 @@ import (
 // `aws_rolesanywhere_trust_anchor` can be imported using its `id`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
+//
+//	$ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
+//
 // ```
 type TrustAnchor struct {
 	pulumi.CustomResourceState
@@ -101,11 +106,9 @@ type TrustAnchor struct {
 	// The name of the Trust Anchor.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The source of trust, documented below
-	Source TrustAnchorSourceOutput `pulumi:"source"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Source  TrustAnchorSourceOutput `pulumi:"source"`
+	Tags    pulumi.StringMapOutput  `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput  `pulumi:"tagsAll"`
 }
 
 // NewTrustAnchor registers a new resource with the given unique name, arguments, and options.
@@ -147,11 +150,9 @@ type trustAnchorState struct {
 	// The name of the Trust Anchor.
 	Name *string `pulumi:"name"`
 	// The source of trust, documented below
-	Source *TrustAnchorSource `pulumi:"source"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Source  *TrustAnchorSource `pulumi:"source"`
+	Tags    map[string]string  `pulumi:"tags"`
+	TagsAll map[string]string  `pulumi:"tagsAll"`
 }
 
 type TrustAnchorState struct {
@@ -162,10 +163,8 @@ type TrustAnchorState struct {
 	// The name of the Trust Anchor.
 	Name pulumi.StringPtrInput
 	// The source of trust, documented below
-	Source TrustAnchorSourcePtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Source  TrustAnchorSourcePtrInput
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -180,10 +179,7 @@ type trustAnchorArgs struct {
 	Name *string `pulumi:"name"`
 	// The source of trust, documented below
 	Source TrustAnchorSource `pulumi:"source"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrustAnchor resource.
@@ -194,10 +190,7 @@ type TrustAnchorArgs struct {
 	Name pulumi.StringPtrInput
 	// The source of trust, documented below
 	Source TrustAnchorSourceInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
+	Tags   pulumi.StringMapInput
 }
 
 func (TrustAnchorArgs) ElementType() reflect.Type {
@@ -226,7 +219,7 @@ func (i *TrustAnchor) ToTrustAnchorOutputWithContext(ctx context.Context) TrustA
 // TrustAnchorArrayInput is an input type that accepts TrustAnchorArray and TrustAnchorArrayOutput values.
 // You can construct a concrete instance of `TrustAnchorArrayInput` via:
 //
-//          TrustAnchorArray{ TrustAnchorArgs{...} }
+//	TrustAnchorArray{ TrustAnchorArgs{...} }
 type TrustAnchorArrayInput interface {
 	pulumi.Input
 
@@ -251,7 +244,7 @@ func (i TrustAnchorArray) ToTrustAnchorArrayOutputWithContext(ctx context.Contex
 // TrustAnchorMapInput is an input type that accepts TrustAnchorMap and TrustAnchorMapOutput values.
 // You can construct a concrete instance of `TrustAnchorMapInput` via:
 //
-//          TrustAnchorMap{ "key": TrustAnchorArgs{...} }
+//	TrustAnchorMap{ "key": TrustAnchorArgs{...} }
 type TrustAnchorMapInput interface {
 	pulumi.Input
 
@@ -307,12 +300,10 @@ func (o TrustAnchorOutput) Source() TrustAnchorSourceOutput {
 	return o.ApplyT(func(v *TrustAnchor) TrustAnchorSourceOutput { return v.Source }).(TrustAnchorSourceOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TrustAnchorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o TrustAnchorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

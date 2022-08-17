@@ -23,7 +23,7 @@ type ResourceSetResource struct {
 // ResourceSetResourceInput is an input type that accepts ResourceSetResourceArgs and ResourceSetResourceOutput values.
 // You can construct a concrete instance of `ResourceSetResourceInput` via:
 //
-//          ResourceSetResourceArgs{...}
+//	ResourceSetResourceArgs{...}
 type ResourceSetResourceInput interface {
 	pulumi.Input
 
@@ -56,7 +56,7 @@ func (i ResourceSetResourceArgs) ToResourceSetResourceOutputWithContext(ctx cont
 // ResourceSetResourceArrayInput is an input type that accepts ResourceSetResourceArray and ResourceSetResourceArrayOutput values.
 // You can construct a concrete instance of `ResourceSetResourceArrayInput` via:
 //
-//          ResourceSetResourceArray{ ResourceSetResourceArgs{...} }
+//	ResourceSetResourceArray{ ResourceSetResourceArgs{...} }
 type ResourceSetResourceArrayInput interface {
 	pulumi.Input
 
@@ -147,7 +147,7 @@ type ResourceSetResourceDnsTargetResource struct {
 // ResourceSetResourceDnsTargetResourceInput is an input type that accepts ResourceSetResourceDnsTargetResourceArgs and ResourceSetResourceDnsTargetResourceOutput values.
 // You can construct a concrete instance of `ResourceSetResourceDnsTargetResourceInput` via:
 //
-//          ResourceSetResourceDnsTargetResourceArgs{...}
+//	ResourceSetResourceDnsTargetResourceArgs{...}
 type ResourceSetResourceDnsTargetResourceInput interface {
 	pulumi.Input
 
@@ -191,11 +191,11 @@ func (i ResourceSetResourceDnsTargetResourceArgs) ToResourceSetResourceDnsTarget
 // ResourceSetResourceDnsTargetResourcePtrInput is an input type that accepts ResourceSetResourceDnsTargetResourceArgs, ResourceSetResourceDnsTargetResourcePtr and ResourceSetResourceDnsTargetResourcePtrOutput values.
 // You can construct a concrete instance of `ResourceSetResourceDnsTargetResourcePtrInput` via:
 //
-//          ResourceSetResourceDnsTargetResourceArgs{...}
+//	        ResourceSetResourceDnsTargetResourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceSetResourceDnsTargetResourcePtrInput interface {
 	pulumi.Input
 
@@ -356,7 +356,7 @@ type ResourceSetResourceDnsTargetResourceTargetResource struct {
 // ResourceSetResourceDnsTargetResourceTargetResourceInput is an input type that accepts ResourceSetResourceDnsTargetResourceTargetResourceArgs and ResourceSetResourceDnsTargetResourceTargetResourceOutput values.
 // You can construct a concrete instance of `ResourceSetResourceDnsTargetResourceTargetResourceInput` via:
 //
-//          ResourceSetResourceDnsTargetResourceTargetResourceArgs{...}
+//	ResourceSetResourceDnsTargetResourceTargetResourceArgs{...}
 type ResourceSetResourceDnsTargetResourceTargetResourceInput interface {
 	pulumi.Input
 
@@ -394,11 +394,11 @@ func (i ResourceSetResourceDnsTargetResourceTargetResourceArgs) ToResourceSetRes
 // ResourceSetResourceDnsTargetResourceTargetResourcePtrInput is an input type that accepts ResourceSetResourceDnsTargetResourceTargetResourceArgs, ResourceSetResourceDnsTargetResourceTargetResourcePtr and ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput values.
 // You can construct a concrete instance of `ResourceSetResourceDnsTargetResourceTargetResourcePtrInput` via:
 //
-//          ResourceSetResourceDnsTargetResourceTargetResourceArgs{...}
+//	        ResourceSetResourceDnsTargetResourceTargetResourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceSetResourceDnsTargetResourceTargetResourcePtrInput interface {
 	pulumi.Input
 
@@ -514,7 +514,7 @@ type ResourceSetResourceDnsTargetResourceTargetResourceNlbResource struct {
 // ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceInput is an input type that accepts ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs and ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceOutput values.
 // You can construct a concrete instance of `ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceInput` via:
 //
-//          ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs{...}
+//	ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs{...}
 type ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceInput interface {
 	pulumi.Input
 
@@ -550,11 +550,11 @@ func (i ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs) ToRes
 // ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrInput is an input type that accepts ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs, ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtr and ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput values.
 // You can construct a concrete instance of `ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrInput` via:
 //
-//          ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs{...}
+//	        ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrInput interface {
 	pulumi.Input
 
@@ -653,7 +653,7 @@ type ResourceSetResourceDnsTargetResourceTargetResourceR53Resource struct {
 // ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceInput is an input type that accepts ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs and ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutput values.
 // You can construct a concrete instance of `ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceInput` via:
 //
-//          ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs{...}
+//	ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs{...}
 type ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceInput interface {
 	pulumi.Input
 
@@ -691,11 +691,11 @@ func (i ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs) ToRes
 // ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrInput is an input type that accepts ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs, ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtr and ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput values.
 // You can construct a concrete instance of `ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrInput` via:
 //
-//          ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs{...}
+//	        ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrInput interface {
 	pulumi.Input
 

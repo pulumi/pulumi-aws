@@ -25,40 +25,39 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var defaultBucketV2 = new Aws.S3.BucketV2("defaultBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var defaultBucketObjectv2 = new Aws.S3.BucketObjectv2("defaultBucketObjectv2", new Aws.S3.BucketObjectv2Args
-    ///         {
-    ///             Bucket = defaultBucketV2.Id,
-    ///             Key = "beanstalk/go-v1.zip",
-    ///             Source = new FileAsset("go-v1.zip"),
-    ///         });
-    ///         var defaultApplication = new Aws.ElasticBeanstalk.Application("defaultApplication", new Aws.ElasticBeanstalk.ApplicationArgs
-    ///         {
-    ///             Description = "tf-test-desc",
-    ///         });
-    ///         var defaultApplicationVersion = new Aws.ElasticBeanstalk.ApplicationVersion("defaultApplicationVersion", new Aws.ElasticBeanstalk.ApplicationVersionArgs
-    ///         {
-    ///             Application = "tf-test-name",
-    ///             Description = "application version",
-    ///             Bucket = defaultBucketV2.Id,
-    ///             Key = defaultBucketObjectv2.Id,
-    ///         });
-    ///     }
+    ///     var defaultBucketV2 = new Aws.S3.BucketV2("defaultBucketV2");
     /// 
-    /// }
+    ///     var defaultBucketObjectv2 = new Aws.S3.BucketObjectv2("defaultBucketObjectv2", new()
+    ///     {
+    ///         Bucket = defaultBucketV2.Id,
+    ///         Key = "beanstalk/go-v1.zip",
+    ///         Source = new FileAsset("go-v1.zip"),
+    ///     });
+    /// 
+    ///     var defaultApplication = new Aws.ElasticBeanstalk.Application("defaultApplication", new()
+    ///     {
+    ///         Description = "tf-test-desc",
+    ///     });
+    /// 
+    ///     var defaultApplicationVersion = new Aws.ElasticBeanstalk.ApplicationVersion("defaultApplicationVersion", new()
+    ///     {
+    ///         Application = "tf-test-name",
+    ///         Description = "application version",
+    ///         Bucket = defaultBucketV2.Id,
+    ///         Key = defaultBucketObjectv2.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticbeanstalk/applicationVersion:ApplicationVersion")]
-    public partial class ApplicationVersion : Pulumi.CustomResource
+    public partial class ApplicationVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the Beanstalk Application the version is associated with.
@@ -155,7 +154,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         }
     }
 
-    public sealed class ApplicationVersionArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Beanstalk Application the version is associated with.
@@ -208,9 +207,10 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public ApplicationVersionArgs()
         {
         }
+        public static new ApplicationVersionArgs Empty => new ApplicationVersionArgs();
     }
 
-    public sealed class ApplicationVersionState : Pulumi.ResourceArgs
+    public sealed class ApplicationVersionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the Beanstalk Application the version is associated with.
@@ -277,5 +277,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public ApplicationVersionState()
         {
         }
+        public static new ApplicationVersionState Empty => new ApplicationVersionState();
     }
 }

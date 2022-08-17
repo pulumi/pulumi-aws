@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowTaskArgs : Pulumi.ResourceArgs
+    public sealed class FlowTaskArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectorOperators")]
         private InputList<Inputs.FlowTaskConnectorOperatorArgs>? _connectorOperators;
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowTaskArgs()
         {
         }
+        public static new FlowTaskArgs Empty => new FlowTaskArgs();
     }
 }

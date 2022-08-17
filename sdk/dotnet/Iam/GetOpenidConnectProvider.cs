@@ -21,37 +21,33 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetOpenidConnectProvider.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetOpenidConnectProvider.InvokeAsync(new Aws.Iam.GetOpenidConnectProviderArgs
-        ///         {
-        ///             Arn = "arn:aws:iam::123456789012:oidc-provider/accounts.google.com",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:iam::123456789012:oidc-provider/accounts.google.com",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetOpenidConnectProvider.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetOpenidConnectProvider.InvokeAsync(new Aws.Iam.GetOpenidConnectProviderArgs
-        ///         {
-        ///             Url = "https://accounts.google.com",
-        ///         }));
-        ///     }
+        ///         Url = "https://accounts.google.com",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -69,37 +65,33 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetOpenidConnectProvider.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetOpenidConnectProvider.InvokeAsync(new Aws.Iam.GetOpenidConnectProviderArgs
-        ///         {
-        ///             Arn = "arn:aws:iam::123456789012:oidc-provider/accounts.google.com",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:iam::123456789012:oidc-provider/accounts.google.com",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetOpenidConnectProvider.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetOpenidConnectProvider.InvokeAsync(new Aws.Iam.GetOpenidConnectProviderArgs
-        ///         {
-        ///             Url = "https://accounts.google.com",
-        ///         }));
-        ///     }
+        ///         Url = "https://accounts.google.com",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -109,7 +101,7 @@ namespace Pulumi.Aws.Iam
     }
 
 
-    public sealed class GetOpenidConnectProviderArgs : Pulumi.InvokeArgs
+    public sealed class GetOpenidConnectProviderArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the OpenID Connect provider.
@@ -138,9 +130,10 @@ namespace Pulumi.Aws.Iam
         public GetOpenidConnectProviderArgs()
         {
         }
+        public static new GetOpenidConnectProviderArgs Empty => new GetOpenidConnectProviderArgs();
     }
 
-    public sealed class GetOpenidConnectProviderInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOpenidConnectProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the OpenID Connect provider.
@@ -169,6 +162,7 @@ namespace Pulumi.Aws.Iam
         public GetOpenidConnectProviderInvokeArgs()
         {
         }
+        public static new GetOpenidConnectProviderInvokeArgs Empty => new GetOpenidConnectProviderInvokeArgs();
     }
 
 

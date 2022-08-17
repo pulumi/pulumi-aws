@@ -185,14 +185,14 @@ public class Resolver extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cachingConfig);
     }
     /**
-     * The DataSource name.
+     * The data source name.
      * 
      */
     @Export(name="dataSource", type=String.class, parameters={})
     private Output</* @Nullable */ String> dataSource;
 
     /**
-     * @return The DataSource name.
+     * @return The data source name.
      * 
      */
     public Output<Optional<String>> dataSource() {

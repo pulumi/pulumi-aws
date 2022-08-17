@@ -14,388 +14,383 @@ namespace Pulumi.Aws.AutoScaling
     /// ### With Latest Version Of Launch Template
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foobar = new Aws.Ec2.LaunchTemplate("foobar", new()
     ///     {
-    ///         var foobar = new Aws.Ec2.LaunchTemplate("foobar", new Aws.Ec2.LaunchTemplateArgs
-    ///         {
-    ///             NamePrefix = "foobar",
-    ///             ImageId = "ami-1a2b3c",
-    ///             InstanceType = "t2.micro",
-    ///         });
-    ///         var bar = new Aws.AutoScaling.Group("bar", new Aws.AutoScaling.GroupArgs
-    ///         {
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-east-1a",
-    ///             },
-    ///             DesiredCapacity = 1,
-    ///             MaxSize = 1,
-    ///             MinSize = 1,
-    ///             LaunchTemplate = new Aws.AutoScaling.Inputs.GroupLaunchTemplateArgs
-    ///             {
-    ///                 Id = foobar.Id,
-    ///                 Version = "$Latest",
-    ///             },
-    ///         });
-    ///     }
+    ///         NamePrefix = "foobar",
+    ///         ImageId = "ami-1a2b3c",
+    ///         InstanceType = "t2.micro",
+    ///     });
     /// 
-    /// }
+    ///     var bar = new Aws.AutoScaling.Group("bar", new()
+    ///     {
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             "us-east-1a",
+    ///         },
+    ///         DesiredCapacity = 1,
+    ///         MaxSize = 1,
+    ///         MinSize = 1,
+    ///         LaunchTemplate = new Aws.AutoScaling.Inputs.GroupLaunchTemplateArgs
+    ///         {
+    ///             Id = foobar.Id,
+    ///             Version = "$Latest",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Mixed Instances Policy
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new()
     ///     {
-    ///         var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
+    ///         NamePrefix = "example",
+    ///         ImageId = data.Aws_ami.Example.Id,
+    ///         InstanceType = "c5.large",
+    ///     });
+    /// 
+    ///     var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new()
+    ///     {
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             NamePrefix = "example",
-    ///             ImageId = data.Aws_ami.Example.Id,
-    ///             InstanceType = "c5.large",
-    ///         });
-    ///         var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new Aws.AutoScaling.GroupArgs
+    ///             "us-east-1a",
+    ///         },
+    ///         DesiredCapacity = 1,
+    ///         MaxSize = 1,
+    ///         MinSize = 1,
+    ///         MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
     ///         {
-    ///             AvailabilityZones = 
+    ///             LaunchTemplate = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs
     ///             {
-    ///                 "us-east-1a",
-    ///             },
-    ///             DesiredCapacity = 1,
-    ///             MaxSize = 1,
-    ///             MinSize = 1,
-    ///             MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
-    ///             {
-    ///                 LaunchTemplate = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs
+    ///                 LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs
     ///                 {
-    ///                     LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs
+    ///                     LaunchTemplateId = exampleLaunchTemplate.Id,
+    ///                 },
+    ///                 Overrides = new[]
+    ///                 {
+    ///                     new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
     ///                     {
-    ///                         LaunchTemplateId = exampleLaunchTemplate.Id,
+    ///                         InstanceType = "c4.large",
+    ///                         WeightedCapacity = "3",
     ///                     },
-    ///                     Overrides = 
+    ///                     new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
     ///                     {
-    ///                         new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
-    ///                         {
-    ///                             InstanceType = "c4.large",
-    ///                             WeightedCapacity = "3",
-    ///                         },
-    ///                         new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
-    ///                         {
-    ///                             InstanceType = "c3.large",
-    ///                             WeightedCapacity = "2",
-    ///                         },
+    ///                         InstanceType = "c3.large",
+    ///                         WeightedCapacity = "2",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new()
     ///     {
-    ///         var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
-    ///         {
-    ///             NamePrefix = "example",
-    ///             ImageId = data.Aws_ami.Example.Id,
-    ///             InstanceType = "c5.large",
-    ///         });
-    ///         var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new Aws.AutoScaling.GroupArgs
-    ///         {
-    ///             CapacityRebalance = true,
-    ///             DesiredCapacity = 12,
-    ///             MaxSize = 15,
-    ///             MinSize = 12,
-    ///             VpcZoneIdentifiers = 
-    ///             {
-    ///                 aws_subnet.Example1.Id,
-    ///                 aws_subnet.Example2.Id,
-    ///             },
-    ///             MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
-    ///             {
-    ///                 InstancesDistribution = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyInstancesDistributionArgs
-    ///                 {
-    ///                     OnDemandBaseCapacity = 0,
-    ///                     OnDemandPercentageAboveBaseCapacity = 25,
-    ///                     SpotAllocationStrategy = "capacity-optimized",
-    ///                 },
-    ///                 LaunchTemplate = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs
-    ///                 {
-    ///                     LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs
-    ///                     {
-    ///                         LaunchTemplateId = exampleLaunchTemplate.Id,
-    ///                     },
-    ///                     Overrides = 
-    ///                     {
-    ///                         new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
-    ///                         {
-    ///                             InstanceType = "c4.large",
-    ///                             WeightedCapacity = "3",
-    ///                         },
-    ///                         new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
-    ///                         {
-    ///                             InstanceType = "c3.large",
-    ///                             WeightedCapacity = "2",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         NamePrefix = "example",
+    ///         ImageId = data.Aws_ami.Example.Id,
+    ///         InstanceType = "c5.large",
+    ///     });
     /// 
-    /// }
+    ///     var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new()
+    ///     {
+    ///         CapacityRebalance = true,
+    ///         DesiredCapacity = 12,
+    ///         MaxSize = 15,
+    ///         MinSize = 12,
+    ///         VpcZoneIdentifiers = new[]
+    ///         {
+    ///             aws_subnet.Example1.Id,
+    ///             aws_subnet.Example2.Id,
+    ///         },
+    ///         MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
+    ///         {
+    ///             InstancesDistribution = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyInstancesDistributionArgs
+    ///             {
+    ///                 OnDemandBaseCapacity = 0,
+    ///                 OnDemandPercentageAboveBaseCapacity = 25,
+    ///                 SpotAllocationStrategy = "capacity-optimized",
+    ///             },
+    ///             LaunchTemplate = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs
+    ///             {
+    ///                 LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs
+    ///                 {
+    ///                     LaunchTemplateId = exampleLaunchTemplate.Id,
+    ///                 },
+    ///                 Overrides = new[]
+    ///                 {
+    ///                     new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
+    ///                     {
+    ///                         InstanceType = "c4.large",
+    ///                         WeightedCapacity = "3",
+    ///                     },
+    ///                     new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
+    ///                     {
+    ///                         InstanceType = "c3.large",
+    ///                         WeightedCapacity = "2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
     /// 
     /// When using a diverse instance set, some instance types might require a launch template with configuration values unique to that instance type such as a different AMI (Graviton2), architecture specific user data script, different EBS configuration, or different networking configuration.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new()
     ///     {
-    ///         var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
+    ///         NamePrefix = "example",
+    ///         ImageId = data.Aws_ami.Example.Id,
+    ///         InstanceType = "c5.large",
+    ///     });
+    /// 
+    ///     var example2 = new Aws.Ec2.LaunchTemplate("example2", new()
+    ///     {
+    ///         NamePrefix = "example2",
+    ///         ImageId = data.Aws_ami.Example2.Id,
+    ///     });
+    /// 
+    ///     var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new()
+    ///     {
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             NamePrefix = "example",
-    ///             ImageId = data.Aws_ami.Example.Id,
-    ///             InstanceType = "c5.large",
-    ///         });
-    ///         var example2 = new Aws.Ec2.LaunchTemplate("example2", new Aws.Ec2.LaunchTemplateArgs
+    ///             "us-east-1a",
+    ///         },
+    ///         DesiredCapacity = 1,
+    ///         MaxSize = 1,
+    ///         MinSize = 1,
+    ///         MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
     ///         {
-    ///             NamePrefix = "example2",
-    ///             ImageId = data.Aws_ami.Example2.Id,
-    ///         });
-    ///         var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new Aws.AutoScaling.GroupArgs
-    ///         {
-    ///             AvailabilityZones = 
+    ///             LaunchTemplate = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs
     ///             {
-    ///                 "us-east-1a",
-    ///             },
-    ///             DesiredCapacity = 1,
-    ///             MaxSize = 1,
-    ///             MinSize = 1,
-    ///             MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
-    ///             {
-    ///                 LaunchTemplate = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs
+    ///                 LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs
     ///                 {
-    ///                     LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs
+    ///                     LaunchTemplateId = exampleLaunchTemplate.Id,
+    ///                 },
+    ///                 Overrides = new[]
+    ///                 {
+    ///                     new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
     ///                     {
-    ///                         LaunchTemplateId = exampleLaunchTemplate.Id,
+    ///                         InstanceType = "c4.large",
+    ///                         WeightedCapacity = "3",
     ///                     },
-    ///                     Overrides = 
+    ///                     new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
     ///                     {
-    ///                         new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
+    ///                         InstanceType = "c6g.large",
+    ///                         LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs
     ///                         {
-    ///                             InstanceType = "c4.large",
-    ///                             WeightedCapacity = "3",
+    ///                             LaunchTemplateId = example2.Id,
     ///                         },
-    ///                         new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
-    ///                         {
-    ///                             InstanceType = "c6g.large",
-    ///                             LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs
-    ///                             {
-    ///                                 LaunchTemplateId = example2.Id,
-    ///                             },
-    ///                             WeightedCapacity = "2",
-    ///                         },
+    ///                         WeightedCapacity = "2",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Mixed Instances Policy with Attribute-based Instance Type Selection
     /// 
     /// As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new()
     ///     {
-    ///         var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
+    ///         NamePrefix = "example",
+    ///         ImageId = data.Aws_ami.Example.Id,
+    ///         InstanceType = "c5.large",
+    ///     });
+    /// 
+    ///     var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new()
+    ///     {
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             NamePrefix = "example",
-    ///             ImageId = data.Aws_ami.Example.Id,
-    ///             InstanceType = "c5.large",
-    ///         });
-    ///         var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new Aws.AutoScaling.GroupArgs
+    ///             "us-east-1a",
+    ///         },
+    ///         DesiredCapacity = 1,
+    ///         MaxSize = 1,
+    ///         MinSize = 1,
+    ///         MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
     ///         {
-    ///             AvailabilityZones = 
+    ///             LaunchTemplate = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs
     ///             {
-    ///                 "us-east-1a",
-    ///             },
-    ///             DesiredCapacity = 1,
-    ///             MaxSize = 1,
-    ///             MinSize = 1,
-    ///             MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
-    ///             {
-    ///                 LaunchTemplate = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs
+    ///                 LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs
     ///                 {
-    ///                     LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs
+    ///                     LaunchTemplateId = exampleLaunchTemplate.Id,
+    ///                 },
+    ///                 Overrides = new[]
+    ///                 {
+    ///                     new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
     ///                     {
-    ///                         LaunchTemplateId = exampleLaunchTemplate.Id,
-    ///                     },
-    ///                     Overrides = 
-    ///                     {
-    ///                         new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
+    ///                         InstanceRequirements = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs
     ///                         {
-    ///                             InstanceRequirements = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs
+    ///                             MemoryMib = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs
     ///                             {
-    ///                                 MemoryMib = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs
-    ///                                 {
-    ///                                     Min = 1000,
-    ///                                 },
-    ///                                 VcpuCount = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs
-    ///                                 {
-    ///                                     Min = 4,
-    ///                                 },
+    ///                                 Min = 1000,
+    ///                             },
+    ///                             VcpuCount = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs
+    ///                             {
+    ///                                 Min = 4,
     ///                             },
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Automatically refresh all instances after the group is updated
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleAmi = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
-    ///         var exampleAmi = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
+    ///         MostRecent = true,
+    ///         Owners = new[]
     ///         {
-    ///             MostRecent = true,
-    ///             Owners = 
-    ///             {
-    ///                 "amazon",
-    ///             },
-    ///             Filters = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
-    ///                 {
-    ///                     Name = "name",
-    ///                     Values = 
-    ///                     {
-    ///                         "amzn-ami-hvm-*-x86_64-gp2",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }));
-    ///         var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
+    ///             "amazon",
+    ///         },
+    ///         Filters = new[]
     ///         {
-    ///             ImageId = exampleAmi.Apply(exampleAmi =&gt; exampleAmi.Id),
-    ///             InstanceType = "t3.nano",
-    ///         });
-    ///         var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new Aws.AutoScaling.GroupArgs
-    ///         {
-    ///             AvailabilityZones = 
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
     ///             {
-    ///                 "us-east-1a",
-    ///             },
-    ///             DesiredCapacity = 1,
-    ///             MaxSize = 2,
-    ///             MinSize = 1,
-    ///             LaunchTemplate = new Aws.AutoScaling.Inputs.GroupLaunchTemplateArgs
-    ///             {
-    ///                 Id = exampleLaunchTemplate.Id,
-    ///                 Version = exampleLaunchTemplate.LatestVersion,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 new Aws.AutoScaling.Inputs.GroupTagArgs
+    ///                 Name = "name",
+    ///                 Values = new[]
     ///                 {
-    ///                     Key = "Key",
-    ///                     Value = "Value",
-    ///                     PropagateAtLaunch = true,
+    ///                     "amzn-ami-hvm-*-x86_64-gp2",
     ///                 },
     ///             },
-    ///             InstanceRefresh = new Aws.AutoScaling.Inputs.GroupInstanceRefreshArgs
-    ///             {
-    ///                 Strategy = "Rolling",
-    ///                 Preferences = new Aws.AutoScaling.Inputs.GroupInstanceRefreshPreferencesArgs
-    ///                 {
-    ///                     MinHealthyPercentage = 50,
-    ///                 },
-    ///                 Triggers = 
-    ///                 {
-    ///                     "tag",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new()
+    ///     {
+    ///         ImageId = exampleAmi.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         InstanceType = "t3.nano",
+    ///     });
+    /// 
+    ///     var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new()
+    ///     {
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             "us-east-1a",
+    ///         },
+    ///         DesiredCapacity = 1,
+    ///         MaxSize = 2,
+    ///         MinSize = 1,
+    ///         LaunchTemplate = new Aws.AutoScaling.Inputs.GroupLaunchTemplateArgs
+    ///         {
+    ///             Id = exampleLaunchTemplate.Id,
+    ///             Version = exampleLaunchTemplate.LatestVersion,
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             new Aws.AutoScaling.Inputs.GroupTagArgs
+    ///             {
+    ///                 Key = "Key",
+    ///                 Value = "Value",
+    ///                 PropagateAtLaunch = true,
+    ///             },
+    ///         },
+    ///         InstanceRefresh = new Aws.AutoScaling.Inputs.GroupInstanceRefreshArgs
+    ///         {
+    ///             Strategy = "Rolling",
+    ///             Preferences = new Aws.AutoScaling.Inputs.GroupInstanceRefreshPreferencesArgs
+    ///             {
+    ///                 MinHealthyPercentage = 50,
+    ///             },
+    ///             Triggers = new[]
+    ///             {
+    ///                 "tag",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Auto Scaling group with Warm Pool
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new()
     ///     {
-    ///         var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
-    ///         {
-    ///             NamePrefix = "example",
-    ///             ImageId = data.Aws_ami.Example.Id,
-    ///             InstanceType = "c5.large",
-    ///         });
-    ///         var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new Aws.AutoScaling.GroupArgs
-    ///         {
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-east-1a",
-    ///             },
-    ///             DesiredCapacity = 1,
-    ///             MaxSize = 5,
-    ///             MinSize = 1,
-    ///             WarmPool = new Aws.AutoScaling.Inputs.GroupWarmPoolArgs
-    ///             {
-    ///                 PoolState = "Hibernated",
-    ///                 MinSize = 1,
-    ///                 MaxGroupPreparedCapacity = 10,
-    ///                 InstanceReusePolicy = new Aws.AutoScaling.Inputs.GroupWarmPoolInstanceReusePolicyArgs
-    ///                 {
-    ///                     ReuseOnScaleIn = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         NamePrefix = "example",
+    ///         ImageId = data.Aws_ami.Example.Id,
+    ///         InstanceType = "c5.large",
+    ///     });
     /// 
-    /// }
+    ///     var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new()
+    ///     {
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             "us-east-1a",
+    ///         },
+    ///         DesiredCapacity = 1,
+    ///         MaxSize = 5,
+    ///         MinSize = 1,
+    ///         WarmPool = new Aws.AutoScaling.Inputs.GroupWarmPoolArgs
+    ///         {
+    ///             PoolState = "Hibernated",
+    ///             MinSize = 1,
+    ///             MaxGroupPreparedCapacity = 10,
+    ///             InstanceReusePolicy = new Aws.AutoScaling.Inputs.GroupWarmPoolInstanceReusePolicyArgs
+    ///             {
+    ///                 ReuseOnScaleIn = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Waiting for Capacity
     /// 
@@ -468,7 +463,7 @@ namespace Pulumi.Aws.AutoScaling
     /// ```
     /// </summary>
     [AwsResourceType("aws:autoscaling/group:Group")]
-    public partial class Group : Pulumi.CustomResource
+    public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN for this Auto Scaling Group
@@ -766,7 +761,7 @@ namespace Pulumi.Aws.AutoScaling
         }
     }
 
-    public sealed class GroupArgs : Pulumi.ResourceArgs
+    public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
@@ -1078,9 +1073,10 @@ namespace Pulumi.Aws.AutoScaling
         public GroupArgs()
         {
         }
+        public static new GroupArgs Empty => new GroupArgs();
     }
 
-    public sealed class GroupState : Pulumi.ResourceArgs
+    public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN for this Auto Scaling Group
@@ -1398,5 +1394,6 @@ namespace Pulumi.Aws.AutoScaling
         public GroupState()
         {
         }
+        public static new GroupState Empty => new GroupState();
     }
 }

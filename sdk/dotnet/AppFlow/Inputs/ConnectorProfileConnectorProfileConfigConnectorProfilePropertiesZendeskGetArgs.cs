@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskGetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the Salesforce resource.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskGetArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskGetArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskGetArgs();
     }
 }

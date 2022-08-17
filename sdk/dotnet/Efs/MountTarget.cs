@@ -15,31 +15,31 @@ namespace Pulumi.Aws.Efs
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Ec2.Vpc("foo", new()
     ///     {
-    ///         var foo = new Aws.Ec2.Vpc("foo", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var alphaSubnet = new Aws.Ec2.Subnet("alphaSubnet", new Aws.Ec2.SubnetArgs
-    ///         {
-    ///             VpcId = foo.Id,
-    ///             AvailabilityZone = "us-west-2a",
-    ///             CidrBlock = "10.0.1.0/24",
-    ///         });
-    ///         var alphaMountTarget = new Aws.Efs.MountTarget("alphaMountTarget", new Aws.Efs.MountTargetArgs
-    ///         {
-    ///             FileSystemId = aws_efs_file_system.Foo.Id,
-    ///             SubnetId = alphaSubnet.Id,
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var alphaSubnet = new Aws.Ec2.Subnet("alphaSubnet", new()
+    ///     {
+    ///         VpcId = foo.Id,
+    ///         AvailabilityZone = "us-west-2a",
+    ///         CidrBlock = "10.0.1.0/24",
+    ///     });
+    /// 
+    ///     var alphaMountTarget = new Aws.Efs.MountTarget("alphaMountTarget", new()
+    ///     {
+    ///         FileSystemId = aws_efs_file_system.Foo.Id,
+    ///         SubnetId = alphaSubnet.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Efs
     /// ```
     /// </summary>
     [AwsResourceType("aws:efs/mountTarget:MountTarget")]
-    public partial class MountTarget : Pulumi.CustomResource
+    public partial class MountTarget : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Efs
         }
     }
 
-    public sealed class MountTargetArgs : Pulumi.ResourceArgs
+    public sealed class MountTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the file system for which the mount target is intended.
@@ -202,9 +202,10 @@ namespace Pulumi.Aws.Efs
         public MountTargetArgs()
         {
         }
+        public static new MountTargetArgs Empty => new MountTargetArgs();
     }
 
-    public sealed class MountTargetState : Pulumi.ResourceArgs
+    public sealed class MountTargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
@@ -283,5 +284,6 @@ namespace Pulumi.Aws.Efs
         public MountTargetState()
         {
         }
+        public static new MountTargetState Empty => new MountTargetState();
     }
 }

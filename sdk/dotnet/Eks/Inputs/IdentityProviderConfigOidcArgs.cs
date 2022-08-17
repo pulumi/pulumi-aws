@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Eks.Inputs
 {
 
-    public sealed class IdentityProviderConfigOidcArgs : Pulumi.ResourceArgs
+    public sealed class IdentityProviderConfigOidcArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Client ID for the OpenID Connect identity provider.
@@ -69,5 +69,6 @@ namespace Pulumi.Aws.Eks.Inputs
         public IdentityProviderConfigOidcArgs()
         {
         }
+        public static new IdentityProviderConfigOidcArgs Empty => new IdentityProviderConfigOidcArgs();
     }
 }

@@ -31,117 +31,109 @@ namespace Pulumi.Aws.Rds
     /// ### Aurora MySQL 2.x (MySQL 5.7)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Rds.Cluster("default", new()
     ///     {
-    ///         var @default = new Aws.Rds.Cluster("default", new Aws.Rds.ClusterArgs
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-west-2a",
-    ///                 "us-west-2b",
-    ///                 "us-west-2c",
-    ///             },
-    ///             BackupRetentionPeriod = 5,
-    ///             ClusterIdentifier = "aurora-cluster-demo",
-    ///             DatabaseName = "mydb",
-    ///             Engine = "aurora-mysql",
-    ///             EngineVersion = "5.7.mysql_aurora.2.03.2",
-    ///             MasterPassword = "bar",
-    ///             MasterUsername = "foo",
-    ///             PreferredBackupWindow = "07:00-09:00",
-    ///         });
-    ///     }
+    ///             "us-west-2a",
+    ///             "us-west-2b",
+    ///             "us-west-2c",
+    ///         },
+    ///         BackupRetentionPeriod = 5,
+    ///         ClusterIdentifier = "aurora-cluster-demo",
+    ///         DatabaseName = "mydb",
+    ///         Engine = "aurora-mysql",
+    ///         EngineVersion = "5.7.mysql_aurora.2.03.2",
+    ///         MasterPassword = "bar",
+    ///         MasterUsername = "foo",
+    ///         PreferredBackupWindow = "07:00-09:00",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Aurora MySQL 1.x (MySQL 5.6)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Rds.Cluster("default", new()
     ///     {
-    ///         var @default = new Aws.Rds.Cluster("default", new Aws.Rds.ClusterArgs
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-west-2a",
-    ///                 "us-west-2b",
-    ///                 "us-west-2c",
-    ///             },
-    ///             BackupRetentionPeriod = 5,
-    ///             ClusterIdentifier = "aurora-cluster-demo",
-    ///             DatabaseName = "mydb",
-    ///             MasterPassword = "bar",
-    ///             MasterUsername = "foo",
-    ///             PreferredBackupWindow = "07:00-09:00",
-    ///         });
-    ///     }
+    ///             "us-west-2a",
+    ///             "us-west-2b",
+    ///             "us-west-2c",
+    ///         },
+    ///         BackupRetentionPeriod = 5,
+    ///         ClusterIdentifier = "aurora-cluster-demo",
+    ///         DatabaseName = "mydb",
+    ///         MasterPassword = "bar",
+    ///         MasterUsername = "foo",
+    ///         PreferredBackupWindow = "07:00-09:00",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Aurora with PostgreSQL engine
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var postgresql = new Aws.Rds.Cluster("postgresql", new()
     ///     {
-    ///         var postgresql = new Aws.Rds.Cluster("postgresql", new Aws.Rds.ClusterArgs
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-west-2a",
-    ///                 "us-west-2b",
-    ///                 "us-west-2c",
-    ///             },
-    ///             BackupRetentionPeriod = 5,
-    ///             ClusterIdentifier = "aurora-cluster-demo",
-    ///             DatabaseName = "mydb",
-    ///             Engine = "aurora-postgresql",
-    ///             MasterPassword = "bar",
-    ///             MasterUsername = "foo",
-    ///             PreferredBackupWindow = "07:00-09:00",
-    ///         });
-    ///     }
+    ///             "us-west-2a",
+    ///             "us-west-2b",
+    ///             "us-west-2c",
+    ///         },
+    ///         BackupRetentionPeriod = 5,
+    ///         ClusterIdentifier = "aurora-cluster-demo",
+    ///         DatabaseName = "mydb",
+    ///         Engine = "aurora-postgresql",
+    ///         MasterPassword = "bar",
+    ///         MasterUsername = "foo",
+    ///         PreferredBackupWindow = "07:00-09:00",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Aurora Multi-Master Cluster
     /// 
     /// &gt; More information about Aurora Multi-Master Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Rds.Cluster("example", new()
     ///     {
-    ///         var example = new Aws.Rds.Cluster("example", new Aws.Rds.ClusterArgs
-    ///         {
-    ///             ClusterIdentifier = "example",
-    ///             DbSubnetGroupName = aws_db_subnet_group.Example.Name,
-    ///             EngineMode = "multimaster",
-    ///             MasterPassword = "barbarbarbar",
-    ///             MasterUsername = "foo",
-    ///             SkipFinalSnapshot = true,
-    ///         });
-    ///     }
+    ///         ClusterIdentifier = "example",
+    ///         DbSubnetGroupName = aws_db_subnet_group.Example.Name,
+    ///         EngineMode = "multimaster",
+    ///         MasterPassword = "barbarbarbar",
+    ///         MasterUsername = "foo",
+    ///         SkipFinalSnapshot = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### RDS Multi-AZ Cluster
     /// 
@@ -150,33 +142,31 @@ namespace Pulumi.Aws.Rds
     /// To create a Multi-AZ RDS cluster, you must additionally specify the `engine`, `storage_type`, `allocated_storage`, `iops` and `db_cluster_instance_class` attributes.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Rds.Cluster("example", new()
     ///     {
-    ///         var example = new Aws.Rds.Cluster("example", new Aws.Rds.ClusterArgs
+    ///         AllocatedStorage = 100,
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             AllocatedStorage = 100,
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-west-2a",
-    ///                 "us-west-2b",
-    ///                 "us-west-2c",
-    ///             },
-    ///             ClusterIdentifier = "example",
-    ///             DbClusterInstanceClass = "db.r6gd.xlarge",
-    ///             Engine = "mysql",
-    ///             Iops = 1000,
-    ///             MasterPassword = "mustbeeightcharaters",
-    ///             MasterUsername = "test",
-    ///             StorageType = "io1",
-    ///         });
-    ///     }
+    ///             "us-west-2a",
+    ///             "us-west-2b",
+    ///             "us-west-2c",
+    ///         },
+    ///         ClusterIdentifier = "example",
+    ///         DbClusterInstanceClass = "db.r6gd.xlarge",
+    ///         Engine = "mysql",
+    ///         Iops = 1000,
+    ///         MasterPassword = "mustbeeightcharaters",
+    ///         MasterUsername = "test",
+    ///         StorageType = "io1",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### RDS Serverless v2 Cluster
     /// 
@@ -185,38 +175,37 @@ namespace Pulumi.Aws.Rds
     /// To create a Serverless v2 RDS cluster, you must additionally specify the `engine_mode` and `serverlessv2_scaling_configuration` attributes. An `aws.rds.ClusterInstance` resource must also be added to the cluster with the `instance_class` attribute specified.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleCluster = new Aws.Rds.Cluster("exampleCluster", new()
     ///     {
-    ///         var exampleCluster = new Aws.Rds.Cluster("exampleCluster", new Aws.Rds.ClusterArgs
+    ///         ClusterIdentifier = "example",
+    ///         Engine = "aurora-postgresql",
+    ///         EngineMode = "provisioned",
+    ///         EngineVersion = "13.6",
+    ///         DatabaseName = "test",
+    ///         MasterUsername = "test",
+    ///         MasterPassword = "must_be_eight_characters",
+    ///         Serverlessv2ScalingConfiguration = new Aws.Rds.Inputs.ClusterServerlessv2ScalingConfigurationArgs
     ///         {
-    ///             ClusterIdentifier = "example",
-    ///             Engine = "aurora-postgresql",
-    ///             EngineMode = "provisioned",
-    ///             EngineVersion = "13.6",
-    ///             DatabaseName = "test",
-    ///             MasterUsername = "test",
-    ///             MasterPassword = "must_be_eight_characters",
-    ///             Serverlessv2ScalingConfiguration = new Aws.Rds.Inputs.ClusterServerlessv2ScalingConfigurationArgs
-    ///             {
-    ///                 MaxCapacity = 1,
-    ///                 MinCapacity = 0.5,
-    ///             },
-    ///         });
-    ///         var exampleClusterInstance = new Aws.Rds.ClusterInstance("exampleClusterInstance", new Aws.Rds.ClusterInstanceArgs
-    ///         {
-    ///             ClusterIdentifier = exampleCluster.Id,
-    ///             InstanceClass = "db.serverless",
-    ///             Engine = exampleCluster.Engine,
-    ///             EngineVersion = exampleCluster.EngineVersion,
-    ///         });
-    ///     }
+    ///             MaxCapacity = 1,
+    ///             MinCapacity = 0.5,
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleClusterInstance = new Aws.Rds.ClusterInstance("exampleClusterInstance", new()
+    ///     {
+    ///         ClusterIdentifier = exampleCluster.Id,
+    ///         InstanceClass = "db.serverless",
+    ///         Engine = exampleCluster.Engine,
+    ///         EngineVersion = exampleCluster.EngineVersion,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -228,7 +217,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/cluster:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster).
@@ -529,7 +518,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -584,7 +573,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster).
@@ -892,9 +881,10 @@ namespace Pulumi.Aws.Rds
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 
-    public sealed class ClusterState : Pulumi.ResourceArgs
+    public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster. (This setting is required to create a Multi-AZ DB cluster).
@@ -1228,7 +1218,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -1251,5 +1241,6 @@ namespace Pulumi.Aws.Rds
         public ClusterState()
         {
         }
+        public static new ClusterState Empty => new ClusterState();
     }
 }

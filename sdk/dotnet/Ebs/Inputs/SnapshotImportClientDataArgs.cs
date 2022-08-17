@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ebs.Inputs
 {
 
-    public sealed class SnapshotImportClientDataArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotImportClientDataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A user-defined comment about the disk upload.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Ebs.Inputs
         public SnapshotImportClientDataArgs()
         {
         }
+        public static new SnapshotImportClientDataArgs Empty => new SnapshotImportClientDataArgs();
     }
 }

@@ -13,20 +13,18 @@ namespace Pulumi.Aws.Location
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Location.GeofenceCollection("example", new()
     ///     {
-    ///         var example = new Aws.Location.GeofenceCollection("example", new Aws.Location.GeofenceCollectionArgs
-    ///         {
-    ///             CollectionName = "example",
-    ///         });
-    ///     }
+    ///         CollectionName = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -38,7 +36,7 @@ namespace Pulumi.Aws.Location
     /// ```
     /// </summary>
     [AwsResourceType("aws:location/geofenceCollection:GeofenceCollection")]
-    public partial class GeofenceCollection : Pulumi.CustomResource
+    public partial class GeofenceCollection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
@@ -126,7 +124,7 @@ namespace Pulumi.Aws.Location
         }
     }
 
-    public sealed class GeofenceCollectionArgs : Pulumi.ResourceArgs
+    public sealed class GeofenceCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the geofence collection.
@@ -154,20 +152,13 @@ namespace Pulumi.Aws.Location
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public GeofenceCollectionArgs()
         {
         }
+        public static new GeofenceCollectionArgs Empty => new GeofenceCollectionArgs();
     }
 
-    public sealed class GeofenceCollectionState : Pulumi.ResourceArgs
+    public sealed class GeofenceCollectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
@@ -224,5 +215,6 @@ namespace Pulumi.Aws.Location
         public GeofenceCollectionState()
         {
         }
+        public static new GeofenceCollectionState Empty => new GeofenceCollectionState();
     }
 }

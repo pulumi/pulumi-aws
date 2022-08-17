@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iam.Inputs
 {
 
-    public sealed class GetPolicyDocumentStatementConditionInputArgs : Pulumi.ResourceArgs
+    public sealed class GetPolicyDocumentStatementConditionInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Iam.Inputs
         public GetPolicyDocumentStatementConditionInputArgs()
         {
         }
+        public static new GetPolicyDocumentStatementConditionInputArgs Empty => new GetPolicyDocumentStatementConditionInputArgs();
     }
 }

@@ -16,74 +16,72 @@ namespace Pulumi.Aws.AppAutoScaling
     /// ### DynamoDB Table Autoscaling
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var dynamodbTarget = new Aws.AppAutoScaling.Target("dynamodbTarget", new()
     ///     {
-    ///         var dynamodbTarget = new Aws.AppAutoScaling.Target("dynamodbTarget", new Aws.AppAutoScaling.TargetArgs
-    ///         {
-    ///             MaxCapacity = 100,
-    ///             MinCapacity = 5,
-    ///             ResourceId = "table/tableName",
-    ///             ScalableDimension = "dynamodb:table:ReadCapacityUnits",
-    ///             ServiceNamespace = "dynamodb",
-    ///         });
-    ///         var dynamodbScheduledAction = new Aws.AppAutoScaling.ScheduledAction("dynamodbScheduledAction", new Aws.AppAutoScaling.ScheduledActionArgs
-    ///         {
-    ///             ServiceNamespace = dynamodbTarget.ServiceNamespace,
-    ///             ResourceId = dynamodbTarget.ResourceId,
-    ///             ScalableDimension = dynamodbTarget.ScalableDimension,
-    ///             Schedule = "at(2006-01-02T15:04:05)",
-    ///             ScalableTargetAction = new Aws.AppAutoScaling.Inputs.ScheduledActionScalableTargetActionArgs
-    ///             {
-    ///                 MinCapacity = 1,
-    ///                 MaxCapacity = 200,
-    ///             },
-    ///         });
-    ///     }
+    ///         MaxCapacity = 100,
+    ///         MinCapacity = 5,
+    ///         ResourceId = "table/tableName",
+    ///         ScalableDimension = "dynamodb:table:ReadCapacityUnits",
+    ///         ServiceNamespace = "dynamodb",
+    ///     });
     /// 
-    /// }
+    ///     var dynamodbScheduledAction = new Aws.AppAutoScaling.ScheduledAction("dynamodbScheduledAction", new()
+    ///     {
+    ///         ServiceNamespace = dynamodbTarget.ServiceNamespace,
+    ///         ResourceId = dynamodbTarget.ResourceId,
+    ///         ScalableDimension = dynamodbTarget.ScalableDimension,
+    ///         Schedule = "at(2006-01-02T15:04:05)",
+    ///         ScalableTargetAction = new Aws.AppAutoScaling.Inputs.ScheduledActionScalableTargetActionArgs
+    ///         {
+    ///             MinCapacity = 1,
+    ///             MaxCapacity = 200,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### ECS Service Autoscaling
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new()
     ///     {
-    ///         var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new Aws.AppAutoScaling.TargetArgs
-    ///         {
-    ///             MaxCapacity = 4,
-    ///             MinCapacity = 1,
-    ///             ResourceId = "service/clusterName/serviceName",
-    ///             ScalableDimension = "ecs:service:DesiredCount",
-    ///             ServiceNamespace = "ecs",
-    ///         });
-    ///         var ecsScheduledAction = new Aws.AppAutoScaling.ScheduledAction("ecsScheduledAction", new Aws.AppAutoScaling.ScheduledActionArgs
-    ///         {
-    ///             ServiceNamespace = ecsTarget.ServiceNamespace,
-    ///             ResourceId = ecsTarget.ResourceId,
-    ///             ScalableDimension = ecsTarget.ScalableDimension,
-    ///             Schedule = "at(2006-01-02T15:04:05)",
-    ///             ScalableTargetAction = new Aws.AppAutoScaling.Inputs.ScheduledActionScalableTargetActionArgs
-    ///             {
-    ///                 MinCapacity = 1,
-    ///                 MaxCapacity = 10,
-    ///             },
-    ///         });
-    ///     }
+    ///         MaxCapacity = 4,
+    ///         MinCapacity = 1,
+    ///         ResourceId = "service/clusterName/serviceName",
+    ///         ScalableDimension = "ecs:service:DesiredCount",
+    ///         ServiceNamespace = "ecs",
+    ///     });
     /// 
-    /// }
+    ///     var ecsScheduledAction = new Aws.AppAutoScaling.ScheduledAction("ecsScheduledAction", new()
+    ///     {
+    ///         ServiceNamespace = ecsTarget.ServiceNamespace,
+    ///         ResourceId = ecsTarget.ResourceId,
+    ///         ScalableDimension = ecsTarget.ScalableDimension,
+    ///         Schedule = "at(2006-01-02T15:04:05)",
+    ///         ScalableTargetAction = new Aws.AppAutoScaling.Inputs.ScheduledActionScalableTargetActionArgs
+    ///         {
+    ///             MinCapacity = 1,
+    ///             MaxCapacity = 10,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:appautoscaling/scheduledAction:ScheduledAction")]
-    public partial class ScheduledAction : Pulumi.CustomResource
+    public partial class ScheduledAction : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the scheduled action.
@@ -189,7 +187,7 @@ namespace Pulumi.Aws.AppAutoScaling
         }
     }
 
-    public sealed class ScheduledActionArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
@@ -248,9 +246,10 @@ namespace Pulumi.Aws.AppAutoScaling
         public ScheduledActionArgs()
         {
         }
+        public static new ScheduledActionArgs Empty => new ScheduledActionArgs();
     }
 
-    public sealed class ScheduledActionState : Pulumi.ResourceArgs
+    public sealed class ScheduledActionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the scheduled action.
@@ -315,5 +314,6 @@ namespace Pulumi.Aws.AppAutoScaling
         public ScheduledActionState()
         {
         }
+        public static new ScheduledActionState Empty => new ScheduledActionState();
     }
 }

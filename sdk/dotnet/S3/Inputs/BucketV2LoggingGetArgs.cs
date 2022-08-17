@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketV2LoggingGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketV2LoggingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket that will receive the log objects.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketV2LoggingGetArgs()
         {
         }
+        public static new BucketV2LoggingGetArgs Empty => new BucketV2LoggingGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustGetArgs()
         {
         }
+        public static new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustGetArgs Empty => new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustGetArgs();
     }
 }

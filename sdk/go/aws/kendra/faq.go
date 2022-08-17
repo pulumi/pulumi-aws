@@ -18,7 +18,9 @@ import (
 // `aws_kendra_faq` can be imported using the unique identifiers of the FAQ and index separated by a slash (`/`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
+//
+//	$ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
+//
 // ```
 type Faq struct {
 	pulumi.CustomResourceState
@@ -46,9 +48,8 @@ type Faq struct {
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path FaqS3PathOutput `pulumi:"s3Path"`
 	// The status of the FAQ. It is ready to use when the status is ACTIVE.
-	Status pulumi.StringOutput    `pulumi:"status"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Status  pulumi.StringOutput    `pulumi:"status"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The date and time that the FAQ was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -115,9 +116,8 @@ type faqState struct {
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path *FaqS3Path `pulumi:"s3Path"`
 	// The status of the FAQ. It is ready to use when the status is ACTIVE.
-	Status *string           `pulumi:"status"`
-	Tags   map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Status  *string           `pulumi:"status"`
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The date and time that the FAQ was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -147,9 +147,8 @@ type FaqState struct {
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path FaqS3PathPtrInput
 	// The status of the FAQ. It is ready to use when the status is ACTIVE.
-	Status pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Status  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The date and time that the FAQ was last updated.
 	UpdatedAt pulumi.StringPtrInput
@@ -175,8 +174,6 @@ type faqArgs struct {
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path FaqS3Path         `pulumi:"s3Path"`
 	Tags   map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Faq resource.
@@ -196,8 +193,6 @@ type FaqArgs struct {
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path FaqS3PathInput
 	Tags   pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
 }
 
 func (FaqArgs) ElementType() reflect.Type {
@@ -226,7 +221,7 @@ func (i *Faq) ToFaqOutputWithContext(ctx context.Context) FaqOutput {
 // FaqArrayInput is an input type that accepts FaqArray and FaqArrayOutput values.
 // You can construct a concrete instance of `FaqArrayInput` via:
 //
-//          FaqArray{ FaqArgs{...} }
+//	FaqArray{ FaqArgs{...} }
 type FaqArrayInput interface {
 	pulumi.Input
 
@@ -251,7 +246,7 @@ func (i FaqArray) ToFaqArrayOutputWithContext(ctx context.Context) FaqArrayOutpu
 // FaqMapInput is an input type that accepts FaqMap and FaqMapOutput values.
 // You can construct a concrete instance of `FaqMapInput` via:
 //
-//          FaqMap{ "key": FaqArgs{...} }
+//	FaqMap{ "key": FaqArgs{...} }
 type FaqMapInput interface {
 	pulumi.Input
 
@@ -351,7 +346,6 @@ func (o FaqOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o FaqOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

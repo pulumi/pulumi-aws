@@ -24,7 +24,7 @@ type DataSourceDynamodbConfig struct {
 // DataSourceDynamodbConfigInput is an input type that accepts DataSourceDynamodbConfigArgs and DataSourceDynamodbConfigOutput values.
 // You can construct a concrete instance of `DataSourceDynamodbConfigInput` via:
 //
-//          DataSourceDynamodbConfigArgs{...}
+//	DataSourceDynamodbConfigArgs{...}
 type DataSourceDynamodbConfigInput interface {
 	pulumi.Input
 
@@ -66,11 +66,11 @@ func (i DataSourceDynamodbConfigArgs) ToDataSourceDynamodbConfigPtrOutputWithCon
 // DataSourceDynamodbConfigPtrInput is an input type that accepts DataSourceDynamodbConfigArgs, DataSourceDynamodbConfigPtr and DataSourceDynamodbConfigPtrOutput values.
 // You can construct a concrete instance of `DataSourceDynamodbConfigPtrInput` via:
 //
-//          DataSourceDynamodbConfigArgs{...}
+//	        DataSourceDynamodbConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceDynamodbConfigPtrInput interface {
 	pulumi.Input
 
@@ -224,7 +224,7 @@ type DataSourceDynamodbConfigDeltaSyncConfig struct {
 // DataSourceDynamodbConfigDeltaSyncConfigInput is an input type that accepts DataSourceDynamodbConfigDeltaSyncConfigArgs and DataSourceDynamodbConfigDeltaSyncConfigOutput values.
 // You can construct a concrete instance of `DataSourceDynamodbConfigDeltaSyncConfigInput` via:
 //
-//          DataSourceDynamodbConfigDeltaSyncConfigArgs{...}
+//	DataSourceDynamodbConfigDeltaSyncConfigArgs{...}
 type DataSourceDynamodbConfigDeltaSyncConfigInput interface {
 	pulumi.Input
 
@@ -261,11 +261,11 @@ func (i DataSourceDynamodbConfigDeltaSyncConfigArgs) ToDataSourceDynamodbConfigD
 // DataSourceDynamodbConfigDeltaSyncConfigPtrInput is an input type that accepts DataSourceDynamodbConfigDeltaSyncConfigArgs, DataSourceDynamodbConfigDeltaSyncConfigPtr and DataSourceDynamodbConfigDeltaSyncConfigPtrOutput values.
 // You can construct a concrete instance of `DataSourceDynamodbConfigDeltaSyncConfigPtrInput` via:
 //
-//          DataSourceDynamodbConfigDeltaSyncConfigArgs{...}
+//	        DataSourceDynamodbConfigDeltaSyncConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceDynamodbConfigDeltaSyncConfigPtrInput interface {
 	pulumi.Input
 
@@ -388,7 +388,7 @@ type DataSourceElasticsearchConfig struct {
 // DataSourceElasticsearchConfigInput is an input type that accepts DataSourceElasticsearchConfigArgs and DataSourceElasticsearchConfigOutput values.
 // You can construct a concrete instance of `DataSourceElasticsearchConfigInput` via:
 //
-//          DataSourceElasticsearchConfigArgs{...}
+//	DataSourceElasticsearchConfigArgs{...}
 type DataSourceElasticsearchConfigInput interface {
 	pulumi.Input
 
@@ -426,11 +426,11 @@ func (i DataSourceElasticsearchConfigArgs) ToDataSourceElasticsearchConfigPtrOut
 // DataSourceElasticsearchConfigPtrInput is an input type that accepts DataSourceElasticsearchConfigArgs, DataSourceElasticsearchConfigPtr and DataSourceElasticsearchConfigPtrOutput values.
 // You can construct a concrete instance of `DataSourceElasticsearchConfigPtrInput` via:
 //
-//          DataSourceElasticsearchConfigArgs{...}
+//	        DataSourceElasticsearchConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceElasticsearchConfigPtrInput interface {
 	pulumi.Input
 
@@ -544,7 +544,7 @@ type DataSourceHttpConfig struct {
 // DataSourceHttpConfigInput is an input type that accepts DataSourceHttpConfigArgs and DataSourceHttpConfigOutput values.
 // You can construct a concrete instance of `DataSourceHttpConfigInput` via:
 //
-//          DataSourceHttpConfigArgs{...}
+//	DataSourceHttpConfigArgs{...}
 type DataSourceHttpConfigInput interface {
 	pulumi.Input
 
@@ -582,11 +582,11 @@ func (i DataSourceHttpConfigArgs) ToDataSourceHttpConfigPtrOutputWithContext(ctx
 // DataSourceHttpConfigPtrInput is an input type that accepts DataSourceHttpConfigArgs, DataSourceHttpConfigPtr and DataSourceHttpConfigPtrOutput values.
 // You can construct a concrete instance of `DataSourceHttpConfigPtrInput` via:
 //
-//          DataSourceHttpConfigArgs{...}
+//	        DataSourceHttpConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceHttpConfigPtrInput interface {
 	pulumi.Input
 
@@ -700,7 +700,7 @@ type DataSourceHttpConfigAuthorizationConfig struct {
 // DataSourceHttpConfigAuthorizationConfigInput is an input type that accepts DataSourceHttpConfigAuthorizationConfigArgs and DataSourceHttpConfigAuthorizationConfigOutput values.
 // You can construct a concrete instance of `DataSourceHttpConfigAuthorizationConfigInput` via:
 //
-//          DataSourceHttpConfigAuthorizationConfigArgs{...}
+//	DataSourceHttpConfigAuthorizationConfigArgs{...}
 type DataSourceHttpConfigAuthorizationConfigInput interface {
 	pulumi.Input
 
@@ -738,11 +738,11 @@ func (i DataSourceHttpConfigAuthorizationConfigArgs) ToDataSourceHttpConfigAutho
 // DataSourceHttpConfigAuthorizationConfigPtrInput is an input type that accepts DataSourceHttpConfigAuthorizationConfigArgs, DataSourceHttpConfigAuthorizationConfigPtr and DataSourceHttpConfigAuthorizationConfigPtrOutput values.
 // You can construct a concrete instance of `DataSourceHttpConfigAuthorizationConfigPtrInput` via:
 //
-//          DataSourceHttpConfigAuthorizationConfigArgs{...}
+//	        DataSourceHttpConfigAuthorizationConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceHttpConfigAuthorizationConfigPtrInput interface {
 	pulumi.Input
 
@@ -858,7 +858,7 @@ type DataSourceHttpConfigAuthorizationConfigAwsIamConfig struct {
 // DataSourceHttpConfigAuthorizationConfigAwsIamConfigInput is an input type that accepts DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs and DataSourceHttpConfigAuthorizationConfigAwsIamConfigOutput values.
 // You can construct a concrete instance of `DataSourceHttpConfigAuthorizationConfigAwsIamConfigInput` via:
 //
-//          DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs{...}
+//	DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs{...}
 type DataSourceHttpConfigAuthorizationConfigAwsIamConfigInput interface {
 	pulumi.Input
 
@@ -896,11 +896,11 @@ func (i DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs) ToDataSourceHtt
 // DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrInput is an input type that accepts DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs, DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtr and DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput values.
 // You can construct a concrete instance of `DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrInput` via:
 //
-//          DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs{...}
+//	        DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrInput interface {
 	pulumi.Input
 
@@ -1012,7 +1012,7 @@ type DataSourceLambdaConfig struct {
 // DataSourceLambdaConfigInput is an input type that accepts DataSourceLambdaConfigArgs and DataSourceLambdaConfigOutput values.
 // You can construct a concrete instance of `DataSourceLambdaConfigInput` via:
 //
-//          DataSourceLambdaConfigArgs{...}
+//	DataSourceLambdaConfigArgs{...}
 type DataSourceLambdaConfigInput interface {
 	pulumi.Input
 
@@ -1048,11 +1048,11 @@ func (i DataSourceLambdaConfigArgs) ToDataSourceLambdaConfigPtrOutputWithContext
 // DataSourceLambdaConfigPtrInput is an input type that accepts DataSourceLambdaConfigArgs, DataSourceLambdaConfigPtr and DataSourceLambdaConfigPtrOutput values.
 // You can construct a concrete instance of `DataSourceLambdaConfigPtrInput` via:
 //
-//          DataSourceLambdaConfigArgs{...}
+//	        DataSourceLambdaConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceLambdaConfigPtrInput interface {
 	pulumi.Input
 
@@ -1151,7 +1151,7 @@ type DataSourceRelationalDatabaseConfig struct {
 // DataSourceRelationalDatabaseConfigInput is an input type that accepts DataSourceRelationalDatabaseConfigArgs and DataSourceRelationalDatabaseConfigOutput values.
 // You can construct a concrete instance of `DataSourceRelationalDatabaseConfigInput` via:
 //
-//          DataSourceRelationalDatabaseConfigArgs{...}
+//	DataSourceRelationalDatabaseConfigArgs{...}
 type DataSourceRelationalDatabaseConfigInput interface {
 	pulumi.Input
 
@@ -1189,11 +1189,11 @@ func (i DataSourceRelationalDatabaseConfigArgs) ToDataSourceRelationalDatabaseCo
 // DataSourceRelationalDatabaseConfigPtrInput is an input type that accepts DataSourceRelationalDatabaseConfigArgs, DataSourceRelationalDatabaseConfigPtr and DataSourceRelationalDatabaseConfigPtrOutput values.
 // You can construct a concrete instance of `DataSourceRelationalDatabaseConfigPtrInput` via:
 //
-//          DataSourceRelationalDatabaseConfigArgs{...}
+//	        DataSourceRelationalDatabaseConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceRelationalDatabaseConfigPtrInput interface {
 	pulumi.Input
 
@@ -1315,7 +1315,7 @@ type DataSourceRelationalDatabaseConfigHttpEndpointConfig struct {
 // DataSourceRelationalDatabaseConfigHttpEndpointConfigInput is an input type that accepts DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs and DataSourceRelationalDatabaseConfigHttpEndpointConfigOutput values.
 // You can construct a concrete instance of `DataSourceRelationalDatabaseConfigHttpEndpointConfigInput` via:
 //
-//          DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs{...}
+//	DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs{...}
 type DataSourceRelationalDatabaseConfigHttpEndpointConfigInput interface {
 	pulumi.Input
 
@@ -1359,11 +1359,11 @@ func (i DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs) ToDataSourceRe
 // DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrInput is an input type that accepts DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs, DataSourceRelationalDatabaseConfigHttpEndpointConfigPtr and DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput values.
 // You can construct a concrete instance of `DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrInput` via:
 //
-//          DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs{...}
+//	        DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrInput interface {
 	pulumi.Input
 
@@ -1524,7 +1524,7 @@ type FunctionSyncConfig struct {
 // FunctionSyncConfigInput is an input type that accepts FunctionSyncConfigArgs and FunctionSyncConfigOutput values.
 // You can construct a concrete instance of `FunctionSyncConfigInput` via:
 //
-//          FunctionSyncConfigArgs{...}
+//	FunctionSyncConfigArgs{...}
 type FunctionSyncConfigInput interface {
 	pulumi.Input
 
@@ -1564,11 +1564,11 @@ func (i FunctionSyncConfigArgs) ToFunctionSyncConfigPtrOutputWithContext(ctx con
 // FunctionSyncConfigPtrInput is an input type that accepts FunctionSyncConfigArgs, FunctionSyncConfigPtr and FunctionSyncConfigPtrOutput values.
 // You can construct a concrete instance of `FunctionSyncConfigPtrInput` via:
 //
-//          FunctionSyncConfigArgs{...}
+//	        FunctionSyncConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FunctionSyncConfigPtrInput interface {
 	pulumi.Input
 
@@ -1697,7 +1697,7 @@ type FunctionSyncConfigLambdaConflictHandlerConfig struct {
 // FunctionSyncConfigLambdaConflictHandlerConfigInput is an input type that accepts FunctionSyncConfigLambdaConflictHandlerConfigArgs and FunctionSyncConfigLambdaConflictHandlerConfigOutput values.
 // You can construct a concrete instance of `FunctionSyncConfigLambdaConflictHandlerConfigInput` via:
 //
-//          FunctionSyncConfigLambdaConflictHandlerConfigArgs{...}
+//	FunctionSyncConfigLambdaConflictHandlerConfigArgs{...}
 type FunctionSyncConfigLambdaConflictHandlerConfigInput interface {
 	pulumi.Input
 
@@ -1733,11 +1733,11 @@ func (i FunctionSyncConfigLambdaConflictHandlerConfigArgs) ToFunctionSyncConfigL
 // FunctionSyncConfigLambdaConflictHandlerConfigPtrInput is an input type that accepts FunctionSyncConfigLambdaConflictHandlerConfigArgs, FunctionSyncConfigLambdaConflictHandlerConfigPtr and FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput values.
 // You can construct a concrete instance of `FunctionSyncConfigLambdaConflictHandlerConfigPtrInput` via:
 //
-//          FunctionSyncConfigLambdaConflictHandlerConfigArgs{...}
+//	        FunctionSyncConfigLambdaConflictHandlerConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FunctionSyncConfigLambdaConflictHandlerConfigPtrInput interface {
 	pulumi.Input
 
@@ -1840,7 +1840,7 @@ type GraphQLApiAdditionalAuthenticationProvider struct {
 // GraphQLApiAdditionalAuthenticationProviderInput is an input type that accepts GraphQLApiAdditionalAuthenticationProviderArgs and GraphQLApiAdditionalAuthenticationProviderOutput values.
 // You can construct a concrete instance of `GraphQLApiAdditionalAuthenticationProviderInput` via:
 //
-//          GraphQLApiAdditionalAuthenticationProviderArgs{...}
+//	GraphQLApiAdditionalAuthenticationProviderArgs{...}
 type GraphQLApiAdditionalAuthenticationProviderInput interface {
 	pulumi.Input
 
@@ -1874,7 +1874,7 @@ func (i GraphQLApiAdditionalAuthenticationProviderArgs) ToGraphQLApiAdditionalAu
 // GraphQLApiAdditionalAuthenticationProviderArrayInput is an input type that accepts GraphQLApiAdditionalAuthenticationProviderArray and GraphQLApiAdditionalAuthenticationProviderArrayOutput values.
 // You can construct a concrete instance of `GraphQLApiAdditionalAuthenticationProviderArrayInput` via:
 //
-//          GraphQLApiAdditionalAuthenticationProviderArray{ GraphQLApiAdditionalAuthenticationProviderArgs{...} }
+//	GraphQLApiAdditionalAuthenticationProviderArray{ GraphQLApiAdditionalAuthenticationProviderArgs{...} }
 type GraphQLApiAdditionalAuthenticationProviderArrayInput interface {
 	pulumi.Input
 
@@ -1968,7 +1968,7 @@ type GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig struct {
 // GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigInput is an input type that accepts GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs and GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput values.
 // You can construct a concrete instance of `GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigInput` via:
 //
-//          GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs{...}
+//	GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs{...}
 type GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigInput interface {
 	pulumi.Input
 
@@ -2008,11 +2008,11 @@ func (i GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs) To
 // GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrInput is an input type that accepts GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs, GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtr and GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput values.
 // You can construct a concrete instance of `GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrInput` via:
 //
-//          GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs{...}
+//	        GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrInput interface {
 	pulumi.Input
 
@@ -2151,7 +2151,7 @@ type GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig struct {
 // GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigInput is an input type that accepts GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs and GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput values.
 // You can construct a concrete instance of `GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigInput` via:
 //
-//          GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs{...}
+//	GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs{...}
 type GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigInput interface {
 	pulumi.Input
 
@@ -2193,11 +2193,11 @@ func (i GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs) ToGra
 // GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrInput is an input type that accepts GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs, GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtr and GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput values.
 // You can construct a concrete instance of `GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrInput` via:
 //
-//          GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs{...}
+//	        GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrInput interface {
 	pulumi.Input
 
@@ -2343,7 +2343,7 @@ type GraphQLApiAdditionalAuthenticationProviderUserPoolConfig struct {
 // GraphQLApiAdditionalAuthenticationProviderUserPoolConfigInput is an input type that accepts GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs and GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput values.
 // You can construct a concrete instance of `GraphQLApiAdditionalAuthenticationProviderUserPoolConfigInput` via:
 //
-//          GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs{...}
+//	GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs{...}
 type GraphQLApiAdditionalAuthenticationProviderUserPoolConfigInput interface {
 	pulumi.Input
 
@@ -2383,11 +2383,11 @@ func (i GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs) ToGraphQLA
 // GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrInput is an input type that accepts GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs, GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtr and GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput values.
 // You can construct a concrete instance of `GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrInput` via:
 //
-//          GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs{...}
+//	        GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrInput interface {
 	pulumi.Input
 
@@ -2518,7 +2518,7 @@ type GraphQLApiLambdaAuthorizerConfig struct {
 // GraphQLApiLambdaAuthorizerConfigInput is an input type that accepts GraphQLApiLambdaAuthorizerConfigArgs and GraphQLApiLambdaAuthorizerConfigOutput values.
 // You can construct a concrete instance of `GraphQLApiLambdaAuthorizerConfigInput` via:
 //
-//          GraphQLApiLambdaAuthorizerConfigArgs{...}
+//	GraphQLApiLambdaAuthorizerConfigArgs{...}
 type GraphQLApiLambdaAuthorizerConfigInput interface {
 	pulumi.Input
 
@@ -2558,11 +2558,11 @@ func (i GraphQLApiLambdaAuthorizerConfigArgs) ToGraphQLApiLambdaAuthorizerConfig
 // GraphQLApiLambdaAuthorizerConfigPtrInput is an input type that accepts GraphQLApiLambdaAuthorizerConfigArgs, GraphQLApiLambdaAuthorizerConfigPtr and GraphQLApiLambdaAuthorizerConfigPtrOutput values.
 // You can construct a concrete instance of `GraphQLApiLambdaAuthorizerConfigPtrInput` via:
 //
-//          GraphQLApiLambdaAuthorizerConfigArgs{...}
+//	        GraphQLApiLambdaAuthorizerConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GraphQLApiLambdaAuthorizerConfigPtrInput interface {
 	pulumi.Input
 
@@ -2693,7 +2693,7 @@ type GraphQLApiLogConfig struct {
 // GraphQLApiLogConfigInput is an input type that accepts GraphQLApiLogConfigArgs and GraphQLApiLogConfigOutput values.
 // You can construct a concrete instance of `GraphQLApiLogConfigInput` via:
 //
-//          GraphQLApiLogConfigArgs{...}
+//	GraphQLApiLogConfigArgs{...}
 type GraphQLApiLogConfigInput interface {
 	pulumi.Input
 
@@ -2733,11 +2733,11 @@ func (i GraphQLApiLogConfigArgs) ToGraphQLApiLogConfigPtrOutputWithContext(ctx c
 // GraphQLApiLogConfigPtrInput is an input type that accepts GraphQLApiLogConfigArgs, GraphQLApiLogConfigPtr and GraphQLApiLogConfigPtrOutput values.
 // You can construct a concrete instance of `GraphQLApiLogConfigPtrInput` via:
 //
-//          GraphQLApiLogConfigArgs{...}
+//	        GraphQLApiLogConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GraphQLApiLogConfigPtrInput interface {
 	pulumi.Input
 
@@ -2870,7 +2870,7 @@ type GraphQLApiOpenidConnectConfig struct {
 // GraphQLApiOpenidConnectConfigInput is an input type that accepts GraphQLApiOpenidConnectConfigArgs and GraphQLApiOpenidConnectConfigOutput values.
 // You can construct a concrete instance of `GraphQLApiOpenidConnectConfigInput` via:
 //
-//          GraphQLApiOpenidConnectConfigArgs{...}
+//	GraphQLApiOpenidConnectConfigArgs{...}
 type GraphQLApiOpenidConnectConfigInput interface {
 	pulumi.Input
 
@@ -2912,11 +2912,11 @@ func (i GraphQLApiOpenidConnectConfigArgs) ToGraphQLApiOpenidConnectConfigPtrOut
 // GraphQLApiOpenidConnectConfigPtrInput is an input type that accepts GraphQLApiOpenidConnectConfigArgs, GraphQLApiOpenidConnectConfigPtr and GraphQLApiOpenidConnectConfigPtrOutput values.
 // You can construct a concrete instance of `GraphQLApiOpenidConnectConfigPtrInput` via:
 //
-//          GraphQLApiOpenidConnectConfigArgs{...}
+//	        GraphQLApiOpenidConnectConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GraphQLApiOpenidConnectConfigPtrInput interface {
 	pulumi.Input
 
@@ -3064,7 +3064,7 @@ type GraphQLApiUserPoolConfig struct {
 // GraphQLApiUserPoolConfigInput is an input type that accepts GraphQLApiUserPoolConfigArgs and GraphQLApiUserPoolConfigOutput values.
 // You can construct a concrete instance of `GraphQLApiUserPoolConfigInput` via:
 //
-//          GraphQLApiUserPoolConfigArgs{...}
+//	GraphQLApiUserPoolConfigArgs{...}
 type GraphQLApiUserPoolConfigInput interface {
 	pulumi.Input
 
@@ -3106,11 +3106,11 @@ func (i GraphQLApiUserPoolConfigArgs) ToGraphQLApiUserPoolConfigPtrOutputWithCon
 // GraphQLApiUserPoolConfigPtrInput is an input type that accepts GraphQLApiUserPoolConfigArgs, GraphQLApiUserPoolConfigPtr and GraphQLApiUserPoolConfigPtrOutput values.
 // You can construct a concrete instance of `GraphQLApiUserPoolConfigPtrInput` via:
 //
-//          GraphQLApiUserPoolConfigArgs{...}
+//	        GraphQLApiUserPoolConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GraphQLApiUserPoolConfigPtrInput interface {
 	pulumi.Input
 
@@ -3254,7 +3254,7 @@ type ResolverCachingConfig struct {
 // ResolverCachingConfigInput is an input type that accepts ResolverCachingConfigArgs and ResolverCachingConfigOutput values.
 // You can construct a concrete instance of `ResolverCachingConfigInput` via:
 //
-//          ResolverCachingConfigArgs{...}
+//	ResolverCachingConfigArgs{...}
 type ResolverCachingConfigInput interface {
 	pulumi.Input
 
@@ -3292,11 +3292,11 @@ func (i ResolverCachingConfigArgs) ToResolverCachingConfigPtrOutputWithContext(c
 // ResolverCachingConfigPtrInput is an input type that accepts ResolverCachingConfigArgs, ResolverCachingConfigPtr and ResolverCachingConfigPtrOutput values.
 // You can construct a concrete instance of `ResolverCachingConfigPtrInput` via:
 //
-//          ResolverCachingConfigArgs{...}
+//	        ResolverCachingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResolverCachingConfigPtrInput interface {
 	pulumi.Input
 
@@ -3408,7 +3408,7 @@ type ResolverPipelineConfig struct {
 // ResolverPipelineConfigInput is an input type that accepts ResolverPipelineConfigArgs and ResolverPipelineConfigOutput values.
 // You can construct a concrete instance of `ResolverPipelineConfigInput` via:
 //
-//          ResolverPipelineConfigArgs{...}
+//	ResolverPipelineConfigArgs{...}
 type ResolverPipelineConfigInput interface {
 	pulumi.Input
 
@@ -3444,11 +3444,11 @@ func (i ResolverPipelineConfigArgs) ToResolverPipelineConfigPtrOutputWithContext
 // ResolverPipelineConfigPtrInput is an input type that accepts ResolverPipelineConfigArgs, ResolverPipelineConfigPtr and ResolverPipelineConfigPtrOutput values.
 // You can construct a concrete instance of `ResolverPipelineConfigPtrInput` via:
 //
-//          ResolverPipelineConfigArgs{...}
+//	        ResolverPipelineConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResolverPipelineConfigPtrInput interface {
 	pulumi.Input
 
@@ -3549,7 +3549,7 @@ type ResolverSyncConfig struct {
 // ResolverSyncConfigInput is an input type that accepts ResolverSyncConfigArgs and ResolverSyncConfigOutput values.
 // You can construct a concrete instance of `ResolverSyncConfigInput` via:
 //
-//          ResolverSyncConfigArgs{...}
+//	ResolverSyncConfigArgs{...}
 type ResolverSyncConfigInput interface {
 	pulumi.Input
 
@@ -3589,11 +3589,11 @@ func (i ResolverSyncConfigArgs) ToResolverSyncConfigPtrOutputWithContext(ctx con
 // ResolverSyncConfigPtrInput is an input type that accepts ResolverSyncConfigArgs, ResolverSyncConfigPtr and ResolverSyncConfigPtrOutput values.
 // You can construct a concrete instance of `ResolverSyncConfigPtrInput` via:
 //
-//          ResolverSyncConfigArgs{...}
+//	        ResolverSyncConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResolverSyncConfigPtrInput interface {
 	pulumi.Input
 
@@ -3722,7 +3722,7 @@ type ResolverSyncConfigLambdaConflictHandlerConfig struct {
 // ResolverSyncConfigLambdaConflictHandlerConfigInput is an input type that accepts ResolverSyncConfigLambdaConflictHandlerConfigArgs and ResolverSyncConfigLambdaConflictHandlerConfigOutput values.
 // You can construct a concrete instance of `ResolverSyncConfigLambdaConflictHandlerConfigInput` via:
 //
-//          ResolverSyncConfigLambdaConflictHandlerConfigArgs{...}
+//	ResolverSyncConfigLambdaConflictHandlerConfigArgs{...}
 type ResolverSyncConfigLambdaConflictHandlerConfigInput interface {
 	pulumi.Input
 
@@ -3758,11 +3758,11 @@ func (i ResolverSyncConfigLambdaConflictHandlerConfigArgs) ToResolverSyncConfigL
 // ResolverSyncConfigLambdaConflictHandlerConfigPtrInput is an input type that accepts ResolverSyncConfigLambdaConflictHandlerConfigArgs, ResolverSyncConfigLambdaConflictHandlerConfigPtr and ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput values.
 // You can construct a concrete instance of `ResolverSyncConfigLambdaConflictHandlerConfigPtrInput` via:
 //
-//          ResolverSyncConfigLambdaConflictHandlerConfigArgs{...}
+//	        ResolverSyncConfigLambdaConflictHandlerConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ResolverSyncConfigLambdaConflictHandlerConfigPtrInput interface {
 	pulumi.Input
 

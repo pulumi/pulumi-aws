@@ -186,14 +186,14 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) Key-value map of resource tags, including those inherited from the provider .
+     * (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return (Optional) Key-value map of resource tags, including those inherited from the provider .
+     * @return (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -463,7 +463,7 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll (Optional) Key-value map of resource tags, including those inherited from the provider .
+         * @param tagsAll (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll (Optional) Key-value map of resource tags, including those inherited from the provider .
+         * @param tagsAll (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

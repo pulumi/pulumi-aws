@@ -16,147 +16,141 @@ namespace Pulumi.Aws.NetworkFirewall
     /// ### Stateful Inspection for denying access to a domain
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.NetworkFirewall.RuleGroup("example", new()
     ///     {
-    ///         var example = new Aws.NetworkFirewall.RuleGroup("example", new Aws.NetworkFirewall.RuleGroupArgs
+    ///         Capacity = 100,
+    ///         RuleGroupConfiguration = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
     ///         {
-    ///             Capacity = 100,
-    ///             RuleGroupConfiguration = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
+    ///             RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
     ///             {
-    ///                 RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
+    ///                 RulesSourceList = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceRulesSourceListArgs
     ///                 {
-    ///                     RulesSourceList = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceRulesSourceListArgs
+    ///                     GeneratedRulesType = "DENYLIST",
+    ///                     TargetTypes = new[]
     ///                     {
-    ///                         GeneratedRulesType = "DENYLIST",
-    ///                         TargetTypes = 
-    ///                         {
-    ///                             "HTTP_HOST",
-    ///                         },
-    ///                         Targets = 
-    ///                         {
-    ///                             "test.example.com",
-    ///                         },
+    ///                         "HTTP_HOST",
+    ///                     },
+    ///                     Targets = new[]
+    ///                     {
+    ///                         "test.example.com",
     ///                     },
     ///                 },
     ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Tag1", "Value1" },
-    ///                 { "Tag2", "Value2" },
-    ///             },
-    ///             Type = "STATEFUL",
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///         Type = "STATEFUL",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Stateful Inspection from rules specifications defined in Suricata flat format
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.NetworkFirewall.RuleGroup("example", new()
     ///     {
-    ///         var example = new Aws.NetworkFirewall.RuleGroup("example", new Aws.NetworkFirewall.RuleGroupArgs
+    ///         Capacity = 100,
+    ///         Type = "STATEFUL",
+    ///         Rules = File.ReadAllText("example.rules"),
+    ///         Tags = 
     ///         {
-    ///             Capacity = 100,
-    ///             Type = "STATEFUL",
-    ///             Rules = File.ReadAllText("example.rules"),
-    ///             Tags = 
-    ///             {
-    ///                 { "Tag1", "Value1" },
-    ///                 { "Tag2", "Value2" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.NetworkFirewall.RuleGroup("example", new()
     ///     {
-    ///         var example = new Aws.NetworkFirewall.RuleGroup("example", new Aws.NetworkFirewall.RuleGroupArgs
+    ///         Capacity = 100,
+    ///         Type = "STATEFUL",
+    ///         RuleGroupConfiguration = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
     ///         {
-    ///             Capacity = 100,
-    ///             Type = "STATEFUL",
-    ///             RuleGroupConfiguration = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
+    ///             RuleVariables = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesArgs
     ///             {
-    ///                 RuleVariables = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesArgs
+    ///                 IpSets = new[]
     ///                 {
-    ///                     IpSets = 
+    ///                     new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesIpSetArgs
     ///                     {
-    ///                         new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesIpSetArgs
+    ///                         Key = "WEBSERVERS_HOSTS",
+    ///                         IpSet = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs
     ///                         {
-    ///                             Key = "WEBSERVERS_HOSTS",
-    ///                             IpSet = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs
+    ///                             Definitions = new[]
     ///                             {
-    ///                                 Definitions = 
-    ///                                 {
-    ///                                     "10.0.0.0/16",
-    ///                                     "10.0.1.0/24",
-    ///                                     "192.168.0.0/16",
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                         new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesIpSetArgs
-    ///                         {
-    ///                             Key = "EXTERNAL_HOST",
-    ///                             IpSet = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs
-    ///                             {
-    ///                                 Definitions = 
-    ///                                 {
-    ///                                     "1.2.3.4/32",
-    ///                                 },
+    ///                                 "10.0.0.0/16",
+    ///                                 "10.0.1.0/24",
+    ///                                 "192.168.0.0/16",
     ///                             },
     ///                         },
     ///                     },
-    ///                     PortSets = 
+    ///                     new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesIpSetArgs
     ///                     {
-    ///                         new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesPortSetArgs
+    ///                         Key = "EXTERNAL_HOST",
+    ///                         IpSet = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs
     ///                         {
-    ///                             Key = "HTTP_PORTS",
-    ///                             PortSet = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs
+    ///                             Definitions = new[]
     ///                             {
-    ///                                 Definitions = 
-    ///                                 {
-    ///                                     "443",
-    ///                                     "80",
-    ///                                 },
+    ///                                 "1.2.3.4/32",
     ///                             },
     ///                         },
     ///                     },
     ///                 },
-    ///                 RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
+    ///                 PortSets = new[]
     ///                 {
-    ///                     RulesString = File.ReadAllText("suricata_rules_file"),
+    ///                     new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesPortSetArgs
+    ///                     {
+    ///                         Key = "HTTP_PORTS",
+    ///                         PortSet = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs
+    ///                         {
+    ///                             Definitions = new[]
+    ///                             {
+    ///                                 "443",
+    ///                                 "80",
+    ///                             },
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
-    ///             Tags = 
+    ///             RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
     ///             {
-    ///                 { "Tag1", "Value1" },
-    ///                 { "Tag2", "Value2" },
+    ///                 RulesString = File.ReadAllText("suricata_rules_file"),
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -168,7 +162,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkfirewall/ruleGroup:RuleGroup")]
-    public partial class RuleGroup : Pulumi.CustomResource
+    public partial class RuleGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the rule group.
@@ -207,13 +201,13 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<string?> Rules { get; private set; } = null!;
 
         /// <summary>
-        /// A map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -274,7 +268,7 @@ namespace Pulumi.Aws.NetworkFirewall
         }
     }
 
-    public sealed class RuleGroupArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
@@ -310,7 +304,7 @@ namespace Pulumi.Aws.NetworkFirewall
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -327,9 +321,10 @@ namespace Pulumi.Aws.NetworkFirewall
         public RuleGroupArgs()
         {
         }
+        public static new RuleGroupArgs Empty => new RuleGroupArgs();
     }
 
-    public sealed class RuleGroupState : Pulumi.ResourceArgs
+    public sealed class RuleGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the rule group.
@@ -371,7 +366,7 @@ namespace Pulumi.Aws.NetworkFirewall
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -383,7 +378,7 @@ namespace Pulumi.Aws.NetworkFirewall
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -406,5 +401,6 @@ namespace Pulumi.Aws.NetworkFirewall
         public RuleGroupState()
         {
         }
+        public static new RuleGroupState Empty => new RuleGroupState();
     }
 }

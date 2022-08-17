@@ -13,46 +13,44 @@ namespace Pulumi.Aws.CloudSearch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CloudSearch.Domain("example", new()
     ///     {
-    ///         var example = new Aws.CloudSearch.Domain("example", new Aws.CloudSearch.DomainArgs
+    ///         IndexFields = new[]
     ///         {
-    ///             IndexFields = 
+    ///             new Aws.CloudSearch.Inputs.DomainIndexFieldArgs
     ///             {
-    ///                 new Aws.CloudSearch.Inputs.DomainIndexFieldArgs
-    ///                 {
-    ///                     AnalysisScheme = "_en_default_",
-    ///                     Highlight = false,
-    ///                     Name = "headline",
-    ///                     Return = true,
-    ///                     Search = true,
-    ///                     Sort = true,
-    ///                     Type = "text",
-    ///                 },
-    ///                 new Aws.CloudSearch.Inputs.DomainIndexFieldArgs
-    ///                 {
-    ///                     Facet = true,
-    ///                     Name = "price",
-    ///                     Return = true,
-    ///                     Search = true,
-    ///                     Sort = true,
-    ///                     SourceFields = "headline",
-    ///                     Type = "double",
-    ///                 },
+    ///                 AnalysisScheme = "_en_default_",
+    ///                 Highlight = false,
+    ///                 Name = "headline",
+    ///                 Return = true,
+    ///                 Search = true,
+    ///                 Sort = true,
+    ///                 Type = "text",
     ///             },
-    ///             ScalingParameters = new Aws.CloudSearch.Inputs.DomainScalingParametersArgs
+    ///             new Aws.CloudSearch.Inputs.DomainIndexFieldArgs
     ///             {
-    ///                 DesiredInstanceType = "search.medium",
+    ///                 Facet = true,
+    ///                 Name = "price",
+    ///                 Return = true,
+    ///                 Search = true,
+    ///                 Sort = true,
+    ///                 SourceFields = "headline",
+    ///                 Type = "double",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         ScalingParameters = new Aws.CloudSearch.Inputs.DomainScalingParametersArgs
+    ///         {
+    ///             DesiredInstanceType = "search.medium",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +62,7 @@ namespace Pulumi.Aws.CloudSearch
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudsearch/domain:Domain")]
-    public partial class Domain : Pulumi.CustomResource
+    public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The domain's ARN.
@@ -164,7 +162,7 @@ namespace Pulumi.Aws.CloudSearch
         }
     }
 
-    public sealed class DomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Domain endpoint options. Documented below.
@@ -205,9 +203,10 @@ namespace Pulumi.Aws.CloudSearch
         public DomainArgs()
         {
         }
+        public static new DomainArgs Empty => new DomainArgs();
     }
 
-    public sealed class DomainState : Pulumi.ResourceArgs
+    public sealed class DomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The domain's ARN.
@@ -272,5 +271,6 @@ namespace Pulumi.Aws.CloudSearch
         public DomainState()
         {
         }
+        public static new DomainState Empty => new DomainState();
     }
 }

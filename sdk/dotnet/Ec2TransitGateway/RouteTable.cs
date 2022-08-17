@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2TransitGateway.RouteTable("example", new()
     ///     {
-    ///         var example = new Aws.Ec2TransitGateway.RouteTable("example", new Aws.Ec2TransitGateway.RouteTableArgs
-    ///         {
-    ///             TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-    ///         });
-    ///     }
+    ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/routeTable:RouteTable")]
-    public partial class RouteTable : Pulumi.CustomResource
+    public partial class RouteTable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
@@ -122,7 +120,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
-    public sealed class RouteTableArgs : Pulumi.ResourceArgs
+    public sealed class RouteTableArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -145,9 +143,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public RouteTableArgs()
         {
         }
+        public static new RouteTableArgs Empty => new RouteTableArgs();
     }
 
-    public sealed class RouteTableState : Pulumi.ResourceArgs
+    public sealed class RouteTableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
@@ -200,5 +199,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public RouteTableState()
         {
         }
+        public static new RouteTableState Empty => new RouteTableState();
     }
 }

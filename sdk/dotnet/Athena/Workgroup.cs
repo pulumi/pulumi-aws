@@ -15,33 +15,31 @@ namespace Pulumi.Aws.Athena
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Athena.Workgroup("example", new()
     ///     {
-    ///         var example = new Aws.Athena.Workgroup("example", new Aws.Athena.WorkgroupArgs
+    ///         Configuration = new Aws.Athena.Inputs.WorkgroupConfigurationArgs
     ///         {
-    ///             Configuration = new Aws.Athena.Inputs.WorkgroupConfigurationArgs
+    ///             EnforceWorkgroupConfiguration = true,
+    ///             PublishCloudwatchMetricsEnabled = true,
+    ///             ResultConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationArgs
     ///             {
-    ///                 EnforceWorkgroupConfiguration = true,
-    ///                 PublishCloudwatchMetricsEnabled = true,
-    ///                 ResultConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationArgs
+    ///                 OutputLocation = $"s3://{aws_s3_bucket.Example.Bucket}/output/",
+    ///                 EncryptionConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs
     ///                 {
-    ///                     OutputLocation = $"s3://{aws_s3_bucket.Example.Bucket}/output/",
-    ///                     EncryptionConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs
-    ///                     {
-    ///                         EncryptionOption = "SSE_KMS",
-    ///                         KmsKeyArn = aws_kms_key.Example.Arn,
-    ///                     },
+    ///                     EncryptionOption = "SSE_KMS",
+    ///                     KmsKeyArn = aws_kms_key.Example.Arn,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Aws.Athena
     /// ```
     /// </summary>
     [AwsResourceType("aws:athena/workgroup:Workgroup")]
-    public partial class Workgroup : Pulumi.CustomResource
+    public partial class Workgroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the workgroup
@@ -98,7 +96,7 @@ namespace Pulumi.Aws.Athena
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -147,7 +145,7 @@ namespace Pulumi.Aws.Athena
         }
     }
 
-    public sealed class WorkgroupArgs : Pulumi.ResourceArgs
+    public sealed class WorkgroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block with various settings for the workgroup. Documented below.
@@ -194,9 +192,10 @@ namespace Pulumi.Aws.Athena
         public WorkgroupArgs()
         {
         }
+        public static new WorkgroupArgs Empty => new WorkgroupArgs();
     }
 
-    public sealed class WorkgroupState : Pulumi.ResourceArgs
+    public sealed class WorkgroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the workgroup
@@ -250,7 +249,7 @@ namespace Pulumi.Aws.Athena
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -261,5 +260,6 @@ namespace Pulumi.Aws.Athena
         public WorkgroupState()
         {
         }
+        public static new WorkgroupState Empty => new WorkgroupState();
     }
 }

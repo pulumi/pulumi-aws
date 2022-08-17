@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GlobalAccelerator.Inputs
 {
 
-    public sealed class ListenerPortRangeGetArgs : Pulumi.ResourceArgs
+    public sealed class ListenerPortRangeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The first port in the range of ports, inclusive.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
         public ListenerPortRangeGetArgs()
         {
         }
+        public static new ListenerPortRangeGetArgs Empty => new ListenerPortRangeGetArgs();
     }
 }

@@ -18,34 +18,32 @@ namespace Pulumi.Aws.Kinesis
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testStream = new Aws.Kinesis.Stream("testStream", new()
     ///     {
-    ///         var testStream = new Aws.Kinesis.Stream("testStream", new Aws.Kinesis.StreamArgs
+    ///         RetentionPeriod = 48,
+    ///         ShardCount = 1,
+    ///         ShardLevelMetrics = new[]
     ///         {
-    ///             RetentionPeriod = 48,
-    ///             ShardCount = 1,
-    ///             ShardLevelMetrics = 
-    ///             {
-    ///                 "IncomingBytes",
-    ///                 "OutgoingBytes",
-    ///             },
-    ///             StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
-    ///             {
-    ///                 StreamMode = "PROVISIONED",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "test" },
-    ///             },
-    ///         });
-    ///     }
+    ///             "IncomingBytes",
+    ///             "OutgoingBytes",
+    ///         },
+    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///         {
+    ///             StreamMode = "PROVISIONED",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "test" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +57,7 @@ namespace Pulumi.Aws.Kinesis
     ///  [1]https://aws.amazon.com/documentation/kinesis/ [2]https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html [3]https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
     /// </summary>
     [AwsResourceType("aws:kinesis/stream:Stream")]
-    public partial class Stream : Pulumi.CustomResource
+    public partial class Stream : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
@@ -172,7 +170,7 @@ namespace Pulumi.Aws.Kinesis
         }
     }
 
-    public sealed class StreamArgs : Pulumi.ResourceArgs
+    public sealed class StreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
@@ -250,9 +248,10 @@ namespace Pulumi.Aws.Kinesis
         public StreamArgs()
         {
         }
+        public static new StreamArgs Empty => new StreamArgs();
     }
 
-    public sealed class StreamState : Pulumi.ResourceArgs
+    public sealed class StreamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
@@ -342,5 +341,6 @@ namespace Pulumi.Aws.Kinesis
         public StreamState()
         {
         }
+        public static new StreamState Empty => new StreamState();
     }
 }

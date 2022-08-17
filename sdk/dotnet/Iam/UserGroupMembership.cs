@@ -20,45 +20,40 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var user1 = new Aws.Iam.User("user1", new Aws.Iam.UserArgs
-    ///         {
-    ///         });
-    ///         var group1 = new Aws.Iam.Group("group1", new Aws.Iam.GroupArgs
-    ///         {
-    ///         });
-    ///         var group2 = new Aws.Iam.Group("group2", new Aws.Iam.GroupArgs
-    ///         {
-    ///         });
-    ///         var example1 = new Aws.Iam.UserGroupMembership("example1", new Aws.Iam.UserGroupMembershipArgs
-    ///         {
-    ///             User = user1.Name,
-    ///             Groups = 
-    ///             {
-    ///                 group1.Name,
-    ///                 group2.Name,
-    ///             },
-    ///         });
-    ///         var group3 = new Aws.Iam.Group("group3", new Aws.Iam.GroupArgs
-    ///         {
-    ///         });
-    ///         var example2 = new Aws.Iam.UserGroupMembership("example2", new Aws.Iam.UserGroupMembershipArgs
-    ///         {
-    ///             User = user1.Name,
-    ///             Groups = 
-    ///             {
-    ///                 group3.Name,
-    ///             },
-    ///         });
-    ///     }
+    ///     var user1 = new Aws.Iam.User("user1");
     /// 
-    /// }
+    ///     var group1 = new Aws.Iam.Group("group1");
+    /// 
+    ///     var group2 = new Aws.Iam.Group("group2");
+    /// 
+    ///     var example1 = new Aws.Iam.UserGroupMembership("example1", new()
+    ///     {
+    ///         User = user1.Name,
+    ///         Groups = new[]
+    ///         {
+    ///             group1.Name,
+    ///             group2.Name,
+    ///         },
+    ///     });
+    /// 
+    ///     var group3 = new Aws.Iam.Group("group3");
+    /// 
+    ///     var example2 = new Aws.Iam.UserGroupMembership("example2", new()
+    ///     {
+    ///         User = user1.Name,
+    ///         Groups = new[]
+    ///         {
+    ///             group3.Name,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +65,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/userGroupMembership:UserGroupMembership")]
-    public partial class UserGroupMembership : Pulumi.CustomResource
+    public partial class UserGroupMembership : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of IAM Groups to add the user to
@@ -128,7 +123,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class UserGroupMembershipArgs : Pulumi.ResourceArgs
+    public sealed class UserGroupMembershipArgs : global::Pulumi.ResourceArgs
     {
         [Input("groups", required: true)]
         private InputList<string>? _groups;
@@ -151,9 +146,10 @@ namespace Pulumi.Aws.Iam
         public UserGroupMembershipArgs()
         {
         }
+        public static new UserGroupMembershipArgs Empty => new UserGroupMembershipArgs();
     }
 
-    public sealed class UserGroupMembershipState : Pulumi.ResourceArgs
+    public sealed class UserGroupMembershipState : global::Pulumi.ResourceArgs
     {
         [Input("groups")]
         private InputList<string>? _groups;
@@ -176,5 +172,6 @@ namespace Pulumi.Aws.Iam
         public UserGroupMembershipState()
         {
         }
+        public static new UserGroupMembershipState Empty => new UserGroupMembershipState();
     }
 }

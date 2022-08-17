@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudTrail.Inputs
 {
 
-    public sealed class TrailAdvancedEventSelectorFieldSelectorGetArgs : Pulumi.ResourceArgs
+    public sealed class TrailAdvancedEventSelectorFieldSelectorGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("endsWiths")]
         private InputList<string>? _endsWiths;
@@ -93,5 +93,6 @@ namespace Pulumi.Aws.CloudTrail.Inputs
         public TrailAdvancedEventSelectorFieldSelectorGetArgs()
         {
         }
+        public static new TrailAdvancedEventSelectorFieldSelectorGetArgs Empty => new TrailAdvancedEventSelectorFieldSelectorGetArgs();
     }
 }

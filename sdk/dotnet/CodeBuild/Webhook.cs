@@ -22,40 +22,38 @@ namespace Pulumi.Aws.CodeBuild
     /// &gt; **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucket_hook`/`github_repository_webhook` resource is only possible with importing that resource after creation of the `aws.codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `aws.codebuild.Webhook` resource in this scenario.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CodeBuild.Webhook("example", new()
     ///     {
-    ///         var example = new Aws.CodeBuild.Webhook("example", new Aws.CodeBuild.WebhookArgs
+    ///         ProjectName = aws_codebuild_project.Example.Name,
+    ///         BuildType = "BUILD",
+    ///         FilterGroups = new[]
     ///         {
-    ///             ProjectName = aws_codebuild_project.Example.Name,
-    ///             BuildType = "BUILD",
-    ///             FilterGroups = 
+    ///             new Aws.CodeBuild.Inputs.WebhookFilterGroupArgs
     ///             {
-    ///                 new Aws.CodeBuild.Inputs.WebhookFilterGroupArgs
+    ///                 Filters = new[]
     ///                 {
-    ///                     Filters = 
+    ///                     new Aws.CodeBuild.Inputs.WebhookFilterGroupFilterArgs
     ///                     {
-    ///                         new Aws.CodeBuild.Inputs.WebhookFilterGroupFilterArgs
-    ///                         {
-    ///                             Type = "EVENT",
-    ///                             Pattern = "PUSH",
-    ///                         },
-    ///                         new Aws.CodeBuild.Inputs.WebhookFilterGroupFilterArgs
-    ///                         {
-    ///                             Type = "HEAD_REF",
-    ///                             Pattern = "master",
-    ///                         },
+    ///                         Type = "EVENT",
+    ///                         Pattern = "PUSH",
+    ///                     },
+    ///                     new Aws.CodeBuild.Inputs.WebhookFilterGroupFilterArgs
+    ///                     {
+    ///                         Type = "HEAD_REF",
+    ///                         Pattern = "master",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### GitHub Enterprise
     /// 
@@ -64,37 +62,36 @@ namespace Pulumi.Aws.CodeBuild
     /// More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// using Github = Pulumi.Github;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleWebhook = new Aws.CodeBuild.Webhook("exampleWebhook", new()
     ///     {
-    ///         var exampleWebhook = new Aws.CodeBuild.Webhook("exampleWebhook", new Aws.CodeBuild.WebhookArgs
-    ///         {
-    ///             ProjectName = aws_codebuild_project.Example.Name,
-    ///         });
-    ///         var exampleRepositoryWebhook = new Github.RepositoryWebhook("exampleRepositoryWebhook", new Github.RepositoryWebhookArgs
-    ///         {
-    ///             Active = true,
-    ///             Events = 
-    ///             {
-    ///                 "push",
-    ///             },
-    ///             Repository = github_repository.Example.Name,
-    ///             Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
-    ///             {
-    ///                 Url = exampleWebhook.PayloadUrl,
-    ///                 Secret = exampleWebhook.Secret,
-    ///                 ContentType = "json",
-    ///                 InsecureSsl = false,
-    ///             },
-    ///         });
-    ///     }
+    ///         ProjectName = aws_codebuild_project.Example.Name,
+    ///     });
     /// 
-    /// }
+    ///     var exampleRepositoryWebhook = new Github.RepositoryWebhook("exampleRepositoryWebhook", new()
+    ///     {
+    ///         Active = true,
+    ///         Events = new[]
+    ///         {
+    ///             "push",
+    ///         },
+    ///         Repository = github_repository.Example.Name,
+    ///         Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
+    ///         {
+    ///             Url = exampleWebhook.PayloadUrl,
+    ///             Secret = exampleWebhook.Secret,
+    ///             ContentType = "json",
+    ///             InsecureSsl = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -106,7 +103,7 @@ namespace Pulumi.Aws.CodeBuild
     /// ```
     /// </summary>
     [AwsResourceType("aws:codebuild/webhook:Webhook")]
-    public partial class Webhook : Pulumi.CustomResource
+    public partial class Webhook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
@@ -194,7 +191,7 @@ namespace Pulumi.Aws.CodeBuild
         }
     }
 
-    public sealed class WebhookArgs : Pulumi.ResourceArgs
+    public sealed class WebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
@@ -229,9 +226,10 @@ namespace Pulumi.Aws.CodeBuild
         public WebhookArgs()
         {
         }
+        public static new WebhookArgs Empty => new WebhookArgs();
     }
 
-    public sealed class WebhookState : Pulumi.ResourceArgs
+    public sealed class WebhookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
@@ -284,5 +282,6 @@ namespace Pulumi.Aws.CodeBuild
         public WebhookState()
         {
         }
+        public static new WebhookState Empty => new WebhookState();
     }
 }

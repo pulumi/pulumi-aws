@@ -22,22 +22,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := costexplorer.NewAnomalyMonitor(ctx, "serviceMonitor", &costexplorer.AnomalyMonitorArgs{
-// 			MonitorDimension: pulumi.String("SERVICE"),
-// 			MonitorType:      pulumi.String("DIMENSIONAL"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := costexplorer.NewAnomalyMonitor(ctx, "serviceMonitor", &costexplorer.AnomalyMonitorArgs{
+//				MonitorDimension: pulumi.String("SERVICE"),
+//				MonitorType:      pulumi.String("DIMENSIONAL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Custom Example
 //
@@ -45,39 +48,43 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := costexplorer.NewAnomalyMonitor(ctx, "test", &costexplorer.AnomalyMonitorArgs{
-// 			MonitorSpecification: pulumi.String(fmt.Sprintf(`{
-// 	"And": null,
-// 	"CostCategories": null,
-// 	"Dimensions": null,
-// 	"Not": null,
-// 	"Or": null,
-// 	"Tags": {
-// 		"Key": "CostCenter",
-// 		"MatchOptions": null,
-// 		"Values": [
-// 			"10000"
-// 		]
-// 	}
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := costexplorer.NewAnomalyMonitor(ctx, "test", &costexplorer.AnomalyMonitorArgs{
+//				MonitorSpecification: pulumi.String(fmt.Sprintf(`{
+//		"And": null,
+//		"CostCategories": null,
+//		"Dimensions": null,
+//		"Not": null,
+//		"Or": null,
+//		"Tags": {
+//			"Key": "CostCenter",
+//			"MatchOptions": null,
+//			"Values": [
+//				"10000"
+//			]
+//		}
+//	}
 //
 // `)),
-// 			MonitorType: pulumi.String("CUSTOM"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				MonitorType: pulumi.String("CUSTOM"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -85,7 +92,9 @@ import (
 // `aws_ce_anomaly_monitor` can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
+//
+//	$ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
+//
 // ```
 type AnomalyMonitor struct {
 	pulumi.CustomResourceState
@@ -101,8 +110,7 @@ type AnomalyMonitor struct {
 	// The name of the monitor.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -149,8 +157,7 @@ type anomalyMonitorState struct {
 	// The name of the monitor.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -166,8 +173,7 @@ type AnomalyMonitorState struct {
 	// The name of the monitor.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -228,7 +234,7 @@ func (i *AnomalyMonitor) ToAnomalyMonitorOutputWithContext(ctx context.Context) 
 // AnomalyMonitorArrayInput is an input type that accepts AnomalyMonitorArray and AnomalyMonitorArrayOutput values.
 // You can construct a concrete instance of `AnomalyMonitorArrayInput` via:
 //
-//          AnomalyMonitorArray{ AnomalyMonitorArgs{...} }
+//	AnomalyMonitorArray{ AnomalyMonitorArgs{...} }
 type AnomalyMonitorArrayInput interface {
 	pulumi.Input
 
@@ -253,7 +259,7 @@ func (i AnomalyMonitorArray) ToAnomalyMonitorArrayOutputWithContext(ctx context.
 // AnomalyMonitorMapInput is an input type that accepts AnomalyMonitorMap and AnomalyMonitorMapOutput values.
 // You can construct a concrete instance of `AnomalyMonitorMapInput` via:
 //
-//          AnomalyMonitorMap{ "key": AnomalyMonitorArgs{...} }
+//	AnomalyMonitorMap{ "key": AnomalyMonitorArgs{...} }
 type AnomalyMonitorMapInput interface {
 	pulumi.Input
 
@@ -319,7 +325,6 @@ func (o AnomalyMonitorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o AnomalyMonitorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

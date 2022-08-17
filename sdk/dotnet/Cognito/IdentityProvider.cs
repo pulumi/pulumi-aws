@@ -15,40 +15,39 @@ namespace Pulumi.Aws.Cognito
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Cognito.UserPool("example", new()
     ///     {
-    ///         var example = new Aws.Cognito.UserPool("example", new Aws.Cognito.UserPoolArgs
+    ///         AutoVerifiedAttributes = new[]
     ///         {
-    ///             AutoVerifiedAttributes = 
-    ///             {
-    ///                 "email",
-    ///             },
-    ///         });
-    ///         var exampleProvider = new Aws.Cognito.IdentityProvider("exampleProvider", new Aws.Cognito.IdentityProviderArgs
-    ///         {
-    ///             UserPoolId = example.Id,
-    ///             ProviderName = "Google",
-    ///             ProviderType = "Google",
-    ///             ProviderDetails = 
-    ///             {
-    ///                 { "authorize_scopes", "email" },
-    ///                 { "client_id", "your client_id" },
-    ///                 { "client_secret", "your client_secret" },
-    ///             },
-    ///             AttributeMapping = 
-    ///             {
-    ///                 { "email", "email" },
-    ///                 { "username", "sub" },
-    ///             },
-    ///         });
-    ///     }
+    ///             "email",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleProvider = new Aws.Cognito.IdentityProvider("exampleProvider", new()
+    ///     {
+    ///         UserPoolId = example.Id,
+    ///         ProviderName = "Google",
+    ///         ProviderType = "Google",
+    ///         ProviderDetails = 
+    ///         {
+    ///             { "authorize_scopes", "email" },
+    ///             { "client_id", "your client_id" },
+    ///             { "client_secret", "your client_secret" },
+    ///         },
+    ///         AttributeMapping = 
+    ///         {
+    ///             { "email", "email" },
+    ///             { "username", "sub" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +59,7 @@ namespace Pulumi.Aws.Cognito
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/identityProvider:IdentityProvider")]
-    public partial class IdentityProvider : Pulumi.CustomResource
+    public partial class IdentityProvider : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
@@ -142,7 +141,7 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
-    public sealed class IdentityProviderArgs : Pulumi.ResourceArgs
+    public sealed class IdentityProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributeMapping")]
         private InputMap<string>? _attributeMapping;
@@ -201,9 +200,10 @@ namespace Pulumi.Aws.Cognito
         public IdentityProviderArgs()
         {
         }
+        public static new IdentityProviderArgs Empty => new IdentityProviderArgs();
     }
 
-    public sealed class IdentityProviderState : Pulumi.ResourceArgs
+    public sealed class IdentityProviderState : global::Pulumi.ResourceArgs
     {
         [Input("attributeMapping")]
         private InputMap<string>? _attributeMapping;
@@ -262,5 +262,6 @@ namespace Pulumi.Aws.Cognito
         public IdentityProviderState()
         {
         }
+        public static new IdentityProviderState Empty => new IdentityProviderState();
     }
 }

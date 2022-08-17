@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class ContainerRecipeInstanceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ContainerRecipeInstanceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("blockDeviceMappings")]
         private InputList<Inputs.ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs>? _blockDeviceMappings;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public ContainerRecipeInstanceConfigurationArgs()
         {
         }
+        public static new ContainerRecipeInstanceConfigurationArgs Empty => new ContainerRecipeInstanceConfigurationArgs();
     }
 }

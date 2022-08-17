@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Emr.Inputs
 {
 
-    public sealed class ClusterStepArgs : Pulumi.ResourceArgs
+    public sealed class ClusterStepArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Emr.Inputs
         public ClusterStepArgs()
         {
         }
+        public static new ClusterStepArgs Empty => new ClusterStepArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFormation.Inputs
 {
 
-    public sealed class StackSetInstanceDeploymentTargetsArgs : Pulumi.ResourceArgs
+    public sealed class StackSetInstanceDeploymentTargetsArgs : global::Pulumi.ResourceArgs
     {
         [Input("organizationalUnitIds")]
         private InputList<string>? _organizationalUnitIds;
@@ -23,5 +23,6 @@ namespace Pulumi.Aws.CloudFormation.Inputs
         public StackSetInstanceDeploymentTargetsArgs()
         {
         }
+        public static new StackSetInstanceDeploymentTargetsArgs Empty => new StackSetInstanceDeploymentTargetsArgs();
     }
 }

@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ses.NewReceiptRule(ctx, "store", &ses.ReceiptRuleArgs{
-// 			AddHeaderActions: ses.ReceiptRuleAddHeaderActionArray{
-// 				&ses.ReceiptRuleAddHeaderActionArgs{
-// 					HeaderName:  pulumi.String("Custom-Header"),
-// 					HeaderValue: pulumi.String("Added by SES"),
-// 					Position:    pulumi.Int(1),
-// 				},
-// 			},
-// 			Enabled: pulumi.Bool(true),
-// 			Recipients: pulumi.StringArray{
-// 				pulumi.String("karen@example.com"),
-// 			},
-// 			RuleSetName: pulumi.String("default-rule-set"),
-// 			S3Actions: ses.ReceiptRuleS3ActionArray{
-// 				&ses.ReceiptRuleS3ActionArgs{
-// 					BucketName: pulumi.String("emails"),
-// 					Position:   pulumi.Int(2),
-// 				},
-// 			},
-// 			ScanEnabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewReceiptRule(ctx, "store", &ses.ReceiptRuleArgs{
+//				AddHeaderActions: ses.ReceiptRuleAddHeaderActionArray{
+//					&ses.ReceiptRuleAddHeaderActionArgs{
+//						HeaderName:  pulumi.String("Custom-Header"),
+//						HeaderValue: pulumi.String("Added by SES"),
+//						Position:    pulumi.Int(1),
+//					},
+//				},
+//				Enabled: pulumi.Bool(true),
+//				Recipients: pulumi.StringArray{
+//					pulumi.String("karen@example.com"),
+//				},
+//				RuleSetName: pulumi.String("default-rule-set"),
+//				S3Actions: ses.ReceiptRuleS3ActionArray{
+//					&ses.ReceiptRuleS3ActionArgs{
+//						BucketName: pulumi.String("emails"),
+//						Position:   pulumi.Int(2),
+//					},
+//				},
+//				ScanEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // SES receipt rules can be imported using the ruleset name and rule name separated by `:`.
 //
 // ```sh
-//  $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
+//
+//	$ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
+//
 // ```
 type ReceiptRule struct {
 	pulumi.CustomResourceState
@@ -286,7 +291,7 @@ func (i *ReceiptRule) ToReceiptRuleOutputWithContext(ctx context.Context) Receip
 // ReceiptRuleArrayInput is an input type that accepts ReceiptRuleArray and ReceiptRuleArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleArrayInput` via:
 //
-//          ReceiptRuleArray{ ReceiptRuleArgs{...} }
+//	ReceiptRuleArray{ ReceiptRuleArgs{...} }
 type ReceiptRuleArrayInput interface {
 	pulumi.Input
 
@@ -311,7 +316,7 @@ func (i ReceiptRuleArray) ToReceiptRuleArrayOutputWithContext(ctx context.Contex
 // ReceiptRuleMapInput is an input type that accepts ReceiptRuleMap and ReceiptRuleMapOutput values.
 // You can construct a concrete instance of `ReceiptRuleMapInput` via:
 //
-//          ReceiptRuleMap{ "key": ReceiptRuleArgs{...} }
+//	ReceiptRuleMap{ "key": ReceiptRuleArgs{...} }
 type ReceiptRuleMapInput interface {
 	pulumi.Input
 

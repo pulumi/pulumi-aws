@@ -23,41 +23,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := s3control.NewBucketLifecycleConfiguration(ctx, "example", &s3control.BucketLifecycleConfigurationArgs{
-// 			Bucket: pulumi.Any(aws_s3control_bucket.Example.Arn),
-// 			Rules: s3control.BucketLifecycleConfigurationRuleArray{
-// 				&s3control.BucketLifecycleConfigurationRuleArgs{
-// 					Expiration: &s3control.BucketLifecycleConfigurationRuleExpirationArgs{
-// 						Days: pulumi.Int(365),
-// 					},
-// 					Filter: &s3control.BucketLifecycleConfigurationRuleFilterArgs{
-// 						Prefix: pulumi.String("logs/"),
-// 					},
-// 					Id: pulumi.String("logs"),
-// 				},
-// 				&s3control.BucketLifecycleConfigurationRuleArgs{
-// 					Expiration: &s3control.BucketLifecycleConfigurationRuleExpirationArgs{
-// 						Days: pulumi.Int(7),
-// 					},
-// 					Filter: &s3control.BucketLifecycleConfigurationRuleFilterArgs{
-// 						Prefix: pulumi.String("temp/"),
-// 					},
-// 					Id: pulumi.String("temp"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3control.NewBucketLifecycleConfiguration(ctx, "example", &s3control.BucketLifecycleConfigurationArgs{
+//				Bucket: pulumi.Any(aws_s3control_bucket.Example.Arn),
+//				Rules: s3control.BucketLifecycleConfigurationRuleArray{
+//					&s3control.BucketLifecycleConfigurationRuleArgs{
+//						Expiration: &s3control.BucketLifecycleConfigurationRuleExpirationArgs{
+//							Days: pulumi.Int(365),
+//						},
+//						Filter: &s3control.BucketLifecycleConfigurationRuleFilterArgs{
+//							Prefix: pulumi.String("logs/"),
+//						},
+//						Id: pulumi.String("logs"),
+//					},
+//					&s3control.BucketLifecycleConfigurationRuleArgs{
+//						Expiration: &s3control.BucketLifecycleConfigurationRuleExpirationArgs{
+//							Days: pulumi.Int(7),
+//						},
+//						Filter: &s3control.BucketLifecycleConfigurationRuleFilterArgs{
+//							Prefix: pulumi.String("temp/"),
+//						},
+//						Id: pulumi.String("temp"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // S3 Control Bucket Lifecycle Configurations can be imported using the Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+//
+//	$ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+//
 // ```
 type BucketLifecycleConfiguration struct {
 	pulumi.CustomResourceState
@@ -169,7 +174,7 @@ func (i *BucketLifecycleConfiguration) ToBucketLifecycleConfigurationOutputWithC
 // BucketLifecycleConfigurationArrayInput is an input type that accepts BucketLifecycleConfigurationArray and BucketLifecycleConfigurationArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationArrayInput` via:
 //
-//          BucketLifecycleConfigurationArray{ BucketLifecycleConfigurationArgs{...} }
+//	BucketLifecycleConfigurationArray{ BucketLifecycleConfigurationArgs{...} }
 type BucketLifecycleConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -194,7 +199,7 @@ func (i BucketLifecycleConfigurationArray) ToBucketLifecycleConfigurationArrayOu
 // BucketLifecycleConfigurationMapInput is an input type that accepts BucketLifecycleConfigurationMap and BucketLifecycleConfigurationMapOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationMapInput` via:
 //
-//          BucketLifecycleConfigurationMap{ "key": BucketLifecycleConfigurationArgs{...} }
+//	BucketLifecycleConfigurationMap{ "key": BucketLifecycleConfigurationArgs{...} }
 type BucketLifecycleConfigurationMapInput interface {
 	pulumi.Input
 

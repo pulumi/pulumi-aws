@@ -19,30 +19,30 @@ namespace Pulumi.Aws.Cognito
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var selectedRestApi = Aws.ApiGateway.GetRestApi.Invoke(new()
         ///     {
-        ///         var selectedRestApi = Output.Create(Aws.ApiGateway.GetRestApi.InvokeAsync(new Aws.ApiGateway.GetRestApiArgs
-        ///         {
-        ///             Name = @var.Api_gateway_name,
-        ///         }));
-        ///         var selectedUserPools = Output.Create(Aws.Cognito.GetUserPools.InvokeAsync(new Aws.Cognito.GetUserPoolsArgs
-        ///         {
-        ///             Name = @var.Cognito_user_pool_name,
-        ///         }));
-        ///         var cognito = new Aws.ApiGateway.Authorizer("cognito", new Aws.ApiGateway.AuthorizerArgs
-        ///         {
-        ///             Type = "COGNITO_USER_POOLS",
-        ///             RestApi = selectedRestApi.Apply(selectedRestApi =&gt; selectedRestApi.Id),
-        ///             ProviderArns = selectedUserPools.Apply(selectedUserPools =&gt; selectedUserPools.Arns),
-        ///         });
-        ///     }
+        ///         Name = @var.Api_gateway_name,
+        ///     });
         /// 
-        /// }
+        ///     var selectedUserPools = Aws.Cognito.GetUserPools.Invoke(new()
+        ///     {
+        ///         Name = @var.Cognito_user_pool_name,
+        ///     });
+        /// 
+        ///     var cognito = new Aws.ApiGateway.Authorizer("cognito", new()
+        ///     {
+        ///         Type = "COGNITO_USER_POOLS",
+        ///         RestApi = selectedRestApi.Apply(getRestApiResult =&gt; getRestApiResult.Id),
+        ///         ProviderArns = selectedUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -58,30 +58,30 @@ namespace Pulumi.Aws.Cognito
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var selectedRestApi = Aws.ApiGateway.GetRestApi.Invoke(new()
         ///     {
-        ///         var selectedRestApi = Output.Create(Aws.ApiGateway.GetRestApi.InvokeAsync(new Aws.ApiGateway.GetRestApiArgs
-        ///         {
-        ///             Name = @var.Api_gateway_name,
-        ///         }));
-        ///         var selectedUserPools = Output.Create(Aws.Cognito.GetUserPools.InvokeAsync(new Aws.Cognito.GetUserPoolsArgs
-        ///         {
-        ///             Name = @var.Cognito_user_pool_name,
-        ///         }));
-        ///         var cognito = new Aws.ApiGateway.Authorizer("cognito", new Aws.ApiGateway.AuthorizerArgs
-        ///         {
-        ///             Type = "COGNITO_USER_POOLS",
-        ///             RestApi = selectedRestApi.Apply(selectedRestApi =&gt; selectedRestApi.Id),
-        ///             ProviderArns = selectedUserPools.Apply(selectedUserPools =&gt; selectedUserPools.Arns),
-        ///         });
-        ///     }
+        ///         Name = @var.Api_gateway_name,
+        ///     });
         /// 
-        /// }
+        ///     var selectedUserPools = Aws.Cognito.GetUserPools.Invoke(new()
+        ///     {
+        ///         Name = @var.Cognito_user_pool_name,
+        ///     });
+        /// 
+        ///     var cognito = new Aws.ApiGateway.Authorizer("cognito", new()
+        ///     {
+        ///         Type = "COGNITO_USER_POOLS",
+        ///         RestApi = selectedRestApi.Apply(getRestApiResult =&gt; getRestApiResult.Id),
+        ///         ProviderArns = selectedUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Cognito
     }
 
 
-    public sealed class GetUserPoolsArgs : Pulumi.InvokeArgs
+    public sealed class GetUserPoolsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
@@ -102,9 +102,10 @@ namespace Pulumi.Aws.Cognito
         public GetUserPoolsArgs()
         {
         }
+        public static new GetUserPoolsArgs Empty => new GetUserPoolsArgs();
     }
 
-    public sealed class GetUserPoolsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserPoolsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
@@ -115,6 +116,7 @@ namespace Pulumi.Aws.Cognito
         public GetUserPoolsInvokeArgs()
         {
         }
+        public static new GetUserPoolsInvokeArgs Empty => new GetUserPoolsInvokeArgs();
     }
 
 

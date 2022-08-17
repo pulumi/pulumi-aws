@@ -24,32 +24,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		cfg := config.New(ctx, "")
-// 		lbArn := ""
-// 		if param := cfg.Get("lbArn"); param != "" {
-// 			lbArn = param
-// 		}
-// 		lbName := ""
-// 		if param := cfg.Get("lbName"); param != "" {
-// 			lbName = param
-// 		}
-// 		_, err := lb.LookupLoadBalancer(ctx, &lb.LookupLoadBalancerArgs{
-// 			Arn:  pulumi.StringRef(lbArn),
-// 			Name: pulumi.StringRef(lbName),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			lbArn := ""
+//			if param := cfg.Get("lbArn"); param != "" {
+//				lbArn = param
+//			}
+//			lbName := ""
+//			if param := cfg.Get("lbName"); param != "" {
+//				lbName = param
+//			}
+//			_, err := lb.LookupLoadBalancer(ctx, &lb.LookupLoadBalancerArgs{
+//				Arn:  pulumi.StringRef(lbArn),
+//				Name: pulumi.StringRef(lbName),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Deprecated: aws.applicationloadbalancing.getLoadBalancer has been deprecated in favor of aws.alb.getLoadBalancer
@@ -85,18 +88,19 @@ type LookupLoadBalancerResult struct {
 	EnableHttp2              bool                      `pulumi:"enableHttp2"`
 	EnableWafFailOpen        bool                      `pulumi:"enableWafFailOpen"`
 	// The provider-assigned unique ID for this managed resource.
-	Id               string                         `pulumi:"id"`
-	IdleTimeout      int                            `pulumi:"idleTimeout"`
-	Internal         bool                           `pulumi:"internal"`
-	IpAddressType    string                         `pulumi:"ipAddressType"`
-	LoadBalancerType string                         `pulumi:"loadBalancerType"`
-	Name             string                         `pulumi:"name"`
-	SecurityGroups   []string                       `pulumi:"securityGroups"`
-	SubnetMappings   []GetLoadBalancerSubnetMapping `pulumi:"subnetMappings"`
-	Subnets          []string                       `pulumi:"subnets"`
-	Tags             map[string]string              `pulumi:"tags"`
-	VpcId            string                         `pulumi:"vpcId"`
-	ZoneId           string                         `pulumi:"zoneId"`
+	Id                 string                         `pulumi:"id"`
+	IdleTimeout        int                            `pulumi:"idleTimeout"`
+	Internal           bool                           `pulumi:"internal"`
+	IpAddressType      string                         `pulumi:"ipAddressType"`
+	LoadBalancerType   string                         `pulumi:"loadBalancerType"`
+	Name               string                         `pulumi:"name"`
+	PreserveHostHeader bool                           `pulumi:"preserveHostHeader"`
+	SecurityGroups     []string                       `pulumi:"securityGroups"`
+	SubnetMappings     []GetLoadBalancerSubnetMapping `pulumi:"subnetMappings"`
+	Subnets            []string                       `pulumi:"subnets"`
+	Tags               map[string]string              `pulumi:"tags"`
+	VpcId              string                         `pulumi:"vpcId"`
+	ZoneId             string                         `pulumi:"zoneId"`
 }
 
 func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutputArgs, opts ...pulumi.InvokeOption) LookupLoadBalancerResultOutput {
@@ -204,6 +208,10 @@ func (o LookupLoadBalancerResultOutput) LoadBalancerType() pulumi.StringOutput {
 
 func (o LookupLoadBalancerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) PreserveHostHeader() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.PreserveHostHeader }).(pulumi.BoolOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) SecurityGroups() pulumi.StringArrayOutput {

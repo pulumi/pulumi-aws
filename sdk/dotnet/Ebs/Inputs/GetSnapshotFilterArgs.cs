@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ebs.Inputs
 {
 
-    public sealed class GetSnapshotFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetSnapshotFilterInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -26,5 +26,6 @@ namespace Pulumi.Aws.Ebs.Inputs
         public GetSnapshotFilterInputArgs()
         {
         }
+        public static new GetSnapshotFilterInputArgs Empty => new GetSnapshotFilterInputArgs();
     }
 }

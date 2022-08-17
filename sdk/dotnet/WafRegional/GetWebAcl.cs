@@ -19,20 +19,18 @@ namespace Pulumi.Aws.WafRegional
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.WafRegional.GetWebAcl.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.WafRegional.GetWebAcl.InvokeAsync(new Aws.WafRegional.GetWebAclArgs
-        ///         {
-        ///             Name = "tfWAFRegionalWebACL",
-        ///         }));
-        ///     }
+        ///         Name = "tfWAFRegionalWebACL",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.WafRegional
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.WafRegional.GetWebAcl.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.WafRegional.GetWebAcl.InvokeAsync(new Aws.WafRegional.GetWebAclArgs
-        ///         {
-        ///             Name = "tfWAFRegionalWebACL",
-        ///         }));
-        ///     }
+        ///         Name = "tfWAFRegionalWebACL",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.WafRegional
     }
 
 
-    public sealed class GetWebAclArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAclArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the WAF Regional Web ACL.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.WafRegional
         public GetWebAclArgs()
         {
         }
+        public static new GetWebAclArgs Empty => new GetWebAclArgs();
     }
 
-    public sealed class GetWebAclInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWebAclInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the WAF Regional Web ACL.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.WafRegional
         public GetWebAclInvokeArgs()
         {
         }
+        public static new GetWebAclInvokeArgs Empty => new GetWebAclInvokeArgs();
     }
 
 

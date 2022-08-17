@@ -23,23 +23,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-// 			EventSourceArn:   pulumi.Any(aws_dynamodb_table.Example.Stream_arn),
-// 			FunctionName:     pulumi.Any(aws_lambda_function.Example.Arn),
-// 			StartingPosition: pulumi.String("LATEST"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+//				EventSourceArn:   pulumi.Any(aws_dynamodb_table.Example.Stream_arn),
+//				FunctionName:     pulumi.Any(aws_lambda_function.Example.Arn),
+//				StartingPosition: pulumi.String("LATEST"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Kinesis
 //
@@ -47,23 +50,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-// 			EventSourceArn:   pulumi.Any(aws_kinesis_stream.Example.Arn),
-// 			FunctionName:     pulumi.Any(aws_lambda_function.Example.Arn),
-// 			StartingPosition: pulumi.String("LATEST"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+//				EventSourceArn:   pulumi.Any(aws_kinesis_stream.Example.Arn),
+//				FunctionName:     pulumi.Any(aws_lambda_function.Example.Arn),
+//				StartingPosition: pulumi.String("LATEST"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Managed Streaming for Apache Kafka (MSK)
 //
@@ -71,26 +77,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-// 			EventSourceArn: pulumi.Any(aws_msk_cluster.Example.Arn),
-// 			FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
-// 			Topics: pulumi.StringArray{
-// 				pulumi.String("Example"),
-// 			},
-// 			StartingPosition: pulumi.String("TRIM_HORIZON"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+//				EventSourceArn: pulumi.Any(aws_msk_cluster.Example.Arn),
+//				FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
+//				Topics: pulumi.StringArray{
+//					pulumi.String("Example"),
+//				},
+//				StartingPosition: pulumi.String("TRIM_HORIZON"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Self Managed Apache Kafka
 //
@@ -98,44 +107,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-// 			FunctionName: pulumi.Any(aws_lambda_function.Example.Arn),
-// 			Topics: pulumi.StringArray{
-// 				pulumi.String("Example"),
-// 			},
-// 			StartingPosition: pulumi.String("TRIM_HORIZON"),
-// 			SelfManagedEventSource: &lambda.EventSourceMappingSelfManagedEventSourceArgs{
-// 				Endpoints: pulumi.StringMap{
-// 					"KAFKA_BOOTSTRAP_SERVERS": pulumi.String("kafka1.example.com:9092,kafka2.example.com:9092"),
-// 				},
-// 			},
-// 			SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
-// 				&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-// 					Type: pulumi.String("VPC_SUBNET"),
-// 					Uri:  pulumi.String("subnet:subnet-example1"),
-// 				},
-// 				&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-// 					Type: pulumi.String("VPC_SUBNET"),
-// 					Uri:  pulumi.String("subnet:subnet-example2"),
-// 				},
-// 				&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-// 					Type: pulumi.String("VPC_SECURITY_GROUP"),
-// 					Uri:  pulumi.String("security_group:sg-example"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+//				FunctionName: pulumi.Any(aws_lambda_function.Example.Arn),
+//				Topics: pulumi.StringArray{
+//					pulumi.String("Example"),
+//				},
+//				StartingPosition: pulumi.String("TRIM_HORIZON"),
+//				SelfManagedEventSource: &lambda.EventSourceMappingSelfManagedEventSourceArgs{
+//					Endpoints: pulumi.StringMap{
+//						"KAFKA_BOOTSTRAP_SERVERS": pulumi.String("kafka1.example.com:9092,kafka2.example.com:9092"),
+//					},
+//				},
+//				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
+//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+//						Type: pulumi.String("VPC_SUBNET"),
+//						Uri:  pulumi.String("subnet:subnet-example1"),
+//					},
+//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+//						Type: pulumi.String("VPC_SUBNET"),
+//						Uri:  pulumi.String("subnet:subnet-example2"),
+//					},
+//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+//						Type: pulumi.String("VPC_SECURITY_GROUP"),
+//						Uri:  pulumi.String("security_group:sg-example"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### SQS
 //
@@ -143,22 +155,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-// 			EventSourceArn: pulumi.Any(aws_sqs_queue.Sqs_queue_test.Arn),
-// 			FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+//				EventSourceArn: pulumi.Any(aws_sqs_queue.Sqs_queue_test.Arn),
+//				FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### SQS with event filter
 //
@@ -166,52 +181,55 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"body": map[string]interface{}{
-// 				"Temperature": []map[string]interface{}{
-// 					map[string]interface{}{
-// 						"numeric": []interface{}{
-// 							">",
-// 							0,
-// 							"<=",
-// 							100,
-// 						},
-// 					},
-// 				},
-// 				"Location": []string{
-// 					"New York",
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-// 			EventSourceArn: pulumi.Any(aws_sqs_queue.Sqs_queue_test.Arn),
-// 			FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
-// 			FilterCriteria: &lambda.EventSourceMappingFilterCriteriaArgs{
-// 				Filters: lambda.EventSourceMappingFilterCriteriaFilterArray{
-// 					&lambda.EventSourceMappingFilterCriteriaFilterArgs{
-// 						Pattern: pulumi.String(json0),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"body": map[string]interface{}{
+//					"Temperature": []map[string]interface{}{
+//						map[string]interface{}{
+//							"numeric": []interface{}{
+//								">",
+//								0,
+//								"<=",
+//								100,
+//							},
+//						},
+//					},
+//					"Location": []string{
+//						"New York",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+//				EventSourceArn: pulumi.Any(aws_sqs_queue.Sqs_queue_test.Arn),
+//				FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
+//				FilterCriteria: &lambda.EventSourceMappingFilterCriteriaArgs{
+//					Filters: lambda.EventSourceMappingFilterCriteriaFilterArray{
+//						&lambda.EventSourceMappingFilterCriteriaFilterArgs{
+//							Pattern: pulumi.String(json0),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Amazon MQ (ActiveMQ)
 //
@@ -219,33 +237,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-// 			BatchSize:      pulumi.Int(10),
-// 			EventSourceArn: pulumi.Any(aws_mq_broker.Example.Arn),
-// 			Enabled:        pulumi.Bool(true),
-// 			FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
-// 			Queues: pulumi.StringArray{
-// 				pulumi.String("example"),
-// 			},
-// 			SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
-// 				&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-// 					Type: pulumi.String("BASIC_AUTH"),
-// 					Uri:  pulumi.Any(aws_secretsmanager_secret_version.Example.Arn),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+//				BatchSize:      pulumi.Int(10),
+//				EventSourceArn: pulumi.Any(aws_mq_broker.Example.Arn),
+//				Enabled:        pulumi.Bool(true),
+//				FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
+//				Queues: pulumi.StringArray{
+//					pulumi.String("example"),
+//				},
+//				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
+//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+//						Type: pulumi.String("BASIC_AUTH"),
+//						Uri:  pulumi.Any(aws_secretsmanager_secret_version.Example.Arn),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Amazon MQ (RabbitMQ)
 //
@@ -253,37 +274,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-// 			BatchSize:      pulumi.Int(1),
-// 			EventSourceArn: pulumi.Any(aws_mq_broker.Example.Arn),
-// 			Enabled:        pulumi.Bool(true),
-// 			FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
-// 			Queues: pulumi.StringArray{
-// 				pulumi.String("example"),
-// 			},
-// 			SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
-// 				&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-// 					Type: pulumi.String("VIRTUAL_HOST"),
-// 					Uri:  pulumi.String("/example"),
-// 				},
-// 				&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-// 					Type: pulumi.String("BASIC_AUTH"),
-// 					Uri:  pulumi.Any(aws_secretsmanager_secret_version.Example.Arn),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+//				BatchSize:      pulumi.Int(1),
+//				EventSourceArn: pulumi.Any(aws_mq_broker.Example.Arn),
+//				Enabled:        pulumi.Bool(true),
+//				FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
+//				Queues: pulumi.StringArray{
+//					pulumi.String("example"),
+//				},
+//				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
+//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+//						Type: pulumi.String("VIRTUAL_HOST"),
+//						Uri:  pulumi.String("/example"),
+//					},
+//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+//						Type: pulumi.String("BASIC_AUTH"),
+//						Uri:  pulumi.Any(aws_secretsmanager_secret_version.Example.Arn),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Managed Streaming for Kafka (MSK)
 //
@@ -291,26 +315,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-// 			EventSourceArn: pulumi.Any(aws_msk_cluster.Example.Arn),
-// 			FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
-// 			Topics: pulumi.StringArray{
-// 				pulumi.String("Example"),
-// 			},
-// 			StartingPosition: pulumi.String("TRIM_HORIZON"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+//				EventSourceArn: pulumi.Any(aws_msk_cluster.Example.Arn),
+//				FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
+//				Topics: pulumi.StringArray{
+//					pulumi.String("Example"),
+//				},
+//				StartingPosition: pulumi.String("TRIM_HORIZON"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -318,7 +345,9 @@ import (
 // Lambda event source mappings can be imported using the `UUID` (event source mapping identifier), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+//
+//	$ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+//
 // ```
 type EventSourceMapping struct {
 	pulumi.CustomResourceState
@@ -625,7 +654,7 @@ func (i *EventSourceMapping) ToEventSourceMappingOutputWithContext(ctx context.C
 // EventSourceMappingArrayInput is an input type that accepts EventSourceMappingArray and EventSourceMappingArrayOutput values.
 // You can construct a concrete instance of `EventSourceMappingArrayInput` via:
 //
-//          EventSourceMappingArray{ EventSourceMappingArgs{...} }
+//	EventSourceMappingArray{ EventSourceMappingArgs{...} }
 type EventSourceMappingArrayInput interface {
 	pulumi.Input
 
@@ -650,7 +679,7 @@ func (i EventSourceMappingArray) ToEventSourceMappingArrayOutputWithContext(ctx 
 // EventSourceMappingMapInput is an input type that accepts EventSourceMappingMap and EventSourceMappingMapOutput values.
 // You can construct a concrete instance of `EventSourceMappingMapInput` via:
 //
-//          EventSourceMappingMap{ "key": EventSourceMappingArgs{...} }
+//	EventSourceMappingMap{ "key": EventSourceMappingArgs{...} }
 type EventSourceMappingMapInput interface {
 	pulumi.Input
 

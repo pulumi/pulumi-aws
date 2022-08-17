@@ -16,75 +16,69 @@ namespace Pulumi.Aws.S3
     /// ### Add intelligent tiering configuration for entire S3 bucket
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var example_entire_bucket = new Aws.S3.BucketIntelligentTieringConfiguration("example-entire-bucket", new Aws.S3.BucketIntelligentTieringConfigurationArgs
-    ///         {
-    ///             Bucket = example.Bucket,
-    ///             Tierings = 
-    ///             {
-    ///                 new Aws.S3.Inputs.BucketIntelligentTieringConfigurationTieringArgs
-    ///                 {
-    ///                     AccessTier = "DEEP_ARCHIVE_ACCESS",
-    ///                     Days = 180,
-    ///                 },
-    ///                 new Aws.S3.Inputs.BucketIntelligentTieringConfigurationTieringArgs
-    ///                 {
-    ///                     AccessTier = "ARCHIVE_ACCESS",
-    ///                     Days = 125,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var example = new Aws.S3.BucketV2("example");
     /// 
-    /// }
+    ///     var example_entire_bucket = new Aws.S3.BucketIntelligentTieringConfiguration("example-entire-bucket", new()
+    ///     {
+    ///         Bucket = example.Bucket,
+    ///         Tierings = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketIntelligentTieringConfigurationTieringArgs
+    ///             {
+    ///                 AccessTier = "DEEP_ARCHIVE_ACCESS",
+    ///                 Days = 180,
+    ///             },
+    ///             new Aws.S3.Inputs.BucketIntelligentTieringConfigurationTieringArgs
+    ///             {
+    ///                 AccessTier = "ARCHIVE_ACCESS",
+    ///                 Days = 125,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Add intelligent tiering configuration with S3 object filter
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var example_filtered = new Aws.S3.BucketIntelligentTieringConfiguration("example-filtered", new Aws.S3.BucketIntelligentTieringConfigurationArgs
-    ///         {
-    ///             Bucket = example.Bucket,
-    ///             Status = "Disabled",
-    ///             Filter = new Aws.S3.Inputs.BucketIntelligentTieringConfigurationFilterArgs
-    ///             {
-    ///                 Prefix = "documents/",
-    ///                 Tags = 
-    ///                 {
-    ///                     { "priority", "high" },
-    ///                     { "class", "blue" },
-    ///                 },
-    ///             },
-    ///             Tierings = 
-    ///             {
-    ///                 new Aws.S3.Inputs.BucketIntelligentTieringConfigurationTieringArgs
-    ///                 {
-    ///                     AccessTier = "ARCHIVE_ACCESS",
-    ///                     Days = 125,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var example = new Aws.S3.BucketV2("example");
     /// 
-    /// }
+    ///     var example_filtered = new Aws.S3.BucketIntelligentTieringConfiguration("example-filtered", new()
+    ///     {
+    ///         Bucket = example.Bucket,
+    ///         Status = "Disabled",
+    ///         Filter = new Aws.S3.Inputs.BucketIntelligentTieringConfigurationFilterArgs
+    ///         {
+    ///             Prefix = "documents/",
+    ///             Tags = 
+    ///             {
+    ///                 { "priority", "high" },
+    ///                 { "class", "blue" },
+    ///             },
+    ///         },
+    ///         Tierings = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketIntelligentTieringConfigurationTieringArgs
+    ///             {
+    ///                 AccessTier = "ARCHIVE_ACCESS",
+    ///                 Days = 125,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -96,7 +90,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration")]
-    public partial class BucketIntelligentTieringConfiguration : Pulumi.CustomResource
+    public partial class BucketIntelligentTieringConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the bucket this intelligent tiering configuration is associated with.
@@ -172,7 +166,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class BucketIntelligentTieringConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketIntelligentTieringConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket this intelligent tiering configuration is associated with.
@@ -213,9 +207,10 @@ namespace Pulumi.Aws.S3
         public BucketIntelligentTieringConfigurationArgs()
         {
         }
+        public static new BucketIntelligentTieringConfigurationArgs Empty => new BucketIntelligentTieringConfigurationArgs();
     }
 
-    public sealed class BucketIntelligentTieringConfigurationState : Pulumi.ResourceArgs
+    public sealed class BucketIntelligentTieringConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket this intelligent tiering configuration is associated with.
@@ -256,5 +251,6 @@ namespace Pulumi.Aws.S3
         public BucketIntelligentTieringConfigurationState()
         {
         }
+        public static new BucketIntelligentTieringConfigurationState Empty => new BucketIntelligentTieringConfigurationState();
     }
 }

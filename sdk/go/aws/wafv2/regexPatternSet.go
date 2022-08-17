@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := wafv2.NewRegexPatternSet(ctx, "example", &wafv2.RegexPatternSetArgs{
-// 			Description: pulumi.String("Example regex pattern set"),
-// 			RegularExpressions: wafv2.RegexPatternSetRegularExpressionArray{
-// 				&wafv2.RegexPatternSetRegularExpressionArgs{
-// 					RegexString: pulumi.String("one"),
-// 				},
-// 				&wafv2.RegexPatternSetRegularExpressionArgs{
-// 					RegexString: pulumi.String("two"),
-// 				},
-// 			},
-// 			Scope: pulumi.String("REGIONAL"),
-// 			Tags: pulumi.StringMap{
-// 				"Tag1": pulumi.String("Value1"),
-// 				"Tag2": pulumi.String("Value2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := wafv2.NewRegexPatternSet(ctx, "example", &wafv2.RegexPatternSetArgs{
+//				Description: pulumi.String("Example regex pattern set"),
+//				RegularExpressions: wafv2.RegexPatternSetRegularExpressionArray{
+//					&wafv2.RegexPatternSetRegularExpressionArgs{
+//						RegexString: pulumi.String("one"),
+//					},
+//					&wafv2.RegexPatternSetRegularExpressionArgs{
+//						RegexString: pulumi.String("two"),
+//					},
+//				},
+//				Scope: pulumi.String("REGIONAL"),
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // WAFv2 Regex Pattern Sets can be imported using `ID/name/scope` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+//
+//	$ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+//
 // ```
 type RegexPatternSet struct {
 	pulumi.CustomResourceState
@@ -70,9 +75,9 @@ type RegexPatternSet struct {
 	RegularExpressions RegexPatternSetRegularExpressionArrayOutput `pulumi:"regularExpressions"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringOutput `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -119,9 +124,9 @@ type regexPatternSetState struct {
 	RegularExpressions []RegexPatternSetRegularExpression `pulumi:"regularExpressions"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope *string `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -137,9 +142,9 @@ type RegexPatternSetState struct {
 	RegularExpressions RegexPatternSetRegularExpressionArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringPtrInput
-	// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -156,7 +161,7 @@ type regexPatternSetArgs struct {
 	RegularExpressions []RegexPatternSetRegularExpression `pulumi:"regularExpressions"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope string `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -170,7 +175,7 @@ type RegexPatternSetArgs struct {
 	RegularExpressions RegexPatternSetRegularExpressionArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringInput
-	// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -200,7 +205,7 @@ func (i *RegexPatternSet) ToRegexPatternSetOutputWithContext(ctx context.Context
 // RegexPatternSetArrayInput is an input type that accepts RegexPatternSetArray and RegexPatternSetArrayOutput values.
 // You can construct a concrete instance of `RegexPatternSetArrayInput` via:
 //
-//          RegexPatternSetArray{ RegexPatternSetArgs{...} }
+//	RegexPatternSetArray{ RegexPatternSetArgs{...} }
 type RegexPatternSetArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +230,7 @@ func (i RegexPatternSetArray) ToRegexPatternSetArrayOutputWithContext(ctx contex
 // RegexPatternSetMapInput is an input type that accepts RegexPatternSetMap and RegexPatternSetMapOutput values.
 // You can construct a concrete instance of `RegexPatternSetMapInput` via:
 //
-//          RegexPatternSetMap{ "key": RegexPatternSetArgs{...} }
+//	RegexPatternSetMap{ "key": RegexPatternSetArgs{...} }
 type RegexPatternSetMapInput interface {
 	pulumi.Input
 
@@ -290,12 +295,12 @@ func (o RegexPatternSetOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
 }
 
-// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RegexPatternSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RegexPatternSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

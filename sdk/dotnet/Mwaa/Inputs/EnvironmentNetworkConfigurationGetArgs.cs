@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Mwaa.Inputs
 {
 
-    public sealed class EnvironmentNetworkConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentNetworkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Mwaa.Inputs
         public EnvironmentNetworkConfigurationGetArgs()
         {
         }
+        public static new EnvironmentNetworkConfigurationGetArgs Empty => new EnvironmentNetworkConfigurationGetArgs();
     }
 }

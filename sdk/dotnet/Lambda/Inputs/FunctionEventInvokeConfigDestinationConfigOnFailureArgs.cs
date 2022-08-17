@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda.Inputs
 {
 
-    public sealed class FunctionEventInvokeConfigDestinationConfigOnFailureArgs : Pulumi.ResourceArgs
+    public sealed class FunctionEventInvokeConfigDestinationConfigOnFailureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Lambda.Inputs
         public FunctionEventInvokeConfigDestinationConfigOnFailureArgs()
         {
         }
+        public static new FunctionEventInvokeConfigDestinationConfigOnFailureArgs Empty => new FunctionEventInvokeConfigDestinationConfigOnFailureArgs();
     }
 }

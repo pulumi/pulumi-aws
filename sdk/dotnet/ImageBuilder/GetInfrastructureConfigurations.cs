@@ -19,30 +19,28 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetInfrastructureConfigurations.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetInfrastructureConfigurations.InvokeAsync(new Aws.ImageBuilder.GetInfrastructureConfigurationsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.ImageBuilder.Inputs.GetInfrastructureConfigurationsFilterInputArgs
         ///             {
-        ///                 new Aws.ImageBuilder.Inputs.GetInfrastructureConfigurationsFilterArgs
+        ///                 Name = "name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "name",
-        ///                     Values = 
-        ///                     {
-        ///                         "example",
-        ///                     },
+        ///                     "example",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -58,30 +56,28 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetInfrastructureConfigurations.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetInfrastructureConfigurations.InvokeAsync(new Aws.ImageBuilder.GetInfrastructureConfigurationsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.ImageBuilder.Inputs.GetInfrastructureConfigurationsFilterInputArgs
         ///             {
-        ///                 new Aws.ImageBuilder.Inputs.GetInfrastructureConfigurationsFilterArgs
+        ///                 Name = "name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "name",
-        ///                     Values = 
-        ///                     {
-        ///                         "example",
-        ///                     },
+        ///                     "example",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -91,7 +87,7 @@ namespace Pulumi.Aws.ImageBuilder
     }
 
 
-    public sealed class GetInfrastructureConfigurationsArgs : Pulumi.InvokeArgs
+    public sealed class GetInfrastructureConfigurationsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetInfrastructureConfigurationsFilterArgs>? _filters;
@@ -108,9 +104,10 @@ namespace Pulumi.Aws.ImageBuilder
         public GetInfrastructureConfigurationsArgs()
         {
         }
+        public static new GetInfrastructureConfigurationsArgs Empty => new GetInfrastructureConfigurationsArgs();
     }
 
-    public sealed class GetInfrastructureConfigurationsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInfrastructureConfigurationsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetInfrastructureConfigurationsFilterInputArgs>? _filters;
@@ -127,6 +124,7 @@ namespace Pulumi.Aws.ImageBuilder
         public GetInfrastructureConfigurationsInvokeArgs()
         {
         }
+        public static new GetInfrastructureConfigurationsInvokeArgs Empty => new GetInfrastructureConfigurationsInvokeArgs();
     }
 
 

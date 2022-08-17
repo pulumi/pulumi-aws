@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Keyspaces.Inputs
 {
 
-    public sealed class TableSchemaDefinitionPartitionKeyGetArgs : Pulumi.ResourceArgs
+    public sealed class TableSchemaDefinitionPartitionKeyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the partition key column.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
         public TableSchemaDefinitionPartitionKeyGetArgs()
         {
         }
+        public static new TableSchemaDefinitionPartitionKeyGetArgs Empty => new TableSchemaDefinitionPartitionKeyGetArgs();
     }
 }

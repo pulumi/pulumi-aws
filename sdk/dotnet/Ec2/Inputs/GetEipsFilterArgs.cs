@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetEipsFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetEipsFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the field to filter by, as defined by
@@ -34,5 +34,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetEipsFilterInputArgs()
         {
         }
+        public static new GetEipsFilterInputArgs Empty => new GetEipsFilterInputArgs();
     }
 }

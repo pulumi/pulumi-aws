@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudSearch.Inputs
 {
 
-    public sealed class DomainScalingParametersGetArgs : Pulumi.ResourceArgs
+    public sealed class DomainScalingParametersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CloudSearch.Inputs
         public DomainScalingParametersGetArgs()
         {
         }
+        public static new DomainScalingParametersGetArgs Empty => new DomainScalingParametersGetArgs();
     }
 }

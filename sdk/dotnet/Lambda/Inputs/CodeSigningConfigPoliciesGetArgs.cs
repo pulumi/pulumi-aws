@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda.Inputs
 {
 
-    public sealed class CodeSigningConfigPoliciesGetArgs : Pulumi.ResourceArgs
+    public sealed class CodeSigningConfigPoliciesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Lambda.Inputs
         public CodeSigningConfigPoliciesGetArgs()
         {
         }
+        public static new CodeSigningConfigPoliciesGetArgs Empty => new CodeSigningConfigPoliciesGetArgs();
     }
 }

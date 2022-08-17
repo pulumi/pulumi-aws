@@ -128,6 +128,21 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+     * 
+     */
+    @Import(name="recordSizeKib")
+    private @Nullable Output<Integer> recordSizeKib;
+
+    /**
+     * @return The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+     * 
+     */
+    public Optional<Output<Integer>> recordSizeKib() {
+        return Optional.ofNullable(this.recordSizeKib);
+    }
+
+    /**
      * - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
      * 
      */
@@ -158,14 +173,14 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -204,6 +219,7 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
         this.originSnapshot = $.originSnapshot;
         this.parentVolumeId = $.parentVolumeId;
         this.readOnly = $.readOnly;
+        this.recordSizeKib = $.recordSizeKib;
         this.storageCapacityQuotaGib = $.storageCapacityQuotaGib;
         this.storageCapacityReservationGib = $.storageCapacityReservationGib;
         this.tags = $.tags;
@@ -377,6 +393,27 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param recordSizeKib The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recordSizeKib(@Nullable Output<Integer> recordSizeKib) {
+            $.recordSizeKib = recordSizeKib;
+            return this;
+        }
+
+        /**
+         * @param recordSizeKib The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recordSizeKib(Integer recordSizeKib) {
+            return recordSizeKib(Output.of(recordSizeKib));
+        }
+
+        /**
          * @param storageCapacityQuotaGib - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
          * 
          * @return builder
@@ -419,7 +456,7 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -430,7 +467,7 @@ public final class OpenZfsVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

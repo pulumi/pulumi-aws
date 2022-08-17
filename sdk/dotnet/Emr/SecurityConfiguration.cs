@@ -15,16 +15,15 @@ namespace Pulumi.Aws.Emr
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Emr.SecurityConfiguration("foo", new()
     ///     {
-    ///         var foo = new Aws.Emr.SecurityConfiguration("foo", new Aws.Emr.SecurityConfigurationArgs
-    ///         {
-    ///             Configuration = @"{
+    ///         Configuration = @"{
     ///   ""EncryptionConfiguration"": {
     ///     ""AtRestEncryptionConfiguration"": {
     ///       ""S3EncryptionConfiguration"": {
@@ -41,10 +40,9 @@ namespace Pulumi.Aws.Emr
     /// }
     /// 
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +54,7 @@ namespace Pulumi.Aws.Emr
     /// ```
     /// </summary>
     [AwsResourceType("aws:emr/securityConfiguration:SecurityConfiguration")]
-    public partial class SecurityConfiguration : Pulumi.CustomResource
+    public partial class SecurityConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A JSON formatted Security Configuration
@@ -127,7 +125,7 @@ namespace Pulumi.Aws.Emr
         }
     }
 
-    public sealed class SecurityConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SecurityConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A JSON formatted Security Configuration
@@ -151,9 +149,10 @@ namespace Pulumi.Aws.Emr
         public SecurityConfigurationArgs()
         {
         }
+        public static new SecurityConfigurationArgs Empty => new SecurityConfigurationArgs();
     }
 
-    public sealed class SecurityConfigurationState : Pulumi.ResourceArgs
+    public sealed class SecurityConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A JSON formatted Security Configuration
@@ -183,5 +182,6 @@ namespace Pulumi.Aws.Emr
         public SecurityConfigurationState()
         {
         }
+        public static new SecurityConfigurationState Empty => new SecurityConfigurationState();
     }
 }

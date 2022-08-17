@@ -15,21 +15,19 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var dnsResolver = new Aws.Ec2.VpcDhcpOptionsAssociation("dnsResolver", new()
     ///     {
-    ///         var dnsResolver = new Aws.Ec2.VpcDhcpOptionsAssociation("dnsResolver", new Aws.Ec2.VpcDhcpOptionsAssociationArgs
-    ///         {
-    ///             VpcId = aws_vpc.Foo.Id,
-    ///             DhcpOptionsId = aws_vpc_dhcp_options.Foo.Id,
-    ///         });
-    ///     }
+    ///         VpcId = aws_vpc.Foo.Id,
+    ///         DhcpOptionsId = aws_vpc_dhcp_options.Foo.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Remarks
     /// 
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation")]
-    public partial class VpcDhcpOptionsAssociation : Pulumi.CustomResource
+    public partial class VpcDhcpOptionsAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the DHCP Options Set to associate to the VPC.
@@ -103,7 +101,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcDhcpOptionsAssociationArgs : Pulumi.ResourceArgs
+    public sealed class VpcDhcpOptionsAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the DHCP Options Set to associate to the VPC.
@@ -120,9 +118,10 @@ namespace Pulumi.Aws.Ec2
         public VpcDhcpOptionsAssociationArgs()
         {
         }
+        public static new VpcDhcpOptionsAssociationArgs Empty => new VpcDhcpOptionsAssociationArgs();
     }
 
-    public sealed class VpcDhcpOptionsAssociationState : Pulumi.ResourceArgs
+    public sealed class VpcDhcpOptionsAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the DHCP Options Set to associate to the VPC.
@@ -139,5 +138,6 @@ namespace Pulumi.Aws.Ec2
         public VpcDhcpOptionsAssociationState()
         {
         }
+        public static new VpcDhcpOptionsAssociationState Empty => new VpcDhcpOptionsAssociationState();
     }
 }

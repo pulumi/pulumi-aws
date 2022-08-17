@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SecurityHub.Inputs
 {
 
-    public sealed class InsightFiltersLastObservedAtDateRangeGetArgs : Pulumi.ResourceArgs
+    public sealed class InsightFiltersLastObservedAtDateRangeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A date range unit for the date filter. Valid values: `DAYS`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         public InsightFiltersLastObservedAtDateRangeGetArgs()
         {
         }
+        public static new InsightFiltersLastObservedAtDateRangeGetArgs Empty => new InsightFiltersLastObservedAtDateRangeGetArgs();
     }
 }

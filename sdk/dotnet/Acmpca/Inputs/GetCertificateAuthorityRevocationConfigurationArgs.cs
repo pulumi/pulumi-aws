@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Acmpca.Inputs
 {
 
-    public sealed class GetCertificateAuthorityRevocationConfigurationInputArgs : Pulumi.ResourceArgs
+    public sealed class GetCertificateAuthorityRevocationConfigurationInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("crlConfigurations", required: true)]
         private InputList<Inputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationInputArgs>? _crlConfigurations;
@@ -31,5 +31,6 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public GetCertificateAuthorityRevocationConfigurationInputArgs()
         {
         }
+        public static new GetCertificateAuthorityRevocationConfigurationInputArgs Empty => new GetCertificateAuthorityRevocationConfigurationInputArgs();
     }
 }

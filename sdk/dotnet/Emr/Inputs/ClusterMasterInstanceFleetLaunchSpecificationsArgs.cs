@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Emr.Inputs
 {
 
-    public sealed class ClusterMasterInstanceFleetLaunchSpecificationsArgs : Pulumi.ResourceArgs
+    public sealed class ClusterMasterInstanceFleetLaunchSpecificationsArgs : global::Pulumi.ResourceArgs
     {
         [Input("onDemandSpecifications")]
         private InputList<Inputs.ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs>? _onDemandSpecifications;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Emr.Inputs
         public ClusterMasterInstanceFleetLaunchSpecificationsArgs()
         {
         }
+        public static new ClusterMasterInstanceFleetLaunchSpecificationsArgs Empty => new ClusterMasterInstanceFleetLaunchSpecificationsArgs();
     }
 }

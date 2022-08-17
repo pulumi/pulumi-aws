@@ -20,25 +20,28 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := imagebuilder.NewComponent(ctx, "example", &imagebuilder.ComponentArgs{
-// 			Platform: pulumi.String("Linux"),
-// 			Uri:      pulumi.String(fmt.Sprintf("s3://%v/%v", aws_s3_object.Example.Bucket, aws_s3_object.Example.Key)),
-// 			Version:  pulumi.String("1.0.0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := imagebuilder.NewComponent(ctx, "example", &imagebuilder.ComponentArgs{
+//				Platform: pulumi.String("Linux"),
+//				Uri:      pulumi.String(fmt.Sprintf("s3://%v/%v", aws_s3_object.Example.Bucket, aws_s3_object.Example.Key)),
+//				Version:  pulumi.String("1.0.0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,10 +49,12 @@ import (
 // `aws_imagebuilder_components` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
+//
+//	$ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
+//
 // ```
 //
-//  Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
+//	Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
 type Component struct {
 	pulumi.CustomResourceState
 
@@ -75,9 +80,9 @@ type Component struct {
 	Platform pulumi.StringOutput `pulumi:"platform"`
 	// Set of Operating Systems (OS) supported by the component.
 	SupportedOsVersions pulumi.StringArrayOutput `pulumi:"supportedOsVersions"`
-	// Key-value map of resource tags for the component. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of the component.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -144,9 +149,9 @@ type componentState struct {
 	Platform *string `pulumi:"platform"`
 	// Set of Operating Systems (OS) supported by the component.
 	SupportedOsVersions []string `pulumi:"supportedOsVersions"`
-	// Key-value map of resource tags for the component. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of the component.
 	Type *string `pulumi:"type"`
@@ -179,9 +184,9 @@ type ComponentState struct {
 	Platform pulumi.StringPtrInput
 	// Set of Operating Systems (OS) supported by the component.
 	SupportedOsVersions pulumi.StringArrayInput
-	// Key-value map of resource tags for the component. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Type of the component.
 	Type pulumi.StringPtrInput
@@ -210,7 +215,7 @@ type componentArgs struct {
 	Platform string `pulumi:"platform"`
 	// Set of Operating Systems (OS) supported by the component.
 	SupportedOsVersions []string `pulumi:"supportedOsVersions"`
-	// Key-value map of resource tags for the component. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
 	Uri *string `pulumi:"uri"`
@@ -234,7 +239,7 @@ type ComponentArgs struct {
 	Platform pulumi.StringInput
 	// Set of Operating Systems (OS) supported by the component.
 	SupportedOsVersions pulumi.StringArrayInput
-	// Key-value map of resource tags for the component. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
 	Uri pulumi.StringPtrInput
@@ -268,7 +273,7 @@ func (i *Component) ToComponentOutputWithContext(ctx context.Context) ComponentO
 // ComponentArrayInput is an input type that accepts ComponentArray and ComponentArrayOutput values.
 // You can construct a concrete instance of `ComponentArrayInput` via:
 //
-//          ComponentArray{ ComponentArgs{...} }
+//	ComponentArray{ ComponentArgs{...} }
 type ComponentArrayInput interface {
 	pulumi.Input
 
@@ -293,7 +298,7 @@ func (i ComponentArray) ToComponentArrayOutputWithContext(ctx context.Context) C
 // ComponentMapInput is an input type that accepts ComponentMap and ComponentMapOutput values.
 // You can construct a concrete instance of `ComponentMapInput` via:
 //
-//          ComponentMap{ "key": ComponentArgs{...} }
+//	ComponentMap{ "key": ComponentArgs{...} }
 type ComponentMapInput interface {
 	pulumi.Input
 
@@ -384,12 +389,12 @@ func (o ComponentOutput) SupportedOsVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringArrayOutput { return v.SupportedOsVersions }).(pulumi.StringArrayOutput)
 }
 
-// Key-value map of resource tags for the component. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ComponentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ComponentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

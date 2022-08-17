@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cfg.Inputs
 {
 
-    public sealed class OrganizationConformancePackInputParameterGetArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationConformancePackInputParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The input key.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Cfg.Inputs
         public OrganizationConformancePackInputParameterGetArgs()
         {
         }
+        public static new OrganizationConformancePackInputParameterGetArgs Empty => new OrganizationConformancePackInputParameterGetArgs();
     }
 }

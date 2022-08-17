@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetLocalGatewayVirtualInterfaceGroupFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetLocalGatewayVirtualInterfaceGroupFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the filter.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetLocalGatewayVirtualInterfaceGroupFilterInputArgs()
         {
         }
+        public static new GetLocalGatewayVirtualInterfaceGroupFilterInputArgs Empty => new GetLocalGatewayVirtualInterfaceGroupFilterInputArgs();
     }
 }

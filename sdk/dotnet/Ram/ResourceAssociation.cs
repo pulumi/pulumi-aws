@@ -17,21 +17,19 @@ namespace Pulumi.Aws.Ram
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ram.ResourceAssociation("example", new()
     ///     {
-    ///         var example = new Aws.Ram.ResourceAssociation("example", new Aws.Ram.ResourceAssociationArgs
-    ///         {
-    ///             ResourceArn = aws_subnet.Example.Arn,
-    ///             ResourceShareArn = aws_ram_resource_share.Example.Arn,
-    ///         });
-    ///     }
+    ///         ResourceArn = aws_subnet.Example.Arn,
+    ///         ResourceShareArn = aws_ram_resource_share.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.Ram
     /// ```
     /// </summary>
     [AwsResourceType("aws:ram/resourceAssociation:ResourceAssociation")]
-    public partial class ResourceAssociation : Pulumi.CustomResource
+    public partial class ResourceAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
@@ -101,7 +99,7 @@ namespace Pulumi.Aws.Ram
         }
     }
 
-    public sealed class ResourceAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ResourceAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
@@ -118,9 +116,10 @@ namespace Pulumi.Aws.Ram
         public ResourceAssociationArgs()
         {
         }
+        public static new ResourceAssociationArgs Empty => new ResourceAssociationArgs();
     }
 
-    public sealed class ResourceAssociationState : Pulumi.ResourceArgs
+    public sealed class ResourceAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
@@ -137,5 +136,6 @@ namespace Pulumi.Aws.Ram
         public ResourceAssociationState()
         {
         }
+        public static new ResourceAssociationState Empty => new ResourceAssociationState();
     }
 }

@@ -21,84 +21,91 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-// 			ForceDestroy: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": "sts:AssumeRole",
-//       "Principal": {
-//         "Service": "config.amazonaws.com"
-//       },
-//       "Effect": "Allow",
-//       "Sid": ""
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
+//				ForceDestroy: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "sts:AssumeRole",
+//	      "Principal": {
+//	        "Service": "config.amazonaws.com"
+//	      },
+//	      "Effect": "Allow",
+//	      "Sid": ""
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fooRecorder, err := cfg.NewRecorder(ctx, "fooRecorder", &cfg.RecorderArgs{
-// 			RoleArn: role.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cfg.NewDeliveryChannel(ctx, "fooDeliveryChannel", &cfg.DeliveryChannelArgs{
-// 			S3BucketName: bucketV2.Bucket,
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			fooRecorder,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicy(ctx, "rolePolicy", &iam.RolePolicyArgs{
-// 			Role: role.ID(),
-// 			Policy: pulumi.All(bucketV2.Arn, bucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
-// 				bucketV2Arn := _args[0].(string)
-// 				bucketV2Arn1 := _args[1].(string)
-// 				return fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": [
-//         "s3:*"
-//       ],
-//       "Effect": "Allow",
-//       "Resource": [
-//         "%v",
-//         "%v/*"
-//       ]
-//     }
-//   ]
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fooRecorder, err := cfg.NewRecorder(ctx, "fooRecorder", &cfg.RecorderArgs{
+//				RoleArn: role.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cfg.NewDeliveryChannel(ctx, "fooDeliveryChannel", &cfg.DeliveryChannelArgs{
+//				S3BucketName: bucketV2.Bucket,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				fooRecorder,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "rolePolicy", &iam.RolePolicyArgs{
+//				Role: role.ID(),
+//				Policy: pulumi.All(bucketV2.Arn, bucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
+//					bucketV2Arn := _args[0].(string)
+//					bucketV2Arn1 := _args[1].(string)
+//					return fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": [
+//	        "s3:*"
+//	      ],
+//	      "Effect": "Allow",
+//	      "Resource": [
+//	        "%v",
+//	        "%v/*"
+//	      ]
+//	    }
+//	  ]
+//	}
+//
 // `, bucketV2Arn, bucketV2Arn1), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -106,7 +113,9 @@ import (
 // Delivery Channel can be imported using the name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
+//
+//	$ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
+//
 // ```
 type DeliveryChannel struct {
 	pulumi.CustomResourceState
@@ -247,7 +256,7 @@ func (i *DeliveryChannel) ToDeliveryChannelOutputWithContext(ctx context.Context
 // DeliveryChannelArrayInput is an input type that accepts DeliveryChannelArray and DeliveryChannelArrayOutput values.
 // You can construct a concrete instance of `DeliveryChannelArrayInput` via:
 //
-//          DeliveryChannelArray{ DeliveryChannelArgs{...} }
+//	DeliveryChannelArray{ DeliveryChannelArgs{...} }
 type DeliveryChannelArrayInput interface {
 	pulumi.Input
 
@@ -272,7 +281,7 @@ func (i DeliveryChannelArray) ToDeliveryChannelArrayOutputWithContext(ctx contex
 // DeliveryChannelMapInput is an input type that accepts DeliveryChannelMap and DeliveryChannelMapOutput values.
 // You can construct a concrete instance of `DeliveryChannelMapInput` via:
 //
-//          DeliveryChannelMap{ "key": DeliveryChannelArgs{...} }
+//	DeliveryChannelMap{ "key": DeliveryChannelArgs{...} }
 type DeliveryChannelMapInput interface {
 	pulumi.Input
 

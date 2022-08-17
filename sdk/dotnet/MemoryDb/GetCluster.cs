@@ -19,20 +19,18 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MemoryDb.GetCluster.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MemoryDb.GetCluster.InvokeAsync(new Aws.MemoryDb.GetClusterArgs
-        ///         {
-        ///             Name = "my-cluster",
-        ///         }));
-        ///     }
+        ///         Name = "my-cluster",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MemoryDb.GetCluster.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MemoryDb.GetCluster.InvokeAsync(new Aws.MemoryDb.GetClusterArgs
-        ///         {
-        ///             Name = "my-cluster",
-        ///         }));
-        ///     }
+        ///         Name = "my-cluster",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.MemoryDb
     }
 
 
-    public sealed class GetClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the cluster.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.MemoryDb
         public GetClusterArgs()
         {
         }
+        public static new GetClusterArgs Empty => new GetClusterArgs();
     }
 
-    public sealed class GetClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the cluster.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.MemoryDb
         public GetClusterInvokeArgs()
         {
         }
+        public static new GetClusterInvokeArgs Empty => new GetClusterInvokeArgs();
     }
 
 

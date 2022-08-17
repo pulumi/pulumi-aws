@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
@@ -123,5 +123,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGetArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGetArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGetArgs();
     }
 }

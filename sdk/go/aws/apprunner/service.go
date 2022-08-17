@@ -20,51 +20,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apprunner.NewService(ctx, "example", &apprunner.ServiceArgs{
-// 			ServiceName: pulumi.String("example"),
-// 			SourceConfiguration: &apprunner.ServiceSourceConfigurationArgs{
-// 				AuthenticationConfiguration: &apprunner.ServiceSourceConfigurationAuthenticationConfigurationArgs{
-// 					ConnectionArn: pulumi.Any(aws_apprunner_connection.Example.Arn),
-// 				},
-// 				CodeRepository: &apprunner.ServiceSourceConfigurationCodeRepositoryArgs{
-// 					CodeConfiguration: &apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs{
-// 						CodeConfigurationValues: &apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs{
-// 							BuildCommand: pulumi.String("python setup.py develop"),
-// 							Port:         pulumi.String("8000"),
-// 							Runtime:      pulumi.String("PYTHON_3"),
-// 							StartCommand: pulumi.String("python runapp.py"),
-// 						},
-// 						ConfigurationSource: pulumi.String("API"),
-// 					},
-// 					RepositoryUrl: pulumi.String("https://github.com/example/my-example-python-app"),
-// 					SourceCodeVersion: &apprunner.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs{
-// 						Type:  pulumi.String("BRANCH"),
-// 						Value: pulumi.String("main"),
-// 					},
-// 				},
-// 			},
-// 			NetworkConfiguration: &apprunner.ServiceNetworkConfigurationArgs{
-// 				EgressConfiguration: &apprunner.ServiceNetworkConfigurationEgressConfigurationArgs{
-// 					EgressType:      pulumi.String("VPC"),
-// 					VpcConnectorArn: pulumi.Any(aws_apprunner_vpc_connector.Connector.Arn),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example-apprunner-service"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apprunner.NewService(ctx, "example", &apprunner.ServiceArgs{
+//				ServiceName: pulumi.String("example"),
+//				SourceConfiguration: &apprunner.ServiceSourceConfigurationArgs{
+//					AuthenticationConfiguration: &apprunner.ServiceSourceConfigurationAuthenticationConfigurationArgs{
+//						ConnectionArn: pulumi.Any(aws_apprunner_connection.Example.Arn),
+//					},
+//					CodeRepository: &apprunner.ServiceSourceConfigurationCodeRepositoryArgs{
+//						CodeConfiguration: &apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs{
+//							CodeConfigurationValues: &apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs{
+//								BuildCommand: pulumi.String("python setup.py develop"),
+//								Port:         pulumi.String("8000"),
+//								Runtime:      pulumi.String("PYTHON_3"),
+//								StartCommand: pulumi.String("python runapp.py"),
+//							},
+//							ConfigurationSource: pulumi.String("API"),
+//						},
+//						RepositoryUrl: pulumi.String("https://github.com/example/my-example-python-app"),
+//						SourceCodeVersion: &apprunner.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs{
+//							Type:  pulumi.String("BRANCH"),
+//							Value: pulumi.String("main"),
+//						},
+//					},
+//				},
+//				NetworkConfiguration: &apprunner.ServiceNetworkConfigurationArgs{
+//					EgressConfiguration: &apprunner.ServiceNetworkConfigurationEgressConfigurationArgs{
+//						EgressType:      pulumi.String("VPC"),
+//						VpcConnectorArn: pulumi.Any(aws_apprunner_vpc_connector.Connector.Arn),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-apprunner-service"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Service with an Image Repository Source
 //
@@ -72,34 +75,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apprunner.NewService(ctx, "example", &apprunner.ServiceArgs{
-// 			ServiceName: pulumi.String("example"),
-// 			SourceConfiguration: &apprunner.ServiceSourceConfigurationArgs{
-// 				AutoDeploymentsEnabled: pulumi.Bool(false),
-// 				ImageRepository: &apprunner.ServiceSourceConfigurationImageRepositoryArgs{
-// 					ImageConfiguration: &apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs{
-// 						Port: pulumi.String("8000"),
-// 					},
-// 					ImageIdentifier:     pulumi.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
-// 					ImageRepositoryType: pulumi.String("ECR_PUBLIC"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example-apprunner-service"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apprunner.NewService(ctx, "example", &apprunner.ServiceArgs{
+//				ServiceName: pulumi.String("example"),
+//				SourceConfiguration: &apprunner.ServiceSourceConfigurationArgs{
+//					AutoDeploymentsEnabled: pulumi.Bool(false),
+//					ImageRepository: &apprunner.ServiceSourceConfigurationImageRepositoryArgs{
+//						ImageConfiguration: &apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs{
+//							Port: pulumi.String("8000"),
+//						},
+//						ImageIdentifier:     pulumi.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+//						ImageRepositoryType: pulumi.String("ECR_PUBLIC"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-apprunner-service"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Service with Observability Configuration
 //
@@ -107,47 +113,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleObservabilityConfiguration, err := apprunner.NewObservabilityConfiguration(ctx, "exampleObservabilityConfiguration", &apprunner.ObservabilityConfigurationArgs{
-// 			ObservabilityConfigurationName: pulumi.String("example"),
-// 			TraceConfiguration: &apprunner.ObservabilityConfigurationTraceConfigurationArgs{
-// 				Vendor: pulumi.String("AWSXRAY"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apprunner.NewService(ctx, "exampleService", &apprunner.ServiceArgs{
-// 			ServiceName: pulumi.String("example"),
-// 			ObservabilityConfiguration: &apprunner.ServiceObservabilityConfigurationArgs{
-// 				ObservabilityConfigurationArn: exampleObservabilityConfiguration.Arn,
-// 				ObservabilityEnabled:          pulumi.Bool(true),
-// 			},
-// 			SourceConfiguration: &apprunner.ServiceSourceConfigurationArgs{
-// 				ImageRepository: &apprunner.ServiceSourceConfigurationImageRepositoryArgs{
-// 					ImageConfiguration: &apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs{
-// 						Port: pulumi.String("8000"),
-// 					},
-// 					ImageIdentifier:     pulumi.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
-// 					ImageRepositoryType: pulumi.String("ECR_PUBLIC"),
-// 				},
-// 				AutoDeploymentsEnabled: pulumi.Bool(false),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example-apprunner-service"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleObservabilityConfiguration, err := apprunner.NewObservabilityConfiguration(ctx, "exampleObservabilityConfiguration", &apprunner.ObservabilityConfigurationArgs{
+//				ObservabilityConfigurationName: pulumi.String("example"),
+//				TraceConfiguration: &apprunner.ObservabilityConfigurationTraceConfigurationArgs{
+//					Vendor: pulumi.String("AWSXRAY"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apprunner.NewService(ctx, "exampleService", &apprunner.ServiceArgs{
+//				ServiceName: pulumi.String("example"),
+//				ObservabilityConfiguration: &apprunner.ServiceObservabilityConfigurationArgs{
+//					ObservabilityConfigurationArn: exampleObservabilityConfiguration.Arn,
+//					ObservabilityEnabled:          pulumi.Bool(true),
+//				},
+//				SourceConfiguration: &apprunner.ServiceSourceConfigurationArgs{
+//					ImageRepository: &apprunner.ServiceSourceConfigurationImageRepositoryArgs{
+//						ImageConfiguration: &apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs{
+//							Port: pulumi.String("8000"),
+//						},
+//						ImageIdentifier:     pulumi.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+//						ImageRepositoryType: pulumi.String("ECR_PUBLIC"),
+//					},
+//					AutoDeploymentsEnabled: pulumi.Bool(false),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-apprunner-service"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -155,7 +164,9 @@ import (
 // App Runner Services can be imported by using the `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apprunner/service:Service example arn:aws:apprunner:us-east-1:1234567890:service/example/0a03292a89764e5882c41d8f991c82fe
+//
+//	$ pulumi import aws:apprunner/service:Service example arn:aws:apprunner:us-east-1:1234567890:service/example/0a03292a89764e5882c41d8f991c82fe
+//
 // ```
 type Service struct {
 	pulumi.CustomResourceState
@@ -359,7 +370,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 // ServiceArrayInput is an input type that accepts ServiceArray and ServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceArrayInput` via:
 //
-//          ServiceArray{ ServiceArgs{...} }
+//	ServiceArray{ ServiceArgs{...} }
 type ServiceArrayInput interface {
 	pulumi.Input
 
@@ -384,7 +395,7 @@ func (i ServiceArray) ToServiceArrayOutputWithContext(ctx context.Context) Servi
 // ServiceMapInput is an input type that accepts ServiceMap and ServiceMapOutput values.
 // You can construct a concrete instance of `ServiceMapInput` via:
 //
-//          ServiceMap{ "key": ServiceArgs{...} }
+//	ServiceMap{ "key": ServiceArgs{...} }
 type ServiceMapInput interface {
 	pulumi.Input
 

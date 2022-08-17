@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs : Pulumi.ResourceArgs
+    public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
@@ -183,5 +183,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs()
         {
         }
+        public static new GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs Empty => new GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs();
     }
 }

@@ -21,21 +21,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/xray"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/xray"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := xray.NewEncryptionConfig(ctx, "example", &xray.EncryptionConfigArgs{
-// 			Type: pulumi.String("NONE"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := xray.NewEncryptionConfig(ctx, "example", &xray.EncryptionConfigArgs{
+//				Type: pulumi.String("NONE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With KMS Key
 //
@@ -43,53 +46,58 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/xray"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/xray"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := aws.GetCallerIdentity(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-// 			Description:          pulumi.String("Some Key"),
-// 			DeletionWindowInDays: pulumi.Int(7),
-// 			Policy: pulumi.String(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Id": "kms-tf-1",
-//   "Statement": [
-//     {
-//       "Sid": "Enable IAM User Permissions",
-//       "Effect": "Allow",
-//       "Principal": {
-//         "AWS": "arn:aws:iam::%v:root"
-//       },
-//       "Action": "kms:*",
-//       "Resource": "*"
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//				Description:          pulumi.String("Some Key"),
+//				DeletionWindowInDays: pulumi.Int(7),
+//				Policy: pulumi.String(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Id": "kms-tf-1",
+//	  "Statement": [
+//	    {
+//	      "Sid": "Enable IAM User Permissions",
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "AWS": "arn:aws:iam::%v:root"
+//	      },
+//	      "Action": "kms:*",
+//	      "Resource": "*"
+//	    }
+//	  ]
+//	}
+//
 // `, current.AccountId)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = xray.NewEncryptionConfig(ctx, "exampleEncryptionConfig", &xray.EncryptionConfigArgs{
-// 			Type:  pulumi.String("KMS"),
-// 			KeyId: exampleKey.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = xray.NewEncryptionConfig(ctx, "exampleEncryptionConfig", &xray.EncryptionConfigArgs{
+//				Type:  pulumi.String("KMS"),
+//				KeyId: exampleKey.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -97,7 +105,9 @@ import (
 // XRay Encryption Config can be imported using the region name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
+//
+//	$ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
+//
 // ```
 type EncryptionConfig struct {
 	pulumi.CustomResourceState
@@ -198,7 +208,7 @@ func (i *EncryptionConfig) ToEncryptionConfigOutputWithContext(ctx context.Conte
 // EncryptionConfigArrayInput is an input type that accepts EncryptionConfigArray and EncryptionConfigArrayOutput values.
 // You can construct a concrete instance of `EncryptionConfigArrayInput` via:
 //
-//          EncryptionConfigArray{ EncryptionConfigArgs{...} }
+//	EncryptionConfigArray{ EncryptionConfigArgs{...} }
 type EncryptionConfigArrayInput interface {
 	pulumi.Input
 
@@ -223,7 +233,7 @@ func (i EncryptionConfigArray) ToEncryptionConfigArrayOutputWithContext(ctx cont
 // EncryptionConfigMapInput is an input type that accepts EncryptionConfigMap and EncryptionConfigMapOutput values.
 // You can construct a concrete instance of `EncryptionConfigMapInput` via:
 //
-//          EncryptionConfigMap{ "key": EncryptionConfigArgs{...} }
+//	EncryptionConfigMap{ "key": EncryptionConfigArgs{...} }
 type EncryptionConfigMapInput interface {
 	pulumi.Input
 

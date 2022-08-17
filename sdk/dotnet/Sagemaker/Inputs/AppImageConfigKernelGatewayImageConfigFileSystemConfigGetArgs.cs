@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class AppImageConfigKernelGatewayImageConfigFileSystemConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class AppImageConfigKernelGatewayImageConfigFileSystemConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public AppImageConfigKernelGatewayImageConfigFileSystemConfigGetArgs()
         {
         }
+        public static new AppImageConfigKernelGatewayImageConfigFileSystemConfigGetArgs Empty => new AppImageConfigKernelGatewayImageConfigFileSystemConfigGetArgs();
     }
 }

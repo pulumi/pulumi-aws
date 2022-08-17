@@ -20,23 +20,26 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mskconnect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mskconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := mskconnect.NewWorkerConfiguration(ctx, "example", &mskconnect.WorkerConfigurationArgs{
-// 			PropertiesFileContent: pulumi.String(fmt.Sprintf("key.converter=org.apache.kafka.connect.storage.StringConverter\nvalue.converter=org.apache.kafka.connect.storage.StringConverter\n\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := mskconnect.NewWorkerConfiguration(ctx, "example", &mskconnect.WorkerConfigurationArgs{
+//				PropertiesFileContent: pulumi.String(fmt.Sprintf("key.converter=org.apache.kafka.connect.storage.StringConverter\nvalue.converter=org.apache.kafka.connect.storage.StringConverter\n\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // MSK Connect Worker Configuration can be imported using the plugin's `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
+//
+//	$ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
+//
 // ```
 type WorkerConfiguration struct {
 	pulumi.CustomResourceState
@@ -167,7 +172,7 @@ func (i *WorkerConfiguration) ToWorkerConfigurationOutputWithContext(ctx context
 // WorkerConfigurationArrayInput is an input type that accepts WorkerConfigurationArray and WorkerConfigurationArrayOutput values.
 // You can construct a concrete instance of `WorkerConfigurationArrayInput` via:
 //
-//          WorkerConfigurationArray{ WorkerConfigurationArgs{...} }
+//	WorkerConfigurationArray{ WorkerConfigurationArgs{...} }
 type WorkerConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -192,7 +197,7 @@ func (i WorkerConfigurationArray) ToWorkerConfigurationArrayOutputWithContext(ct
 // WorkerConfigurationMapInput is an input type that accepts WorkerConfigurationMap and WorkerConfigurationMapOutput values.
 // You can construct a concrete instance of `WorkerConfigurationMapInput` via:
 //
-//          WorkerConfigurationMap{ "key": WorkerConfigurationArgs{...} }
+//	WorkerConfigurationMap{ "key": WorkerConfigurationArgs{...} }
 type WorkerConfigurationMapInput interface {
 	pulumi.Input
 

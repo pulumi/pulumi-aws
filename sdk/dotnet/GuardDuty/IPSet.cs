@@ -17,48 +17,48 @@ namespace Pulumi.Aws.GuardDuty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var primary = new Aws.GuardDuty.Detector("primary", new()
     ///     {
-    ///         var primary = new Aws.GuardDuty.Detector("primary", new Aws.GuardDuty.DetectorArgs
-    ///         {
-    ///             Enable = true,
-    ///         });
-    ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         // ... other configuration
-    ///         var myIPSet = new Aws.S3.BucketObjectv2("myIPSet", new Aws.S3.BucketObjectv2Args
-    ///         {
-    ///             Content = @"10.0.0.0/8
-    /// ",
-    ///             Bucket = bucket.Id,
-    ///             Key = "MyIPSet",
-    ///         });
-    ///         var example = new Aws.GuardDuty.IPSet("example", new Aws.GuardDuty.IPSetArgs
-    ///         {
-    ///             Activate = true,
-    ///             DetectorId = primary.Id,
-    ///             Format = "TXT",
-    ///             Location = Output.Tuple(myIPSet.Bucket, myIPSet.Key).Apply(values =&gt;
-    ///             {
-    ///                 var bucket = values.Item1;
-    ///                 var key = values.Item2;
-    ///                 return $"https://s3.amazonaws.com/{bucket}/{key}";
-    ///             }),
-    ///         });
-    ///         var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = bucket.Id,
-    ///             Acl = "private",
-    ///         });
-    ///     }
+    ///         Enable = true,
+    ///     });
     /// 
-    /// }
+    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    /// 
+    ///     // ... other configuration
+    ///     var myIPSet = new Aws.S3.BucketObjectv2("myIPSet", new()
+    ///     {
+    ///         Content = @"10.0.0.0/8
+    /// ",
+    ///         Bucket = bucket.Id,
+    ///         Key = "MyIPSet",
+    ///     });
+    /// 
+    ///     var example = new Aws.GuardDuty.IPSet("example", new()
+    ///     {
+    ///         Activate = true,
+    ///         DetectorId = primary.Id,
+    ///         Format = "TXT",
+    ///         Location = Output.Tuple(myIPSet.Bucket, myIPSet.Key).Apply(values =&gt;
+    ///         {
+    ///             var bucket = values.Item1;
+    ///             var key = values.Item2;
+    ///             return $"https://s3.amazonaws.com/{bucket}/{key}";
+    ///         }),
+    ///     });
+    /// 
+    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.GuardDuty
     /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/iPSet:IPSet")]
-    public partial class IPSet : Pulumi.CustomResource
+    public partial class IPSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether GuardDuty is to start using the uploaded IPSet.
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.GuardDuty
         }
     }
 
-    public sealed class IPSetArgs : Pulumi.ResourceArgs
+    public sealed class IPSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether GuardDuty is to start using the uploaded IPSet.
@@ -211,9 +211,10 @@ namespace Pulumi.Aws.GuardDuty
         public IPSetArgs()
         {
         }
+        public static new IPSetArgs Empty => new IPSetArgs();
     }
 
-    public sealed class IPSetState : Pulumi.ResourceArgs
+    public sealed class IPSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether GuardDuty is to start using the uploaded IPSet.
@@ -267,7 +268,7 @@ namespace Pulumi.Aws.GuardDuty
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -278,5 +279,6 @@ namespace Pulumi.Aws.GuardDuty
         public IPSetState()
         {
         }
+        public static new IPSetState Empty => new IPSetState();
     }
 }

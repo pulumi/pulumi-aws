@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra.Inputs
 {
 
-    public sealed class QuerySuggestionsBlockListSourceS3PathArgs : Pulumi.ResourceArgs
+    public sealed class QuerySuggestionsBlockListSourceS3PathArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the S3 bucket that contains the file.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Kendra.Inputs
         public QuerySuggestionsBlockListSourceS3PathArgs()
         {
         }
+        public static new QuerySuggestionsBlockListSourceS3PathArgs Empty => new QuerySuggestionsBlockListSourceS3PathArgs();
     }
 }

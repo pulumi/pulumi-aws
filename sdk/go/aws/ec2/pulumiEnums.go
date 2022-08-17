@@ -145,7 +145,7 @@ func (o InstancePlatformPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 // InstancePlatformInput is an input type that accepts InstancePlatformArgs and InstancePlatformOutput values.
 // You can construct a concrete instance of `InstancePlatformInput` via:
 //
-//          InstancePlatformArgs{...}
+//	InstancePlatformArgs{...}
 type InstancePlatformInput interface {
 	pulumi.Input
 
@@ -770,7 +770,7 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // InstanceTypeInput is an input type that accepts InstanceTypeArgs and InstanceTypeOutput values.
 // You can construct a concrete instance of `InstanceTypeInput` via:
 //
-//          InstanceTypeArgs{...}
+//	InstanceTypeArgs{...}
 type InstanceTypeInput interface {
 	pulumi.Input
 
@@ -939,7 +939,7 @@ func (o PlacementStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // PlacementStrategyInput is an input type that accepts PlacementStrategyArgs and PlacementStrategyOutput values.
 // You can construct a concrete instance of `PlacementStrategyInput` via:
 //
-//          PlacementStrategyArgs{...}
+//	PlacementStrategyArgs{...}
 type PlacementStrategyInput interface {
 	pulumi.Input
 
@@ -1105,7 +1105,7 @@ func (o ProtocolTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // ProtocolTypeInput is an input type that accepts ProtocolTypeArgs and ProtocolTypeOutput values.
 // You can construct a concrete instance of `ProtocolTypeInput` via:
 //
-//          ProtocolTypeArgs{...}
+//	ProtocolTypeArgs{...}
 type ProtocolTypeInput interface {
 	pulumi.Input
 
@@ -1269,7 +1269,7 @@ func (o TenancyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // TenancyInput is an input type that accepts TenancyArgs and TenancyOutput values.
 // You can construct a concrete instance of `TenancyInput` via:
 //
-//          TenancyArgs{...}
+//	TenancyArgs{...}
 type TenancyInput interface {
 	pulumi.Input
 

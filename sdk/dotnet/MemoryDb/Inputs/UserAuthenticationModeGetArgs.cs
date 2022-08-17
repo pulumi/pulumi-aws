@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MemoryDb.Inputs
 {
 
-    public sealed class UserAuthenticationModeGetArgs : Pulumi.ResourceArgs
+    public sealed class UserAuthenticationModeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of passwords belonging to the user.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         public UserAuthenticationModeGetArgs()
         {
         }
+        public static new UserAuthenticationModeGetArgs Empty => new UserAuthenticationModeGetArgs();
     }
 }

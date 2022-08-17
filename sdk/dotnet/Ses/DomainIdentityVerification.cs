@@ -21,45 +21,45 @@ namespace Pulumi.Aws.Ses
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ses.DomainIdentity("example", new()
     ///     {
-    ///         var example = new Aws.Ses.DomainIdentity("example", new Aws.Ses.DomainIdentityArgs
-    ///         {
-    ///             Domain = "example.com",
-    ///         });
-    ///         var exampleAmazonsesVerificationRecord = new Aws.Route53.Record("exampleAmazonsesVerificationRecord", new Aws.Route53.RecordArgs
-    ///         {
-    ///             ZoneId = aws_route53_zone.Example.Zone_id,
-    ///             Name = example.Id.Apply(id =&gt; $"_amazonses.{id}"),
-    ///             Type = "TXT",
-    ///             Ttl = 600,
-    ///             Records = 
-    ///             {
-    ///                 example.VerificationToken,
-    ///             },
-    ///         });
-    ///         var exampleVerification = new Aws.Ses.DomainIdentityVerification("exampleVerification", new Aws.Ses.DomainIdentityVerificationArgs
-    ///         {
-    ///             Domain = example.Id,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAmazonsesVerificationRecord,
-    ///             },
-    ///         });
-    ///     }
+    ///         Domain = "example.com",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAmazonsesVerificationRecord = new Aws.Route53.Record("exampleAmazonsesVerificationRecord", new()
+    ///     {
+    ///         ZoneId = aws_route53_zone.Example.Zone_id,
+    ///         Name = example.Id.Apply(id =&gt; $"_amazonses.{id}"),
+    ///         Type = "TXT",
+    ///         Ttl = 600,
+    ///         Records = new[]
+    ///         {
+    ///             example.VerificationToken,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVerification = new Aws.Ses.DomainIdentityVerification("exampleVerification", new()
+    ///     {
+    ///         Domain = example.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAmazonsesVerificationRecord,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/domainIdentityVerification:DomainIdentityVerification")]
-    public partial class DomainIdentityVerification : Pulumi.CustomResource
+    public partial class DomainIdentityVerification : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the domain identity.
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Ses
         }
     }
 
-    public sealed class DomainIdentityVerificationArgs : Pulumi.ResourceArgs
+    public sealed class DomainIdentityVerificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The domain name of the SES domain identity to verify.
@@ -128,9 +128,10 @@ namespace Pulumi.Aws.Ses
         public DomainIdentityVerificationArgs()
         {
         }
+        public static new DomainIdentityVerificationArgs Empty => new DomainIdentityVerificationArgs();
     }
 
-    public sealed class DomainIdentityVerificationState : Pulumi.ResourceArgs
+    public sealed class DomainIdentityVerificationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the domain identity.
@@ -147,5 +148,6 @@ namespace Pulumi.Aws.Ses
         public DomainIdentityVerificationState()
         {
         }
+        public static new DomainIdentityVerificationState Empty => new DomainIdentityVerificationState();
     }
 }

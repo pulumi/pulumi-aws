@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RedShift.Inputs
 {
 
-    public sealed class ClusterLoggingGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterLoggingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
@@ -52,5 +52,6 @@ namespace Pulumi.Aws.RedShift.Inputs
         public ClusterLoggingGetArgs()
         {
         }
+        public static new ClusterLoggingGetArgs Empty => new ClusterLoggingGetArgs();
     }
 }

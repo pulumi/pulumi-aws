@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Backup.Inputs
 {
 
-    public sealed class PlanRuleCopyActionArgs : Pulumi.ResourceArgs
+    public sealed class PlanRuleCopyActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Backup.Inputs
         public PlanRuleCopyActionArgs()
         {
         }
+        public static new PlanRuleCopyActionArgs Empty => new PlanRuleCopyActionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class MemcachedLayerCloudwatchConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class MemcachedLayerCloudwatchConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public MemcachedLayerCloudwatchConfigurationGetArgs()
         {
         }
+        public static new MemcachedLayerCloudwatchConfigurationGetArgs Empty => new MemcachedLayerCloudwatchConfigurationGetArgs();
     }
 }

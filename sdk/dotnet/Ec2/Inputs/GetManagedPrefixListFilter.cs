@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetManagedPrefixListFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedPrefixListFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetManagedPrefixListFilterArgs()
         {
         }
+        public static new GetManagedPrefixListFilterArgs Empty => new GetManagedPrefixListFilterArgs();
     }
 }

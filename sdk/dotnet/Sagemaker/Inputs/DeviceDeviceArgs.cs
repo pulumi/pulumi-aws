@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class DeviceDeviceArgs : Pulumi.ResourceArgs
+    public sealed class DeviceDeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the device.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public DeviceDeviceArgs()
         {
         }
+        public static new DeviceDeviceArgs Empty => new DeviceDeviceArgs();
     }
 }

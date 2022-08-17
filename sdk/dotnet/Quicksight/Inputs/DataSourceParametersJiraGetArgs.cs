@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Quicksight.Inputs
 {
 
-    public sealed class DataSourceParametersJiraGetArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceParametersJiraGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The base URL of the Jira instance's site to which to connect.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public DataSourceParametersJiraGetArgs()
         {
         }
+        public static new DataSourceParametersJiraGetArgs Empty => new DataSourceParametersJiraGetArgs();
     }
 }

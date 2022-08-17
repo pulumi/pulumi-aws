@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class FleetLaunchTemplateConfigLaunchTemplateSpecificationGetArgs : Pulumi.ResourceArgs
+    public sealed class FleetLaunchTemplateConfigLaunchTemplateSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the launch template.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public FleetLaunchTemplateConfigLaunchTemplateSpecificationGetArgs()
         {
         }
+        public static new FleetLaunchTemplateConfigLaunchTemplateSpecificationGetArgs Empty => new FleetLaunchTemplateConfigLaunchTemplateSpecificationGetArgs();
     }
 }

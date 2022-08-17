@@ -18,30 +18,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := waf.NewGeoMatchSet(ctx, "geoMatchSet", &waf.GeoMatchSetArgs{
-// 			GeoMatchConstraints: waf.GeoMatchSetGeoMatchConstraintArray{
-// 				&waf.GeoMatchSetGeoMatchConstraintArgs{
-// 					Type:  pulumi.String("Country"),
-// 					Value: pulumi.String("US"),
-// 				},
-// 				&waf.GeoMatchSetGeoMatchConstraintArgs{
-// 					Type:  pulumi.String("Country"),
-// 					Value: pulumi.String("CA"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := waf.NewGeoMatchSet(ctx, "geoMatchSet", &waf.GeoMatchSetArgs{
+//				GeoMatchConstraints: waf.GeoMatchSetGeoMatchConstraintArray{
+//					&waf.GeoMatchSetGeoMatchConstraintArgs{
+//						Type:  pulumi.String("Country"),
+//						Value: pulumi.String("US"),
+//					},
+//					&waf.GeoMatchSetGeoMatchConstraintArgs{
+//						Type:  pulumi.String("Country"),
+//						Value: pulumi.String("CA"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // WAF Geo Match Set can be imported using their ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:waf/geoMatchSet:GeoMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
+//	$ pulumi import aws:waf/geoMatchSet:GeoMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
 // ```
 type GeoMatchSet struct {
 	pulumi.CustomResourceState
@@ -153,7 +158,7 @@ func (i *GeoMatchSet) ToGeoMatchSetOutputWithContext(ctx context.Context) GeoMat
 // GeoMatchSetArrayInput is an input type that accepts GeoMatchSetArray and GeoMatchSetArrayOutput values.
 // You can construct a concrete instance of `GeoMatchSetArrayInput` via:
 //
-//          GeoMatchSetArray{ GeoMatchSetArgs{...} }
+//	GeoMatchSetArray{ GeoMatchSetArgs{...} }
 type GeoMatchSetArrayInput interface {
 	pulumi.Input
 
@@ -178,7 +183,7 @@ func (i GeoMatchSetArray) ToGeoMatchSetArrayOutputWithContext(ctx context.Contex
 // GeoMatchSetMapInput is an input type that accepts GeoMatchSetMap and GeoMatchSetMapOutput values.
 // You can construct a concrete instance of `GeoMatchSetMapInput` via:
 //
-//          GeoMatchSetMap{ "key": GeoMatchSetArgs{...} }
+//	GeoMatchSetMap{ "key": GeoMatchSetArgs{...} }
 type GeoMatchSetMapInput interface {
 	pulumi.Input
 

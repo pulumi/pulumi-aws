@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticBeanstalk.Inputs
 {
 
-    public sealed class EnvironmentAllSettingGetArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentAllSettingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique name for this Environment. This name is used
@@ -31,5 +31,6 @@ namespace Pulumi.Aws.ElasticBeanstalk.Inputs
         public EnvironmentAllSettingGetArgs()
         {
         }
+        public static new EnvironmentAllSettingGetArgs Empty => new EnvironmentAllSettingGetArgs();
     }
 }

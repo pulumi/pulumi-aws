@@ -19,26 +19,24 @@ namespace Pulumi.Aws.Rds
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Rds.GetEngineVersion.InvokeAsync(new Aws.Rds.GetEngineVersionArgs
+        ///         Engine = "mysql",
+        ///         PreferredVersions = new[]
         ///         {
-        ///             Engine = "mysql",
-        ///             PreferredVersions = 
-        ///             {
-        ///                 "5.7.42",
-        ///                 "5.7.19",
-        ///                 "5.7.17",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "5.7.42",
+        ///             "5.7.19",
+        ///             "5.7.17",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,26 +52,24 @@ namespace Pulumi.Aws.Rds
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Rds.GetEngineVersion.InvokeAsync(new Aws.Rds.GetEngineVersionArgs
+        ///         Engine = "mysql",
+        ///         PreferredVersions = new[]
         ///         {
-        ///             Engine = "mysql",
-        ///             PreferredVersions = 
-        ///             {
-        ///                 "5.7.42",
-        ///                 "5.7.19",
-        ///                 "5.7.17",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "5.7.42",
+        ///             "5.7.19",
+        ///             "5.7.17",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +79,7 @@ namespace Pulumi.Aws.Rds
     }
 
 
-    public sealed class GetEngineVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetEngineVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
@@ -118,9 +114,10 @@ namespace Pulumi.Aws.Rds
         public GetEngineVersionArgs()
         {
         }
+        public static new GetEngineVersionArgs Empty => new GetEngineVersionArgs();
     }
 
-    public sealed class GetEngineVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEngineVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
@@ -155,6 +152,7 @@ namespace Pulumi.Aws.Rds
         public GetEngineVersionInvokeArgs()
         {
         }
+        public static new GetEngineVersionInvokeArgs Empty => new GetEngineVersionInvokeArgs();
     }
 
 

@@ -16,39 +16,35 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var routeTableAssociation = new Aws.Ec2.RouteTableAssociation("routeTableAssociation", new()
     ///     {
-    ///         var routeTableAssociation = new Aws.Ec2.RouteTableAssociation("routeTableAssociation", new Aws.Ec2.RouteTableAssociationArgs
-    ///         {
-    ///             SubnetId = aws_subnet.Foo.Id,
-    ///             RouteTableId = aws_route_table.Bar.Id,
-    ///         });
-    ///     }
+    ///         SubnetId = aws_subnet.Foo.Id,
+    ///         RouteTableId = aws_route_table.Bar.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var routeTableAssociation = new Aws.Ec2.RouteTableAssociation("routeTableAssociation", new()
     ///     {
-    ///         var routeTableAssociation = new Aws.Ec2.RouteTableAssociation("routeTableAssociation", new Aws.Ec2.RouteTableAssociationArgs
-    ///         {
-    ///             GatewayId = aws_internet_gateway.Foo.Id,
-    ///             RouteTableId = aws_route_table.Bar.Id,
-    ///         });
-    ///     }
+    ///         GatewayId = aws_internet_gateway.Foo.Id,
+    ///         RouteTableId = aws_route_table.Bar.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +62,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/routeTableAssociation:RouteTableAssociation")]
-    public partial class RouteTableAssociation : Pulumi.CustomResource
+    public partial class RouteTableAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The gateway ID to create an association. Conflicts with `subnet_id`.
@@ -130,7 +126,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class RouteTableAssociationArgs : Pulumi.ResourceArgs
+    public sealed class RouteTableAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The gateway ID to create an association. Conflicts with `subnet_id`.
@@ -153,9 +149,10 @@ namespace Pulumi.Aws.Ec2
         public RouteTableAssociationArgs()
         {
         }
+        public static new RouteTableAssociationArgs Empty => new RouteTableAssociationArgs();
     }
 
-    public sealed class RouteTableAssociationState : Pulumi.ResourceArgs
+    public sealed class RouteTableAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The gateway ID to create an association. Conflicts with `subnet_id`.
@@ -178,5 +175,6 @@ namespace Pulumi.Aws.Ec2
         public RouteTableAssociationState()
         {
         }
+        public static new RouteTableAssociationState Empty => new RouteTableAssociationState();
     }
 }

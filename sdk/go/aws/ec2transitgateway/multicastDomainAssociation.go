@@ -19,45 +19,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway.TransitGatewayArgs{
-// 			MulticastSupport: pulumi.String("enable"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpcAttachment, err := ec2transitgateway.NewVpcAttachment(ctx, "exampleVpcAttachment", &ec2transitgateway.VpcAttachmentArgs{
-// 			SubnetIds: pulumi.StringArray{
-// 				pulumi.Any(aws_subnet.Example.Id),
-// 			},
-// 			TransitGatewayId: exampleTransitGateway.ID(),
-// 			VpcId:            pulumi.Any(aws_vpc.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleMulticastDomain, err := ec2transitgateway.NewMulticastDomain(ctx, "exampleMulticastDomain", &ec2transitgateway.MulticastDomainArgs{
-// 			TransitGatewayId: exampleTransitGateway.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2transitgateway.NewMulticastDomainAssociation(ctx, "exampleMulticastDomainAssociation", &ec2transitgateway.MulticastDomainAssociationArgs{
-// 			SubnetId:                        pulumi.Any(aws_subnet.Example.Id),
-// 			TransitGatewayAttachmentId:      exampleVpcAttachment.ID(),
-// 			TransitGatewayMulticastDomainId: exampleMulticastDomain.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway.TransitGatewayArgs{
+//				MulticastSupport: pulumi.String("enable"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcAttachment, err := ec2transitgateway.NewVpcAttachment(ctx, "exampleVpcAttachment", &ec2transitgateway.VpcAttachmentArgs{
+//				SubnetIds: pulumi.StringArray{
+//					pulumi.Any(aws_subnet.Example.Id),
+//				},
+//				TransitGatewayId: exampleTransitGateway.ID(),
+//				VpcId:            pulumi.Any(aws_vpc.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleMulticastDomain, err := ec2transitgateway.NewMulticastDomain(ctx, "exampleMulticastDomain", &ec2transitgateway.MulticastDomainArgs{
+//				TransitGatewayId: exampleTransitGateway.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2transitgateway.NewMulticastDomainAssociation(ctx, "exampleMulticastDomainAssociation", &ec2transitgateway.MulticastDomainAssociationArgs{
+//				SubnetId:                        pulumi.Any(aws_subnet.Example.Id),
+//				TransitGatewayAttachmentId:      exampleVpcAttachment.ID(),
+//				TransitGatewayMulticastDomainId: exampleMulticastDomain.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type MulticastDomainAssociation struct {
 	pulumi.CustomResourceState
@@ -174,7 +177,7 @@ func (i *MulticastDomainAssociation) ToMulticastDomainAssociationOutputWithConte
 // MulticastDomainAssociationArrayInput is an input type that accepts MulticastDomainAssociationArray and MulticastDomainAssociationArrayOutput values.
 // You can construct a concrete instance of `MulticastDomainAssociationArrayInput` via:
 //
-//          MulticastDomainAssociationArray{ MulticastDomainAssociationArgs{...} }
+//	MulticastDomainAssociationArray{ MulticastDomainAssociationArgs{...} }
 type MulticastDomainAssociationArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +202,7 @@ func (i MulticastDomainAssociationArray) ToMulticastDomainAssociationArrayOutput
 // MulticastDomainAssociationMapInput is an input type that accepts MulticastDomainAssociationMap and MulticastDomainAssociationMapOutput values.
 // You can construct a concrete instance of `MulticastDomainAssociationMapInput` via:
 //
-//          MulticastDomainAssociationMap{ "key": MulticastDomainAssociationArgs{...} }
+//	MulticastDomainAssociationMap{ "key": MulticastDomainAssociationArgs{...} }
 type MulticastDomainAssociationMapInput interface {
 	pulumi.Input
 

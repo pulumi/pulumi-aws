@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigGetArgs()
         {
         }
+        public static new RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigGetArgs Empty => new RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigGetArgs();
     }
 }

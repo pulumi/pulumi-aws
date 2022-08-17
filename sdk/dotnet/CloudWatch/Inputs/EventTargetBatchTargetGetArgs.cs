@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventTargetBatchTargetGetArgs : Pulumi.ResourceArgs
+    public sealed class EventTargetBatchTargetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventTargetBatchTargetGetArgs()
         {
         }
+        public static new EventTargetBatchTargetGetArgs Empty => new EventTargetBatchTargetGetArgs();
     }
 }

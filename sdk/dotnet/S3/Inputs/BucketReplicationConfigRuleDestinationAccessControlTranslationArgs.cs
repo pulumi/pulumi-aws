@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigRuleDestinationAccessControlTranslationArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigRuleDestinationAccessControlTranslationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigRuleDestinationAccessControlTranslationArgs()
         {
         }
+        public static new BucketReplicationConfigRuleDestinationAccessControlTranslationArgs Empty => new BucketReplicationConfigRuleDestinationAccessControlTranslationArgs();
     }
 }

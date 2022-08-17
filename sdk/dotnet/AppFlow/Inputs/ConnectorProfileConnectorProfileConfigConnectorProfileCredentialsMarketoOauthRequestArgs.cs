@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The code provided by the connector when it has been authenticated via the connected app.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs();
     }
 }

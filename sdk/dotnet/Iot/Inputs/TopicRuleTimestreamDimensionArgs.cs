@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleTimestreamDimensionArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleTimestreamDimensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the rule.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleTimestreamDimensionArgs()
         {
         }
+        public static new TopicRuleTimestreamDimensionArgs Empty => new TopicRuleTimestreamDimensionArgs();
     }
 }

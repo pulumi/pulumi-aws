@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class WorkteamMemberDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class WorkteamMemberDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public WorkteamMemberDefinitionArgs()
         {
         }
+        public static new WorkteamMemberDefinitionArgs Empty => new WorkteamMemberDefinitionArgs();
     }
 }

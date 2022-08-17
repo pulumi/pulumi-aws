@@ -18,40 +18,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		defaultAddonVersion, err := eks.GetAddonVersion(ctx, &eks.GetAddonVersionArgs{
-// 			AddonName:         "vpc-cni",
-// 			KubernetesVersion: aws_eks_cluster.Example.Version,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		latestAddonVersion, err := eks.GetAddonVersion(ctx, &eks.GetAddonVersionArgs{
-// 			AddonName:         "vpc-cni",
-// 			KubernetesVersion: aws_eks_cluster.Example.Version,
-// 			MostRecent:        pulumi.BoolRef(true),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = eks.NewAddon(ctx, "vpcCni", &eks.AddonArgs{
-// 			ClusterName:  pulumi.Any(aws_eks_cluster.Example.Name),
-// 			AddonName:    pulumi.String("vpc-cni"),
-// 			AddonVersion: pulumi.String(latestAddonVersion.Version),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("default", defaultAddonVersion.Version)
-// 		ctx.Export("latest", latestAddonVersion.Version)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			defaultAddonVersion, err := eks.GetAddonVersion(ctx, &eks.GetAddonVersionArgs{
+//				AddonName:         "vpc-cni",
+//				KubernetesVersion: aws_eks_cluster.Example.Version,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			latestAddonVersion, err := eks.GetAddonVersion(ctx, &eks.GetAddonVersionArgs{
+//				AddonName:         "vpc-cni",
+//				KubernetesVersion: aws_eks_cluster.Example.Version,
+//				MostRecent:        pulumi.BoolRef(true),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = eks.NewAddon(ctx, "vpcCni", &eks.AddonArgs{
+//				ClusterName:  pulumi.Any(aws_eks_cluster.Example.Name),
+//				AddonName:    pulumi.String("vpc-cni"),
+//				AddonVersion: pulumi.String(latestAddonVersion.Version),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("default", defaultAddonVersion.Version)
+//			ctx.Export("latest", latestAddonVersion.Version)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetAddonVersion(ctx *pulumi.Context, args *GetAddonVersionArgs, opts ...pulumi.InvokeOption) (*GetAddonVersionResult, error) {
 	var rv GetAddonVersionResult

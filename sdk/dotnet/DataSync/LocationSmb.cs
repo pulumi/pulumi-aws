@@ -17,27 +17,25 @@ namespace Pulumi.Aws.DataSync
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DataSync.LocationSmb("example", new()
     ///     {
-    ///         var example = new Aws.DataSync.LocationSmb("example", new Aws.DataSync.LocationSmbArgs
+    ///         ServerHostname = "smb.example.com",
+    ///         Subdirectory = "/exported/path",
+    ///         User = "Guest",
+    ///         Password = "ANotGreatPassword",
+    ///         AgentArns = new[]
     ///         {
-    ///             ServerHostname = "smb.example.com",
-    ///             Subdirectory = "/exported/path",
-    ///             User = "Guest",
-    ///             Password = "ANotGreatPassword",
-    ///             AgentArns = 
-    ///             {
-    ///                 aws_datasync_agent.Example.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_datasync_agent.Example.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.DataSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/locationSmb:LocationSmb")]
-    public partial class LocationSmb : Pulumi.CustomResource
+    public partial class LocationSmb : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of DataSync Agent ARNs with which this location will be associated.
@@ -94,13 +92,13 @@ namespace Pulumi.Aws.DataSync
         public Output<string> Subdirectory { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -158,7 +156,7 @@ namespace Pulumi.Aws.DataSync
         }
     }
 
-    public sealed class LocationSmbArgs : Pulumi.ResourceArgs
+    public sealed class LocationSmbArgs : global::Pulumi.ResourceArgs
     {
         [Input("agentArns", required: true)]
         private InputList<string>? _agentArns;
@@ -206,7 +204,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -223,9 +221,10 @@ namespace Pulumi.Aws.DataSync
         public LocationSmbArgs()
         {
         }
+        public static new LocationSmbArgs Empty => new LocationSmbArgs();
     }
 
-    public sealed class LocationSmbState : Pulumi.ResourceArgs
+    public sealed class LocationSmbState : global::Pulumi.ResourceArgs
     {
         [Input("agentArns")]
         private InputList<string>? _agentArns;
@@ -279,7 +278,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -291,7 +290,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -311,5 +310,6 @@ namespace Pulumi.Aws.DataSync
         public LocationSmbState()
         {
         }
+        public static new LocationSmbState Empty => new LocationSmbState();
     }
 }

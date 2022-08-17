@@ -18,7 +18,7 @@ type MapConfiguration struct {
 // MapConfigurationInput is an input type that accepts MapConfigurationArgs and MapConfigurationOutput values.
 // You can construct a concrete instance of `MapConfigurationInput` via:
 //
-//          MapConfigurationArgs{...}
+//	MapConfigurationArgs{...}
 type MapConfigurationInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i MapConfigurationArgs) ToMapConfigurationPtrOutputWithContext(ctx context
 // MapConfigurationPtrInput is an input type that accepts MapConfigurationArgs, MapConfigurationPtr and MapConfigurationPtrOutput values.
 // You can construct a concrete instance of `MapConfigurationPtrInput` via:
 //
-//          MapConfigurationArgs{...}
+//	        MapConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MapConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -155,7 +155,7 @@ type PlaceIndexDataSourceConfiguration struct {
 // PlaceIndexDataSourceConfigurationInput is an input type that accepts PlaceIndexDataSourceConfigurationArgs and PlaceIndexDataSourceConfigurationOutput values.
 // You can construct a concrete instance of `PlaceIndexDataSourceConfigurationInput` via:
 //
-//          PlaceIndexDataSourceConfigurationArgs{...}
+//	PlaceIndexDataSourceConfigurationArgs{...}
 type PlaceIndexDataSourceConfigurationInput interface {
 	pulumi.Input
 
@@ -191,11 +191,11 @@ func (i PlaceIndexDataSourceConfigurationArgs) ToPlaceIndexDataSourceConfigurati
 // PlaceIndexDataSourceConfigurationPtrInput is an input type that accepts PlaceIndexDataSourceConfigurationArgs, PlaceIndexDataSourceConfigurationPtr and PlaceIndexDataSourceConfigurationPtrOutput values.
 // You can construct a concrete instance of `PlaceIndexDataSourceConfigurationPtrInput` via:
 //
-//          PlaceIndexDataSourceConfigurationArgs{...}
+//	        PlaceIndexDataSourceConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PlaceIndexDataSourceConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -292,7 +292,7 @@ type GetMapConfiguration struct {
 // GetMapConfigurationInput is an input type that accepts GetMapConfigurationArgs and GetMapConfigurationOutput values.
 // You can construct a concrete instance of `GetMapConfigurationInput` via:
 //
-//          GetMapConfigurationArgs{...}
+//	GetMapConfigurationArgs{...}
 type GetMapConfigurationInput interface {
 	pulumi.Input
 
@@ -320,7 +320,7 @@ func (i GetMapConfigurationArgs) ToGetMapConfigurationOutputWithContext(ctx cont
 // GetMapConfigurationArrayInput is an input type that accepts GetMapConfigurationArray and GetMapConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetMapConfigurationArrayInput` via:
 //
-//          GetMapConfigurationArray{ GetMapConfigurationArgs{...} }
+//	GetMapConfigurationArray{ GetMapConfigurationArgs{...} }
 type GetMapConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -388,7 +388,7 @@ type GetPlaceIndexDataSourceConfiguration struct {
 // GetPlaceIndexDataSourceConfigurationInput is an input type that accepts GetPlaceIndexDataSourceConfigurationArgs and GetPlaceIndexDataSourceConfigurationOutput values.
 // You can construct a concrete instance of `GetPlaceIndexDataSourceConfigurationInput` via:
 //
-//          GetPlaceIndexDataSourceConfigurationArgs{...}
+//	GetPlaceIndexDataSourceConfigurationArgs{...}
 type GetPlaceIndexDataSourceConfigurationInput interface {
 	pulumi.Input
 
@@ -415,7 +415,7 @@ func (i GetPlaceIndexDataSourceConfigurationArgs) ToGetPlaceIndexDataSourceConfi
 // GetPlaceIndexDataSourceConfigurationArrayInput is an input type that accepts GetPlaceIndexDataSourceConfigurationArray and GetPlaceIndexDataSourceConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetPlaceIndexDataSourceConfigurationArrayInput` via:
 //
-//          GetPlaceIndexDataSourceConfigurationArray{ GetPlaceIndexDataSourceConfigurationArgs{...} }
+//	GetPlaceIndexDataSourceConfigurationArray{ GetPlaceIndexDataSourceConfigurationArgs{...} }
 type GetPlaceIndexDataSourceConfigurationArrayInput interface {
 	pulumi.Input
 

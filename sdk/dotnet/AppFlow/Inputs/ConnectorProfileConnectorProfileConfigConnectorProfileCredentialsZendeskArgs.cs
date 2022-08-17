@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The credentials used to access protected Zendesk resources.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs();
     }
 }

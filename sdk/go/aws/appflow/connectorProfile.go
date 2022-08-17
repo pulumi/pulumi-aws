@@ -22,10 +22,12 @@ import (
 // AppFlow Connector Profile can be imported using the connector profile `arn`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
+//
+//	$ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
+//
 // ```
 //
-//  [1]https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html [2]https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
+//	[1]https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html [2]https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
 type ConnectorProfile struct {
 	pulumi.CustomResourceState
 
@@ -178,7 +180,7 @@ func (i *ConnectorProfile) ToConnectorProfileOutputWithContext(ctx context.Conte
 // ConnectorProfileArrayInput is an input type that accepts ConnectorProfileArray and ConnectorProfileArrayOutput values.
 // You can construct a concrete instance of `ConnectorProfileArrayInput` via:
 //
-//          ConnectorProfileArray{ ConnectorProfileArgs{...} }
+//	ConnectorProfileArray{ ConnectorProfileArgs{...} }
 type ConnectorProfileArrayInput interface {
 	pulumi.Input
 
@@ -203,7 +205,7 @@ func (i ConnectorProfileArray) ToConnectorProfileArrayOutputWithContext(ctx cont
 // ConnectorProfileMapInput is an input type that accepts ConnectorProfileMap and ConnectorProfileMapOutput values.
 // You can construct a concrete instance of `ConnectorProfileMapInput` via:
 //
-//          ConnectorProfileMap{ "key": ConnectorProfileArgs{...} }
+//	ConnectorProfileMap{ "key": ConnectorProfileArgs{...} }
 type ConnectorProfileMapInput interface {
 	pulumi.Input
 

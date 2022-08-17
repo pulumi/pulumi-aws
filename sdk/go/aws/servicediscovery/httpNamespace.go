@@ -16,21 +16,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicediscovery"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicediscovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicediscovery.NewHttpNamespace(ctx, "example", &servicediscovery.HttpNamespaceArgs{
-// 			Description: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicediscovery.NewHttpNamespace(ctx, "example", &servicediscovery.HttpNamespaceArgs{
+//				Description: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -38,7 +41,9 @@ import (
 // Service Discovery HTTP Namespace can be imported using the namespace ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
+//
+//	$ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
+//
 // ```
 type HttpNamespace struct {
 	pulumi.CustomResourceState
@@ -51,7 +56,7 @@ type HttpNamespace struct {
 	HttpName pulumi.StringOutput `pulumi:"httpName"`
 	// The name of the http namespace.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the namespace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -94,7 +99,7 @@ type httpNamespaceState struct {
 	HttpName *string `pulumi:"httpName"`
 	// The name of the http namespace.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the namespace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -109,7 +114,7 @@ type HttpNamespaceState struct {
 	HttpName pulumi.StringPtrInput
 	// The name of the http namespace.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the namespace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -124,7 +129,7 @@ type httpNamespaceArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the http namespace.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the namespace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -134,7 +139,7 @@ type HttpNamespaceArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the http namespace.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the namespace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -164,7 +169,7 @@ func (i *HttpNamespace) ToHttpNamespaceOutputWithContext(ctx context.Context) Ht
 // HttpNamespaceArrayInput is an input type that accepts HttpNamespaceArray and HttpNamespaceArrayOutput values.
 // You can construct a concrete instance of `HttpNamespaceArrayInput` via:
 //
-//          HttpNamespaceArray{ HttpNamespaceArgs{...} }
+//	HttpNamespaceArray{ HttpNamespaceArgs{...} }
 type HttpNamespaceArrayInput interface {
 	pulumi.Input
 
@@ -189,7 +194,7 @@ func (i HttpNamespaceArray) ToHttpNamespaceArrayOutputWithContext(ctx context.Co
 // HttpNamespaceMapInput is an input type that accepts HttpNamespaceMap and HttpNamespaceMapOutput values.
 // You can construct a concrete instance of `HttpNamespaceMapInput` via:
 //
-//          HttpNamespaceMap{ "key": HttpNamespaceArgs{...} }
+//	HttpNamespaceMap{ "key": HttpNamespaceArgs{...} }
 type HttpNamespaceMapInput interface {
 	pulumi.Input
 
@@ -245,7 +250,7 @@ func (o HttpNamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the namespace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o HttpNamespaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

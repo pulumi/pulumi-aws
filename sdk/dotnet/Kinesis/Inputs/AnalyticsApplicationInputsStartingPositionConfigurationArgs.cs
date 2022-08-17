@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class AnalyticsApplicationInputsStartingPositionConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsApplicationInputsStartingPositionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public AnalyticsApplicationInputsStartingPositionConfigurationArgs()
         {
         }
+        public static new AnalyticsApplicationInputsStartingPositionConfigurationArgs Empty => new AnalyticsApplicationInputsStartingPositionConfigurationArgs();
     }
 }

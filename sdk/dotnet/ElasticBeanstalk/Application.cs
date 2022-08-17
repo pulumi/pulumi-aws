@@ -20,26 +20,24 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var tftest = new Aws.ElasticBeanstalk.Application("tftest", new()
     ///     {
-    ///         var tftest = new Aws.ElasticBeanstalk.Application("tftest", new Aws.ElasticBeanstalk.ApplicationArgs
+    ///         Description = "tf-test-desc",
+    ///         AppversionLifecycle = new Aws.ElasticBeanstalk.Inputs.ApplicationAppversionLifecycleArgs
     ///         {
-    ///             Description = "tf-test-desc",
-    ///             AppversionLifecycle = new Aws.ElasticBeanstalk.Inputs.ApplicationAppversionLifecycleArgs
-    ///             {
-    ///                 ServiceRole = aws_iam_role.Beanstalk_service.Arn,
-    ///                 MaxCount = 128,
-    ///                 DeleteSourceFromS3 = true,
-    ///             },
-    ///         });
-    ///     }
+    ///             ServiceRole = aws_iam_role.Beanstalk_service.Arn,
+    ///             MaxCount = 128,
+    ///             DeleteSourceFromS3 = true,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticbeanstalk/application:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         [Output("appversionLifecycle")]
         public Output<Outputs.ApplicationAppversionLifecycle?> AppversionLifecycle { get; private set; } = null!;
@@ -130,7 +128,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         [Input("appversionLifecycle")]
         public Input<Inputs.ApplicationAppversionLifecycleArgs>? AppversionLifecycle { get; set; }
@@ -162,9 +160,10 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 
-    public sealed class ApplicationState : Pulumi.ResourceArgs
+    public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
         [Input("appversionLifecycle")]
         public Input<Inputs.ApplicationAppversionLifecycleGetArgs>? AppversionLifecycle { get; set; }
@@ -214,5 +213,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public ApplicationState()
         {
         }
+        public static new ApplicationState Empty => new ApplicationState();
     }
 }

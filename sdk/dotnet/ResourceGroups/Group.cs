@@ -15,18 +15,17 @@ namespace Pulumi.Aws.ResourceGroups
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.ResourceGroups.Group("test", new()
     ///     {
-    ///         var test = new Aws.ResourceGroups.Group("test", new Aws.ResourceGroups.GroupArgs
+    ///         ResourceQuery = new Aws.ResourceGroups.Inputs.GroupResourceQueryArgs
     ///         {
-    ///             ResourceQuery = new Aws.ResourceGroups.Inputs.GroupResourceQueryArgs
-    ///             {
-    ///                 Query = @"{
+    ///             Query = @"{
     ///   ""ResourceTypeFilters"": [
     ///     ""AWS::EC2::Instance""
     ///   ],
@@ -39,11 +38,10 @@ namespace Pulumi.Aws.ResourceGroups
     /// }
     /// 
     /// ",
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +53,7 @@ namespace Pulumi.Aws.ResourceGroups
     /// ```
     /// </summary>
     [AwsResourceType("aws:resourcegroups/group:Group")]
-    public partial class Group : Pulumi.CustomResource
+    public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN assigned by AWS for this resource group.
@@ -88,7 +86,7 @@ namespace Pulumi.Aws.ResourceGroups
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -137,7 +135,7 @@ namespace Pulumi.Aws.ResourceGroups
         }
     }
 
-    public sealed class GroupArgs : Pulumi.ResourceArgs
+    public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the resource group.
@@ -172,9 +170,10 @@ namespace Pulumi.Aws.ResourceGroups
         public GroupArgs()
         {
         }
+        public static new GroupArgs Empty => new GroupArgs();
     }
 
-    public sealed class GroupState : Pulumi.ResourceArgs
+    public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN assigned by AWS for this resource group.
@@ -216,7 +215,7 @@ namespace Pulumi.Aws.ResourceGroups
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -227,5 +226,6 @@ namespace Pulumi.Aws.ResourceGroups
         public GroupState()
         {
         }
+        public static new GroupState Empty => new GroupState();
     }
 }

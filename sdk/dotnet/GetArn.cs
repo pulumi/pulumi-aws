@@ -19,20 +19,18 @@ namespace Pulumi.Aws
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var dbInstance = Aws.GetArn.Invoke(new()
         ///     {
-        ///         var dbInstance = Output.Create(Aws.GetArn.InvokeAsync(new Aws.GetArnArgs
-        ///         {
-        ///             Arn = "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var dbInstance = Aws.GetArn.Invoke(new()
         ///     {
-        ///         var dbInstance = Output.Create(Aws.GetArn.InvokeAsync(new Aws.GetArnArgs
-        ///         {
-        ///             Arn = "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws
     }
 
 
-    public sealed class GetArnArgs : Pulumi.InvokeArgs
+    public sealed class GetArnArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN to parse.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws
         public GetArnArgs()
         {
         }
+        public static new GetArnArgs Empty => new GetArnArgs();
     }
 
-    public sealed class GetArnInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetArnInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN to parse.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws
         public GetArnInvokeArgs()
         {
         }
+        public static new GetArnInvokeArgs Empty => new GetArnInvokeArgs();
     }
 
 

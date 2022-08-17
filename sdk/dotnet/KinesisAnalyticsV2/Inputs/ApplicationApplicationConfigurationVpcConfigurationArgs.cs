@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationVpcConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationVpcConfigurationArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationVpcConfigurationArgs Empty => new ApplicationApplicationConfigurationVpcConfigurationArgs();
     }
 }

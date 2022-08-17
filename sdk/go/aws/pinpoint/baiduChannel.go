@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		app, err := pinpoint.NewApp(ctx, "app", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pinpoint.NewBaiduChannel(ctx, "channel", &pinpoint.BaiduChannelArgs{
-// 			ApplicationId: app.ApplicationId,
-// 			ApiKey:        pulumi.String(""),
-// 			SecretKey:     pulumi.String(""),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			app, err := pinpoint.NewApp(ctx, "app", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pinpoint.NewBaiduChannel(ctx, "channel", &pinpoint.BaiduChannelArgs{
+//				ApplicationId: app.ApplicationId,
+//				ApiKey:        pulumi.String(""),
+//				SecretKey:     pulumi.String(""),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Pinpoint Baidu Channel can be imported using the `application-id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
+//
+//	$ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
+//
 // ```
 type BaiduChannel struct {
 	pulumi.CustomResourceState
@@ -174,7 +179,7 @@ func (i *BaiduChannel) ToBaiduChannelOutputWithContext(ctx context.Context) Baid
 // BaiduChannelArrayInput is an input type that accepts BaiduChannelArray and BaiduChannelArrayOutput values.
 // You can construct a concrete instance of `BaiduChannelArrayInput` via:
 //
-//          BaiduChannelArray{ BaiduChannelArgs{...} }
+//	BaiduChannelArray{ BaiduChannelArgs{...} }
 type BaiduChannelArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +204,7 @@ func (i BaiduChannelArray) ToBaiduChannelArrayOutputWithContext(ctx context.Cont
 // BaiduChannelMapInput is an input type that accepts BaiduChannelMap and BaiduChannelMapOutput values.
 // You can construct a concrete instance of `BaiduChannelMapInput` via:
 //
-//          BaiduChannelMap{ "key": BaiduChannelArgs{...} }
+//	BaiduChannelMap{ "key": BaiduChannelArgs{...} }
 type BaiduChannelMapInput interface {
 	pulumi.Input
 

@@ -13,34 +13,33 @@ namespace Pulumi.Aws.MemoryDb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// using Random = Pulumi.Random;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleRandomPassword = new Random.RandomPassword("exampleRandomPassword", new()
     ///     {
-    ///         var exampleRandomPassword = new Random.RandomPassword("exampleRandomPassword", new Random.RandomPasswordArgs
-    ///         {
-    ///             Length = 16,
-    ///         });
-    ///         var exampleUser = new Aws.MemoryDb.User("exampleUser", new Aws.MemoryDb.UserArgs
-    ///         {
-    ///             UserName = "my-user",
-    ///             AccessString = "on ~* &amp;* +@all",
-    ///             AuthenticationMode = new Aws.MemoryDb.Inputs.UserAuthenticationModeArgs
-    ///             {
-    ///                 Type = "password",
-    ///                 Passwords = 
-    ///                 {
-    ///                     exampleRandomPassword.Result,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Length = 16,
+    ///     });
     /// 
-    /// }
+    ///     var exampleUser = new Aws.MemoryDb.User("exampleUser", new()
+    ///     {
+    ///         UserName = "my-user",
+    ///         AccessString = "on ~* &amp;* +@all",
+    ///         AuthenticationMode = new Aws.MemoryDb.Inputs.UserAuthenticationModeArgs
+    ///         {
+    ///             Type = "password",
+    ///             Passwords = new[]
+    ///             {
+    ///                 exampleRandomPassword.Result,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +53,7 @@ namespace Pulumi.Aws.MemoryDb
     ///  The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
     /// </summary>
     [AwsResourceType("aws:memorydb/user:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The access permissions string used for this user.
@@ -87,9 +86,6 @@ namespace Pulumi.Aws.MemoryDb
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -143,7 +139,7 @@ namespace Pulumi.Aws.MemoryDb
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access permissions string used for this user.
@@ -178,9 +174,10 @@ namespace Pulumi.Aws.MemoryDb
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 
-    public sealed class UserState : Pulumi.ResourceArgs
+    public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access permissions string used for this user.
@@ -221,10 +218,6 @@ namespace Pulumi.Aws.MemoryDb
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -240,5 +233,6 @@ namespace Pulumi.Aws.MemoryDb
         public UserState()
         {
         }
+        public static new UserState Empty => new UserState();
     }
 }

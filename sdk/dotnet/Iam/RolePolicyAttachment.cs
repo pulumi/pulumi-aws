@@ -19,16 +19,15 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var role = new Aws.Iam.Role("role", new()
     ///     {
-    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -42,11 +41,12 @@ namespace Pulumi.Aws.Iam
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var policy = new Aws.Iam.Policy("policy", new Aws.Iam.PolicyArgs
-    ///         {
-    ///             Description = "A test policy",
-    ///             PolicyDocument = @"{
+    ///     });
+    /// 
+    ///     var policy = new Aws.Iam.Policy("policy", new()
+    ///     {
+    ///         Description = "A test policy",
+    ///         PolicyDocument = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -59,15 +59,15 @@ namespace Pulumi.Aws.Iam
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var test_attach = new Aws.Iam.RolePolicyAttachment("test-attach", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             Role = role.Name,
-    ///             PolicyArn = policy.Arn,
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var test_attach = new Aws.Iam.RolePolicyAttachment("test-attach", new()
+    ///     {
+    ///         Role = role.Name,
+    ///         PolicyArn = policy.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/rolePolicyAttachment:RolePolicyAttachment")]
-    public partial class RolePolicyAttachment : Pulumi.CustomResource
+    public partial class RolePolicyAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the policy you want to apply
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class RolePolicyAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class RolePolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the policy you want to apply
@@ -154,9 +154,10 @@ namespace Pulumi.Aws.Iam
         public RolePolicyAttachmentArgs()
         {
         }
+        public static new RolePolicyAttachmentArgs Empty => new RolePolicyAttachmentArgs();
     }
 
-    public sealed class RolePolicyAttachmentState : Pulumi.ResourceArgs
+    public sealed class RolePolicyAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the policy you want to apply
@@ -173,5 +174,6 @@ namespace Pulumi.Aws.Iam
         public RolePolicyAttachmentState()
         {
         }
+        public static new RolePolicyAttachmentState Empty => new RolePolicyAttachmentState();
     }
 }

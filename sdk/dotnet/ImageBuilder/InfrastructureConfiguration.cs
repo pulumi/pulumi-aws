@@ -15,46 +15,44 @@ namespace Pulumi.Aws.ImageBuilder
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ImageBuilder.InfrastructureConfiguration("example", new()
     ///     {
-    ///         var example = new Aws.ImageBuilder.InfrastructureConfiguration("example", new Aws.ImageBuilder.InfrastructureConfigurationArgs
+    ///         Description = "example description",
+    ///         InstanceProfileName = aws_iam_instance_profile.Example.Name,
+    ///         InstanceTypes = new[]
     ///         {
-    ///             Description = "example description",
-    ///             InstanceProfileName = aws_iam_instance_profile.Example.Name,
-    ///             InstanceTypes = 
+    ///             "t2.nano",
+    ///             "t3.micro",
+    ///         },
+    ///         KeyPair = aws_key_pair.Example.Key_name,
+    ///         SecurityGroupIds = new[]
+    ///         {
+    ///             aws_security_group.Example.Id,
+    ///         },
+    ///         SnsTopicArn = aws_sns_topic.Example.Arn,
+    ///         SubnetId = aws_subnet.Main.Id,
+    ///         TerminateInstanceOnFailure = true,
+    ///         Logging = new Aws.ImageBuilder.Inputs.InfrastructureConfigurationLoggingArgs
+    ///         {
+    ///             S3Logs = new Aws.ImageBuilder.Inputs.InfrastructureConfigurationLoggingS3LogsArgs
     ///             {
-    ///                 "t2.nano",
-    ///                 "t3.micro",
+    ///                 S3BucketName = aws_s3_bucket.Example.Bucket,
+    ///                 S3KeyPrefix = "logs",
     ///             },
-    ///             KeyPair = aws_key_pair.Example.Key_name,
-    ///             SecurityGroupIds = 
-    ///             {
-    ///                 aws_security_group.Example.Id,
-    ///             },
-    ///             SnsTopicArn = aws_sns_topic.Example.Arn,
-    ///             SubnetId = aws_subnet.Main.Id,
-    ///             TerminateInstanceOnFailure = true,
-    ///             Logging = new Aws.ImageBuilder.Inputs.InfrastructureConfigurationLoggingArgs
-    ///             {
-    ///                 S3Logs = new Aws.ImageBuilder.Inputs.InfrastructureConfigurationLoggingS3LogsArgs
-    ///                 {
-    ///                     S3BucketName = aws_s3_bucket.Example.Bucket,
-    ///                     S3KeyPrefix = "logs",
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "foo", "bar" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +64,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// ```
     /// </summary>
     [AwsResourceType("aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration")]
-    public partial class InfrastructureConfiguration : Pulumi.CustomResource
+    public partial class InfrastructureConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the configuration.
@@ -159,7 +157,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -214,7 +212,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
     }
 
-    public sealed class InfrastructureConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class InfrastructureConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description for the configuration.
@@ -321,9 +319,10 @@ namespace Pulumi.Aws.ImageBuilder
         public InfrastructureConfigurationArgs()
         {
         }
+        public static new InfrastructureConfigurationArgs Empty => new InfrastructureConfigurationArgs();
     }
 
-    public sealed class InfrastructureConfigurationState : Pulumi.ResourceArgs
+    public sealed class InfrastructureConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the configuration.
@@ -443,7 +442,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -460,5 +459,6 @@ namespace Pulumi.Aws.ImageBuilder
         public InfrastructureConfigurationState()
         {
         }
+        public static new InfrastructureConfigurationState Empty => new InfrastructureConfigurationState();
     }
 }

@@ -24,7 +24,7 @@ type CustomDomainAssociationCertificateValidationRecord struct {
 // CustomDomainAssociationCertificateValidationRecordInput is an input type that accepts CustomDomainAssociationCertificateValidationRecordArgs and CustomDomainAssociationCertificateValidationRecordOutput values.
 // You can construct a concrete instance of `CustomDomainAssociationCertificateValidationRecordInput` via:
 //
-//          CustomDomainAssociationCertificateValidationRecordArgs{...}
+//	CustomDomainAssociationCertificateValidationRecordArgs{...}
 type CustomDomainAssociationCertificateValidationRecordInput interface {
 	pulumi.Input
 
@@ -58,7 +58,7 @@ func (i CustomDomainAssociationCertificateValidationRecordArgs) ToCustomDomainAs
 // CustomDomainAssociationCertificateValidationRecordArrayInput is an input type that accepts CustomDomainAssociationCertificateValidationRecordArray and CustomDomainAssociationCertificateValidationRecordArrayOutput values.
 // You can construct a concrete instance of `CustomDomainAssociationCertificateValidationRecordArrayInput` via:
 //
-//          CustomDomainAssociationCertificateValidationRecordArray{ CustomDomainAssociationCertificateValidationRecordArgs{...} }
+//	CustomDomainAssociationCertificateValidationRecordArray{ CustomDomainAssociationCertificateValidationRecordArgs{...} }
 type CustomDomainAssociationCertificateValidationRecordArrayInput interface {
 	pulumi.Input
 
@@ -142,7 +142,7 @@ type ObservabilityConfigurationTraceConfiguration struct {
 // ObservabilityConfigurationTraceConfigurationInput is an input type that accepts ObservabilityConfigurationTraceConfigurationArgs and ObservabilityConfigurationTraceConfigurationOutput values.
 // You can construct a concrete instance of `ObservabilityConfigurationTraceConfigurationInput` via:
 //
-//          ObservabilityConfigurationTraceConfigurationArgs{...}
+//	ObservabilityConfigurationTraceConfigurationArgs{...}
 type ObservabilityConfigurationTraceConfigurationInput interface {
 	pulumi.Input
 
@@ -178,11 +178,11 @@ func (i ObservabilityConfigurationTraceConfigurationArgs) ToObservabilityConfigu
 // ObservabilityConfigurationTraceConfigurationPtrInput is an input type that accepts ObservabilityConfigurationTraceConfigurationArgs, ObservabilityConfigurationTraceConfigurationPtr and ObservabilityConfigurationTraceConfigurationPtrOutput values.
 // You can construct a concrete instance of `ObservabilityConfigurationTraceConfigurationPtrInput` via:
 //
-//          ObservabilityConfigurationTraceConfigurationArgs{...}
+//	        ObservabilityConfigurationTraceConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ObservabilityConfigurationTraceConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -279,7 +279,7 @@ type ServiceEncryptionConfiguration struct {
 // ServiceEncryptionConfigurationInput is an input type that accepts ServiceEncryptionConfigurationArgs and ServiceEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `ServiceEncryptionConfigurationInput` via:
 //
-//          ServiceEncryptionConfigurationArgs{...}
+//	ServiceEncryptionConfigurationArgs{...}
 type ServiceEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -315,11 +315,11 @@ func (i ServiceEncryptionConfigurationArgs) ToServiceEncryptionConfigurationPtrO
 // ServiceEncryptionConfigurationPtrInput is an input type that accepts ServiceEncryptionConfigurationArgs, ServiceEncryptionConfigurationPtr and ServiceEncryptionConfigurationPtrOutput values.
 // You can construct a concrete instance of `ServiceEncryptionConfigurationPtrInput` via:
 //
-//          ServiceEncryptionConfigurationArgs{...}
+//	        ServiceEncryptionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -426,7 +426,7 @@ type ServiceHealthCheckConfiguration struct {
 // ServiceHealthCheckConfigurationInput is an input type that accepts ServiceHealthCheckConfigurationArgs and ServiceHealthCheckConfigurationOutput values.
 // You can construct a concrete instance of `ServiceHealthCheckConfigurationInput` via:
 //
-//          ServiceHealthCheckConfigurationArgs{...}
+//	ServiceHealthCheckConfigurationArgs{...}
 type ServiceHealthCheckConfigurationInput interface {
 	pulumi.Input
 
@@ -472,11 +472,11 @@ func (i ServiceHealthCheckConfigurationArgs) ToServiceHealthCheckConfigurationPt
 // ServiceHealthCheckConfigurationPtrInput is an input type that accepts ServiceHealthCheckConfigurationArgs, ServiceHealthCheckConfigurationPtr and ServiceHealthCheckConfigurationPtrOutput values.
 // You can construct a concrete instance of `ServiceHealthCheckConfigurationPtrInput` via:
 //
-//          ServiceHealthCheckConfigurationArgs{...}
+//	        ServiceHealthCheckConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceHealthCheckConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -652,7 +652,7 @@ type ServiceInstanceConfiguration struct {
 // ServiceInstanceConfigurationInput is an input type that accepts ServiceInstanceConfigurationArgs and ServiceInstanceConfigurationOutput values.
 // You can construct a concrete instance of `ServiceInstanceConfigurationInput` via:
 //
-//          ServiceInstanceConfigurationArgs{...}
+//	ServiceInstanceConfigurationArgs{...}
 type ServiceInstanceConfigurationInput interface {
 	pulumi.Input
 
@@ -692,11 +692,11 @@ func (i ServiceInstanceConfigurationArgs) ToServiceInstanceConfigurationPtrOutpu
 // ServiceInstanceConfigurationPtrInput is an input type that accepts ServiceInstanceConfigurationArgs, ServiceInstanceConfigurationPtr and ServiceInstanceConfigurationPtrOutput values.
 // You can construct a concrete instance of `ServiceInstanceConfigurationPtrInput` via:
 //
-//          ServiceInstanceConfigurationArgs{...}
+//	        ServiceInstanceConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceInstanceConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -823,7 +823,7 @@ type ServiceNetworkConfiguration struct {
 // ServiceNetworkConfigurationInput is an input type that accepts ServiceNetworkConfigurationArgs and ServiceNetworkConfigurationOutput values.
 // You can construct a concrete instance of `ServiceNetworkConfigurationInput` via:
 //
-//          ServiceNetworkConfigurationArgs{...}
+//	ServiceNetworkConfigurationArgs{...}
 type ServiceNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -859,11 +859,11 @@ func (i ServiceNetworkConfigurationArgs) ToServiceNetworkConfigurationPtrOutputW
 // ServiceNetworkConfigurationPtrInput is an input type that accepts ServiceNetworkConfigurationArgs, ServiceNetworkConfigurationPtr and ServiceNetworkConfigurationPtrOutput values.
 // You can construct a concrete instance of `ServiceNetworkConfigurationPtrInput` via:
 //
-//          ServiceNetworkConfigurationArgs{...}
+//	        ServiceNetworkConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceNetworkConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -964,7 +964,7 @@ type ServiceNetworkConfigurationEgressConfiguration struct {
 // ServiceNetworkConfigurationEgressConfigurationInput is an input type that accepts ServiceNetworkConfigurationEgressConfigurationArgs and ServiceNetworkConfigurationEgressConfigurationOutput values.
 // You can construct a concrete instance of `ServiceNetworkConfigurationEgressConfigurationInput` via:
 //
-//          ServiceNetworkConfigurationEgressConfigurationArgs{...}
+//	ServiceNetworkConfigurationEgressConfigurationArgs{...}
 type ServiceNetworkConfigurationEgressConfigurationInput interface {
 	pulumi.Input
 
@@ -1002,11 +1002,11 @@ func (i ServiceNetworkConfigurationEgressConfigurationArgs) ToServiceNetworkConf
 // ServiceNetworkConfigurationEgressConfigurationPtrInput is an input type that accepts ServiceNetworkConfigurationEgressConfigurationArgs, ServiceNetworkConfigurationEgressConfigurationPtr and ServiceNetworkConfigurationEgressConfigurationPtrOutput values.
 // You can construct a concrete instance of `ServiceNetworkConfigurationEgressConfigurationPtrInput` via:
 //
-//          ServiceNetworkConfigurationEgressConfigurationArgs{...}
+//	        ServiceNetworkConfigurationEgressConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceNetworkConfigurationEgressConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1120,7 +1120,7 @@ type ServiceObservabilityConfiguration struct {
 // ServiceObservabilityConfigurationInput is an input type that accepts ServiceObservabilityConfigurationArgs and ServiceObservabilityConfigurationOutput values.
 // You can construct a concrete instance of `ServiceObservabilityConfigurationInput` via:
 //
-//          ServiceObservabilityConfigurationArgs{...}
+//	ServiceObservabilityConfigurationArgs{...}
 type ServiceObservabilityConfigurationInput interface {
 	pulumi.Input
 
@@ -1158,11 +1158,11 @@ func (i ServiceObservabilityConfigurationArgs) ToServiceObservabilityConfigurati
 // ServiceObservabilityConfigurationPtrInput is an input type that accepts ServiceObservabilityConfigurationArgs, ServiceObservabilityConfigurationPtr and ServiceObservabilityConfigurationPtrOutput values.
 // You can construct a concrete instance of `ServiceObservabilityConfigurationPtrInput` via:
 //
-//          ServiceObservabilityConfigurationArgs{...}
+//	        ServiceObservabilityConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceObservabilityConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1280,7 +1280,7 @@ type ServiceSourceConfiguration struct {
 // ServiceSourceConfigurationInput is an input type that accepts ServiceSourceConfigurationArgs and ServiceSourceConfigurationOutput values.
 // You can construct a concrete instance of `ServiceSourceConfigurationInput` via:
 //
-//          ServiceSourceConfigurationArgs{...}
+//	ServiceSourceConfigurationArgs{...}
 type ServiceSourceConfigurationInput interface {
 	pulumi.Input
 
@@ -1322,11 +1322,11 @@ func (i ServiceSourceConfigurationArgs) ToServiceSourceConfigurationPtrOutputWit
 // ServiceSourceConfigurationPtrInput is an input type that accepts ServiceSourceConfigurationArgs, ServiceSourceConfigurationPtr and ServiceSourceConfigurationPtrOutput values.
 // You can construct a concrete instance of `ServiceSourceConfigurationPtrInput` via:
 //
-//          ServiceSourceConfigurationArgs{...}
+//	        ServiceSourceConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceSourceConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1474,7 +1474,7 @@ type ServiceSourceConfigurationAuthenticationConfiguration struct {
 // ServiceSourceConfigurationAuthenticationConfigurationInput is an input type that accepts ServiceSourceConfigurationAuthenticationConfigurationArgs and ServiceSourceConfigurationAuthenticationConfigurationOutput values.
 // You can construct a concrete instance of `ServiceSourceConfigurationAuthenticationConfigurationInput` via:
 //
-//          ServiceSourceConfigurationAuthenticationConfigurationArgs{...}
+//	ServiceSourceConfigurationAuthenticationConfigurationArgs{...}
 type ServiceSourceConfigurationAuthenticationConfigurationInput interface {
 	pulumi.Input
 
@@ -1512,11 +1512,11 @@ func (i ServiceSourceConfigurationAuthenticationConfigurationArgs) ToServiceSour
 // ServiceSourceConfigurationAuthenticationConfigurationPtrInput is an input type that accepts ServiceSourceConfigurationAuthenticationConfigurationArgs, ServiceSourceConfigurationAuthenticationConfigurationPtr and ServiceSourceConfigurationAuthenticationConfigurationPtrOutput values.
 // You can construct a concrete instance of `ServiceSourceConfigurationAuthenticationConfigurationPtrInput` via:
 //
-//          ServiceSourceConfigurationAuthenticationConfigurationArgs{...}
+//	        ServiceSourceConfigurationAuthenticationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceSourceConfigurationAuthenticationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1632,7 +1632,7 @@ type ServiceSourceConfigurationCodeRepository struct {
 // ServiceSourceConfigurationCodeRepositoryInput is an input type that accepts ServiceSourceConfigurationCodeRepositoryArgs and ServiceSourceConfigurationCodeRepositoryOutput values.
 // You can construct a concrete instance of `ServiceSourceConfigurationCodeRepositoryInput` via:
 //
-//          ServiceSourceConfigurationCodeRepositoryArgs{...}
+//	ServiceSourceConfigurationCodeRepositoryArgs{...}
 type ServiceSourceConfigurationCodeRepositoryInput interface {
 	pulumi.Input
 
@@ -1672,11 +1672,11 @@ func (i ServiceSourceConfigurationCodeRepositoryArgs) ToServiceSourceConfigurati
 // ServiceSourceConfigurationCodeRepositoryPtrInput is an input type that accepts ServiceSourceConfigurationCodeRepositoryArgs, ServiceSourceConfigurationCodeRepositoryPtr and ServiceSourceConfigurationCodeRepositoryPtrOutput values.
 // You can construct a concrete instance of `ServiceSourceConfigurationCodeRepositoryPtrInput` via:
 //
-//          ServiceSourceConfigurationCodeRepositoryArgs{...}
+//	        ServiceSourceConfigurationCodeRepositoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceSourceConfigurationCodeRepositoryPtrInput interface {
 	pulumi.Input
 
@@ -1809,7 +1809,7 @@ type ServiceSourceConfigurationCodeRepositoryCodeConfiguration struct {
 // ServiceSourceConfigurationCodeRepositoryCodeConfigurationInput is an input type that accepts ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs and ServiceSourceConfigurationCodeRepositoryCodeConfigurationOutput values.
 // You can construct a concrete instance of `ServiceSourceConfigurationCodeRepositoryCodeConfigurationInput` via:
 //
-//          ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs{...}
+//	ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs{...}
 type ServiceSourceConfigurationCodeRepositoryCodeConfigurationInput interface {
 	pulumi.Input
 
@@ -1847,11 +1847,11 @@ func (i ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs) ToService
 // ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrInput is an input type that accepts ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs, ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtr and ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput values.
 // You can construct a concrete instance of `ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrInput` via:
 //
-//          ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs{...}
+//	        ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1973,7 +1973,7 @@ type ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationV
 // ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesInput is an input type that accepts ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs and ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput values.
 // You can construct a concrete instance of `ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesInput` via:
 //
-//          ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs{...}
+//	ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs{...}
 type ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesInput interface {
 	pulumi.Input
 
@@ -2017,11 +2017,11 @@ func (i ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 // ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrInput is an input type that accepts ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs, ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtr and ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput values.
 // You can construct a concrete instance of `ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrInput` via:
 //
-//          ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs{...}
+//	        ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrInput interface {
 	pulumi.Input
 
@@ -2190,7 +2190,7 @@ type ServiceSourceConfigurationCodeRepositorySourceCodeVersion struct {
 // ServiceSourceConfigurationCodeRepositorySourceCodeVersionInput is an input type that accepts ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs and ServiceSourceConfigurationCodeRepositorySourceCodeVersionOutput values.
 // You can construct a concrete instance of `ServiceSourceConfigurationCodeRepositorySourceCodeVersionInput` via:
 //
-//          ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs{...}
+//	ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs{...}
 type ServiceSourceConfigurationCodeRepositorySourceCodeVersionInput interface {
 	pulumi.Input
 
@@ -2228,11 +2228,11 @@ func (i ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs) ToService
 // ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrInput is an input type that accepts ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs, ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtr and ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput values.
 // You can construct a concrete instance of `ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrInput` via:
 //
-//          ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs{...}
+//	        ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrInput interface {
 	pulumi.Input
 
@@ -2349,7 +2349,7 @@ type ServiceSourceConfigurationImageRepository struct {
 // ServiceSourceConfigurationImageRepositoryInput is an input type that accepts ServiceSourceConfigurationImageRepositoryArgs and ServiceSourceConfigurationImageRepositoryOutput values.
 // You can construct a concrete instance of `ServiceSourceConfigurationImageRepositoryInput` via:
 //
-//          ServiceSourceConfigurationImageRepositoryArgs{...}
+//	ServiceSourceConfigurationImageRepositoryArgs{...}
 type ServiceSourceConfigurationImageRepositoryInput interface {
 	pulumi.Input
 
@@ -2390,11 +2390,11 @@ func (i ServiceSourceConfigurationImageRepositoryArgs) ToServiceSourceConfigurat
 // ServiceSourceConfigurationImageRepositoryPtrInput is an input type that accepts ServiceSourceConfigurationImageRepositoryArgs, ServiceSourceConfigurationImageRepositoryPtr and ServiceSourceConfigurationImageRepositoryPtrOutput values.
 // You can construct a concrete instance of `ServiceSourceConfigurationImageRepositoryPtrInput` via:
 //
-//          ServiceSourceConfigurationImageRepositoryArgs{...}
+//	        ServiceSourceConfigurationImageRepositoryArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceSourceConfigurationImageRepositoryPtrInput interface {
 	pulumi.Input
 
@@ -2529,7 +2529,7 @@ type ServiceSourceConfigurationImageRepositoryImageConfiguration struct {
 // ServiceSourceConfigurationImageRepositoryImageConfigurationInput is an input type that accepts ServiceSourceConfigurationImageRepositoryImageConfigurationArgs and ServiceSourceConfigurationImageRepositoryImageConfigurationOutput values.
 // You can construct a concrete instance of `ServiceSourceConfigurationImageRepositoryImageConfigurationInput` via:
 //
-//          ServiceSourceConfigurationImageRepositoryImageConfigurationArgs{...}
+//	ServiceSourceConfigurationImageRepositoryImageConfigurationArgs{...}
 type ServiceSourceConfigurationImageRepositoryImageConfigurationInput interface {
 	pulumi.Input
 
@@ -2569,11 +2569,11 @@ func (i ServiceSourceConfigurationImageRepositoryImageConfigurationArgs) ToServi
 // ServiceSourceConfigurationImageRepositoryImageConfigurationPtrInput is an input type that accepts ServiceSourceConfigurationImageRepositoryImageConfigurationArgs, ServiceSourceConfigurationImageRepositoryImageConfigurationPtr and ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput values.
 // You can construct a concrete instance of `ServiceSourceConfigurationImageRepositoryImageConfigurationPtrInput` via:
 //
-//          ServiceSourceConfigurationImageRepositoryImageConfigurationArgs{...}
+//	        ServiceSourceConfigurationImageRepositoryImageConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceSourceConfigurationImageRepositoryImageConfigurationPtrInput interface {
 	pulumi.Input
 

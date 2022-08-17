@@ -27,50 +27,49 @@ namespace Pulumi.Aws.AutoScaling
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foobarGroup = new Aws.AutoScaling.Group("foobarGroup", new()
     ///     {
-    ///         var foobarGroup = new Aws.AutoScaling.Group("foobarGroup", new Aws.AutoScaling.GroupArgs
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-west-2a",
-    ///             },
-    ///             HealthCheckType = "EC2",
-    ///             TerminationPolicies = 
-    ///             {
-    ///                 "OldestInstance",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 new Aws.AutoScaling.Inputs.GroupTagArgs
-    ///                 {
-    ///                     Key = "Foo",
-    ///                     Value = "foo-bar",
-    ///                     PropagateAtLaunch = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var foobarLifecycleHook = new Aws.AutoScaling.LifecycleHook("foobarLifecycleHook", new Aws.AutoScaling.LifecycleHookArgs
+    ///             "us-west-2a",
+    ///         },
+    ///         HealthCheckType = "EC2",
+    ///         TerminationPolicies = new[]
     ///         {
-    ///             AutoscalingGroupName = foobarGroup.Name,
-    ///             DefaultResult = "CONTINUE",
-    ///             HeartbeatTimeout = 2000,
-    ///             LifecycleTransition = "autoscaling:EC2_INSTANCE_LAUNCHING",
-    ///             NotificationMetadata = @"{
+    ///             "OldestInstance",
+    ///         },
+    ///         Tags = new[]
+    ///         {
+    ///             new Aws.AutoScaling.Inputs.GroupTagArgs
+    ///             {
+    ///                 Key = "Foo",
+    ///                 Value = "foo-bar",
+    ///                 PropagateAtLaunch = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var foobarLifecycleHook = new Aws.AutoScaling.LifecycleHook("foobarLifecycleHook", new()
+    ///     {
+    ///         AutoscalingGroupName = foobarGroup.Name,
+    ///         DefaultResult = "CONTINUE",
+    ///         HeartbeatTimeout = 2000,
+    ///         LifecycleTransition = "autoscaling:EC2_INSTANCE_LAUNCHING",
+    ///         NotificationMetadata = @"{
     ///   ""foo"": ""bar""
     /// }
     /// ",
-    ///             NotificationTargetArn = "arn:aws:sqs:us-east-1:444455556666:queue1*",
-    ///             RoleArn = "arn:aws:iam::123456789012:role/S3Access",
-    ///         });
-    ///     }
+    ///         NotificationTargetArn = "arn:aws:sqs:us-east-1:444455556666:queue1*",
+    ///         RoleArn = "arn:aws:iam::123456789012:role/S3Access",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -82,7 +81,7 @@ namespace Pulumi.Aws.AutoScaling
     /// ```
     /// </summary>
     [AwsResourceType("aws:autoscaling/lifecycleHook:LifecycleHook")]
-    public partial class LifecycleHook : Pulumi.CustomResource
+    public partial class LifecycleHook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Auto Scaling group to which you want to assign the lifecycle hook
@@ -176,7 +175,7 @@ namespace Pulumi.Aws.AutoScaling
         }
     }
 
-    public sealed class LifecycleHookArgs : Pulumi.ResourceArgs
+    public sealed class LifecycleHookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Auto Scaling group to which you want to assign the lifecycle hook
@@ -229,9 +228,10 @@ namespace Pulumi.Aws.AutoScaling
         public LifecycleHookArgs()
         {
         }
+        public static new LifecycleHookArgs Empty => new LifecycleHookArgs();
     }
 
-    public sealed class LifecycleHookState : Pulumi.ResourceArgs
+    public sealed class LifecycleHookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Auto Scaling group to which you want to assign the lifecycle hook
@@ -284,5 +284,6 @@ namespace Pulumi.Aws.AutoScaling
         public LifecycleHookState()
         {
         }
+        public static new LifecycleHookState Empty => new LifecycleHookState();
     }
 }

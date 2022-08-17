@@ -15,49 +15,48 @@ namespace Pulumi.Aws.Macie2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var primaryAccount = new Aws.Macie2.Account("primaryAccount", new()
     ///     {
-    ///         var primaryAccount = new Aws.Macie2.Account("primaryAccount", new Aws.Macie2.AccountArgs
-    ///         {
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = "awsalternate",
-    ///         });
-    ///         var memberAccount = new Aws.Macie2.Account("memberAccount", new Aws.Macie2.AccountArgs
-    ///         {
-    ///         });
-    ///         var primaryMember = new Aws.Macie2.Member("primaryMember", new Aws.Macie2.MemberArgs
-    ///         {
-    ///             AccountId = "ACCOUNT ID",
-    ///             Email = "EMAIL",
-    ///             Invite = true,
-    ///             InvitationMessage = "Message of the invite",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = "awsalternate",
-    ///             DependsOn = 
-    ///             {
-    ///                 primaryAccount,
-    ///             },
-    ///         });
-    ///         var memberInvitationAccepter = new Aws.Macie2.InvitationAccepter("memberInvitationAccepter", new Aws.Macie2.InvitationAccepterArgs
-    ///         {
-    ///             AdministratorAccountId = "ADMINISTRATOR ACCOUNT ID",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 primaryMember,
-    ///             },
-    ///         });
-    ///     }
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = "awsalternate",
+    ///     });
     /// 
-    /// }
+    ///     var memberAccount = new Aws.Macie2.Account("memberAccount");
+    /// 
+    ///     var primaryMember = new Aws.Macie2.Member("primaryMember", new()
+    ///     {
+    ///         AccountId = "ACCOUNT ID",
+    ///         Email = "EMAIL",
+    ///         Invite = true,
+    ///         InvitationMessage = "Message of the invite",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = "awsalternate",
+    ///         DependsOn = new[]
+    ///         {
+    ///             primaryAccount,
+    ///         },
+    ///     });
+    /// 
+    ///     var memberInvitationAccepter = new Aws.Macie2.InvitationAccepter("memberInvitationAccepter", new()
+    ///     {
+    ///         AdministratorAccountId = "ADMINISTRATOR ACCOUNT ID",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             primaryMember,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -69,7 +68,7 @@ namespace Pulumi.Aws.Macie2
     /// ```
     /// </summary>
     [AwsResourceType("aws:macie2/invitationAccepter:InvitationAccepter")]
-    public partial class InvitationAccepter : Pulumi.CustomResource
+    public partial class InvitationAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AWS account ID for the account that sent the invitation.
@@ -127,7 +126,7 @@ namespace Pulumi.Aws.Macie2
         }
     }
 
-    public sealed class InvitationAccepterArgs : Pulumi.ResourceArgs
+    public sealed class InvitationAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS account ID for the account that sent the invitation.
@@ -138,9 +137,10 @@ namespace Pulumi.Aws.Macie2
         public InvitationAccepterArgs()
         {
         }
+        public static new InvitationAccepterArgs Empty => new InvitationAccepterArgs();
     }
 
-    public sealed class InvitationAccepterState : Pulumi.ResourceArgs
+    public sealed class InvitationAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS account ID for the account that sent the invitation.
@@ -157,5 +157,6 @@ namespace Pulumi.Aws.Macie2
         public InvitationAccepterState()
         {
         }
+        public static new InvitationAccepterState Empty => new InvitationAccepterState();
     }
 }

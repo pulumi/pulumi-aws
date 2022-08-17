@@ -20,7 +20,7 @@ type CloudFormationTypeLoggingConfig struct {
 // CloudFormationTypeLoggingConfigInput is an input type that accepts CloudFormationTypeLoggingConfigArgs and CloudFormationTypeLoggingConfigOutput values.
 // You can construct a concrete instance of `CloudFormationTypeLoggingConfigInput` via:
 //
-//          CloudFormationTypeLoggingConfigArgs{...}
+//	CloudFormationTypeLoggingConfigArgs{...}
 type CloudFormationTypeLoggingConfigInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i CloudFormationTypeLoggingConfigArgs) ToCloudFormationTypeLoggingConfigPt
 // CloudFormationTypeLoggingConfigPtrInput is an input type that accepts CloudFormationTypeLoggingConfigArgs, CloudFormationTypeLoggingConfigPtr and CloudFormationTypeLoggingConfigPtrOutput values.
 // You can construct a concrete instance of `CloudFormationTypeLoggingConfigPtrInput` via:
 //
-//          CloudFormationTypeLoggingConfigArgs{...}
+//	        CloudFormationTypeLoggingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CloudFormationTypeLoggingConfigPtrInput interface {
 	pulumi.Input
 
@@ -176,7 +176,7 @@ type StackSetAutoDeployment struct {
 // StackSetAutoDeploymentInput is an input type that accepts StackSetAutoDeploymentArgs and StackSetAutoDeploymentOutput values.
 // You can construct a concrete instance of `StackSetAutoDeploymentInput` via:
 //
-//          StackSetAutoDeploymentArgs{...}
+//	StackSetAutoDeploymentArgs{...}
 type StackSetAutoDeploymentInput interface {
 	pulumi.Input
 
@@ -214,11 +214,11 @@ func (i StackSetAutoDeploymentArgs) ToStackSetAutoDeploymentPtrOutputWithContext
 // StackSetAutoDeploymentPtrInput is an input type that accepts StackSetAutoDeploymentArgs, StackSetAutoDeploymentPtr and StackSetAutoDeploymentPtrOutput values.
 // You can construct a concrete instance of `StackSetAutoDeploymentPtrInput` via:
 //
-//          StackSetAutoDeploymentArgs{...}
+//	        StackSetAutoDeploymentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StackSetAutoDeploymentPtrInput interface {
 	pulumi.Input
 
@@ -329,7 +329,7 @@ type StackSetInstanceDeploymentTargets struct {
 // StackSetInstanceDeploymentTargetsInput is an input type that accepts StackSetInstanceDeploymentTargetsArgs and StackSetInstanceDeploymentTargetsOutput values.
 // You can construct a concrete instance of `StackSetInstanceDeploymentTargetsInput` via:
 //
-//          StackSetInstanceDeploymentTargetsArgs{...}
+//	StackSetInstanceDeploymentTargetsArgs{...}
 type StackSetInstanceDeploymentTargetsInput interface {
 	pulumi.Input
 
@@ -364,11 +364,11 @@ func (i StackSetInstanceDeploymentTargetsArgs) ToStackSetInstanceDeploymentTarge
 // StackSetInstanceDeploymentTargetsPtrInput is an input type that accepts StackSetInstanceDeploymentTargetsArgs, StackSetInstanceDeploymentTargetsPtr and StackSetInstanceDeploymentTargetsPtrOutput values.
 // You can construct a concrete instance of `StackSetInstanceDeploymentTargetsPtrInput` via:
 //
-//          StackSetInstanceDeploymentTargetsArgs{...}
+//	        StackSetInstanceDeploymentTargetsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StackSetInstanceDeploymentTargetsPtrInput interface {
 	pulumi.Input
 
@@ -467,7 +467,7 @@ type StackSetInstanceOperationPreferences struct {
 // StackSetInstanceOperationPreferencesInput is an input type that accepts StackSetInstanceOperationPreferencesArgs and StackSetInstanceOperationPreferencesOutput values.
 // You can construct a concrete instance of `StackSetInstanceOperationPreferencesInput` via:
 //
-//          StackSetInstanceOperationPreferencesArgs{...}
+//	StackSetInstanceOperationPreferencesArgs{...}
 type StackSetInstanceOperationPreferencesInput interface {
 	pulumi.Input
 
@@ -507,11 +507,11 @@ func (i StackSetInstanceOperationPreferencesArgs) ToStackSetInstanceOperationPre
 // StackSetInstanceOperationPreferencesPtrInput is an input type that accepts StackSetInstanceOperationPreferencesArgs, StackSetInstanceOperationPreferencesPtr and StackSetInstanceOperationPreferencesPtrOutput values.
 // You can construct a concrete instance of `StackSetInstanceOperationPreferencesPtrInput` via:
 //
-//          StackSetInstanceOperationPreferencesArgs{...}
+//	        StackSetInstanceOperationPreferencesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StackSetInstanceOperationPreferencesPtrInput interface {
 	pulumi.Input
 
@@ -681,7 +681,7 @@ type StackSetOperationPreferences struct {
 // StackSetOperationPreferencesInput is an input type that accepts StackSetOperationPreferencesArgs and StackSetOperationPreferencesOutput values.
 // You can construct a concrete instance of `StackSetOperationPreferencesInput` via:
 //
-//          StackSetOperationPreferencesArgs{...}
+//	StackSetOperationPreferencesArgs{...}
 type StackSetOperationPreferencesInput interface {
 	pulumi.Input
 
@@ -727,11 +727,11 @@ func (i StackSetOperationPreferencesArgs) ToStackSetOperationPreferencesPtrOutpu
 // StackSetOperationPreferencesPtrInput is an input type that accepts StackSetOperationPreferencesArgs, StackSetOperationPreferencesPtr and StackSetOperationPreferencesPtrOutput values.
 // You can construct a concrete instance of `StackSetOperationPreferencesPtrInput` via:
 //
-//          StackSetOperationPreferencesArgs{...}
+//	        StackSetOperationPreferencesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StackSetOperationPreferencesPtrInput interface {
 	pulumi.Input
 
@@ -905,7 +905,7 @@ type GetCloudFormationTypeLoggingConfig struct {
 // GetCloudFormationTypeLoggingConfigInput is an input type that accepts GetCloudFormationTypeLoggingConfigArgs and GetCloudFormationTypeLoggingConfigOutput values.
 // You can construct a concrete instance of `GetCloudFormationTypeLoggingConfigInput` via:
 //
-//          GetCloudFormationTypeLoggingConfigArgs{...}
+//	GetCloudFormationTypeLoggingConfigArgs{...}
 type GetCloudFormationTypeLoggingConfigInput interface {
 	pulumi.Input
 
@@ -935,7 +935,7 @@ func (i GetCloudFormationTypeLoggingConfigArgs) ToGetCloudFormationTypeLoggingCo
 // GetCloudFormationTypeLoggingConfigArrayInput is an input type that accepts GetCloudFormationTypeLoggingConfigArray and GetCloudFormationTypeLoggingConfigArrayOutput values.
 // You can construct a concrete instance of `GetCloudFormationTypeLoggingConfigArrayInput` via:
 //
-//          GetCloudFormationTypeLoggingConfigArray{ GetCloudFormationTypeLoggingConfigArgs{...} }
+//	GetCloudFormationTypeLoggingConfigArray{ GetCloudFormationTypeLoggingConfigArgs{...} }
 type GetCloudFormationTypeLoggingConfigArrayInput interface {
 	pulumi.Input
 

@@ -15,47 +15,49 @@ namespace Pulumi.Aws.ApiGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new()
     ///     {
-    ///         var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///             Description = "This is my API for demonstration purposes",
-    ///         });
-    ///         var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new Aws.ApiGateway.ResourceArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ParentId = myDemoAPI.RootResourceId,
-    ///             PathPart = "mydemoresource",
-    ///         });
-    ///         var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new Aws.ApiGateway.MethodArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ResourceId = myDemoResource.Id,
-    ///             HttpMethod = "GET",
-    ///             Authorization = "NONE",
-    ///         });
-    ///         var myDemoIntegration = new Aws.ApiGateway.Integration("myDemoIntegration", new Aws.ApiGateway.IntegrationArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ResourceId = myDemoResource.Id,
-    ///             HttpMethod = myDemoMethod.HttpMethod,
-    ///             Type = "MOCK",
-    ///         });
-    ///         var response200 = new Aws.ApiGateway.MethodResponse("response200", new Aws.ApiGateway.MethodResponseArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ResourceId = myDemoResource.Id,
-    ///             HttpMethod = myDemoMethod.HttpMethod,
-    ///             StatusCode = "200",
-    ///         });
-    ///     }
+    ///         Description = "This is my API for demonstration purposes",
+    ///     });
     /// 
-    /// }
+    ///     var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new()
+    ///     {
+    ///         RestApi = myDemoAPI.Id,
+    ///         ParentId = myDemoAPI.RootResourceId,
+    ///         PathPart = "mydemoresource",
+    ///     });
+    /// 
+    ///     var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new()
+    ///     {
+    ///         RestApi = myDemoAPI.Id,
+    ///         ResourceId = myDemoResource.Id,
+    ///         HttpMethod = "GET",
+    ///         Authorization = "NONE",
+    ///     });
+    /// 
+    ///     var myDemoIntegration = new Aws.ApiGateway.Integration("myDemoIntegration", new()
+    ///     {
+    ///         RestApi = myDemoAPI.Id,
+    ///         ResourceId = myDemoResource.Id,
+    ///         HttpMethod = myDemoMethod.HttpMethod,
+    ///         Type = "MOCK",
+    ///     });
+    /// 
+    ///     var response200 = new Aws.ApiGateway.MethodResponse("response200", new()
+    ///     {
+    ///         RestApi = myDemoAPI.Id,
+    ///         ResourceId = myDemoResource.Id,
+    ///         HttpMethod = myDemoMethod.HttpMethod,
+    ///         StatusCode = "200",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +69,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/methodResponse:MethodResponse")]
-    public partial class MethodResponse : Pulumi.CustomResource
+    public partial class MethodResponse : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
@@ -151,7 +153,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class MethodResponseArgs : Pulumi.ResourceArgs
+    public sealed class MethodResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
@@ -206,9 +208,10 @@ namespace Pulumi.Aws.ApiGateway
         public MethodResponseArgs()
         {
         }
+        public static new MethodResponseArgs Empty => new MethodResponseArgs();
     }
 
-    public sealed class MethodResponseState : Pulumi.ResourceArgs
+    public sealed class MethodResponseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
@@ -263,5 +266,6 @@ namespace Pulumi.Aws.ApiGateway
         public MethodResponseState()
         {
         }
+        public static new MethodResponseState Empty => new MethodResponseState();
     }
 }

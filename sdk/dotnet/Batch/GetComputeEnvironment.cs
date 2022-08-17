@@ -20,20 +20,18 @@ namespace Pulumi.Aws.Batch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var batch_mongo = Aws.Batch.GetComputeEnvironment.Invoke(new()
         ///     {
-        ///         var batch_mongo = Output.Create(Aws.Batch.GetComputeEnvironment.InvokeAsync(new Aws.Batch.GetComputeEnvironmentArgs
-        ///         {
-        ///             ComputeEnvironmentName = "batch-mongo-production",
-        ///         }));
-        ///     }
+        ///         ComputeEnvironmentName = "batch-mongo-production",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,20 +48,18 @@ namespace Pulumi.Aws.Batch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var batch_mongo = Aws.Batch.GetComputeEnvironment.Invoke(new()
         ///     {
-        ///         var batch_mongo = Output.Create(Aws.Batch.GetComputeEnvironment.InvokeAsync(new Aws.Batch.GetComputeEnvironmentArgs
-        ///         {
-        ///             ComputeEnvironmentName = "batch-mongo-production",
-        ///         }));
-        ///     }
+        ///         ComputeEnvironmentName = "batch-mongo-production",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Batch
     }
 
 
-    public sealed class GetComputeEnvironmentArgs : Pulumi.InvokeArgs
+    public sealed class GetComputeEnvironmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Batch Compute Environment
@@ -96,9 +92,10 @@ namespace Pulumi.Aws.Batch
         public GetComputeEnvironmentArgs()
         {
         }
+        public static new GetComputeEnvironmentArgs Empty => new GetComputeEnvironmentArgs();
     }
 
-    public sealed class GetComputeEnvironmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetComputeEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Batch Compute Environment
@@ -121,6 +118,7 @@ namespace Pulumi.Aws.Batch
         public GetComputeEnvironmentInvokeArgs()
         {
         }
+        public static new GetComputeEnvironmentInvokeArgs Empty => new GetComputeEnvironmentInvokeArgs();
     }
 
 

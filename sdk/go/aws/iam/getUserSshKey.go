@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := iam.GetUserSshKey(ctx, &iam.GetUserSshKeyArgs{
-// 			Encoding:       "SSH",
-// 			SshPublicKeyId: "APKARUZ32GUTKIGARLXE",
-// 			Username:       "test-user",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.GetUserSshKey(ctx, &iam.GetUserSshKeyArgs{
+//				Encoding:       "SSH",
+//				SshPublicKeyId: "APKARUZ32GUTKIGARLXE",
+//				Username:       "test-user",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetUserSshKey(ctx *pulumi.Context, args *GetUserSshKeyArgs, opts ...pulumi.InvokeOption) (*GetUserSshKeyResult, error) {
 	var rv GetUserSshKeyResult

@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Location
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Location.Tracker("example", new()
     ///     {
-    ///         var example = new Aws.Location.Tracker("example", new Aws.Location.TrackerArgs
-    ///         {
-    ///             TrackerName = "example",
-    ///         });
-    ///     }
+    ///         TrackerName = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.Location
     /// ```
     /// </summary>
     [AwsResourceType("aws:location/tracker:Tracker")]
-    public partial class Tracker : Pulumi.CustomResource
+    public partial class Tracker : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The timestamp for when the tracker resource was created in ISO 8601 format.
@@ -134,7 +132,7 @@ namespace Pulumi.Aws.Location
         }
     }
 
-    public sealed class TrackerArgs : Pulumi.ResourceArgs
+    public sealed class TrackerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The optional description for the tracker resource.
@@ -162,14 +160,6 @@ namespace Pulumi.Aws.Location
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// The name of the tracker resource.
         /// </summary>
@@ -179,9 +169,10 @@ namespace Pulumi.Aws.Location
         public TrackerArgs()
         {
         }
+        public static new TrackerArgs Empty => new TrackerArgs();
     }
 
-    public sealed class TrackerState : Pulumi.ResourceArgs
+    public sealed class TrackerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The timestamp for when the tracker resource was created in ISO 8601 format.
@@ -244,5 +235,6 @@ namespace Pulumi.Aws.Location
         public TrackerState()
         {
         }
+        public static new TrackerState Empty => new TrackerState();
     }
 }

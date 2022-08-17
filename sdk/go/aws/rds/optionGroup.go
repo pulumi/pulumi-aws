@@ -24,46 +24,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rds.NewOptionGroup(ctx, "example", &rds.OptionGroupArgs{
-// 			OptionGroupDescription: pulumi.String("Option Group"),
-// 			EngineName:             pulumi.String("sqlserver-ee"),
-// 			MajorEngineVersion:     pulumi.String("11.00"),
-// 			Options: rds.OptionGroupOptionArray{
-// 				&rds.OptionGroupOptionArgs{
-// 					OptionName: pulumi.String("Timezone"),
-// 					OptionSettings: rds.OptionGroupOptionOptionSettingArray{
-// 						&rds.OptionGroupOptionOptionSettingArgs{
-// 							Name:  pulumi.String("TIME_ZONE"),
-// 							Value: pulumi.String("UTC"),
-// 						},
-// 					},
-// 				},
-// 				&rds.OptionGroupOptionArgs{
-// 					OptionName: pulumi.String("SQLSERVER_BACKUP_RESTORE"),
-// 					OptionSettings: rds.OptionGroupOptionOptionSettingArray{
-// 						&rds.OptionGroupOptionOptionSettingArgs{
-// 							Name:  pulumi.String("IAM_ROLE_ARN"),
-// 							Value: pulumi.Any(aws_iam_role.Example.Arn),
-// 						},
-// 					},
-// 				},
-// 				&rds.OptionGroupOptionArgs{
-// 					OptionName: pulumi.String("TDE"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewOptionGroup(ctx, "example", &rds.OptionGroupArgs{
+//				OptionGroupDescription: pulumi.String("Option Group"),
+//				EngineName:             pulumi.String("sqlserver-ee"),
+//				MajorEngineVersion:     pulumi.String("11.00"),
+//				Options: rds.OptionGroupOptionArray{
+//					&rds.OptionGroupOptionArgs{
+//						OptionName: pulumi.String("Timezone"),
+//						OptionSettings: rds.OptionGroupOptionOptionSettingArray{
+//							&rds.OptionGroupOptionOptionSettingArgs{
+//								Name:  pulumi.String("TIME_ZONE"),
+//								Value: pulumi.String("UTC"),
+//							},
+//						},
+//					},
+//					&rds.OptionGroupOptionArgs{
+//						OptionName: pulumi.String("SQLSERVER_BACKUP_RESTORE"),
+//						OptionSettings: rds.OptionGroupOptionOptionSettingArray{
+//							&rds.OptionGroupOptionOptionSettingArgs{
+//								Name:  pulumi.String("IAM_ROLE_ARN"),
+//								Value: pulumi.Any(aws_iam_role.Example.Arn),
+//							},
+//						},
+//					},
+//					&rds.OptionGroupOptionArgs{
+//						OptionName: pulumi.String("TDE"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // > **Note**: Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
@@ -81,7 +84,9 @@ import (
 // DB Option groups can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
+//
+//	$ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
+//
 // ```
 type OptionGroup struct {
 	pulumi.CustomResourceState
@@ -102,7 +107,7 @@ type OptionGroup struct {
 	Options OptionGroupOptionArrayOutput `pulumi:"options"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -160,7 +165,7 @@ type optionGroupState struct {
 	Options []OptionGroupOption `pulumi:"options"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -181,7 +186,7 @@ type OptionGroupState struct {
 	Options OptionGroupOptionArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -250,7 +255,7 @@ func (i *OptionGroup) ToOptionGroupOutputWithContext(ctx context.Context) Option
 // OptionGroupArrayInput is an input type that accepts OptionGroupArray and OptionGroupArrayOutput values.
 // You can construct a concrete instance of `OptionGroupArrayInput` via:
 //
-//          OptionGroupArray{ OptionGroupArgs{...} }
+//	OptionGroupArray{ OptionGroupArgs{...} }
 type OptionGroupArrayInput interface {
 	pulumi.Input
 
@@ -275,7 +280,7 @@ func (i OptionGroupArray) ToOptionGroupArrayOutputWithContext(ctx context.Contex
 // OptionGroupMapInput is an input type that accepts OptionGroupMap and OptionGroupMapOutput values.
 // You can construct a concrete instance of `OptionGroupMapInput` via:
 //
-//          OptionGroupMap{ "key": OptionGroupArgs{...} }
+//	OptionGroupMap{ "key": OptionGroupArgs{...} }
 type OptionGroupMapInput interface {
 	pulumi.Input
 
@@ -351,7 +356,7 @@ func (o OptionGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o OptionGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

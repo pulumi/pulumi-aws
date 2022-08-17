@@ -22,34 +22,37 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = servicecatalog.NewConstraint(ctx, "example", &servicecatalog.ConstraintArgs{
-// 			Description: pulumi.String("Back off, man. I'm a scientist."),
-// 			PortfolioId: pulumi.Any(aws_servicecatalog_portfolio.Example.Id),
-// 			ProductId:   pulumi.Any(aws_servicecatalog_product.Example.Id),
-// 			Type:        pulumi.String("LAUNCH"),
-// 			Parameters:  pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = servicecatalog.NewConstraint(ctx, "example", &servicecatalog.ConstraintArgs{
+//				Description: pulumi.String("Back off, man. I'm a scientist."),
+//				PortfolioId: pulumi.Any(aws_servicecatalog_portfolio.Example.Id),
+//				ProductId:   pulumi.Any(aws_servicecatalog_product.Example.Id),
+//				Type:        pulumi.String("LAUNCH"),
+//				Parameters:  pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // `aws_servicecatalog_constraint` can be imported using the constraint ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
+//
+//	$ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
+//
 // ```
 type Constraint struct {
 	pulumi.CustomResourceState
@@ -216,7 +221,7 @@ func (i *Constraint) ToConstraintOutputWithContext(ctx context.Context) Constrai
 // ConstraintArrayInput is an input type that accepts ConstraintArray and ConstraintArrayOutput values.
 // You can construct a concrete instance of `ConstraintArrayInput` via:
 //
-//          ConstraintArray{ ConstraintArgs{...} }
+//	ConstraintArray{ ConstraintArgs{...} }
 type ConstraintArrayInput interface {
 	pulumi.Input
 
@@ -241,7 +246,7 @@ func (i ConstraintArray) ToConstraintArrayOutputWithContext(ctx context.Context)
 // ConstraintMapInput is an input type that accepts ConstraintMap and ConstraintMapOutput values.
 // You can construct a concrete instance of `ConstraintMapInput` via:
 //
-//          ConstraintMap{ "key": ConstraintArgs{...} }
+//	ConstraintMap{ "key": ConstraintArgs{...} }
 type ConstraintMapInput interface {
 	pulumi.Input
 

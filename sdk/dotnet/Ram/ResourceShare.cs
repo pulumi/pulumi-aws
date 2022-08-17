@@ -15,24 +15,22 @@ namespace Pulumi.Aws.Ram
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ram.ResourceShare("example", new()
     ///     {
-    ///         var example = new Aws.Ram.ResourceShare("example", new Aws.Ram.ResourceShareArgs
+    ///         AllowExternalPrincipals = true,
+    ///         Tags = 
     ///         {
-    ///             AllowExternalPrincipals = true,
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Environment", "Production" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.Ram
     /// ```
     /// </summary>
     [AwsResourceType("aws:ram/resourceShare:ResourceShare")]
-    public partial class ResourceShare : Pulumi.CustomResource
+    public partial class ResourceShare : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates whether principals outside your organization can be associated with a resource share.
@@ -77,7 +75,7 @@ namespace Pulumi.Aws.Ram
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -126,7 +124,7 @@ namespace Pulumi.Aws.Ram
         }
     }
 
-    public sealed class ResourceShareArgs : Pulumi.ResourceArgs
+    public sealed class ResourceShareArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether principals outside your organization can be associated with a resource share.
@@ -167,9 +165,10 @@ namespace Pulumi.Aws.Ram
         public ResourceShareArgs()
         {
         }
+        public static new ResourceShareArgs Empty => new ResourceShareArgs();
     }
 
-    public sealed class ResourceShareState : Pulumi.ResourceArgs
+    public sealed class ResourceShareState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether principals outside your organization can be associated with a resource share.
@@ -217,7 +216,7 @@ namespace Pulumi.Aws.Ram
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -228,5 +227,6 @@ namespace Pulumi.Aws.Ram
         public ResourceShareState()
         {
         }
+        public static new ResourceShareState Empty => new ResourceShareState();
     }
 }

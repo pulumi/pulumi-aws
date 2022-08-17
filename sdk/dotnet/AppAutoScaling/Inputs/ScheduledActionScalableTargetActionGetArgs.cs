@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppAutoScaling.Inputs
 {
 
-    public sealed class ScheduledActionScalableTargetActionGetArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledActionScalableTargetActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
         public ScheduledActionScalableTargetActionGetArgs()
         {
         }
+        public static new ScheduledActionScalableTargetActionGetArgs Empty => new ScheduledActionScalableTargetActionGetArgs();
     }
 }

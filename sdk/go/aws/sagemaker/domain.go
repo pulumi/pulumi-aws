@@ -20,57 +20,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sagemaker.NewDomain(ctx, "exampleDomain", &sagemaker.DomainArgs{
-// 			DomainName: pulumi.String("example"),
-// 			AuthMode:   pulumi.String("IAM"),
-// 			VpcId:      pulumi.Any(aws_vpc.Test.Id),
-// 			SubnetIds: pulumi.StringArray{
-// 				pulumi.Any(aws_subnet.Test.Id),
-// 			},
-// 			DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
-// 				ExecutionRole: pulumi.Any(aws_iam_role.Test.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Actions: []string{
-// 						"sts:AssumeRole",
-// 					},
-// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// 						iam.GetPolicyDocumentStatementPrincipal{
-// 							Type: "Service",
-// 							Identifiers: []string{
-// 								"sagemaker.amazonaws.com",
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			Path:             pulumi.String("/"),
-// 			AssumeRolePolicy: pulumi.String(examplePolicyDocument.Json),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sagemaker.NewDomain(ctx, "exampleDomain", &sagemaker.DomainArgs{
+//				DomainName: pulumi.String("example"),
+//				AuthMode:   pulumi.String("IAM"),
+//				VpcId:      pulumi.Any(aws_vpc.Test.Id),
+//				SubnetIds: pulumi.StringArray{
+//					pulumi.Any(aws_subnet.Test.Id),
+//				},
+//				DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
+//					ExecutionRole: pulumi.Any(aws_iam_role.Test.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					iam.GetPolicyDocumentStatement{
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							iam.GetPolicyDocumentStatementPrincipal{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"sagemaker.amazonaws.com",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//				Path:             pulumi.String("/"),
+//				AssumeRolePolicy: pulumi.String(examplePolicyDocument.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Using Custom Images
 //
@@ -78,62 +81,65 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testImage, err := sagemaker.NewImage(ctx, "testImage", &sagemaker.ImageArgs{
-// 			ImageName: pulumi.String("example"),
-// 			RoleArn:   pulumi.Any(aws_iam_role.Test.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testAppImageConfig, err := sagemaker.NewAppImageConfig(ctx, "testAppImageConfig", &sagemaker.AppImageConfigArgs{
-// 			AppImageConfigName: pulumi.String("example"),
-// 			KernelGatewayImageConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigArgs{
-// 				KernelSpec: &sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs{
-// 					Name: pulumi.String("example"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testImageVersion, err := sagemaker.NewImageVersion(ctx, "testImageVersion", &sagemaker.ImageVersionArgs{
-// 			ImageName: testImage.ID(),
-// 			BaseImage: pulumi.String("base-image"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sagemaker.NewDomain(ctx, "testDomain", &sagemaker.DomainArgs{
-// 			DomainName: pulumi.String("example"),
-// 			AuthMode:   pulumi.String("IAM"),
-// 			VpcId:      pulumi.Any(aws_vpc.Test.Id),
-// 			SubnetIds: pulumi.StringArray{
-// 				pulumi.Any(aws_subnet.Test.Id),
-// 			},
-// 			DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
-// 				ExecutionRole: pulumi.Any(aws_iam_role.Test.Arn),
-// 				KernelGatewayAppSettings: &sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs{
-// 					CustomImages: sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArray{
-// 						&sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs{
-// 							AppImageConfigName: testAppImageConfig.AppImageConfigName,
-// 							ImageName:          testImageVersion.ImageName,
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testImage, err := sagemaker.NewImage(ctx, "testImage", &sagemaker.ImageArgs{
+//				ImageName: pulumi.String("example"),
+//				RoleArn:   pulumi.Any(aws_iam_role.Test.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testAppImageConfig, err := sagemaker.NewAppImageConfig(ctx, "testAppImageConfig", &sagemaker.AppImageConfigArgs{
+//				AppImageConfigName: pulumi.String("example"),
+//				KernelGatewayImageConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigArgs{
+//					KernelSpec: &sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs{
+//						Name: pulumi.String("example"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testImageVersion, err := sagemaker.NewImageVersion(ctx, "testImageVersion", &sagemaker.ImageVersionArgs{
+//				ImageName: testImage.ID(),
+//				BaseImage: pulumi.String("base-image"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sagemaker.NewDomain(ctx, "testDomain", &sagemaker.DomainArgs{
+//				DomainName: pulumi.String("example"),
+//				AuthMode:   pulumi.String("IAM"),
+//				VpcId:      pulumi.Any(aws_vpc.Test.Id),
+//				SubnetIds: pulumi.StringArray{
+//					pulumi.Any(aws_subnet.Test.Id),
+//				},
+//				DefaultUserSettings: &sagemaker.DomainDefaultUserSettingsArgs{
+//					ExecutionRole: pulumi.Any(aws_iam_role.Test.Arn),
+//					KernelGatewayAppSettings: &sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs{
+//						CustomImages: sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArray{
+//							&sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs{
+//								AppImageConfigName: testAppImageConfig.AppImageConfigName,
+//								ImageName:          testImageVersion.ImageName,
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -141,7 +147,9 @@ import (
 // SageMaker Code Domains can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
+//
+//	$ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
+//
 // ```
 type Domain struct {
 	pulumi.CustomResourceState
@@ -168,7 +176,7 @@ type Domain struct {
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The domain's URL.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -242,7 +250,7 @@ type domainState struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The domain's URL.
 	Url *string `pulumi:"url"`
@@ -273,7 +281,7 @@ type DomainState struct {
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The domain's URL.
 	Url pulumi.StringPtrInput
@@ -354,7 +362,7 @@ func (i *Domain) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 // DomainArrayInput is an input type that accepts DomainArray and DomainArrayOutput values.
 // You can construct a concrete instance of `DomainArrayInput` via:
 //
-//          DomainArray{ DomainArgs{...} }
+//	DomainArray{ DomainArgs{...} }
 type DomainArrayInput interface {
 	pulumi.Input
 
@@ -379,7 +387,7 @@ func (i DomainArray) ToDomainArrayOutputWithContext(ctx context.Context) DomainA
 // DomainMapInput is an input type that accepts DomainMap and DomainMapOutput values.
 // You can construct a concrete instance of `DomainMapInput` via:
 //
-//          DomainMap{ "key": DomainArgs{...} }
+//	DomainMap{ "key": DomainArgs{...} }
 type DomainMapInput interface {
 	pulumi.Input
 
@@ -470,7 +478,7 @@ func (o DomainOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DomainOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

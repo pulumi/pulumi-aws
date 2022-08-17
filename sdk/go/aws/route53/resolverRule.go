@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := route53.NewResolverRule(ctx, "sys", &route53.ResolverRuleArgs{
-// 			DomainName: pulumi.String("subdomain.example.com"),
-// 			RuleType:   pulumi.String("SYSTEM"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53.NewResolverRule(ctx, "sys", &route53.ResolverRuleArgs{
+//				DomainName: pulumi.String("subdomain.example.com"),
+//				RuleType:   pulumi.String("SYSTEM"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Forward rule
 //
@@ -43,31 +46,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := route53.NewResolverRule(ctx, "fwd", &route53.ResolverRuleArgs{
-// 			DomainName:         pulumi.String("example.com"),
-// 			RuleType:           pulumi.String("FORWARD"),
-// 			ResolverEndpointId: pulumi.Any(aws_route53_resolver_endpoint.Foo.Id),
-// 			TargetIps: route53.ResolverRuleTargetIpArray{
-// 				&route53.ResolverRuleTargetIpArgs{
-// 					Ip: pulumi.String("123.45.67.89"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("Prod"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53.NewResolverRule(ctx, "fwd", &route53.ResolverRuleArgs{
+//				DomainName:         pulumi.String("example.com"),
+//				RuleType:           pulumi.String("FORWARD"),
+//				ResolverEndpointId: pulumi.Any(aws_route53_resolver_endpoint.Foo.Id),
+//				TargetIps: route53.ResolverRuleTargetIpArray{
+//					&route53.ResolverRuleTargetIpArgs{
+//						Ip: pulumi.String("123.45.67.89"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Prod"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,7 +81,9 @@ import (
 // Route53 Resolver rules can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
+//
+//	$ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
+//
 // ```
 type ResolverRule struct {
 	pulumi.CustomResourceState
@@ -98,7 +106,7 @@ type ResolverRule struct {
 	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
 	// This argument should only be specified for `FORWARD` type rules.
@@ -158,7 +166,7 @@ type resolverRuleState struct {
 	ShareStatus *string `pulumi:"shareStatus"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
 	// This argument should only be specified for `FORWARD` type rules.
@@ -184,7 +192,7 @@ type ResolverRuleState struct {
 	ShareStatus pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
 	// This argument should only be specified for `FORWARD` type rules.
@@ -256,7 +264,7 @@ func (i *ResolverRule) ToResolverRuleOutputWithContext(ctx context.Context) Reso
 // ResolverRuleArrayInput is an input type that accepts ResolverRuleArray and ResolverRuleArrayOutput values.
 // You can construct a concrete instance of `ResolverRuleArrayInput` via:
 //
-//          ResolverRuleArray{ ResolverRuleArgs{...} }
+//	ResolverRuleArray{ ResolverRuleArgs{...} }
 type ResolverRuleArrayInput interface {
 	pulumi.Input
 
@@ -281,7 +289,7 @@ func (i ResolverRuleArray) ToResolverRuleArrayOutputWithContext(ctx context.Cont
 // ResolverRuleMapInput is an input type that accepts ResolverRuleMap and ResolverRuleMapOutput values.
 // You can construct a concrete instance of `ResolverRuleMapInput` via:
 //
-//          ResolverRuleMap{ "key": ResolverRuleArgs{...} }
+//	ResolverRuleMap{ "key": ResolverRuleArgs{...} }
 type ResolverRuleMapInput interface {
 	pulumi.Input
 
@@ -359,7 +367,7 @@ func (o ResolverRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResolverRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -21,31 +21,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datasync.NewLocationHdfs(ctx, "example", &datasync.LocationHdfsArgs{
-// 			AgentArns: pulumi.StringArray{
-// 				pulumi.Any(aws_datasync_agent.Example.Arn),
-// 			},
-// 			AuthenticationType: pulumi.String("SIMPLE"),
-// 			SimpleUser:         pulumi.String("example"),
-// 			NameNodes: datasync.LocationHdfsNameNodeArray{
-// 				&datasync.LocationHdfsNameNodeArgs{
-// 					Hostname: pulumi.Any(aws_instance.Example.Private_dns),
-// 					Port:     pulumi.Int(80),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datasync.NewLocationHdfs(ctx, "example", &datasync.LocationHdfsArgs{
+//				AgentArns: pulumi.StringArray{
+//					pulumi.Any(aws_datasync_agent.Example.Arn),
+//				},
+//				AuthenticationType: pulumi.String("SIMPLE"),
+//				SimpleUser:         pulumi.String("example"),
+//				NameNodes: datasync.LocationHdfsNameNodeArray{
+//					&datasync.LocationHdfsNameNodeArgs{
+//						Hostname: pulumi.Any(aws_instance.Example.Private_dns),
+//						Port:     pulumi.Int(80),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // `aws_datasync_location_hdfs` can be imported by using the Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+//
+//	$ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+//
 // ```
 type LocationHdfs struct {
 	pulumi.CustomResourceState
@@ -85,8 +90,7 @@ type LocationHdfs struct {
 	// A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Uri     pulumi.StringOutput    `pulumi:"uri"`
 }
@@ -153,8 +157,7 @@ type locationHdfsState struct {
 	// A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	Uri     *string           `pulumi:"uri"`
 }
@@ -187,8 +190,7 @@ type LocationHdfsState struct {
 	// A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
 	Subdirectory pulumi.StringPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	Uri     pulumi.StringPtrInput
 }
@@ -282,7 +284,7 @@ func (i *LocationHdfs) ToLocationHdfsOutputWithContext(ctx context.Context) Loca
 // LocationHdfsArrayInput is an input type that accepts LocationHdfsArray and LocationHdfsArrayOutput values.
 // You can construct a concrete instance of `LocationHdfsArrayInput` via:
 //
-//          LocationHdfsArray{ LocationHdfsArgs{...} }
+//	LocationHdfsArray{ LocationHdfsArgs{...} }
 type LocationHdfsArrayInput interface {
 	pulumi.Input
 
@@ -307,7 +309,7 @@ func (i LocationHdfsArray) ToLocationHdfsArrayOutputWithContext(ctx context.Cont
 // LocationHdfsMapInput is an input type that accepts LocationHdfsMap and LocationHdfsMapOutput values.
 // You can construct a concrete instance of `LocationHdfsMapInput` via:
 //
-//          LocationHdfsMap{ "key": LocationHdfsArgs{...} }
+//	LocationHdfsMap{ "key": LocationHdfsArgs{...} }
 type LocationHdfsMapInput interface {
 	pulumi.Input
 
@@ -413,7 +415,6 @@ func (o LocationHdfsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationHdfs) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o LocationHdfsOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationHdfs) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm.Inputs
 {
 
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration options for sending command output to CloudWatch Logs. Documented below.
@@ -87,5 +87,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs()
         {
         }
+        public static new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs Empty => new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs();
     }
 }

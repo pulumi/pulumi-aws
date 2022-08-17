@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action to take on instances in the original environment after a successful blue/green deployment.
@@ -29,5 +29,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs()
         {
         }
+        public static new DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs Empty => new DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs();
     }
 }

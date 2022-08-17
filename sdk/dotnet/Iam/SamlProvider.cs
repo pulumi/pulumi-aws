@@ -15,21 +15,19 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Iam.SamlProvider("default", new()
     ///     {
-    ///         var @default = new Aws.Iam.SamlProvider("default", new Aws.Iam.SamlProviderArgs
-    ///         {
-    ///             SamlMetadataDocument = File.ReadAllText("saml-metadata.xml"),
-    ///         });
-    ///     }
+    ///         SamlMetadataDocument = File.ReadAllText("saml-metadata.xml"),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/samlProvider:SamlProvider")]
-    public partial class SamlProvider : Pulumi.CustomResource
+    public partial class SamlProvider : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN assigned by AWS for this provider.
@@ -123,7 +121,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class SamlProviderArgs : Pulumi.ResourceArgs
+    public sealed class SamlProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the provider to create.
@@ -152,9 +150,10 @@ namespace Pulumi.Aws.Iam
         public SamlProviderArgs()
         {
         }
+        public static new SamlProviderArgs Empty => new SamlProviderArgs();
     }
 
-    public sealed class SamlProviderState : Pulumi.ResourceArgs
+    public sealed class SamlProviderState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN assigned by AWS for this provider.
@@ -207,5 +206,6 @@ namespace Pulumi.Aws.Iam
         public SamlProviderState()
         {
         }
+        public static new SamlProviderState Empty => new SamlProviderState();
     }
 }

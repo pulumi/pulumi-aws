@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetRouteTableFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteTableFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetRouteTableFilterArgs()
         {
         }
+        public static new GetRouteTableFilterArgs Empty => new GetRouteTableFilterArgs();
     }
 }

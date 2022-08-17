@@ -15,23 +15,20 @@ namespace Pulumi.Aws.Pinpoint
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var app = new Aws.Pinpoint.App("app", new Aws.Pinpoint.AppArgs
-    ///         {
-    ///         });
-    ///         var sms = new Aws.Pinpoint.SmsChannel("sms", new Aws.Pinpoint.SmsChannelArgs
-    ///         {
-    ///             ApplicationId = app.ApplicationId,
-    ///         });
-    ///     }
+    ///     var app = new Aws.Pinpoint.App("app");
     /// 
-    /// }
+    ///     var sms = new Aws.Pinpoint.SmsChannel("sms", new()
+    ///     {
+    ///         ApplicationId = app.ApplicationId,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +40,7 @@ namespace Pulumi.Aws.Pinpoint
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/smsChannel:SmsChannel")]
-    public partial class SmsChannel : Pulumi.CustomResource
+    public partial class SmsChannel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application ID.
@@ -125,7 +122,7 @@ namespace Pulumi.Aws.Pinpoint
         }
     }
 
-    public sealed class SmsChannelArgs : Pulumi.ResourceArgs
+    public sealed class SmsChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -154,9 +151,10 @@ namespace Pulumi.Aws.Pinpoint
         public SmsChannelArgs()
         {
         }
+        public static new SmsChannelArgs Empty => new SmsChannelArgs();
     }
 
-    public sealed class SmsChannelState : Pulumi.ResourceArgs
+    public sealed class SmsChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -197,5 +195,6 @@ namespace Pulumi.Aws.Pinpoint
         public SmsChannelState()
         {
         }
+        public static new SmsChannelState Empty => new SmsChannelState();
     }
 }

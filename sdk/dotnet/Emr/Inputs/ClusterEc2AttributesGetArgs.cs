@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Emr.Inputs
 {
 
-    public sealed class ClusterEc2AttributesGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterEc2AttributesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// String containing a comma separated list of additional Amazon EC2 security group IDs for the master node.
@@ -75,5 +75,6 @@ namespace Pulumi.Aws.Emr.Inputs
         public ClusterEc2AttributesGetArgs()
         {
         }
+        public static new ClusterEc2AttributesGetArgs Empty => new ClusterEc2AttributesGetArgs();
     }
 }

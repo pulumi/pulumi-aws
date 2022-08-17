@@ -60,28 +60,12 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Map<String,String> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Map<String,String>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     private GetServicePlainArgs() {}
 
     private GetServicePlainArgs(GetServicePlainArgs $) {
         this.name = $.name;
         this.namespaceId = $.namespaceId;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -132,17 +116,6 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Map<String,String> tagsAll) {
-            $.tagsAll = tagsAll;
             return this;
         }
 

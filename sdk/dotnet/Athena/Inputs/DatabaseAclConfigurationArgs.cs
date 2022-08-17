@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Athena.Inputs
 {
 
-    public sealed class DatabaseAclConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseAclConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Athena.Inputs
         public DatabaseAclConfigurationArgs()
         {
         }
+        public static new DatabaseAclConfigurationArgs Empty => new DatabaseAclConfigurationArgs();
     }
 }

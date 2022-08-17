@@ -19,45 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := route53.NewResolverEndpoint(ctx, "foo", &route53.ResolverEndpointArgs{
-// 			Direction: pulumi.String("INBOUND"),
-// 			SecurityGroupIds: pulumi.StringArray{
-// 				pulumi.Any(aws_security_group.Sg1.Id),
-// 				pulumi.Any(aws_security_group.Sg2.Id),
-// 			},
-// 			IpAddresses: route53.ResolverEndpointIpAddressArray{
-// 				&route53.ResolverEndpointIpAddressArgs{
-// 					SubnetId: pulumi.Any(aws_subnet.Sn1.Id),
-// 				},
-// 				&route53.ResolverEndpointIpAddressArgs{
-// 					SubnetId: pulumi.Any(aws_subnet.Sn2.Id),
-// 					Ip:       pulumi.String("10.0.64.4"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("Prod"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53.NewResolverEndpoint(ctx, "foo", &route53.ResolverEndpointArgs{
+//				Direction: pulumi.String("INBOUND"),
+//				SecurityGroupIds: pulumi.StringArray{
+//					pulumi.Any(aws_security_group.Sg1.Id),
+//					pulumi.Any(aws_security_group.Sg2.Id),
+//				},
+//				IpAddresses: route53.ResolverEndpointIpAddressArray{
+//					&route53.ResolverEndpointIpAddressArgs{
+//						SubnetId: pulumi.Any(aws_subnet.Sn1.Id),
+//					},
+//					&route53.ResolverEndpointIpAddressArgs{
+//						SubnetId: pulumi.Any(aws_subnet.Sn2.Id),
+//						Ip:       pulumi.String("10.0.64.4"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Prod"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-//  Route 53 Resolver endpoints can be imported using the Route 53 Resolver endpoint ID, e.g.,
+//	Route 53 Resolver endpoints can be imported using the Route 53 Resolver endpoint ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
+//
+//	$ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
+//
 // ```
 type ResolverEndpoint struct {
 	pulumi.CustomResourceState
@@ -79,7 +84,7 @@ type ResolverEndpoint struct {
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -138,7 +143,7 @@ type resolverEndpointState struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -160,7 +165,7 @@ type ResolverEndpointState struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -227,7 +232,7 @@ func (i *ResolverEndpoint) ToResolverEndpointOutputWithContext(ctx context.Conte
 // ResolverEndpointArrayInput is an input type that accepts ResolverEndpointArray and ResolverEndpointArrayOutput values.
 // You can construct a concrete instance of `ResolverEndpointArrayInput` via:
 //
-//          ResolverEndpointArray{ ResolverEndpointArgs{...} }
+//	ResolverEndpointArray{ ResolverEndpointArgs{...} }
 type ResolverEndpointArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +257,7 @@ func (i ResolverEndpointArray) ToResolverEndpointArrayOutputWithContext(ctx cont
 // ResolverEndpointMapInput is an input type that accepts ResolverEndpointMap and ResolverEndpointMapOutput values.
 // You can construct a concrete instance of `ResolverEndpointMapInput` via:
 //
-//          ResolverEndpointMap{ "key": ResolverEndpointArgs{...} }
+//	ResolverEndpointMap{ "key": ResolverEndpointArgs{...} }
 type ResolverEndpointMapInput interface {
 	pulumi.Input
 
@@ -326,7 +331,7 @@ func (o ResolverEndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ResolverEndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

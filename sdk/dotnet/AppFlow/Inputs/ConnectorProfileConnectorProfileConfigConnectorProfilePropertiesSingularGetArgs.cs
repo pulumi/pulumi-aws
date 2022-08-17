@@ -10,10 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularGetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularGetArgs : global::Pulumi.ResourceArgs
     {
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularGetArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularGetArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularGetArgs();
     }
 }

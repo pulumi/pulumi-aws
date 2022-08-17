@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElastiCache.Inputs
 {
 
-    public sealed class ClusterCacheNodeGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCacheNodeGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("address")]
         public Input<string>? Address { get; set; }
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.ElastiCache.Inputs
         public ClusterCacheNodeGetArgs()
         {
         }
+        public static new ClusterCacheNodeGetArgs Empty => new ClusterCacheNodeGetArgs();
     }
 }

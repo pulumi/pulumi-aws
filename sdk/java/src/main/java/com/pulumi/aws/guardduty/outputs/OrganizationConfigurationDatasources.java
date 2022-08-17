@@ -4,6 +4,7 @@
 package com.pulumi.aws.guardduty.outputs;
 
 import com.pulumi.aws.guardduty.outputs.OrganizationConfigurationDatasourcesKubernetes;
+import com.pulumi.aws.guardduty.outputs.OrganizationConfigurationDatasourcesMalwareProtection;
 import com.pulumi.aws.guardduty.outputs.OrganizationConfigurationDatasourcesS3Logs;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -18,6 +19,11 @@ public final class OrganizationConfigurationDatasources {
      */
     private final @Nullable OrganizationConfigurationDatasourcesKubernetes kubernetes;
     /**
+     * @return Enable Malware Protection automatically for new member accounts.
+     * 
+     */
+    private final @Nullable OrganizationConfigurationDatasourcesMalwareProtection malwareProtection;
+    /**
      * @return Enable S3 Protection automatically for new member accounts.
      * 
      */
@@ -26,8 +32,10 @@ public final class OrganizationConfigurationDatasources {
     @CustomType.Constructor
     private OrganizationConfigurationDatasources(
         @CustomType.Parameter("kubernetes") @Nullable OrganizationConfigurationDatasourcesKubernetes kubernetes,
+        @CustomType.Parameter("malwareProtection") @Nullable OrganizationConfigurationDatasourcesMalwareProtection malwareProtection,
         @CustomType.Parameter("s3Logs") @Nullable OrganizationConfigurationDatasourcesS3Logs s3Logs) {
         this.kubernetes = kubernetes;
+        this.malwareProtection = malwareProtection;
         this.s3Logs = s3Logs;
     }
 
@@ -37,6 +45,13 @@ public final class OrganizationConfigurationDatasources {
      */
     public Optional<OrganizationConfigurationDatasourcesKubernetes> kubernetes() {
         return Optional.ofNullable(this.kubernetes);
+    }
+    /**
+     * @return Enable Malware Protection automatically for new member accounts.
+     * 
+     */
+    public Optional<OrganizationConfigurationDatasourcesMalwareProtection> malwareProtection() {
+        return Optional.ofNullable(this.malwareProtection);
     }
     /**
      * @return Enable S3 Protection automatically for new member accounts.
@@ -56,6 +71,7 @@ public final class OrganizationConfigurationDatasources {
 
     public static final class Builder {
         private @Nullable OrganizationConfigurationDatasourcesKubernetes kubernetes;
+        private @Nullable OrganizationConfigurationDatasourcesMalwareProtection malwareProtection;
         private @Nullable OrganizationConfigurationDatasourcesS3Logs s3Logs;
 
         public Builder() {
@@ -65,6 +81,7 @@ public final class OrganizationConfigurationDatasources {
         public Builder(OrganizationConfigurationDatasources defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kubernetes = defaults.kubernetes;
+    	      this.malwareProtection = defaults.malwareProtection;
     	      this.s3Logs = defaults.s3Logs;
         }
 
@@ -72,11 +89,15 @@ public final class OrganizationConfigurationDatasources {
             this.kubernetes = kubernetes;
             return this;
         }
+        public Builder malwareProtection(@Nullable OrganizationConfigurationDatasourcesMalwareProtection malwareProtection) {
+            this.malwareProtection = malwareProtection;
+            return this;
+        }
         public Builder s3Logs(@Nullable OrganizationConfigurationDatasourcesS3Logs s3Logs) {
             this.s3Logs = s3Logs;
             return this;
         }        public OrganizationConfigurationDatasources build() {
-            return new OrganizationConfigurationDatasources(kubernetes, s3Logs);
+            return new OrganizationConfigurationDatasources(kubernetes, malwareProtection, s3Logs);
         }
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGatewayV2.Inputs
 {
 
-    public sealed class IntegrationResponseParameterArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationResponseParameterArgs : global::Pulumi.ResourceArgs
     {
         [Input("mappings", required: true)]
         private InputMap<string>? _mappings;
@@ -34,5 +34,6 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         public IntegrationResponseParameterArgs()
         {
         }
+        public static new IntegrationResponseParameterArgs Empty => new IntegrationResponseParameterArgs();
     }
 }

@@ -18,28 +18,26 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ApiGatewayV2.VpcLink("example", new()
     ///     {
-    ///         var example = new Aws.ApiGatewayV2.VpcLink("example", new Aws.ApiGatewayV2.VpcLinkArgs
+    ///         SecurityGroupIds = new[]
     ///         {
-    ///             SecurityGroupIds = 
-    ///             {
-    ///                 data.Aws_security_group.Example.Id,
-    ///             },
-    ///             SubnetIds = data.Aws_subnet_ids.Example.Ids,
-    ///             Tags = 
-    ///             {
-    ///                 { "Usage", "example" },
-    ///             },
-    ///         });
-    ///     }
+    ///             data.Aws_security_group.Example.Id,
+    ///         },
+    ///         SubnetIds = data.Aws_subnet_ids.Example.Ids,
+    ///         Tags = 
+    ///         {
+    ///             { "Usage", "example" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/vpcLink:VpcLink")]
-    public partial class VpcLink : Pulumi.CustomResource
+    public partial class VpcLink : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The VPC Link ARN.
@@ -78,13 +76,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the VPC Link. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -133,7 +131,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
     }
 
-    public sealed class VpcLinkArgs : Pulumi.ResourceArgs
+    public sealed class VpcLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the VPC Link. Must be between 1 and 128 characters in length.
@@ -169,7 +167,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the VPC Link. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -180,9 +178,10 @@ namespace Pulumi.Aws.ApiGatewayV2
         public VpcLinkArgs()
         {
         }
+        public static new VpcLinkArgs Empty => new VpcLinkArgs();
     }
 
-    public sealed class VpcLinkState : Pulumi.ResourceArgs
+    public sealed class VpcLinkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The VPC Link ARN.
@@ -224,7 +223,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the VPC Link. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the VPC Link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -236,7 +235,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -247,5 +246,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         public VpcLinkState()
         {
         }
+        public static new VpcLinkState Empty => new VpcLinkState();
     }
 }

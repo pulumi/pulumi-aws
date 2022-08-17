@@ -10,13 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Macie2.Inputs
 {
 
-    public sealed class ClassificationJobS3JobDefinitionScopingIncludesGetArgs : Pulumi.ResourceArgs
+    public sealed class ClassificationJobS3JobDefinitionScopingIncludesGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("ands")]
         private InputList<Inputs.ClassificationJobS3JobDefinitionScopingIncludesAndGetArgs>? _ands;
 
         /// <summary>
-        /// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
+        /// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
         /// </summary>
         public InputList<Inputs.ClassificationJobS3JobDefinitionScopingIncludesAndGetArgs> Ands
         {
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Macie2.Inputs
         public ClassificationJobS3JobDefinitionScopingIncludesGetArgs()
         {
         }
+        public static new ClassificationJobS3JobDefinitionScopingIncludesGetArgs Empty => new ClassificationJobS3JobDefinitionScopingIncludesGetArgs();
     }
 }

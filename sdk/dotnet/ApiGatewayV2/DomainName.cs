@@ -20,65 +20,62 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ApiGatewayV2.DomainName("example", new()
     ///     {
-    ///         var example = new Aws.ApiGatewayV2.DomainName("example", new Aws.ApiGatewayV2.DomainNameArgs
+    ///         Domain = "ws-api.example.com",
+    ///         DomainNameConfiguration = new Aws.ApiGatewayV2.Inputs.DomainNameDomainNameConfigurationArgs
     ///         {
-    ///             Domain = "ws-api.example.com",
-    ///             DomainNameConfiguration = new Aws.ApiGatewayV2.Inputs.DomainNameDomainNameConfigurationArgs
-    ///             {
-    ///                 CertificateArn = aws_acm_certificate.Example.Arn,
-    ///                 EndpointType = "REGIONAL",
-    ///                 SecurityPolicy = "TLS_1_2",
-    ///             },
-    ///         });
-    ///     }
+    ///             CertificateArn = aws_acm_certificate.Example.Arn,
+    ///             EndpointType = "REGIONAL",
+    ///             SecurityPolicy = "TLS_1_2",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Associated Route 53 Resource Record
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleDomainName = new Aws.ApiGatewayV2.DomainName("exampleDomainName", new()
     ///     {
-    ///         var exampleDomainName = new Aws.ApiGatewayV2.DomainName("exampleDomainName", new Aws.ApiGatewayV2.DomainNameArgs
+    ///         Domain = "http-api.example.com",
+    ///         DomainNameConfiguration = new Aws.ApiGatewayV2.Inputs.DomainNameDomainNameConfigurationArgs
     ///         {
-    ///             Domain = "http-api.example.com",
-    ///             DomainNameConfiguration = new Aws.ApiGatewayV2.Inputs.DomainNameDomainNameConfigurationArgs
-    ///             {
-    ///                 CertificateArn = aws_acm_certificate.Example.Arn,
-    ///                 EndpointType = "REGIONAL",
-    ///                 SecurityPolicy = "TLS_1_2",
-    ///             },
-    ///         });
-    ///         var exampleRecord = new Aws.Route53.Record("exampleRecord", new Aws.Route53.RecordArgs
-    ///         {
-    ///             Name = exampleDomainName.Domain,
-    ///             Type = "A",
-    ///             ZoneId = aws_route53_zone.Example.Zone_id,
-    ///             Aliases = 
-    ///             {
-    ///                 new Aws.Route53.Inputs.RecordAliasArgs
-    ///                 {
-    ///                     Name = exampleDomainName.DomainNameConfiguration.Apply(domainNameConfiguration =&gt; domainNameConfiguration.TargetDomainName),
-    ///                     ZoneId = exampleDomainName.DomainNameConfiguration.Apply(domainNameConfiguration =&gt; domainNameConfiguration.HostedZoneId),
-    ///                     EvaluateTargetHealth = false,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///             CertificateArn = aws_acm_certificate.Example.Arn,
+    ///             EndpointType = "REGIONAL",
+    ///             SecurityPolicy = "TLS_1_2",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleRecord = new Aws.Route53.Record("exampleRecord", new()
+    ///     {
+    ///         Name = exampleDomainName.Domain,
+    ///         Type = "A",
+    ///         ZoneId = aws_route53_zone.Example.Zone_id,
+    ///         Aliases = new[]
+    ///         {
+    ///             new Aws.Route53.Inputs.RecordAliasArgs
+    ///             {
+    ///                 Name = exampleDomainName.DomainNameConfiguration.Apply(domainNameConfiguration =&gt; domainNameConfiguration.TargetDomainName),
+    ///                 ZoneId = exampleDomainName.DomainNameConfiguration.Apply(domainNameConfiguration =&gt; domainNameConfiguration.HostedZoneId),
+    ///                 EvaluateTargetHealth = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -90,7 +87,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/domainName:DomainName")]
-    public partial class DomainName : Pulumi.CustomResource
+    public partial class DomainName : global::Pulumi.CustomResource
     {
         /// <summary>
         /// [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
@@ -178,7 +175,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
     }
 
-    public sealed class DomainNameArgs : Pulumi.ResourceArgs
+    public sealed class DomainNameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Domain name. Must be between 1 and 512 characters in length.
@@ -213,9 +210,10 @@ namespace Pulumi.Aws.ApiGatewayV2
         public DomainNameArgs()
         {
         }
+        public static new DomainNameArgs Empty => new DomainNameArgs();
     }
 
-    public sealed class DomainNameState : Pulumi.ResourceArgs
+    public sealed class DomainNameState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
@@ -274,5 +272,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         public DomainNameState()
         {
         }
+        public static new DomainNameState Empty => new DomainNameState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionOriginCustomOriginConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class DistributionOriginCustomOriginConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HTTP port the custom origin listens on.
@@ -60,5 +60,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionOriginCustomOriginConfigGetArgs()
         {
         }
+        public static new DistributionOriginCustomOriginConfigGetArgs Empty => new DistributionOriginCustomOriginConfigGetArgs();
     }
 }

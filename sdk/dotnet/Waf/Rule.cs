@@ -15,46 +15,45 @@ namespace Pulumi.Aws.Waf
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ipset = new Aws.Waf.IpSet("ipset", new()
     ///     {
-    ///         var ipset = new Aws.Waf.IpSet("ipset", new Aws.Waf.IpSetArgs
+    ///         IpSetDescriptors = new[]
     ///         {
-    ///             IpSetDescriptors = 
+    ///             new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
     ///             {
-    ///                 new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
-    ///                 {
-    ///                     Type = "IPV4",
-    ///                     Value = "192.0.7.0/24",
-    ///                 },
+    ///                 Type = "IPV4",
+    ///                 Value = "192.0.7.0/24",
     ///             },
-    ///         });
-    ///         var wafrule = new Aws.Waf.Rule("wafrule", new Aws.Waf.RuleArgs
-    ///         {
-    ///             MetricName = "tfWAFRule",
-    ///             Predicates = 
-    ///             {
-    ///                 new Aws.Waf.Inputs.RulePredicateArgs
-    ///                 {
-    ///                     DataId = ipset.Id,
-    ///                     Negated = false,
-    ///                     Type = "IPMatch",
-    ///                 },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 ipset,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var wafrule = new Aws.Waf.Rule("wafrule", new()
+    ///     {
+    ///         MetricName = "tfWAFRule",
+    ///         Predicates = new[]
+    ///         {
+    ///             new Aws.Waf.Inputs.RulePredicateArgs
+    ///             {
+    ///                 DataId = ipset.Id,
+    ///                 Negated = false,
+    ///                 Type = "IPMatch",
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             ipset,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +65,7 @@ namespace Pulumi.Aws.Waf
     /// ```
     /// </summary>
     [AwsResourceType("aws:waf/rule:Rule")]
-    public partial class Rule : Pulumi.CustomResource
+    public partial class Rule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the WAF rule.
@@ -99,7 +98,7 @@ namespace Pulumi.Aws.Waf
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -148,7 +147,7 @@ namespace Pulumi.Aws.Waf
         }
     }
 
-    public sealed class RuleArgs : Pulumi.ResourceArgs
+    public sealed class RuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
@@ -189,9 +188,10 @@ namespace Pulumi.Aws.Waf
         public RuleArgs()
         {
         }
+        public static new RuleArgs Empty => new RuleArgs();
     }
 
-    public sealed class RuleState : Pulumi.ResourceArgs
+    public sealed class RuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the WAF rule.
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.Waf
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -250,5 +250,6 @@ namespace Pulumi.Aws.Waf
         public RuleState()
         {
         }
+        public static new RuleState Empty => new RuleState();
     }
 }

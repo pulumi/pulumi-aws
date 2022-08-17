@@ -192,7 +192,7 @@ type InsightFilters struct {
 // InsightFiltersInput is an input type that accepts InsightFiltersArgs and InsightFiltersOutput values.
 // You can construct a concrete instance of `InsightFiltersInput` via:
 //
-//          InsightFiltersArgs{...}
+//	InsightFiltersArgs{...}
 type InsightFiltersInput interface {
 	pulumi.Input
 
@@ -402,11 +402,11 @@ func (i InsightFiltersArgs) ToInsightFiltersPtrOutputWithContext(ctx context.Con
 // InsightFiltersPtrInput is an input type that accepts InsightFiltersArgs, InsightFiltersPtr and InsightFiltersPtrOutput values.
 // You can construct a concrete instance of `InsightFiltersPtrInput` via:
 //
-//          InsightFiltersArgs{...}
+//	        InsightFiltersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InsightFiltersPtrInput interface {
 	pulumi.Input
 
@@ -1862,7 +1862,7 @@ type InsightFiltersAwsAccountId struct {
 // InsightFiltersAwsAccountIdInput is an input type that accepts InsightFiltersAwsAccountIdArgs and InsightFiltersAwsAccountIdOutput values.
 // You can construct a concrete instance of `InsightFiltersAwsAccountIdInput` via:
 //
-//          InsightFiltersAwsAccountIdArgs{...}
+//	InsightFiltersAwsAccountIdArgs{...}
 type InsightFiltersAwsAccountIdInput interface {
 	pulumi.Input
 
@@ -1892,7 +1892,7 @@ func (i InsightFiltersAwsAccountIdArgs) ToInsightFiltersAwsAccountIdOutputWithCo
 // InsightFiltersAwsAccountIdArrayInput is an input type that accepts InsightFiltersAwsAccountIdArray and InsightFiltersAwsAccountIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersAwsAccountIdArrayInput` via:
 //
-//          InsightFiltersAwsAccountIdArray{ InsightFiltersAwsAccountIdArgs{...} }
+//	InsightFiltersAwsAccountIdArray{ InsightFiltersAwsAccountIdArgs{...} }
 type InsightFiltersAwsAccountIdArrayInput interface {
 	pulumi.Input
 
@@ -1968,7 +1968,7 @@ type InsightFiltersCompanyName struct {
 // InsightFiltersCompanyNameInput is an input type that accepts InsightFiltersCompanyNameArgs and InsightFiltersCompanyNameOutput values.
 // You can construct a concrete instance of `InsightFiltersCompanyNameInput` via:
 //
-//          InsightFiltersCompanyNameArgs{...}
+//	InsightFiltersCompanyNameArgs{...}
 type InsightFiltersCompanyNameInput interface {
 	pulumi.Input
 
@@ -1998,7 +1998,7 @@ func (i InsightFiltersCompanyNameArgs) ToInsightFiltersCompanyNameOutputWithCont
 // InsightFiltersCompanyNameArrayInput is an input type that accepts InsightFiltersCompanyNameArray and InsightFiltersCompanyNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersCompanyNameArrayInput` via:
 //
-//          InsightFiltersCompanyNameArray{ InsightFiltersCompanyNameArgs{...} }
+//	InsightFiltersCompanyNameArray{ InsightFiltersCompanyNameArgs{...} }
 type InsightFiltersCompanyNameArrayInput interface {
 	pulumi.Input
 
@@ -2074,7 +2074,7 @@ type InsightFiltersComplianceStatus struct {
 // InsightFiltersComplianceStatusInput is an input type that accepts InsightFiltersComplianceStatusArgs and InsightFiltersComplianceStatusOutput values.
 // You can construct a concrete instance of `InsightFiltersComplianceStatusInput` via:
 //
-//          InsightFiltersComplianceStatusArgs{...}
+//	InsightFiltersComplianceStatusArgs{...}
 type InsightFiltersComplianceStatusInput interface {
 	pulumi.Input
 
@@ -2104,7 +2104,7 @@ func (i InsightFiltersComplianceStatusArgs) ToInsightFiltersComplianceStatusOutp
 // InsightFiltersComplianceStatusArrayInput is an input type that accepts InsightFiltersComplianceStatusArray and InsightFiltersComplianceStatusArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersComplianceStatusArrayInput` via:
 //
-//          InsightFiltersComplianceStatusArray{ InsightFiltersComplianceStatusArgs{...} }
+//	InsightFiltersComplianceStatusArray{ InsightFiltersComplianceStatusArgs{...} }
 type InsightFiltersComplianceStatusArrayInput interface {
 	pulumi.Input
 
@@ -2182,7 +2182,7 @@ type InsightFiltersConfidence struct {
 // InsightFiltersConfidenceInput is an input type that accepts InsightFiltersConfidenceArgs and InsightFiltersConfidenceOutput values.
 // You can construct a concrete instance of `InsightFiltersConfidenceInput` via:
 //
-//          InsightFiltersConfidenceArgs{...}
+//	InsightFiltersConfidenceArgs{...}
 type InsightFiltersConfidenceInput interface {
 	pulumi.Input
 
@@ -2214,7 +2214,7 @@ func (i InsightFiltersConfidenceArgs) ToInsightFiltersConfidenceOutputWithContex
 // InsightFiltersConfidenceArrayInput is an input type that accepts InsightFiltersConfidenceArray and InsightFiltersConfidenceArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersConfidenceArrayInput` via:
 //
-//          InsightFiltersConfidenceArray{ InsightFiltersConfidenceArgs{...} }
+//	InsightFiltersConfidenceArray{ InsightFiltersConfidenceArgs{...} }
 type InsightFiltersConfidenceArrayInput interface {
 	pulumi.Input
 
@@ -2297,7 +2297,7 @@ type InsightFiltersCreatedAt struct {
 // InsightFiltersCreatedAtInput is an input type that accepts InsightFiltersCreatedAtArgs and InsightFiltersCreatedAtOutput values.
 // You can construct a concrete instance of `InsightFiltersCreatedAtInput` via:
 //
-//          InsightFiltersCreatedAtArgs{...}
+//	InsightFiltersCreatedAtArgs{...}
 type InsightFiltersCreatedAtInput interface {
 	pulumi.Input
 
@@ -2329,7 +2329,7 @@ func (i InsightFiltersCreatedAtArgs) ToInsightFiltersCreatedAtOutputWithContext(
 // InsightFiltersCreatedAtArrayInput is an input type that accepts InsightFiltersCreatedAtArray and InsightFiltersCreatedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersCreatedAtArrayInput` via:
 //
-//          InsightFiltersCreatedAtArray{ InsightFiltersCreatedAtArgs{...} }
+//	InsightFiltersCreatedAtArray{ InsightFiltersCreatedAtArgs{...} }
 type InsightFiltersCreatedAtArrayInput interface {
 	pulumi.Input
 
@@ -2410,7 +2410,7 @@ type InsightFiltersCreatedAtDateRange struct {
 // InsightFiltersCreatedAtDateRangeInput is an input type that accepts InsightFiltersCreatedAtDateRangeArgs and InsightFiltersCreatedAtDateRangeOutput values.
 // You can construct a concrete instance of `InsightFiltersCreatedAtDateRangeInput` via:
 //
-//          InsightFiltersCreatedAtDateRangeArgs{...}
+//	InsightFiltersCreatedAtDateRangeArgs{...}
 type InsightFiltersCreatedAtDateRangeInput interface {
 	pulumi.Input
 
@@ -2448,11 +2448,11 @@ func (i InsightFiltersCreatedAtDateRangeArgs) ToInsightFiltersCreatedAtDateRange
 // InsightFiltersCreatedAtDateRangePtrInput is an input type that accepts InsightFiltersCreatedAtDateRangeArgs, InsightFiltersCreatedAtDateRangePtr and InsightFiltersCreatedAtDateRangePtrOutput values.
 // You can construct a concrete instance of `InsightFiltersCreatedAtDateRangePtrInput` via:
 //
-//          InsightFiltersCreatedAtDateRangeArgs{...}
+//	        InsightFiltersCreatedAtDateRangeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InsightFiltersCreatedAtDateRangePtrInput interface {
 	pulumi.Input
 
@@ -2568,7 +2568,7 @@ type InsightFiltersCriticality struct {
 // InsightFiltersCriticalityInput is an input type that accepts InsightFiltersCriticalityArgs and InsightFiltersCriticalityOutput values.
 // You can construct a concrete instance of `InsightFiltersCriticalityInput` via:
 //
-//          InsightFiltersCriticalityArgs{...}
+//	InsightFiltersCriticalityArgs{...}
 type InsightFiltersCriticalityInput interface {
 	pulumi.Input
 
@@ -2600,7 +2600,7 @@ func (i InsightFiltersCriticalityArgs) ToInsightFiltersCriticalityOutputWithCont
 // InsightFiltersCriticalityArrayInput is an input type that accepts InsightFiltersCriticalityArray and InsightFiltersCriticalityArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersCriticalityArrayInput` via:
 //
-//          InsightFiltersCriticalityArray{ InsightFiltersCriticalityArgs{...} }
+//	InsightFiltersCriticalityArray{ InsightFiltersCriticalityArgs{...} }
 type InsightFiltersCriticalityArrayInput interface {
 	pulumi.Input
 
@@ -2681,7 +2681,7 @@ type InsightFiltersDescription struct {
 // InsightFiltersDescriptionInput is an input type that accepts InsightFiltersDescriptionArgs and InsightFiltersDescriptionOutput values.
 // You can construct a concrete instance of `InsightFiltersDescriptionInput` via:
 //
-//          InsightFiltersDescriptionArgs{...}
+//	InsightFiltersDescriptionArgs{...}
 type InsightFiltersDescriptionInput interface {
 	pulumi.Input
 
@@ -2711,7 +2711,7 @@ func (i InsightFiltersDescriptionArgs) ToInsightFiltersDescriptionOutputWithCont
 // InsightFiltersDescriptionArrayInput is an input type that accepts InsightFiltersDescriptionArray and InsightFiltersDescriptionArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersDescriptionArrayInput` via:
 //
-//          InsightFiltersDescriptionArray{ InsightFiltersDescriptionArgs{...} }
+//	InsightFiltersDescriptionArray{ InsightFiltersDescriptionArgs{...} }
 type InsightFiltersDescriptionArrayInput interface {
 	pulumi.Input
 
@@ -2789,7 +2789,7 @@ type InsightFiltersFindingProviderFieldsConfidence struct {
 // InsightFiltersFindingProviderFieldsConfidenceInput is an input type that accepts InsightFiltersFindingProviderFieldsConfidenceArgs and InsightFiltersFindingProviderFieldsConfidenceOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsConfidenceInput` via:
 //
-//          InsightFiltersFindingProviderFieldsConfidenceArgs{...}
+//	InsightFiltersFindingProviderFieldsConfidenceArgs{...}
 type InsightFiltersFindingProviderFieldsConfidenceInput interface {
 	pulumi.Input
 
@@ -2821,7 +2821,7 @@ func (i InsightFiltersFindingProviderFieldsConfidenceArgs) ToInsightFiltersFindi
 // InsightFiltersFindingProviderFieldsConfidenceArrayInput is an input type that accepts InsightFiltersFindingProviderFieldsConfidenceArray and InsightFiltersFindingProviderFieldsConfidenceArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsConfidenceArrayInput` via:
 //
-//          InsightFiltersFindingProviderFieldsConfidenceArray{ InsightFiltersFindingProviderFieldsConfidenceArgs{...} }
+//	InsightFiltersFindingProviderFieldsConfidenceArray{ InsightFiltersFindingProviderFieldsConfidenceArgs{...} }
 type InsightFiltersFindingProviderFieldsConfidenceArrayInput interface {
 	pulumi.Input
 
@@ -2904,7 +2904,7 @@ type InsightFiltersFindingProviderFieldsCriticality struct {
 // InsightFiltersFindingProviderFieldsCriticalityInput is an input type that accepts InsightFiltersFindingProviderFieldsCriticalityArgs and InsightFiltersFindingProviderFieldsCriticalityOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsCriticalityInput` via:
 //
-//          InsightFiltersFindingProviderFieldsCriticalityArgs{...}
+//	InsightFiltersFindingProviderFieldsCriticalityArgs{...}
 type InsightFiltersFindingProviderFieldsCriticalityInput interface {
 	pulumi.Input
 
@@ -2936,7 +2936,7 @@ func (i InsightFiltersFindingProviderFieldsCriticalityArgs) ToInsightFiltersFind
 // InsightFiltersFindingProviderFieldsCriticalityArrayInput is an input type that accepts InsightFiltersFindingProviderFieldsCriticalityArray and InsightFiltersFindingProviderFieldsCriticalityArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsCriticalityArrayInput` via:
 //
-//          InsightFiltersFindingProviderFieldsCriticalityArray{ InsightFiltersFindingProviderFieldsCriticalityArgs{...} }
+//	InsightFiltersFindingProviderFieldsCriticalityArray{ InsightFiltersFindingProviderFieldsCriticalityArgs{...} }
 type InsightFiltersFindingProviderFieldsCriticalityArrayInput interface {
 	pulumi.Input
 
@@ -3017,7 +3017,7 @@ type InsightFiltersFindingProviderFieldsRelatedFindingsId struct {
 // InsightFiltersFindingProviderFieldsRelatedFindingsIdInput is an input type that accepts InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs and InsightFiltersFindingProviderFieldsRelatedFindingsIdOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsRelatedFindingsIdInput` via:
 //
-//          InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs{...}
+//	InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs{...}
 type InsightFiltersFindingProviderFieldsRelatedFindingsIdInput interface {
 	pulumi.Input
 
@@ -3047,7 +3047,7 @@ func (i InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs) ToInsightFilte
 // InsightFiltersFindingProviderFieldsRelatedFindingsIdArrayInput is an input type that accepts InsightFiltersFindingProviderFieldsRelatedFindingsIdArray and InsightFiltersFindingProviderFieldsRelatedFindingsIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsRelatedFindingsIdArrayInput` via:
 //
-//          InsightFiltersFindingProviderFieldsRelatedFindingsIdArray{ InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs{...} }
+//	InsightFiltersFindingProviderFieldsRelatedFindingsIdArray{ InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs{...} }
 type InsightFiltersFindingProviderFieldsRelatedFindingsIdArrayInput interface {
 	pulumi.Input
 
@@ -3123,7 +3123,7 @@ type InsightFiltersFindingProviderFieldsRelatedFindingsProductArn struct {
 // InsightFiltersFindingProviderFieldsRelatedFindingsProductArnInput is an input type that accepts InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs and InsightFiltersFindingProviderFieldsRelatedFindingsProductArnOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsRelatedFindingsProductArnInput` via:
 //
-//          InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs{...}
+//	InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs{...}
 type InsightFiltersFindingProviderFieldsRelatedFindingsProductArnInput interface {
 	pulumi.Input
 
@@ -3153,7 +3153,7 @@ func (i InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs) ToInsi
 // InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArrayInput is an input type that accepts InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArray and InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArrayInput` via:
 //
-//          InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArray{ InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs{...} }
+//	InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArray{ InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs{...} }
 type InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArrayInput interface {
 	pulumi.Input
 
@@ -3229,7 +3229,7 @@ type InsightFiltersFindingProviderFieldsSeverityLabel struct {
 // InsightFiltersFindingProviderFieldsSeverityLabelInput is an input type that accepts InsightFiltersFindingProviderFieldsSeverityLabelArgs and InsightFiltersFindingProviderFieldsSeverityLabelOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsSeverityLabelInput` via:
 //
-//          InsightFiltersFindingProviderFieldsSeverityLabelArgs{...}
+//	InsightFiltersFindingProviderFieldsSeverityLabelArgs{...}
 type InsightFiltersFindingProviderFieldsSeverityLabelInput interface {
 	pulumi.Input
 
@@ -3259,7 +3259,7 @@ func (i InsightFiltersFindingProviderFieldsSeverityLabelArgs) ToInsightFiltersFi
 // InsightFiltersFindingProviderFieldsSeverityLabelArrayInput is an input type that accepts InsightFiltersFindingProviderFieldsSeverityLabelArray and InsightFiltersFindingProviderFieldsSeverityLabelArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsSeverityLabelArrayInput` via:
 //
-//          InsightFiltersFindingProviderFieldsSeverityLabelArray{ InsightFiltersFindingProviderFieldsSeverityLabelArgs{...} }
+//	InsightFiltersFindingProviderFieldsSeverityLabelArray{ InsightFiltersFindingProviderFieldsSeverityLabelArgs{...} }
 type InsightFiltersFindingProviderFieldsSeverityLabelArrayInput interface {
 	pulumi.Input
 
@@ -3335,7 +3335,7 @@ type InsightFiltersFindingProviderFieldsSeverityOriginal struct {
 // InsightFiltersFindingProviderFieldsSeverityOriginalInput is an input type that accepts InsightFiltersFindingProviderFieldsSeverityOriginalArgs and InsightFiltersFindingProviderFieldsSeverityOriginalOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsSeverityOriginalInput` via:
 //
-//          InsightFiltersFindingProviderFieldsSeverityOriginalArgs{...}
+//	InsightFiltersFindingProviderFieldsSeverityOriginalArgs{...}
 type InsightFiltersFindingProviderFieldsSeverityOriginalInput interface {
 	pulumi.Input
 
@@ -3365,7 +3365,7 @@ func (i InsightFiltersFindingProviderFieldsSeverityOriginalArgs) ToInsightFilter
 // InsightFiltersFindingProviderFieldsSeverityOriginalArrayInput is an input type that accepts InsightFiltersFindingProviderFieldsSeverityOriginalArray and InsightFiltersFindingProviderFieldsSeverityOriginalArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsSeverityOriginalArrayInput` via:
 //
-//          InsightFiltersFindingProviderFieldsSeverityOriginalArray{ InsightFiltersFindingProviderFieldsSeverityOriginalArgs{...} }
+//	InsightFiltersFindingProviderFieldsSeverityOriginalArray{ InsightFiltersFindingProviderFieldsSeverityOriginalArgs{...} }
 type InsightFiltersFindingProviderFieldsSeverityOriginalArrayInput interface {
 	pulumi.Input
 
@@ -3441,7 +3441,7 @@ type InsightFiltersFindingProviderFieldsType struct {
 // InsightFiltersFindingProviderFieldsTypeInput is an input type that accepts InsightFiltersFindingProviderFieldsTypeArgs and InsightFiltersFindingProviderFieldsTypeOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsTypeInput` via:
 //
-//          InsightFiltersFindingProviderFieldsTypeArgs{...}
+//	InsightFiltersFindingProviderFieldsTypeArgs{...}
 type InsightFiltersFindingProviderFieldsTypeInput interface {
 	pulumi.Input
 
@@ -3471,7 +3471,7 @@ func (i InsightFiltersFindingProviderFieldsTypeArgs) ToInsightFiltersFindingProv
 // InsightFiltersFindingProviderFieldsTypeArrayInput is an input type that accepts InsightFiltersFindingProviderFieldsTypeArray and InsightFiltersFindingProviderFieldsTypeArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsTypeArrayInput` via:
 //
-//          InsightFiltersFindingProviderFieldsTypeArray{ InsightFiltersFindingProviderFieldsTypeArgs{...} }
+//	InsightFiltersFindingProviderFieldsTypeArray{ InsightFiltersFindingProviderFieldsTypeArgs{...} }
 type InsightFiltersFindingProviderFieldsTypeArrayInput interface {
 	pulumi.Input
 
@@ -3549,7 +3549,7 @@ type InsightFiltersFirstObservedAt struct {
 // InsightFiltersFirstObservedAtInput is an input type that accepts InsightFiltersFirstObservedAtArgs and InsightFiltersFirstObservedAtOutput values.
 // You can construct a concrete instance of `InsightFiltersFirstObservedAtInput` via:
 //
-//          InsightFiltersFirstObservedAtArgs{...}
+//	InsightFiltersFirstObservedAtArgs{...}
 type InsightFiltersFirstObservedAtInput interface {
 	pulumi.Input
 
@@ -3581,7 +3581,7 @@ func (i InsightFiltersFirstObservedAtArgs) ToInsightFiltersFirstObservedAtOutput
 // InsightFiltersFirstObservedAtArrayInput is an input type that accepts InsightFiltersFirstObservedAtArray and InsightFiltersFirstObservedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersFirstObservedAtArrayInput` via:
 //
-//          InsightFiltersFirstObservedAtArray{ InsightFiltersFirstObservedAtArgs{...} }
+//	InsightFiltersFirstObservedAtArray{ InsightFiltersFirstObservedAtArgs{...} }
 type InsightFiltersFirstObservedAtArrayInput interface {
 	pulumi.Input
 
@@ -3662,7 +3662,7 @@ type InsightFiltersFirstObservedAtDateRange struct {
 // InsightFiltersFirstObservedAtDateRangeInput is an input type that accepts InsightFiltersFirstObservedAtDateRangeArgs and InsightFiltersFirstObservedAtDateRangeOutput values.
 // You can construct a concrete instance of `InsightFiltersFirstObservedAtDateRangeInput` via:
 //
-//          InsightFiltersFirstObservedAtDateRangeArgs{...}
+//	InsightFiltersFirstObservedAtDateRangeArgs{...}
 type InsightFiltersFirstObservedAtDateRangeInput interface {
 	pulumi.Input
 
@@ -3700,11 +3700,11 @@ func (i InsightFiltersFirstObservedAtDateRangeArgs) ToInsightFiltersFirstObserve
 // InsightFiltersFirstObservedAtDateRangePtrInput is an input type that accepts InsightFiltersFirstObservedAtDateRangeArgs, InsightFiltersFirstObservedAtDateRangePtr and InsightFiltersFirstObservedAtDateRangePtrOutput values.
 // You can construct a concrete instance of `InsightFiltersFirstObservedAtDateRangePtrInput` via:
 //
-//          InsightFiltersFirstObservedAtDateRangeArgs{...}
+//	        InsightFiltersFirstObservedAtDateRangeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InsightFiltersFirstObservedAtDateRangePtrInput interface {
 	pulumi.Input
 
@@ -3818,7 +3818,7 @@ type InsightFiltersGeneratorId struct {
 // InsightFiltersGeneratorIdInput is an input type that accepts InsightFiltersGeneratorIdArgs and InsightFiltersGeneratorIdOutput values.
 // You can construct a concrete instance of `InsightFiltersGeneratorIdInput` via:
 //
-//          InsightFiltersGeneratorIdArgs{...}
+//	InsightFiltersGeneratorIdArgs{...}
 type InsightFiltersGeneratorIdInput interface {
 	pulumi.Input
 
@@ -3848,7 +3848,7 @@ func (i InsightFiltersGeneratorIdArgs) ToInsightFiltersGeneratorIdOutputWithCont
 // InsightFiltersGeneratorIdArrayInput is an input type that accepts InsightFiltersGeneratorIdArray and InsightFiltersGeneratorIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersGeneratorIdArrayInput` via:
 //
-//          InsightFiltersGeneratorIdArray{ InsightFiltersGeneratorIdArgs{...} }
+//	InsightFiltersGeneratorIdArray{ InsightFiltersGeneratorIdArgs{...} }
 type InsightFiltersGeneratorIdArrayInput interface {
 	pulumi.Input
 
@@ -3924,7 +3924,7 @@ type InsightFiltersId struct {
 // InsightFiltersIdInput is an input type that accepts InsightFiltersIdArgs and InsightFiltersIdOutput values.
 // You can construct a concrete instance of `InsightFiltersIdInput` via:
 //
-//          InsightFiltersIdArgs{...}
+//	InsightFiltersIdArgs{...}
 type InsightFiltersIdInput interface {
 	pulumi.Input
 
@@ -3954,7 +3954,7 @@ func (i InsightFiltersIdArgs) ToInsightFiltersIdOutputWithContext(ctx context.Co
 // InsightFiltersIdArrayInput is an input type that accepts InsightFiltersIdArray and InsightFiltersIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersIdArrayInput` via:
 //
-//          InsightFiltersIdArray{ InsightFiltersIdArgs{...} }
+//	InsightFiltersIdArray{ InsightFiltersIdArgs{...} }
 type InsightFiltersIdArrayInput interface {
 	pulumi.Input
 
@@ -4028,7 +4028,7 @@ type InsightFiltersKeyword struct {
 // InsightFiltersKeywordInput is an input type that accepts InsightFiltersKeywordArgs and InsightFiltersKeywordOutput values.
 // You can construct a concrete instance of `InsightFiltersKeywordInput` via:
 //
-//          InsightFiltersKeywordArgs{...}
+//	InsightFiltersKeywordArgs{...}
 type InsightFiltersKeywordInput interface {
 	pulumi.Input
 
@@ -4056,7 +4056,7 @@ func (i InsightFiltersKeywordArgs) ToInsightFiltersKeywordOutputWithContext(ctx 
 // InsightFiltersKeywordArrayInput is an input type that accepts InsightFiltersKeywordArray and InsightFiltersKeywordArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersKeywordArrayInput` via:
 //
-//          InsightFiltersKeywordArray{ InsightFiltersKeywordArgs{...} }
+//	InsightFiltersKeywordArray{ InsightFiltersKeywordArgs{...} }
 type InsightFiltersKeywordArrayInput interface {
 	pulumi.Input
 
@@ -4129,7 +4129,7 @@ type InsightFiltersLastObservedAt struct {
 // InsightFiltersLastObservedAtInput is an input type that accepts InsightFiltersLastObservedAtArgs and InsightFiltersLastObservedAtOutput values.
 // You can construct a concrete instance of `InsightFiltersLastObservedAtInput` via:
 //
-//          InsightFiltersLastObservedAtArgs{...}
+//	InsightFiltersLastObservedAtArgs{...}
 type InsightFiltersLastObservedAtInput interface {
 	pulumi.Input
 
@@ -4161,7 +4161,7 @@ func (i InsightFiltersLastObservedAtArgs) ToInsightFiltersLastObservedAtOutputWi
 // InsightFiltersLastObservedAtArrayInput is an input type that accepts InsightFiltersLastObservedAtArray and InsightFiltersLastObservedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersLastObservedAtArrayInput` via:
 //
-//          InsightFiltersLastObservedAtArray{ InsightFiltersLastObservedAtArgs{...} }
+//	InsightFiltersLastObservedAtArray{ InsightFiltersLastObservedAtArgs{...} }
 type InsightFiltersLastObservedAtArrayInput interface {
 	pulumi.Input
 
@@ -4242,7 +4242,7 @@ type InsightFiltersLastObservedAtDateRange struct {
 // InsightFiltersLastObservedAtDateRangeInput is an input type that accepts InsightFiltersLastObservedAtDateRangeArgs and InsightFiltersLastObservedAtDateRangeOutput values.
 // You can construct a concrete instance of `InsightFiltersLastObservedAtDateRangeInput` via:
 //
-//          InsightFiltersLastObservedAtDateRangeArgs{...}
+//	InsightFiltersLastObservedAtDateRangeArgs{...}
 type InsightFiltersLastObservedAtDateRangeInput interface {
 	pulumi.Input
 
@@ -4280,11 +4280,11 @@ func (i InsightFiltersLastObservedAtDateRangeArgs) ToInsightFiltersLastObservedA
 // InsightFiltersLastObservedAtDateRangePtrInput is an input type that accepts InsightFiltersLastObservedAtDateRangeArgs, InsightFiltersLastObservedAtDateRangePtr and InsightFiltersLastObservedAtDateRangePtrOutput values.
 // You can construct a concrete instance of `InsightFiltersLastObservedAtDateRangePtrInput` via:
 //
-//          InsightFiltersLastObservedAtDateRangeArgs{...}
+//	        InsightFiltersLastObservedAtDateRangeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InsightFiltersLastObservedAtDateRangePtrInput interface {
 	pulumi.Input
 
@@ -4398,7 +4398,7 @@ type InsightFiltersMalwareName struct {
 // InsightFiltersMalwareNameInput is an input type that accepts InsightFiltersMalwareNameArgs and InsightFiltersMalwareNameOutput values.
 // You can construct a concrete instance of `InsightFiltersMalwareNameInput` via:
 //
-//          InsightFiltersMalwareNameArgs{...}
+//	InsightFiltersMalwareNameArgs{...}
 type InsightFiltersMalwareNameInput interface {
 	pulumi.Input
 
@@ -4428,7 +4428,7 @@ func (i InsightFiltersMalwareNameArgs) ToInsightFiltersMalwareNameOutputWithCont
 // InsightFiltersMalwareNameArrayInput is an input type that accepts InsightFiltersMalwareNameArray and InsightFiltersMalwareNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersMalwareNameArrayInput` via:
 //
-//          InsightFiltersMalwareNameArray{ InsightFiltersMalwareNameArgs{...} }
+//	InsightFiltersMalwareNameArray{ InsightFiltersMalwareNameArgs{...} }
 type InsightFiltersMalwareNameArrayInput interface {
 	pulumi.Input
 
@@ -4504,7 +4504,7 @@ type InsightFiltersMalwarePath struct {
 // InsightFiltersMalwarePathInput is an input type that accepts InsightFiltersMalwarePathArgs and InsightFiltersMalwarePathOutput values.
 // You can construct a concrete instance of `InsightFiltersMalwarePathInput` via:
 //
-//          InsightFiltersMalwarePathArgs{...}
+//	InsightFiltersMalwarePathArgs{...}
 type InsightFiltersMalwarePathInput interface {
 	pulumi.Input
 
@@ -4534,7 +4534,7 @@ func (i InsightFiltersMalwarePathArgs) ToInsightFiltersMalwarePathOutputWithCont
 // InsightFiltersMalwarePathArrayInput is an input type that accepts InsightFiltersMalwarePathArray and InsightFiltersMalwarePathArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersMalwarePathArrayInput` via:
 //
-//          InsightFiltersMalwarePathArray{ InsightFiltersMalwarePathArgs{...} }
+//	InsightFiltersMalwarePathArray{ InsightFiltersMalwarePathArgs{...} }
 type InsightFiltersMalwarePathArrayInput interface {
 	pulumi.Input
 
@@ -4610,7 +4610,7 @@ type InsightFiltersMalwareState struct {
 // InsightFiltersMalwareStateInput is an input type that accepts InsightFiltersMalwareStateArgs and InsightFiltersMalwareStateOutput values.
 // You can construct a concrete instance of `InsightFiltersMalwareStateInput` via:
 //
-//          InsightFiltersMalwareStateArgs{...}
+//	InsightFiltersMalwareStateArgs{...}
 type InsightFiltersMalwareStateInput interface {
 	pulumi.Input
 
@@ -4640,7 +4640,7 @@ func (i InsightFiltersMalwareStateArgs) ToInsightFiltersMalwareStateOutputWithCo
 // InsightFiltersMalwareStateArrayInput is an input type that accepts InsightFiltersMalwareStateArray and InsightFiltersMalwareStateArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersMalwareStateArrayInput` via:
 //
-//          InsightFiltersMalwareStateArray{ InsightFiltersMalwareStateArgs{...} }
+//	InsightFiltersMalwareStateArray{ InsightFiltersMalwareStateArgs{...} }
 type InsightFiltersMalwareStateArrayInput interface {
 	pulumi.Input
 
@@ -4716,7 +4716,7 @@ type InsightFiltersMalwareType struct {
 // InsightFiltersMalwareTypeInput is an input type that accepts InsightFiltersMalwareTypeArgs and InsightFiltersMalwareTypeOutput values.
 // You can construct a concrete instance of `InsightFiltersMalwareTypeInput` via:
 //
-//          InsightFiltersMalwareTypeArgs{...}
+//	InsightFiltersMalwareTypeArgs{...}
 type InsightFiltersMalwareTypeInput interface {
 	pulumi.Input
 
@@ -4746,7 +4746,7 @@ func (i InsightFiltersMalwareTypeArgs) ToInsightFiltersMalwareTypeOutputWithCont
 // InsightFiltersMalwareTypeArrayInput is an input type that accepts InsightFiltersMalwareTypeArray and InsightFiltersMalwareTypeArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersMalwareTypeArrayInput` via:
 //
-//          InsightFiltersMalwareTypeArray{ InsightFiltersMalwareTypeArgs{...} }
+//	InsightFiltersMalwareTypeArray{ InsightFiltersMalwareTypeArgs{...} }
 type InsightFiltersMalwareTypeArrayInput interface {
 	pulumi.Input
 
@@ -4822,7 +4822,7 @@ type InsightFiltersNetworkDestinationDomain struct {
 // InsightFiltersNetworkDestinationDomainInput is an input type that accepts InsightFiltersNetworkDestinationDomainArgs and InsightFiltersNetworkDestinationDomainOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkDestinationDomainInput` via:
 //
-//          InsightFiltersNetworkDestinationDomainArgs{...}
+//	InsightFiltersNetworkDestinationDomainArgs{...}
 type InsightFiltersNetworkDestinationDomainInput interface {
 	pulumi.Input
 
@@ -4852,7 +4852,7 @@ func (i InsightFiltersNetworkDestinationDomainArgs) ToInsightFiltersNetworkDesti
 // InsightFiltersNetworkDestinationDomainArrayInput is an input type that accepts InsightFiltersNetworkDestinationDomainArray and InsightFiltersNetworkDestinationDomainArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkDestinationDomainArrayInput` via:
 //
-//          InsightFiltersNetworkDestinationDomainArray{ InsightFiltersNetworkDestinationDomainArgs{...} }
+//	InsightFiltersNetworkDestinationDomainArray{ InsightFiltersNetworkDestinationDomainArgs{...} }
 type InsightFiltersNetworkDestinationDomainArrayInput interface {
 	pulumi.Input
 
@@ -4926,7 +4926,7 @@ type InsightFiltersNetworkDestinationIpv4 struct {
 // InsightFiltersNetworkDestinationIpv4Input is an input type that accepts InsightFiltersNetworkDestinationIpv4Args and InsightFiltersNetworkDestinationIpv4Output values.
 // You can construct a concrete instance of `InsightFiltersNetworkDestinationIpv4Input` via:
 //
-//          InsightFiltersNetworkDestinationIpv4Args{...}
+//	InsightFiltersNetworkDestinationIpv4Args{...}
 type InsightFiltersNetworkDestinationIpv4Input interface {
 	pulumi.Input
 
@@ -4954,7 +4954,7 @@ func (i InsightFiltersNetworkDestinationIpv4Args) ToInsightFiltersNetworkDestina
 // InsightFiltersNetworkDestinationIpv4ArrayInput is an input type that accepts InsightFiltersNetworkDestinationIpv4Array and InsightFiltersNetworkDestinationIpv4ArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkDestinationIpv4ArrayInput` via:
 //
-//          InsightFiltersNetworkDestinationIpv4Array{ InsightFiltersNetworkDestinationIpv4Args{...} }
+//	InsightFiltersNetworkDestinationIpv4Array{ InsightFiltersNetworkDestinationIpv4Args{...} }
 type InsightFiltersNetworkDestinationIpv4ArrayInput interface {
 	pulumi.Input
 
@@ -5023,7 +5023,7 @@ type InsightFiltersNetworkDestinationIpv6 struct {
 // InsightFiltersNetworkDestinationIpv6Input is an input type that accepts InsightFiltersNetworkDestinationIpv6Args and InsightFiltersNetworkDestinationIpv6Output values.
 // You can construct a concrete instance of `InsightFiltersNetworkDestinationIpv6Input` via:
 //
-//          InsightFiltersNetworkDestinationIpv6Args{...}
+//	InsightFiltersNetworkDestinationIpv6Args{...}
 type InsightFiltersNetworkDestinationIpv6Input interface {
 	pulumi.Input
 
@@ -5051,7 +5051,7 @@ func (i InsightFiltersNetworkDestinationIpv6Args) ToInsightFiltersNetworkDestina
 // InsightFiltersNetworkDestinationIpv6ArrayInput is an input type that accepts InsightFiltersNetworkDestinationIpv6Array and InsightFiltersNetworkDestinationIpv6ArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkDestinationIpv6ArrayInput` via:
 //
-//          InsightFiltersNetworkDestinationIpv6Array{ InsightFiltersNetworkDestinationIpv6Args{...} }
+//	InsightFiltersNetworkDestinationIpv6Array{ InsightFiltersNetworkDestinationIpv6Args{...} }
 type InsightFiltersNetworkDestinationIpv6ArrayInput interface {
 	pulumi.Input
 
@@ -5124,7 +5124,7 @@ type InsightFiltersNetworkDestinationPort struct {
 // InsightFiltersNetworkDestinationPortInput is an input type that accepts InsightFiltersNetworkDestinationPortArgs and InsightFiltersNetworkDestinationPortOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkDestinationPortInput` via:
 //
-//          InsightFiltersNetworkDestinationPortArgs{...}
+//	InsightFiltersNetworkDestinationPortArgs{...}
 type InsightFiltersNetworkDestinationPortInput interface {
 	pulumi.Input
 
@@ -5156,7 +5156,7 @@ func (i InsightFiltersNetworkDestinationPortArgs) ToInsightFiltersNetworkDestina
 // InsightFiltersNetworkDestinationPortArrayInput is an input type that accepts InsightFiltersNetworkDestinationPortArray and InsightFiltersNetworkDestinationPortArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkDestinationPortArrayInput` via:
 //
-//          InsightFiltersNetworkDestinationPortArray{ InsightFiltersNetworkDestinationPortArgs{...} }
+//	InsightFiltersNetworkDestinationPortArray{ InsightFiltersNetworkDestinationPortArgs{...} }
 type InsightFiltersNetworkDestinationPortArrayInput interface {
 	pulumi.Input
 
@@ -5237,7 +5237,7 @@ type InsightFiltersNetworkDirection struct {
 // InsightFiltersNetworkDirectionInput is an input type that accepts InsightFiltersNetworkDirectionArgs and InsightFiltersNetworkDirectionOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkDirectionInput` via:
 //
-//          InsightFiltersNetworkDirectionArgs{...}
+//	InsightFiltersNetworkDirectionArgs{...}
 type InsightFiltersNetworkDirectionInput interface {
 	pulumi.Input
 
@@ -5267,7 +5267,7 @@ func (i InsightFiltersNetworkDirectionArgs) ToInsightFiltersNetworkDirectionOutp
 // InsightFiltersNetworkDirectionArrayInput is an input type that accepts InsightFiltersNetworkDirectionArray and InsightFiltersNetworkDirectionArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkDirectionArrayInput` via:
 //
-//          InsightFiltersNetworkDirectionArray{ InsightFiltersNetworkDirectionArgs{...} }
+//	InsightFiltersNetworkDirectionArray{ InsightFiltersNetworkDirectionArgs{...} }
 type InsightFiltersNetworkDirectionArrayInput interface {
 	pulumi.Input
 
@@ -5343,7 +5343,7 @@ type InsightFiltersNetworkProtocol struct {
 // InsightFiltersNetworkProtocolInput is an input type that accepts InsightFiltersNetworkProtocolArgs and InsightFiltersNetworkProtocolOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkProtocolInput` via:
 //
-//          InsightFiltersNetworkProtocolArgs{...}
+//	InsightFiltersNetworkProtocolArgs{...}
 type InsightFiltersNetworkProtocolInput interface {
 	pulumi.Input
 
@@ -5373,7 +5373,7 @@ func (i InsightFiltersNetworkProtocolArgs) ToInsightFiltersNetworkProtocolOutput
 // InsightFiltersNetworkProtocolArrayInput is an input type that accepts InsightFiltersNetworkProtocolArray and InsightFiltersNetworkProtocolArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkProtocolArrayInput` via:
 //
-//          InsightFiltersNetworkProtocolArray{ InsightFiltersNetworkProtocolArgs{...} }
+//	InsightFiltersNetworkProtocolArray{ InsightFiltersNetworkProtocolArgs{...} }
 type InsightFiltersNetworkProtocolArrayInput interface {
 	pulumi.Input
 
@@ -5449,7 +5449,7 @@ type InsightFiltersNetworkSourceDomain struct {
 // InsightFiltersNetworkSourceDomainInput is an input type that accepts InsightFiltersNetworkSourceDomainArgs and InsightFiltersNetworkSourceDomainOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkSourceDomainInput` via:
 //
-//          InsightFiltersNetworkSourceDomainArgs{...}
+//	InsightFiltersNetworkSourceDomainArgs{...}
 type InsightFiltersNetworkSourceDomainInput interface {
 	pulumi.Input
 
@@ -5479,7 +5479,7 @@ func (i InsightFiltersNetworkSourceDomainArgs) ToInsightFiltersNetworkSourceDoma
 // InsightFiltersNetworkSourceDomainArrayInput is an input type that accepts InsightFiltersNetworkSourceDomainArray and InsightFiltersNetworkSourceDomainArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkSourceDomainArrayInput` via:
 //
-//          InsightFiltersNetworkSourceDomainArray{ InsightFiltersNetworkSourceDomainArgs{...} }
+//	InsightFiltersNetworkSourceDomainArray{ InsightFiltersNetworkSourceDomainArgs{...} }
 type InsightFiltersNetworkSourceDomainArrayInput interface {
 	pulumi.Input
 
@@ -5553,7 +5553,7 @@ type InsightFiltersNetworkSourceIpv4 struct {
 // InsightFiltersNetworkSourceIpv4Input is an input type that accepts InsightFiltersNetworkSourceIpv4Args and InsightFiltersNetworkSourceIpv4Output values.
 // You can construct a concrete instance of `InsightFiltersNetworkSourceIpv4Input` via:
 //
-//          InsightFiltersNetworkSourceIpv4Args{...}
+//	InsightFiltersNetworkSourceIpv4Args{...}
 type InsightFiltersNetworkSourceIpv4Input interface {
 	pulumi.Input
 
@@ -5581,7 +5581,7 @@ func (i InsightFiltersNetworkSourceIpv4Args) ToInsightFiltersNetworkSourceIpv4Ou
 // InsightFiltersNetworkSourceIpv4ArrayInput is an input type that accepts InsightFiltersNetworkSourceIpv4Array and InsightFiltersNetworkSourceIpv4ArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkSourceIpv4ArrayInput` via:
 //
-//          InsightFiltersNetworkSourceIpv4Array{ InsightFiltersNetworkSourceIpv4Args{...} }
+//	InsightFiltersNetworkSourceIpv4Array{ InsightFiltersNetworkSourceIpv4Args{...} }
 type InsightFiltersNetworkSourceIpv4ArrayInput interface {
 	pulumi.Input
 
@@ -5650,7 +5650,7 @@ type InsightFiltersNetworkSourceIpv6 struct {
 // InsightFiltersNetworkSourceIpv6Input is an input type that accepts InsightFiltersNetworkSourceIpv6Args and InsightFiltersNetworkSourceIpv6Output values.
 // You can construct a concrete instance of `InsightFiltersNetworkSourceIpv6Input` via:
 //
-//          InsightFiltersNetworkSourceIpv6Args{...}
+//	InsightFiltersNetworkSourceIpv6Args{...}
 type InsightFiltersNetworkSourceIpv6Input interface {
 	pulumi.Input
 
@@ -5678,7 +5678,7 @@ func (i InsightFiltersNetworkSourceIpv6Args) ToInsightFiltersNetworkSourceIpv6Ou
 // InsightFiltersNetworkSourceIpv6ArrayInput is an input type that accepts InsightFiltersNetworkSourceIpv6Array and InsightFiltersNetworkSourceIpv6ArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkSourceIpv6ArrayInput` via:
 //
-//          InsightFiltersNetworkSourceIpv6Array{ InsightFiltersNetworkSourceIpv6Args{...} }
+//	InsightFiltersNetworkSourceIpv6Array{ InsightFiltersNetworkSourceIpv6Args{...} }
 type InsightFiltersNetworkSourceIpv6ArrayInput interface {
 	pulumi.Input
 
@@ -5749,7 +5749,7 @@ type InsightFiltersNetworkSourceMac struct {
 // InsightFiltersNetworkSourceMacInput is an input type that accepts InsightFiltersNetworkSourceMacArgs and InsightFiltersNetworkSourceMacOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkSourceMacInput` via:
 //
-//          InsightFiltersNetworkSourceMacArgs{...}
+//	InsightFiltersNetworkSourceMacArgs{...}
 type InsightFiltersNetworkSourceMacInput interface {
 	pulumi.Input
 
@@ -5779,7 +5779,7 @@ func (i InsightFiltersNetworkSourceMacArgs) ToInsightFiltersNetworkSourceMacOutp
 // InsightFiltersNetworkSourceMacArrayInput is an input type that accepts InsightFiltersNetworkSourceMacArray and InsightFiltersNetworkSourceMacArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkSourceMacArrayInput` via:
 //
-//          InsightFiltersNetworkSourceMacArray{ InsightFiltersNetworkSourceMacArgs{...} }
+//	InsightFiltersNetworkSourceMacArray{ InsightFiltersNetworkSourceMacArgs{...} }
 type InsightFiltersNetworkSourceMacArrayInput interface {
 	pulumi.Input
 
@@ -5857,7 +5857,7 @@ type InsightFiltersNetworkSourcePort struct {
 // InsightFiltersNetworkSourcePortInput is an input type that accepts InsightFiltersNetworkSourcePortArgs and InsightFiltersNetworkSourcePortOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkSourcePortInput` via:
 //
-//          InsightFiltersNetworkSourcePortArgs{...}
+//	InsightFiltersNetworkSourcePortArgs{...}
 type InsightFiltersNetworkSourcePortInput interface {
 	pulumi.Input
 
@@ -5889,7 +5889,7 @@ func (i InsightFiltersNetworkSourcePortArgs) ToInsightFiltersNetworkSourcePortOu
 // InsightFiltersNetworkSourcePortArrayInput is an input type that accepts InsightFiltersNetworkSourcePortArray and InsightFiltersNetworkSourcePortArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkSourcePortArrayInput` via:
 //
-//          InsightFiltersNetworkSourcePortArray{ InsightFiltersNetworkSourcePortArgs{...} }
+//	InsightFiltersNetworkSourcePortArray{ InsightFiltersNetworkSourcePortArgs{...} }
 type InsightFiltersNetworkSourcePortArrayInput interface {
 	pulumi.Input
 
@@ -5970,7 +5970,7 @@ type InsightFiltersNoteText struct {
 // InsightFiltersNoteTextInput is an input type that accepts InsightFiltersNoteTextArgs and InsightFiltersNoteTextOutput values.
 // You can construct a concrete instance of `InsightFiltersNoteTextInput` via:
 //
-//          InsightFiltersNoteTextArgs{...}
+//	InsightFiltersNoteTextArgs{...}
 type InsightFiltersNoteTextInput interface {
 	pulumi.Input
 
@@ -6000,7 +6000,7 @@ func (i InsightFiltersNoteTextArgs) ToInsightFiltersNoteTextOutputWithContext(ct
 // InsightFiltersNoteTextArrayInput is an input type that accepts InsightFiltersNoteTextArray and InsightFiltersNoteTextArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNoteTextArrayInput` via:
 //
-//          InsightFiltersNoteTextArray{ InsightFiltersNoteTextArgs{...} }
+//	InsightFiltersNoteTextArray{ InsightFiltersNoteTextArgs{...} }
 type InsightFiltersNoteTextArrayInput interface {
 	pulumi.Input
 
@@ -6078,7 +6078,7 @@ type InsightFiltersNoteUpdatedAt struct {
 // InsightFiltersNoteUpdatedAtInput is an input type that accepts InsightFiltersNoteUpdatedAtArgs and InsightFiltersNoteUpdatedAtOutput values.
 // You can construct a concrete instance of `InsightFiltersNoteUpdatedAtInput` via:
 //
-//          InsightFiltersNoteUpdatedAtArgs{...}
+//	InsightFiltersNoteUpdatedAtArgs{...}
 type InsightFiltersNoteUpdatedAtInput interface {
 	pulumi.Input
 
@@ -6110,7 +6110,7 @@ func (i InsightFiltersNoteUpdatedAtArgs) ToInsightFiltersNoteUpdatedAtOutputWith
 // InsightFiltersNoteUpdatedAtArrayInput is an input type that accepts InsightFiltersNoteUpdatedAtArray and InsightFiltersNoteUpdatedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNoteUpdatedAtArrayInput` via:
 //
-//          InsightFiltersNoteUpdatedAtArray{ InsightFiltersNoteUpdatedAtArgs{...} }
+//	InsightFiltersNoteUpdatedAtArray{ InsightFiltersNoteUpdatedAtArgs{...} }
 type InsightFiltersNoteUpdatedAtArrayInput interface {
 	pulumi.Input
 
@@ -6191,7 +6191,7 @@ type InsightFiltersNoteUpdatedAtDateRange struct {
 // InsightFiltersNoteUpdatedAtDateRangeInput is an input type that accepts InsightFiltersNoteUpdatedAtDateRangeArgs and InsightFiltersNoteUpdatedAtDateRangeOutput values.
 // You can construct a concrete instance of `InsightFiltersNoteUpdatedAtDateRangeInput` via:
 //
-//          InsightFiltersNoteUpdatedAtDateRangeArgs{...}
+//	InsightFiltersNoteUpdatedAtDateRangeArgs{...}
 type InsightFiltersNoteUpdatedAtDateRangeInput interface {
 	pulumi.Input
 
@@ -6229,11 +6229,11 @@ func (i InsightFiltersNoteUpdatedAtDateRangeArgs) ToInsightFiltersNoteUpdatedAtD
 // InsightFiltersNoteUpdatedAtDateRangePtrInput is an input type that accepts InsightFiltersNoteUpdatedAtDateRangeArgs, InsightFiltersNoteUpdatedAtDateRangePtr and InsightFiltersNoteUpdatedAtDateRangePtrOutput values.
 // You can construct a concrete instance of `InsightFiltersNoteUpdatedAtDateRangePtrInput` via:
 //
-//          InsightFiltersNoteUpdatedAtDateRangeArgs{...}
+//	        InsightFiltersNoteUpdatedAtDateRangeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InsightFiltersNoteUpdatedAtDateRangePtrInput interface {
 	pulumi.Input
 
@@ -6347,7 +6347,7 @@ type InsightFiltersNoteUpdatedBy struct {
 // InsightFiltersNoteUpdatedByInput is an input type that accepts InsightFiltersNoteUpdatedByArgs and InsightFiltersNoteUpdatedByOutput values.
 // You can construct a concrete instance of `InsightFiltersNoteUpdatedByInput` via:
 //
-//          InsightFiltersNoteUpdatedByArgs{...}
+//	InsightFiltersNoteUpdatedByArgs{...}
 type InsightFiltersNoteUpdatedByInput interface {
 	pulumi.Input
 
@@ -6377,7 +6377,7 @@ func (i InsightFiltersNoteUpdatedByArgs) ToInsightFiltersNoteUpdatedByOutputWith
 // InsightFiltersNoteUpdatedByArrayInput is an input type that accepts InsightFiltersNoteUpdatedByArray and InsightFiltersNoteUpdatedByArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNoteUpdatedByArrayInput` via:
 //
-//          InsightFiltersNoteUpdatedByArray{ InsightFiltersNoteUpdatedByArgs{...} }
+//	InsightFiltersNoteUpdatedByArray{ InsightFiltersNoteUpdatedByArgs{...} }
 type InsightFiltersNoteUpdatedByArrayInput interface {
 	pulumi.Input
 
@@ -6455,7 +6455,7 @@ type InsightFiltersProcessLaunchedAt struct {
 // InsightFiltersProcessLaunchedAtInput is an input type that accepts InsightFiltersProcessLaunchedAtArgs and InsightFiltersProcessLaunchedAtOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessLaunchedAtInput` via:
 //
-//          InsightFiltersProcessLaunchedAtArgs{...}
+//	InsightFiltersProcessLaunchedAtArgs{...}
 type InsightFiltersProcessLaunchedAtInput interface {
 	pulumi.Input
 
@@ -6487,7 +6487,7 @@ func (i InsightFiltersProcessLaunchedAtArgs) ToInsightFiltersProcessLaunchedAtOu
 // InsightFiltersProcessLaunchedAtArrayInput is an input type that accepts InsightFiltersProcessLaunchedAtArray and InsightFiltersProcessLaunchedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessLaunchedAtArrayInput` via:
 //
-//          InsightFiltersProcessLaunchedAtArray{ InsightFiltersProcessLaunchedAtArgs{...} }
+//	InsightFiltersProcessLaunchedAtArray{ InsightFiltersProcessLaunchedAtArgs{...} }
 type InsightFiltersProcessLaunchedAtArrayInput interface {
 	pulumi.Input
 
@@ -6568,7 +6568,7 @@ type InsightFiltersProcessLaunchedAtDateRange struct {
 // InsightFiltersProcessLaunchedAtDateRangeInput is an input type that accepts InsightFiltersProcessLaunchedAtDateRangeArgs and InsightFiltersProcessLaunchedAtDateRangeOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessLaunchedAtDateRangeInput` via:
 //
-//          InsightFiltersProcessLaunchedAtDateRangeArgs{...}
+//	InsightFiltersProcessLaunchedAtDateRangeArgs{...}
 type InsightFiltersProcessLaunchedAtDateRangeInput interface {
 	pulumi.Input
 
@@ -6606,11 +6606,11 @@ func (i InsightFiltersProcessLaunchedAtDateRangeArgs) ToInsightFiltersProcessLau
 // InsightFiltersProcessLaunchedAtDateRangePtrInput is an input type that accepts InsightFiltersProcessLaunchedAtDateRangeArgs, InsightFiltersProcessLaunchedAtDateRangePtr and InsightFiltersProcessLaunchedAtDateRangePtrOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessLaunchedAtDateRangePtrInput` via:
 //
-//          InsightFiltersProcessLaunchedAtDateRangeArgs{...}
+//	        InsightFiltersProcessLaunchedAtDateRangeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InsightFiltersProcessLaunchedAtDateRangePtrInput interface {
 	pulumi.Input
 
@@ -6724,7 +6724,7 @@ type InsightFiltersProcessName struct {
 // InsightFiltersProcessNameInput is an input type that accepts InsightFiltersProcessNameArgs and InsightFiltersProcessNameOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessNameInput` via:
 //
-//          InsightFiltersProcessNameArgs{...}
+//	InsightFiltersProcessNameArgs{...}
 type InsightFiltersProcessNameInput interface {
 	pulumi.Input
 
@@ -6754,7 +6754,7 @@ func (i InsightFiltersProcessNameArgs) ToInsightFiltersProcessNameOutputWithCont
 // InsightFiltersProcessNameArrayInput is an input type that accepts InsightFiltersProcessNameArray and InsightFiltersProcessNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessNameArrayInput` via:
 //
-//          InsightFiltersProcessNameArray{ InsightFiltersProcessNameArgs{...} }
+//	InsightFiltersProcessNameArray{ InsightFiltersProcessNameArgs{...} }
 type InsightFiltersProcessNameArrayInput interface {
 	pulumi.Input
 
@@ -6832,7 +6832,7 @@ type InsightFiltersProcessParentPid struct {
 // InsightFiltersProcessParentPidInput is an input type that accepts InsightFiltersProcessParentPidArgs and InsightFiltersProcessParentPidOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessParentPidInput` via:
 //
-//          InsightFiltersProcessParentPidArgs{...}
+//	InsightFiltersProcessParentPidArgs{...}
 type InsightFiltersProcessParentPidInput interface {
 	pulumi.Input
 
@@ -6864,7 +6864,7 @@ func (i InsightFiltersProcessParentPidArgs) ToInsightFiltersProcessParentPidOutp
 // InsightFiltersProcessParentPidArrayInput is an input type that accepts InsightFiltersProcessParentPidArray and InsightFiltersProcessParentPidArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessParentPidArrayInput` via:
 //
-//          InsightFiltersProcessParentPidArray{ InsightFiltersProcessParentPidArgs{...} }
+//	InsightFiltersProcessParentPidArray{ InsightFiltersProcessParentPidArgs{...} }
 type InsightFiltersProcessParentPidArrayInput interface {
 	pulumi.Input
 
@@ -6945,7 +6945,7 @@ type InsightFiltersProcessPath struct {
 // InsightFiltersProcessPathInput is an input type that accepts InsightFiltersProcessPathArgs and InsightFiltersProcessPathOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessPathInput` via:
 //
-//          InsightFiltersProcessPathArgs{...}
+//	InsightFiltersProcessPathArgs{...}
 type InsightFiltersProcessPathInput interface {
 	pulumi.Input
 
@@ -6975,7 +6975,7 @@ func (i InsightFiltersProcessPathArgs) ToInsightFiltersProcessPathOutputWithCont
 // InsightFiltersProcessPathArrayInput is an input type that accepts InsightFiltersProcessPathArray and InsightFiltersProcessPathArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessPathArrayInput` via:
 //
-//          InsightFiltersProcessPathArray{ InsightFiltersProcessPathArgs{...} }
+//	InsightFiltersProcessPathArray{ InsightFiltersProcessPathArgs{...} }
 type InsightFiltersProcessPathArrayInput interface {
 	pulumi.Input
 
@@ -7053,7 +7053,7 @@ type InsightFiltersProcessPid struct {
 // InsightFiltersProcessPidInput is an input type that accepts InsightFiltersProcessPidArgs and InsightFiltersProcessPidOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessPidInput` via:
 //
-//          InsightFiltersProcessPidArgs{...}
+//	InsightFiltersProcessPidArgs{...}
 type InsightFiltersProcessPidInput interface {
 	pulumi.Input
 
@@ -7085,7 +7085,7 @@ func (i InsightFiltersProcessPidArgs) ToInsightFiltersProcessPidOutputWithContex
 // InsightFiltersProcessPidArrayInput is an input type that accepts InsightFiltersProcessPidArray and InsightFiltersProcessPidArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessPidArrayInput` via:
 //
-//          InsightFiltersProcessPidArray{ InsightFiltersProcessPidArgs{...} }
+//	InsightFiltersProcessPidArray{ InsightFiltersProcessPidArgs{...} }
 type InsightFiltersProcessPidArrayInput interface {
 	pulumi.Input
 
@@ -7168,7 +7168,7 @@ type InsightFiltersProcessTerminatedAt struct {
 // InsightFiltersProcessTerminatedAtInput is an input type that accepts InsightFiltersProcessTerminatedAtArgs and InsightFiltersProcessTerminatedAtOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessTerminatedAtInput` via:
 //
-//          InsightFiltersProcessTerminatedAtArgs{...}
+//	InsightFiltersProcessTerminatedAtArgs{...}
 type InsightFiltersProcessTerminatedAtInput interface {
 	pulumi.Input
 
@@ -7200,7 +7200,7 @@ func (i InsightFiltersProcessTerminatedAtArgs) ToInsightFiltersProcessTerminated
 // InsightFiltersProcessTerminatedAtArrayInput is an input type that accepts InsightFiltersProcessTerminatedAtArray and InsightFiltersProcessTerminatedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessTerminatedAtArrayInput` via:
 //
-//          InsightFiltersProcessTerminatedAtArray{ InsightFiltersProcessTerminatedAtArgs{...} }
+//	InsightFiltersProcessTerminatedAtArray{ InsightFiltersProcessTerminatedAtArgs{...} }
 type InsightFiltersProcessTerminatedAtArrayInput interface {
 	pulumi.Input
 
@@ -7283,7 +7283,7 @@ type InsightFiltersProcessTerminatedAtDateRange struct {
 // InsightFiltersProcessTerminatedAtDateRangeInput is an input type that accepts InsightFiltersProcessTerminatedAtDateRangeArgs and InsightFiltersProcessTerminatedAtDateRangeOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessTerminatedAtDateRangeInput` via:
 //
-//          InsightFiltersProcessTerminatedAtDateRangeArgs{...}
+//	InsightFiltersProcessTerminatedAtDateRangeArgs{...}
 type InsightFiltersProcessTerminatedAtDateRangeInput interface {
 	pulumi.Input
 
@@ -7321,11 +7321,11 @@ func (i InsightFiltersProcessTerminatedAtDateRangeArgs) ToInsightFiltersProcessT
 // InsightFiltersProcessTerminatedAtDateRangePtrInput is an input type that accepts InsightFiltersProcessTerminatedAtDateRangeArgs, InsightFiltersProcessTerminatedAtDateRangePtr and InsightFiltersProcessTerminatedAtDateRangePtrOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessTerminatedAtDateRangePtrInput` via:
 //
-//          InsightFiltersProcessTerminatedAtDateRangeArgs{...}
+//	        InsightFiltersProcessTerminatedAtDateRangeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InsightFiltersProcessTerminatedAtDateRangePtrInput interface {
 	pulumi.Input
 
@@ -7439,7 +7439,7 @@ type InsightFiltersProductArn struct {
 // InsightFiltersProductArnInput is an input type that accepts InsightFiltersProductArnArgs and InsightFiltersProductArnOutput values.
 // You can construct a concrete instance of `InsightFiltersProductArnInput` via:
 //
-//          InsightFiltersProductArnArgs{...}
+//	InsightFiltersProductArnArgs{...}
 type InsightFiltersProductArnInput interface {
 	pulumi.Input
 
@@ -7469,7 +7469,7 @@ func (i InsightFiltersProductArnArgs) ToInsightFiltersProductArnOutputWithContex
 // InsightFiltersProductArnArrayInput is an input type that accepts InsightFiltersProductArnArray and InsightFiltersProductArnArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProductArnArrayInput` via:
 //
-//          InsightFiltersProductArnArray{ InsightFiltersProductArnArgs{...} }
+//	InsightFiltersProductArnArray{ InsightFiltersProductArnArgs{...} }
 type InsightFiltersProductArnArrayInput interface {
 	pulumi.Input
 
@@ -7547,7 +7547,7 @@ type InsightFiltersProductField struct {
 // InsightFiltersProductFieldInput is an input type that accepts InsightFiltersProductFieldArgs and InsightFiltersProductFieldOutput values.
 // You can construct a concrete instance of `InsightFiltersProductFieldInput` via:
 //
-//          InsightFiltersProductFieldArgs{...}
+//	InsightFiltersProductFieldArgs{...}
 type InsightFiltersProductFieldInput interface {
 	pulumi.Input
 
@@ -7579,7 +7579,7 @@ func (i InsightFiltersProductFieldArgs) ToInsightFiltersProductFieldOutputWithCo
 // InsightFiltersProductFieldArrayInput is an input type that accepts InsightFiltersProductFieldArray and InsightFiltersProductFieldArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProductFieldArrayInput` via:
 //
-//          InsightFiltersProductFieldArray{ InsightFiltersProductFieldArgs{...} }
+//	InsightFiltersProductFieldArray{ InsightFiltersProductFieldArgs{...} }
 type InsightFiltersProductFieldArrayInput interface {
 	pulumi.Input
 
@@ -7660,7 +7660,7 @@ type InsightFiltersProductName struct {
 // InsightFiltersProductNameInput is an input type that accepts InsightFiltersProductNameArgs and InsightFiltersProductNameOutput values.
 // You can construct a concrete instance of `InsightFiltersProductNameInput` via:
 //
-//          InsightFiltersProductNameArgs{...}
+//	InsightFiltersProductNameArgs{...}
 type InsightFiltersProductNameInput interface {
 	pulumi.Input
 
@@ -7690,7 +7690,7 @@ func (i InsightFiltersProductNameArgs) ToInsightFiltersProductNameOutputWithCont
 // InsightFiltersProductNameArrayInput is an input type that accepts InsightFiltersProductNameArray and InsightFiltersProductNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProductNameArrayInput` via:
 //
-//          InsightFiltersProductNameArray{ InsightFiltersProductNameArgs{...} }
+//	InsightFiltersProductNameArray{ InsightFiltersProductNameArgs{...} }
 type InsightFiltersProductNameArrayInput interface {
 	pulumi.Input
 
@@ -7766,7 +7766,7 @@ type InsightFiltersRecommendationText struct {
 // InsightFiltersRecommendationTextInput is an input type that accepts InsightFiltersRecommendationTextArgs and InsightFiltersRecommendationTextOutput values.
 // You can construct a concrete instance of `InsightFiltersRecommendationTextInput` via:
 //
-//          InsightFiltersRecommendationTextArgs{...}
+//	InsightFiltersRecommendationTextArgs{...}
 type InsightFiltersRecommendationTextInput interface {
 	pulumi.Input
 
@@ -7796,7 +7796,7 @@ func (i InsightFiltersRecommendationTextArgs) ToInsightFiltersRecommendationText
 // InsightFiltersRecommendationTextArrayInput is an input type that accepts InsightFiltersRecommendationTextArray and InsightFiltersRecommendationTextArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersRecommendationTextArrayInput` via:
 //
-//          InsightFiltersRecommendationTextArray{ InsightFiltersRecommendationTextArgs{...} }
+//	InsightFiltersRecommendationTextArray{ InsightFiltersRecommendationTextArgs{...} }
 type InsightFiltersRecommendationTextArrayInput interface {
 	pulumi.Input
 
@@ -7872,7 +7872,7 @@ type InsightFiltersRecordState struct {
 // InsightFiltersRecordStateInput is an input type that accepts InsightFiltersRecordStateArgs and InsightFiltersRecordStateOutput values.
 // You can construct a concrete instance of `InsightFiltersRecordStateInput` via:
 //
-//          InsightFiltersRecordStateArgs{...}
+//	InsightFiltersRecordStateArgs{...}
 type InsightFiltersRecordStateInput interface {
 	pulumi.Input
 
@@ -7902,7 +7902,7 @@ func (i InsightFiltersRecordStateArgs) ToInsightFiltersRecordStateOutputWithCont
 // InsightFiltersRecordStateArrayInput is an input type that accepts InsightFiltersRecordStateArray and InsightFiltersRecordStateArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersRecordStateArrayInput` via:
 //
-//          InsightFiltersRecordStateArray{ InsightFiltersRecordStateArgs{...} }
+//	InsightFiltersRecordStateArray{ InsightFiltersRecordStateArgs{...} }
 type InsightFiltersRecordStateArrayInput interface {
 	pulumi.Input
 
@@ -7978,7 +7978,7 @@ type InsightFiltersRelatedFindingsId struct {
 // InsightFiltersRelatedFindingsIdInput is an input type that accepts InsightFiltersRelatedFindingsIdArgs and InsightFiltersRelatedFindingsIdOutput values.
 // You can construct a concrete instance of `InsightFiltersRelatedFindingsIdInput` via:
 //
-//          InsightFiltersRelatedFindingsIdArgs{...}
+//	InsightFiltersRelatedFindingsIdArgs{...}
 type InsightFiltersRelatedFindingsIdInput interface {
 	pulumi.Input
 
@@ -8008,7 +8008,7 @@ func (i InsightFiltersRelatedFindingsIdArgs) ToInsightFiltersRelatedFindingsIdOu
 // InsightFiltersRelatedFindingsIdArrayInput is an input type that accepts InsightFiltersRelatedFindingsIdArray and InsightFiltersRelatedFindingsIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersRelatedFindingsIdArrayInput` via:
 //
-//          InsightFiltersRelatedFindingsIdArray{ InsightFiltersRelatedFindingsIdArgs{...} }
+//	InsightFiltersRelatedFindingsIdArray{ InsightFiltersRelatedFindingsIdArgs{...} }
 type InsightFiltersRelatedFindingsIdArrayInput interface {
 	pulumi.Input
 
@@ -8084,7 +8084,7 @@ type InsightFiltersRelatedFindingsProductArn struct {
 // InsightFiltersRelatedFindingsProductArnInput is an input type that accepts InsightFiltersRelatedFindingsProductArnArgs and InsightFiltersRelatedFindingsProductArnOutput values.
 // You can construct a concrete instance of `InsightFiltersRelatedFindingsProductArnInput` via:
 //
-//          InsightFiltersRelatedFindingsProductArnArgs{...}
+//	InsightFiltersRelatedFindingsProductArnArgs{...}
 type InsightFiltersRelatedFindingsProductArnInput interface {
 	pulumi.Input
 
@@ -8114,7 +8114,7 @@ func (i InsightFiltersRelatedFindingsProductArnArgs) ToInsightFiltersRelatedFind
 // InsightFiltersRelatedFindingsProductArnArrayInput is an input type that accepts InsightFiltersRelatedFindingsProductArnArray and InsightFiltersRelatedFindingsProductArnArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersRelatedFindingsProductArnArrayInput` via:
 //
-//          InsightFiltersRelatedFindingsProductArnArray{ InsightFiltersRelatedFindingsProductArnArgs{...} }
+//	InsightFiltersRelatedFindingsProductArnArray{ InsightFiltersRelatedFindingsProductArnArgs{...} }
 type InsightFiltersRelatedFindingsProductArnArrayInput interface {
 	pulumi.Input
 
@@ -8190,7 +8190,7 @@ type InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn struct {
 // InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs and InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs{...}
+//	InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs{...}
 type InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnInput interface {
 	pulumi.Input
 
@@ -8220,7 +8220,7 @@ func (i InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs) ToInsight
 // InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArray and InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArray{ InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs{...} }
+//	InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArray{ InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs{...} }
 type InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayInput interface {
 	pulumi.Input
 
@@ -8296,7 +8296,7 @@ type InsightFiltersResourceAwsEc2InstanceImageId struct {
 // InsightFiltersResourceAwsEc2InstanceImageIdInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceImageIdArgs and InsightFiltersResourceAwsEc2InstanceImageIdOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceImageIdInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceImageIdArgs{...}
+//	InsightFiltersResourceAwsEc2InstanceImageIdArgs{...}
 type InsightFiltersResourceAwsEc2InstanceImageIdInput interface {
 	pulumi.Input
 
@@ -8326,7 +8326,7 @@ func (i InsightFiltersResourceAwsEc2InstanceImageIdArgs) ToInsightFiltersResourc
 // InsightFiltersResourceAwsEc2InstanceImageIdArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceImageIdArray and InsightFiltersResourceAwsEc2InstanceImageIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceImageIdArrayInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceImageIdArray{ InsightFiltersResourceAwsEc2InstanceImageIdArgs{...} }
+//	InsightFiltersResourceAwsEc2InstanceImageIdArray{ InsightFiltersResourceAwsEc2InstanceImageIdArgs{...} }
 type InsightFiltersResourceAwsEc2InstanceImageIdArrayInput interface {
 	pulumi.Input
 
@@ -8400,7 +8400,7 @@ type InsightFiltersResourceAwsEc2InstanceIpv4Address struct {
 // InsightFiltersResourceAwsEc2InstanceIpv4AddressInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs and InsightFiltersResourceAwsEc2InstanceIpv4AddressOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceIpv4AddressInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs{...}
+//	InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs{...}
 type InsightFiltersResourceAwsEc2InstanceIpv4AddressInput interface {
 	pulumi.Input
 
@@ -8428,7 +8428,7 @@ func (i InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs) ToInsightFiltersRes
 // InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceIpv4AddressArray and InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceIpv4AddressArray{ InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs{...} }
+//	InsightFiltersResourceAwsEc2InstanceIpv4AddressArray{ InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs{...} }
 type InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayInput interface {
 	pulumi.Input
 
@@ -8497,7 +8497,7 @@ type InsightFiltersResourceAwsEc2InstanceIpv6Address struct {
 // InsightFiltersResourceAwsEc2InstanceIpv6AddressInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs and InsightFiltersResourceAwsEc2InstanceIpv6AddressOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceIpv6AddressInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs{...}
+//	InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs{...}
 type InsightFiltersResourceAwsEc2InstanceIpv6AddressInput interface {
 	pulumi.Input
 
@@ -8525,7 +8525,7 @@ func (i InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs) ToInsightFiltersRes
 // InsightFiltersResourceAwsEc2InstanceIpv6AddressArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceIpv6AddressArray and InsightFiltersResourceAwsEc2InstanceIpv6AddressArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceIpv6AddressArrayInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceIpv6AddressArray{ InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs{...} }
+//	InsightFiltersResourceAwsEc2InstanceIpv6AddressArray{ InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs{...} }
 type InsightFiltersResourceAwsEc2InstanceIpv6AddressArrayInput interface {
 	pulumi.Input
 
@@ -8596,7 +8596,7 @@ type InsightFiltersResourceAwsEc2InstanceKeyName struct {
 // InsightFiltersResourceAwsEc2InstanceKeyNameInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceKeyNameArgs and InsightFiltersResourceAwsEc2InstanceKeyNameOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceKeyNameInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceKeyNameArgs{...}
+//	InsightFiltersResourceAwsEc2InstanceKeyNameArgs{...}
 type InsightFiltersResourceAwsEc2InstanceKeyNameInput interface {
 	pulumi.Input
 
@@ -8626,7 +8626,7 @@ func (i InsightFiltersResourceAwsEc2InstanceKeyNameArgs) ToInsightFiltersResourc
 // InsightFiltersResourceAwsEc2InstanceKeyNameArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceKeyNameArray and InsightFiltersResourceAwsEc2InstanceKeyNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceKeyNameArrayInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceKeyNameArray{ InsightFiltersResourceAwsEc2InstanceKeyNameArgs{...} }
+//	InsightFiltersResourceAwsEc2InstanceKeyNameArray{ InsightFiltersResourceAwsEc2InstanceKeyNameArgs{...} }
 type InsightFiltersResourceAwsEc2InstanceKeyNameArrayInput interface {
 	pulumi.Input
 
@@ -8704,7 +8704,7 @@ type InsightFiltersResourceAwsEc2InstanceLaunchedAt struct {
 // InsightFiltersResourceAwsEc2InstanceLaunchedAtInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs and InsightFiltersResourceAwsEc2InstanceLaunchedAtOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceLaunchedAtInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs{...}
+//	InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs{...}
 type InsightFiltersResourceAwsEc2InstanceLaunchedAtInput interface {
 	pulumi.Input
 
@@ -8736,7 +8736,7 @@ func (i InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs) ToInsightFiltersReso
 // InsightFiltersResourceAwsEc2InstanceLaunchedAtArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceLaunchedAtArray and InsightFiltersResourceAwsEc2InstanceLaunchedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceLaunchedAtArrayInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceLaunchedAtArray{ InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs{...} }
+//	InsightFiltersResourceAwsEc2InstanceLaunchedAtArray{ InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs{...} }
 type InsightFiltersResourceAwsEc2InstanceLaunchedAtArrayInput interface {
 	pulumi.Input
 
@@ -8819,7 +8819,7 @@ type InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange struct {
 // InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs and InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs{...}
+//	InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs{...}
 type InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeInput interface {
 	pulumi.Input
 
@@ -8857,11 +8857,11 @@ func (i InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs) ToInsightFi
 // InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs, InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtr and InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs{...}
+//	        InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrInput interface {
 	pulumi.Input
 
@@ -8975,7 +8975,7 @@ type InsightFiltersResourceAwsEc2InstanceSubnetId struct {
 // InsightFiltersResourceAwsEc2InstanceSubnetIdInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceSubnetIdArgs and InsightFiltersResourceAwsEc2InstanceSubnetIdOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceSubnetIdInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceSubnetIdArgs{...}
+//	InsightFiltersResourceAwsEc2InstanceSubnetIdArgs{...}
 type InsightFiltersResourceAwsEc2InstanceSubnetIdInput interface {
 	pulumi.Input
 
@@ -9005,7 +9005,7 @@ func (i InsightFiltersResourceAwsEc2InstanceSubnetIdArgs) ToInsightFiltersResour
 // InsightFiltersResourceAwsEc2InstanceSubnetIdArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceSubnetIdArray and InsightFiltersResourceAwsEc2InstanceSubnetIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceSubnetIdArrayInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceSubnetIdArray{ InsightFiltersResourceAwsEc2InstanceSubnetIdArgs{...} }
+//	InsightFiltersResourceAwsEc2InstanceSubnetIdArray{ InsightFiltersResourceAwsEc2InstanceSubnetIdArgs{...} }
 type InsightFiltersResourceAwsEc2InstanceSubnetIdArrayInput interface {
 	pulumi.Input
 
@@ -9081,7 +9081,7 @@ type InsightFiltersResourceAwsEc2InstanceType struct {
 // InsightFiltersResourceAwsEc2InstanceTypeInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceTypeArgs and InsightFiltersResourceAwsEc2InstanceTypeOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceTypeInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceTypeArgs{...}
+//	InsightFiltersResourceAwsEc2InstanceTypeArgs{...}
 type InsightFiltersResourceAwsEc2InstanceTypeInput interface {
 	pulumi.Input
 
@@ -9111,7 +9111,7 @@ func (i InsightFiltersResourceAwsEc2InstanceTypeArgs) ToInsightFiltersResourceAw
 // InsightFiltersResourceAwsEc2InstanceTypeArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceTypeArray and InsightFiltersResourceAwsEc2InstanceTypeArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceTypeArrayInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceTypeArray{ InsightFiltersResourceAwsEc2InstanceTypeArgs{...} }
+//	InsightFiltersResourceAwsEc2InstanceTypeArray{ InsightFiltersResourceAwsEc2InstanceTypeArgs{...} }
 type InsightFiltersResourceAwsEc2InstanceTypeArrayInput interface {
 	pulumi.Input
 
@@ -9187,7 +9187,7 @@ type InsightFiltersResourceAwsEc2InstanceVpcId struct {
 // InsightFiltersResourceAwsEc2InstanceVpcIdInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceVpcIdArgs and InsightFiltersResourceAwsEc2InstanceVpcIdOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceVpcIdInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceVpcIdArgs{...}
+//	InsightFiltersResourceAwsEc2InstanceVpcIdArgs{...}
 type InsightFiltersResourceAwsEc2InstanceVpcIdInput interface {
 	pulumi.Input
 
@@ -9217,7 +9217,7 @@ func (i InsightFiltersResourceAwsEc2InstanceVpcIdArgs) ToInsightFiltersResourceA
 // InsightFiltersResourceAwsEc2InstanceVpcIdArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceVpcIdArray and InsightFiltersResourceAwsEc2InstanceVpcIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceVpcIdArrayInput` via:
 //
-//          InsightFiltersResourceAwsEc2InstanceVpcIdArray{ InsightFiltersResourceAwsEc2InstanceVpcIdArgs{...} }
+//	InsightFiltersResourceAwsEc2InstanceVpcIdArray{ InsightFiltersResourceAwsEc2InstanceVpcIdArgs{...} }
 type InsightFiltersResourceAwsEc2InstanceVpcIdArrayInput interface {
 	pulumi.Input
 
@@ -9295,7 +9295,7 @@ type InsightFiltersResourceAwsIamAccessKeyCreatedAt struct {
 // InsightFiltersResourceAwsIamAccessKeyCreatedAtInput is an input type that accepts InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs and InsightFiltersResourceAwsIamAccessKeyCreatedAtOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsIamAccessKeyCreatedAtInput` via:
 //
-//          InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs{...}
+//	InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs{...}
 type InsightFiltersResourceAwsIamAccessKeyCreatedAtInput interface {
 	pulumi.Input
 
@@ -9327,7 +9327,7 @@ func (i InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs) ToInsightFiltersReso
 // InsightFiltersResourceAwsIamAccessKeyCreatedAtArrayInput is an input type that accepts InsightFiltersResourceAwsIamAccessKeyCreatedAtArray and InsightFiltersResourceAwsIamAccessKeyCreatedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsIamAccessKeyCreatedAtArrayInput` via:
 //
-//          InsightFiltersResourceAwsIamAccessKeyCreatedAtArray{ InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs{...} }
+//	InsightFiltersResourceAwsIamAccessKeyCreatedAtArray{ InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs{...} }
 type InsightFiltersResourceAwsIamAccessKeyCreatedAtArrayInput interface {
 	pulumi.Input
 
@@ -9410,7 +9410,7 @@ type InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange struct {
 // InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeInput is an input type that accepts InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs and InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeInput` via:
 //
-//          InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs{...}
+//	InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs{...}
 type InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeInput interface {
 	pulumi.Input
 
@@ -9448,11 +9448,11 @@ func (i InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs) ToInsightFi
 // InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrInput is an input type that accepts InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs, InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtr and InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrInput` via:
 //
-//          InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs{...}
+//	        InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrInput interface {
 	pulumi.Input
 
@@ -9566,7 +9566,7 @@ type InsightFiltersResourceAwsIamAccessKeyStatus struct {
 // InsightFiltersResourceAwsIamAccessKeyStatusInput is an input type that accepts InsightFiltersResourceAwsIamAccessKeyStatusArgs and InsightFiltersResourceAwsIamAccessKeyStatusOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsIamAccessKeyStatusInput` via:
 //
-//          InsightFiltersResourceAwsIamAccessKeyStatusArgs{...}
+//	InsightFiltersResourceAwsIamAccessKeyStatusArgs{...}
 type InsightFiltersResourceAwsIamAccessKeyStatusInput interface {
 	pulumi.Input
 
@@ -9596,7 +9596,7 @@ func (i InsightFiltersResourceAwsIamAccessKeyStatusArgs) ToInsightFiltersResourc
 // InsightFiltersResourceAwsIamAccessKeyStatusArrayInput is an input type that accepts InsightFiltersResourceAwsIamAccessKeyStatusArray and InsightFiltersResourceAwsIamAccessKeyStatusArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsIamAccessKeyStatusArrayInput` via:
 //
-//          InsightFiltersResourceAwsIamAccessKeyStatusArray{ InsightFiltersResourceAwsIamAccessKeyStatusArgs{...} }
+//	InsightFiltersResourceAwsIamAccessKeyStatusArray{ InsightFiltersResourceAwsIamAccessKeyStatusArgs{...} }
 type InsightFiltersResourceAwsIamAccessKeyStatusArrayInput interface {
 	pulumi.Input
 
@@ -9672,7 +9672,7 @@ type InsightFiltersResourceAwsIamAccessKeyUserName struct {
 // InsightFiltersResourceAwsIamAccessKeyUserNameInput is an input type that accepts InsightFiltersResourceAwsIamAccessKeyUserNameArgs and InsightFiltersResourceAwsIamAccessKeyUserNameOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsIamAccessKeyUserNameInput` via:
 //
-//          InsightFiltersResourceAwsIamAccessKeyUserNameArgs{...}
+//	InsightFiltersResourceAwsIamAccessKeyUserNameArgs{...}
 type InsightFiltersResourceAwsIamAccessKeyUserNameInput interface {
 	pulumi.Input
 
@@ -9702,7 +9702,7 @@ func (i InsightFiltersResourceAwsIamAccessKeyUserNameArgs) ToInsightFiltersResou
 // InsightFiltersResourceAwsIamAccessKeyUserNameArrayInput is an input type that accepts InsightFiltersResourceAwsIamAccessKeyUserNameArray and InsightFiltersResourceAwsIamAccessKeyUserNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsIamAccessKeyUserNameArrayInput` via:
 //
-//          InsightFiltersResourceAwsIamAccessKeyUserNameArray{ InsightFiltersResourceAwsIamAccessKeyUserNameArgs{...} }
+//	InsightFiltersResourceAwsIamAccessKeyUserNameArray{ InsightFiltersResourceAwsIamAccessKeyUserNameArgs{...} }
 type InsightFiltersResourceAwsIamAccessKeyUserNameArrayInput interface {
 	pulumi.Input
 
@@ -9778,7 +9778,7 @@ type InsightFiltersResourceAwsS3BucketOwnerId struct {
 // InsightFiltersResourceAwsS3BucketOwnerIdInput is an input type that accepts InsightFiltersResourceAwsS3BucketOwnerIdArgs and InsightFiltersResourceAwsS3BucketOwnerIdOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsS3BucketOwnerIdInput` via:
 //
-//          InsightFiltersResourceAwsS3BucketOwnerIdArgs{...}
+//	InsightFiltersResourceAwsS3BucketOwnerIdArgs{...}
 type InsightFiltersResourceAwsS3BucketOwnerIdInput interface {
 	pulumi.Input
 
@@ -9808,7 +9808,7 @@ func (i InsightFiltersResourceAwsS3BucketOwnerIdArgs) ToInsightFiltersResourceAw
 // InsightFiltersResourceAwsS3BucketOwnerIdArrayInput is an input type that accepts InsightFiltersResourceAwsS3BucketOwnerIdArray and InsightFiltersResourceAwsS3BucketOwnerIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsS3BucketOwnerIdArrayInput` via:
 //
-//          InsightFiltersResourceAwsS3BucketOwnerIdArray{ InsightFiltersResourceAwsS3BucketOwnerIdArgs{...} }
+//	InsightFiltersResourceAwsS3BucketOwnerIdArray{ InsightFiltersResourceAwsS3BucketOwnerIdArgs{...} }
 type InsightFiltersResourceAwsS3BucketOwnerIdArrayInput interface {
 	pulumi.Input
 
@@ -9884,7 +9884,7 @@ type InsightFiltersResourceAwsS3BucketOwnerName struct {
 // InsightFiltersResourceAwsS3BucketOwnerNameInput is an input type that accepts InsightFiltersResourceAwsS3BucketOwnerNameArgs and InsightFiltersResourceAwsS3BucketOwnerNameOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsS3BucketOwnerNameInput` via:
 //
-//          InsightFiltersResourceAwsS3BucketOwnerNameArgs{...}
+//	InsightFiltersResourceAwsS3BucketOwnerNameArgs{...}
 type InsightFiltersResourceAwsS3BucketOwnerNameInput interface {
 	pulumi.Input
 
@@ -9914,7 +9914,7 @@ func (i InsightFiltersResourceAwsS3BucketOwnerNameArgs) ToInsightFiltersResource
 // InsightFiltersResourceAwsS3BucketOwnerNameArrayInput is an input type that accepts InsightFiltersResourceAwsS3BucketOwnerNameArray and InsightFiltersResourceAwsS3BucketOwnerNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsS3BucketOwnerNameArrayInput` via:
 //
-//          InsightFiltersResourceAwsS3BucketOwnerNameArray{ InsightFiltersResourceAwsS3BucketOwnerNameArgs{...} }
+//	InsightFiltersResourceAwsS3BucketOwnerNameArray{ InsightFiltersResourceAwsS3BucketOwnerNameArgs{...} }
 type InsightFiltersResourceAwsS3BucketOwnerNameArrayInput interface {
 	pulumi.Input
 
@@ -9990,7 +9990,7 @@ type InsightFiltersResourceContainerImageId struct {
 // InsightFiltersResourceContainerImageIdInput is an input type that accepts InsightFiltersResourceContainerImageIdArgs and InsightFiltersResourceContainerImageIdOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceContainerImageIdInput` via:
 //
-//          InsightFiltersResourceContainerImageIdArgs{...}
+//	InsightFiltersResourceContainerImageIdArgs{...}
 type InsightFiltersResourceContainerImageIdInput interface {
 	pulumi.Input
 
@@ -10020,7 +10020,7 @@ func (i InsightFiltersResourceContainerImageIdArgs) ToInsightFiltersResourceCont
 // InsightFiltersResourceContainerImageIdArrayInput is an input type that accepts InsightFiltersResourceContainerImageIdArray and InsightFiltersResourceContainerImageIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceContainerImageIdArrayInput` via:
 //
-//          InsightFiltersResourceContainerImageIdArray{ InsightFiltersResourceContainerImageIdArgs{...} }
+//	InsightFiltersResourceContainerImageIdArray{ InsightFiltersResourceContainerImageIdArgs{...} }
 type InsightFiltersResourceContainerImageIdArrayInput interface {
 	pulumi.Input
 
@@ -10096,7 +10096,7 @@ type InsightFiltersResourceContainerImageName struct {
 // InsightFiltersResourceContainerImageNameInput is an input type that accepts InsightFiltersResourceContainerImageNameArgs and InsightFiltersResourceContainerImageNameOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceContainerImageNameInput` via:
 //
-//          InsightFiltersResourceContainerImageNameArgs{...}
+//	InsightFiltersResourceContainerImageNameArgs{...}
 type InsightFiltersResourceContainerImageNameInput interface {
 	pulumi.Input
 
@@ -10126,7 +10126,7 @@ func (i InsightFiltersResourceContainerImageNameArgs) ToInsightFiltersResourceCo
 // InsightFiltersResourceContainerImageNameArrayInput is an input type that accepts InsightFiltersResourceContainerImageNameArray and InsightFiltersResourceContainerImageNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceContainerImageNameArrayInput` via:
 //
-//          InsightFiltersResourceContainerImageNameArray{ InsightFiltersResourceContainerImageNameArgs{...} }
+//	InsightFiltersResourceContainerImageNameArray{ InsightFiltersResourceContainerImageNameArgs{...} }
 type InsightFiltersResourceContainerImageNameArrayInput interface {
 	pulumi.Input
 
@@ -10204,7 +10204,7 @@ type InsightFiltersResourceContainerLaunchedAt struct {
 // InsightFiltersResourceContainerLaunchedAtInput is an input type that accepts InsightFiltersResourceContainerLaunchedAtArgs and InsightFiltersResourceContainerLaunchedAtOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceContainerLaunchedAtInput` via:
 //
-//          InsightFiltersResourceContainerLaunchedAtArgs{...}
+//	InsightFiltersResourceContainerLaunchedAtArgs{...}
 type InsightFiltersResourceContainerLaunchedAtInput interface {
 	pulumi.Input
 
@@ -10236,7 +10236,7 @@ func (i InsightFiltersResourceContainerLaunchedAtArgs) ToInsightFiltersResourceC
 // InsightFiltersResourceContainerLaunchedAtArrayInput is an input type that accepts InsightFiltersResourceContainerLaunchedAtArray and InsightFiltersResourceContainerLaunchedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceContainerLaunchedAtArrayInput` via:
 //
-//          InsightFiltersResourceContainerLaunchedAtArray{ InsightFiltersResourceContainerLaunchedAtArgs{...} }
+//	InsightFiltersResourceContainerLaunchedAtArray{ InsightFiltersResourceContainerLaunchedAtArgs{...} }
 type InsightFiltersResourceContainerLaunchedAtArrayInput interface {
 	pulumi.Input
 
@@ -10319,7 +10319,7 @@ type InsightFiltersResourceContainerLaunchedAtDateRange struct {
 // InsightFiltersResourceContainerLaunchedAtDateRangeInput is an input type that accepts InsightFiltersResourceContainerLaunchedAtDateRangeArgs and InsightFiltersResourceContainerLaunchedAtDateRangeOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceContainerLaunchedAtDateRangeInput` via:
 //
-//          InsightFiltersResourceContainerLaunchedAtDateRangeArgs{...}
+//	InsightFiltersResourceContainerLaunchedAtDateRangeArgs{...}
 type InsightFiltersResourceContainerLaunchedAtDateRangeInput interface {
 	pulumi.Input
 
@@ -10357,11 +10357,11 @@ func (i InsightFiltersResourceContainerLaunchedAtDateRangeArgs) ToInsightFilters
 // InsightFiltersResourceContainerLaunchedAtDateRangePtrInput is an input type that accepts InsightFiltersResourceContainerLaunchedAtDateRangeArgs, InsightFiltersResourceContainerLaunchedAtDateRangePtr and InsightFiltersResourceContainerLaunchedAtDateRangePtrOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceContainerLaunchedAtDateRangePtrInput` via:
 //
-//          InsightFiltersResourceContainerLaunchedAtDateRangeArgs{...}
+//	        InsightFiltersResourceContainerLaunchedAtDateRangeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InsightFiltersResourceContainerLaunchedAtDateRangePtrInput interface {
 	pulumi.Input
 
@@ -10475,7 +10475,7 @@ type InsightFiltersResourceContainerName struct {
 // InsightFiltersResourceContainerNameInput is an input type that accepts InsightFiltersResourceContainerNameArgs and InsightFiltersResourceContainerNameOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceContainerNameInput` via:
 //
-//          InsightFiltersResourceContainerNameArgs{...}
+//	InsightFiltersResourceContainerNameArgs{...}
 type InsightFiltersResourceContainerNameInput interface {
 	pulumi.Input
 
@@ -10505,7 +10505,7 @@ func (i InsightFiltersResourceContainerNameArgs) ToInsightFiltersResourceContain
 // InsightFiltersResourceContainerNameArrayInput is an input type that accepts InsightFiltersResourceContainerNameArray and InsightFiltersResourceContainerNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceContainerNameArrayInput` via:
 //
-//          InsightFiltersResourceContainerNameArray{ InsightFiltersResourceContainerNameArgs{...} }
+//	InsightFiltersResourceContainerNameArray{ InsightFiltersResourceContainerNameArgs{...} }
 type InsightFiltersResourceContainerNameArrayInput interface {
 	pulumi.Input
 
@@ -10583,7 +10583,7 @@ type InsightFiltersResourceDetailsOther struct {
 // InsightFiltersResourceDetailsOtherInput is an input type that accepts InsightFiltersResourceDetailsOtherArgs and InsightFiltersResourceDetailsOtherOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceDetailsOtherInput` via:
 //
-//          InsightFiltersResourceDetailsOtherArgs{...}
+//	InsightFiltersResourceDetailsOtherArgs{...}
 type InsightFiltersResourceDetailsOtherInput interface {
 	pulumi.Input
 
@@ -10615,7 +10615,7 @@ func (i InsightFiltersResourceDetailsOtherArgs) ToInsightFiltersResourceDetailsO
 // InsightFiltersResourceDetailsOtherArrayInput is an input type that accepts InsightFiltersResourceDetailsOtherArray and InsightFiltersResourceDetailsOtherArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceDetailsOtherArrayInput` via:
 //
-//          InsightFiltersResourceDetailsOtherArray{ InsightFiltersResourceDetailsOtherArgs{...} }
+//	InsightFiltersResourceDetailsOtherArray{ InsightFiltersResourceDetailsOtherArgs{...} }
 type InsightFiltersResourceDetailsOtherArrayInput interface {
 	pulumi.Input
 
@@ -10696,7 +10696,7 @@ type InsightFiltersResourceId struct {
 // InsightFiltersResourceIdInput is an input type that accepts InsightFiltersResourceIdArgs and InsightFiltersResourceIdOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceIdInput` via:
 //
-//          InsightFiltersResourceIdArgs{...}
+//	InsightFiltersResourceIdArgs{...}
 type InsightFiltersResourceIdInput interface {
 	pulumi.Input
 
@@ -10726,7 +10726,7 @@ func (i InsightFiltersResourceIdArgs) ToInsightFiltersResourceIdOutputWithContex
 // InsightFiltersResourceIdArrayInput is an input type that accepts InsightFiltersResourceIdArray and InsightFiltersResourceIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceIdArrayInput` via:
 //
-//          InsightFiltersResourceIdArray{ InsightFiltersResourceIdArgs{...} }
+//	InsightFiltersResourceIdArray{ InsightFiltersResourceIdArgs{...} }
 type InsightFiltersResourceIdArrayInput interface {
 	pulumi.Input
 
@@ -10802,7 +10802,7 @@ type InsightFiltersResourcePartition struct {
 // InsightFiltersResourcePartitionInput is an input type that accepts InsightFiltersResourcePartitionArgs and InsightFiltersResourcePartitionOutput values.
 // You can construct a concrete instance of `InsightFiltersResourcePartitionInput` via:
 //
-//          InsightFiltersResourcePartitionArgs{...}
+//	InsightFiltersResourcePartitionArgs{...}
 type InsightFiltersResourcePartitionInput interface {
 	pulumi.Input
 
@@ -10832,7 +10832,7 @@ func (i InsightFiltersResourcePartitionArgs) ToInsightFiltersResourcePartitionOu
 // InsightFiltersResourcePartitionArrayInput is an input type that accepts InsightFiltersResourcePartitionArray and InsightFiltersResourcePartitionArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourcePartitionArrayInput` via:
 //
-//          InsightFiltersResourcePartitionArray{ InsightFiltersResourcePartitionArgs{...} }
+//	InsightFiltersResourcePartitionArray{ InsightFiltersResourcePartitionArgs{...} }
 type InsightFiltersResourcePartitionArrayInput interface {
 	pulumi.Input
 
@@ -10908,7 +10908,7 @@ type InsightFiltersResourceRegion struct {
 // InsightFiltersResourceRegionInput is an input type that accepts InsightFiltersResourceRegionArgs and InsightFiltersResourceRegionOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceRegionInput` via:
 //
-//          InsightFiltersResourceRegionArgs{...}
+//	InsightFiltersResourceRegionArgs{...}
 type InsightFiltersResourceRegionInput interface {
 	pulumi.Input
 
@@ -10938,7 +10938,7 @@ func (i InsightFiltersResourceRegionArgs) ToInsightFiltersResourceRegionOutputWi
 // InsightFiltersResourceRegionArrayInput is an input type that accepts InsightFiltersResourceRegionArray and InsightFiltersResourceRegionArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceRegionArrayInput` via:
 //
-//          InsightFiltersResourceRegionArray{ InsightFiltersResourceRegionArgs{...} }
+//	InsightFiltersResourceRegionArray{ InsightFiltersResourceRegionArgs{...} }
 type InsightFiltersResourceRegionArrayInput interface {
 	pulumi.Input
 
@@ -11016,7 +11016,7 @@ type InsightFiltersResourceTag struct {
 // InsightFiltersResourceTagInput is an input type that accepts InsightFiltersResourceTagArgs and InsightFiltersResourceTagOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceTagInput` via:
 //
-//          InsightFiltersResourceTagArgs{...}
+//	InsightFiltersResourceTagArgs{...}
 type InsightFiltersResourceTagInput interface {
 	pulumi.Input
 
@@ -11048,7 +11048,7 @@ func (i InsightFiltersResourceTagArgs) ToInsightFiltersResourceTagOutputWithCont
 // InsightFiltersResourceTagArrayInput is an input type that accepts InsightFiltersResourceTagArray and InsightFiltersResourceTagArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceTagArrayInput` via:
 //
-//          InsightFiltersResourceTagArray{ InsightFiltersResourceTagArgs{...} }
+//	InsightFiltersResourceTagArray{ InsightFiltersResourceTagArgs{...} }
 type InsightFiltersResourceTagArrayInput interface {
 	pulumi.Input
 
@@ -11129,7 +11129,7 @@ type InsightFiltersResourceType struct {
 // InsightFiltersResourceTypeInput is an input type that accepts InsightFiltersResourceTypeArgs and InsightFiltersResourceTypeOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceTypeInput` via:
 //
-//          InsightFiltersResourceTypeArgs{...}
+//	InsightFiltersResourceTypeArgs{...}
 type InsightFiltersResourceTypeInput interface {
 	pulumi.Input
 
@@ -11159,7 +11159,7 @@ func (i InsightFiltersResourceTypeArgs) ToInsightFiltersResourceTypeOutputWithCo
 // InsightFiltersResourceTypeArrayInput is an input type that accepts InsightFiltersResourceTypeArray and InsightFiltersResourceTypeArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceTypeArrayInput` via:
 //
-//          InsightFiltersResourceTypeArray{ InsightFiltersResourceTypeArgs{...} }
+//	InsightFiltersResourceTypeArray{ InsightFiltersResourceTypeArgs{...} }
 type InsightFiltersResourceTypeArrayInput interface {
 	pulumi.Input
 
@@ -11235,7 +11235,7 @@ type InsightFiltersSeverityLabel struct {
 // InsightFiltersSeverityLabelInput is an input type that accepts InsightFiltersSeverityLabelArgs and InsightFiltersSeverityLabelOutput values.
 // You can construct a concrete instance of `InsightFiltersSeverityLabelInput` via:
 //
-//          InsightFiltersSeverityLabelArgs{...}
+//	InsightFiltersSeverityLabelArgs{...}
 type InsightFiltersSeverityLabelInput interface {
 	pulumi.Input
 
@@ -11265,7 +11265,7 @@ func (i InsightFiltersSeverityLabelArgs) ToInsightFiltersSeverityLabelOutputWith
 // InsightFiltersSeverityLabelArrayInput is an input type that accepts InsightFiltersSeverityLabelArray and InsightFiltersSeverityLabelArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersSeverityLabelArrayInput` via:
 //
-//          InsightFiltersSeverityLabelArray{ InsightFiltersSeverityLabelArgs{...} }
+//	InsightFiltersSeverityLabelArray{ InsightFiltersSeverityLabelArgs{...} }
 type InsightFiltersSeverityLabelArrayInput interface {
 	pulumi.Input
 
@@ -11341,7 +11341,7 @@ type InsightFiltersSourceUrl struct {
 // InsightFiltersSourceUrlInput is an input type that accepts InsightFiltersSourceUrlArgs and InsightFiltersSourceUrlOutput values.
 // You can construct a concrete instance of `InsightFiltersSourceUrlInput` via:
 //
-//          InsightFiltersSourceUrlArgs{...}
+//	InsightFiltersSourceUrlArgs{...}
 type InsightFiltersSourceUrlInput interface {
 	pulumi.Input
 
@@ -11371,7 +11371,7 @@ func (i InsightFiltersSourceUrlArgs) ToInsightFiltersSourceUrlOutputWithContext(
 // InsightFiltersSourceUrlArrayInput is an input type that accepts InsightFiltersSourceUrlArray and InsightFiltersSourceUrlArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersSourceUrlArrayInput` via:
 //
-//          InsightFiltersSourceUrlArray{ InsightFiltersSourceUrlArgs{...} }
+//	InsightFiltersSourceUrlArray{ InsightFiltersSourceUrlArgs{...} }
 type InsightFiltersSourceUrlArrayInput interface {
 	pulumi.Input
 
@@ -11447,7 +11447,7 @@ type InsightFiltersThreatIntelIndicatorCategory struct {
 // InsightFiltersThreatIntelIndicatorCategoryInput is an input type that accepts InsightFiltersThreatIntelIndicatorCategoryArgs and InsightFiltersThreatIntelIndicatorCategoryOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorCategoryInput` via:
 //
-//          InsightFiltersThreatIntelIndicatorCategoryArgs{...}
+//	InsightFiltersThreatIntelIndicatorCategoryArgs{...}
 type InsightFiltersThreatIntelIndicatorCategoryInput interface {
 	pulumi.Input
 
@@ -11477,7 +11477,7 @@ func (i InsightFiltersThreatIntelIndicatorCategoryArgs) ToInsightFiltersThreatIn
 // InsightFiltersThreatIntelIndicatorCategoryArrayInput is an input type that accepts InsightFiltersThreatIntelIndicatorCategoryArray and InsightFiltersThreatIntelIndicatorCategoryArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorCategoryArrayInput` via:
 //
-//          InsightFiltersThreatIntelIndicatorCategoryArray{ InsightFiltersThreatIntelIndicatorCategoryArgs{...} }
+//	InsightFiltersThreatIntelIndicatorCategoryArray{ InsightFiltersThreatIntelIndicatorCategoryArgs{...} }
 type InsightFiltersThreatIntelIndicatorCategoryArrayInput interface {
 	pulumi.Input
 
@@ -11555,7 +11555,7 @@ type InsightFiltersThreatIntelIndicatorLastObservedAt struct {
 // InsightFiltersThreatIntelIndicatorLastObservedAtInput is an input type that accepts InsightFiltersThreatIntelIndicatorLastObservedAtArgs and InsightFiltersThreatIntelIndicatorLastObservedAtOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorLastObservedAtInput` via:
 //
-//          InsightFiltersThreatIntelIndicatorLastObservedAtArgs{...}
+//	InsightFiltersThreatIntelIndicatorLastObservedAtArgs{...}
 type InsightFiltersThreatIntelIndicatorLastObservedAtInput interface {
 	pulumi.Input
 
@@ -11587,7 +11587,7 @@ func (i InsightFiltersThreatIntelIndicatorLastObservedAtArgs) ToInsightFiltersTh
 // InsightFiltersThreatIntelIndicatorLastObservedAtArrayInput is an input type that accepts InsightFiltersThreatIntelIndicatorLastObservedAtArray and InsightFiltersThreatIntelIndicatorLastObservedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorLastObservedAtArrayInput` via:
 //
-//          InsightFiltersThreatIntelIndicatorLastObservedAtArray{ InsightFiltersThreatIntelIndicatorLastObservedAtArgs{...} }
+//	InsightFiltersThreatIntelIndicatorLastObservedAtArray{ InsightFiltersThreatIntelIndicatorLastObservedAtArgs{...} }
 type InsightFiltersThreatIntelIndicatorLastObservedAtArrayInput interface {
 	pulumi.Input
 
@@ -11670,7 +11670,7 @@ type InsightFiltersThreatIntelIndicatorLastObservedAtDateRange struct {
 // InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeInput is an input type that accepts InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs and InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeInput` via:
 //
-//          InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs{...}
+//	InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs{...}
 type InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeInput interface {
 	pulumi.Input
 
@@ -11708,11 +11708,11 @@ func (i InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs) ToInsight
 // InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrInput is an input type that accepts InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs, InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtr and InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrInput` via:
 //
-//          InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs{...}
+//	        InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrInput interface {
 	pulumi.Input
 
@@ -11826,7 +11826,7 @@ type InsightFiltersThreatIntelIndicatorSource struct {
 // InsightFiltersThreatIntelIndicatorSourceInput is an input type that accepts InsightFiltersThreatIntelIndicatorSourceArgs and InsightFiltersThreatIntelIndicatorSourceOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorSourceInput` via:
 //
-//          InsightFiltersThreatIntelIndicatorSourceArgs{...}
+//	InsightFiltersThreatIntelIndicatorSourceArgs{...}
 type InsightFiltersThreatIntelIndicatorSourceInput interface {
 	pulumi.Input
 
@@ -11856,7 +11856,7 @@ func (i InsightFiltersThreatIntelIndicatorSourceArgs) ToInsightFiltersThreatInte
 // InsightFiltersThreatIntelIndicatorSourceArrayInput is an input type that accepts InsightFiltersThreatIntelIndicatorSourceArray and InsightFiltersThreatIntelIndicatorSourceArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorSourceArrayInput` via:
 //
-//          InsightFiltersThreatIntelIndicatorSourceArray{ InsightFiltersThreatIntelIndicatorSourceArgs{...} }
+//	InsightFiltersThreatIntelIndicatorSourceArray{ InsightFiltersThreatIntelIndicatorSourceArgs{...} }
 type InsightFiltersThreatIntelIndicatorSourceArrayInput interface {
 	pulumi.Input
 
@@ -11932,7 +11932,7 @@ type InsightFiltersThreatIntelIndicatorSourceUrl struct {
 // InsightFiltersThreatIntelIndicatorSourceUrlInput is an input type that accepts InsightFiltersThreatIntelIndicatorSourceUrlArgs and InsightFiltersThreatIntelIndicatorSourceUrlOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorSourceUrlInput` via:
 //
-//          InsightFiltersThreatIntelIndicatorSourceUrlArgs{...}
+//	InsightFiltersThreatIntelIndicatorSourceUrlArgs{...}
 type InsightFiltersThreatIntelIndicatorSourceUrlInput interface {
 	pulumi.Input
 
@@ -11962,7 +11962,7 @@ func (i InsightFiltersThreatIntelIndicatorSourceUrlArgs) ToInsightFiltersThreatI
 // InsightFiltersThreatIntelIndicatorSourceUrlArrayInput is an input type that accepts InsightFiltersThreatIntelIndicatorSourceUrlArray and InsightFiltersThreatIntelIndicatorSourceUrlArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorSourceUrlArrayInput` via:
 //
-//          InsightFiltersThreatIntelIndicatorSourceUrlArray{ InsightFiltersThreatIntelIndicatorSourceUrlArgs{...} }
+//	InsightFiltersThreatIntelIndicatorSourceUrlArray{ InsightFiltersThreatIntelIndicatorSourceUrlArgs{...} }
 type InsightFiltersThreatIntelIndicatorSourceUrlArrayInput interface {
 	pulumi.Input
 
@@ -12038,7 +12038,7 @@ type InsightFiltersThreatIntelIndicatorType struct {
 // InsightFiltersThreatIntelIndicatorTypeInput is an input type that accepts InsightFiltersThreatIntelIndicatorTypeArgs and InsightFiltersThreatIntelIndicatorTypeOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorTypeInput` via:
 //
-//          InsightFiltersThreatIntelIndicatorTypeArgs{...}
+//	InsightFiltersThreatIntelIndicatorTypeArgs{...}
 type InsightFiltersThreatIntelIndicatorTypeInput interface {
 	pulumi.Input
 
@@ -12068,7 +12068,7 @@ func (i InsightFiltersThreatIntelIndicatorTypeArgs) ToInsightFiltersThreatIntelI
 // InsightFiltersThreatIntelIndicatorTypeArrayInput is an input type that accepts InsightFiltersThreatIntelIndicatorTypeArray and InsightFiltersThreatIntelIndicatorTypeArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorTypeArrayInput` via:
 //
-//          InsightFiltersThreatIntelIndicatorTypeArray{ InsightFiltersThreatIntelIndicatorTypeArgs{...} }
+//	InsightFiltersThreatIntelIndicatorTypeArray{ InsightFiltersThreatIntelIndicatorTypeArgs{...} }
 type InsightFiltersThreatIntelIndicatorTypeArrayInput interface {
 	pulumi.Input
 
@@ -12144,7 +12144,7 @@ type InsightFiltersThreatIntelIndicatorValue struct {
 // InsightFiltersThreatIntelIndicatorValueInput is an input type that accepts InsightFiltersThreatIntelIndicatorValueArgs and InsightFiltersThreatIntelIndicatorValueOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorValueInput` via:
 //
-//          InsightFiltersThreatIntelIndicatorValueArgs{...}
+//	InsightFiltersThreatIntelIndicatorValueArgs{...}
 type InsightFiltersThreatIntelIndicatorValueInput interface {
 	pulumi.Input
 
@@ -12174,7 +12174,7 @@ func (i InsightFiltersThreatIntelIndicatorValueArgs) ToInsightFiltersThreatIntel
 // InsightFiltersThreatIntelIndicatorValueArrayInput is an input type that accepts InsightFiltersThreatIntelIndicatorValueArray and InsightFiltersThreatIntelIndicatorValueArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorValueArrayInput` via:
 //
-//          InsightFiltersThreatIntelIndicatorValueArray{ InsightFiltersThreatIntelIndicatorValueArgs{...} }
+//	InsightFiltersThreatIntelIndicatorValueArray{ InsightFiltersThreatIntelIndicatorValueArgs{...} }
 type InsightFiltersThreatIntelIndicatorValueArrayInput interface {
 	pulumi.Input
 
@@ -12250,7 +12250,7 @@ type InsightFiltersTitle struct {
 // InsightFiltersTitleInput is an input type that accepts InsightFiltersTitleArgs and InsightFiltersTitleOutput values.
 // You can construct a concrete instance of `InsightFiltersTitleInput` via:
 //
-//          InsightFiltersTitleArgs{...}
+//	InsightFiltersTitleArgs{...}
 type InsightFiltersTitleInput interface {
 	pulumi.Input
 
@@ -12280,7 +12280,7 @@ func (i InsightFiltersTitleArgs) ToInsightFiltersTitleOutputWithContext(ctx cont
 // InsightFiltersTitleArrayInput is an input type that accepts InsightFiltersTitleArray and InsightFiltersTitleArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersTitleArrayInput` via:
 //
-//          InsightFiltersTitleArray{ InsightFiltersTitleArgs{...} }
+//	InsightFiltersTitleArray{ InsightFiltersTitleArgs{...} }
 type InsightFiltersTitleArrayInput interface {
 	pulumi.Input
 
@@ -12356,7 +12356,7 @@ type InsightFiltersType struct {
 // InsightFiltersTypeInput is an input type that accepts InsightFiltersTypeArgs and InsightFiltersTypeOutput values.
 // You can construct a concrete instance of `InsightFiltersTypeInput` via:
 //
-//          InsightFiltersTypeArgs{...}
+//	InsightFiltersTypeArgs{...}
 type InsightFiltersTypeInput interface {
 	pulumi.Input
 
@@ -12386,7 +12386,7 @@ func (i InsightFiltersTypeArgs) ToInsightFiltersTypeOutputWithContext(ctx contex
 // InsightFiltersTypeArrayInput is an input type that accepts InsightFiltersTypeArray and InsightFiltersTypeArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersTypeArrayInput` via:
 //
-//          InsightFiltersTypeArray{ InsightFiltersTypeArgs{...} }
+//	InsightFiltersTypeArray{ InsightFiltersTypeArgs{...} }
 type InsightFiltersTypeArrayInput interface {
 	pulumi.Input
 
@@ -12464,7 +12464,7 @@ type InsightFiltersUpdatedAt struct {
 // InsightFiltersUpdatedAtInput is an input type that accepts InsightFiltersUpdatedAtArgs and InsightFiltersUpdatedAtOutput values.
 // You can construct a concrete instance of `InsightFiltersUpdatedAtInput` via:
 //
-//          InsightFiltersUpdatedAtArgs{...}
+//	InsightFiltersUpdatedAtArgs{...}
 type InsightFiltersUpdatedAtInput interface {
 	pulumi.Input
 
@@ -12496,7 +12496,7 @@ func (i InsightFiltersUpdatedAtArgs) ToInsightFiltersUpdatedAtOutputWithContext(
 // InsightFiltersUpdatedAtArrayInput is an input type that accepts InsightFiltersUpdatedAtArray and InsightFiltersUpdatedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersUpdatedAtArrayInput` via:
 //
-//          InsightFiltersUpdatedAtArray{ InsightFiltersUpdatedAtArgs{...} }
+//	InsightFiltersUpdatedAtArray{ InsightFiltersUpdatedAtArgs{...} }
 type InsightFiltersUpdatedAtArrayInput interface {
 	pulumi.Input
 
@@ -12577,7 +12577,7 @@ type InsightFiltersUpdatedAtDateRange struct {
 // InsightFiltersUpdatedAtDateRangeInput is an input type that accepts InsightFiltersUpdatedAtDateRangeArgs and InsightFiltersUpdatedAtDateRangeOutput values.
 // You can construct a concrete instance of `InsightFiltersUpdatedAtDateRangeInput` via:
 //
-//          InsightFiltersUpdatedAtDateRangeArgs{...}
+//	InsightFiltersUpdatedAtDateRangeArgs{...}
 type InsightFiltersUpdatedAtDateRangeInput interface {
 	pulumi.Input
 
@@ -12615,11 +12615,11 @@ func (i InsightFiltersUpdatedAtDateRangeArgs) ToInsightFiltersUpdatedAtDateRange
 // InsightFiltersUpdatedAtDateRangePtrInput is an input type that accepts InsightFiltersUpdatedAtDateRangeArgs, InsightFiltersUpdatedAtDateRangePtr and InsightFiltersUpdatedAtDateRangePtrOutput values.
 // You can construct a concrete instance of `InsightFiltersUpdatedAtDateRangePtrInput` via:
 //
-//          InsightFiltersUpdatedAtDateRangeArgs{...}
+//	        InsightFiltersUpdatedAtDateRangeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InsightFiltersUpdatedAtDateRangePtrInput interface {
 	pulumi.Input
 
@@ -12735,7 +12735,7 @@ type InsightFiltersUserDefinedValue struct {
 // InsightFiltersUserDefinedValueInput is an input type that accepts InsightFiltersUserDefinedValueArgs and InsightFiltersUserDefinedValueOutput values.
 // You can construct a concrete instance of `InsightFiltersUserDefinedValueInput` via:
 //
-//          InsightFiltersUserDefinedValueArgs{...}
+//	InsightFiltersUserDefinedValueArgs{...}
 type InsightFiltersUserDefinedValueInput interface {
 	pulumi.Input
 
@@ -12767,7 +12767,7 @@ func (i InsightFiltersUserDefinedValueArgs) ToInsightFiltersUserDefinedValueOutp
 // InsightFiltersUserDefinedValueArrayInput is an input type that accepts InsightFiltersUserDefinedValueArray and InsightFiltersUserDefinedValueArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersUserDefinedValueArrayInput` via:
 //
-//          InsightFiltersUserDefinedValueArray{ InsightFiltersUserDefinedValueArgs{...} }
+//	InsightFiltersUserDefinedValueArray{ InsightFiltersUserDefinedValueArgs{...} }
 type InsightFiltersUserDefinedValueArrayInput interface {
 	pulumi.Input
 
@@ -12848,7 +12848,7 @@ type InsightFiltersVerificationState struct {
 // InsightFiltersVerificationStateInput is an input type that accepts InsightFiltersVerificationStateArgs and InsightFiltersVerificationStateOutput values.
 // You can construct a concrete instance of `InsightFiltersVerificationStateInput` via:
 //
-//          InsightFiltersVerificationStateArgs{...}
+//	InsightFiltersVerificationStateArgs{...}
 type InsightFiltersVerificationStateInput interface {
 	pulumi.Input
 
@@ -12878,7 +12878,7 @@ func (i InsightFiltersVerificationStateArgs) ToInsightFiltersVerificationStateOu
 // InsightFiltersVerificationStateArrayInput is an input type that accepts InsightFiltersVerificationStateArray and InsightFiltersVerificationStateArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersVerificationStateArrayInput` via:
 //
-//          InsightFiltersVerificationStateArray{ InsightFiltersVerificationStateArgs{...} }
+//	InsightFiltersVerificationStateArray{ InsightFiltersVerificationStateArgs{...} }
 type InsightFiltersVerificationStateArrayInput interface {
 	pulumi.Input
 
@@ -12954,7 +12954,7 @@ type InsightFiltersWorkflowStatus struct {
 // InsightFiltersWorkflowStatusInput is an input type that accepts InsightFiltersWorkflowStatusArgs and InsightFiltersWorkflowStatusOutput values.
 // You can construct a concrete instance of `InsightFiltersWorkflowStatusInput` via:
 //
-//          InsightFiltersWorkflowStatusArgs{...}
+//	InsightFiltersWorkflowStatusArgs{...}
 type InsightFiltersWorkflowStatusInput interface {
 	pulumi.Input
 
@@ -12984,7 +12984,7 @@ func (i InsightFiltersWorkflowStatusArgs) ToInsightFiltersWorkflowStatusOutputWi
 // InsightFiltersWorkflowStatusArrayInput is an input type that accepts InsightFiltersWorkflowStatusArray and InsightFiltersWorkflowStatusArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersWorkflowStatusArrayInput` via:
 //
-//          InsightFiltersWorkflowStatusArray{ InsightFiltersWorkflowStatusArgs{...} }
+//	InsightFiltersWorkflowStatusArray{ InsightFiltersWorkflowStatusArgs{...} }
 type InsightFiltersWorkflowStatusArrayInput interface {
 	pulumi.Input
 

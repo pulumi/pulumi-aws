@@ -20,40 +20,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.NewRoutingProfile(ctx, "example", &connect.RoutingProfileArgs{
-// 			DefaultOutboundQueueId: pulumi.String("12345678-1234-1234-1234-123456789012"),
-// 			Description:            pulumi.String("example description"),
-// 			InstanceId:             pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-// 			MediaConcurrencies: connect.RoutingProfileMediaConcurrencyArray{
-// 				&connect.RoutingProfileMediaConcurrencyArgs{
-// 					Channel:     pulumi.String("VOICE"),
-// 					Concurrency: pulumi.Int(1),
-// 				},
-// 			},
-// 			QueueConfigs: connect.RoutingProfileQueueConfigArray{
-// 				&connect.RoutingProfileQueueConfigArgs{
-// 					Channel:  pulumi.String("VOICE"),
-// 					Delay:    pulumi.Int(2),
-// 					Priority: pulumi.Int(1),
-// 					QueueId:  pulumi.String("12345678-1234-1234-1234-123456789012"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Example Routing Profile"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewRoutingProfile(ctx, "example", &connect.RoutingProfileArgs{
+//				DefaultOutboundQueueId: pulumi.String("12345678-1234-1234-1234-123456789012"),
+//				Description:            pulumi.String("example description"),
+//				InstanceId:             pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				MediaConcurrencies: connect.RoutingProfileMediaConcurrencyArray{
+//					&connect.RoutingProfileMediaConcurrencyArgs{
+//						Channel:     pulumi.String("VOICE"),
+//						Concurrency: pulumi.Int(1),
+//					},
+//				},
+//				QueueConfigs: connect.RoutingProfileQueueConfigArray{
+//					&connect.RoutingProfileQueueConfigArgs{
+//						Channel:  pulumi.String("VOICE"),
+//						Delay:    pulumi.Int(2),
+//						Priority: pulumi.Int(1),
+//						QueueId:  pulumi.String("12345678-1234-1234-1234-123456789012"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example Routing Profile"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // Amazon Connect Routing Profiles can be imported using the `instance_id` and `routing_profile_id` separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
+//	$ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
 // ```
 type RoutingProfile struct {
 	pulumi.CustomResourceState
@@ -82,12 +87,9 @@ type RoutingProfile struct {
 	QueueConfigs            RoutingProfileQueueConfigArrayOutput            `pulumi:"queueConfigs"`
 	QueueConfigsAssociateds RoutingProfileQueueConfigsAssociatedArrayOutput `pulumi:"queueConfigsAssociateds"`
 	// The identifier for the Routing Profile.
-	RoutingProfileId pulumi.StringOutput `pulumi:"routingProfileId"`
-	// Tags to apply to the Routing Profile. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	RoutingProfileId pulumi.StringOutput    `pulumi:"routingProfileId"`
+	Tags             pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll          pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRoutingProfile registers a new resource with the given unique name, arguments, and options.
@@ -147,12 +149,9 @@ type routingProfileState struct {
 	QueueConfigs            []RoutingProfileQueueConfig            `pulumi:"queueConfigs"`
 	QueueConfigsAssociateds []RoutingProfileQueueConfigsAssociated `pulumi:"queueConfigsAssociateds"`
 	// The identifier for the Routing Profile.
-	RoutingProfileId *string `pulumi:"routingProfileId"`
-	// Tags to apply to the Routing Profile. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	RoutingProfileId *string           `pulumi:"routingProfileId"`
+	Tags             map[string]string `pulumi:"tags"`
+	TagsAll          map[string]string `pulumi:"tagsAll"`
 }
 
 type RoutingProfileState struct {
@@ -173,11 +172,8 @@ type RoutingProfileState struct {
 	QueueConfigsAssociateds RoutingProfileQueueConfigsAssociatedArrayInput
 	// The identifier for the Routing Profile.
 	RoutingProfileId pulumi.StringPtrInput
-	// Tags to apply to the Routing Profile. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
+	Tags             pulumi.StringMapInput
+	TagsAll          pulumi.StringMapInput
 }
 
 func (RoutingProfileState) ElementType() reflect.Type {
@@ -197,9 +193,7 @@ type routingProfileArgs struct {
 	Name *string `pulumi:"name"`
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 	QueueConfigs []RoutingProfileQueueConfig `pulumi:"queueConfigs"`
-	// Tags to apply to the Routing Profile. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags         map[string]string           `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RoutingProfile resource.
@@ -216,9 +210,7 @@ type RoutingProfileArgs struct {
 	Name pulumi.StringPtrInput
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 	QueueConfigs RoutingProfileQueueConfigArrayInput
-	// Tags to apply to the Routing Profile. If configured with a provider
-	// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags         pulumi.StringMapInput
 }
 
 func (RoutingProfileArgs) ElementType() reflect.Type {
@@ -247,7 +239,7 @@ func (i *RoutingProfile) ToRoutingProfileOutputWithContext(ctx context.Context) 
 // RoutingProfileArrayInput is an input type that accepts RoutingProfileArray and RoutingProfileArrayOutput values.
 // You can construct a concrete instance of `RoutingProfileArrayInput` via:
 //
-//          RoutingProfileArray{ RoutingProfileArgs{...} }
+//	RoutingProfileArray{ RoutingProfileArgs{...} }
 type RoutingProfileArrayInput interface {
 	pulumi.Input
 
@@ -272,7 +264,7 @@ func (i RoutingProfileArray) ToRoutingProfileArrayOutputWithContext(ctx context.
 // RoutingProfileMapInput is an input type that accepts RoutingProfileMap and RoutingProfileMapOutput values.
 // You can construct a concrete instance of `RoutingProfileMapInput` via:
 //
-//          RoutingProfileMap{ "key": RoutingProfileArgs{...} }
+//	RoutingProfileMap{ "key": RoutingProfileArgs{...} }
 type RoutingProfileMapInput interface {
 	pulumi.Input
 
@@ -354,13 +346,10 @@ func (o RoutingProfileOutput) RoutingProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.RoutingProfileId }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the Routing Profile. If configured with a provider
-// [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RoutingProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o RoutingProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

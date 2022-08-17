@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class VpcEndpointDnsOptionsArgs : Pulumi.ResourceArgs
+    public sealed class VpcEndpointDnsOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public VpcEndpointDnsOptionsArgs()
         {
         }
+        public static new VpcEndpointDnsOptionsArgs Empty => new VpcEndpointDnsOptionsArgs();
     }
 }

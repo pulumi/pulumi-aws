@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := backup.NewGlobalSettings(ctx, "test", &backup.GlobalSettingsArgs{
-// 			GlobalSettings: pulumi.StringMap{
-// 				"isCrossAccountBackupEnabled": pulumi.String("true"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.NewGlobalSettings(ctx, "test", &backup.GlobalSettingsArgs{
+//				GlobalSettings: pulumi.StringMap{
+//					"isCrossAccountBackupEnabled": pulumi.String("true"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Backup Global Settings can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
+//
+//	$ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
+//
 // ```
 type GlobalSettings struct {
 	pulumi.CustomResourceState
@@ -134,7 +139,7 @@ func (i *GlobalSettings) ToGlobalSettingsOutputWithContext(ctx context.Context) 
 // GlobalSettingsArrayInput is an input type that accepts GlobalSettingsArray and GlobalSettingsArrayOutput values.
 // You can construct a concrete instance of `GlobalSettingsArrayInput` via:
 //
-//          GlobalSettingsArray{ GlobalSettingsArgs{...} }
+//	GlobalSettingsArray{ GlobalSettingsArgs{...} }
 type GlobalSettingsArrayInput interface {
 	pulumi.Input
 
@@ -159,7 +164,7 @@ func (i GlobalSettingsArray) ToGlobalSettingsArrayOutputWithContext(ctx context.
 // GlobalSettingsMapInput is an input type that accepts GlobalSettingsMap and GlobalSettingsMapOutput values.
 // You can construct a concrete instance of `GlobalSettingsMapInput` via:
 //
-//          GlobalSettingsMap{ "key": GlobalSettingsArgs{...} }
+//	GlobalSettingsMap{ "key": GlobalSettingsArgs{...} }
 type GlobalSettingsMapInput interface {
 	pulumi.Input
 

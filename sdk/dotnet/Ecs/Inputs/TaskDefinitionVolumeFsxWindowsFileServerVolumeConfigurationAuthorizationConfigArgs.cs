@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs()
         {
         }
+        public static new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs Empty => new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs();
     }
 }

@@ -21,7 +21,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssoadmin/accountAssignment:AccountAssignment")]
-    public partial class AccountAssignment : Pulumi.CustomResource
+    public partial class AccountAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance.
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.SsoAdmin
         }
     }
 
-    public sealed class AccountAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class AccountAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance.
@@ -144,9 +144,10 @@ namespace Pulumi.Aws.SsoAdmin
         public AccountAssignmentArgs()
         {
         }
+        public static new AccountAssignmentArgs Empty => new AccountAssignmentArgs();
     }
 
-    public sealed class AccountAssignmentState : Pulumi.ResourceArgs
+    public sealed class AccountAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance.
@@ -187,5 +188,6 @@ namespace Pulumi.Aws.SsoAdmin
         public AccountAssignmentState()
         {
         }
+        public static new AccountAssignmentState Empty => new AccountAssignmentState();
     }
 }

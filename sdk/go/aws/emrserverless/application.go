@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrserverless"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrserverless"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-// 			ReleaseLabel: pulumi.String("emr-6.6.0"),
-// 			Type:         pulumi.String("hive"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
+//				ReleaseLabel: pulumi.String("emr-6.6.0"),
+//				Type:         pulumi.String("hive"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Initial Capacity Usage
 //
@@ -43,34 +46,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrserverless"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrserverless"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-// 			InitialCapacities: emrserverless.ApplicationInitialCapacityArray{
-// 				&emrserverless.ApplicationInitialCapacityArgs{
-// 					InitialCapacityConfig: &emrserverless.ApplicationInitialCapacityInitialCapacityConfigArgs{
-// 						WorkerConfiguration: &emrserverless.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs{
-// 							Cpu:    pulumi.String("2 vCPU"),
-// 							Memory: pulumi.String("10 GB"),
-// 						},
-// 						WorkerCount: pulumi.Int(1),
-// 					},
-// 					InitialCapacityType: pulumi.String("HiveDriver"),
-// 				},
-// 			},
-// 			ReleaseLabel: pulumi.String("emr-6.6.0"),
-// 			Type:         pulumi.String("hive"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
+//				InitialCapacities: emrserverless.ApplicationInitialCapacityArray{
+//					&emrserverless.ApplicationInitialCapacityArgs{
+//						InitialCapacityConfig: &emrserverless.ApplicationInitialCapacityInitialCapacityConfigArgs{
+//							WorkerConfiguration: &emrserverless.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs{
+//								Cpu:    pulumi.String("2 vCPU"),
+//								Memory: pulumi.String("10 GB"),
+//							},
+//							WorkerCount: pulumi.Int(1),
+//						},
+//						InitialCapacityType: pulumi.String("HiveDriver"),
+//					},
+//				},
+//				ReleaseLabel: pulumi.String("emr-6.6.0"),
+//				Type:         pulumi.String("hive"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Maximum Capacity Usage
 //
@@ -78,26 +84,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrserverless"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrserverless"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
-// 			MaximumCapacity: &emrserverless.ApplicationMaximumCapacityArgs{
-// 				Cpu:    pulumi.String("2 vCPU"),
-// 				Memory: pulumi.String("10 GB"),
-// 			},
-// 			ReleaseLabel: pulumi.String("emr-6.6.0"),
-// 			Type:         pulumi.String("hive"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := emrserverless.NewApplication(ctx, "example", &emrserverless.ApplicationArgs{
+//				MaximumCapacity: &emrserverless.ApplicationMaximumCapacityArgs{
+//					Cpu:    pulumi.String("2 vCPU"),
+//					Memory: pulumi.String("10 GB"),
+//				},
+//				ReleaseLabel: pulumi.String("emr-6.6.0"),
+//				Type:         pulumi.String("hive"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -105,7 +114,9 @@ import (
 // EMR Severless applications can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:emrserverless/application:Application example id
+//
+//	$ pulumi import aws:emrserverless/application:Application example id
+//
 // ```
 type Application struct {
 	pulumi.CustomResourceState
@@ -126,9 +137,8 @@ type Application struct {
 	NetworkConfiguration ApplicationNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// The EMR release version associated with the application.
 	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of application you want to start, such as `spark` or `hive`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -185,9 +195,8 @@ type applicationState struct {
 	NetworkConfiguration *ApplicationNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The EMR release version associated with the application.
 	ReleaseLabel *string `pulumi:"releaseLabel"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of application you want to start, such as `spark` or `hive`.
 	Type *string `pulumi:"type"`
@@ -210,9 +219,8 @@ type ApplicationState struct {
 	NetworkConfiguration ApplicationNetworkConfigurationPtrInput
 	// The EMR release version associated with the application.
 	ReleaseLabel pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The type of application you want to start, such as `spark` or `hive`.
 	Type pulumi.StringPtrInput
@@ -237,7 +245,7 @@ type applicationArgs struct {
 	NetworkConfiguration *ApplicationNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The EMR release version associated with the application.
 	ReleaseLabel string `pulumi:"releaseLabel"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 	// The type of application you want to start, such as `spark` or `hive`.
 	Type string `pulumi:"type"`
@@ -259,7 +267,7 @@ type ApplicationArgs struct {
 	NetworkConfiguration ApplicationNetworkConfigurationPtrInput
 	// The EMR release version associated with the application.
 	ReleaseLabel pulumi.StringInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 	// The type of application you want to start, such as `spark` or `hive`.
 	Type pulumi.StringInput
@@ -291,7 +299,7 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 // ApplicationArrayInput is an input type that accepts ApplicationArray and ApplicationArrayOutput values.
 // You can construct a concrete instance of `ApplicationArrayInput` via:
 //
-//          ApplicationArray{ ApplicationArgs{...} }
+//	ApplicationArray{ ApplicationArgs{...} }
 type ApplicationArrayInput interface {
 	pulumi.Input
 
@@ -316,7 +324,7 @@ func (i ApplicationArray) ToApplicationArrayOutputWithContext(ctx context.Contex
 // ApplicationMapInput is an input type that accepts ApplicationMap and ApplicationMapOutput values.
 // You can construct a concrete instance of `ApplicationMapInput` via:
 //
-//          ApplicationMap{ "key": ApplicationArgs{...} }
+//	ApplicationMap{ "key": ApplicationArgs{...} }
 type ApplicationMapInput interface {
 	pulumi.Input
 
@@ -392,12 +400,11 @@ func (o ApplicationOutput) ReleaseLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ReleaseLabel }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

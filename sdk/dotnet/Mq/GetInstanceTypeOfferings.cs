@@ -19,35 +19,37 @@ namespace Pulumi.Aws.Mq
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var empty = Output.Create(Aws.Mq.GetInstanceTypeOfferings.InvokeAsync());
-        ///         var engine = Output.Create(Aws.Mq.GetInstanceTypeOfferings.InvokeAsync(new Aws.Mq.GetInstanceTypeOfferingsArgs
-        ///         {
-        ///             EngineType = "ACTIVEMQ",
-        ///         }));
-        ///         var storage = Output.Create(Aws.Mq.GetInstanceTypeOfferings.InvokeAsync(new Aws.Mq.GetInstanceTypeOfferingsArgs
-        ///         {
-        ///             StorageType = "EBS",
-        ///         }));
-        ///         var instance = Output.Create(Aws.Mq.GetInstanceTypeOfferings.InvokeAsync(new Aws.Mq.GetInstanceTypeOfferingsArgs
-        ///         {
-        ///             HostInstanceType = "mq.m5.large",
-        ///         }));
-        ///         var all = Output.Create(Aws.Mq.GetInstanceTypeOfferings.InvokeAsync(new Aws.Mq.GetInstanceTypeOfferingsArgs
-        ///         {
-        ///             EngineType = "ACTIVEMQ",
-        ///             HostInstanceType = "mq.m5.large",
-        ///             StorageType = "EBS",
-        ///         }));
-        ///     }
+        ///     var empty = Aws.Mq.GetInstanceTypeOfferings.Invoke();
         /// 
-        /// }
+        ///     var engine = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         EngineType = "ACTIVEMQ",
+        ///     });
+        /// 
+        ///     var storage = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         StorageType = "EBS",
+        ///     });
+        /// 
+        ///     var instance = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         HostInstanceType = "mq.m5.large",
+        ///     });
+        /// 
+        ///     var all = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         EngineType = "ACTIVEMQ",
+        ///         HostInstanceType = "mq.m5.large",
+        ///         StorageType = "EBS",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -63,35 +65,37 @@ namespace Pulumi.Aws.Mq
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var empty = Output.Create(Aws.Mq.GetInstanceTypeOfferings.InvokeAsync());
-        ///         var engine = Output.Create(Aws.Mq.GetInstanceTypeOfferings.InvokeAsync(new Aws.Mq.GetInstanceTypeOfferingsArgs
-        ///         {
-        ///             EngineType = "ACTIVEMQ",
-        ///         }));
-        ///         var storage = Output.Create(Aws.Mq.GetInstanceTypeOfferings.InvokeAsync(new Aws.Mq.GetInstanceTypeOfferingsArgs
-        ///         {
-        ///             StorageType = "EBS",
-        ///         }));
-        ///         var instance = Output.Create(Aws.Mq.GetInstanceTypeOfferings.InvokeAsync(new Aws.Mq.GetInstanceTypeOfferingsArgs
-        ///         {
-        ///             HostInstanceType = "mq.m5.large",
-        ///         }));
-        ///         var all = Output.Create(Aws.Mq.GetInstanceTypeOfferings.InvokeAsync(new Aws.Mq.GetInstanceTypeOfferingsArgs
-        ///         {
-        ///             EngineType = "ACTIVEMQ",
-        ///             HostInstanceType = "mq.m5.large",
-        ///             StorageType = "EBS",
-        ///         }));
-        ///     }
+        ///     var empty = Aws.Mq.GetInstanceTypeOfferings.Invoke();
         /// 
-        /// }
+        ///     var engine = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         EngineType = "ACTIVEMQ",
+        ///     });
+        /// 
+        ///     var storage = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         StorageType = "EBS",
+        ///     });
+        /// 
+        ///     var instance = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         HostInstanceType = "mq.m5.large",
+        ///     });
+        /// 
+        ///     var all = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         EngineType = "ACTIVEMQ",
+        ///         HostInstanceType = "mq.m5.large",
+        ///         StorageType = "EBS",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -101,7 +105,7 @@ namespace Pulumi.Aws.Mq
     }
 
 
-    public sealed class GetInstanceTypeOfferingsArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceTypeOfferingsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Filter response by engine type.
@@ -124,9 +128,10 @@ namespace Pulumi.Aws.Mq
         public GetInstanceTypeOfferingsArgs()
         {
         }
+        public static new GetInstanceTypeOfferingsArgs Empty => new GetInstanceTypeOfferingsArgs();
     }
 
-    public sealed class GetInstanceTypeOfferingsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceTypeOfferingsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Filter response by engine type.
@@ -149,6 +154,7 @@ namespace Pulumi.Aws.Mq
         public GetInstanceTypeOfferingsInvokeArgs()
         {
         }
+        public static new GetInstanceTypeOfferingsInvokeArgs Empty => new GetInstanceTypeOfferingsInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class ProvisioningTemplatePreProvisioningHookArgs : Pulumi.ResourceArgs
+    public sealed class ProvisioningTemplatePreProvisioningHookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
@@ -24,5 +24,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public ProvisioningTemplatePreProvisioningHookArgs()
         {
         }
+        public static new ProvisioningTemplatePreProvisioningHookArgs Empty => new ProvisioningTemplatePreProvisioningHookArgs();
     }
 }

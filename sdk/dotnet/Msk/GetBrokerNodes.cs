@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Msk
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Msk.GetBrokerNodes.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Msk.GetBrokerNodes.InvokeAsync(new Aws.Msk.GetBrokerNodesArgs
-        ///         {
-        ///             ClusterArn = aws_msk_cluster.Example.Arn,
-        ///         }));
-        ///     }
+        ///         ClusterArn = aws_msk_cluster.Example.Arn,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Msk
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Msk.GetBrokerNodes.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Msk.GetBrokerNodes.InvokeAsync(new Aws.Msk.GetBrokerNodesArgs
-        ///         {
-        ///             ClusterArn = aws_msk_cluster.Example.Arn,
-        ///         }));
-        ///     }
+        ///         ClusterArn = aws_msk_cluster.Example.Arn,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Msk
     }
 
 
-    public sealed class GetBrokerNodesArgs : Pulumi.InvokeArgs
+    public sealed class GetBrokerNodesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the cluster the nodes belong to.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Msk
         public GetBrokerNodesArgs()
         {
         }
+        public static new GetBrokerNodesArgs Empty => new GetBrokerNodesArgs();
     }
 
-    public sealed class GetBrokerNodesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBrokerNodesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the cluster the nodes belong to.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Msk
         public GetBrokerNodesInvokeArgs()
         {
         }
+        public static new GetBrokerNodesInvokeArgs Empty => new GetBrokerNodesInvokeArgs();
     }
 
 

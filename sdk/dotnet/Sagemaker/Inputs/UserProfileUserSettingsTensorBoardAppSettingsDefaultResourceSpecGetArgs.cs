@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecGetArgs : Pulumi.ResourceArgs
+    public sealed class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The instance type.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecGetArgs()
         {
         }
+        public static new UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecGetArgs Empty => new UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecGetArgs();
     }
 }

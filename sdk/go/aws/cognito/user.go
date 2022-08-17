@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
-// 			UserPoolId: exampleUserPool.ID(),
-// 			Username:   pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
+//				UserPoolId: exampleUserPool.ID(),
+//				Username:   pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Setting user attributes
 //
@@ -47,50 +50,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", &cognito.UserPoolArgs{
-// 			Schemas: cognito.UserPoolSchemaArray{
-// 				&cognito.UserPoolSchemaArgs{
-// 					Name:                   pulumi.String("terraform"),
-// 					AttributeDataType:      pulumi.String("Boolean"),
-// 					Mutable:                pulumi.Bool(false),
-// 					Required:               pulumi.Bool(false),
-// 					DeveloperOnlyAttribute: pulumi.Bool(false),
-// 				},
-// 				&cognito.UserPoolSchemaArgs{
-// 					Name:                       pulumi.String("foo"),
-// 					AttributeDataType:          pulumi.String("String"),
-// 					Mutable:                    pulumi.Bool(false),
-// 					Required:                   pulumi.Bool(false),
-// 					DeveloperOnlyAttribute:     pulumi.Bool(false),
-// 					StringAttributeConstraints: nil,
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
-// 			UserPoolId: exampleUserPool.ID(),
-// 			Username:   pulumi.String("example"),
-// 			Attributes: pulumi.StringMap{
-// 				"terraform":      pulumi.String("true"),
-// 				"foo":            pulumi.String("bar"),
-// 				"email":          pulumi.String("no-reply@hashicorp.com"),
-// 				"email_verified": pulumi.String("true"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", &cognito.UserPoolArgs{
+//				Schemas: cognito.UserPoolSchemaArray{
+//					&cognito.UserPoolSchemaArgs{
+//						Name:                   pulumi.String("terraform"),
+//						AttributeDataType:      pulumi.String("Boolean"),
+//						Mutable:                pulumi.Bool(false),
+//						Required:               pulumi.Bool(false),
+//						DeveloperOnlyAttribute: pulumi.Bool(false),
+//					},
+//					&cognito.UserPoolSchemaArgs{
+//						Name:                       pulumi.String("foo"),
+//						AttributeDataType:          pulumi.String("String"),
+//						Mutable:                    pulumi.Bool(false),
+//						Required:                   pulumi.Bool(false),
+//						DeveloperOnlyAttribute:     pulumi.Bool(false),
+//						StringAttributeConstraints: nil,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
+//				UserPoolId: exampleUserPool.ID(),
+//				Username:   pulumi.String("example"),
+//				Attributes: pulumi.StringMap{
+//					"terraform":      pulumi.String("true"),
+//					"foo":            pulumi.String("bar"),
+//					"email":          pulumi.String("no-reply@hashicorp.com"),
+//					"email_verified": pulumi.String("true"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -98,7 +104,9 @@ import (
 // Cognito User can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
+//
+//	$ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
+//
 // ```
 type User struct {
 	pulumi.CustomResourceState
@@ -311,7 +319,7 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 // UserArrayInput is an input type that accepts UserArray and UserArrayOutput values.
 // You can construct a concrete instance of `UserArrayInput` via:
 //
-//          UserArray{ UserArgs{...} }
+//	UserArray{ UserArgs{...} }
 type UserArrayInput interface {
 	pulumi.Input
 
@@ -336,7 +344,7 @@ func (i UserArray) ToUserArrayOutputWithContext(ctx context.Context) UserArrayOu
 // UserMapInput is an input type that accepts UserMap and UserMapOutput values.
 // You can construct a concrete instance of `UserMapInput` via:
 //
-//          UserMap{ "key": UserArgs{...} }
+//	UserMap{ "key": UserArgs{...} }
 type UserMapInput interface {
 	pulumi.Input
 

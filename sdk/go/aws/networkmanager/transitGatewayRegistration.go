@@ -21,33 +21,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", &networkmanager.GlobalNetworkArgs{
-// 			Description: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = networkmanager.NewTransitGatewayRegistration(ctx, "exampleTransitGatewayRegistration", &networkmanager.TransitGatewayRegistrationArgs{
-// 			GlobalNetworkId:   exampleGlobalNetwork.ID(),
-// 			TransitGatewayArn: exampleTransitGateway.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", &networkmanager.GlobalNetworkArgs{
+//				Description: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = networkmanager.NewTransitGatewayRegistration(ctx, "exampleTransitGatewayRegistration", &networkmanager.TransitGatewayRegistrationArgs{
+//				GlobalNetworkId:   exampleGlobalNetwork.ID(),
+//				TransitGatewayArn: exampleTransitGateway.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,7 +58,9 @@ import (
 // `aws_networkmanager_transit_gateway_registration` can be imported using the global network ID and transit gateway ARN, e.g.
 //
 // ```sh
-//  $ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
+//
+//	$ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
+//
 // ```
 type TransitGatewayRegistration struct {
 	pulumi.CustomResourceState
@@ -159,7 +164,7 @@ func (i *TransitGatewayRegistration) ToTransitGatewayRegistrationOutputWithConte
 // TransitGatewayRegistrationArrayInput is an input type that accepts TransitGatewayRegistrationArray and TransitGatewayRegistrationArrayOutput values.
 // You can construct a concrete instance of `TransitGatewayRegistrationArrayInput` via:
 //
-//          TransitGatewayRegistrationArray{ TransitGatewayRegistrationArgs{...} }
+//	TransitGatewayRegistrationArray{ TransitGatewayRegistrationArgs{...} }
 type TransitGatewayRegistrationArrayInput interface {
 	pulumi.Input
 
@@ -184,7 +189,7 @@ func (i TransitGatewayRegistrationArray) ToTransitGatewayRegistrationArrayOutput
 // TransitGatewayRegistrationMapInput is an input type that accepts TransitGatewayRegistrationMap and TransitGatewayRegistrationMapOutput values.
 // You can construct a concrete instance of `TransitGatewayRegistrationMapInput` via:
 //
-//          TransitGatewayRegistrationMap{ "key": TransitGatewayRegistrationArgs{...} }
+//	TransitGatewayRegistrationMap{ "key": TransitGatewayRegistrationArgs{...} }
 type TransitGatewayRegistrationMapInput interface {
 	pulumi.Input
 

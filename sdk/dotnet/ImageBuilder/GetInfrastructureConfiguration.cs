@@ -19,20 +19,18 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetInfrastructureConfiguration.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetInfrastructureConfiguration.InvokeAsync(new Aws.ImageBuilder.GetInfrastructureConfigurationArgs
-        ///         {
-        ///             Arn = "arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetInfrastructureConfiguration.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetInfrastructureConfiguration.InvokeAsync(new Aws.ImageBuilder.GetInfrastructureConfigurationArgs
-        ///         {
-        ///             Arn = "arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.ImageBuilder
     }
 
 
-    public sealed class GetInfrastructureConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetInfrastructureConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the infrastructure configuration.
@@ -106,9 +102,10 @@ namespace Pulumi.Aws.ImageBuilder
         public GetInfrastructureConfigurationArgs()
         {
         }
+        public static new GetInfrastructureConfigurationArgs Empty => new GetInfrastructureConfigurationArgs();
     }
 
-    public sealed class GetInfrastructureConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInfrastructureConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the infrastructure configuration.
@@ -143,6 +140,7 @@ namespace Pulumi.Aws.ImageBuilder
         public GetInfrastructureConfigurationInvokeArgs()
         {
         }
+        public static new GetInfrastructureConfigurationInvokeArgs Empty => new GetInfrastructureConfigurationInvokeArgs();
     }
 
 

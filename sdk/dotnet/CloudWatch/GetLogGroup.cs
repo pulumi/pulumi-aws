@@ -19,20 +19,18 @@ namespace Pulumi.Aws.CloudWatch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudWatch.GetLogGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudWatch.GetLogGroup.InvokeAsync(new Aws.CloudWatch.GetLogGroupArgs
-        ///         {
-        ///             Name = "MyImportantLogs",
-        ///         }));
-        ///     }
+        ///         Name = "MyImportantLogs",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.CloudWatch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudWatch.GetLogGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudWatch.GetLogGroup.InvokeAsync(new Aws.CloudWatch.GetLogGroupArgs
-        ///         {
-        ///             Name = "MyImportantLogs",
-        ///         }));
-        ///     }
+        ///         Name = "MyImportantLogs",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.CloudWatch
     }
 
 
-    public sealed class GetLogGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetLogGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Cloudwatch log group
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.CloudWatch
         public GetLogGroupArgs()
         {
         }
+        public static new GetLogGroupArgs Empty => new GetLogGroupArgs();
     }
 
-    public sealed class GetLogGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLogGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Cloudwatch log group
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.CloudWatch
         public GetLogGroupInvokeArgs()
         {
         }
+        public static new GetLogGroupInvokeArgs Empty => new GetLogGroupInvokeArgs();
     }
 
 

@@ -15,29 +15,27 @@ namespace Pulumi.Aws.AppConfig
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppConfig.EventIntegration("example", new()
     ///     {
-    ///         var example = new Aws.AppConfig.EventIntegration("example", new Aws.AppConfig.EventIntegrationArgs
+    ///         Description = "Example Description",
+    ///         EventFilter = new Aws.AppConfig.Inputs.EventIntegrationEventFilterArgs
     ///         {
-    ///             Description = "Example Description",
-    ///             EventFilter = new Aws.AppConfig.Inputs.EventIntegrationEventFilterArgs
-    ///             {
-    ///                 Source = "aws.partner/examplepartner.com",
-    ///             },
-    ///             EventbridgeBus = "default",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example Event Integration" },
-    ///             },
-    ///         });
-    ///     }
+    ///             Source = "aws.partner/examplepartner.com",
+    ///         },
+    ///         EventbridgeBus = "default",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Event Integration" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.AppConfig
     /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/eventIntegration:EventIntegration")]
-    public partial class EventIntegration : Pulumi.CustomResource
+    public partial class EventIntegration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Event Integration.
@@ -87,9 +85,6 @@ namespace Pulumi.Aws.AppConfig
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -137,7 +132,7 @@ namespace Pulumi.Aws.AppConfig
         }
     }
 
-    public sealed class EventIntegrationArgs : Pulumi.ResourceArgs
+    public sealed class EventIntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the description of the Event Integration.
@@ -178,9 +173,10 @@ namespace Pulumi.Aws.AppConfig
         public EventIntegrationArgs()
         {
         }
+        public static new EventIntegrationArgs Empty => new EventIntegrationArgs();
     }
 
-    public sealed class EventIntegrationState : Pulumi.ResourceArgs
+    public sealed class EventIntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Event Integration.
@@ -226,10 +222,6 @@ namespace Pulumi.Aws.AppConfig
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -239,5 +231,6 @@ namespace Pulumi.Aws.AppConfig
         public EventIntegrationState()
         {
         }
+        public static new EventIntegrationState Empty => new EventIntegrationState();
     }
 }

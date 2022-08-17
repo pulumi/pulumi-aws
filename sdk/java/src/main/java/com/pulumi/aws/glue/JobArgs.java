@@ -83,6 +83,21 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+     * 
+     */
+    @Import(name="executionClass")
+    private @Nullable Output<String> executionClass;
+
+    /**
+     * @return Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+     * 
+     */
+    public Optional<Output<String>> executionClass() {
+        return Optional.ofNullable(this.executionClass);
+    }
+
+    /**
      * Execution property of the job. Defined below.
      * 
      */
@@ -284,6 +299,7 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         this.connections = $.connections;
         this.defaultArguments = $.defaultArguments;
         this.description = $.description;
+        this.executionClass = $.executionClass;
         this.executionProperty = $.executionProperty;
         this.glueVersion = $.glueVersion;
         this.maxCapacity = $.maxCapacity;
@@ -409,6 +425,27 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param executionClass Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder executionClass(@Nullable Output<String> executionClass) {
+            $.executionClass = executionClass;
+            return this;
+        }
+
+        /**
+         * @param executionClass Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder executionClass(String executionClass) {
+            return executionClass(Output.of(executionClass));
         }
 
         /**

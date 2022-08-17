@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		groups, err := autoscaling.GetAmiIds(ctx, &autoscaling.GetAmiIdsArgs{
-// 			Filters: []autoscaling.GetAmiIdsFilter{
-// 				autoscaling.GetAmiIdsFilter{
-// 					Name: "tag:Team",
-// 					Values: []string{
-// 						"Pets",
-// 					},
-// 				},
-// 				autoscaling.GetAmiIdsFilter{
-// 					Name: "tag-key",
-// 					Values: []string{
-// 						"Environment",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = autoscaling.NewNotification(ctx, "slackNotifications", &autoscaling.NotificationArgs{
-// 			GroupNames: interface{}(groups.Names),
-// 			Notifications: pulumi.StringArray{
-// 				pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH"),
-// 				pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE"),
-// 				pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH_ERROR"),
-// 				pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE_ERROR"),
-// 			},
-// 			TopicArn: pulumi.String("TOPIC ARN"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			groups, err := autoscaling.GetAmiIds(ctx, &autoscaling.GetAmiIdsArgs{
+//				Filters: []autoscaling.GetAmiIdsFilter{
+//					autoscaling.GetAmiIdsFilter{
+//						Name: "tag:Team",
+//						Values: []string{
+//							"Pets",
+//						},
+//					},
+//					autoscaling.GetAmiIdsFilter{
+//						Name: "tag-key",
+//						Values: []string{
+//							"Environment",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = autoscaling.NewNotification(ctx, "slackNotifications", &autoscaling.NotificationArgs{
+//				GroupNames: interface{}(groups.Names),
+//				Notifications: pulumi.StringArray{
+//					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH"),
+//					pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE"),
+//					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH_ERROR"),
+//					pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE_ERROR"),
+//				},
+//				TopicArn: pulumi.String("TOPIC ARN"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Deprecated: aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds

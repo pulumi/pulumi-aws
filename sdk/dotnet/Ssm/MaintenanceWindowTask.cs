@@ -16,160 +16,154 @@ namespace Pulumi.Aws.Ssm
     /// ### Automation Tasks
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ssm.MaintenanceWindowTask("example", new()
     ///     {
-    ///         var example = new Aws.Ssm.MaintenanceWindowTask("example", new Aws.Ssm.MaintenanceWindowTaskArgs
+    ///         MaxConcurrency = "2",
+    ///         MaxErrors = "1",
+    ///         Priority = 1,
+    ///         TaskArn = "AWS-RestartEC2Instance",
+    ///         TaskType = "AUTOMATION",
+    ///         WindowId = aws_ssm_maintenance_window.Example.Id,
+    ///         Targets = new[]
     ///         {
-    ///             MaxConcurrency = "2",
-    ///             MaxErrors = "1",
-    ///             Priority = 1,
-    ///             TaskArn = "AWS-RestartEC2Instance",
-    ///             TaskType = "AUTOMATION",
-    ///             WindowId = aws_ssm_maintenance_window.Example.Id,
-    ///             Targets = 
+    ///             new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
     ///             {
-    ///                 new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
+    ///                 Key = "InstanceIds",
+    ///                 Values = new[]
     ///                 {
-    ///                     Key = "InstanceIds",
-    ///                     Values = 
-    ///                     {
-    ///                         aws_instance.Example.Id,
-    ///                     },
+    ///                     aws_instance.Example.Id,
     ///                 },
     ///             },
-    ///             TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
+    ///         },
+    ///         TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
+    ///         {
+    ///             AutomationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs
     ///             {
-    ///                 AutomationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs
+    ///                 DocumentVersion = "$LATEST",
+    ///                 Parameters = new[]
     ///                 {
-    ///                     DocumentVersion = "$LATEST",
-    ///                     Parameters = 
+    ///                     new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs
     ///                     {
-    ///                         new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs
+    ///                         Name = "InstanceId",
+    ///                         Values = new[]
     ///                         {
-    ///                             Name = "InstanceId",
-    ///                             Values = 
-    ///                             {
-    ///                                 aws_instance.Example.Id,
-    ///                             },
+    ///                             aws_instance.Example.Id,
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Run Command Tasks
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ssm.MaintenanceWindowTask("example", new()
     ///     {
-    ///         var example = new Aws.Ssm.MaintenanceWindowTask("example", new Aws.Ssm.MaintenanceWindowTaskArgs
+    ///         MaxConcurrency = "2",
+    ///         MaxErrors = "1",
+    ///         Priority = 1,
+    ///         TaskArn = "AWS-RunShellScript",
+    ///         TaskType = "RUN_COMMAND",
+    ///         WindowId = aws_ssm_maintenance_window.Example.Id,
+    ///         Targets = new[]
     ///         {
-    ///             MaxConcurrency = "2",
-    ///             MaxErrors = "1",
-    ///             Priority = 1,
-    ///             TaskArn = "AWS-RunShellScript",
-    ///             TaskType = "RUN_COMMAND",
-    ///             WindowId = aws_ssm_maintenance_window.Example.Id,
-    ///             Targets = 
+    ///             new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
     ///             {
-    ///                 new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
+    ///                 Key = "InstanceIds",
+    ///                 Values = new[]
     ///                 {
-    ///                     Key = "InstanceIds",
-    ///                     Values = 
-    ///                     {
-    ///                         aws_instance.Example.Id,
-    ///                     },
+    ///                     aws_instance.Example.Id,
     ///                 },
     ///             },
-    ///             TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
+    ///         },
+    ///         TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
+    ///         {
+    ///             RunCommandParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs
     ///             {
-    ///                 RunCommandParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs
+    ///                 OutputS3Bucket = aws_s3_bucket.Example.Bucket,
+    ///                 OutputS3KeyPrefix = "output",
+    ///                 ServiceRoleArn = aws_iam_role.Example.Arn,
+    ///                 TimeoutSeconds = 600,
+    ///                 NotificationConfig = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs
     ///                 {
-    ///                     OutputS3Bucket = aws_s3_bucket.Example.Bucket,
-    ///                     OutputS3KeyPrefix = "output",
-    ///                     ServiceRoleArn = aws_iam_role.Example.Arn,
-    ///                     TimeoutSeconds = 600,
-    ///                     NotificationConfig = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs
+    ///                     NotificationArn = aws_sns_topic.Example.Arn,
+    ///                     NotificationEvents = new[]
     ///                     {
-    ///                         NotificationArn = aws_sns_topic.Example.Arn,
-    ///                         NotificationEvents = 
-    ///                         {
-    ///                             "All",
-    ///                         },
-    ///                         NotificationType = "Command",
+    ///                         "All",
     ///                     },
-    ///                     Parameters = 
+    ///                     NotificationType = "Command",
+    ///                 },
+    ///                 Parameters = new[]
+    ///                 {
+    ///                     new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs
     ///                     {
-    ///                         new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs
+    ///                         Name = "commands",
+    ///                         Values = new[]
     ///                         {
-    ///                             Name = "commands",
-    ///                             Values = 
-    ///                             {
-    ///                                 "date",
-    ///                             },
+    ///                             "date",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Step Function Tasks
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ssm.MaintenanceWindowTask("example", new()
     ///     {
-    ///         var example = new Aws.Ssm.MaintenanceWindowTask("example", new Aws.Ssm.MaintenanceWindowTaskArgs
+    ///         MaxConcurrency = "2",
+    ///         MaxErrors = "1",
+    ///         Priority = 1,
+    ///         TaskArn = aws_sfn_activity.Example.Id,
+    ///         TaskType = "STEP_FUNCTIONS",
+    ///         WindowId = aws_ssm_maintenance_window.Example.Id,
+    ///         Targets = new[]
     ///         {
-    ///             MaxConcurrency = "2",
-    ///             MaxErrors = "1",
-    ///             Priority = 1,
-    ///             TaskArn = aws_sfn_activity.Example.Id,
-    ///             TaskType = "STEP_FUNCTIONS",
-    ///             WindowId = aws_ssm_maintenance_window.Example.Id,
-    ///             Targets = 
+    ///             new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
     ///             {
-    ///                 new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
+    ///                 Key = "InstanceIds",
+    ///                 Values = new[]
     ///                 {
-    ///                     Key = "InstanceIds",
-    ///                     Values = 
-    ///                     {
-    ///                         aws_instance.Example.Id,
-    ///                     },
+    ///                     aws_instance.Example.Id,
     ///                 },
     ///             },
-    ///             TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
+    ///         },
+    ///         TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
+    ///         {
+    ///             StepFunctionsParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs
     ///             {
-    ///                 StepFunctionsParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs
-    ///                 {
-    ///                     Input = "{\"key1\":\"value1\"}",
-    ///                     Name = "example",
-    ///                 },
+    ///                 Input = "{\"key1\":\"value1\"}",
+    ///                 Name = "example",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -181,7 +175,7 @@ namespace Pulumi.Aws.Ssm
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask")]
-    public partial class MaintenanceWindowTask : Pulumi.CustomResource
+    public partial class MaintenanceWindowTask : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the maintenance window task.
@@ -311,7 +305,7 @@ namespace Pulumi.Aws.Ssm
         }
     }
 
-    public sealed class MaintenanceWindowTaskArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
@@ -394,9 +388,10 @@ namespace Pulumi.Aws.Ssm
         public MaintenanceWindowTaskArgs()
         {
         }
+        public static new MaintenanceWindowTaskArgs Empty => new MaintenanceWindowTaskArgs();
     }
 
-    public sealed class MaintenanceWindowTaskState : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTaskState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the maintenance window task.
@@ -491,5 +486,6 @@ namespace Pulumi.Aws.Ssm
         public MaintenanceWindowTaskState()
         {
         }
+        public static new MaintenanceWindowTaskState Empty => new MaintenanceWindowTaskState();
     }
 }

@@ -15,21 +15,19 @@ namespace Pulumi.Aws.Macie2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Macie2.Account("test", new()
     ///     {
-    ///         var test = new Aws.Macie2.Account("test", new Aws.Macie2.AccountArgs
-    ///         {
-    ///             FindingPublishingFrequency = "FIFTEEN_MINUTES",
-    ///             Status = "ENABLED",
-    ///         });
-    ///     }
+    ///         FindingPublishingFrequency = "FIFTEEN_MINUTES",
+    ///         Status = "ENABLED",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Macie2
     /// ```
     /// </summary>
     [AwsResourceType("aws:macie2/account:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
@@ -117,7 +115,7 @@ namespace Pulumi.Aws.Macie2
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
@@ -134,9 +132,10 @@ namespace Pulumi.Aws.Macie2
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 
-    public sealed class AccountState : Pulumi.ResourceArgs
+    public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
@@ -171,5 +170,6 @@ namespace Pulumi.Aws.Macie2
         public AccountState()
         {
         }
+        public static new AccountState Empty => new AccountState();
     }
 }

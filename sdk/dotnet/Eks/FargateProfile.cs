@@ -15,30 +15,28 @@ namespace Pulumi.Aws.Eks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Eks.FargateProfile("example", new()
     ///     {
-    ///         var example = new Aws.Eks.FargateProfile("example", new Aws.Eks.FargateProfileArgs
+    ///         ClusterName = aws_eks_cluster.Example.Name,
+    ///         PodExecutionRoleArn = aws_iam_role.Example.Arn,
+    ///         SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
+    ///         Selectors = new[]
     ///         {
-    ///             ClusterName = aws_eks_cluster.Example.Name,
-    ///             PodExecutionRoleArn = aws_iam_role.Example.Arn,
-    ///             SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
-    ///             Selectors = 
+    ///             new Aws.Eks.Inputs.FargateProfileSelectorArgs
     ///             {
-    ///                 new Aws.Eks.Inputs.FargateProfileSelectorArgs
-    ///                 {
-    ///                     Namespace = "example",
-    ///                 },
+    ///                 Namespace = "example",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example IAM Role for EKS Fargate Profile
     /// 
@@ -48,38 +46,35 @@ namespace Pulumi.Aws.Eks
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         var example = new Aws.Iam.Role("example", new Aws.Iam.RoleArgs
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 { "Statement", new[]
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", "sts:AssumeRole" },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "Service", "eks-fargate-pods.amazonaws.com" },
-    ///                             } },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///                 { "Version", "2012-10-17" },
-    ///             }),
-    ///         });
-    ///         var example_AmazonEKSFargatePodExecutionRolePolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
-    ///             Role = example.Name,
-    ///         });
-    ///     }
+    ///                         ["Service"] = "eks-fargate-pods.amazonaws.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ["Version"] = "2012-10-17",
+    ///         }),
+    ///     });
     /// 
-    /// }
+    ///     var example_AmazonEKSFargatePodExecutionRolePolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
+    ///         Role = example.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -91,7 +86,7 @@ namespace Pulumi.Aws.Eks
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/fargateProfile:FargateProfile")]
-    public partial class FargateProfile : Pulumi.CustomResource
+    public partial class FargateProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the EKS Fargate Profile.
@@ -191,7 +186,7 @@ namespace Pulumi.Aws.Eks
         }
     }
 
-    public sealed class FargateProfileArgs : Pulumi.ResourceArgs
+    public sealed class FargateProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
@@ -250,9 +245,10 @@ namespace Pulumi.Aws.Eks
         public FargateProfileArgs()
         {
         }
+        public static new FargateProfileArgs Empty => new FargateProfileArgs();
     }
 
-    public sealed class FargateProfileState : Pulumi.ResourceArgs
+    public sealed class FargateProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the EKS Fargate Profile.
@@ -335,5 +331,6 @@ namespace Pulumi.Aws.Eks
         public FargateProfileState()
         {
         }
+        public static new FargateProfileState Empty => new FargateProfileState();
     }
 }

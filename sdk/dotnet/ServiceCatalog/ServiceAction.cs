@@ -16,24 +16,22 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ServiceCatalog.ServiceAction("example", new()
     ///     {
-    ///         var example = new Aws.ServiceCatalog.ServiceAction("example", new Aws.ServiceCatalog.ServiceActionArgs
+    ///         Definition = new Aws.ServiceCatalog.Inputs.ServiceActionDefinitionArgs
     ///         {
-    ///             Definition = new Aws.ServiceCatalog.Inputs.ServiceActionDefinitionArgs
-    ///             {
-    ///                 Name = "AWS-RestartEC2Instance",
-    ///             },
-    ///             Description = "Motor generator unit",
-    ///         });
-    ///     }
+    ///             Name = "AWS-RestartEC2Instance",
+    ///         },
+    ///         Description = "Motor generator unit",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/serviceAction:ServiceAction")]
-    public partial class ServiceAction : Pulumi.CustomResource
+    public partial class ServiceAction : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
@@ -115,7 +113,7 @@ namespace Pulumi.Aws.ServiceCatalog
         }
     }
 
-    public sealed class ServiceActionArgs : Pulumi.ResourceArgs
+    public sealed class ServiceActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
@@ -144,9 +142,10 @@ namespace Pulumi.Aws.ServiceCatalog
         public ServiceActionArgs()
         {
         }
+        public static new ServiceActionArgs Empty => new ServiceActionArgs();
     }
 
-    public sealed class ServiceActionState : Pulumi.ResourceArgs
+    public sealed class ServiceActionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
@@ -175,5 +174,6 @@ namespace Pulumi.Aws.ServiceCatalog
         public ServiceActionState()
         {
         }
+        public static new ServiceActionState Empty => new ServiceActionState();
     }
 }

@@ -21,58 +21,54 @@ namespace Pulumi.Aws.LightSail
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myContainerService = new Aws.LightSail.ContainerService("myContainerService", new()
     ///     {
-    ///         var myContainerService = new Aws.LightSail.ContainerService("myContainerService", new Aws.LightSail.ContainerServiceArgs
+    ///         IsDisabled = false,
+    ///         Power = "nano",
+    ///         Scale = 1,
+    ///         Tags = 
     ///         {
-    ///             IsDisabled = false,
-    ///             Power = "nano",
-    ///             Scale = 1,
-    ///             Tags = 
-    ///             {
-    ///                 { "foo1", "bar1" },
-    ///                 { "foo2", "" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "foo1", "bar1" },
+    ///             { "foo2", "" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Public Domain Names
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myContainerService = new Aws.LightSail.ContainerService("myContainerService", new()
     ///     {
-    ///         var myContainerService = new Aws.LightSail.ContainerService("myContainerService", new Aws.LightSail.ContainerServiceArgs
+    ///         PublicDomainNames = new Aws.LightSail.Inputs.ContainerServicePublicDomainNamesArgs
     ///         {
-    ///             PublicDomainNames = new Aws.LightSail.Inputs.ContainerServicePublicDomainNamesArgs
+    ///             Certificates = new[]
     ///             {
-    ///                 Certificates = 
+    ///                 new Aws.LightSail.Inputs.ContainerServicePublicDomainNamesCertificateArgs
     ///                 {
-    ///                     new Aws.LightSail.Inputs.ContainerServicePublicDomainNamesCertificateArgs
+    ///                     CertificateName = "example-certificate",
+    ///                     DomainNames = new[]
     ///                     {
-    ///                         CertificateName = "example-certificate",
-    ///                         DomainNames = 
-    ///                         {
-    ///                             "www.example.com",
-    ///                         },
+    ///                         "www.example.com",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -84,7 +80,7 @@ namespace Pulumi.Aws.LightSail
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/containerService:ContainerService")]
-    public partial class ContainerService : Pulumi.CustomResource
+    public partial class ContainerService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the container service.
@@ -227,7 +223,7 @@ namespace Pulumi.Aws.LightSail
         }
     }
 
-    public sealed class ContainerServiceArgs : Pulumi.ResourceArgs
+    public sealed class ContainerServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A Boolean value indicating whether the container service is disabled. Defaults to `false`.
@@ -278,9 +274,10 @@ namespace Pulumi.Aws.LightSail
         public ContainerServiceArgs()
         {
         }
+        public static new ContainerServiceArgs Empty => new ContainerServiceArgs();
     }
 
-    public sealed class ContainerServiceState : Pulumi.ResourceArgs
+    public sealed class ContainerServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the container service.
@@ -392,5 +389,6 @@ namespace Pulumi.Aws.LightSail
         public ContainerServiceState()
         {
         }
+        public static new ContainerServiceState Empty => new ContainerServiceState();
     }
 }

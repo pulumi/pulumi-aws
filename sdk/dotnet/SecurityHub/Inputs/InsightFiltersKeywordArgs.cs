@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SecurityHub.Inputs
 {
 
-    public sealed class InsightFiltersKeywordArgs : Pulumi.ResourceArgs
+    public sealed class InsightFiltersKeywordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A value for the keyword.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         public InsightFiltersKeywordArgs()
         {
         }
+        public static new InsightFiltersKeywordArgs Empty => new InsightFiltersKeywordArgs();
     }
 }

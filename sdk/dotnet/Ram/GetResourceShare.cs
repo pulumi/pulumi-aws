@@ -19,53 +19,49 @@ namespace Pulumi.Aws.Ram
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ram.GetResourceShare.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ram.GetResourceShare.InvokeAsync(new Aws.Ram.GetResourceShareArgs
-        ///         {
-        ///             Name = "example",
-        ///             ResourceOwner = "SELF",
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///         ResourceOwner = "SELF",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// ## Search by filters
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var tagFilter = Aws.Ram.GetResourceShare.Invoke(new()
         ///     {
-        ///         var tagFilter = Output.Create(Aws.Ram.GetResourceShare.InvokeAsync(new Aws.Ram.GetResourceShareArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ram.Inputs.GetResourceShareFilterInputArgs
         ///             {
-        ///                 new Aws.Ram.Inputs.GetResourceShareFilterArgs
+        ///                 Name = "NameOfTag",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "NameOfTag",
-        ///                     Values = 
-        ///                     {
-        ///                         "exampleNameTagValue",
-        ///                     },
+        ///                     "exampleNameTagValue",
         ///                 },
         ///             },
-        ///             Name = "MyResourceName",
-        ///             ResourceOwner = "SELF",
-        ///         }));
-        ///     }
+        ///         },
+        ///         Name = "MyResourceName",
+        ///         ResourceOwner = "SELF",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// </summary>
         public static Task<GetResourceShareResult> InvokeAsync(GetResourceShareArgs args, InvokeOptions? options = null)
@@ -79,53 +75,49 @@ namespace Pulumi.Aws.Ram
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ram.GetResourceShare.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ram.GetResourceShare.InvokeAsync(new Aws.Ram.GetResourceShareArgs
-        ///         {
-        ///             Name = "example",
-        ///             ResourceOwner = "SELF",
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///         ResourceOwner = "SELF",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// ## Search by filters
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var tagFilter = Aws.Ram.GetResourceShare.Invoke(new()
         ///     {
-        ///         var tagFilter = Output.Create(Aws.Ram.GetResourceShare.InvokeAsync(new Aws.Ram.GetResourceShareArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ram.Inputs.GetResourceShareFilterInputArgs
         ///             {
-        ///                 new Aws.Ram.Inputs.GetResourceShareFilterArgs
+        ///                 Name = "NameOfTag",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "NameOfTag",
-        ///                     Values = 
-        ///                     {
-        ///                         "exampleNameTagValue",
-        ///                     },
+        ///                     "exampleNameTagValue",
         ///                 },
         ///             },
-        ///             Name = "MyResourceName",
-        ///             ResourceOwner = "SELF",
-        ///         }));
-        ///     }
+        ///         },
+        ///         Name = "MyResourceName",
+        ///         ResourceOwner = "SELF",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// </summary>
         public static Output<GetResourceShareResult> Invoke(GetResourceShareInvokeArgs args, InvokeOptions? options = null)
@@ -133,7 +125,7 @@ namespace Pulumi.Aws.Ram
     }
 
 
-    public sealed class GetResourceShareArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceShareArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetResourceShareFilterArgs>? _filters;
@@ -180,9 +172,10 @@ namespace Pulumi.Aws.Ram
         public GetResourceShareArgs()
         {
         }
+        public static new GetResourceShareArgs Empty => new GetResourceShareArgs();
     }
 
-    public sealed class GetResourceShareInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceShareInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetResourceShareFilterInputArgs>? _filters;
@@ -229,6 +222,7 @@ namespace Pulumi.Aws.Ram
         public GetResourceShareInvokeArgs()
         {
         }
+        public static new GetResourceShareInvokeArgs Empty => new GetResourceShareInvokeArgs();
     }
 
 

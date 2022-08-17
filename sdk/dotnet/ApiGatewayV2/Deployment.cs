@@ -19,21 +19,19 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ApiGatewayV2.Deployment("example", new()
     ///     {
-    ///         var example = new Aws.ApiGatewayV2.Deployment("example", new Aws.ApiGatewayV2.DeploymentArgs
-    ///         {
-    ///             ApiId = aws_apigatewayv2_route.Example.Api_id,
-    ///             Description = "Example deployment",
-    ///         });
-    ///     }
+    ///         ApiId = aws_apigatewayv2_route.Example.Api_id,
+    ///         Description = "Example deployment",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///  The `triggers` argument cannot be imported.
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/deployment:Deployment")]
-    public partial class Deployment : Pulumi.CustomResource
+    public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The API identifier.
@@ -117,7 +115,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
     }
 
-    public sealed class DeploymentArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API identifier.
@@ -146,9 +144,10 @@ namespace Pulumi.Aws.ApiGatewayV2
         public DeploymentArgs()
         {
         }
+        public static new DeploymentArgs Empty => new DeploymentArgs();
     }
 
-    public sealed class DeploymentState : Pulumi.ResourceArgs
+    public sealed class DeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API identifier.
@@ -183,5 +182,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         public DeploymentState()
         {
         }
+        public static new DeploymentState Empty => new DeploymentState();
     }
 }

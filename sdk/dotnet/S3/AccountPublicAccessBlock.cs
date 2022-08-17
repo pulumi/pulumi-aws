@@ -19,21 +19,19 @@ namespace Pulumi.Aws.S3
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.S3.AccountPublicAccessBlock("example", new()
     ///     {
-    ///         var example = new Aws.S3.AccountPublicAccessBlock("example", new Aws.S3.AccountPublicAccessBlockArgs
-    ///         {
-    ///             BlockPublicAcls = true,
-    ///             BlockPublicPolicy = true,
-    ///         });
-    ///     }
+    ///         BlockPublicAcls = true,
+    ///         BlockPublicPolicy = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock")]
-    public partial class AccountPublicAccessBlock : Pulumi.CustomResource
+    public partial class AccountPublicAccessBlock : global::Pulumi.CustomResource
     {
         /// <summary>
         /// AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
@@ -126,7 +124,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class AccountPublicAccessBlockArgs : Pulumi.ResourceArgs
+    public sealed class AccountPublicAccessBlockArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
@@ -166,9 +164,10 @@ namespace Pulumi.Aws.S3
         public AccountPublicAccessBlockArgs()
         {
         }
+        public static new AccountPublicAccessBlockArgs Empty => new AccountPublicAccessBlockArgs();
     }
 
-    public sealed class AccountPublicAccessBlockState : Pulumi.ResourceArgs
+    public sealed class AccountPublicAccessBlockState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
@@ -208,5 +207,6 @@ namespace Pulumi.Aws.S3
         public AccountPublicAccessBlockState()
         {
         }
+        public static new AccountPublicAccessBlockState Empty => new AccountPublicAccessBlockState();
     }
 }

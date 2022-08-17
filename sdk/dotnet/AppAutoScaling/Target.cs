@@ -18,112 +18,102 @@ namespace Pulumi.Aws.AppAutoScaling
     /// ### DynamoDB Table Autoscaling
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var dynamodbTableReadTarget = new Aws.AppAutoScaling.Target("dynamodbTableReadTarget", new()
     ///     {
-    ///         var dynamodbTableReadTarget = new Aws.AppAutoScaling.Target("dynamodbTableReadTarget", new Aws.AppAutoScaling.TargetArgs
-    ///         {
-    ///             MaxCapacity = 100,
-    ///             MinCapacity = 5,
-    ///             ResourceId = $"table/{aws_dynamodb_table.Example.Name}",
-    ///             ScalableDimension = "dynamodb:table:ReadCapacityUnits",
-    ///             ServiceNamespace = "dynamodb",
-    ///         });
-    ///     }
+    ///         MaxCapacity = 100,
+    ///         MinCapacity = 5,
+    ///         ResourceId = $"table/{aws_dynamodb_table.Example.Name}",
+    ///         ScalableDimension = "dynamodb:table:ReadCapacityUnits",
+    ///         ServiceNamespace = "dynamodb",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### DynamoDB Index Autoscaling
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var dynamodbIndexReadTarget = new Aws.AppAutoScaling.Target("dynamodbIndexReadTarget", new()
     ///     {
-    ///         var dynamodbIndexReadTarget = new Aws.AppAutoScaling.Target("dynamodbIndexReadTarget", new Aws.AppAutoScaling.TargetArgs
-    ///         {
-    ///             MaxCapacity = 100,
-    ///             MinCapacity = 5,
-    ///             ResourceId = $"table/{aws_dynamodb_table.Example.Name}/index/{@var.Index_name}",
-    ///             ScalableDimension = "dynamodb:index:ReadCapacityUnits",
-    ///             ServiceNamespace = "dynamodb",
-    ///         });
-    ///     }
+    ///         MaxCapacity = 100,
+    ///         MinCapacity = 5,
+    ///         ResourceId = $"table/{aws_dynamodb_table.Example.Name}/index/{@var.Index_name}",
+    ///         ScalableDimension = "dynamodb:index:ReadCapacityUnits",
+    ///         ServiceNamespace = "dynamodb",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### ECS Service Autoscaling
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new()
     ///     {
-    ///         var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new Aws.AppAutoScaling.TargetArgs
-    ///         {
-    ///             MaxCapacity = 4,
-    ///             MinCapacity = 1,
-    ///             ResourceId = $"service/{aws_ecs_cluster.Example.Name}/{aws_ecs_service.Example.Name}",
-    ///             ScalableDimension = "ecs:service:DesiredCount",
-    ///             ServiceNamespace = "ecs",
-    ///         });
-    ///     }
+    ///         MaxCapacity = 4,
+    ///         MinCapacity = 1,
+    ///         ResourceId = $"service/{aws_ecs_cluster.Example.Name}/{aws_ecs_service.Example.Name}",
+    ///         ScalableDimension = "ecs:service:DesiredCount",
+    ///         ServiceNamespace = "ecs",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Aurora Read Replica Autoscaling
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var replicas = new Aws.AppAutoScaling.Target("replicas", new()
     ///     {
-    ///         var replicas = new Aws.AppAutoScaling.Target("replicas", new Aws.AppAutoScaling.TargetArgs
-    ///         {
-    ///             MaxCapacity = 15,
-    ///             MinCapacity = 1,
-    ///             ResourceId = $"cluster:{aws_rds_cluster.Example.Id}",
-    ///             ScalableDimension = "rds:cluster:ReadReplicaCount",
-    ///             ServiceNamespace = "rds",
-    ///         });
-    ///     }
+    ///         MaxCapacity = 15,
+    ///         MinCapacity = 1,
+    ///         ResourceId = $"cluster:{aws_rds_cluster.Example.Id}",
+    ///         ScalableDimension = "rds:cluster:ReadReplicaCount",
+    ///         ServiceNamespace = "rds",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### MSK / Kafka Autoscaling
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var mskTarget = new Aws.AppAutoScaling.Target("mskTarget", new()
     ///     {
-    ///         var mskTarget = new Aws.AppAutoScaling.Target("mskTarget", new Aws.AppAutoScaling.TargetArgs
-    ///         {
-    ///             MaxCapacity = 8,
-    ///             MinCapacity = 1,
-    ///             ResourceId = aws_msk_cluster.Example.Arn,
-    ///             ScalableDimension = "kafka:broker-storage:VolumeSize",
-    ///             ServiceNamespace = "kafka",
-    ///         });
-    ///     }
+    ///         MaxCapacity = 8,
+    ///         MinCapacity = 1,
+    ///         ResourceId = aws_msk_cluster.Example.Arn,
+    ///         ScalableDimension = "kafka:broker-storage:VolumeSize",
+    ///         ServiceNamespace = "kafka",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -135,7 +125,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// ```
     /// </summary>
     [AwsResourceType("aws:appautoscaling/target:Target")]
-    public partial class Target : Pulumi.CustomResource
+    public partial class Target : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The max capacity of the scalable target.
@@ -217,7 +207,7 @@ namespace Pulumi.Aws.AppAutoScaling
         }
     }
 
-    public sealed class TargetArgs : Pulumi.ResourceArgs
+    public sealed class TargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The max capacity of the scalable target.
@@ -258,9 +248,10 @@ namespace Pulumi.Aws.AppAutoScaling
         public TargetArgs()
         {
         }
+        public static new TargetArgs Empty => new TargetArgs();
     }
 
-    public sealed class TargetState : Pulumi.ResourceArgs
+    public sealed class TargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The max capacity of the scalable target.
@@ -301,5 +292,6 @@ namespace Pulumi.Aws.AppAutoScaling
         public TargetState()
         {
         }
+        public static new TargetState Empty => new TargetState();
     }
 }

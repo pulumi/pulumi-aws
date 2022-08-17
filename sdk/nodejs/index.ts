@@ -75,6 +75,7 @@ import * as codepipeline from "./codepipeline";
 import * as codestarconnections from "./codestarconnections";
 import * as codestarnotifications from "./codestarnotifications";
 import * as cognito from "./cognito";
+import * as comprehend from "./comprehend";
 import * as config from "./config";
 import * as connect from "./connect";
 import * as costexplorer from "./costexplorer";
@@ -248,6 +249,7 @@ export {
     codestarconnections,
     codestarnotifications,
     cognito,
+    comprehend,
     config,
     connect,
     costexplorer,

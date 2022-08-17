@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Ses
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ses.EmailIdentity("example", new()
     ///     {
-    ///         var example = new Aws.Ses.EmailIdentity("example", new Aws.Ses.EmailIdentityArgs
-    ///         {
-    ///             Email = "email@example.com",
-    ///         });
-    ///     }
+    ///         Email = "email@example.com",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.Ses
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/emailIdentity:EmailIdentity")]
-    public partial class EmailIdentity : Pulumi.CustomResource
+    public partial class EmailIdentity : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the email identity.
@@ -98,7 +96,7 @@ namespace Pulumi.Aws.Ses
         }
     }
 
-    public sealed class EmailIdentityArgs : Pulumi.ResourceArgs
+    public sealed class EmailIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The email address to assign to SES
@@ -109,9 +107,10 @@ namespace Pulumi.Aws.Ses
         public EmailIdentityArgs()
         {
         }
+        public static new EmailIdentityArgs Empty => new EmailIdentityArgs();
     }
 
-    public sealed class EmailIdentityState : Pulumi.ResourceArgs
+    public sealed class EmailIdentityState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the email identity.
@@ -128,5 +127,6 @@ namespace Pulumi.Aws.Ses
         public EmailIdentityState()
         {
         }
+        public static new EmailIdentityState Empty => new EmailIdentityState();
     }
 }

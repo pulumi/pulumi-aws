@@ -15,7 +15,9 @@ import (
 // WorkLink can be imported using the ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
+//
+//	$ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
+//
 // ```
 type Fleet struct {
 	pulumi.CustomResourceState
@@ -187,7 +189,7 @@ func (i *Fleet) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 // FleetArrayInput is an input type that accepts FleetArray and FleetArrayOutput values.
 // You can construct a concrete instance of `FleetArrayInput` via:
 //
-//          FleetArray{ FleetArgs{...} }
+//	FleetArray{ FleetArgs{...} }
 type FleetArrayInput interface {
 	pulumi.Input
 
@@ -212,7 +214,7 @@ func (i FleetArray) ToFleetArrayOutputWithContext(ctx context.Context) FleetArra
 // FleetMapInput is an input type that accepts FleetMap and FleetMapOutput values.
 // You can construct a concrete instance of `FleetMapInput` via:
 //
-//          FleetMap{ "key": FleetArgs{...} }
+//	FleetMap{ "key": FleetArgs{...} }
 type FleetMapInput interface {
 	pulumi.Input
 

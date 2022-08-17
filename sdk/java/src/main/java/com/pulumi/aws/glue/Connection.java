@@ -150,14 +150,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.connectionProperties);
     }
     /**
-     * The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
+     * The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
      * 
      */
     @Export(name="connectionType", type=String.class, parameters={})
     private Output</* @Nullable */ String> connectionType;
 
     /**
-     * @return The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
+     * @return The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
      * 
      */
     public Output<Optional<String>> connectionType() {

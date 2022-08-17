@@ -22,6 +22,7 @@ export * from "./multicastDomainAssociation";
 export * from "./multicastGroupMember";
 export * from "./multicastGroupSource";
 export * from "./peeringAttachment";
+export * from "./peeringAttachmentAccepter";
 export * from "./prefixListReference";
 export * from "./route";
 export * from "./routeTable";
@@ -39,6 +40,7 @@ import { MulticastDomainAssociation } from "./multicastDomainAssociation";
 import { MulticastGroupMember } from "./multicastGroupMember";
 import { MulticastGroupSource } from "./multicastGroupSource";
 import { PeeringAttachment } from "./peeringAttachment";
+import { PeeringAttachmentAccepter } from "./peeringAttachmentAccepter";
 import { PrefixListReference } from "./prefixListReference";
 import { Route } from "./route";
 import { RouteTable } from "./routeTable";
@@ -66,6 +68,8 @@ const _module = {
                 return new MulticastGroupSource(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/peeringAttachment:PeeringAttachment":
                 return new PeeringAttachment(name, <any>undefined, { urn })
+            case "aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter":
+                return new PeeringAttachmentAccepter(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/prefixListReference:PrefixListReference":
                 return new PrefixListReference(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/route:Route":
@@ -94,6 +98,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/multicastDomainA
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/multicastGroupMember", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/multicastGroupSource", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/peeringAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/peeringAttachmentAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/prefixListReference", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/route", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/routeTable", _module)

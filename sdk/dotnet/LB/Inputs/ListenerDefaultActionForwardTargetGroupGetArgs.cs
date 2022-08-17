@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LB.Inputs
 {
 
-    public sealed class ListenerDefaultActionForwardTargetGroupGetArgs : Pulumi.ResourceArgs
+    public sealed class ListenerDefaultActionForwardTargetGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the target group.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.LB.Inputs
         public ListenerDefaultActionForwardTargetGroupGetArgs()
         {
         }
+        public static new ListenerDefaultActionForwardTargetGroupGetArgs Empty => new ListenerDefaultActionForwardTargetGroupGetArgs();
     }
 }

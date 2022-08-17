@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RedShift.Inputs
 {
 
-    public sealed class SecurityGroupIngressArgs : Pulumi.ResourceArgs
+    public sealed class SecurityGroupIngressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CIDR block to accept
@@ -34,5 +34,6 @@ namespace Pulumi.Aws.RedShift.Inputs
         public SecurityGroupIngressArgs()
         {
         }
+        public static new SecurityGroupIngressArgs Empty => new SecurityGroupIngressArgs();
     }
 }

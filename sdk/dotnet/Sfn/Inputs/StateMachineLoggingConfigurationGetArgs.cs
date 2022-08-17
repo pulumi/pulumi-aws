@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sfn.Inputs
 {
 
-    public sealed class StateMachineLoggingConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class StateMachineLoggingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether execution data is included in your log. When set to `false`, data is excluded.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Sfn.Inputs
         public StateMachineLoggingConfigurationGetArgs()
         {
         }
+        public static new StateMachineLoggingConfigurationGetArgs Empty => new StateMachineLoggingConfigurationGetArgs();
     }
 }

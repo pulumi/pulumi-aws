@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountGetArgs : Pulumi.ResourceArgs
+    public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountGetArgs()
         {
         }
+        public static new FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountGetArgs Empty => new FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountGetArgs();
     }
 }

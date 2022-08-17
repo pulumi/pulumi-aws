@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Emr.Inputs
 {
 
-    public sealed class ClusterMasterInstanceGroupEbsConfigArgs : Pulumi.ResourceArgs
+    public sealed class ClusterMasterInstanceGroupEbsConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of I/O operations per second (IOPS) that the volume supports.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Emr.Inputs
         public ClusterMasterInstanceGroupEbsConfigArgs()
         {
         }
+        public static new ClusterMasterInstanceGroupEbsConfigArgs Empty => new ClusterMasterInstanceGroupEbsConfigArgs();
     }
 }

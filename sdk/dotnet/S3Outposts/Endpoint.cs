@@ -15,22 +15,20 @@ namespace Pulumi.Aws.S3Outposts
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.S3Outposts.Endpoint("example", new()
     ///     {
-    ///         var example = new Aws.S3Outposts.Endpoint("example", new Aws.S3Outposts.EndpointArgs
-    ///         {
-    ///             OutpostId = data.Aws_outposts_outpost.Example.Id,
-    ///             SecurityGroupId = aws_security_group.Example.Id,
-    ///             SubnetId = aws_subnet.Example.Id,
-    ///         });
-    ///     }
+    ///         OutpostId = data.Aws_outposts_outpost.Example.Id,
+    ///         SecurityGroupId = aws_security_group.Example.Id,
+    ///         SubnetId = aws_subnet.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.S3Outposts
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3outposts/endpoint:Endpoint")]
-    public partial class Endpoint : Pulumi.CustomResource
+    public partial class Endpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the endpoint.
@@ -130,7 +128,7 @@ namespace Pulumi.Aws.S3Outposts
         }
     }
 
-    public sealed class EndpointArgs : Pulumi.ResourceArgs
+    public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of the Outpost to contain this endpoint.
@@ -153,9 +151,10 @@ namespace Pulumi.Aws.S3Outposts
         public EndpointArgs()
         {
         }
+        public static new EndpointArgs Empty => new EndpointArgs();
     }
 
-    public sealed class EndpointState : Pulumi.ResourceArgs
+    public sealed class EndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the endpoint.
@@ -208,5 +207,6 @@ namespace Pulumi.Aws.S3Outposts
         public EndpointState()
         {
         }
+        public static new EndpointState Empty => new EndpointState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupVisibilityConfigArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupVisibilityConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public RuleGroupVisibilityConfigArgs()
         {
         }
+        public static new RuleGroupVisibilityConfigArgs Empty => new RuleGroupVisibilityConfigArgs();
     }
 }

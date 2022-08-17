@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticBeanstalk.Inputs
 {
 
-    public sealed class ConfigurationTemplateSettingGetArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationTemplateSettingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique name for this Template.
@@ -30,5 +30,6 @@ namespace Pulumi.Aws.ElasticBeanstalk.Inputs
         public ConfigurationTemplateSettingGetArgs()
         {
         }
+        public static new ConfigurationTemplateSettingGetArgs Empty => new ConfigurationTemplateSettingGetArgs();
     }
 }

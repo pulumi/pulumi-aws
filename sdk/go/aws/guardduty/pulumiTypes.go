@@ -14,6 +14,9 @@ type DetectorDatasources struct {
 	// Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
 	// See Kubernetes and Kubernetes Audit Logs below for more details.
 	Kubernetes *DetectorDatasourcesKubernetes `pulumi:"kubernetes"`
+	// Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+	// See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+	MalwareProtection *DetectorDatasourcesMalwareProtection `pulumi:"malwareProtection"`
 	// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
 	// See S3 Logs below for more details.
 	S3Logs *DetectorDatasourcesS3Logs `pulumi:"s3Logs"`
@@ -22,7 +25,7 @@ type DetectorDatasources struct {
 // DetectorDatasourcesInput is an input type that accepts DetectorDatasourcesArgs and DetectorDatasourcesOutput values.
 // You can construct a concrete instance of `DetectorDatasourcesInput` via:
 //
-//          DetectorDatasourcesArgs{...}
+//	DetectorDatasourcesArgs{...}
 type DetectorDatasourcesInput interface {
 	pulumi.Input
 
@@ -34,6 +37,9 @@ type DetectorDatasourcesArgs struct {
 	// Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
 	// See Kubernetes and Kubernetes Audit Logs below for more details.
 	Kubernetes DetectorDatasourcesKubernetesPtrInput `pulumi:"kubernetes"`
+	// Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+	// See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+	MalwareProtection DetectorDatasourcesMalwareProtectionPtrInput `pulumi:"malwareProtection"`
 	// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
 	// See S3 Logs below for more details.
 	S3Logs DetectorDatasourcesS3LogsPtrInput `pulumi:"s3Logs"`
@@ -62,11 +68,11 @@ func (i DetectorDatasourcesArgs) ToDetectorDatasourcesPtrOutputWithContext(ctx c
 // DetectorDatasourcesPtrInput is an input type that accepts DetectorDatasourcesArgs, DetectorDatasourcesPtr and DetectorDatasourcesPtrOutput values.
 // You can construct a concrete instance of `DetectorDatasourcesPtrInput` via:
 //
-//          DetectorDatasourcesArgs{...}
+//	        DetectorDatasourcesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorDatasourcesPtrInput interface {
 	pulumi.Input
 
@@ -122,6 +128,12 @@ func (o DetectorDatasourcesOutput) Kubernetes() DetectorDatasourcesKubernetesPtr
 	return o.ApplyT(func(v DetectorDatasources) *DetectorDatasourcesKubernetes { return v.Kubernetes }).(DetectorDatasourcesKubernetesPtrOutput)
 }
 
+// Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+// See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+func (o DetectorDatasourcesOutput) MalwareProtection() DetectorDatasourcesMalwareProtectionPtrOutput {
+	return o.ApplyT(func(v DetectorDatasources) *DetectorDatasourcesMalwareProtection { return v.MalwareProtection }).(DetectorDatasourcesMalwareProtectionPtrOutput)
+}
+
 // Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
 // See S3 Logs below for more details.
 func (o DetectorDatasourcesOutput) S3Logs() DetectorDatasourcesS3LogsPtrOutput {
@@ -163,6 +175,17 @@ func (o DetectorDatasourcesPtrOutput) Kubernetes() DetectorDatasourcesKubernetes
 	}).(DetectorDatasourcesKubernetesPtrOutput)
 }
 
+// Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+// See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+func (o DetectorDatasourcesPtrOutput) MalwareProtection() DetectorDatasourcesMalwareProtectionPtrOutput {
+	return o.ApplyT(func(v *DetectorDatasources) *DetectorDatasourcesMalwareProtection {
+		if v == nil {
+			return nil
+		}
+		return v.MalwareProtection
+	}).(DetectorDatasourcesMalwareProtectionPtrOutput)
+}
+
 // Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
 // See S3 Logs below for more details.
 func (o DetectorDatasourcesPtrOutput) S3Logs() DetectorDatasourcesS3LogsPtrOutput {
@@ -183,7 +206,7 @@ type DetectorDatasourcesKubernetes struct {
 // DetectorDatasourcesKubernetesInput is an input type that accepts DetectorDatasourcesKubernetesArgs and DetectorDatasourcesKubernetesOutput values.
 // You can construct a concrete instance of `DetectorDatasourcesKubernetesInput` via:
 //
-//          DetectorDatasourcesKubernetesArgs{...}
+//	DetectorDatasourcesKubernetesArgs{...}
 type DetectorDatasourcesKubernetesInput interface {
 	pulumi.Input
 
@@ -220,11 +243,11 @@ func (i DetectorDatasourcesKubernetesArgs) ToDetectorDatasourcesKubernetesPtrOut
 // DetectorDatasourcesKubernetesPtrInput is an input type that accepts DetectorDatasourcesKubernetesArgs, DetectorDatasourcesKubernetesPtr and DetectorDatasourcesKubernetesPtrOutput values.
 // You can construct a concrete instance of `DetectorDatasourcesKubernetesPtrInput` via:
 //
-//          DetectorDatasourcesKubernetesArgs{...}
+//	        DetectorDatasourcesKubernetesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorDatasourcesKubernetesPtrInput interface {
 	pulumi.Input
 
@@ -324,7 +347,7 @@ type DetectorDatasourcesKubernetesAuditLogs struct {
 // DetectorDatasourcesKubernetesAuditLogsInput is an input type that accepts DetectorDatasourcesKubernetesAuditLogsArgs and DetectorDatasourcesKubernetesAuditLogsOutput values.
 // You can construct a concrete instance of `DetectorDatasourcesKubernetesAuditLogsInput` via:
 //
-//          DetectorDatasourcesKubernetesAuditLogsArgs{...}
+//	DetectorDatasourcesKubernetesAuditLogsArgs{...}
 type DetectorDatasourcesKubernetesAuditLogsInput interface {
 	pulumi.Input
 
@@ -361,11 +384,11 @@ func (i DetectorDatasourcesKubernetesAuditLogsArgs) ToDetectorDatasourcesKuberne
 // DetectorDatasourcesKubernetesAuditLogsPtrInput is an input type that accepts DetectorDatasourcesKubernetesAuditLogsArgs, DetectorDatasourcesKubernetesAuditLogsPtr and DetectorDatasourcesKubernetesAuditLogsPtrOutput values.
 // You can construct a concrete instance of `DetectorDatasourcesKubernetesAuditLogsPtrInput` via:
 //
-//          DetectorDatasourcesKubernetesAuditLogsArgs{...}
+//	        DetectorDatasourcesKubernetesAuditLogsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorDatasourcesKubernetesAuditLogsPtrInput interface {
 	pulumi.Input
 
@@ -456,6 +479,435 @@ func (o DetectorDatasourcesKubernetesAuditLogsPtrOutput) Enable() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+type DetectorDatasourcesMalwareProtection struct {
+	// Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
+	// See Scan EC2 instance with findings below for more details.
+	ScanEc2InstanceWithFindings DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings `pulumi:"scanEc2InstanceWithFindings"`
+}
+
+// DetectorDatasourcesMalwareProtectionInput is an input type that accepts DetectorDatasourcesMalwareProtectionArgs and DetectorDatasourcesMalwareProtectionOutput values.
+// You can construct a concrete instance of `DetectorDatasourcesMalwareProtectionInput` via:
+//
+//	DetectorDatasourcesMalwareProtectionArgs{...}
+type DetectorDatasourcesMalwareProtectionInput interface {
+	pulumi.Input
+
+	ToDetectorDatasourcesMalwareProtectionOutput() DetectorDatasourcesMalwareProtectionOutput
+	ToDetectorDatasourcesMalwareProtectionOutputWithContext(context.Context) DetectorDatasourcesMalwareProtectionOutput
+}
+
+type DetectorDatasourcesMalwareProtectionArgs struct {
+	// Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
+	// See Scan EC2 instance with findings below for more details.
+	ScanEc2InstanceWithFindings DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsInput `pulumi:"scanEc2InstanceWithFindings"`
+}
+
+func (DetectorDatasourcesMalwareProtectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorDatasourcesMalwareProtection)(nil)).Elem()
+}
+
+func (i DetectorDatasourcesMalwareProtectionArgs) ToDetectorDatasourcesMalwareProtectionOutput() DetectorDatasourcesMalwareProtectionOutput {
+	return i.ToDetectorDatasourcesMalwareProtectionOutputWithContext(context.Background())
+}
+
+func (i DetectorDatasourcesMalwareProtectionArgs) ToDetectorDatasourcesMalwareProtectionOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesMalwareProtectionOutput)
+}
+
+func (i DetectorDatasourcesMalwareProtectionArgs) ToDetectorDatasourcesMalwareProtectionPtrOutput() DetectorDatasourcesMalwareProtectionPtrOutput {
+	return i.ToDetectorDatasourcesMalwareProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i DetectorDatasourcesMalwareProtectionArgs) ToDetectorDatasourcesMalwareProtectionPtrOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesMalwareProtectionOutput).ToDetectorDatasourcesMalwareProtectionPtrOutputWithContext(ctx)
+}
+
+// DetectorDatasourcesMalwareProtectionPtrInput is an input type that accepts DetectorDatasourcesMalwareProtectionArgs, DetectorDatasourcesMalwareProtectionPtr and DetectorDatasourcesMalwareProtectionPtrOutput values.
+// You can construct a concrete instance of `DetectorDatasourcesMalwareProtectionPtrInput` via:
+//
+//	        DetectorDatasourcesMalwareProtectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type DetectorDatasourcesMalwareProtectionPtrInput interface {
+	pulumi.Input
+
+	ToDetectorDatasourcesMalwareProtectionPtrOutput() DetectorDatasourcesMalwareProtectionPtrOutput
+	ToDetectorDatasourcesMalwareProtectionPtrOutputWithContext(context.Context) DetectorDatasourcesMalwareProtectionPtrOutput
+}
+
+type detectorDatasourcesMalwareProtectionPtrType DetectorDatasourcesMalwareProtectionArgs
+
+func DetectorDatasourcesMalwareProtectionPtr(v *DetectorDatasourcesMalwareProtectionArgs) DetectorDatasourcesMalwareProtectionPtrInput {
+	return (*detectorDatasourcesMalwareProtectionPtrType)(v)
+}
+
+func (*detectorDatasourcesMalwareProtectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorDatasourcesMalwareProtection)(nil)).Elem()
+}
+
+func (i *detectorDatasourcesMalwareProtectionPtrType) ToDetectorDatasourcesMalwareProtectionPtrOutput() DetectorDatasourcesMalwareProtectionPtrOutput {
+	return i.ToDetectorDatasourcesMalwareProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i *detectorDatasourcesMalwareProtectionPtrType) ToDetectorDatasourcesMalwareProtectionPtrOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesMalwareProtectionPtrOutput)
+}
+
+type DetectorDatasourcesMalwareProtectionOutput struct{ *pulumi.OutputState }
+
+func (DetectorDatasourcesMalwareProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorDatasourcesMalwareProtection)(nil)).Elem()
+}
+
+func (o DetectorDatasourcesMalwareProtectionOutput) ToDetectorDatasourcesMalwareProtectionOutput() DetectorDatasourcesMalwareProtectionOutput {
+	return o
+}
+
+func (o DetectorDatasourcesMalwareProtectionOutput) ToDetectorDatasourcesMalwareProtectionOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionOutput {
+	return o
+}
+
+func (o DetectorDatasourcesMalwareProtectionOutput) ToDetectorDatasourcesMalwareProtectionPtrOutput() DetectorDatasourcesMalwareProtectionPtrOutput {
+	return o.ToDetectorDatasourcesMalwareProtectionPtrOutputWithContext(context.Background())
+}
+
+func (o DetectorDatasourcesMalwareProtectionOutput) ToDetectorDatasourcesMalwareProtectionPtrOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorDatasourcesMalwareProtection) *DetectorDatasourcesMalwareProtection {
+		return &v
+	}).(DetectorDatasourcesMalwareProtectionPtrOutput)
+}
+
+// Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
+// See Scan EC2 instance with findings below for more details.
+func (o DetectorDatasourcesMalwareProtectionOutput) ScanEc2InstanceWithFindings() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
+	return o.ApplyT(func(v DetectorDatasourcesMalwareProtection) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings {
+		return v.ScanEc2InstanceWithFindings
+	}).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput)
+}
+
+type DetectorDatasourcesMalwareProtectionPtrOutput struct{ *pulumi.OutputState }
+
+func (DetectorDatasourcesMalwareProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorDatasourcesMalwareProtection)(nil)).Elem()
+}
+
+func (o DetectorDatasourcesMalwareProtectionPtrOutput) ToDetectorDatasourcesMalwareProtectionPtrOutput() DetectorDatasourcesMalwareProtectionPtrOutput {
+	return o
+}
+
+func (o DetectorDatasourcesMalwareProtectionPtrOutput) ToDetectorDatasourcesMalwareProtectionPtrOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionPtrOutput {
+	return o
+}
+
+func (o DetectorDatasourcesMalwareProtectionPtrOutput) Elem() DetectorDatasourcesMalwareProtectionOutput {
+	return o.ApplyT(func(v *DetectorDatasourcesMalwareProtection) DetectorDatasourcesMalwareProtection {
+		if v != nil {
+			return *v
+		}
+		var ret DetectorDatasourcesMalwareProtection
+		return ret
+	}).(DetectorDatasourcesMalwareProtectionOutput)
+}
+
+// Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
+// See Scan EC2 instance with findings below for more details.
+func (o DetectorDatasourcesMalwareProtectionPtrOutput) ScanEc2InstanceWithFindings() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return o.ApplyT(func(v *DetectorDatasourcesMalwareProtection) *DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings {
+		if v == nil {
+			return nil
+		}
+		return &v.ScanEc2InstanceWithFindings
+	}).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput)
+}
+
+type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings struct {
+	// Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
+	// See EBS volumes below for more details.
+	EbsVolumes DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes `pulumi:"ebsVolumes"`
+}
+
+// DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsInput is an input type that accepts DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs and DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput values.
+// You can construct a concrete instance of `DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsInput` via:
+//
+//	DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs{...}
+type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsInput interface {
+	pulumi.Input
+
+	ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput
+	ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputWithContext(context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput
+}
+
+type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs struct {
+	// Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
+	// See EBS volumes below for more details.
+	EbsVolumes DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesInput `pulumi:"ebsVolumes"`
+}
+
+func (DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings)(nil)).Elem()
+}
+
+func (i DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
+	return i.ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputWithContext(context.Background())
+}
+
+func (i DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput)
+}
+
+func (i DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return i.ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(context.Background())
+}
+
+func (i DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput).ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(ctx)
+}
+
+// DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrInput is an input type that accepts DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs, DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtr and DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput values.
+// You can construct a concrete instance of `DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrInput` via:
+//
+//	        DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrInput interface {
+	pulumi.Input
+
+	ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput
+	ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput
+}
+
+type detectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrType DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs
+
+func DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtr(v *DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrInput {
+	return (*detectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrType)(v)
+}
+
+func (*detectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings)(nil)).Elem()
+}
+
+func (i *detectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrType) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return i.ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(context.Background())
+}
+
+func (i *detectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrType) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput)
+}
+
+type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput struct{ *pulumi.OutputState }
+
+func (DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings)(nil)).Elem()
+}
+
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
+	return o
+}
+
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
+	return o
+}
+
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return o.ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(context.Background())
+}
+
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings) *DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings {
+		return &v
+	}).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput)
+}
+
+// Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
+// See EBS volumes below for more details.
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) EbsVolumes() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
+	return o.ApplyT(func(v DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes {
+		return v.EbsVolumes
+	}).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput)
+}
+
+type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings)(nil)).Elem()
+}
+
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return o
+}
+
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return o
+}
+
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) Elem() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
+	return o.ApplyT(func(v *DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings {
+		if v != nil {
+			return *v
+		}
+		var ret DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings
+		return ret
+	}).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput)
+}
+
+// Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
+// See EBS volumes below for more details.
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) EbsVolumes() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return o.ApplyT(func(v *DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings) *DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes {
+		if v == nil {
+			return nil
+		}
+		return &v.EbsVolumes
+	}).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput)
+}
+
+type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes struct {
+	// If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) as data source for the detector.
+	// Defaults to `true`.
+	Enable bool `pulumi:"enable"`
+}
+
+// DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesInput is an input type that accepts DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs and DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput values.
+// You can construct a concrete instance of `DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesInput` via:
+//
+//	DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{...}
+type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesInput interface {
+	pulumi.Input
+
+	ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput
+	ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputWithContext(context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput
+}
+
+type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs struct {
+	// If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) as data source for the detector.
+	// Defaults to `true`.
+	Enable pulumi.BoolInput `pulumi:"enable"`
+}
+
+func (DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes)(nil)).Elem()
+}
+
+func (i DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
+	return i.ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputWithContext(context.Background())
+}
+
+func (i DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput)
+}
+
+func (i DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return i.ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(context.Background())
+}
+
+func (i DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput).ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(ctx)
+}
+
+// DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrInput is an input type that accepts DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs, DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtr and DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput values.
+// You can construct a concrete instance of `DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrInput` via:
+//
+//	        DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrInput interface {
+	pulumi.Input
+
+	ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput
+	ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput
+}
+
+type detectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrType DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs
+
+func DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtr(v *DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrInput {
+	return (*detectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrType)(v)
+}
+
+func (*detectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes)(nil)).Elem()
+}
+
+func (i *detectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrType) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return i.ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(context.Background())
+}
+
+func (i *detectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrType) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput)
+}
+
+type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput struct{ *pulumi.OutputState }
+
+func (DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes)(nil)).Elem()
+}
+
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
+	return o
+}
+
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
+	return o
+}
+
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return o.ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(context.Background())
+}
+
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes) *DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes {
+		return &v
+	}).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput)
+}
+
+// If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) as data source for the detector.
+// Defaults to `true`.
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes) bool {
+		return v.Enable
+	}).(pulumi.BoolOutput)
+}
+
+type DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput struct{ *pulumi.OutputState }
+
+func (DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes)(nil)).Elem()
+}
+
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return o
+}
+
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) ToDetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(ctx context.Context) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return o
+}
+
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) Elem() DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
+	return o.ApplyT(func(v *DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes) DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes {
+		if v != nil {
+			return *v
+		}
+		var ret DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes
+		return ret
+	}).(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput)
+}
+
+// If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) as data source for the detector.
+// Defaults to `true`.
+func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
 type DetectorDatasourcesS3Logs struct {
 	// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
 	// Defaults to `true`.
@@ -465,7 +917,7 @@ type DetectorDatasourcesS3Logs struct {
 // DetectorDatasourcesS3LogsInput is an input type that accepts DetectorDatasourcesS3LogsArgs and DetectorDatasourcesS3LogsOutput values.
 // You can construct a concrete instance of `DetectorDatasourcesS3LogsInput` via:
 //
-//          DetectorDatasourcesS3LogsArgs{...}
+//	DetectorDatasourcesS3LogsArgs{...}
 type DetectorDatasourcesS3LogsInput interface {
 	pulumi.Input
 
@@ -502,11 +954,11 @@ func (i DetectorDatasourcesS3LogsArgs) ToDetectorDatasourcesS3LogsPtrOutputWithC
 // DetectorDatasourcesS3LogsPtrInput is an input type that accepts DetectorDatasourcesS3LogsArgs, DetectorDatasourcesS3LogsPtr and DetectorDatasourcesS3LogsPtrOutput values.
 // You can construct a concrete instance of `DetectorDatasourcesS3LogsPtrInput` via:
 //
-//          DetectorDatasourcesS3LogsArgs{...}
+//	        DetectorDatasourcesS3LogsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DetectorDatasourcesS3LogsPtrInput interface {
 	pulumi.Input
 
@@ -604,7 +1056,7 @@ type FilterFindingCriteria struct {
 // FilterFindingCriteriaInput is an input type that accepts FilterFindingCriteriaArgs and FilterFindingCriteriaOutput values.
 // You can construct a concrete instance of `FilterFindingCriteriaInput` via:
 //
-//          FilterFindingCriteriaArgs{...}
+//	FilterFindingCriteriaArgs{...}
 type FilterFindingCriteriaInput interface {
 	pulumi.Input
 
@@ -639,11 +1091,11 @@ func (i FilterFindingCriteriaArgs) ToFilterFindingCriteriaPtrOutputWithContext(c
 // FilterFindingCriteriaPtrInput is an input type that accepts FilterFindingCriteriaArgs, FilterFindingCriteriaPtr and FilterFindingCriteriaPtrOutput values.
 // You can construct a concrete instance of `FilterFindingCriteriaPtrInput` via:
 //
-//          FilterFindingCriteriaArgs{...}
+//	        FilterFindingCriteriaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FilterFindingCriteriaPtrInput interface {
 	pulumi.Input
 
@@ -750,7 +1202,7 @@ type FilterFindingCriteriaCriterion struct {
 // FilterFindingCriteriaCriterionInput is an input type that accepts FilterFindingCriteriaCriterionArgs and FilterFindingCriteriaCriterionOutput values.
 // You can construct a concrete instance of `FilterFindingCriteriaCriterionInput` via:
 //
-//          FilterFindingCriteriaCriterionArgs{...}
+//	FilterFindingCriteriaCriterionArgs{...}
 type FilterFindingCriteriaCriterionInput interface {
 	pulumi.Input
 
@@ -790,7 +1242,7 @@ func (i FilterFindingCriteriaCriterionArgs) ToFilterFindingCriteriaCriterionOutp
 // FilterFindingCriteriaCriterionArrayInput is an input type that accepts FilterFindingCriteriaCriterionArray and FilterFindingCriteriaCriterionArrayOutput values.
 // You can construct a concrete instance of `FilterFindingCriteriaCriterionArrayInput` via:
 //
-//          FilterFindingCriteriaCriterionArray{ FilterFindingCriteriaCriterionArgs{...} }
+//	FilterFindingCriteriaCriterionArray{ FilterFindingCriteriaCriterionArgs{...} }
 type FilterFindingCriteriaCriterionArrayInput interface {
 	pulumi.Input
 
@@ -884,6 +1336,8 @@ func (o FilterFindingCriteriaCriterionArrayOutput) Index(i pulumi.IntInput) Filt
 type OrganizationConfigurationDatasources struct {
 	// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
 	Kubernetes *OrganizationConfigurationDatasourcesKubernetes `pulumi:"kubernetes"`
+	// Enable Malware Protection automatically for new member accounts.
+	MalwareProtection *OrganizationConfigurationDatasourcesMalwareProtection `pulumi:"malwareProtection"`
 	// Enable S3 Protection automatically for new member accounts.
 	S3Logs *OrganizationConfigurationDatasourcesS3Logs `pulumi:"s3Logs"`
 }
@@ -891,7 +1345,7 @@ type OrganizationConfigurationDatasources struct {
 // OrganizationConfigurationDatasourcesInput is an input type that accepts OrganizationConfigurationDatasourcesArgs and OrganizationConfigurationDatasourcesOutput values.
 // You can construct a concrete instance of `OrganizationConfigurationDatasourcesInput` via:
 //
-//          OrganizationConfigurationDatasourcesArgs{...}
+//	OrganizationConfigurationDatasourcesArgs{...}
 type OrganizationConfigurationDatasourcesInput interface {
 	pulumi.Input
 
@@ -902,6 +1356,8 @@ type OrganizationConfigurationDatasourcesInput interface {
 type OrganizationConfigurationDatasourcesArgs struct {
 	// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
 	Kubernetes OrganizationConfigurationDatasourcesKubernetesPtrInput `pulumi:"kubernetes"`
+	// Enable Malware Protection automatically for new member accounts.
+	MalwareProtection OrganizationConfigurationDatasourcesMalwareProtectionPtrInput `pulumi:"malwareProtection"`
 	// Enable S3 Protection automatically for new member accounts.
 	S3Logs OrganizationConfigurationDatasourcesS3LogsPtrInput `pulumi:"s3Logs"`
 }
@@ -929,11 +1385,11 @@ func (i OrganizationConfigurationDatasourcesArgs) ToOrganizationConfigurationDat
 // OrganizationConfigurationDatasourcesPtrInput is an input type that accepts OrganizationConfigurationDatasourcesArgs, OrganizationConfigurationDatasourcesPtr and OrganizationConfigurationDatasourcesPtrOutput values.
 // You can construct a concrete instance of `OrganizationConfigurationDatasourcesPtrInput` via:
 //
-//          OrganizationConfigurationDatasourcesArgs{...}
+//	        OrganizationConfigurationDatasourcesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrganizationConfigurationDatasourcesPtrInput interface {
 	pulumi.Input
 
@@ -990,6 +1446,13 @@ func (o OrganizationConfigurationDatasourcesOutput) Kubernetes() OrganizationCon
 	}).(OrganizationConfigurationDatasourcesKubernetesPtrOutput)
 }
 
+// Enable Malware Protection automatically for new member accounts.
+func (o OrganizationConfigurationDatasourcesOutput) MalwareProtection() OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigurationDatasources) *OrganizationConfigurationDatasourcesMalwareProtection {
+		return v.MalwareProtection
+	}).(OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput)
+}
+
 // Enable S3 Protection automatically for new member accounts.
 func (o OrganizationConfigurationDatasourcesOutput) S3Logs() OrganizationConfigurationDatasourcesS3LogsPtrOutput {
 	return o.ApplyT(func(v OrganizationConfigurationDatasources) *OrganizationConfigurationDatasourcesS3Logs {
@@ -1031,6 +1494,16 @@ func (o OrganizationConfigurationDatasourcesPtrOutput) Kubernetes() Organization
 	}).(OrganizationConfigurationDatasourcesKubernetesPtrOutput)
 }
 
+// Enable Malware Protection automatically for new member accounts.
+func (o OrganizationConfigurationDatasourcesPtrOutput) MalwareProtection() OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationDatasources) *OrganizationConfigurationDatasourcesMalwareProtection {
+		if v == nil {
+			return nil
+		}
+		return v.MalwareProtection
+	}).(OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput)
+}
+
 // Enable S3 Protection automatically for new member accounts.
 func (o OrganizationConfigurationDatasourcesPtrOutput) S3Logs() OrganizationConfigurationDatasourcesS3LogsPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasources) *OrganizationConfigurationDatasourcesS3Logs {
@@ -1050,7 +1523,7 @@ type OrganizationConfigurationDatasourcesKubernetes struct {
 // OrganizationConfigurationDatasourcesKubernetesInput is an input type that accepts OrganizationConfigurationDatasourcesKubernetesArgs and OrganizationConfigurationDatasourcesKubernetesOutput values.
 // You can construct a concrete instance of `OrganizationConfigurationDatasourcesKubernetesInput` via:
 //
-//          OrganizationConfigurationDatasourcesKubernetesArgs{...}
+//	OrganizationConfigurationDatasourcesKubernetesArgs{...}
 type OrganizationConfigurationDatasourcesKubernetesInput interface {
 	pulumi.Input
 
@@ -1087,11 +1560,11 @@ func (i OrganizationConfigurationDatasourcesKubernetesArgs) ToOrganizationConfig
 // OrganizationConfigurationDatasourcesKubernetesPtrInput is an input type that accepts OrganizationConfigurationDatasourcesKubernetesArgs, OrganizationConfigurationDatasourcesKubernetesPtr and OrganizationConfigurationDatasourcesKubernetesPtrOutput values.
 // You can construct a concrete instance of `OrganizationConfigurationDatasourcesKubernetesPtrInput` via:
 //
-//          OrganizationConfigurationDatasourcesKubernetesArgs{...}
+//	        OrganizationConfigurationDatasourcesKubernetesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrganizationConfigurationDatasourcesKubernetesPtrInput interface {
 	pulumi.Input
 
@@ -1193,7 +1666,7 @@ type OrganizationConfigurationDatasourcesKubernetesAuditLogs struct {
 // OrganizationConfigurationDatasourcesKubernetesAuditLogsInput is an input type that accepts OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs and OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput values.
 // You can construct a concrete instance of `OrganizationConfigurationDatasourcesKubernetesAuditLogsInput` via:
 //
-//          OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs{...}
+//	OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs{...}
 type OrganizationConfigurationDatasourcesKubernetesAuditLogsInput interface {
 	pulumi.Input
 
@@ -1230,11 +1703,11 @@ func (i OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs) ToOrganizat
 // OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrInput is an input type that accepts OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs, OrganizationConfigurationDatasourcesKubernetesAuditLogsPtr and OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput values.
 // You can construct a concrete instance of `OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrInput` via:
 //
-//          OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs{...}
+//	        OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrInput interface {
 	pulumi.Input
 
@@ -1325,6 +1798,435 @@ func (o OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput) Enable
 	}).(pulumi.BoolPtrOutput)
 }
 
+type OrganizationConfigurationDatasourcesMalwareProtection struct {
+	// Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
+	// See Scan EC2 instance with findings below for more details.
+	ScanEc2InstanceWithFindings OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings `pulumi:"scanEc2InstanceWithFindings"`
+}
+
+// OrganizationConfigurationDatasourcesMalwareProtectionInput is an input type that accepts OrganizationConfigurationDatasourcesMalwareProtectionArgs and OrganizationConfigurationDatasourcesMalwareProtectionOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationDatasourcesMalwareProtectionInput` via:
+//
+//	OrganizationConfigurationDatasourcesMalwareProtectionArgs{...}
+type OrganizationConfigurationDatasourcesMalwareProtectionInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationDatasourcesMalwareProtectionOutput() OrganizationConfigurationDatasourcesMalwareProtectionOutput
+	ToOrganizationConfigurationDatasourcesMalwareProtectionOutputWithContext(context.Context) OrganizationConfigurationDatasourcesMalwareProtectionOutput
+}
+
+type OrganizationConfigurationDatasourcesMalwareProtectionArgs struct {
+	// Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
+	// See Scan EC2 instance with findings below for more details.
+	ScanEc2InstanceWithFindings OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsInput `pulumi:"scanEc2InstanceWithFindings"`
+}
+
+func (OrganizationConfigurationDatasourcesMalwareProtectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationDatasourcesMalwareProtection)(nil)).Elem()
+}
+
+func (i OrganizationConfigurationDatasourcesMalwareProtectionArgs) ToOrganizationConfigurationDatasourcesMalwareProtectionOutput() OrganizationConfigurationDatasourcesMalwareProtectionOutput {
+	return i.ToOrganizationConfigurationDatasourcesMalwareProtectionOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationDatasourcesMalwareProtectionArgs) ToOrganizationConfigurationDatasourcesMalwareProtectionOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesMalwareProtectionOutput)
+}
+
+func (i OrganizationConfigurationDatasourcesMalwareProtectionArgs) ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput {
+	return i.ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationDatasourcesMalwareProtectionArgs) ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesMalwareProtectionOutput).ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutputWithContext(ctx)
+}
+
+// OrganizationConfigurationDatasourcesMalwareProtectionPtrInput is an input type that accepts OrganizationConfigurationDatasourcesMalwareProtectionArgs, OrganizationConfigurationDatasourcesMalwareProtectionPtr and OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationDatasourcesMalwareProtectionPtrInput` via:
+//
+//	        OrganizationConfigurationDatasourcesMalwareProtectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationConfigurationDatasourcesMalwareProtectionPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput
+	ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutputWithContext(context.Context) OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput
+}
+
+type organizationConfigurationDatasourcesMalwareProtectionPtrType OrganizationConfigurationDatasourcesMalwareProtectionArgs
+
+func OrganizationConfigurationDatasourcesMalwareProtectionPtr(v *OrganizationConfigurationDatasourcesMalwareProtectionArgs) OrganizationConfigurationDatasourcesMalwareProtectionPtrInput {
+	return (*organizationConfigurationDatasourcesMalwareProtectionPtrType)(v)
+}
+
+func (*organizationConfigurationDatasourcesMalwareProtectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationDatasourcesMalwareProtection)(nil)).Elem()
+}
+
+func (i *organizationConfigurationDatasourcesMalwareProtectionPtrType) ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput {
+	return i.ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationConfigurationDatasourcesMalwareProtectionPtrType) ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput)
+}
+
+type OrganizationConfigurationDatasourcesMalwareProtectionOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationDatasourcesMalwareProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationDatasourcesMalwareProtection)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionOutput() OrganizationConfigurationDatasourcesMalwareProtectionOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput {
+	return o.ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigurationDatasourcesMalwareProtection) *OrganizationConfigurationDatasourcesMalwareProtection {
+		return &v
+	}).(OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput)
+}
+
+// Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
+// See Scan EC2 instance with findings below for more details.
+func (o OrganizationConfigurationDatasourcesMalwareProtectionOutput) ScanEc2InstanceWithFindings() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
+	return o.ApplyT(func(v OrganizationConfigurationDatasourcesMalwareProtection) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings {
+		return v.ScanEc2InstanceWithFindings
+	}).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput)
+}
+
+type OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationDatasourcesMalwareProtection)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput) Elem() OrganizationConfigurationDatasourcesMalwareProtectionOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesMalwareProtection) OrganizationConfigurationDatasourcesMalwareProtection {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfigurationDatasourcesMalwareProtection
+		return ret
+	}).(OrganizationConfigurationDatasourcesMalwareProtectionOutput)
+}
+
+// Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
+// See Scan EC2 instance with findings below for more details.
+func (o OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput) ScanEc2InstanceWithFindings() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesMalwareProtection) *OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings {
+		if v == nil {
+			return nil
+		}
+		return &v.ScanEc2InstanceWithFindings
+	}).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput)
+}
+
+type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings struct {
+	// Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
+	// See EBS volumes below for more details.
+	EbsVolumes OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes `pulumi:"ebsVolumes"`
+}
+
+// OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsInput is an input type that accepts OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs and OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsInput` via:
+//
+//	OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs{...}
+type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput
+	ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputWithContext(context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput
+}
+
+type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs struct {
+	// Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
+	// See EBS volumes below for more details.
+	EbsVolumes OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesInput `pulumi:"ebsVolumes"`
+}
+
+func (OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings)(nil)).Elem()
+}
+
+func (i OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
+	return i.ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput)
+}
+
+func (i OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return i.ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput).ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(ctx)
+}
+
+// OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrInput is an input type that accepts OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs, OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtr and OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrInput` via:
+//
+//	        OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput
+	ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput
+}
+
+type organizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrType OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs
+
+func OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtr(v *OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrInput {
+	return (*organizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrType)(v)
+}
+
+func (*organizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings)(nil)).Elem()
+}
+
+func (i *organizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrType) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return i.ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrType) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput)
+}
+
+type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return o.ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings) *OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings {
+		return &v
+	}).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput)
+}
+
+// Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
+// See EBS volumes below for more details.
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput) EbsVolumes() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
+	return o.ApplyT(func(v OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes {
+		return v.EbsVolumes
+	}).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput)
+}
+
+type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) Elem() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings
+		return ret
+	}).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput)
+}
+
+// Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
+// See EBS volumes below for more details.
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput) EbsVolumes() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings) *OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes {
+		if v == nil {
+			return nil
+		}
+		return &v.EbsVolumes
+	}).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput)
+}
+
+type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes struct {
+	// If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for all new accounts joining the organization.
+	// Defaults to `true`.
+	AutoEnable bool `pulumi:"autoEnable"`
+}
+
+// OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesInput is an input type that accepts OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs and OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesInput` via:
+//
+//	OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{...}
+type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput
+	ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputWithContext(context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput
+}
+
+type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs struct {
+	// If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for all new accounts joining the organization.
+	// Defaults to `true`.
+	AutoEnable pulumi.BoolInput `pulumi:"autoEnable"`
+}
+
+func (OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes)(nil)).Elem()
+}
+
+func (i OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
+	return i.ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput)
+}
+
+func (i OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return i.ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput).ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(ctx)
+}
+
+// OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrInput is an input type that accepts OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs, OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtr and OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrInput` via:
+//
+//	        OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput
+	ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput
+}
+
+type organizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrType OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs
+
+func OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtr(v *OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrInput {
+	return (*organizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrType)(v)
+}
+
+func (*organizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes)(nil)).Elem()
+}
+
+func (i *organizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrType) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return i.ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrType) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput)
+}
+
+type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return o.ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes) *OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes {
+		return &v
+	}).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput)
+}
+
+// If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for all new accounts joining the organization.
+// Defaults to `true`.
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput) AutoEnable() pulumi.BoolOutput {
+	return o.ApplyT(func(v OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes) bool {
+		return v.AutoEnable
+	}).(pulumi.BoolOutput)
+}
+
+type OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) ToOrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) Elem() OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes) OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes
+		return ret
+	}).(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput)
+}
+
+// If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for all new accounts joining the organization.
+// Defaults to `true`.
+func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput) AutoEnable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoEnable
+	}).(pulumi.BoolPtrOutput)
+}
+
 type OrganizationConfigurationDatasourcesS3Logs struct {
 	// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
 	AutoEnable bool `pulumi:"autoEnable"`
@@ -1333,7 +2235,7 @@ type OrganizationConfigurationDatasourcesS3Logs struct {
 // OrganizationConfigurationDatasourcesS3LogsInput is an input type that accepts OrganizationConfigurationDatasourcesS3LogsArgs and OrganizationConfigurationDatasourcesS3LogsOutput values.
 // You can construct a concrete instance of `OrganizationConfigurationDatasourcesS3LogsInput` via:
 //
-//          OrganizationConfigurationDatasourcesS3LogsArgs{...}
+//	OrganizationConfigurationDatasourcesS3LogsArgs{...}
 type OrganizationConfigurationDatasourcesS3LogsInput interface {
 	pulumi.Input
 
@@ -1369,11 +2271,11 @@ func (i OrganizationConfigurationDatasourcesS3LogsArgs) ToOrganizationConfigurat
 // OrganizationConfigurationDatasourcesS3LogsPtrInput is an input type that accepts OrganizationConfigurationDatasourcesS3LogsArgs, OrganizationConfigurationDatasourcesS3LogsPtr and OrganizationConfigurationDatasourcesS3LogsPtrOutput values.
 // You can construct a concrete instance of `OrganizationConfigurationDatasourcesS3LogsPtrInput` via:
 //
-//          OrganizationConfigurationDatasourcesS3LogsArgs{...}
+//	        OrganizationConfigurationDatasourcesS3LogsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrganizationConfigurationDatasourcesS3LogsPtrInput interface {
 	pulumi.Input
 
@@ -1469,6 +2371,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesKubernetesPtrInput)(nil)).Elem(), DetectorDatasourcesKubernetesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesKubernetesAuditLogsInput)(nil)).Elem(), DetectorDatasourcesKubernetesAuditLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesKubernetesAuditLogsPtrInput)(nil)).Elem(), DetectorDatasourcesKubernetesAuditLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesMalwareProtectionInput)(nil)).Elem(), DetectorDatasourcesMalwareProtectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesMalwareProtectionPtrInput)(nil)).Elem(), DetectorDatasourcesMalwareProtectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsInput)(nil)).Elem(), DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrInput)(nil)).Elem(), DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesInput)(nil)).Elem(), DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrInput)(nil)).Elem(), DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesS3LogsInput)(nil)).Elem(), DetectorDatasourcesS3LogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesS3LogsPtrInput)(nil)).Elem(), DetectorDatasourcesS3LogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaInput)(nil)).Elem(), FilterFindingCriteriaArgs{})
@@ -1481,6 +2389,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesKubernetesPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesKubernetesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesKubernetesAuditLogsInput)(nil)).Elem(), OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesMalwareProtectionInput)(nil)).Elem(), OrganizationConfigurationDatasourcesMalwareProtectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesMalwareProtectionPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesMalwareProtectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsInput)(nil)).Elem(), OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesInput)(nil)).Elem(), OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesS3LogsInput)(nil)).Elem(), OrganizationConfigurationDatasourcesS3LogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesS3LogsPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesS3LogsArgs{})
 	pulumi.RegisterOutputType(DetectorDatasourcesOutput{})
@@ -1489,6 +2403,12 @@ func init() {
 	pulumi.RegisterOutputType(DetectorDatasourcesKubernetesPtrOutput{})
 	pulumi.RegisterOutputType(DetectorDatasourcesKubernetesAuditLogsOutput{})
 	pulumi.RegisterOutputType(DetectorDatasourcesKubernetesAuditLogsPtrOutput{})
+	pulumi.RegisterOutputType(DetectorDatasourcesMalwareProtectionOutput{})
+	pulumi.RegisterOutputType(DetectorDatasourcesMalwareProtectionPtrOutput{})
+	pulumi.RegisterOutputType(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput{})
+	pulumi.RegisterOutputType(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput{})
+	pulumi.RegisterOutputType(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput{})
+	pulumi.RegisterOutputType(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput{})
 	pulumi.RegisterOutputType(DetectorDatasourcesS3LogsOutput{})
 	pulumi.RegisterOutputType(DetectorDatasourcesS3LogsPtrOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaOutput{})
@@ -1501,6 +2421,12 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesKubernetesPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesKubernetesAuditLogsOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesKubernetesAuditLogsPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesMalwareProtectionOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesMalwareProtectionPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesS3LogsOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesS3LogsPtrOutput{})
 }

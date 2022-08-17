@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Glue
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/partition:Partition")]
-    public partial class Partition : Pulumi.CustomResource
+    public partial class Partition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Glue
         }
     }
 
-    public sealed class PartitionArgs : Pulumi.ResourceArgs
+    public sealed class PartitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
@@ -168,9 +168,10 @@ namespace Pulumi.Aws.Glue
         public PartitionArgs()
         {
         }
+        public static new PartitionArgs Empty => new PartitionArgs();
     }
 
-    public sealed class PartitionState : Pulumi.ResourceArgs
+    public sealed class PartitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
@@ -238,5 +239,6 @@ namespace Pulumi.Aws.Glue
         public PartitionState()
         {
         }
+        public static new PartitionState Empty => new PartitionState();
     }
 }

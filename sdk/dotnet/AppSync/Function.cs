@@ -15,17 +15,16 @@ namespace Pulumi.Aws.AppSync
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
     ///     {
-    ///         var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new Aws.AppSync.GraphQLApiArgs
-    ///         {
-    ///             AuthenticationType = "API_KEY",
-    ///             Schema = @"type Mutation {
+    ///         AuthenticationType = "API_KEY",
+    ///         Schema = @"type Mutation {
     ///   putPost(id: ID!, title: String!): Post
     /// }
     /// 
@@ -43,23 +42,25 @@ namespace Pulumi.Aws.AppSync
     ///   mutation: Mutation
     /// }
     /// ",
-    ///         });
-    ///         var exampleDataSource = new Aws.AppSync.DataSource("exampleDataSource", new Aws.AppSync.DataSourceArgs
+    ///     });
+    /// 
+    ///     var exampleDataSource = new Aws.AppSync.DataSource("exampleDataSource", new()
+    ///     {
+    ///         ApiId = exampleGraphQLApi.Id,
+    ///         Name = "example",
+    ///         Type = "HTTP",
+    ///         HttpConfig = new Aws.AppSync.Inputs.DataSourceHttpConfigArgs
     ///         {
-    ///             ApiId = exampleGraphQLApi.Id,
-    ///             Name = "example",
-    ///             Type = "HTTP",
-    ///             HttpConfig = new Aws.AppSync.Inputs.DataSourceHttpConfigArgs
-    ///             {
-    ///                 Endpoint = "http://example.com",
-    ///             },
-    ///         });
-    ///         var exampleFunction = new Aws.AppSync.Function("exampleFunction", new Aws.AppSync.FunctionArgs
-    ///         {
-    ///             ApiId = exampleGraphQLApi.Id,
-    ///             DataSource = exampleDataSource.Name,
-    ///             Name = "example",
-    ///             RequestMappingTemplate = @"{
+    ///             Endpoint = "http://example.com",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFunction = new Aws.AppSync.Function("exampleFunction", new()
+    ///     {
+    ///         ApiId = exampleGraphQLApi.Id,
+    ///         DataSource = exampleDataSource.Name,
+    ///         Name = "example",
+    ///         RequestMappingTemplate = @"{
     ///     ""version"": ""2018-05-29"",
     ///     ""method"": ""GET"",
     ///     ""resourcePath"": ""/"",
@@ -68,16 +69,15 @@ namespace Pulumi.Aws.AppSync
     ///     }
     /// }
     /// ",
-    ///             ResponseMappingTemplate = @"#if($ctx.result.statusCode == 200)
+    ///         ResponseMappingTemplate = @"#if($ctx.result.statusCode == 200)
     ///     $ctx.result.body
     /// #else
     ///     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
     /// #end
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.AppSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/function:Function")]
-    public partial class Function : Pulumi.CustomResource
+    public partial class Function : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the associated AppSync API.
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The Function DataSource name.
+        /// The Function data source name.
         /// </summary>
         [Output("dataSource")]
         public Output<string> DataSource { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.AppSync
         }
     }
 
-    public sealed class FunctionArgs : Pulumi.ResourceArgs
+    public sealed class FunctionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the associated AppSync API.
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// The Function DataSource name.
+        /// The Function data source name.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
@@ -260,9 +260,10 @@ namespace Pulumi.Aws.AppSync
         public FunctionArgs()
         {
         }
+        public static new FunctionArgs Empty => new FunctionArgs();
     }
 
-    public sealed class FunctionState : Pulumi.ResourceArgs
+    public sealed class FunctionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the associated AppSync API.
@@ -277,7 +278,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The Function DataSource name.
+        /// The Function data source name.
         /// </summary>
         [Input("dataSource")]
         public Input<string>? DataSource { get; set; }
@@ -333,5 +334,6 @@ namespace Pulumi.Aws.AppSync
         public FunctionState()
         {
         }
+        public static new FunctionState Empty => new FunctionState();
     }
 }

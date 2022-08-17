@@ -20,7 +20,9 @@ import (
 // SSO Permission Sets can be imported using the `arn` and `instance_arn` separated by a comma (`,`) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ssoadmin/permissionSet:PermissionSet example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+//
+//	$ pulumi import aws:ssoadmin/permissionSet:PermissionSet example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+//
 // ```
 type PermissionSet struct {
 	pulumi.CustomResourceState
@@ -41,7 +43,7 @@ type PermissionSet struct {
 	SessionDuration pulumi.StringPtrOutput `pulumi:"sessionDuration"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -93,7 +95,7 @@ type permissionSetState struct {
 	SessionDuration *string `pulumi:"sessionDuration"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -114,7 +116,7 @@ type PermissionSetState struct {
 	SessionDuration pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -179,7 +181,7 @@ func (i *PermissionSet) ToPermissionSetOutputWithContext(ctx context.Context) Pe
 // PermissionSetArrayInput is an input type that accepts PermissionSetArray and PermissionSetArrayOutput values.
 // You can construct a concrete instance of `PermissionSetArrayInput` via:
 //
-//          PermissionSetArray{ PermissionSetArgs{...} }
+//	PermissionSetArray{ PermissionSetArgs{...} }
 type PermissionSetArrayInput interface {
 	pulumi.Input
 
@@ -204,7 +206,7 @@ func (i PermissionSetArray) ToPermissionSetArrayOutputWithContext(ctx context.Co
 // PermissionSetMapInput is an input type that accepts PermissionSetMap and PermissionSetMapOutput values.
 // You can construct a concrete instance of `PermissionSetMapInput` via:
 //
-//          PermissionSetMap{ "key": PermissionSetArgs{...} }
+//	PermissionSetMap{ "key": PermissionSetArgs{...} }
 type PermissionSetMapInput interface {
 	pulumi.Input
 
@@ -280,7 +282,7 @@ func (o PermissionSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PermissionSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -15,26 +15,24 @@ namespace Pulumi.Aws.LakeFormation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.LakeFormation.LfTag("example", new()
     ///     {
-    ///         var example = new Aws.LakeFormation.LfTag("example", new Aws.LakeFormation.LfTagArgs
+    ///         Key = "module",
+    ///         Values = new[]
     ///         {
-    ///             Key = "module",
-    ///             Values = 
-    ///             {
-    ///                 "Orders",
-    ///                 "Sales",
-    ///                 "Customers",
-    ///             },
-    ///         });
-    ///     }
+    ///             "Orders",
+    ///             "Sales",
+    ///             "Customers",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Aws.LakeFormation
     /// ```
     /// </summary>
     [AwsResourceType("aws:lakeformation/lfTag:LfTag")]
-    public partial class LfTag : Pulumi.CustomResource
+    public partial class LfTag : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
@@ -110,7 +108,7 @@ namespace Pulumi.Aws.LakeFormation
         }
     }
 
-    public sealed class LfTagArgs : Pulumi.ResourceArgs
+    public sealed class LfTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
@@ -139,9 +137,10 @@ namespace Pulumi.Aws.LakeFormation
         public LfTagArgs()
         {
         }
+        public static new LfTagArgs Empty => new LfTagArgs();
     }
 
-    public sealed class LfTagState : Pulumi.ResourceArgs
+    public sealed class LfTagState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
@@ -170,5 +169,6 @@ namespace Pulumi.Aws.LakeFormation
         public LfTagState()
         {
         }
+        public static new LfTagState Empty => new LfTagState();
     }
 }

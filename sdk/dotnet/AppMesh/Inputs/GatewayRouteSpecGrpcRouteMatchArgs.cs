@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class GatewayRouteSpecGrpcRouteMatchArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteSpecGrpcRouteMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The fully qualified domain name for the service to match from the request.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public GatewayRouteSpecGrpcRouteMatchArgs()
         {
         }
+        public static new GatewayRouteSpecGrpcRouteMatchArgs Empty => new GatewayRouteSpecGrpcRouteMatchArgs();
     }
 }

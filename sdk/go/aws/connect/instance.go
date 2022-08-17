@@ -22,24 +22,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.NewInstance(ctx, "test", &connect.InstanceArgs{
-// 			IdentityManagementType: pulumi.String("CONNECT_MANAGED"),
-// 			InboundCallsEnabled:    pulumi.Bool(true),
-// 			InstanceAlias:          pulumi.String("friendly-name-connect"),
-// 			OutboundCallsEnabled:   pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewInstance(ctx, "test", &connect.InstanceArgs{
+//				IdentityManagementType: pulumi.String("CONNECT_MANAGED"),
+//				InboundCallsEnabled:    pulumi.Bool(true),
+//				InstanceAlias:          pulumi.String("friendly-name-connect"),
+//				OutboundCallsEnabled:   pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With Existing Active Directory
 //
@@ -47,25 +50,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.NewInstance(ctx, "test", &connect.InstanceArgs{
-// 			DirectoryId:            pulumi.Any(aws_directory_service_directory.Test.Id),
-// 			IdentityManagementType: pulumi.String("EXISTING_DIRECTORY"),
-// 			InboundCallsEnabled:    pulumi.Bool(true),
-// 			InstanceAlias:          pulumi.String("friendly-name-connect"),
-// 			OutboundCallsEnabled:   pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewInstance(ctx, "test", &connect.InstanceArgs{
+//				DirectoryId:            pulumi.Any(aws_directory_service_directory.Test.Id),
+//				IdentityManagementType: pulumi.String("EXISTING_DIRECTORY"),
+//				InboundCallsEnabled:    pulumi.Bool(true),
+//				InstanceAlias:          pulumi.String("friendly-name-connect"),
+//				OutboundCallsEnabled:   pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With SAML
 //
@@ -73,24 +79,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.NewInstance(ctx, "test", &connect.InstanceArgs{
-// 			IdentityManagementType: pulumi.String("SAML"),
-// 			InboundCallsEnabled:    pulumi.Bool(true),
-// 			InstanceAlias:          pulumi.String("friendly-name-connect"),
-// 			OutboundCallsEnabled:   pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewInstance(ctx, "test", &connect.InstanceArgs{
+//				IdentityManagementType: pulumi.String("SAML"),
+//				InboundCallsEnabled:    pulumi.Bool(true),
+//				InstanceAlias:          pulumi.String("friendly-name-connect"),
+//				OutboundCallsEnabled:   pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -98,7 +107,9 @@ import (
 // Connect instances can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
+//
+//	$ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
+//
 // ```
 type Instance struct {
 	pulumi.CustomResourceState
@@ -304,7 +315,7 @@ func (i *Instance) ToInstanceOutputWithContext(ctx context.Context) InstanceOutp
 // InstanceArrayInput is an input type that accepts InstanceArray and InstanceArrayOutput values.
 // You can construct a concrete instance of `InstanceArrayInput` via:
 //
-//          InstanceArray{ InstanceArgs{...} }
+//	InstanceArray{ InstanceArgs{...} }
 type InstanceArrayInput interface {
 	pulumi.Input
 
@@ -329,7 +340,7 @@ func (i InstanceArray) ToInstanceArrayOutputWithContext(ctx context.Context) Ins
 // InstanceMapInput is an input type that accepts InstanceMap and InstanceMapOutput values.
 // You can construct a concrete instance of `InstanceMapInput` via:
 //
-//          InstanceMap{ "key": InstanceArgs{...} }
+//	InstanceMap{ "key": InstanceArgs{...} }
 type InstanceMapInput interface {
 	pulumi.Input
 

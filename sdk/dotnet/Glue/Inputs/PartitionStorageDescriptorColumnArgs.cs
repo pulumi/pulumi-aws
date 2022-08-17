@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class PartitionStorageDescriptorColumnArgs : Pulumi.ResourceArgs
+    public sealed class PartitionStorageDescriptorColumnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Free-form text comment.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public PartitionStorageDescriptorColumnArgs()
         {
         }
+        public static new PartitionStorageDescriptorColumnArgs Empty => new PartitionStorageDescriptorColumnArgs();
     }
 }

@@ -19,33 +19,36 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"AllowDBUserOverride": "1",
-// 			"Client_ID":           "ExampleClientID",
-// 			"App_ID":              "example",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = redshift.NewAuthenticationProfile(ctx, "example", &redshift.AuthenticationProfileArgs{
-// 			AuthenticationProfileName:    pulumi.String("example"),
-// 			AuthenticationProfileContent: pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"AllowDBUserOverride": "1",
+//				"Client_ID":           "ExampleClientID",
+//				"App_ID":              "example",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = redshift.NewAuthenticationProfile(ctx, "example", &redshift.AuthenticationProfileArgs{
+//				AuthenticationProfileName:    pulumi.String("example"),
+//				AuthenticationProfileContent: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // Redshift Authentication Profiles support import by `authentication_profile_name`, e.g., console
 //
 // ```sh
-//  $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
+//
+//	$ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
+//
 // ```
 type AuthenticationProfile struct {
 	pulumi.CustomResourceState
@@ -157,7 +162,7 @@ func (i *AuthenticationProfile) ToAuthenticationProfileOutputWithContext(ctx con
 // AuthenticationProfileArrayInput is an input type that accepts AuthenticationProfileArray and AuthenticationProfileArrayOutput values.
 // You can construct a concrete instance of `AuthenticationProfileArrayInput` via:
 //
-//          AuthenticationProfileArray{ AuthenticationProfileArgs{...} }
+//	AuthenticationProfileArray{ AuthenticationProfileArgs{...} }
 type AuthenticationProfileArrayInput interface {
 	pulumi.Input
 
@@ -182,7 +187,7 @@ func (i AuthenticationProfileArray) ToAuthenticationProfileArrayOutputWithContex
 // AuthenticationProfileMapInput is an input type that accepts AuthenticationProfileMap and AuthenticationProfileMapOutput values.
 // You can construct a concrete instance of `AuthenticationProfileMapInput` via:
 //
-//          AuthenticationProfileMap{ "key": AuthenticationProfileArgs{...} }
+//	AuthenticationProfileMap{ "key": AuthenticationProfileArgs{...} }
 type AuthenticationProfileMapInput interface {
 	pulumi.Input
 

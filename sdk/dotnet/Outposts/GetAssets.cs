@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Outposts
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Outposts.GetAssets.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Outposts.GetAssets.InvokeAsync(new Aws.Outposts.GetAssetsArgs
-        ///         {
-        ///             Arn = data.Aws_outposts_outpost.Example.Arn,
-        ///         }));
-        ///     }
+        ///         Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Outposts
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Outposts.GetAssets.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Outposts.GetAssets.InvokeAsync(new Aws.Outposts.GetAssetsArgs
-        ///         {
-        ///             Arn = data.Aws_outposts_outpost.Example.Arn,
-        ///         }));
-        ///     }
+        ///         Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Outposts
     }
 
 
-    public sealed class GetAssetsArgs : Pulumi.InvokeArgs
+    public sealed class GetAssetsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Outpost ARN.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Outposts
         public GetAssetsArgs()
         {
         }
+        public static new GetAssetsArgs Empty => new GetAssetsArgs();
     }
 
-    public sealed class GetAssetsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAssetsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Outpost ARN.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Outposts
         public GetAssetsInvokeArgs()
         {
         }
+        public static new GetAssetsInvokeArgs Empty => new GetAssetsInvokeArgs();
     }
 
 

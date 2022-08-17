@@ -16,90 +16,84 @@ namespace Pulumi.Aws.Ssm
     /// ### Create an association for a specific instance
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ssm.Association("example", new()
     ///     {
-    ///         var example = new Aws.Ssm.Association("example", new Aws.Ssm.AssociationArgs
+    ///         Targets = new[]
     ///         {
-    ///             Targets = 
+    ///             new Aws.Ssm.Inputs.AssociationTargetArgs
     ///             {
-    ///                 new Aws.Ssm.Inputs.AssociationTargetArgs
+    ///                 Key = "InstanceIds",
+    ///                 Values = new[]
     ///                 {
-    ///                     Key = "InstanceIds",
-    ///                     Values = 
-    ///                     {
-    ///                         aws_instance.Example.Id,
-    ///                     },
+    ///                     aws_instance.Example.Id,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Create an association for all managed instances in an AWS account
     /// 
     /// To target all managed instances in an AWS account, set the `key` as `"InstanceIds"` with `values` set as `["*"]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ssm.Association("example", new()
     ///     {
-    ///         var example = new Aws.Ssm.Association("example", new Aws.Ssm.AssociationArgs
+    ///         Targets = new[]
     ///         {
-    ///             Targets = 
+    ///             new Aws.Ssm.Inputs.AssociationTargetArgs
     ///             {
-    ///                 new Aws.Ssm.Inputs.AssociationTargetArgs
+    ///                 Key = "InstanceIds",
+    ///                 Values = new[]
     ///                 {
-    ///                     Key = "InstanceIds",
-    ///                     Values = 
-    ///                     {
-    ///                         "*",
-    ///                     },
+    ///                     "*",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Create an association for a specific tag
     /// 
     /// This example shows how to target all managed instances that are assigned a tag key of `Environment` and value of `Development`.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ssm.Association("example", new()
     ///     {
-    ///         var example = new Aws.Ssm.Association("example", new Aws.Ssm.AssociationArgs
+    ///         Targets = new[]
     ///         {
-    ///             Targets = 
+    ///             new Aws.Ssm.Inputs.AssociationTargetArgs
     ///             {
-    ///                 new Aws.Ssm.Inputs.AssociationTargetArgs
+    ///                 Key = "tag:Environment",
+    ///                 Values = new[]
     ///                 {
-    ///                     Key = "tag:Environment",
-    ///                     Values = 
-    ///                     {
-    ///                         "Development",
-    ///                     },
+    ///                     "Development",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -111,7 +105,7 @@ namespace Pulumi.Aws.Ssm
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/association:Association")]
-    public partial class Association : Pulumi.CustomResource
+    public partial class Association : global::Pulumi.CustomResource
     {
         /// <summary>
         /// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
@@ -253,7 +247,7 @@ namespace Pulumi.Aws.Ssm
         }
     }
 
-    public sealed class AssociationArgs : Pulumi.ResourceArgs
+    public sealed class AssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
@@ -354,9 +348,10 @@ namespace Pulumi.Aws.Ssm
         public AssociationArgs()
         {
         }
+        public static new AssociationArgs Empty => new AssociationArgs();
     }
 
-    public sealed class AssociationState : Pulumi.ResourceArgs
+    public sealed class AssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
@@ -469,5 +464,6 @@ namespace Pulumi.Aws.Ssm
         public AssociationState()
         {
         }
+        public static new AssociationState Empty => new AssociationState();
     }
 }

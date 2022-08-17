@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Signer
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var productionSigningProfile = Aws.Signer.GetSigningProfile.Invoke(new()
         ///     {
-        ///         var productionSigningProfile = Output.Create(Aws.Signer.GetSigningProfile.InvokeAsync(new Aws.Signer.GetSigningProfileArgs
-        ///         {
-        ///             Name = "prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK",
-        ///         }));
-        ///     }
+        ///         Name = "prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Signer
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var productionSigningProfile = Aws.Signer.GetSigningProfile.Invoke(new()
         ///     {
-        ///         var productionSigningProfile = Output.Create(Aws.Signer.GetSigningProfile.InvokeAsync(new Aws.Signer.GetSigningProfileArgs
-        ///         {
-        ///             Name = "prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK",
-        ///         }));
-        ///     }
+        ///         Name = "prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Signer
     }
 
 
-    public sealed class GetSigningProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetSigningProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the target signing profile.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.Signer
         public GetSigningProfileArgs()
         {
         }
+        public static new GetSigningProfileArgs Empty => new GetSigningProfileArgs();
     }
 
-    public sealed class GetSigningProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSigningProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the target signing profile.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.Signer
         public GetSigningProfileInvokeArgs()
         {
         }
+        public static new GetSigningProfileInvokeArgs Empty => new GetSigningProfileInvokeArgs();
     }
 
 

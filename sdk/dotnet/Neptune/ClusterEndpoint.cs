@@ -15,22 +15,20 @@ namespace Pulumi.Aws.Neptune
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Neptune.ClusterEndpoint("example", new()
     ///     {
-    ///         var example = new Aws.Neptune.ClusterEndpoint("example", new Aws.Neptune.ClusterEndpointArgs
-    ///         {
-    ///             ClusterIdentifier = aws_neptune_cluster.Test.Cluster_identifier,
-    ///             ClusterEndpointIdentifier = "example",
-    ///             EndpointType = "READER",
-    ///         });
-    ///     }
+    ///         ClusterIdentifier = aws_neptune_cluster.Test.Cluster_identifier,
+    ///         ClusterEndpointIdentifier = "example",
+    ///         EndpointType = "READER",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.Neptune
     /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/clusterEndpoint:ClusterEndpoint")]
-    public partial class ClusterEndpoint : Pulumi.CustomResource
+    public partial class ClusterEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
@@ -142,7 +140,7 @@ namespace Pulumi.Aws.Neptune
         }
     }
 
-    public sealed class ClusterEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ClusterEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the endpoint.
@@ -201,9 +199,10 @@ namespace Pulumi.Aws.Neptune
         public ClusterEndpointArgs()
         {
         }
+        public static new ClusterEndpointArgs Empty => new ClusterEndpointArgs();
     }
 
-    public sealed class ClusterEndpointState : Pulumi.ResourceArgs
+    public sealed class ClusterEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
@@ -286,5 +285,6 @@ namespace Pulumi.Aws.Neptune
         public ClusterEndpointState()
         {
         }
+        public static new ClusterEndpointState Empty => new ClusterEndpointState();
     }
 }

@@ -20,21 +20,19 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Transit Gateway and Direct Connect Gateway Identifiers
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachment.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachmentArgs
-        ///         {
-        ///             TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-        ///             DxGatewayId = aws_dx_gateway.Example.Id,
-        ///         }));
-        ///     }
+        ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
+        ///         DxGatewayId = aws_dx_gateway.Example.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -51,21 +49,19 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Transit Gateway and Direct Connect Gateway Identifiers
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachment.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachmentArgs
-        ///         {
-        ///             TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-        ///             DxGatewayId = aws_dx_gateway.Example.Id,
-        ///         }));
-        ///     }
+        ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
+        ///         DxGatewayId = aws_dx_gateway.Example.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     }
 
 
-    public sealed class GetDirectConnectGatewayAttachmentArgs : Pulumi.InvokeArgs
+    public sealed class GetDirectConnectGatewayAttachmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the Direct Connect Gateway.
@@ -116,9 +112,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetDirectConnectGatewayAttachmentArgs()
         {
         }
+        public static new GetDirectConnectGatewayAttachmentArgs Empty => new GetDirectConnectGatewayAttachmentArgs();
     }
 
-    public sealed class GetDirectConnectGatewayAttachmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDirectConnectGatewayAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the Direct Connect Gateway.
@@ -159,6 +156,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetDirectConnectGatewayAttachmentInvokeArgs()
         {
         }
+        public static new GetDirectConnectGatewayAttachmentInvokeArgs Empty => new GetDirectConnectGatewayAttachmentInvokeArgs();
     }
 
 

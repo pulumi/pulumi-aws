@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewCarrierGateway(ctx, "example", &ec2.CarrierGatewayArgs{
-// 			VpcId: pulumi.Any(aws_vpc.Example.Id),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example-carrier-gateway"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewCarrierGateway(ctx, "example", &ec2.CarrierGatewayArgs{
+//				VpcId: pulumi.Any(aws_vpc.Example.Id),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-carrier-gateway"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // `aws_ec2_carrier_gateway` can be imported using the carrier gateway's ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
+//
+//	$ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
+//
 // ```
 type CarrierGateway struct {
 	pulumi.CustomResourceState
@@ -163,7 +168,7 @@ func (i *CarrierGateway) ToCarrierGatewayOutputWithContext(ctx context.Context) 
 // CarrierGatewayArrayInput is an input type that accepts CarrierGatewayArray and CarrierGatewayArrayOutput values.
 // You can construct a concrete instance of `CarrierGatewayArrayInput` via:
 //
-//          CarrierGatewayArray{ CarrierGatewayArgs{...} }
+//	CarrierGatewayArray{ CarrierGatewayArgs{...} }
 type CarrierGatewayArrayInput interface {
 	pulumi.Input
 
@@ -188,7 +193,7 @@ func (i CarrierGatewayArray) ToCarrierGatewayArrayOutputWithContext(ctx context.
 // CarrierGatewayMapInput is an input type that accepts CarrierGatewayMap and CarrierGatewayMapOutput values.
 // You can construct a concrete instance of `CarrierGatewayMapInput` via:
 //
-//          CarrierGatewayMap{ "key": CarrierGatewayArgs{...} }
+//	CarrierGatewayMap{ "key": CarrierGatewayArgs{...} }
 type CarrierGatewayMapInput interface {
 	pulumi.Input
 

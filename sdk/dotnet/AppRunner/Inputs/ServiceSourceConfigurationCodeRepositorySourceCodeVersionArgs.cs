@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppRunner.Inputs
 {
 
-    public sealed class ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs()
         {
         }
+        public static new ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs Empty => new ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs();
     }
 }

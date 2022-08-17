@@ -21,41 +21,37 @@ namespace Pulumi.Aws.Connect
         /// By `name`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetQuickConnect.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetQuickConnect.InvokeAsync(new Aws.Connect.GetQuickConnectArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             Name = "Example",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// By `quick_connect_id`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetQuickConnect.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetQuickConnect.InvokeAsync(new Aws.Connect.GetQuickConnectArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             QuickConnectId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         QuickConnectId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,41 +69,37 @@ namespace Pulumi.Aws.Connect
         /// By `name`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetQuickConnect.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetQuickConnect.InvokeAsync(new Aws.Connect.GetQuickConnectArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             Name = "Example",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// By `quick_connect_id`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetQuickConnect.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetQuickConnect.InvokeAsync(new Aws.Connect.GetQuickConnectArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             QuickConnectId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         QuickConnectId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -117,7 +109,7 @@ namespace Pulumi.Aws.Connect
     }
 
 
-    public sealed class GetQuickConnectArgs : Pulumi.InvokeArgs
+    public sealed class GetQuickConnectArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Reference to the hosting Amazon Connect Instance
@@ -152,9 +144,10 @@ namespace Pulumi.Aws.Connect
         public GetQuickConnectArgs()
         {
         }
+        public static new GetQuickConnectArgs Empty => new GetQuickConnectArgs();
     }
 
-    public sealed class GetQuickConnectInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetQuickConnectInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Reference to the hosting Amazon Connect Instance
@@ -189,6 +182,7 @@ namespace Pulumi.Aws.Connect
         public GetQuickConnectInvokeArgs()
         {
         }
+        public static new GetQuickConnectInvokeArgs Empty => new GetQuickConnectInvokeArgs();
     }
 
 

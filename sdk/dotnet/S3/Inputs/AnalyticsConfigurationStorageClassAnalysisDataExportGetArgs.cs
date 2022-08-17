@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportGetArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsConfigurationStorageClassAnalysisDataExportGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the destination for the exported analytics data (documented below).
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public AnalyticsConfigurationStorageClassAnalysisDataExportGetArgs()
         {
         }
+        public static new AnalyticsConfigurationStorageClassAnalysisDataExportGetArgs Empty => new AnalyticsConfigurationStorageClassAnalysisDataExportGetArgs();
     }
 }

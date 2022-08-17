@@ -16,21 +16,19 @@ namespace Pulumi.Aws.NetworkManager
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.NetworkManager.Device("example", new()
     ///     {
-    ///         var example = new Aws.NetworkManager.Device("example", new Aws.NetworkManager.DeviceArgs
-    ///         {
-    ///             GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///             SiteId = aws_networkmanager_site.Example.Id,
-    ///         });
-    ///     }
+    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
+    ///         SiteId = aws_networkmanager_site.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.NetworkManager
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/device:Device")]
-    public partial class Device : Pulumi.CustomResource
+    public partial class Device : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the device.
@@ -154,7 +152,7 @@ namespace Pulumi.Aws.NetworkManager
         }
     }
 
-    public sealed class DeviceArgs : Pulumi.ResourceArgs
+    public sealed class DeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS location of the device. Documented below.
@@ -221,9 +219,10 @@ namespace Pulumi.Aws.NetworkManager
         public DeviceArgs()
         {
         }
+        public static new DeviceArgs Empty => new DeviceArgs();
     }
 
-    public sealed class DeviceState : Pulumi.ResourceArgs
+    public sealed class DeviceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the device.
@@ -304,5 +303,6 @@ namespace Pulumi.Aws.NetworkManager
         public DeviceState()
         {
         }
+        public static new DeviceState Empty => new DeviceState();
     }
 }

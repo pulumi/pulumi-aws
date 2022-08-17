@@ -16,21 +16,19 @@ namespace Pulumi.Aws.Sagemaker
     /// ### Basic usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Sagemaker.ImageVersion("test", new()
     ///     {
-    ///         var test = new Aws.Sagemaker.ImageVersion("test", new Aws.Sagemaker.ImageVersionArgs
-    ///         {
-    ///             ImageName = aws_sagemaker_image.Test.Id,
-    ///             BaseImage = "012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest",
-    ///         });
-    ///     }
+    ///         ImageName = aws_sagemaker_image.Test.Id,
+    ///         BaseImage = "012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/imageVersion:ImageVersion")]
-    public partial class ImageVersion : Pulumi.CustomResource
+    public partial class ImageVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
@@ -119,7 +117,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class ImageVersionArgs : Pulumi.ResourceArgs
+    public sealed class ImageVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The registry path of the container image on which this image version is based.
@@ -136,9 +134,10 @@ namespace Pulumi.Aws.Sagemaker
         public ImageVersionArgs()
         {
         }
+        public static new ImageVersionArgs Empty => new ImageVersionArgs();
     }
 
-    public sealed class ImageVersionState : Pulumi.ResourceArgs
+    public sealed class ImageVersionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
@@ -174,5 +173,6 @@ namespace Pulumi.Aws.Sagemaker
         public ImageVersionState()
         {
         }
+        public static new ImageVersionState Empty => new ImageVersionState();
     }
 }

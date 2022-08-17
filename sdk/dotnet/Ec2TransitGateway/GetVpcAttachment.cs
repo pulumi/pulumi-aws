@@ -20,50 +20,46 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetVpcAttachment.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetVpcAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetVpcAttachmentArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2TransitGateway.Inputs.GetVpcAttachmentFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetVpcAttachmentFilterArgs
+        ///                 Name = "vpc-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "vpc-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "vpc-12345678",
-        ///                     },
+        ///                     "vpc-12345678",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetVpcAttachment.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetVpcAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetVpcAttachmentArgs
-        ///         {
-        ///             Id = "tgw-attach-12345678",
-        ///         }));
-        ///     }
+        ///         Id = "tgw-attach-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -80,50 +76,46 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetVpcAttachment.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetVpcAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetVpcAttachmentArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2TransitGateway.Inputs.GetVpcAttachmentFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetVpcAttachmentFilterArgs
+        ///                 Name = "vpc-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "vpc-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "vpc-12345678",
-        ///                     },
+        ///                     "vpc-12345678",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetVpcAttachment.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetVpcAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetVpcAttachmentArgs
-        ///         {
-        ///             Id = "tgw-attach-12345678",
-        ///         }));
-        ///     }
+        ///         Id = "tgw-attach-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -133,7 +125,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     }
 
 
-    public sealed class GetVpcAttachmentArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcAttachmentArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetVpcAttachmentFilterArgs>? _filters;
@@ -168,9 +160,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetVpcAttachmentArgs()
         {
         }
+        public static new GetVpcAttachmentArgs Empty => new GetVpcAttachmentArgs();
     }
 
-    public sealed class GetVpcAttachmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetVpcAttachmentFilterInputArgs>? _filters;
@@ -205,6 +198,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetVpcAttachmentInvokeArgs()
         {
         }
+        public static new GetVpcAttachmentInvokeArgs Empty => new GetVpcAttachmentInvokeArgs();
     }
 
 

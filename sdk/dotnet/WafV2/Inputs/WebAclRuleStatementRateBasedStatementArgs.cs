@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleStatementRateBasedStatementArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleStatementRateBasedStatementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclRuleStatementRateBasedStatementArgs()
         {
         }
+        public static new WebAclRuleStatementRateBasedStatementArgs Empty => new WebAclRuleStatementRateBasedStatementArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2TransitGateway.Inputs
 {
 
-    public sealed class GetVpcAttachmentFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcAttachmentFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the filter.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2TransitGateway.Inputs
         public GetVpcAttachmentFilterArgs()
         {
         }
+        public static new GetVpcAttachmentFilterArgs Empty => new GetVpcAttachmentFilterArgs();
     }
 }

@@ -20,20 +20,18 @@ namespace Pulumi.Aws.Grafana
         /// ### Basic configuration
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Grafana.GetWorkspace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Grafana.GetWorkspace.InvokeAsync(new Aws.Grafana.GetWorkspaceArgs
-        ///         {
-        ///             WorkspaceId = "g-2054c75a02",
-        ///         }));
-        ///     }
+        ///         WorkspaceId = "g-2054c75a02",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,20 +48,18 @@ namespace Pulumi.Aws.Grafana
         /// ### Basic configuration
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Grafana.GetWorkspace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Grafana.GetWorkspace.InvokeAsync(new Aws.Grafana.GetWorkspaceArgs
-        ///         {
-        ///             WorkspaceId = "g-2054c75a02",
-        ///         }));
-        ///     }
+        ///         WorkspaceId = "g-2054c75a02",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Grafana
     }
 
 
-    public sealed class GetWorkspaceArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -96,9 +92,10 @@ namespace Pulumi.Aws.Grafana
         public GetWorkspaceArgs()
         {
         }
+        public static new GetWorkspaceArgs Empty => new GetWorkspaceArgs();
     }
 
-    public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -121,6 +118,7 @@ namespace Pulumi.Aws.Grafana
         public GetWorkspaceInvokeArgs()
         {
         }
+        public static new GetWorkspaceInvokeArgs Empty => new GetWorkspaceInvokeArgs();
     }
 
 

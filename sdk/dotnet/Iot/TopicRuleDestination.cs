@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Iot
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/topicRuleDestination:TopicRuleDestination")]
-    public partial class TopicRuleDestination : Pulumi.CustomResource
+    public partial class TopicRuleDestination : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the topic rule destination
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Iot
         }
     }
 
-    public sealed class TopicRuleDestinationArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not to enable the destination. Default: `true`.
@@ -100,9 +100,10 @@ namespace Pulumi.Aws.Iot
         public TopicRuleDestinationArgs()
         {
         }
+        public static new TopicRuleDestinationArgs Empty => new TopicRuleDestinationArgs();
     }
 
-    public sealed class TopicRuleDestinationState : Pulumi.ResourceArgs
+    public sealed class TopicRuleDestinationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the topic rule destination
@@ -125,5 +126,6 @@ namespace Pulumi.Aws.Iot
         public TopicRuleDestinationState()
         {
         }
+        public static new TopicRuleDestinationState Empty => new TopicRuleDestinationState();
     }
 }

@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleLocalGatewayRouteTable, err := ec2.GetLocalGatewayRouteTable(ctx, &ec2.GetLocalGatewayRouteTableArgs{
-// 			OutpostArn: pulumi.StringRef("arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.0.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewLocalGatewayRouteTableVpcAssociation(ctx, "exampleLocalGatewayRouteTableVpcAssociation", &ec2.LocalGatewayRouteTableVpcAssociationArgs{
-// 			LocalGatewayRouteTableId: pulumi.String(exampleLocalGatewayRouteTable.Id),
-// 			VpcId:                    exampleVpc.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleLocalGatewayRouteTable, err := ec2.GetLocalGatewayRouteTable(ctx, &ec2.GetLocalGatewayRouteTableArgs{
+//				OutpostArn: pulumi.StringRef("arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewLocalGatewayRouteTableVpcAssociation(ctx, "exampleLocalGatewayRouteTableVpcAssociation", &ec2.LocalGatewayRouteTableVpcAssociationArgs{
+//				LocalGatewayRouteTableId: pulumi.String(exampleLocalGatewayRouteTable.Id),
+//				VpcId:                    exampleVpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // `aws_ec2_local_gateway_route_table_vpc_association` can be imported by using the Local Gateway Route Table VPC Association identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
+//
+//	$ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
+//
 // ```
 type LocalGatewayRouteTableVpcAssociation struct {
 	pulumi.CustomResourceState
@@ -177,7 +182,7 @@ func (i *LocalGatewayRouteTableVpcAssociation) ToLocalGatewayRouteTableVpcAssoci
 // LocalGatewayRouteTableVpcAssociationArrayInput is an input type that accepts LocalGatewayRouteTableVpcAssociationArray and LocalGatewayRouteTableVpcAssociationArrayOutput values.
 // You can construct a concrete instance of `LocalGatewayRouteTableVpcAssociationArrayInput` via:
 //
-//          LocalGatewayRouteTableVpcAssociationArray{ LocalGatewayRouteTableVpcAssociationArgs{...} }
+//	LocalGatewayRouteTableVpcAssociationArray{ LocalGatewayRouteTableVpcAssociationArgs{...} }
 type LocalGatewayRouteTableVpcAssociationArrayInput interface {
 	pulumi.Input
 
@@ -202,7 +207,7 @@ func (i LocalGatewayRouteTableVpcAssociationArray) ToLocalGatewayRouteTableVpcAs
 // LocalGatewayRouteTableVpcAssociationMapInput is an input type that accepts LocalGatewayRouteTableVpcAssociationMap and LocalGatewayRouteTableVpcAssociationMapOutput values.
 // You can construct a concrete instance of `LocalGatewayRouteTableVpcAssociationMapInput` via:
 //
-//          LocalGatewayRouteTableVpcAssociationMap{ "key": LocalGatewayRouteTableVpcAssociationArgs{...} }
+//	LocalGatewayRouteTableVpcAssociationMap{ "key": LocalGatewayRouteTableVpcAssociationArgs{...} }
 type LocalGatewayRouteTableVpcAssociationMapInput interface {
 	pulumi.Input
 

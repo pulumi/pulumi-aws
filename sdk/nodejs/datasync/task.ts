@@ -38,6 +38,10 @@ import {ARN} from "..";
  *         filterType: "SIMPLE_PATTERN",
  *         value: "/folder1|/folder2",
  *     },
+ *     includes: {
+ *         filterType: "SIMPLE_PATTERN",
+ *         value: "/folder1|/folder2",
+ *     },
  * });
  * ```
  *
@@ -94,6 +98,10 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly excludes!: pulumi.Output<outputs.datasync.TaskExcludes | undefined>;
     /**
+     * Filter rules that determines which files to include in a task.
+     */
+    public readonly includes!: pulumi.Output<outputs.datasync.TaskIncludes | undefined>;
+    /**
      * Name of the DataSync Task.
      */
     public readonly name!: pulumi.Output<string>;
@@ -110,11 +118,11 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly sourceLocationArn!: pulumi.Output<ARN>;
     /**
-     * Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -135,6 +143,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
             resourceInputs["destinationLocationArn"] = state ? state.destinationLocationArn : undefined;
             resourceInputs["excludes"] = state ? state.excludes : undefined;
+            resourceInputs["includes"] = state ? state.includes : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["options"] = state ? state.options : undefined;
             resourceInputs["schedule"] = state ? state.schedule : undefined;
@@ -152,6 +161,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
             resourceInputs["destinationLocationArn"] = args ? args.destinationLocationArn : undefined;
             resourceInputs["excludes"] = args ? args.excludes : undefined;
+            resourceInputs["includes"] = args ? args.includes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
@@ -186,6 +196,10 @@ export interface TaskState {
      */
     excludes?: pulumi.Input<inputs.datasync.TaskExcludes>;
     /**
+     * Filter rules that determines which files to include in a task.
+     */
+    includes?: pulumi.Input<inputs.datasync.TaskIncludes>;
+    /**
      * Name of the DataSync Task.
      */
     name?: pulumi.Input<string>;
@@ -202,11 +216,11 @@ export interface TaskState {
      */
     sourceLocationArn?: pulumi.Input<ARN>;
     /**
-     * Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -228,6 +242,10 @@ export interface TaskArgs {
      */
     excludes?: pulumi.Input<inputs.datasync.TaskExcludes>;
     /**
+     * Filter rules that determines which files to include in a task.
+     */
+    includes?: pulumi.Input<inputs.datasync.TaskIncludes>;
+    /**
      * Name of the DataSync Task.
      */
     name?: pulumi.Input<string>;
@@ -244,7 +262,7 @@ export interface TaskArgs {
      */
     sourceLocationArn: pulumi.Input<ARN>;
     /**
-     * Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

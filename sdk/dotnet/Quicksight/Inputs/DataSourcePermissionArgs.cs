@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Quicksight.Inputs
 {
 
-    public sealed class DataSourcePermissionArgs : Pulumi.ResourceArgs
+    public sealed class DataSourcePermissionArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<string>? _actions;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public DataSourcePermissionArgs()
         {
         }
+        public static new DataSourcePermissionArgs Empty => new DataSourcePermissionArgs();
     }
 }

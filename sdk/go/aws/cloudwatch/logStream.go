@@ -19,25 +19,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		yada, err := cloudwatch.NewLogGroup(ctx, "yada", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cloudwatch.NewLogStream(ctx, "foo", &cloudwatch.LogStreamArgs{
-// 			LogGroupName: yada.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			yada, err := cloudwatch.NewLogGroup(ctx, "yada", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewLogStream(ctx, "foo", &cloudwatch.LogStreamArgs{
+//				LogGroupName: yada.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // Cloudwatch Log Stream can be imported using the stream's `log_group_name` and `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
+//
+//	$ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
+//
 // ```
 type LogStream struct {
 	pulumi.CustomResourceState
@@ -152,7 +157,7 @@ func (i *LogStream) ToLogStreamOutputWithContext(ctx context.Context) LogStreamO
 // LogStreamArrayInput is an input type that accepts LogStreamArray and LogStreamArrayOutput values.
 // You can construct a concrete instance of `LogStreamArrayInput` via:
 //
-//          LogStreamArray{ LogStreamArgs{...} }
+//	LogStreamArray{ LogStreamArgs{...} }
 type LogStreamArrayInput interface {
 	pulumi.Input
 
@@ -177,7 +182,7 @@ func (i LogStreamArray) ToLogStreamArrayOutputWithContext(ctx context.Context) L
 // LogStreamMapInput is an input type that accepts LogStreamMap and LogStreamMapOutput values.
 // You can construct a concrete instance of `LogStreamMapInput` via:
 //
-//          LogStreamMap{ "key": LogStreamArgs{...} }
+//	LogStreamMap{ "key": LogStreamArgs{...} }
 type LogStreamMapInput interface {
 	pulumi.Input
 

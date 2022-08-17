@@ -19,51 +19,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.0.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		vpnGateway, err := ec2.NewVpnGateway(ctx, "vpnGateway", &ec2.VpnGatewayArgs{
-// 			VpcId: vpc.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		customerGateway, err := ec2.NewCustomerGateway(ctx, "customerGateway", &ec2.CustomerGatewayArgs{
-// 			BgpAsn:    pulumi.String("65000"),
-// 			IpAddress: pulumi.String("172.0.0.1"),
-// 			Type:      pulumi.String("ipsec.1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		main, err := ec2.NewVpnConnection(ctx, "main", &ec2.VpnConnectionArgs{
-// 			VpnGatewayId:      vpnGateway.ID(),
-// 			CustomerGatewayId: customerGateway.ID(),
-// 			Type:              pulumi.String("ipsec.1"),
-// 			StaticRoutesOnly:  pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewVpnConnectionRoute(ctx, "office", &ec2.VpnConnectionRouteArgs{
-// 			DestinationCidrBlock: pulumi.String("192.168.10.0/24"),
-// 			VpnConnectionId:      main.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			vpc, err := ec2.NewVpc(ctx, "vpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			vpnGateway, err := ec2.NewVpnGateway(ctx, "vpnGateway", &ec2.VpnGatewayArgs{
+//				VpcId: vpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			customerGateway, err := ec2.NewCustomerGateway(ctx, "customerGateway", &ec2.CustomerGatewayArgs{
+//				BgpAsn:    pulumi.String("65000"),
+//				IpAddress: pulumi.String("172.0.0.1"),
+//				Type:      pulumi.String("ipsec.1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			main, err := ec2.NewVpnConnection(ctx, "main", &ec2.VpnConnectionArgs{
+//				VpnGatewayId:      vpnGateway.ID(),
+//				CustomerGatewayId: customerGateway.ID(),
+//				Type:              pulumi.String("ipsec.1"),
+//				StaticRoutesOnly:  pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpnConnectionRoute(ctx, "office", &ec2.VpnConnectionRouteArgs{
+//				DestinationCidrBlock: pulumi.String("192.168.10.0/24"),
+//				VpnConnectionId:      main.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type VpnConnectionRoute struct {
 	pulumi.CustomResourceState
@@ -167,7 +170,7 @@ func (i *VpnConnectionRoute) ToVpnConnectionRouteOutputWithContext(ctx context.C
 // VpnConnectionRouteArrayInput is an input type that accepts VpnConnectionRouteArray and VpnConnectionRouteArrayOutput values.
 // You can construct a concrete instance of `VpnConnectionRouteArrayInput` via:
 //
-//          VpnConnectionRouteArray{ VpnConnectionRouteArgs{...} }
+//	VpnConnectionRouteArray{ VpnConnectionRouteArgs{...} }
 type VpnConnectionRouteArrayInput interface {
 	pulumi.Input
 
@@ -192,7 +195,7 @@ func (i VpnConnectionRouteArray) ToVpnConnectionRouteArrayOutputWithContext(ctx 
 // VpnConnectionRouteMapInput is an input type that accepts VpnConnectionRouteMap and VpnConnectionRouteMapOutput values.
 // You can construct a concrete instance of `VpnConnectionRouteMapInput` via:
 //
-//          VpnConnectionRouteMap{ "key": VpnConnectionRouteArgs{...} }
+//	VpnConnectionRouteMap{ "key": VpnConnectionRouteArgs{...} }
 type VpnConnectionRouteMapInput interface {
 	pulumi.Input
 

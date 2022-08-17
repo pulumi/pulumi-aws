@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Efs
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Efs.AccessPoint("test", new()
     ///     {
-    ///         var test = new Aws.Efs.AccessPoint("test", new Aws.Efs.AccessPointArgs
-    ///         {
-    ///             FileSystemId = aws_efs_file_system.Foo.Id,
-    ///         });
-    ///     }
+    ///         FileSystemId = aws_efs_file_system.Foo.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.Efs
     /// ```
     /// </summary>
     [AwsResourceType("aws:efs/accessPoint:AccessPoint")]
-    public partial class AccessPoint : Pulumi.CustomResource
+    public partial class AccessPoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the access point.
@@ -76,7 +74,7 @@ namespace Pulumi.Aws.Efs
         public Output<Outputs.AccessPointRootDirectory> RootDirectory { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -128,7 +126,7 @@ namespace Pulumi.Aws.Efs
         }
     }
 
-    public sealed class AccessPointArgs : Pulumi.ResourceArgs
+    public sealed class AccessPointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the file system for which the access point is intended.
@@ -152,7 +150,7 @@ namespace Pulumi.Aws.Efs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -163,9 +161,10 @@ namespace Pulumi.Aws.Efs
         public AccessPointArgs()
         {
         }
+        public static new AccessPointArgs Empty => new AccessPointArgs();
     }
 
-    public sealed class AccessPointState : Pulumi.ResourceArgs
+    public sealed class AccessPointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the access point.
@@ -204,7 +203,7 @@ namespace Pulumi.Aws.Efs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -223,5 +222,6 @@ namespace Pulumi.Aws.Efs
         public AccessPointState()
         {
         }
+        public static new AccessPointState Empty => new AccessPointState();
     }
 }

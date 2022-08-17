@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/serverlessrepository"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/serverlessrepository"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		currentPartition, err := aws.GetPartition(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		currentRegion, err := aws.GetRegion(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = serverlessrepository.NewCloudFormationStack(ctx, "postgres-rotator", &serverlessrepository.CloudFormationStackArgs{
-// 			ApplicationId: pulumi.String("arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser"),
-// 			Capabilities: pulumi.StringArray{
-// 				pulumi.String("CAPABILITY_IAM"),
-// 				pulumi.String("CAPABILITY_RESOURCE_POLICY"),
-// 			},
-// 			Parameters: pulumi.StringMap{
-// 				"endpoint":     pulumi.String(fmt.Sprintf("secretsmanager.%v.%v", currentRegion.Name, currentPartition.DnsSuffix)),
-// 				"functionName": pulumi.String("func-postgres-rotator"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = serverlessrepository.NewCloudFormationStack(ctx, "postgres-rotator", &serverlessrepository.CloudFormationStackArgs{
+//				ApplicationId: pulumi.String("arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser"),
+//				Capabilities: pulumi.StringArray{
+//					pulumi.String("CAPABILITY_IAM"),
+//					pulumi.String("CAPABILITY_RESOURCE_POLICY"),
+//				},
+//				Parameters: pulumi.StringMap{
+//					"endpoint":     pulumi.String(fmt.Sprintf("secretsmanager.%v.%v", currentRegion.Name, currentPartition.DnsSuffix)),
+//					"functionName": pulumi.String("func-postgres-rotator"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // Serverless Application Repository Stack can be imported using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
+//
+//	$ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
+//
 // ```
 type CloudFormationStack struct {
 	pulumi.CustomResourceState
@@ -79,7 +84,7 @@ type CloudFormationStack struct {
 	SemanticVersion pulumi.StringOutput `pulumi:"semanticVersion"`
 	// A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -132,7 +137,7 @@ type cloudFormationStackState struct {
 	SemanticVersion *string `pulumi:"semanticVersion"`
 	// A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -151,7 +156,7 @@ type CloudFormationStackState struct {
 	SemanticVersion pulumi.StringPtrInput
 	// A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -216,7 +221,7 @@ func (i *CloudFormationStack) ToCloudFormationStackOutputWithContext(ctx context
 // CloudFormationStackArrayInput is an input type that accepts CloudFormationStackArray and CloudFormationStackArrayOutput values.
 // You can construct a concrete instance of `CloudFormationStackArrayInput` via:
 //
-//          CloudFormationStackArray{ CloudFormationStackArgs{...} }
+//	CloudFormationStackArray{ CloudFormationStackArgs{...} }
 type CloudFormationStackArrayInput interface {
 	pulumi.Input
 
@@ -241,7 +246,7 @@ func (i CloudFormationStackArray) ToCloudFormationStackArrayOutputWithContext(ct
 // CloudFormationStackMapInput is an input type that accepts CloudFormationStackMap and CloudFormationStackMapOutput values.
 // You can construct a concrete instance of `CloudFormationStackMapInput` via:
 //
-//          CloudFormationStackMap{ "key": CloudFormationStackArgs{...} }
+//	CloudFormationStackMap{ "key": CloudFormationStackArgs{...} }
 type CloudFormationStackMapInput interface {
 	pulumi.Input
 
@@ -312,7 +317,7 @@ func (o CloudFormationStackOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CloudFormationStackOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

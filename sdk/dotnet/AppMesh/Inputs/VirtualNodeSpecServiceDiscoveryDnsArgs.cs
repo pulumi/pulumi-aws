@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecServiceDiscoveryDnsArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecServiceDiscoveryDnsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DNS host name for your virtual node.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecServiceDiscoveryDnsArgs()
         {
         }
+        public static new VirtualNodeSpecServiceDiscoveryDnsArgs Empty => new VirtualNodeSpecServiceDiscoveryDnsArgs();
     }
 }

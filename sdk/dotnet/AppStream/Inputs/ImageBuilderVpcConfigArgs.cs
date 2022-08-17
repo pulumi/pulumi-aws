@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppStream.Inputs
 {
 
-    public sealed class ImageBuilderVpcConfigArgs : Pulumi.ResourceArgs
+    public sealed class ImageBuilderVpcConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppStream.Inputs
         public ImageBuilderVpcConfigArgs()
         {
         }
+        public static new ImageBuilderVpcConfigArgs Empty => new ImageBuilderVpcConfigArgs();
     }
 }

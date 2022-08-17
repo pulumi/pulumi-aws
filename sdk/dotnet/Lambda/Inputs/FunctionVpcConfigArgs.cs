@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda.Inputs
 {
 
-    public sealed class FunctionVpcConfigArgs : Pulumi.ResourceArgs
+    public sealed class FunctionVpcConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
@@ -42,5 +42,6 @@ namespace Pulumi.Aws.Lambda.Inputs
         public FunctionVpcConfigArgs()
         {
         }
+        public static new FunctionVpcConfigArgs Empty => new FunctionVpcConfigArgs();
     }
 }

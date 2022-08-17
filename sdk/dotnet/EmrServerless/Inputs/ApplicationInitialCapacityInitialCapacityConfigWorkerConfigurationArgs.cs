@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.EmrServerless.Inputs
 {
 
-    public sealed class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CPU requirements for every worker instance of the worker type.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.EmrServerless.Inputs
         public ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs()
         {
         }
+        public static new ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs Empty => new ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs();
     }
 }

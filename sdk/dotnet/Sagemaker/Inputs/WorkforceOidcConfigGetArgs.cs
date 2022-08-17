@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class WorkforceOidcConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkforceOidcConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The OIDC IdP authorization endpoint used to configure your private workforce.
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public WorkforceOidcConfigGetArgs()
         {
         }
+        public static new WorkforceOidcConfigGetArgs Empty => new WorkforceOidcConfigGetArgs();
     }
 }

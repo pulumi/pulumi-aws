@@ -17,133 +17,126 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ApiGatewayV2.Integration("example", new()
     ///     {
-    ///         var example = new Aws.ApiGatewayV2.Integration("example", new Aws.ApiGatewayV2.IntegrationArgs
-    ///         {
-    ///             ApiId = aws_apigatewayv2_api.Example.Id,
-    ///             IntegrationType = "MOCK",
-    ///         });
-    ///     }
+    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         IntegrationType = "MOCK",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Lambda Integration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleFunction = new Aws.Lambda.Function("exampleFunction", new()
     ///     {
-    ///         var exampleFunction = new Aws.Lambda.Function("exampleFunction", new Aws.Lambda.FunctionArgs
-    ///         {
-    ///             Code = new FileArchive("example.zip"),
-    ///             Role = aws_iam_role.Example.Arn,
-    ///             Handler = "index.handler",
-    ///             Runtime = "nodejs12.x",
-    ///         });
-    ///         var exampleIntegration = new Aws.ApiGatewayV2.Integration("exampleIntegration", new Aws.ApiGatewayV2.IntegrationArgs
-    ///         {
-    ///             ApiId = aws_apigatewayv2_api.Example.Id,
-    ///             IntegrationType = "AWS",
-    ///             ConnectionType = "INTERNET",
-    ///             ContentHandlingStrategy = "CONVERT_TO_TEXT",
-    ///             Description = "Lambda example",
-    ///             IntegrationMethod = "POST",
-    ///             IntegrationUri = exampleFunction.InvokeArn,
-    ///             PassthroughBehavior = "WHEN_NO_MATCH",
-    ///         });
-    ///     }
+    ///         Code = new FileArchive("example.zip"),
+    ///         Role = aws_iam_role.Example.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = "nodejs12.x",
+    ///     });
     /// 
-    /// }
+    ///     var exampleIntegration = new Aws.ApiGatewayV2.Integration("exampleIntegration", new()
+    ///     {
+    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         IntegrationType = "AWS_PROXY",
+    ///         ConnectionType = "INTERNET",
+    ///         ContentHandlingStrategy = "CONVERT_TO_TEXT",
+    ///         Description = "Lambda example",
+    ///         IntegrationMethod = "POST",
+    ///         IntegrationUri = exampleFunction.InvokeArn,
+    ///         PassthroughBehavior = "WHEN_NO_MATCH",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### AWS Service Integration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ApiGatewayV2.Integration("example", new()
     ///     {
-    ///         var example = new Aws.ApiGatewayV2.Integration("example", new Aws.ApiGatewayV2.IntegrationArgs
+    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         CredentialsArn = aws_iam_role.Example.Arn,
+    ///         Description = "SQS example",
+    ///         IntegrationType = "AWS_PROXY",
+    ///         IntegrationSubtype = "SQS-SendMessage",
+    ///         RequestParameters = 
     ///         {
-    ///             ApiId = aws_apigatewayv2_api.Example.Id,
-    ///             CredentialsArn = aws_iam_role.Example.Arn,
-    ///             Description = "SQS example",
-    ///             IntegrationType = "AWS_PROXY",
-    ///             IntegrationSubtype = "SQS-SendMessage",
-    ///             RequestParameters = 
-    ///             {
-    ///                 { "QueueUrl", "$request.header.queueUrl" },
-    ///                 { "MessageBody", "$request.body.message" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "QueueUrl", "$request.header.queueUrl" },
+    ///             { "MessageBody", "$request.body.message" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Private Integration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ApiGatewayV2.Integration("example", new()
     ///     {
-    ///         var example = new Aws.ApiGatewayV2.Integration("example", new Aws.ApiGatewayV2.IntegrationArgs
+    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         CredentialsArn = aws_iam_role.Example.Arn,
+    ///         Description = "Example with a load balancer",
+    ///         IntegrationType = "HTTP_PROXY",
+    ///         IntegrationUri = aws_lb_listener.Example.Arn,
+    ///         IntegrationMethod = "ANY",
+    ///         ConnectionType = "VPC_LINK",
+    ///         ConnectionId = aws_apigatewayv2_vpc_link.Example.Id,
+    ///         TlsConfig = new Aws.ApiGatewayV2.Inputs.IntegrationTlsConfigArgs
     ///         {
-    ///             ApiId = aws_apigatewayv2_api.Example.Id,
-    ///             CredentialsArn = aws_iam_role.Example.Arn,
-    ///             Description = "Example with a load balancer",
-    ///             IntegrationType = "HTTP_PROXY",
-    ///             IntegrationUri = aws_lb_listener.Example.Arn,
-    ///             IntegrationMethod = "ANY",
-    ///             ConnectionType = "VPC_LINK",
-    ///             ConnectionId = aws_apigatewayv2_vpc_link.Example.Id,
-    ///             TlsConfig = new Aws.ApiGatewayV2.Inputs.IntegrationTlsConfigArgs
+    ///             ServerNameToVerify = "example.com",
+    ///         },
+    ///         RequestParameters = 
+    ///         {
+    ///             { "append:header.authforintegration", "$context.authorizer.authorizerResponse" },
+    ///             { "overwrite:path", "staticValueForIntegration" },
+    ///         },
+    ///         ResponseParameters = new[]
+    ///         {
+    ///             new Aws.ApiGatewayV2.Inputs.IntegrationResponseParameterArgs
     ///             {
-    ///                 ServerNameToVerify = "example.com",
-    ///             },
-    ///             RequestParameters = 
-    ///             {
-    ///                 { "append:header.authforintegration", "$context.authorizer.authorizerResponse" },
-    ///                 { "overwrite:path", "staticValueForIntegration" },
-    ///             },
-    ///             ResponseParameters = 
-    ///             {
-    ///                 new Aws.ApiGatewayV2.Inputs.IntegrationResponseParameterArgs
+    ///                 StatusCode = "403",
+    ///                 Mappings = 
     ///                 {
-    ///                     StatusCode = "403",
-    ///                     Mappings = 
-    ///                     {
-    ///                         { "append:header.auth", "$context.authorizer.authorizerResponse" },
-    ///                     },
-    ///                 },
-    ///                 new Aws.ApiGatewayV2.Inputs.IntegrationResponseParameterArgs
-    ///                 {
-    ///                     StatusCode = "200",
-    ///                     Mappings = 
-    ///                     {
-    ///                         { "overwrite:statuscode", "204" },
-    ///                     },
+    ///                     { "append:header.auth", "$context.authorizer.authorizerResponse" },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.ApiGatewayV2.Inputs.IntegrationResponseParameterArgs
+    ///             {
+    ///                 StatusCode = "200",
+    ///                 Mappings = 
+    ///                 {
+    ///                     { "overwrite:statuscode", "204" },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -155,7 +148,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/integration:Integration")]
-    public partial class Integration : Pulumi.CustomResource
+    public partial class Integration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The API identifier.
@@ -323,7 +316,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
     }
 
-    public sealed class IntegrationArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API identifier.
@@ -462,9 +455,10 @@ namespace Pulumi.Aws.ApiGatewayV2
         public IntegrationArgs()
         {
         }
+        public static new IntegrationArgs Empty => new IntegrationArgs();
     }
 
-    public sealed class IntegrationState : Pulumi.ResourceArgs
+    public sealed class IntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API identifier.
@@ -609,5 +603,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         public IntegrationState()
         {
         }
+        public static new IntegrationState Empty => new IntegrationState();
     }
 }

@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appconfig.NewEventIntegration(ctx, "example", &appconfig.EventIntegrationArgs{
-// 			Description: pulumi.String("Example Description"),
-// 			EventFilter: &appconfig.EventIntegrationEventFilterArgs{
-// 				Source: pulumi.String("aws.partner/examplepartner.com"),
-// 			},
-// 			EventbridgeBus: pulumi.String("default"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Example Event Integration"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appconfig.NewEventIntegration(ctx, "example", &appconfig.EventIntegrationArgs{
+//				Description: pulumi.String("Example Description"),
+//				EventFilter: &appconfig.EventIntegrationEventFilterArgs{
+//					Source: pulumi.String("aws.partner/examplepartner.com"),
+//				},
+//				EventbridgeBus: pulumi.String("default"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example Event Integration"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Amazon AppIntegrations Event Integrations can be imported using the `name` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
+//
+//	$ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
+//
 // ```
 type EventIntegration struct {
 	pulumi.CustomResourceState
@@ -64,8 +69,7 @@ type EventIntegration struct {
 	// Specifies the name of the Event Integration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -115,8 +119,7 @@ type eventIntegrationState struct {
 	// Specifies the name of the Event Integration.
 	Name *string `pulumi:"name"`
 	// Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -132,8 +135,7 @@ type EventIntegrationState struct {
 	// Specifies the name of the Event Integration.
 	Name pulumi.StringPtrInput
 	// Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -194,7 +196,7 @@ func (i *EventIntegration) ToEventIntegrationOutputWithContext(ctx context.Conte
 // EventIntegrationArrayInput is an input type that accepts EventIntegrationArray and EventIntegrationArrayOutput values.
 // You can construct a concrete instance of `EventIntegrationArrayInput` via:
 //
-//          EventIntegrationArray{ EventIntegrationArgs{...} }
+//	EventIntegrationArray{ EventIntegrationArgs{...} }
 type EventIntegrationArrayInput interface {
 	pulumi.Input
 
@@ -219,7 +221,7 @@ func (i EventIntegrationArray) ToEventIntegrationArrayOutputWithContext(ctx cont
 // EventIntegrationMapInput is an input type that accepts EventIntegrationMap and EventIntegrationMapOutput values.
 // You can construct a concrete instance of `EventIntegrationMapInput` via:
 //
-//          EventIntegrationMap{ "key": EventIntegrationArgs{...} }
+//	EventIntegrationMap{ "key": EventIntegrationArgs{...} }
 type EventIntegrationMapInput interface {
 	pulumi.Input
 
@@ -285,7 +287,6 @@ func (o EventIntegrationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventIntegration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o EventIntegrationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventIntegration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

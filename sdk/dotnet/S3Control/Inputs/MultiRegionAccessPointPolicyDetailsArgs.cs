@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3Control.Inputs
 {
 
-    public sealed class MultiRegionAccessPointPolicyDetailsArgs : Pulumi.ResourceArgs
+    public sealed class MultiRegionAccessPointPolicyDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Multi-Region Access Point.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3Control.Inputs
         public MultiRegionAccessPointPolicyDetailsArgs()
         {
         }
+        public static new MultiRegionAccessPointPolicyDetailsArgs Empty => new MultiRegionAccessPointPolicyDetailsArgs();
     }
 }

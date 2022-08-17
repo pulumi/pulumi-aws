@@ -13,36 +13,33 @@ namespace Pulumi.Aws.Ecs
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleCluster = new Aws.Ecs.Cluster("exampleCluster", new Aws.Ecs.ClusterArgs
-    ///         {
-    ///         });
-    ///         var exampleClusterCapacityProviders = new Aws.Ecs.ClusterCapacityProviders("exampleClusterCapacityProviders", new Aws.Ecs.ClusterCapacityProvidersArgs
-    ///         {
-    ///             ClusterName = exampleCluster.Name,
-    ///             CapacityProviders = 
-    ///             {
-    ///                 "FARGATE",
-    ///             },
-    ///             DefaultCapacityProviderStrategies = 
-    ///             {
-    ///                 new Aws.Ecs.Inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs
-    ///                 {
-    ///                     Base = 1,
-    ///                     Weight = 100,
-    ///                     CapacityProvider = "FARGATE",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleCluster = new Aws.Ecs.Cluster("exampleCluster");
     /// 
-    /// }
+    ///     var exampleClusterCapacityProviders = new Aws.Ecs.ClusterCapacityProviders("exampleClusterCapacityProviders", new()
+    ///     {
+    ///         ClusterName = exampleCluster.Name,
+    ///         CapacityProviders = new[]
+    ///         {
+    ///             "FARGATE",
+    ///         },
+    ///         DefaultCapacityProviderStrategies = new[]
+    ///         {
+    ///             new Aws.Ecs.Inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs
+    ///             {
+    ///                 Base = 1,
+    ///                 Weight = 100,
+    ///                 CapacityProvider = "FARGATE",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +51,7 @@ namespace Pulumi.Aws.Ecs
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/clusterCapacityProviders:ClusterCapacityProviders")]
-    public partial class ClusterCapacityProviders : Pulumi.CustomResource
+    public partial class ClusterCapacityProviders : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
@@ -118,7 +115,7 @@ namespace Pulumi.Aws.Ecs
         }
     }
 
-    public sealed class ClusterCapacityProvidersArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCapacityProvidersArgs : global::Pulumi.ResourceArgs
     {
         [Input("capacityProviders")]
         private InputList<string>? _capacityProviders;
@@ -153,9 +150,10 @@ namespace Pulumi.Aws.Ecs
         public ClusterCapacityProvidersArgs()
         {
         }
+        public static new ClusterCapacityProvidersArgs Empty => new ClusterCapacityProvidersArgs();
     }
 
-    public sealed class ClusterCapacityProvidersState : Pulumi.ResourceArgs
+    public sealed class ClusterCapacityProvidersState : global::Pulumi.ResourceArgs
     {
         [Input("capacityProviders")]
         private InputList<string>? _capacityProviders;
@@ -190,5 +188,6 @@ namespace Pulumi.Aws.Ecs
         public ClusterCapacityProvidersState()
         {
         }
+        public static new ClusterCapacityProvidersState Empty => new ClusterCapacityProvidersState();
     }
 }

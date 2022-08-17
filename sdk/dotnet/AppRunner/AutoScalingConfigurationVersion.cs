@@ -15,27 +15,25 @@ namespace Pulumi.Aws.AppRunner
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppRunner.AutoScalingConfigurationVersion("example", new()
     ///     {
-    ///         var example = new Aws.AppRunner.AutoScalingConfigurationVersion("example", new Aws.AppRunner.AutoScalingConfigurationVersionArgs
+    ///         AutoScalingConfigurationName = "example",
+    ///         MaxConcurrency = 50,
+    ///         MaxSize = 10,
+    ///         MinSize = 2,
+    ///         Tags = 
     ///         {
-    ///             AutoScalingConfigurationName = "example",
-    ///             MaxConcurrency = 50,
-    ///             MaxSize = 10,
-    ///             MinSize = 2,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example-apprunner-autoscaling" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "example-apprunner-autoscaling" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Aws.AppRunner
     /// ```
     /// </summary>
     [AwsResourceType("aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion")]
-    public partial class AutoScalingConfigurationVersion : Pulumi.CustomResource
+    public partial class AutoScalingConfigurationVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of this auto scaling configuration version.
@@ -153,7 +151,7 @@ namespace Pulumi.Aws.AppRunner
         }
     }
 
-    public sealed class AutoScalingConfigurationVersionArgs : Pulumi.ResourceArgs
+    public sealed class AutoScalingConfigurationVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the auto scaling configuration.
@@ -194,9 +192,10 @@ namespace Pulumi.Aws.AppRunner
         public AutoScalingConfigurationVersionArgs()
         {
         }
+        public static new AutoScalingConfigurationVersionArgs Empty => new AutoScalingConfigurationVersionArgs();
     }
 
-    public sealed class AutoScalingConfigurationVersionState : Pulumi.ResourceArgs
+    public sealed class AutoScalingConfigurationVersionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of this auto scaling configuration version.
@@ -273,5 +272,6 @@ namespace Pulumi.Aws.AppRunner
         public AutoScalingConfigurationVersionState()
         {
         }
+        public static new AutoScalingConfigurationVersionState Empty => new AutoScalingConfigurationVersionState();
     }
 }

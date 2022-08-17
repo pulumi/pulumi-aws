@@ -20,26 +20,26 @@ namespace Pulumi.Aws.Elb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var main = Aws.Elb.GetServiceAccount.Invoke();
+        /// 
+        ///     var elbLogs = new Aws.S3.BucketV2("elbLogs");
+        /// 
+        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elbLogsAcl", new()
         ///     {
-        ///         var main = Output.Create(Aws.Elb.GetServiceAccount.InvokeAsync());
-        ///         var elbLogs = new Aws.S3.BucketV2("elbLogs", new Aws.S3.BucketV2Args
-        ///         {
-        ///         });
-        ///         var elbLogsAcl = new Aws.S3.BucketAclV2("elbLogsAcl", new Aws.S3.BucketAclV2Args
-        ///         {
-        ///             Bucket = elbLogs.Id,
-        ///             Acl = "private",
-        ///         });
-        ///         var allowElbLogging = new Aws.S3.BucketPolicy("allowElbLogging", new Aws.S3.BucketPolicyArgs
-        ///         {
-        ///             Bucket = elbLogs.Id,
-        ///             Policy = main.Apply(main =&gt; @$"{{
+        ///         Bucket = elbLogs.Id,
+        ///         Acl = "private",
+        ///     });
+        /// 
+        ///     var allowElbLogging = new Aws.S3.BucketPolicy("allowElbLogging", new()
+        ///     {
+        ///         Bucket = elbLogs.Id,
+        ///         Policy = @$"{{
         ///   ""Id"": ""Policy"",
         ///   ""Version"": ""2012-10-17"",
         ///   ""Statement"": [
@@ -51,39 +51,39 @@ namespace Pulumi.Aws.Elb
         ///       ""Resource"": ""arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*"",
         ///       ""Principal"": {{
         ///         ""AWS"": [
-        ///           ""{main.Arn}""
+        ///           ""{main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn)}""
         ///         ]
         ///       }}
         ///     }}
         ///   ]
         /// }}
-        /// "),
-        ///         });
-        ///         var bar = new Aws.Elb.LoadBalancer("bar", new Aws.Elb.LoadBalancerArgs
-        ///         {
-        ///             AvailabilityZones = 
-        ///             {
-        ///                 "us-west-2a",
-        ///             },
-        ///             AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
-        ///             {
-        ///                 Bucket = elbLogs.Bucket,
-        ///                 Interval = 5,
-        ///             },
-        ///             Listeners = 
-        ///             {
-        ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
-        ///                 {
-        ///                     InstancePort = 8000,
-        ///                     InstanceProtocol = "http",
-        ///                     LbPort = 80,
-        ///                     LbProtocol = "http",
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        /// ",
+        ///     });
         /// 
-        /// }
+        ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
+        ///     {
+        ///         AvailabilityZones = new[]
+        ///         {
+        ///             "us-west-2a",
+        ///         },
+        ///         AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
+        ///         {
+        ///             Bucket = elbLogs.Bucket,
+        ///             Interval = 5,
+        ///         },
+        ///         Listeners = new[]
+        ///         {
+        ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+        ///             {
+        ///                 InstancePort = 8000,
+        ///                 InstanceProtocol = "http",
+        ///                 LbPort = 80,
+        ///                 LbProtocol = "http",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -100,26 +100,26 @@ namespace Pulumi.Aws.Elb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var main = Aws.Elb.GetServiceAccount.Invoke();
+        /// 
+        ///     var elbLogs = new Aws.S3.BucketV2("elbLogs");
+        /// 
+        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elbLogsAcl", new()
         ///     {
-        ///         var main = Output.Create(Aws.Elb.GetServiceAccount.InvokeAsync());
-        ///         var elbLogs = new Aws.S3.BucketV2("elbLogs", new Aws.S3.BucketV2Args
-        ///         {
-        ///         });
-        ///         var elbLogsAcl = new Aws.S3.BucketAclV2("elbLogsAcl", new Aws.S3.BucketAclV2Args
-        ///         {
-        ///             Bucket = elbLogs.Id,
-        ///             Acl = "private",
-        ///         });
-        ///         var allowElbLogging = new Aws.S3.BucketPolicy("allowElbLogging", new Aws.S3.BucketPolicyArgs
-        ///         {
-        ///             Bucket = elbLogs.Id,
-        ///             Policy = main.Apply(main =&gt; @$"{{
+        ///         Bucket = elbLogs.Id,
+        ///         Acl = "private",
+        ///     });
+        /// 
+        ///     var allowElbLogging = new Aws.S3.BucketPolicy("allowElbLogging", new()
+        ///     {
+        ///         Bucket = elbLogs.Id,
+        ///         Policy = @$"{{
         ///   ""Id"": ""Policy"",
         ///   ""Version"": ""2012-10-17"",
         ///   ""Statement"": [
@@ -131,39 +131,39 @@ namespace Pulumi.Aws.Elb
         ///       ""Resource"": ""arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*"",
         ///       ""Principal"": {{
         ///         ""AWS"": [
-        ///           ""{main.Arn}""
+        ///           ""{main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn)}""
         ///         ]
         ///       }}
         ///     }}
         ///   ]
         /// }}
-        /// "),
-        ///         });
-        ///         var bar = new Aws.Elb.LoadBalancer("bar", new Aws.Elb.LoadBalancerArgs
-        ///         {
-        ///             AvailabilityZones = 
-        ///             {
-        ///                 "us-west-2a",
-        ///             },
-        ///             AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
-        ///             {
-        ///                 Bucket = elbLogs.Bucket,
-        ///                 Interval = 5,
-        ///             },
-        ///             Listeners = 
-        ///             {
-        ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
-        ///                 {
-        ///                     InstancePort = 8000,
-        ///                     InstanceProtocol = "http",
-        ///                     LbPort = 80,
-        ///                     LbProtocol = "http",
-        ///                 },
-        ///             },
-        ///         });
-        ///     }
+        /// ",
+        ///     });
         /// 
-        /// }
+        ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
+        ///     {
+        ///         AvailabilityZones = new[]
+        ///         {
+        ///             "us-west-2a",
+        ///         },
+        ///         AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
+        ///         {
+        ///             Bucket = elbLogs.Bucket,
+        ///             Interval = 5,
+        ///         },
+        ///         Listeners = new[]
+        ///         {
+        ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+        ///             {
+        ///                 InstancePort = 8000,
+        ///                 InstanceProtocol = "http",
+        ///                 LbPort = 80,
+        ///                 LbProtocol = "http",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Elb
     }
 
 
-    public sealed class GetServiceAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the region whose AWS ELB account ID is desired.
@@ -185,9 +185,10 @@ namespace Pulumi.Aws.Elb
         public GetServiceAccountArgs()
         {
         }
+        public static new GetServiceAccountArgs Empty => new GetServiceAccountArgs();
     }
 
-    public sealed class GetServiceAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the region whose AWS ELB account ID is desired.
@@ -199,6 +200,7 @@ namespace Pulumi.Aws.Elb
         public GetServiceAccountInvokeArgs()
         {
         }
+        public static new GetServiceAccountInvokeArgs Empty => new GetServiceAccountInvokeArgs();
     }
 
 

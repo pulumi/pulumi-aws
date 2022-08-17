@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketWebsiteConfigurationV2ErrorDocumentGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketWebsiteConfigurationV2ErrorDocumentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The object key name to use when a 4XX class error occurs.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketWebsiteConfigurationV2ErrorDocumentGetArgs()
         {
         }
+        public static new BucketWebsiteConfigurationV2ErrorDocumentGetArgs Empty => new BucketWebsiteConfigurationV2ErrorDocumentGetArgs();
     }
 }

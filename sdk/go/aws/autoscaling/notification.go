@@ -23,44 +23,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := sns.NewTopic(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		bar, err := autoscaling.NewGroup(ctx, "bar", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		foo, err := autoscaling.NewGroup(ctx, "foo", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = autoscaling.NewNotification(ctx, "exampleNotifications", &autoscaling.NotificationArgs{
-// 			GroupNames: pulumi.StringArray{
-// 				bar.Name,
-// 				foo.Name,
-// 			},
-// 			Notifications: pulumi.StringArray{
-// 				pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH"),
-// 				pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE"),
-// 				pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH_ERROR"),
-// 				pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE_ERROR"),
-// 			},
-// 			TopicArn: example.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := sns.NewTopic(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			bar, err := autoscaling.NewGroup(ctx, "bar", nil)
+//			if err != nil {
+//				return err
+//			}
+//			foo, err := autoscaling.NewGroup(ctx, "foo", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = autoscaling.NewNotification(ctx, "exampleNotifications", &autoscaling.NotificationArgs{
+//				GroupNames: pulumi.StringArray{
+//					bar.Name,
+//					foo.Name,
+//				},
+//				Notifications: pulumi.StringArray{
+//					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH"),
+//					pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE"),
+//					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH_ERROR"),
+//					pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE_ERROR"),
+//				},
+//				TopicArn: example.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Notification struct {
 	pulumi.CustomResourceState
@@ -182,7 +185,7 @@ func (i *Notification) ToNotificationOutputWithContext(ctx context.Context) Noti
 // NotificationArrayInput is an input type that accepts NotificationArray and NotificationArrayOutput values.
 // You can construct a concrete instance of `NotificationArrayInput` via:
 //
-//          NotificationArray{ NotificationArgs{...} }
+//	NotificationArray{ NotificationArgs{...} }
 type NotificationArrayInput interface {
 	pulumi.Input
 
@@ -207,7 +210,7 @@ func (i NotificationArray) ToNotificationArrayOutputWithContext(ctx context.Cont
 // NotificationMapInput is an input type that accepts NotificationMap and NotificationMapOutput values.
 // You can construct a concrete instance of `NotificationMapInput` via:
 //
-//          NotificationMap{ "key": NotificationArgs{...} }
+//	NotificationMap{ "key": NotificationArgs{...} }
 type NotificationMapInput interface {
 	pulumi.Input
 

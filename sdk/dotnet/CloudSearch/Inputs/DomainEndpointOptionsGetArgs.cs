@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudSearch.Inputs
 {
 
-    public sealed class DomainEndpointOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class DomainEndpointOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables or disables the requirement that all requests to the domain arrive over HTTPS.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CloudSearch.Inputs
         public DomainEndpointOptionsGetArgs()
         {
         }
+        public static new DomainEndpointOptionsGetArgs Empty => new DomainEndpointOptionsGetArgs();
     }
 }

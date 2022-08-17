@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class UserPoolVerificationMessageTemplateGetArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolVerificationMessageTemplateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public UserPoolVerificationMessageTemplateGetArgs()
         {
         }
+        public static new UserPoolVerificationMessageTemplateGetArgs Empty => new UserPoolVerificationMessageTemplateGetArgs();
     }
 }

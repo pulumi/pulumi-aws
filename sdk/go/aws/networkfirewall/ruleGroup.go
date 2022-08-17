@@ -20,39 +20,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
-// 			Capacity: pulumi.Int(100),
-// 			RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
-// 				RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
-// 					RulesSourceList: &networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs{
-// 						GeneratedRulesType: pulumi.String("DENYLIST"),
-// 						TargetTypes: pulumi.StringArray{
-// 							pulumi.String("HTTP_HOST"),
-// 						},
-// 						Targets: pulumi.StringArray{
-// 							pulumi.String("test.example.com"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Tag1": pulumi.String("Value1"),
-// 				"Tag2": pulumi.String("Value2"),
-// 			},
-// 			Type: pulumi.String("STATEFUL"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+//				Capacity: pulumi.Int(100),
+//				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
+//					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
+//						RulesSourceList: &networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs{
+//							GeneratedRulesType: pulumi.String("DENYLIST"),
+//							TargetTypes: pulumi.StringArray{
+//								pulumi.String("HTTP_HOST"),
+//							},
+//							Targets: pulumi.StringArray{
+//								pulumi.String("test.example.com"),
+//							},
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//				Type: pulumi.String("STATEFUL"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Stateful Inspection from rules specifications defined in Suricata flat format
 //
@@ -60,37 +63,40 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
-// 			Capacity: pulumi.Int(100),
-// 			Type:     pulumi.String("STATEFUL"),
-// 			Rules:    readFileOrPanic("example.rules"),
-// 			Tags: pulumi.StringMap{
-// 				"Tag1": pulumi.String("Value1"),
-// 				"Tag2": pulumi.String("Value2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+//				Capacity: pulumi.Int(100),
+//				Type:     pulumi.String("STATEFUL"),
+//				Rules:    readFileOrPanic("example.rules"),
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
 //
@@ -98,74 +104,77 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
-// 			Capacity: pulumi.Int(100),
-// 			Type:     pulumi.String("STATEFUL"),
-// 			RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
-// 				RuleVariables: &networkfirewall.RuleGroupRuleGroupRuleVariablesArgs{
-// 					IpSets: networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArray{
-// 						&networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs{
-// 							Key: pulumi.String("WEBSERVERS_HOSTS"),
-// 							IpSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs{
-// 								Definitions: pulumi.StringArray{
-// 									pulumi.String("10.0.0.0/16"),
-// 									pulumi.String("10.0.1.0/24"),
-// 									pulumi.String("192.168.0.0/16"),
-// 								},
-// 							},
-// 						},
-// 						&networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs{
-// 							Key: pulumi.String("EXTERNAL_HOST"),
-// 							IpSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs{
-// 								Definitions: pulumi.StringArray{
-// 									pulumi.String("1.2.3.4/32"),
-// 								},
-// 							},
-// 						},
-// 					},
-// 					PortSets: networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArray{
-// 						&networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs{
-// 							Key: pulumi.String("HTTP_PORTS"),
-// 							PortSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs{
-// 								Definitions: pulumi.StringArray{
-// 									pulumi.String("443"),
-// 									pulumi.String("80"),
-// 								},
-// 							},
-// 						},
-// 					},
-// 				},
-// 				RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
-// 					RulesString: readFileOrPanic("suricata_rules_file"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Tag1": pulumi.String("Value1"),
-// 				"Tag2": pulumi.String("Value2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+//				Capacity: pulumi.Int(100),
+//				Type:     pulumi.String("STATEFUL"),
+//				RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
+//					RuleVariables: &networkfirewall.RuleGroupRuleGroupRuleVariablesArgs{
+//						IpSets: networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArray{
+//							&networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs{
+//								Key: pulumi.String("WEBSERVERS_HOSTS"),
+//								IpSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs{
+//									Definitions: pulumi.StringArray{
+//										pulumi.String("10.0.0.0/16"),
+//										pulumi.String("10.0.1.0/24"),
+//										pulumi.String("192.168.0.0/16"),
+//									},
+//								},
+//							},
+//							&networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs{
+//								Key: pulumi.String("EXTERNAL_HOST"),
+//								IpSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs{
+//									Definitions: pulumi.StringArray{
+//										pulumi.String("1.2.3.4/32"),
+//									},
+//								},
+//							},
+//						},
+//						PortSets: networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArray{
+//							&networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs{
+//								Key: pulumi.String("HTTP_PORTS"),
+//								PortSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs{
+//									Definitions: pulumi.StringArray{
+//										pulumi.String("443"),
+//										pulumi.String("80"),
+//									},
+//								},
+//							},
+//						},
+//					},
+//					RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
+//						RulesString: readFileOrPanic("suricata_rules_file"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -173,7 +182,9 @@ import (
 // Network Firewall Rule Groups can be imported using their `ARN`.
 //
 // ```sh
-//  $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+//
+//	$ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+//
 // ```
 type RuleGroup struct {
 	pulumi.CustomResourceState
@@ -190,9 +201,9 @@ type RuleGroup struct {
 	RuleGroup RuleGroupRuleGroupOutput `pulumi:"ruleGroup"`
 	// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
 	Rules pulumi.StringPtrOutput `pulumi:"rules"`
-	// A map of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -247,9 +258,9 @@ type ruleGroupState struct {
 	RuleGroup *RuleGroupRuleGroup `pulumi:"ruleGroup"`
 	// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
 	Rules *string `pulumi:"rules"`
-	// A map of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
 	Type *string `pulumi:"type"`
@@ -270,9 +281,9 @@ type RuleGroupState struct {
 	RuleGroup RuleGroupRuleGroupPtrInput
 	// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
 	Rules pulumi.StringPtrInput
-	// A map of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
 	Type pulumi.StringPtrInput
@@ -295,7 +306,7 @@ type ruleGroupArgs struct {
 	RuleGroup *RuleGroupRuleGroup `pulumi:"ruleGroup"`
 	// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
 	Rules *string `pulumi:"rules"`
-	// A map of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
 	Type string `pulumi:"type"`
@@ -313,7 +324,7 @@ type RuleGroupArgs struct {
 	RuleGroup RuleGroupRuleGroupPtrInput
 	// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
 	Rules pulumi.StringPtrInput
-	// A map of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
 	Type pulumi.StringInput
@@ -345,7 +356,7 @@ func (i *RuleGroup) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupO
 // RuleGroupArrayInput is an input type that accepts RuleGroupArray and RuleGroupArrayOutput values.
 // You can construct a concrete instance of `RuleGroupArrayInput` via:
 //
-//          RuleGroupArray{ RuleGroupArgs{...} }
+//	RuleGroupArray{ RuleGroupArgs{...} }
 type RuleGroupArrayInput interface {
 	pulumi.Input
 
@@ -370,7 +381,7 @@ func (i RuleGroupArray) ToRuleGroupArrayOutputWithContext(ctx context.Context) R
 // RuleGroupMapInput is an input type that accepts RuleGroupMap and RuleGroupMapOutput values.
 // You can construct a concrete instance of `RuleGroupMapInput` via:
 //
-//          RuleGroupMap{ "key": RuleGroupArgs{...} }
+//	RuleGroupMap{ "key": RuleGroupArgs{...} }
 type RuleGroupMapInput interface {
 	pulumi.Input
 
@@ -436,12 +447,12 @@ func (o RuleGroupOutput) Rules() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.Rules }).(pulumi.StringPtrOutput)
 }
 
-// A map of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RuleGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RuleGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

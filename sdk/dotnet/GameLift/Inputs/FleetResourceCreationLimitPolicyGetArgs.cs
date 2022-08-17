@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift.Inputs
 {
 
-    public sealed class FleetResourceCreationLimitPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class FleetResourceCreationLimitPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum number of game sessions that an individual can create during the policy period.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.GameLift.Inputs
         public FleetResourceCreationLimitPolicyGetArgs()
         {
         }
+        public static new FleetResourceCreationLimitPolicyGetArgs Empty => new FleetResourceCreationLimitPolicyGetArgs();
     }
 }

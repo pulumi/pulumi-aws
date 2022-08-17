@@ -21,21 +21,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := fsx.NewOntapStorageVirtualMachine(ctx, "test", &fsx.OntapStorageVirtualMachineArgs{
-// 			FileSystemId: pulumi.Any(aws_fsx_ontap_file_system.Test.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := fsx.NewOntapStorageVirtualMachine(ctx, "test", &fsx.OntapStorageVirtualMachineArgs{
+//				FileSystemId: pulumi.Any(aws_fsx_ontap_file_system.Test.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Using a Self-Managed Microsoft Active Directory
 //
@@ -45,33 +48,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := fsx.NewOntapStorageVirtualMachine(ctx, "test", &fsx.OntapStorageVirtualMachineArgs{
-// 			FileSystemId: pulumi.Any(aws_fsx_ontap_file_system.Test.Id),
-// 			ActiveDirectoryConfiguration: &fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs{
-// 				NetbiosName: pulumi.String("mysvm"),
-// 				SelfManagedActiveDirectoryConfiguration: &fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs{
-// 					DnsIps: pulumi.StringArray{
-// 						pulumi.String("10.0.0.111"),
-// 						pulumi.String("10.0.0.222"),
-// 					},
-// 					DomainName: pulumi.String("corp.example.com"),
-// 					Password:   pulumi.String("avoid-plaintext-passwords"),
-// 					Username:   pulumi.String("Admin"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := fsx.NewOntapStorageVirtualMachine(ctx, "test", &fsx.OntapStorageVirtualMachineArgs{
+//				FileSystemId: pulumi.Any(aws_fsx_ontap_file_system.Test.Id),
+//				ActiveDirectoryConfiguration: &fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs{
+//					NetbiosName: pulumi.String("mysvm"),
+//					SelfManagedActiveDirectoryConfiguration: &fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs{
+//						DnsIps: pulumi.StringArray{
+//							pulumi.String("10.0.0.111"),
+//							pulumi.String("10.0.0.222"),
+//						},
+//						DomainName: pulumi.String("corp.example.com"),
+//						Password:   pulumi.String("avoid-plaintext-passwords"),
+//						Username:   pulumi.String("Admin"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -79,22 +85,24 @@ import (
 // FSx Storage Virtual Machine can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine example svm-12345678abcdef123
+//
+//	$ pulumi import aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine example svm-12345678abcdef123
+//
 // ```
 //
-//  Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html#ignore_changes) to hide the difference, e.g., terraform resource "aws_fsx_ontap_storage_virtual_machine" "example" {
+//	Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html#ignore_changes) to hide the difference, e.g., terraform resource "aws_fsx_ontap_storage_virtual_machine" "example" {
 //
 // # ... other configuration ...
 //
-//  svm_admin_password = "avoid-plaintext-passwords"
+//	svm_admin_password = "avoid-plaintext-passwords"
 //
 // # There is no FSx API for reading svm_admin_password
 //
-//  lifecycle {
+//	lifecycle {
 //
-//  ignore_changes = [svm_admin_password]
+//	ignore_changes = [svm_admin_password]
 //
-//  } }
+//	} }
 type OntapStorageVirtualMachine struct {
 	pulumi.CustomResourceState
 
@@ -259,7 +267,7 @@ func (i *OntapStorageVirtualMachine) ToOntapStorageVirtualMachineOutputWithConte
 // OntapStorageVirtualMachineArrayInput is an input type that accepts OntapStorageVirtualMachineArray and OntapStorageVirtualMachineArrayOutput values.
 // You can construct a concrete instance of `OntapStorageVirtualMachineArrayInput` via:
 //
-//          OntapStorageVirtualMachineArray{ OntapStorageVirtualMachineArgs{...} }
+//	OntapStorageVirtualMachineArray{ OntapStorageVirtualMachineArgs{...} }
 type OntapStorageVirtualMachineArrayInput interface {
 	pulumi.Input
 
@@ -284,7 +292,7 @@ func (i OntapStorageVirtualMachineArray) ToOntapStorageVirtualMachineArrayOutput
 // OntapStorageVirtualMachineMapInput is an input type that accepts OntapStorageVirtualMachineMap and OntapStorageVirtualMachineMapOutput values.
 // You can construct a concrete instance of `OntapStorageVirtualMachineMapInput` via:
 //
-//          OntapStorageVirtualMachineMap{ "key": OntapStorageVirtualMachineArgs{...} }
+//	OntapStorageVirtualMachineMap{ "key": OntapStorageVirtualMachineArgs{...} }
 type OntapStorageVirtualMachineMapInput interface {
 	pulumi.Input
 

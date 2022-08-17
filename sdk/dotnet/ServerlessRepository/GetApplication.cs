@@ -19,26 +19,25 @@ namespace Pulumi.Aws.ServerlessRepository
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleApplication = Aws.ServerlessRepository.GetApplication.Invoke(new()
         ///     {
-        ///         var exampleApplication = Output.Create(Aws.ServerlessRepository.GetApplication.InvokeAsync(new Aws.ServerlessRepository.GetApplicationArgs
-        ///         {
-        ///             ApplicationId = "arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication",
-        ///         }));
-        ///         var exampleCloudFormationStack = new Aws.ServerlessRepository.CloudFormationStack("exampleCloudFormationStack", new Aws.ServerlessRepository.CloudFormationStackArgs
-        ///         {
-        ///             ApplicationId = exampleApplication.Apply(exampleApplication =&gt; exampleApplication.ApplicationId),
-        ///             SemanticVersion = exampleApplication.Apply(exampleApplication =&gt; exampleApplication.SemanticVersion),
-        ///             Capabilities = exampleApplication.Apply(exampleApplication =&gt; exampleApplication.RequiredCapabilities),
-        ///         });
-        ///     }
+        ///         ApplicationId = "arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication",
+        ///     });
         /// 
-        /// }
+        ///     var exampleCloudFormationStack = new Aws.ServerlessRepository.CloudFormationStack("exampleCloudFormationStack", new()
+        ///     {
+        ///         ApplicationId = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.ApplicationId),
+        ///         SemanticVersion = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.SemanticVersion),
+        ///         Capabilities = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.RequiredCapabilities),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,26 +53,25 @@ namespace Pulumi.Aws.ServerlessRepository
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleApplication = Aws.ServerlessRepository.GetApplication.Invoke(new()
         ///     {
-        ///         var exampleApplication = Output.Create(Aws.ServerlessRepository.GetApplication.InvokeAsync(new Aws.ServerlessRepository.GetApplicationArgs
-        ///         {
-        ///             ApplicationId = "arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication",
-        ///         }));
-        ///         var exampleCloudFormationStack = new Aws.ServerlessRepository.CloudFormationStack("exampleCloudFormationStack", new Aws.ServerlessRepository.CloudFormationStackArgs
-        ///         {
-        ///             ApplicationId = exampleApplication.Apply(exampleApplication =&gt; exampleApplication.ApplicationId),
-        ///             SemanticVersion = exampleApplication.Apply(exampleApplication =&gt; exampleApplication.SemanticVersion),
-        ///             Capabilities = exampleApplication.Apply(exampleApplication =&gt; exampleApplication.RequiredCapabilities),
-        ///         });
-        ///     }
+        ///         ApplicationId = "arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication",
+        ///     });
         /// 
-        /// }
+        ///     var exampleCloudFormationStack = new Aws.ServerlessRepository.CloudFormationStack("exampleCloudFormationStack", new()
+        ///     {
+        ///         ApplicationId = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.ApplicationId),
+        ///         SemanticVersion = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.SemanticVersion),
+        ///         Capabilities = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.RequiredCapabilities),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +81,7 @@ namespace Pulumi.Aws.ServerlessRepository
     }
 
 
-    public sealed class GetApplicationArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the application.
@@ -100,9 +98,10 @@ namespace Pulumi.Aws.ServerlessRepository
         public GetApplicationArgs()
         {
         }
+        public static new GetApplicationArgs Empty => new GetApplicationArgs();
     }
 
-    public sealed class GetApplicationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ARN of the application.
@@ -119,6 +118,7 @@ namespace Pulumi.Aws.ServerlessRepository
         public GetApplicationInvokeArgs()
         {
         }
+        public static new GetApplicationInvokeArgs Empty => new GetApplicationInvokeArgs();
     }
 
 

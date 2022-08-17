@@ -15,17 +15,16 @@ namespace Pulumi.Aws.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var pubsub = new Aws.Iot.Policy("pubsub", new()
     ///     {
-    ///         var pubsub = new Aws.Iot.Policy("pubsub", new Aws.Iot.PolicyArgs
-    ///         {
-    ///             PolicyDocument = @"{
+    ///         PolicyDocument = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -38,24 +37,25 @@ namespace Pulumi.Aws.Iot
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var cert = new Aws.Iot.Certificate("cert", new Aws.Iot.CertificateArgs
-    ///         {
-    ///             Csr = File.ReadAllText("csr.pem"),
-    ///             Active = true,
-    ///         });
-    ///         var att = new Aws.Iot.PolicyAttachment("att", new Aws.Iot.PolicyAttachmentArgs
-    ///         {
-    ///             Policy = pubsub.Name,
-    ///             Target = cert.Arn,
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var cert = new Aws.Iot.Certificate("cert", new()
+    ///     {
+    ///         Csr = File.ReadAllText("csr.pem"),
+    ///         Active = true,
+    ///     });
+    /// 
+    ///     var att = new Aws.Iot.PolicyAttachment("att", new()
+    ///     {
+    ///         Policy = pubsub.Name,
+    ///         Target = cert.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/policyAttachment:PolicyAttachment")]
-    public partial class PolicyAttachment : Pulumi.CustomResource
+    public partial class PolicyAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the policy to attach.
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Iot
         }
     }
 
-    public sealed class PolicyAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class PolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the policy to attach.
@@ -130,9 +130,10 @@ namespace Pulumi.Aws.Iot
         public PolicyAttachmentArgs()
         {
         }
+        public static new PolicyAttachmentArgs Empty => new PolicyAttachmentArgs();
     }
 
-    public sealed class PolicyAttachmentState : Pulumi.ResourceArgs
+    public sealed class PolicyAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the policy to attach.
@@ -149,5 +150,6 @@ namespace Pulumi.Aws.Iot
         public PolicyAttachmentState()
         {
         }
+        public static new PolicyAttachmentState Empty => new PolicyAttachmentState();
     }
 }

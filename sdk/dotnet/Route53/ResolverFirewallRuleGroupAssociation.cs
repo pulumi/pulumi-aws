@@ -15,25 +15,22 @@ namespace Pulumi.Aws.Route53
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleResolverFirewallRuleGroup = new Aws.Route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", new Aws.Route53.ResolverFirewallRuleGroupArgs
-    ///         {
-    ///         });
-    ///         var exampleResolverFirewallRuleGroupAssociation = new Aws.Route53.ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation", new Aws.Route53.ResolverFirewallRuleGroupAssociationArgs
-    ///         {
-    ///             FirewallRuleGroupId = exampleResolverFirewallRuleGroup.Id,
-    ///             Priority = 100,
-    ///             VpcId = aws_vpc.Example.Id,
-    ///         });
-    ///     }
+    ///     var exampleResolverFirewallRuleGroup = new Aws.Route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup");
     /// 
-    /// }
+    ///     var exampleResolverFirewallRuleGroupAssociation = new Aws.Route53.ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation", new()
+    ///     {
+    ///         FirewallRuleGroupId = exampleResolverFirewallRuleGroup.Id,
+    ///         Priority = 100,
+    ///         VpcId = aws_vpc.Example.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +42,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation")]
-    public partial class ResolverFirewallRuleGroupAssociation : Pulumi.CustomResource
+    public partial class ResolverFirewallRuleGroupAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) of the firewall rule group association.
@@ -84,7 +81,7 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -139,7 +136,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class ResolverFirewallRuleGroupAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ResolverFirewallRuleGroupAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique identifier of the firewall rule group.
@@ -186,9 +183,10 @@ namespace Pulumi.Aws.Route53
         public ResolverFirewallRuleGroupAssociationArgs()
         {
         }
+        public static new ResolverFirewallRuleGroupAssociationArgs Empty => new ResolverFirewallRuleGroupAssociationArgs();
     }
 
-    public sealed class ResolverFirewallRuleGroupAssociationState : Pulumi.ResourceArgs
+    public sealed class ResolverFirewallRuleGroupAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) of the firewall rule group association.
@@ -236,7 +234,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -253,5 +251,6 @@ namespace Pulumi.Aws.Route53
         public ResolverFirewallRuleGroupAssociationState()
         {
         }
+        public static new ResolverFirewallRuleGroupAssociationState Empty => new ResolverFirewallRuleGroupAssociationState();
     }
 }

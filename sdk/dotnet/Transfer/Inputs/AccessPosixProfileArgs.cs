@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transfer.Inputs
 {
 
-    public sealed class AccessPosixProfileArgs : Pulumi.ResourceArgs
+    public sealed class AccessPosixProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The POSIX group ID used for all EFS operations by this user.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Transfer.Inputs
         public AccessPosixProfileArgs()
         {
         }
+        public static new AccessPosixProfileArgs Empty => new AccessPosixProfileArgs();
     }
 }

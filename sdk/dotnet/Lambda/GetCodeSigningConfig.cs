@@ -21,20 +21,18 @@ namespace Pulumi.Aws.Lambda
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var existingCsc = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
         ///     {
-        ///         var existingCsc = Output.Create(Aws.Lambda.GetCodeSigningConfig.InvokeAsync(new Aws.Lambda.GetCodeSigningConfigArgs
-        ///         {
-        ///             Arn = $"arn:aws:lambda:{@var.Aws_region}:{@var.Aws_account}:code-signing-config:csc-0f6c334abcdea4d8b",
-        ///         }));
-        ///     }
+        ///         Arn = $"arn:aws:lambda:{@var.Aws_region}:{@var.Aws_account}:code-signing-config:csc-0f6c334abcdea4d8b",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,20 +50,18 @@ namespace Pulumi.Aws.Lambda
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var existingCsc = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
         ///     {
-        ///         var existingCsc = Output.Create(Aws.Lambda.GetCodeSigningConfig.InvokeAsync(new Aws.Lambda.GetCodeSigningConfigArgs
-        ///         {
-        ///             Arn = $"arn:aws:lambda:{@var.Aws_region}:{@var.Aws_account}:code-signing-config:csc-0f6c334abcdea4d8b",
-        ///         }));
-        ///     }
+        ///         Arn = $"arn:aws:lambda:{@var.Aws_region}:{@var.Aws_account}:code-signing-config:csc-0f6c334abcdea4d8b",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Lambda
     }
 
 
-    public sealed class GetCodeSigningConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetCodeSigningConfigArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the code signing configuration.
@@ -86,9 +82,10 @@ namespace Pulumi.Aws.Lambda
         public GetCodeSigningConfigArgs()
         {
         }
+        public static new GetCodeSigningConfigArgs Empty => new GetCodeSigningConfigArgs();
     }
 
-    public sealed class GetCodeSigningConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCodeSigningConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the code signing configuration.
@@ -99,6 +96,7 @@ namespace Pulumi.Aws.Lambda
         public GetCodeSigningConfigInvokeArgs()
         {
         }
+        public static new GetCodeSigningConfigInvokeArgs Empty => new GetCodeSigningConfigInvokeArgs();
     }
 
 

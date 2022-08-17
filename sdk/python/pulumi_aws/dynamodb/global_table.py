@@ -128,10 +128,9 @@ class GlobalTable(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        us_east_1 = pulumi.providers.Aws("us-east-1", region="us-east-1")
-        us_west_2 = pulumi.providers.Aws("us-west-2", region="us-west-2")
+        us_east_1 = aws.Provider("us-east-1", region="us-east-1")
+        us_west_2 = aws.Provider("us-west-2", region="us-west-2")
         us_east_1_table = aws.dynamodb.Table("us-east-1Table",
             hash_key="myAttribute",
             stream_enabled=True,
@@ -200,10 +199,9 @@ class GlobalTable(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        us_east_1 = pulumi.providers.Aws("us-east-1", region="us-east-1")
-        us_west_2 = pulumi.providers.Aws("us-west-2", region="us-west-2")
+        us_east_1 = aws.Provider("us-east-1", region="us-east-1")
+        us_west_2 = aws.Provider("us-west-2", region="us-west-2")
         us_east_1_table = aws.dynamodb.Table("us-east-1Table",
             hash_key="myAttribute",
             stream_enabled=True,

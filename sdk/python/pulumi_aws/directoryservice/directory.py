@@ -21,6 +21,7 @@ class DirectoryArgs:
                  alias: Optional[pulumi.Input[str]] = None,
                  connect_settings: Optional[pulumi.Input['DirectoryConnectSettingsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 desired_number_of_domain_controllers: Optional[pulumi.Input[int]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  enable_sso: Optional[pulumi.Input[bool]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
@@ -35,6 +36,7 @@ class DirectoryArgs:
         :param pulumi.Input[str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
         :param pulumi.Input['DirectoryConnectSettingsArgs'] connect_settings: Connector related information about the directory. Fields documented below.
         :param pulumi.Input[str] description: A textual description for the directory.
+        :param pulumi.Input[int] desired_number_of_domain_controllers: The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         :param pulumi.Input[str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
         :param pulumi.Input[bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         :param pulumi.Input[str] short_name: The short name of the directory, such as `CORP`.
@@ -51,6 +53,8 @@ class DirectoryArgs:
             pulumi.set(__self__, "connect_settings", connect_settings)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if desired_number_of_domain_controllers is not None:
+            pulumi.set(__self__, "desired_number_of_domain_controllers", desired_number_of_domain_controllers)
         if edition is not None:
             pulumi.set(__self__, "edition", edition)
         if enable_sso is not None:
@@ -125,6 +129,18 @@ class DirectoryArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="desiredNumberOfDomainControllers")
+    def desired_number_of_domain_controllers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+        """
+        return pulumi.get(self, "desired_number_of_domain_controllers")
+
+    @desired_number_of_domain_controllers.setter
+    def desired_number_of_domain_controllers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "desired_number_of_domain_controllers", value)
 
     @property
     @pulumi.getter
@@ -218,6 +234,7 @@ class _DirectoryState:
                  alias: Optional[pulumi.Input[str]] = None,
                  connect_settings: Optional[pulumi.Input['DirectoryConnectSettingsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 desired_number_of_domain_controllers: Optional[pulumi.Input[int]] = None,
                  dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  enable_sso: Optional[pulumi.Input[bool]] = None,
@@ -236,6 +253,7 @@ class _DirectoryState:
         :param pulumi.Input[str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
         :param pulumi.Input['DirectoryConnectSettingsArgs'] connect_settings: Connector related information about the directory. Fields documented below.
         :param pulumi.Input[str] description: A textual description for the directory.
+        :param pulumi.Input[int] desired_number_of_domain_controllers: The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ip_addresses: A list of IP addresses of the DNS servers for the directory or connector.
         :param pulumi.Input[str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
         :param pulumi.Input[bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
@@ -245,7 +263,7 @@ class _DirectoryState:
         :param pulumi.Input[str] short_name: The short name of the directory, such as `CORP`.
         :param pulumi.Input[str] size: The size of the directory (`Small` or `Large` are accepted values).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         :param pulumi.Input['DirectoryVpcSettingsArgs'] vpc_settings: VPC related information about the directory. Fields documented below.
         """
@@ -257,6 +275,8 @@ class _DirectoryState:
             pulumi.set(__self__, "connect_settings", connect_settings)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if desired_number_of_domain_controllers is not None:
+            pulumi.set(__self__, "desired_number_of_domain_controllers", desired_number_of_domain_controllers)
         if dns_ip_addresses is not None:
             pulumi.set(__self__, "dns_ip_addresses", dns_ip_addresses)
         if edition is not None:
@@ -329,6 +349,18 @@ class _DirectoryState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="desiredNumberOfDomainControllers")
+    def desired_number_of_domain_controllers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+        """
+        return pulumi.get(self, "desired_number_of_domain_controllers")
+
+    @desired_number_of_domain_controllers.setter
+    def desired_number_of_domain_controllers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "desired_number_of_domain_controllers", value)
 
     @property
     @pulumi.getter(name="dnsIpAddresses")
@@ -442,7 +474,7 @@ class _DirectoryState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -483,6 +515,7 @@ class Directory(pulumi.CustomResource):
                  alias: Optional[pulumi.Input[str]] = None,
                  connect_settings: Optional[pulumi.Input[pulumi.InputType['DirectoryConnectSettingsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 desired_number_of_domain_controllers: Optional[pulumi.Input[int]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  enable_sso: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -602,6 +635,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
         :param pulumi.Input[pulumi.InputType['DirectoryConnectSettingsArgs']] connect_settings: Connector related information about the directory. Fields documented below.
         :param pulumi.Input[str] description: A textual description for the directory.
+        :param pulumi.Input[int] desired_number_of_domain_controllers: The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         :param pulumi.Input[str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
         :param pulumi.Input[bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         :param pulumi.Input[str] name: The fully qualified name for the directory, such as `corp.example.com`
@@ -740,6 +774,7 @@ class Directory(pulumi.CustomResource):
                  alias: Optional[pulumi.Input[str]] = None,
                  connect_settings: Optional[pulumi.Input[pulumi.InputType['DirectoryConnectSettingsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 desired_number_of_domain_controllers: Optional[pulumi.Input[int]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  enable_sso: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -761,6 +796,7 @@ class Directory(pulumi.CustomResource):
             __props__.__dict__["alias"] = alias
             __props__.__dict__["connect_settings"] = connect_settings
             __props__.__dict__["description"] = description
+            __props__.__dict__["desired_number_of_domain_controllers"] = desired_number_of_domain_controllers
             __props__.__dict__["edition"] = edition
             __props__.__dict__["enable_sso"] = enable_sso
             if name is None and not opts.urn:
@@ -792,6 +828,7 @@ class Directory(pulumi.CustomResource):
             alias: Optional[pulumi.Input[str]] = None,
             connect_settings: Optional[pulumi.Input[pulumi.InputType['DirectoryConnectSettingsArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            desired_number_of_domain_controllers: Optional[pulumi.Input[int]] = None,
             dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             edition: Optional[pulumi.Input[str]] = None,
             enable_sso: Optional[pulumi.Input[bool]] = None,
@@ -815,6 +852,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[str] alias: The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
         :param pulumi.Input[pulumi.InputType['DirectoryConnectSettingsArgs']] connect_settings: Connector related information about the directory. Fields documented below.
         :param pulumi.Input[str] description: A textual description for the directory.
+        :param pulumi.Input[int] desired_number_of_domain_controllers: The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ip_addresses: A list of IP addresses of the DNS servers for the directory or connector.
         :param pulumi.Input[str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise` (applies to MicrosoftAD type only).
         :param pulumi.Input[bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
@@ -824,7 +862,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[str] short_name: The short name of the directory, such as `CORP`.
         :param pulumi.Input[str] size: The size of the directory (`Small` or `Large` are accepted values).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         :param pulumi.Input[pulumi.InputType['DirectoryVpcSettingsArgs']] vpc_settings: VPC related information about the directory. Fields documented below.
         """
@@ -836,6 +874,7 @@ class Directory(pulumi.CustomResource):
         __props__.__dict__["alias"] = alias
         __props__.__dict__["connect_settings"] = connect_settings
         __props__.__dict__["description"] = description
+        __props__.__dict__["desired_number_of_domain_controllers"] = desired_number_of_domain_controllers
         __props__.__dict__["dns_ip_addresses"] = dns_ip_addresses
         __props__.__dict__["edition"] = edition
         __props__.__dict__["enable_sso"] = enable_sso
@@ -881,6 +920,14 @@ class Directory(pulumi.CustomResource):
         A textual description for the directory.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="desiredNumberOfDomainControllers")
+    def desired_number_of_domain_controllers(self) -> pulumi.Output[int]:
+        """
+        The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
+        """
+        return pulumi.get(self, "desired_number_of_domain_controllers")
 
     @property
     @pulumi.getter(name="dnsIpAddresses")
@@ -958,7 +1005,7 @@ class Directory(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

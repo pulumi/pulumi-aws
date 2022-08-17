@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideGetArgs : Pulumi.ResourceArgs
+    public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Override the instance type in the Launch Template with instance types that satisfy the requirements.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public GroupMixedInstancesPolicyLaunchTemplateOverrideGetArgs()
         {
         }
+        public static new GroupMixedInstancesPolicyLaunchTemplateOverrideGetArgs Empty => new GroupMixedInstancesPolicyLaunchTemplateOverrideGetArgs();
     }
 }

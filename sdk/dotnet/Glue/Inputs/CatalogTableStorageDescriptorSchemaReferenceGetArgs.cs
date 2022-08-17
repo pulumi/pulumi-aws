@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class CatalogTableStorageDescriptorSchemaReferenceGetArgs : Pulumi.ResourceArgs
+    public sealed class CatalogTableStorageDescriptorSchemaReferenceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public CatalogTableStorageDescriptorSchemaReferenceGetArgs()
         {
         }
+        public static new CatalogTableStorageDescriptorSchemaReferenceGetArgs Empty => new CatalogTableStorageDescriptorSchemaReferenceGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm.Inputs
 {
 
-    public sealed class PatchBaselineApprovalRuleArgs : Pulumi.ResourceArgs
+    public sealed class PatchBaselineApprovalRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         public PatchBaselineApprovalRuleArgs()
         {
         }
+        public static new PatchBaselineApprovalRuleArgs Empty => new PatchBaselineApprovalRuleArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LightSail.Inputs
 {
 
-    public sealed class ContainerServiceDeploymentVersionPublicEndpointGetArgs : Pulumi.ResourceArgs
+    public sealed class ContainerServiceDeploymentVersionPublicEndpointGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the container for the endpoint.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.LightSail.Inputs
         public ContainerServiceDeploymentVersionPublicEndpointGetArgs()
         {
         }
+        public static new ContainerServiceDeploymentVersionPublicEndpointGetArgs Empty => new ContainerServiceDeploymentVersionPublicEndpointGetArgs();
     }
 }

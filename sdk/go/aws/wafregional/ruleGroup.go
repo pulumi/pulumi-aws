@@ -19,36 +19,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleRule, err := wafregional.NewRule(ctx, "exampleRule", &wafregional.RuleArgs{
-// 			MetricName: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = wafregional.NewRuleGroup(ctx, "exampleRuleGroup", &wafregional.RuleGroupArgs{
-// 			MetricName: pulumi.String("example"),
-// 			ActivatedRules: wafregional.RuleGroupActivatedRuleArray{
-// 				&wafregional.RuleGroupActivatedRuleArgs{
-// 					Action: &wafregional.RuleGroupActivatedRuleActionArgs{
-// 						Type: pulumi.String("COUNT"),
-// 					},
-// 					Priority: pulumi.Int(50),
-// 					RuleId:   exampleRule.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRule, err := wafregional.NewRule(ctx, "exampleRule", &wafregional.RuleArgs{
+//				MetricName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = wafregional.NewRuleGroup(ctx, "exampleRuleGroup", &wafregional.RuleGroupArgs{
+//				MetricName: pulumi.String("example"),
+//				ActivatedRules: wafregional.RuleGroupActivatedRuleArray{
+//					&wafregional.RuleGroupActivatedRuleArgs{
+//						Action: &wafregional.RuleGroupActivatedRuleActionArgs{
+//							Type: pulumi.String("COUNT"),
+//						},
+//						Priority: pulumi.Int(50),
+//						RuleId:   exampleRule.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // WAF Regional Rule Group can be imported using the id, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:wafregional/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
+//	$ pulumi import aws:wafregional/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
 // ```
 type RuleGroup struct {
 	pulumi.CustomResourceState
@@ -71,7 +76,7 @@ type RuleGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -117,7 +122,7 @@ type ruleGroupState struct {
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -132,7 +137,7 @@ type RuleGroupState struct {
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -189,7 +194,7 @@ func (i *RuleGroup) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupO
 // RuleGroupArrayInput is an input type that accepts RuleGroupArray and RuleGroupArrayOutput values.
 // You can construct a concrete instance of `RuleGroupArrayInput` via:
 //
-//          RuleGroupArray{ RuleGroupArgs{...} }
+//	RuleGroupArray{ RuleGroupArgs{...} }
 type RuleGroupArrayInput interface {
 	pulumi.Input
 
@@ -214,7 +219,7 @@ func (i RuleGroupArray) ToRuleGroupArrayOutputWithContext(ctx context.Context) R
 // RuleGroupMapInput is an input type that accepts RuleGroupMap and RuleGroupMapOutput values.
 // You can construct a concrete instance of `RuleGroupMapInput` via:
 //
-//          RuleGroupMap{ "key": RuleGroupArgs{...} }
+//	RuleGroupMap{ "key": RuleGroupArgs{...} }
 type RuleGroupMapInput interface {
 	pulumi.Input
 
@@ -275,7 +280,7 @@ func (o RuleGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RuleGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

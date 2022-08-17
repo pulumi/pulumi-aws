@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx.Inputs
 {
 
-    public sealed class OpenZfsFileSystemDiskIopsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class OpenZfsFileSystemDiskIopsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - The total number of SSD IOPS provisioned for the file system.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Fsx.Inputs
         public OpenZfsFileSystemDiskIopsConfigurationArgs()
         {
         }
+        public static new OpenZfsFileSystemDiskIopsConfigurationArgs Empty => new OpenZfsFileSystemDiskIopsConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewaySpecListenerTlsValidationTrustGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewaySpecListenerTlsValidationTrustGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The TLS validation context trust for a local file certificate.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualGatewaySpecListenerTlsValidationTrustGetArgs()
         {
         }
+        public static new VirtualGatewaySpecListenerTlsValidationTrustGetArgs Empty => new VirtualGatewaySpecListenerTlsValidationTrustGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3Control.Inputs
 {
 
-    public sealed class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs : Pulumi.ResourceArgs
+    public sealed class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Lambda function.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3Control.Inputs
         public ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs()
         {
         }
+        public static new ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs Empty => new ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs();
     }
 }

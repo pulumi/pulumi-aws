@@ -19,20 +19,18 @@ namespace Pulumi.Aws.DirectConnect
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.DirectConnect.GetGateway.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.DirectConnect.GetGateway.InvokeAsync(new Aws.DirectConnect.GetGatewayArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.DirectConnect
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.DirectConnect.GetGateway.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.DirectConnect.GetGateway.InvokeAsync(new Aws.DirectConnect.GetGatewayArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.DirectConnect
     }
 
 
-    public sealed class GetGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the gateway to retrieve.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.DirectConnect
         public GetGatewayArgs()
         {
         }
+        public static new GetGatewayArgs Empty => new GetGatewayArgs();
     }
 
-    public sealed class GetGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the gateway to retrieve.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.DirectConnect
         public GetGatewayInvokeArgs()
         {
         }
+        public static new GetGatewayInvokeArgs Empty => new GetGatewayInvokeArgs();
     }
 
 

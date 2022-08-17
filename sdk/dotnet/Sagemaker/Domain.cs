@@ -16,119 +16,120 @@ namespace Pulumi.Aws.Sagemaker
     /// ### Basic usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleDomain = new Aws.Sagemaker.Domain("exampleDomain", new()
     ///     {
-    ///         var exampleDomain = new Aws.Sagemaker.Domain("exampleDomain", new Aws.Sagemaker.DomainArgs
+    ///         DomainName = "example",
+    ///         AuthMode = "IAM",
+    ///         VpcId = aws_vpc.Test.Id,
+    ///         SubnetIds = new[]
     ///         {
-    ///             DomainName = "example",
-    ///             AuthMode = "IAM",
-    ///             VpcId = aws_vpc.Test.Id,
-    ///             SubnetIds = 
-    ///             {
-    ///                 aws_subnet.Test.Id,
-    ///             },
-    ///             DefaultUserSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsArgs
-    ///             {
-    ///                 ExecutionRole = aws_iam_role.Test.Arn,
-    ///             },
-    ///         });
-    ///         var examplePolicyDocument = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///             aws_subnet.Test.Id,
+    ///         },
+    ///         DefaultUserSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsArgs
     ///         {
-    ///             Statements = 
+    ///             ExecutionRole = aws_iam_role.Test.Arn,
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "sts:AssumeRole",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Type = "Service",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "sagemaker.amazonaws.com",
-    ///                             },
+    ///                             "sagemaker.amazonaws.com",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         }));
-    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             Path = "/",
-    ///             AssumeRolePolicy = examplePolicyDocument.Apply(examplePolicyDocument =&gt; examplePolicyDocument.Json),
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     {
+    ///         Path = "/",
+    ///         AssumeRolePolicy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Using Custom Images
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testImage = new Aws.Sagemaker.Image("testImage", new()
     ///     {
-    ///         var testImage = new Aws.Sagemaker.Image("testImage", new Aws.Sagemaker.ImageArgs
+    ///         ImageName = "example",
+    ///         RoleArn = aws_iam_role.Test.Arn,
+    ///     });
+    /// 
+    ///     var testAppImageConfig = new Aws.Sagemaker.AppImageConfig("testAppImageConfig", new()
+    ///     {
+    ///         AppImageConfigName = "example",
+    ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
     ///         {
-    ///             ImageName = "example",
-    ///             RoleArn = aws_iam_role.Test.Arn,
-    ///         });
-    ///         var testAppImageConfig = new Aws.Sagemaker.AppImageConfig("testAppImageConfig", new Aws.Sagemaker.AppImageConfigArgs
-    ///         {
-    ///             AppImageConfigName = "example",
-    ///             KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
+    ///             KernelSpec = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
     ///             {
-    ///                 KernelSpec = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
-    ///                 {
-    ///                     Name = "example",
-    ///                 },
+    ///                 Name = "example",
     ///             },
-    ///         });
-    ///         var testImageVersion = new Aws.Sagemaker.ImageVersion("testImageVersion", new Aws.Sagemaker.ImageVersionArgs
+    ///         },
+    ///     });
+    /// 
+    ///     var testImageVersion = new Aws.Sagemaker.ImageVersion("testImageVersion", new()
+    ///     {
+    ///         ImageName = testImage.Id,
+    ///         BaseImage = "base-image",
+    ///     });
+    /// 
+    ///     var testDomain = new Aws.Sagemaker.Domain("testDomain", new()
+    ///     {
+    ///         DomainName = "example",
+    ///         AuthMode = "IAM",
+    ///         VpcId = aws_vpc.Test.Id,
+    ///         SubnetIds = new[]
     ///         {
-    ///             ImageName = testImage.Id,
-    ///             BaseImage = "base-image",
-    ///         });
-    ///         var testDomain = new Aws.Sagemaker.Domain("testDomain", new Aws.Sagemaker.DomainArgs
+    ///             aws_subnet.Test.Id,
+    ///         },
+    ///         DefaultUserSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsArgs
     ///         {
-    ///             DomainName = "example",
-    ///             AuthMode = "IAM",
-    ///             VpcId = aws_vpc.Test.Id,
-    ///             SubnetIds = 
+    ///             ExecutionRole = aws_iam_role.Test.Arn,
+    ///             KernelGatewayAppSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs
     ///             {
-    ///                 aws_subnet.Test.Id,
-    ///             },
-    ///             DefaultUserSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsArgs
-    ///             {
-    ///                 ExecutionRole = aws_iam_role.Test.Arn,
-    ///                 KernelGatewayAppSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs
+    ///                 CustomImages = new[]
     ///                 {
-    ///                     CustomImages = 
+    ///                     new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs
     ///                     {
-    ///                         new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs
-    ///                         {
-    ///                             AppImageConfigName = testAppImageConfig.AppImageConfigName,
-    ///                             ImageName = testImageVersion.ImageName,
-    ///                         },
+    ///                         AppImageConfigName = testAppImageConfig.AppImageConfigName,
+    ///                         ImageName = testImageVersion.ImageName,
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -140,7 +141,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/domain:Domain")]
-    public partial class Domain : Pulumi.CustomResource
+    public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
@@ -209,7 +210,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -270,7 +271,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class DomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
@@ -341,9 +342,10 @@ namespace Pulumi.Aws.Sagemaker
         public DomainArgs()
         {
         }
+        public static new DomainArgs Empty => new DomainArgs();
     }
 
-    public sealed class DomainState : Pulumi.ResourceArgs
+    public sealed class DomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
@@ -427,7 +429,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -450,5 +452,6 @@ namespace Pulumi.Aws.Sagemaker
         public DomainState()
         {
         }
+        public static new DomainState Empty => new DomainState();
     }
 }

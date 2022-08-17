@@ -17,81 +17,84 @@ namespace Pulumi.Aws.Ec2
     /// Basic usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new Aws.Ec2.VpcIpamArgs
-    ///         {
-    ///             OperatingRegions = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
-    ///                 {
-    ///                     RegionName = current.Apply(current =&gt; current.Name),
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("exampleVpcIpamPool", new Aws.Ec2.VpcIpamPoolArgs
-    ///         {
-    ///             AddressFamily = "ipv4",
-    ///             IpamScopeId = exampleVpcIpam.PrivateDefaultScopeId,
-    ///             Locale = current.Apply(current =&gt; current.Name),
-    ///         });
-    ///     }
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
-    /// }
+    ///     var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new()
+    ///     {
+    ///         OperatingRegions = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
+    ///             {
+    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("exampleVpcIpamPool", new()
+    ///     {
+    ///         AddressFamily = "ipv4",
+    ///         IpamScopeId = exampleVpcIpam.PrivateDefaultScopeId,
+    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// Nested Pools:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var example = new Aws.Ec2.VpcIpam("example", new Aws.Ec2.VpcIpamArgs
-    ///         {
-    ///             OperatingRegions = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
-    ///                 {
-    ///                     RegionName = current.Apply(current =&gt; current.Name),
-    ///                 },
-    ///             },
-    ///         });
-    ///         var parent = new Aws.Ec2.VpcIpamPool("parent", new Aws.Ec2.VpcIpamPoolArgs
-    ///         {
-    ///             AddressFamily = "ipv4",
-    ///             IpamScopeId = example.PrivateDefaultScopeId,
-    ///         });
-    ///         var parentTest = new Aws.Ec2.VpcIpamPoolCidr("parentTest", new Aws.Ec2.VpcIpamPoolCidrArgs
-    ///         {
-    ///             IpamPoolId = parent.Id,
-    ///             Cidr = "172.2.0.0/16",
-    ///         });
-    ///         var child = new Aws.Ec2.VpcIpamPool("child", new Aws.Ec2.VpcIpamPoolArgs
-    ///         {
-    ///             AddressFamily = "ipv4",
-    ///             IpamScopeId = example.PrivateDefaultScopeId,
-    ///             Locale = current.Apply(current =&gt; current.Name),
-    ///             SourceIpamPoolId = parent.Id,
-    ///         });
-    ///         var childTest = new Aws.Ec2.VpcIpamPoolCidr("childTest", new Aws.Ec2.VpcIpamPoolCidrArgs
-    ///         {
-    ///             IpamPoolId = child.Id,
-    ///             Cidr = "172.2.0.0/24",
-    ///         });
-    ///     }
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
-    /// }
+    ///     var example = new Aws.Ec2.VpcIpam("example", new()
+    ///     {
+    ///         OperatingRegions = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
+    ///             {
+    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var parent = new Aws.Ec2.VpcIpamPool("parent", new()
+    ///     {
+    ///         AddressFamily = "ipv4",
+    ///         IpamScopeId = example.PrivateDefaultScopeId,
+    ///     });
+    /// 
+    ///     var parentTest = new Aws.Ec2.VpcIpamPoolCidr("parentTest", new()
+    ///     {
+    ///         IpamPoolId = parent.Id,
+    ///         Cidr = "172.2.0.0/16",
+    ///     });
+    /// 
+    ///     var child = new Aws.Ec2.VpcIpamPool("child", new()
+    ///     {
+    ///         AddressFamily = "ipv4",
+    ///         IpamScopeId = example.PrivateDefaultScopeId,
+    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///         SourceIpamPoolId = parent.Id,
+    ///     });
+    /// 
+    ///     var childTest = new Aws.Ec2.VpcIpamPoolCidr("childTest", new()
+    ///     {
+    ///         IpamPoolId = child.Id,
+    ///         Cidr = "172.2.0.0/24",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -103,7 +106,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamPool:VpcIpamPool")]
-    public partial class VpcIpamPool : Pulumi.CustomResource
+    public partial class VpcIpamPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
@@ -252,7 +255,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcIpamPoolArgs : Pulumi.ResourceArgs
+    public sealed class VpcIpamPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
@@ -348,9 +351,10 @@ namespace Pulumi.Aws.Ec2
         public VpcIpamPoolArgs()
         {
         }
+        public static new VpcIpamPoolArgs Empty => new VpcIpamPoolArgs();
     }
 
-    public sealed class VpcIpamPoolState : Pulumi.ResourceArgs
+    public sealed class VpcIpamPoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
@@ -476,5 +480,6 @@ namespace Pulumi.Aws.Ec2
         public VpcIpamPoolState()
         {
         }
+        public static new VpcIpamPoolState Empty => new VpcIpamPoolState();
     }
 }

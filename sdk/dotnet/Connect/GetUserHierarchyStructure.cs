@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Connect
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Connect.GetUserHierarchyStructure.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Connect.GetUserHierarchyStructure.InvokeAsync(new Aws.Connect.GetUserHierarchyStructureArgs
-        ///         {
-        ///             InstanceId = aws_connect_instance.Test.Id,
-        ///         }));
-        ///     }
+        ///         InstanceId = aws_connect_instance.Test.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Connect
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Connect.GetUserHierarchyStructure.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Connect.GetUserHierarchyStructure.InvokeAsync(new Aws.Connect.GetUserHierarchyStructureArgs
-        ///         {
-        ///             InstanceId = aws_connect_instance.Test.Id,
-        ///         }));
-        ///     }
+        ///         InstanceId = aws_connect_instance.Test.Id,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Connect
     }
 
 
-    public sealed class GetUserHierarchyStructureArgs : Pulumi.InvokeArgs
+    public sealed class GetUserHierarchyStructureArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Reference to the hosting Amazon Connect Instance
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Connect
         public GetUserHierarchyStructureArgs()
         {
         }
+        public static new GetUserHierarchyStructureArgs Empty => new GetUserHierarchyStructureArgs();
     }
 
-    public sealed class GetUserHierarchyStructureInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserHierarchyStructureInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Reference to the hosting Amazon Connect Instance
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Connect
         public GetUserHierarchyStructureInvokeArgs()
         {
         }
+        public static new GetUserHierarchyStructureInvokeArgs Empty => new GetUserHierarchyStructureInvokeArgs();
     }
 
 

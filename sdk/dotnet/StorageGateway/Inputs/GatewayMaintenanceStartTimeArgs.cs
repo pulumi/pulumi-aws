@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.StorageGateway.Inputs
 {
 
-    public sealed class GatewayMaintenanceStartTimeArgs : Pulumi.ResourceArgs
+    public sealed class GatewayMaintenanceStartTimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.StorageGateway.Inputs
         public GatewayMaintenanceStartTimeArgs()
         {
         }
+        public static new GatewayMaintenanceStartTimeArgs Empty => new GatewayMaintenanceStartTimeArgs();
     }
 }

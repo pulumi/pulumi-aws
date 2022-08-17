@@ -15,30 +15,33 @@ import (
 //
 // ## Example Usage
 //
-// To create a basic traffic mirror filter
+// # To create a basic traffic mirror filter
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewTrafficMirrorFilter(ctx, "foo", &ec2.TrafficMirrorFilterArgs{
-// 			Description: pulumi.String("traffic mirror filter - example"),
-// 			NetworkServices: pulumi.StringArray{
-// 				pulumi.String("amazon-dns"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewTrafficMirrorFilter(ctx, "foo", &ec2.TrafficMirrorFilterArgs{
+//				Description: pulumi.String("traffic mirror filter - example"),
+//				NetworkServices: pulumi.StringArray{
+//					pulumi.String("amazon-dns"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // Traffic mirror filter can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
+//
+//	$ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
+//
 // ```
 type TrafficMirrorFilter struct {
 	pulumi.CustomResourceState
@@ -166,7 +171,7 @@ func (i *TrafficMirrorFilter) ToTrafficMirrorFilterOutputWithContext(ctx context
 // TrafficMirrorFilterArrayInput is an input type that accepts TrafficMirrorFilterArray and TrafficMirrorFilterArrayOutput values.
 // You can construct a concrete instance of `TrafficMirrorFilterArrayInput` via:
 //
-//          TrafficMirrorFilterArray{ TrafficMirrorFilterArgs{...} }
+//	TrafficMirrorFilterArray{ TrafficMirrorFilterArgs{...} }
 type TrafficMirrorFilterArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +196,7 @@ func (i TrafficMirrorFilterArray) ToTrafficMirrorFilterArrayOutputWithContext(ct
 // TrafficMirrorFilterMapInput is an input type that accepts TrafficMirrorFilterMap and TrafficMirrorFilterMapOutput values.
 // You can construct a concrete instance of `TrafficMirrorFilterMapInput` via:
 //
-//          TrafficMirrorFilterMap{ "key": TrafficMirrorFilterArgs{...} }
+//	TrafficMirrorFilterMap{ "key": TrafficMirrorFilterArgs{...} }
 type TrafficMirrorFilterMapInput interface {
 	pulumi.Input
 

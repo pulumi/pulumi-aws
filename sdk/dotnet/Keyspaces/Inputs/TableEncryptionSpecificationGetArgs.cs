@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Keyspaces.Inputs
 {
 
-    public sealed class TableEncryptionSpecificationGetArgs : Pulumi.ResourceArgs
+    public sealed class TableEncryptionSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the customer managed KMS key.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
         public TableEncryptionSpecificationGetArgs()
         {
         }
+        public static new TableEncryptionSpecificationGetArgs Empty => new TableEncryptionSpecificationGetArgs();
     }
 }

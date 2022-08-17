@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift.Inputs
 {
 
-    public sealed class BuildStorageLocationGetArgs : Pulumi.ResourceArgs
+    public sealed class BuildStorageLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of your S3 bucket.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.GameLift.Inputs
         public BuildStorageLocationGetArgs()
         {
         }
+        public static new BuildStorageLocationGetArgs Empty => new BuildStorageLocationGetArgs();
     }
 }

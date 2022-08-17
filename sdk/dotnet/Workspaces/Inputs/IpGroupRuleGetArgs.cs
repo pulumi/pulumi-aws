@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Workspaces.Inputs
 {
 
-    public sealed class IpGroupRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class IpGroupRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Workspaces.Inputs
         public IpGroupRuleGetArgs()
         {
         }
+        public static new IpGroupRuleGetArgs Empty => new IpGroupRuleGetArgs();
     }
 }

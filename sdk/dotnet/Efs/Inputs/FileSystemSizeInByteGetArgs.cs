@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Efs.Inputs
 {
 
-    public sealed class FileSystemSizeInByteGetArgs : Pulumi.ResourceArgs
+    public sealed class FileSystemSizeInByteGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The latest known metered size (in bytes) of data stored in the file system.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Efs.Inputs
         public FileSystemSizeInByteGetArgs()
         {
         }
+        public static new FileSystemSizeInByteGetArgs Empty => new FileSystemSizeInByteGetArgs();
     }
 }

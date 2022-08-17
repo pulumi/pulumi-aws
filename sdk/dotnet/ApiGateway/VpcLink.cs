@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/vpcLink:VpcLink")]
-    public partial class VpcLink : Pulumi.CustomResource
+    public partial class VpcLink : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class VpcLinkArgs : Pulumi.ResourceArgs
+    public sealed class VpcLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the VPC link.
@@ -138,9 +138,10 @@ namespace Pulumi.Aws.ApiGateway
         public VpcLinkArgs()
         {
         }
+        public static new VpcLinkArgs Empty => new VpcLinkArgs();
     }
 
-    public sealed class VpcLinkState : Pulumi.ResourceArgs
+    public sealed class VpcLinkState : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -173,7 +174,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -190,5 +191,6 @@ namespace Pulumi.Aws.ApiGateway
         public VpcLinkState()
         {
         }
+        public static new VpcLinkState Empty => new VpcLinkState();
     }
 }

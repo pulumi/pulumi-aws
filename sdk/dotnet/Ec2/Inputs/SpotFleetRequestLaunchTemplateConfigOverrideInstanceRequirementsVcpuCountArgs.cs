@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs()
         {
         }
+        public static new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs Empty => new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs();
     }
 }

@@ -19,24 +19,22 @@ namespace Pulumi.Aws.NetworkManager
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.NetworkManager.GetDevices.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.NetworkManager.GetDevices.InvokeAsync(new Aws.NetworkManager.GetDevicesArgs
+        ///         GlobalNetworkId = @var.Global_network_id,
+        ///         Tags = 
         ///         {
-        ///             GlobalNetworkId = @var.Global_network_id,
-        ///             Tags = 
-        ///             {
-        ///                 { "Env", "test" },
-        ///             },
-        ///         }));
-        ///     }
+        ///             { "Env", "test" },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +50,22 @@ namespace Pulumi.Aws.NetworkManager
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.NetworkManager.GetDevices.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.NetworkManager.GetDevices.InvokeAsync(new Aws.NetworkManager.GetDevicesArgs
+        ///         GlobalNetworkId = @var.Global_network_id,
+        ///         Tags = 
         ///         {
-        ///             GlobalNetworkId = @var.Global_network_id,
-        ///             Tags = 
-        ///             {
-        ///                 { "Env", "test" },
-        ///             },
-        ///         }));
-        ///     }
+        ///             { "Env", "test" },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +75,7 @@ namespace Pulumi.Aws.NetworkManager
     }
 
 
-    public sealed class GetDevicesArgs : Pulumi.InvokeArgs
+    public sealed class GetDevicesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Global Network of the devices to retrieve.
@@ -108,9 +104,10 @@ namespace Pulumi.Aws.NetworkManager
         public GetDevicesArgs()
         {
         }
+        public static new GetDevicesArgs Empty => new GetDevicesArgs();
     }
 
-    public sealed class GetDevicesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDevicesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Global Network of the devices to retrieve.
@@ -139,6 +136,7 @@ namespace Pulumi.Aws.NetworkManager
         public GetDevicesInvokeArgs()
         {
         }
+        public static new GetDevicesInvokeArgs Empty => new GetDevicesInvokeArgs();
     }
 
 

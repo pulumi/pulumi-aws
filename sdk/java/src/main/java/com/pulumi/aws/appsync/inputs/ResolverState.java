@@ -65,14 +65,14 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The DataSource name.
+     * The data source name.
      * 
      */
     @Import(name="dataSource")
     private @Nullable Output<String> dataSource;
 
     /**
-     * @return The DataSource name.
+     * @return The data source name.
      * 
      */
     public Optional<Output<String>> dataSource() {
@@ -298,7 +298,7 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSource The DataSource name.
+         * @param dataSource The data source name.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSource The DataSource name.
+         * @param dataSource The data source name.
          * 
          * @return builder
          * 

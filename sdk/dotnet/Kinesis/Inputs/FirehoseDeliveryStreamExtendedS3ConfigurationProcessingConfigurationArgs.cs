@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables or disables data processing.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs()
         {
         }
+        public static new FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs Empty => new FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs();
     }
 }

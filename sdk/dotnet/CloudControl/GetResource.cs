@@ -19,21 +19,19 @@ namespace Pulumi.Aws.CloudControl
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudControl.GetResource.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudControl.GetResource.InvokeAsync(new Aws.CloudControl.GetResourceArgs
-        ///         {
-        ///             Identifier = "example",
-        ///             TypeName = "AWS::ECS::Cluster",
-        ///         }));
-        ///     }
+        ///         Identifier = "example",
+        ///         TypeName = "AWS::ECS::Cluster",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.CloudControl
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudControl.GetResource.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudControl.GetResource.InvokeAsync(new Aws.CloudControl.GetResourceArgs
-        ///         {
-        ///             Identifier = "example",
-        ///             TypeName = "AWS::ECS::Cluster",
-        ///         }));
-        ///     }
+        ///         Identifier = "example",
+        ///         TypeName = "AWS::ECS::Cluster",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.CloudControl
     }
 
 
-    public sealed class GetResourceArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
@@ -102,9 +98,10 @@ namespace Pulumi.Aws.CloudControl
         public GetResourceArgs()
         {
         }
+        public static new GetResourceArgs Empty => new GetResourceArgs();
     }
 
-    public sealed class GetResourceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
@@ -133,6 +130,7 @@ namespace Pulumi.Aws.CloudControl
         public GetResourceInvokeArgs()
         {
         }
+        public static new GetResourceInvokeArgs Empty => new GetResourceInvokeArgs();
     }
 
 

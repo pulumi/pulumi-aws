@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Controls whether provisioned throughput is enabled or not. Default value: `false`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputGetArgs()
         {
         }
+        public static new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputGetArgs Empty => new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputGetArgs();
     }
 }

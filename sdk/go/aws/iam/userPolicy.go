@@ -19,52 +19,55 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		lbUser, err := iam.NewUser(ctx, "lbUser", &iam.UserArgs{
-// 			Path: pulumi.String("/system/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"Version": "2012-10-17",
-// 			"Statement": []map[string]interface{}{
-// 				map[string]interface{}{
-// 					"Action": []string{
-// 						"ec2:Describe*",
-// 					},
-// 					"Effect":   "Allow",
-// 					"Resource": "*",
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = iam.NewUserPolicy(ctx, "lbRo", &iam.UserPolicyArgs{
-// 			User:   lbUser.Name,
-// 			Policy: pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewAccessKey(ctx, "lbAccessKey", &iam.AccessKeyArgs{
-// 			User: lbUser.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			lbUser, err := iam.NewUser(ctx, "lbUser", &iam.UserArgs{
+//				Path: pulumi.String("/system/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": []string{
+//							"ec2:Describe*",
+//						},
+//						"Effect":   "Allow",
+//						"Resource": "*",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = iam.NewUserPolicy(ctx, "lbRo", &iam.UserPolicyArgs{
+//				User:   lbUser.Name,
+//				Policy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewAccessKey(ctx, "lbAccessKey", &iam.AccessKeyArgs{
+//				User: lbUser.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +75,9 @@ import (
 // IAM User Policies can be imported using the `user_name:user_policy_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
+//
+//	$ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
+//
 // ```
 type UserPolicy struct {
 	pulumi.CustomResourceState
@@ -196,7 +201,7 @@ func (i *UserPolicy) ToUserPolicyOutputWithContext(ctx context.Context) UserPoli
 // UserPolicyArrayInput is an input type that accepts UserPolicyArray and UserPolicyArrayOutput values.
 // You can construct a concrete instance of `UserPolicyArrayInput` via:
 //
-//          UserPolicyArray{ UserPolicyArgs{...} }
+//	UserPolicyArray{ UserPolicyArgs{...} }
 type UserPolicyArrayInput interface {
 	pulumi.Input
 
@@ -221,7 +226,7 @@ func (i UserPolicyArray) ToUserPolicyArrayOutputWithContext(ctx context.Context)
 // UserPolicyMapInput is an input type that accepts UserPolicyMap and UserPolicyMapOutput values.
 // You can construct a concrete instance of `UserPolicyMapInput` via:
 //
-//          UserPolicyMap{ "key": UserPolicyArgs{...} }
+//	UserPolicyMap{ "key": UserPolicyArgs{...} }
 type UserPolicyMapInput interface {
 	pulumi.Input
 

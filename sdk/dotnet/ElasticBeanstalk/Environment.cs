@@ -20,25 +20,24 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var tftest = new Aws.ElasticBeanstalk.Application("tftest", new()
     ///     {
-    ///         var tftest = new Aws.ElasticBeanstalk.Application("tftest", new Aws.ElasticBeanstalk.ApplicationArgs
-    ///         {
-    ///             Description = "tf-test-desc",
-    ///         });
-    ///         var tfenvtest = new Aws.ElasticBeanstalk.Environment("tfenvtest", new Aws.ElasticBeanstalk.EnvironmentArgs
-    ///         {
-    ///             Application = tftest.Name,
-    ///             SolutionStackName = "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
-    ///         });
-    ///     }
+    ///         Description = "tf-test-desc",
+    ///     });
     /// 
-    /// }
+    ///     var tfenvtest = new Aws.ElasticBeanstalk.Environment("tfenvtest", new()
+    ///     {
+    ///         Application = tftest.Name,
+    ///         SolutionStackName = "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Option Settings
     /// 
@@ -55,40 +54,39 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// ### Example With Options
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var tftest = new Aws.ElasticBeanstalk.Application("tftest", new()
     ///     {
-    ///         var tftest = new Aws.ElasticBeanstalk.Application("tftest", new Aws.ElasticBeanstalk.ApplicationArgs
-    ///         {
-    ///             Description = "tf-test-desc",
-    ///         });
-    ///         var tfenvtest = new Aws.ElasticBeanstalk.Environment("tfenvtest", new Aws.ElasticBeanstalk.EnvironmentArgs
-    ///         {
-    ///             Application = tftest.Name,
-    ///             SolutionStackName = "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
-    ///             Settings = 
-    ///             {
-    ///                 new Aws.ElasticBeanstalk.Inputs.EnvironmentSettingArgs
-    ///                 {
-    ///                     Namespace = "aws:ec2:vpc",
-    ///                     Name = "VPCId",
-    ///                     Value = "vpc-xxxxxxxx",
-    ///                 },
-    ///                 new Aws.ElasticBeanstalk.Inputs.EnvironmentSettingArgs
-    ///                 {
-    ///                     Namespace = "aws:ec2:vpc",
-    ///                     Name = "Subnets",
-    ///                     Value = "subnet-xxxxxxxx",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Description = "tf-test-desc",
+    ///     });
     /// 
-    /// }
+    ///     var tfenvtest = new Aws.ElasticBeanstalk.Environment("tfenvtest", new()
+    ///     {
+    ///         Application = tftest.Name,
+    ///         SolutionStackName = "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
+    ///         Settings = new[]
+    ///         {
+    ///             new Aws.ElasticBeanstalk.Inputs.EnvironmentSettingArgs
+    ///             {
+    ///                 Namespace = "aws:ec2:vpc",
+    ///                 Name = "VPCId",
+    ///                 Value = "vpc-xxxxxxxx",
+    ///             },
+    ///             new Aws.ElasticBeanstalk.Inputs.EnvironmentSettingArgs
+    ///             {
+    ///                 Namespace = "aws:ec2:vpc",
+    ///                 Name = "Subnets",
+    ///                 Value = "subnet-xxxxxxxx",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -100,7 +98,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticbeanstalk/environment:Environment")]
-    public partial class Environment : Pulumi.CustomResource
+    public partial class Environment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of all option settings configured in this Environment. These
@@ -305,7 +303,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         }
     }
 
-    public sealed class EnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the application that contains the version
@@ -416,9 +414,10 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public EnvironmentArgs()
         {
         }
+        public static new EnvironmentArgs Empty => new EnvironmentArgs();
     }
 
-    public sealed class EnvironmentState : Pulumi.ResourceArgs
+    public sealed class EnvironmentState : global::Pulumi.ResourceArgs
     {
         [Input("allSettings")]
         private InputList<Inputs.EnvironmentAllSettingGetArgs>? _allSettings;
@@ -642,5 +641,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public EnvironmentState()
         {
         }
+        public static new EnvironmentState Empty => new EnvironmentState();
     }
 }

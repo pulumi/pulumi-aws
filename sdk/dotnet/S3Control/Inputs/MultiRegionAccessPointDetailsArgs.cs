@@ -10,26 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3Control.Inputs
 {
 
-    public sealed class MultiRegionAccessPointDetailsArgs : Pulumi.ResourceArgs
+    public sealed class MultiRegionAccessPointDetailsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the Multi-Region Access Point.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
-        /// </summary>
         [Input("publicAccessBlock")]
         public Input<Inputs.MultiRegionAccessPointDetailsPublicAccessBlockArgs>? PublicAccessBlock { get; set; }
 
         [Input("regions", required: true)]
         private InputList<Inputs.MultiRegionAccessPointDetailsRegionArgs>? _regions;
-
-        /// <summary>
-        /// The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-        /// </summary>
         public InputList<Inputs.MultiRegionAccessPointDetailsRegionArgs> Regions
         {
             get => _regions ?? (_regions = new InputList<Inputs.MultiRegionAccessPointDetailsRegionArgs>());
@@ -39,5 +29,6 @@ namespace Pulumi.Aws.S3Control.Inputs
         public MultiRegionAccessPointDetailsArgs()
         {
         }
+        public static new MultiRegionAccessPointDetailsArgs Empty => new MultiRegionAccessPointDetailsArgs();
     }
 }

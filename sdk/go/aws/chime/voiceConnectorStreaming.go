@@ -20,32 +20,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
-// 			RequireEncryption: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = chime.NewVoiceConnectorStreaming(ctx, "defaultVoiceConnectorStreaming", &chime.VoiceConnectorStreamingArgs{
-// 			Disabled:         pulumi.Bool(false),
-// 			VoiceConnectorId: defaultVoiceConnector.ID(),
-// 			DataRetention:    pulumi.Int(7),
-// 			StreamingNotificationTargets: pulumi.StringArray{
-// 				pulumi.String("SQS"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
+//				RequireEncryption: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = chime.NewVoiceConnectorStreaming(ctx, "defaultVoiceConnectorStreaming", &chime.VoiceConnectorStreamingArgs{
+//				Disabled:         pulumi.Bool(false),
+//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//				DataRetention:    pulumi.Int(7),
+//				StreamingNotificationTargets: pulumi.StringArray{
+//					pulumi.String("SQS"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // Chime Voice Connector Streaming can be imported using the `voice_connector_id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
+//
+//	$ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
+//
 // ```
 type VoiceConnectorStreaming struct {
 	pulumi.CustomResourceState
@@ -177,7 +182,7 @@ func (i *VoiceConnectorStreaming) ToVoiceConnectorStreamingOutputWithContext(ctx
 // VoiceConnectorStreamingArrayInput is an input type that accepts VoiceConnectorStreamingArray and VoiceConnectorStreamingArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorStreamingArrayInput` via:
 //
-//          VoiceConnectorStreamingArray{ VoiceConnectorStreamingArgs{...} }
+//	VoiceConnectorStreamingArray{ VoiceConnectorStreamingArgs{...} }
 type VoiceConnectorStreamingArrayInput interface {
 	pulumi.Input
 
@@ -202,7 +207,7 @@ func (i VoiceConnectorStreamingArray) ToVoiceConnectorStreamingArrayOutputWithCo
 // VoiceConnectorStreamingMapInput is an input type that accepts VoiceConnectorStreamingMap and VoiceConnectorStreamingMapOutput values.
 // You can construct a concrete instance of `VoiceConnectorStreamingMapInput` via:
 //
-//          VoiceConnectorStreamingMap{ "key": VoiceConnectorStreamingArgs{...} }
+//	VoiceConnectorStreamingMap{ "key": VoiceConnectorStreamingArgs{...} }
 type VoiceConnectorStreamingMapInput interface {
 	pulumi.Input
 

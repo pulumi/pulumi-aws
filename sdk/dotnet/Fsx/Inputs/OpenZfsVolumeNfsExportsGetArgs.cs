@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx.Inputs
 {
 
-    public sealed class OpenZfsVolumeNfsExportsGetArgs : Pulumi.ResourceArgs
+    public sealed class OpenZfsVolumeNfsExportsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientConfigurations", required: true)]
         private InputList<Inputs.OpenZfsVolumeNfsExportsClientConfigurationGetArgs>? _clientConfigurations;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Fsx.Inputs
         public OpenZfsVolumeNfsExportsGetArgs()
         {
         }
+        public static new OpenZfsVolumeNfsExportsGetArgs Empty => new OpenZfsVolumeNfsExportsGetArgs();
     }
 }

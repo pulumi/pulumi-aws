@@ -23,6 +23,7 @@ export * from "./getUserHierarchyGroup";
 export * from "./getUserHierarchyStructure";
 export * from "./hoursOfOperation";
 export * from "./instance";
+export * from "./instanceStorageConfig";
 export * from "./lambdaFunctionAssociation";
 export * from "./queue";
 export * from "./quickConnect";
@@ -39,6 +40,7 @@ import { ContactFlow } from "./contactFlow";
 import { ContactFlowModule } from "./contactFlowModule";
 import { HoursOfOperation } from "./hoursOfOperation";
 import { Instance } from "./instance";
+import { InstanceStorageConfig } from "./instanceStorageConfig";
 import { LambdaFunctionAssociation } from "./lambdaFunctionAssociation";
 import { Queue } from "./queue";
 import { QuickConnect } from "./quickConnect";
@@ -63,6 +65,8 @@ const _module = {
                 return new HoursOfOperation(name, <any>undefined, { urn })
             case "aws:connect/instance:Instance":
                 return new Instance(name, <any>undefined, { urn })
+            case "aws:connect/instanceStorageConfig:InstanceStorageConfig":
+                return new InstanceStorageConfig(name, <any>undefined, { urn })
             case "aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation":
                 return new LambdaFunctionAssociation(name, <any>undefined, { urn })
             case "aws:connect/queue:Queue":
@@ -91,6 +95,7 @@ pulumi.runtime.registerResourceModule("aws", "connect/contactFlow", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/contactFlowModule", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/hoursOfOperation", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/instance", _module)
+pulumi.runtime.registerResourceModule("aws", "connect/instanceStorageConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/lambdaFunctionAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/queue", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/quickConnect", _module)

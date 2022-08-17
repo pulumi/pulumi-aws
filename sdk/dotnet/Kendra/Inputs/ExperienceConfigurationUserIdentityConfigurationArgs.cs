@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra.Inputs
 {
 
-    public sealed class ExperienceConfigurationUserIdentityConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ExperienceConfigurationUserIdentityConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS SSO field name that contains the identifiers of your users, such as their emails.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Kendra.Inputs
         public ExperienceConfigurationUserIdentityConfigurationArgs()
         {
         }
+        public static new ExperienceConfigurationUserIdentityConfigurationArgs Empty => new ExperienceConfigurationUserIdentityConfigurationArgs();
     }
 }

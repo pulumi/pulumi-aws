@@ -17,33 +17,31 @@ namespace Pulumi.Aws.ElastiCache
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.ElastiCache.ParameterGroup("default", new()
     ///     {
-    ///         var @default = new Aws.ElastiCache.ParameterGroup("default", new Aws.ElastiCache.ParameterGroupArgs
+    ///         Family = "redis2.8",
+    ///         Parameters = new[]
     ///         {
-    ///             Family = "redis2.8",
-    ///             Parameters = 
+    ///             new Aws.ElastiCache.Inputs.ParameterGroupParameterArgs
     ///             {
-    ///                 new Aws.ElastiCache.Inputs.ParameterGroupParameterArgs
-    ///                 {
-    ///                     Name = "activerehashing",
-    ///                     Value = "yes",
-    ///                 },
-    ///                 new Aws.ElastiCache.Inputs.ParameterGroupParameterArgs
-    ///                 {
-    ///                     Name = "min-slaves-to-write",
-    ///                     Value = "2",
-    ///                 },
+    ///                 Name = "activerehashing",
+    ///                 Value = "yes",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.ElastiCache.Inputs.ParameterGroupParameterArgs
+    ///             {
+    ///                 Name = "min-slaves-to-write",
+    ///                 Value = "2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +53,7 @@ namespace Pulumi.Aws.ElastiCache
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/parameterGroup:ParameterGroup")]
-    public partial class ParameterGroup : Pulumi.CustomResource
+    public partial class ParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AWS ARN associated with the parameter group.
@@ -88,7 +86,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableArray<Outputs.ParameterGroupParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -143,7 +141,7 @@ namespace Pulumi.Aws.ElastiCache
         }
     }
 
-    public sealed class ParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class ParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
@@ -179,7 +177,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -191,9 +189,10 @@ namespace Pulumi.Aws.ElastiCache
         {
             Description = "Managed by Pulumi";
         }
+        public static new ParameterGroupArgs Empty => new ParameterGroupArgs();
     }
 
-    public sealed class ParameterGroupState : Pulumi.ResourceArgs
+    public sealed class ParameterGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS ARN associated with the parameter group.
@@ -235,7 +234,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -259,5 +258,6 @@ namespace Pulumi.Aws.ElastiCache
         {
             Description = "Managed by Pulumi";
         }
+        public static new ParameterGroupState Empty => new ParameterGroupState();
     }
 }

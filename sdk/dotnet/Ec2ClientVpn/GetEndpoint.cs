@@ -20,50 +20,46 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// ### By Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2ClientVpn.GetEndpoint.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2ClientVpn.GetEndpoint.InvokeAsync(new Aws.Ec2ClientVpn.GetEndpointArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2ClientVpn.Inputs.GetEndpointFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2ClientVpn.Inputs.GetEndpointFilterArgs
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "tag:Name",
-        ///                     Values = 
-        ///                     {
-        ///                         "ExampleVpn",
-        ///                     },
+        ///                     "ExampleVpn",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2ClientVpn.GetEndpoint.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2ClientVpn.GetEndpoint.InvokeAsync(new Aws.Ec2ClientVpn.GetEndpointArgs
-        ///         {
-        ///             ClientVpnEndpointId = "cvpn-endpoint-083cf50d6eb314f21",
-        ///         }));
-        ///     }
+        ///         ClientVpnEndpointId = "cvpn-endpoint-083cf50d6eb314f21",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -80,50 +76,46 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// ### By Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2ClientVpn.GetEndpoint.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2ClientVpn.GetEndpoint.InvokeAsync(new Aws.Ec2ClientVpn.GetEndpointArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2ClientVpn.Inputs.GetEndpointFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2ClientVpn.Inputs.GetEndpointFilterArgs
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "tag:Name",
-        ///                     Values = 
-        ///                     {
-        ///                         "ExampleVpn",
-        ///                     },
+        ///                     "ExampleVpn",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2ClientVpn.GetEndpoint.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2ClientVpn.GetEndpoint.InvokeAsync(new Aws.Ec2ClientVpn.GetEndpointArgs
-        ///         {
-        ///             ClientVpnEndpointId = "cvpn-endpoint-083cf50d6eb314f21",
-        ///         }));
-        ///     }
+        ///         ClientVpnEndpointId = "cvpn-endpoint-083cf50d6eb314f21",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -133,7 +125,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     }
 
 
-    public sealed class GetEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Client VPN endpoint.
@@ -168,9 +160,10 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public GetEndpointArgs()
         {
         }
+        public static new GetEndpointArgs Empty => new GetEndpointArgs();
     }
 
-    public sealed class GetEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Client VPN endpoint.
@@ -205,6 +198,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public GetEndpointInvokeArgs()
         {
         }
+        public static new GetEndpointInvokeArgs Empty => new GetEndpointInvokeArgs();
     }
 
 

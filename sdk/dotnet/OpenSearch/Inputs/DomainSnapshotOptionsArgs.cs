@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpenSearch.Inputs
 {
 
-    public sealed class DomainSnapshotOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DomainSnapshotOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Hour during which the service takes an automated daily snapshot of the indices in the domain.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public DomainSnapshotOptionsArgs()
         {
         }
+        public static new DomainSnapshotOptionsArgs Empty => new DomainSnapshotOptionsArgs();
     }
 }

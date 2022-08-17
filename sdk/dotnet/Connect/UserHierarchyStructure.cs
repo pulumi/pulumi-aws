@@ -17,68 +17,64 @@ namespace Pulumi.Aws.Connect
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Connect.UserHierarchyStructure("example", new()
     ///     {
-    ///         var example = new Aws.Connect.UserHierarchyStructure("example", new Aws.Connect.UserHierarchyStructureArgs
+    ///         HierarchyStructure = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureArgs
     ///         {
-    ///             HierarchyStructure = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureArgs
+    ///             LevelOne = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs
     ///             {
-    ///                 LevelOne = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs
-    ///                 {
-    ///                     Name = "levelone",
-    ///                 },
+    ///                 Name = "levelone",
     ///             },
-    ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         });
-    ///     }
+    ///         },
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With Five Levels
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Connect.UserHierarchyStructure("example", new()
     ///     {
-    ///         var example = new Aws.Connect.UserHierarchyStructure("example", new Aws.Connect.UserHierarchyStructureArgs
+    ///         HierarchyStructure = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureArgs
     ///         {
-    ///             HierarchyStructure = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureArgs
+    ///             LevelFive = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelFiveArgs
     ///             {
-    ///                 LevelFive = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelFiveArgs
-    ///                 {
-    ///                     Name = "levelfive",
-    ///                 },
-    ///                 LevelFour = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelFourArgs
-    ///                 {
-    ///                     Name = "levelfour",
-    ///                 },
-    ///                 LevelOne = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs
-    ///                 {
-    ///                     Name = "levelone",
-    ///                 },
-    ///                 LevelThree = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelThreeArgs
-    ///                 {
-    ///                     Name = "levelthree",
-    ///                 },
-    ///                 LevelTwo = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelTwoArgs
-    ///                 {
-    ///                     Name = "leveltwo",
-    ///                 },
+    ///                 Name = "levelfive",
     ///             },
-    ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         });
-    ///     }
+    ///             LevelFour = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelFourArgs
+    ///             {
+    ///                 Name = "levelfour",
+    ///             },
+    ///             LevelOne = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs
+    ///             {
+    ///                 Name = "levelone",
+    ///             },
+    ///             LevelThree = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelThreeArgs
+    ///             {
+    ///                 Name = "levelthree",
+    ///             },
+    ///             LevelTwo = new Aws.Connect.Inputs.UserHierarchyStructureHierarchyStructureLevelTwoArgs
+    ///             {
+    ///                 Name = "leveltwo",
+    ///             },
+    ///         },
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -90,7 +86,7 @@ namespace Pulumi.Aws.Connect
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/userHierarchyStructure:UserHierarchyStructure")]
-    public partial class UserHierarchyStructure : Pulumi.CustomResource
+    public partial class UserHierarchyStructure : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
@@ -148,7 +144,7 @@ namespace Pulumi.Aws.Connect
         }
     }
 
-    public sealed class UserHierarchyStructureArgs : Pulumi.ResourceArgs
+    public sealed class UserHierarchyStructureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
@@ -165,9 +161,10 @@ namespace Pulumi.Aws.Connect
         public UserHierarchyStructureArgs()
         {
         }
+        public static new UserHierarchyStructureArgs Empty => new UserHierarchyStructureArgs();
     }
 
-    public sealed class UserHierarchyStructureState : Pulumi.ResourceArgs
+    public sealed class UserHierarchyStructureState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
@@ -184,5 +181,6 @@ namespace Pulumi.Aws.Connect
         public UserHierarchyStructureState()
         {
         }
+        public static new UserHierarchyStructureState Empty => new UserHierarchyStructureState();
     }
 }

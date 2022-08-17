@@ -113,7 +113,7 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly stageVariables!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags to assign to the stage. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -237,7 +237,7 @@ export interface StageState {
      */
     stageVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags to assign to the stage. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -293,7 +293,7 @@ export interface StageArgs {
      */
     stageVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags to assign to the stage. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the stage. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

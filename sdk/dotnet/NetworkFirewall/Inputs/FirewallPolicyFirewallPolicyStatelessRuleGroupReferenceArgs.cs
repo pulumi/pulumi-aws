@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An integer setting that indicates the order in which to run the stateless rule groups in a single policy. AWS Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs()
         {
         }
+        public static new FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs Empty => new FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs();
     }
 }

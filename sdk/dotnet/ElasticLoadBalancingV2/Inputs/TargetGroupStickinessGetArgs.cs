@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
 {
 
-    public sealed class TargetGroupStickinessGetArgs : Pulumi.ResourceArgs
+    public sealed class TargetGroupStickinessGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Only used when the type is `lb_cookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
         public TargetGroupStickinessGetArgs()
         {
         }
+        public static new TargetGroupStickinessGetArgs Empty => new TargetGroupStickinessGetArgs();
     }
 }

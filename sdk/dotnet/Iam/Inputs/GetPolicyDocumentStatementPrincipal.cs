@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iam.Inputs
 {
 
-    public sealed class GetPolicyDocumentStatementPrincipalArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyDocumentStatementPrincipalArgs : global::Pulumi.InvokeArgs
     {
         [Input("identifiers", required: true)]
         private List<string>? _identifiers;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Iam.Inputs
         public GetPolicyDocumentStatementPrincipalArgs()
         {
         }
+        public static new GetPolicyDocumentStatementPrincipalArgs Empty => new GetPolicyDocumentStatementPrincipalArgs();
     }
 }

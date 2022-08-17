@@ -18,22 +18,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2clientvpn.NewNetworkAssociation(ctx, "example", &ec2clientvpn.NetworkAssociationArgs{
-// 			ClientVpnEndpointId: pulumi.Any(aws_ec2_client_vpn_endpoint.Example.Id),
-// 			SubnetId:            pulumi.Any(aws_subnet.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2clientvpn.NewNetworkAssociation(ctx, "example", &ec2clientvpn.NetworkAssociationArgs{
+//				ClientVpnEndpointId: pulumi.Any(aws_ec2_client_vpn_endpoint.Example.Id),
+//				SubnetId:            pulumi.Any(aws_subnet.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Using custom security groups
 //
@@ -41,26 +44,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2clientvpn.NewNetworkAssociation(ctx, "example", &ec2clientvpn.NetworkAssociationArgs{
-// 			ClientVpnEndpointId: pulumi.Any(aws_ec2_client_vpn_endpoint.Example.Id),
-// 			SubnetId:            pulumi.Any(aws_subnet.Example.Id),
-// 			SecurityGroups: pulumi.StringArray{
-// 				pulumi.Any(aws_security_group.Example1.Id),
-// 				pulumi.Any(aws_security_group.Example2.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2clientvpn.NewNetworkAssociation(ctx, "example", &ec2clientvpn.NetworkAssociationArgs{
+//				ClientVpnEndpointId: pulumi.Any(aws_ec2_client_vpn_endpoint.Example.Id),
+//				SubnetId:            pulumi.Any(aws_subnet.Example.Id),
+//				SecurityGroups: pulumi.StringArray{
+//					pulumi.Any(aws_security_group.Example1.Id),
+//					pulumi.Any(aws_security_group.Example2.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +74,9 @@ import (
 // AWS Client VPN network associations can be imported using the endpoint ID and the association ID. Values are separated by a `,`.
 //
 // ```sh
-//  $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,vpn-assoc-0b8db902465d069ad
+//
+//	$ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,vpn-assoc-0b8db902465d069ad
+//
 // ```
 type NetworkAssociation struct {
 	pulumi.CustomResourceState
@@ -216,7 +224,7 @@ func (i *NetworkAssociation) ToNetworkAssociationOutputWithContext(ctx context.C
 // NetworkAssociationArrayInput is an input type that accepts NetworkAssociationArray and NetworkAssociationArrayOutput values.
 // You can construct a concrete instance of `NetworkAssociationArrayInput` via:
 //
-//          NetworkAssociationArray{ NetworkAssociationArgs{...} }
+//	NetworkAssociationArray{ NetworkAssociationArgs{...} }
 type NetworkAssociationArrayInput interface {
 	pulumi.Input
 
@@ -241,7 +249,7 @@ func (i NetworkAssociationArray) ToNetworkAssociationArrayOutputWithContext(ctx 
 // NetworkAssociationMapInput is an input type that accepts NetworkAssociationMap and NetworkAssociationMapOutput values.
 // You can construct a concrete instance of `NetworkAssociationMapInput` via:
 //
-//          NetworkAssociationMap{ "key": NetworkAssociationArgs{...} }
+//	NetworkAssociationMap{ "key": NetworkAssociationArgs{...} }
 type NetworkAssociationMapInput interface {
 	pulumi.Input
 

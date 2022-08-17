@@ -20,23 +20,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssm.LookupPatchBaseline(ctx, &ssm.LookupPatchBaselineArgs{
-// 			NamePrefix:      pulumi.StringRef("AWS-"),
-// 			OperatingSystem: pulumi.StringRef("CENTOS"),
-// 			Owner:           "AWS",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.LookupPatchBaseline(ctx, &ssm.LookupPatchBaselineArgs{
+//				NamePrefix:      pulumi.StringRef("AWS-"),
+//				OperatingSystem: pulumi.StringRef("CENTOS"),
+//				Owner:           "AWS",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // To retrieve a baseline on your account:
@@ -45,24 +48,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssm.LookupPatchBaseline(ctx, &ssm.LookupPatchBaselineArgs{
-// 			DefaultBaseline: pulumi.BoolRef(true),
-// 			NamePrefix:      pulumi.StringRef("MyCustomBaseline"),
-// 			OperatingSystem: pulumi.StringRef("WINDOWS"),
-// 			Owner:           "Self",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.LookupPatchBaseline(ctx, &ssm.LookupPatchBaselineArgs{
+//				DefaultBaseline: pulumi.BoolRef(true),
+//				NamePrefix:      pulumi.StringRef("MyCustomBaseline"),
+//				OperatingSystem: pulumi.StringRef("WINDOWS"),
+//				Owner:           "Self",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupPatchBaseline(ctx *pulumi.Context, args *LookupPatchBaselineArgs, opts ...pulumi.InvokeOption) (*LookupPatchBaselineResult, error) {
 	var rv LookupPatchBaselineResult

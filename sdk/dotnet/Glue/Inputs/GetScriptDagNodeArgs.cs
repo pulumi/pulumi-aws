@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class GetScriptDagNodeInputArgs : Pulumi.ResourceArgs
+    public sealed class GetScriptDagNodeInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("args", required: true)]
         private InputList<Inputs.GetScriptDagNodeArgInputArgs>? _args;
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public GetScriptDagNodeInputArgs()
         {
         }
+        public static new GetScriptDagNodeInputArgs Empty => new GetScriptDagNodeInputArgs();
     }
 }

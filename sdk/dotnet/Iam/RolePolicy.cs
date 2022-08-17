@@ -22,56 +22,51 @@ namespace Pulumi.Aws.Iam
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testRole = new Aws.Iam.Role("testRole", new()
     ///     {
-    ///         var testRole = new Aws.Iam.Role("testRole", new Aws.Iam.RoleArgs
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 { "Version", "2012-10-17" },
-    ///                 { "Statement", new[]
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Sid"] = "",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", "sts:AssumeRole" },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Sid", "" },
-    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "Service", "ec2.amazonaws.com" },
-    ///                             } },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///         });
-    ///         var testPolicy = new Aws.Iam.RolePolicy("testPolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = testRole.Id,
-    ///             Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "Version", "2012-10-17" },
-    ///                 { "Statement", new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", new[]
-    ///                                 {
-    ///                                     "ec2:Describe*",
-    ///                                 }
-    ///                              },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Resource", "*" },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///         });
-    ///     }
+    ///                         ["Service"] = "ec2.amazonaws.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
     /// 
-    /// }
+    ///     var testPolicy = new Aws.Iam.RolePolicy("testPolicy", new()
+    ///     {
+    ///         Role = testRole.Id,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "ec2:Describe*",
+    ///                     },
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -83,7 +78,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/rolePolicy:RolePolicy")]
-    public partial class RolePolicy : Pulumi.CustomResource
+    public partial class RolePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the role policy. If omitted, this provider will
@@ -106,7 +101,7 @@ namespace Pulumi.Aws.Iam
         public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
-        /// The IAM role to attach to the policy.
+        /// The name of the IAM role to attach to the policy.
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
@@ -155,7 +150,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class RolePolicyArgs : Pulumi.ResourceArgs
+    public sealed class RolePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the role policy. If omitted, this provider will
@@ -178,7 +173,7 @@ namespace Pulumi.Aws.Iam
         public Input<string> Policy { get; set; } = null!;
 
         /// <summary>
-        /// The IAM role to attach to the policy.
+        /// The name of the IAM role to attach to the policy.
         /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
@@ -186,9 +181,10 @@ namespace Pulumi.Aws.Iam
         public RolePolicyArgs()
         {
         }
+        public static new RolePolicyArgs Empty => new RolePolicyArgs();
     }
 
-    public sealed class RolePolicyState : Pulumi.ResourceArgs
+    public sealed class RolePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the role policy. If omitted, this provider will
@@ -211,7 +207,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? Policy { get; set; }
 
         /// <summary>
-        /// The IAM role to attach to the policy.
+        /// The name of the IAM role to attach to the policy.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -219,5 +215,6 @@ namespace Pulumi.Aws.Iam
         public RolePolicyState()
         {
         }
+        public static new RolePolicyState Empty => new RolePolicyState();
     }
 }

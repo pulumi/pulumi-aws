@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SecurityHub.Inputs
 {
 
-    public sealed class InsightFiltersArgs : Pulumi.ResourceArgs
+    public sealed class InsightFiltersArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsAccountIds")]
         private InputList<Inputs.InsightFiltersAwsAccountIdArgs>? _awsAccountIds;
@@ -1071,5 +1071,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         public InsightFiltersArgs()
         {
         }
+        public static new InsightFiltersArgs Empty => new InsightFiltersArgs();
     }
 }

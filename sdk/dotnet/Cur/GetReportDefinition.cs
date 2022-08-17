@@ -23,20 +23,18 @@ namespace Pulumi.Aws.Cur
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var reportDefinition = Aws.Cur.GetReportDefinition.Invoke(new()
         ///     {
-        ///         var reportDefinition = Output.Create(Aws.Cur.GetReportDefinition.InvokeAsync(new Aws.Cur.GetReportDefinitionArgs
-        ///         {
-        ///             ReportName = "example",
-        ///         }));
-        ///     }
+        ///         ReportName = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -56,20 +54,18 @@ namespace Pulumi.Aws.Cur
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var reportDefinition = Aws.Cur.GetReportDefinition.Invoke(new()
         ///     {
-        ///         var reportDefinition = Output.Create(Aws.Cur.GetReportDefinition.InvokeAsync(new Aws.Cur.GetReportDefinitionArgs
-        ///         {
-        ///             ReportName = "example",
-        ///         }));
-        ///     }
+        ///         ReportName = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +75,7 @@ namespace Pulumi.Aws.Cur
     }
 
 
-    public sealed class GetReportDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetReportDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the report definition to match.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.Cur
         public GetReportDefinitionArgs()
         {
         }
+        public static new GetReportDefinitionArgs Empty => new GetReportDefinitionArgs();
     }
 
-    public sealed class GetReportDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReportDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the report definition to match.
@@ -103,6 +100,7 @@ namespace Pulumi.Aws.Cur
         public GetReportDefinitionInvokeArgs()
         {
         }
+        public static new GetReportDefinitionInvokeArgs Empty => new GetReportDefinitionInvokeArgs();
     }
 
 

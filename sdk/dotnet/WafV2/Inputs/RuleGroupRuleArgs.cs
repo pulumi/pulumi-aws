@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupRuleArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public RuleGroupRuleArgs()
         {
         }
+        public static new RuleGroupRuleArgs Empty => new RuleGroupRuleArgs();
     }
 }

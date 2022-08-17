@@ -20,21 +20,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudwatch.GetEventSource(ctx, &cloudwatch.GetEventSourceArgs{
-// 			NamePrefix: pulumi.StringRef("aws.partner/examplepartner.com"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.GetEventSource(ctx, &cloudwatch.GetEventSourceArgs{
+//				NamePrefix: pulumi.StringRef("aws.partner/examplepartner.com"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetEventSource(ctx *pulumi.Context, args *GetEventSourceArgs, opts ...pulumi.InvokeOption) (*GetEventSourceResult, error) {
 	var rv GetEventSourceResult

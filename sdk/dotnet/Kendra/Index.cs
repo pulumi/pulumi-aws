@@ -16,98 +16,90 @@ namespace Pulumi.Aws.Kendra
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
-    ///         var example = new Aws.Kendra.Index("example", new Aws.Kendra.IndexArgs
+    ///         Description = "example",
+    ///         Edition = "DEVELOPER_EDITION",
+    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         Tags = 
     ///         {
-    ///             Description = "example",
-    ///             Edition = "DEVELOPER_EDITION",
-    ///             RoleArn = aws_iam_role.This.Arn,
-    ///             Tags = 
-    ///             {
-    ///                 { "Key1", "Value1" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Key1", "Value1" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With capacity units
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
-    ///         var example = new Aws.Kendra.Index("example", new Aws.Kendra.IndexArgs
+    ///         Edition = "DEVELOPER_EDITION",
+    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         CapacityUnits = new Aws.Kendra.Inputs.IndexCapacityUnitsArgs
     ///         {
-    ///             Edition = "DEVELOPER_EDITION",
-    ///             RoleArn = aws_iam_role.This.Arn,
-    ///             CapacityUnits = new Aws.Kendra.Inputs.IndexCapacityUnitsArgs
-    ///             {
-    ///                 QueryCapacityUnits = 2,
-    ///                 StorageCapacityUnits = 2,
-    ///             },
-    ///         });
-    ///     }
+    ///             QueryCapacityUnits = 2,
+    ///             StorageCapacityUnits = 2,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With server side encryption configuration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
-    ///         var example = new Aws.Kendra.Index("example", new Aws.Kendra.IndexArgs
+    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         ServerSideEncryptionConfiguration = new Aws.Kendra.Inputs.IndexServerSideEncryptionConfigurationArgs
     ///         {
-    ///             RoleArn = aws_iam_role.This.Arn,
-    ///             ServerSideEncryptionConfiguration = new Aws.Kendra.Inputs.IndexServerSideEncryptionConfigurationArgs
-    ///             {
-    ///                 KmsKeyId = data.Aws_kms_key.This.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             KmsKeyId = data.Aws_kms_key.This.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With JSON token type configuration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Kendra.Index("example", new()
     ///     {
-    ///         var example = new Aws.Kendra.Index("example", new Aws.Kendra.IndexArgs
+    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         UserTokenConfigurations = new Aws.Kendra.Inputs.IndexUserTokenConfigurationsArgs
     ///         {
-    ///             RoleArn = aws_iam_role.This.Arn,
-    ///             UserTokenConfigurations = new Aws.Kendra.Inputs.IndexUserTokenConfigurationsArgs
+    ///             JsonTokenTypeConfiguration = new Aws.Kendra.Inputs.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs
     ///             {
-    ///                 JsonTokenTypeConfiguration = new Aws.Kendra.Inputs.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs
-    ///                 {
-    ///                     GroupAttributeField = "groups",
-    ///                     UserNameAttributeField = "username",
-    ///                 },
+    ///                 GroupAttributeField = "groups",
+    ///                 UserNameAttributeField = "username",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -119,7 +111,7 @@ namespace Pulumi.Aws.Kendra
     /// ```
     /// </summary>
     [AwsResourceType("aws:kendra/index:Index")]
-    public partial class Index : Pulumi.CustomResource
+    public partial class Index : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Index.
@@ -193,16 +185,9 @@ namespace Pulumi.Aws.Kendra
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Tags to apply to the Index. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -274,7 +259,7 @@ namespace Pulumi.Aws.Kendra
         }
     }
 
-    public sealed class IndexArgs : Pulumi.ResourceArgs
+    public sealed class IndexArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A block that sets the number of additional document storage and query capacity units that should be used by the index.
@@ -314,11 +299,6 @@ namespace Pulumi.Aws.Kendra
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the Index. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -346,9 +326,10 @@ namespace Pulumi.Aws.Kendra
         public IndexArgs()
         {
         }
+        public static new IndexArgs Empty => new IndexArgs();
     }
 
-    public sealed class IndexState : Pulumi.ResourceArgs
+    public sealed class IndexState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Index.
@@ -436,11 +417,6 @@ namespace Pulumi.Aws.Kendra
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the Index. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -449,10 +425,6 @@ namespace Pulumi.Aws.Kendra
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -486,5 +458,6 @@ namespace Pulumi.Aws.Kendra
         public IndexState()
         {
         }
+        public static new IndexState Empty => new IndexState();
     }
 }

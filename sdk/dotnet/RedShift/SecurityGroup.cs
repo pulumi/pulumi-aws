@@ -15,26 +15,24 @@ namespace Pulumi.Aws.RedShift
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.RedShift.SecurityGroup("default", new()
     ///     {
-    ///         var @default = new Aws.RedShift.SecurityGroup("default", new Aws.RedShift.SecurityGroupArgs
+    ///         Ingress = new[]
     ///         {
-    ///             Ingress = 
+    ///             new Aws.RedShift.Inputs.SecurityGroupIngressArgs
     ///             {
-    ///                 new Aws.RedShift.Inputs.SecurityGroupIngressArgs
-    ///                 {
-    ///                     Cidr = "10.0.0.0/24",
-    ///                 },
+    ///                 Cidr = "10.0.0.0/24",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Aws.RedShift
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/securityGroup:SecurityGroup")]
-    public partial class SecurityGroup : Pulumi.CustomResource
+    public partial class SecurityGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the Redshift security group. Defaults to "Managed by Pulumi".
@@ -110,7 +108,7 @@ namespace Pulumi.Aws.RedShift
         }
     }
 
-    public sealed class SecurityGroupArgs : Pulumi.ResourceArgs
+    public sealed class SecurityGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the Redshift security group. Defaults to "Managed by Pulumi".
@@ -140,9 +138,10 @@ namespace Pulumi.Aws.RedShift
         {
             Description = "Managed by Pulumi";
         }
+        public static new SecurityGroupArgs Empty => new SecurityGroupArgs();
     }
 
-    public sealed class SecurityGroupState : Pulumi.ResourceArgs
+    public sealed class SecurityGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the Redshift security group. Defaults to "Managed by Pulumi".
@@ -172,5 +171,6 @@ namespace Pulumi.Aws.RedShift
         {
             Description = "Managed by Pulumi";
         }
+        public static new SecurityGroupState Empty => new SecurityGroupState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN for the S3 bucket containing the application code.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationGetArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationGetArgs Empty => new ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationGetArgs();
     }
 }

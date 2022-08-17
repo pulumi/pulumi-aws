@@ -86,6 +86,9 @@ export class Stack extends pulumi.CustomResource {
         return obj['__pulumiType'] === Stack.__pulumiType;
     }
 
+    /**
+     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+     */
     public readonly accessEndpoints!: pulumi.Output<outputs.appstream.StackAccessEndpoint[]>;
     /**
      * Settings for application settings persistence.
@@ -187,6 +190,9 @@ export class Stack extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Stack resources.
  */
 export interface StackState {
+    /**
+     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+     */
     accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.StackAccessEndpoint>[]>;
     /**
      * Settings for application settings persistence.
@@ -240,6 +246,9 @@ export interface StackState {
  * The set of arguments for constructing a Stack resource.
  */
 export interface StackArgs {
+    /**
+     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See below.
+     */
     accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.StackAccessEndpoint>[]>;
     /**
      * Settings for application settings persistence.

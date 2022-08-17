@@ -26,7 +26,7 @@ type DirectorySelfServicePermissions struct {
 // DirectorySelfServicePermissionsInput is an input type that accepts DirectorySelfServicePermissionsArgs and DirectorySelfServicePermissionsOutput values.
 // You can construct a concrete instance of `DirectorySelfServicePermissionsInput` via:
 //
-//          DirectorySelfServicePermissionsArgs{...}
+//	DirectorySelfServicePermissionsArgs{...}
 type DirectorySelfServicePermissionsInput interface {
 	pulumi.Input
 
@@ -70,11 +70,11 @@ func (i DirectorySelfServicePermissionsArgs) ToDirectorySelfServicePermissionsPt
 // DirectorySelfServicePermissionsPtrInput is an input type that accepts DirectorySelfServicePermissionsArgs, DirectorySelfServicePermissionsPtr and DirectorySelfServicePermissionsPtrOutput values.
 // You can construct a concrete instance of `DirectorySelfServicePermissionsPtrInput` via:
 //
-//          DirectorySelfServicePermissionsArgs{...}
+//	        DirectorySelfServicePermissionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DirectorySelfServicePermissionsPtrInput interface {
 	pulumi.Input
 
@@ -245,7 +245,7 @@ type DirectoryWorkspaceAccessProperties struct {
 // DirectoryWorkspaceAccessPropertiesInput is an input type that accepts DirectoryWorkspaceAccessPropertiesArgs and DirectoryWorkspaceAccessPropertiesOutput values.
 // You can construct a concrete instance of `DirectoryWorkspaceAccessPropertiesInput` via:
 //
-//          DirectoryWorkspaceAccessPropertiesArgs{...}
+//	DirectoryWorkspaceAccessPropertiesArgs{...}
 type DirectoryWorkspaceAccessPropertiesInput interface {
 	pulumi.Input
 
@@ -295,11 +295,11 @@ func (i DirectoryWorkspaceAccessPropertiesArgs) ToDirectoryWorkspaceAccessProper
 // DirectoryWorkspaceAccessPropertiesPtrInput is an input type that accepts DirectoryWorkspaceAccessPropertiesArgs, DirectoryWorkspaceAccessPropertiesPtr and DirectoryWorkspaceAccessPropertiesPtrOutput values.
 // You can construct a concrete instance of `DirectoryWorkspaceAccessPropertiesPtrInput` via:
 //
-//          DirectoryWorkspaceAccessPropertiesArgs{...}
+//	        DirectoryWorkspaceAccessPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DirectoryWorkspaceAccessPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -509,7 +509,7 @@ type DirectoryWorkspaceCreationProperties struct {
 // DirectoryWorkspaceCreationPropertiesInput is an input type that accepts DirectoryWorkspaceCreationPropertiesArgs and DirectoryWorkspaceCreationPropertiesOutput values.
 // You can construct a concrete instance of `DirectoryWorkspaceCreationPropertiesInput` via:
 //
-//          DirectoryWorkspaceCreationPropertiesArgs{...}
+//	DirectoryWorkspaceCreationPropertiesArgs{...}
 type DirectoryWorkspaceCreationPropertiesInput interface {
 	pulumi.Input
 
@@ -553,11 +553,11 @@ func (i DirectoryWorkspaceCreationPropertiesArgs) ToDirectoryWorkspaceCreationPr
 // DirectoryWorkspaceCreationPropertiesPtrInput is an input type that accepts DirectoryWorkspaceCreationPropertiesArgs, DirectoryWorkspaceCreationPropertiesPtr and DirectoryWorkspaceCreationPropertiesPtrOutput values.
 // You can construct a concrete instance of `DirectoryWorkspaceCreationPropertiesPtrInput` via:
 //
-//          DirectoryWorkspaceCreationPropertiesArgs{...}
+//	        DirectoryWorkspaceCreationPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DirectoryWorkspaceCreationPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -716,7 +716,7 @@ type IpGroupRule struct {
 // IpGroupRuleInput is an input type that accepts IpGroupRuleArgs and IpGroupRuleOutput values.
 // You can construct a concrete instance of `IpGroupRuleInput` via:
 //
-//          IpGroupRuleArgs{...}
+//	IpGroupRuleArgs{...}
 type IpGroupRuleInput interface {
 	pulumi.Input
 
@@ -746,7 +746,7 @@ func (i IpGroupRuleArgs) ToIpGroupRuleOutputWithContext(ctx context.Context) IpG
 // IpGroupRuleArrayInput is an input type that accepts IpGroupRuleArray and IpGroupRuleArrayOutput values.
 // You can construct a concrete instance of `IpGroupRuleArrayInput` via:
 //
-//          IpGroupRuleArray{ IpGroupRuleArgs{...} }
+//	IpGroupRuleArray{ IpGroupRuleArgs{...} }
 type IpGroupRuleArrayInput interface {
 	pulumi.Input
 
@@ -828,7 +828,7 @@ type WorkspaceWorkspaceProperties struct {
 // WorkspaceWorkspacePropertiesInput is an input type that accepts WorkspaceWorkspacePropertiesArgs and WorkspaceWorkspacePropertiesOutput values.
 // You can construct a concrete instance of `WorkspaceWorkspacePropertiesInput` via:
 //
-//          WorkspaceWorkspacePropertiesArgs{...}
+//	WorkspaceWorkspacePropertiesArgs{...}
 type WorkspaceWorkspacePropertiesInput interface {
 	pulumi.Input
 
@@ -872,11 +872,11 @@ func (i WorkspaceWorkspacePropertiesArgs) ToWorkspaceWorkspacePropertiesPtrOutpu
 // WorkspaceWorkspacePropertiesPtrInput is an input type that accepts WorkspaceWorkspacePropertiesArgs, WorkspaceWorkspacePropertiesPtr and WorkspaceWorkspacePropertiesPtrOutput values.
 // You can construct a concrete instance of `WorkspaceWorkspacePropertiesPtrInput` via:
 //
-//          WorkspaceWorkspacePropertiesArgs{...}
+//	        WorkspaceWorkspacePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkspaceWorkspacePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -1033,7 +1033,7 @@ type GetBundleComputeType struct {
 // GetBundleComputeTypeInput is an input type that accepts GetBundleComputeTypeArgs and GetBundleComputeTypeOutput values.
 // You can construct a concrete instance of `GetBundleComputeTypeInput` via:
 //
-//          GetBundleComputeTypeArgs{...}
+//	GetBundleComputeTypeArgs{...}
 type GetBundleComputeTypeInput interface {
 	pulumi.Input
 
@@ -1061,7 +1061,7 @@ func (i GetBundleComputeTypeArgs) ToGetBundleComputeTypeOutputWithContext(ctx co
 // GetBundleComputeTypeArrayInput is an input type that accepts GetBundleComputeTypeArray and GetBundleComputeTypeArrayOutput values.
 // You can construct a concrete instance of `GetBundleComputeTypeArrayInput` via:
 //
-//          GetBundleComputeTypeArray{ GetBundleComputeTypeArgs{...} }
+//	GetBundleComputeTypeArray{ GetBundleComputeTypeArgs{...} }
 type GetBundleComputeTypeArrayInput interface {
 	pulumi.Input
 
@@ -1130,7 +1130,7 @@ type GetBundleRootStorage struct {
 // GetBundleRootStorageInput is an input type that accepts GetBundleRootStorageArgs and GetBundleRootStorageOutput values.
 // You can construct a concrete instance of `GetBundleRootStorageInput` via:
 //
-//          GetBundleRootStorageArgs{...}
+//	GetBundleRootStorageArgs{...}
 type GetBundleRootStorageInput interface {
 	pulumi.Input
 
@@ -1158,7 +1158,7 @@ func (i GetBundleRootStorageArgs) ToGetBundleRootStorageOutputWithContext(ctx co
 // GetBundleRootStorageArrayInput is an input type that accepts GetBundleRootStorageArray and GetBundleRootStorageArrayOutput values.
 // You can construct a concrete instance of `GetBundleRootStorageArrayInput` via:
 //
-//          GetBundleRootStorageArray{ GetBundleRootStorageArgs{...} }
+//	GetBundleRootStorageArray{ GetBundleRootStorageArgs{...} }
 type GetBundleRootStorageArrayInput interface {
 	pulumi.Input
 
@@ -1227,7 +1227,7 @@ type GetBundleUserStorage struct {
 // GetBundleUserStorageInput is an input type that accepts GetBundleUserStorageArgs and GetBundleUserStorageOutput values.
 // You can construct a concrete instance of `GetBundleUserStorageInput` via:
 //
-//          GetBundleUserStorageArgs{...}
+//	GetBundleUserStorageArgs{...}
 type GetBundleUserStorageInput interface {
 	pulumi.Input
 
@@ -1255,7 +1255,7 @@ func (i GetBundleUserStorageArgs) ToGetBundleUserStorageOutputWithContext(ctx co
 // GetBundleUserStorageArrayInput is an input type that accepts GetBundleUserStorageArray and GetBundleUserStorageArrayOutput values.
 // You can construct a concrete instance of `GetBundleUserStorageArrayInput` via:
 //
-//          GetBundleUserStorageArray{ GetBundleUserStorageArgs{...} }
+//	GetBundleUserStorageArray{ GetBundleUserStorageArgs{...} }
 type GetBundleUserStorageArrayInput interface {
 	pulumi.Input
 
@@ -1332,7 +1332,7 @@ type GetDirectorySelfServicePermission struct {
 // GetDirectorySelfServicePermissionInput is an input type that accepts GetDirectorySelfServicePermissionArgs and GetDirectorySelfServicePermissionOutput values.
 // You can construct a concrete instance of `GetDirectorySelfServicePermissionInput` via:
 //
-//          GetDirectorySelfServicePermissionArgs{...}
+//	GetDirectorySelfServicePermissionArgs{...}
 type GetDirectorySelfServicePermissionInput interface {
 	pulumi.Input
 
@@ -1368,7 +1368,7 @@ func (i GetDirectorySelfServicePermissionArgs) ToGetDirectorySelfServicePermissi
 // GetDirectorySelfServicePermissionArrayInput is an input type that accepts GetDirectorySelfServicePermissionArray and GetDirectorySelfServicePermissionArrayOutput values.
 // You can construct a concrete instance of `GetDirectorySelfServicePermissionArrayInput` via:
 //
-//          GetDirectorySelfServicePermissionArray{ GetDirectorySelfServicePermissionArgs{...} }
+//	GetDirectorySelfServicePermissionArray{ GetDirectorySelfServicePermissionArgs{...} }
 type GetDirectorySelfServicePermissionArrayInput interface {
 	pulumi.Input
 
@@ -1471,7 +1471,7 @@ type GetDirectoryWorkspaceAccessProperty struct {
 // GetDirectoryWorkspaceAccessPropertyInput is an input type that accepts GetDirectoryWorkspaceAccessPropertyArgs and GetDirectoryWorkspaceAccessPropertyOutput values.
 // You can construct a concrete instance of `GetDirectoryWorkspaceAccessPropertyInput` via:
 //
-//          GetDirectoryWorkspaceAccessPropertyArgs{...}
+//	GetDirectoryWorkspaceAccessPropertyArgs{...}
 type GetDirectoryWorkspaceAccessPropertyInput interface {
 	pulumi.Input
 
@@ -1513,7 +1513,7 @@ func (i GetDirectoryWorkspaceAccessPropertyArgs) ToGetDirectoryWorkspaceAccessPr
 // GetDirectoryWorkspaceAccessPropertyArrayInput is an input type that accepts GetDirectoryWorkspaceAccessPropertyArray and GetDirectoryWorkspaceAccessPropertyArrayOutput values.
 // You can construct a concrete instance of `GetDirectoryWorkspaceAccessPropertyArrayInput` via:
 //
-//          GetDirectoryWorkspaceAccessPropertyArray{ GetDirectoryWorkspaceAccessPropertyArgs{...} }
+//	GetDirectoryWorkspaceAccessPropertyArray{ GetDirectoryWorkspaceAccessPropertyArgs{...} }
 type GetDirectoryWorkspaceAccessPropertyArrayInput interface {
 	pulumi.Input
 
@@ -1625,7 +1625,7 @@ type GetDirectoryWorkspaceCreationProperty struct {
 // GetDirectoryWorkspaceCreationPropertyInput is an input type that accepts GetDirectoryWorkspaceCreationPropertyArgs and GetDirectoryWorkspaceCreationPropertyOutput values.
 // You can construct a concrete instance of `GetDirectoryWorkspaceCreationPropertyInput` via:
 //
-//          GetDirectoryWorkspaceCreationPropertyArgs{...}
+//	GetDirectoryWorkspaceCreationPropertyArgs{...}
 type GetDirectoryWorkspaceCreationPropertyInput interface {
 	pulumi.Input
 
@@ -1661,7 +1661,7 @@ func (i GetDirectoryWorkspaceCreationPropertyArgs) ToGetDirectoryWorkspaceCreati
 // GetDirectoryWorkspaceCreationPropertyArrayInput is an input type that accepts GetDirectoryWorkspaceCreationPropertyArray and GetDirectoryWorkspaceCreationPropertyArrayOutput values.
 // You can construct a concrete instance of `GetDirectoryWorkspaceCreationPropertyArrayInput` via:
 //
-//          GetDirectoryWorkspaceCreationPropertyArray{ GetDirectoryWorkspaceCreationPropertyArgs{...} }
+//	GetDirectoryWorkspaceCreationPropertyArray{ GetDirectoryWorkspaceCreationPropertyArgs{...} }
 type GetDirectoryWorkspaceCreationPropertyArrayInput interface {
 	pulumi.Input
 
@@ -1758,7 +1758,7 @@ type GetWorkspaceWorkspaceProperty struct {
 // GetWorkspaceWorkspacePropertyInput is an input type that accepts GetWorkspaceWorkspacePropertyArgs and GetWorkspaceWorkspacePropertyOutput values.
 // You can construct a concrete instance of `GetWorkspaceWorkspacePropertyInput` via:
 //
-//          GetWorkspaceWorkspacePropertyArgs{...}
+//	GetWorkspaceWorkspacePropertyArgs{...}
 type GetWorkspaceWorkspacePropertyInput interface {
 	pulumi.Input
 
@@ -1794,7 +1794,7 @@ func (i GetWorkspaceWorkspacePropertyArgs) ToGetWorkspaceWorkspacePropertyOutput
 // GetWorkspaceWorkspacePropertyArrayInput is an input type that accepts GetWorkspaceWorkspacePropertyArray and GetWorkspaceWorkspacePropertyArrayOutput values.
 // You can construct a concrete instance of `GetWorkspaceWorkspacePropertyArrayInput` via:
 //
-//          GetWorkspaceWorkspacePropertyArray{ GetWorkspaceWorkspacePropertyArgs{...} }
+//	GetWorkspaceWorkspacePropertyArray{ GetWorkspaceWorkspacePropertyArgs{...} }
 type GetWorkspaceWorkspacePropertyArrayInput interface {
 	pulumi.Input
 

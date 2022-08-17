@@ -18,30 +18,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := wafregional.NewSizeConstraintSet(ctx, "sizeConstraintSet", &wafregional.SizeConstraintSetArgs{
-// 			SizeConstraints: wafregional.SizeConstraintSetSizeConstraintArray{
-// 				&wafregional.SizeConstraintSetSizeConstraintArgs{
-// 					ComparisonOperator: pulumi.String("EQ"),
-// 					FieldToMatch: &wafregional.SizeConstraintSetSizeConstraintFieldToMatchArgs{
-// 						Type: pulumi.String("BODY"),
-// 					},
-// 					Size:               pulumi.Int(4096),
-// 					TextTransformation: pulumi.String("NONE"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := wafregional.NewSizeConstraintSet(ctx, "sizeConstraintSet", &wafregional.SizeConstraintSetArgs{
+//				SizeConstraints: wafregional.SizeConstraintSetSizeConstraintArray{
+//					&wafregional.SizeConstraintSetSizeConstraintArgs{
+//						ComparisonOperator: pulumi.String("EQ"),
+//						FieldToMatch: &wafregional.SizeConstraintSetSizeConstraintFieldToMatchArgs{
+//							Type: pulumi.String("BODY"),
+//						},
+//						Size:               pulumi.Int(4096),
+//						TextTransformation: pulumi.String("NONE"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // WAF Size Constraint Set can be imported using the id, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
+//	$ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
 // ```
 type SizeConstraintSet struct {
 	pulumi.CustomResourceState
@@ -150,7 +155,7 @@ func (i *SizeConstraintSet) ToSizeConstraintSetOutputWithContext(ctx context.Con
 // SizeConstraintSetArrayInput is an input type that accepts SizeConstraintSetArray and SizeConstraintSetArrayOutput values.
 // You can construct a concrete instance of `SizeConstraintSetArrayInput` via:
 //
-//          SizeConstraintSetArray{ SizeConstraintSetArgs{...} }
+//	SizeConstraintSetArray{ SizeConstraintSetArgs{...} }
 type SizeConstraintSetArrayInput interface {
 	pulumi.Input
 
@@ -175,7 +180,7 @@ func (i SizeConstraintSetArray) ToSizeConstraintSetArrayOutputWithContext(ctx co
 // SizeConstraintSetMapInput is an input type that accepts SizeConstraintSetMap and SizeConstraintSetMapOutput values.
 // You can construct a concrete instance of `SizeConstraintSetMapInput` via:
 //
-//          SizeConstraintSetMap{ "key": SizeConstraintSetArgs{...} }
+//	SizeConstraintSetMap{ "key": SizeConstraintSetArgs{...} }
 type SizeConstraintSetMapInput interface {
 	pulumi.Input
 

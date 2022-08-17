@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventTargetRetryPolicyArgs : Pulumi.ResourceArgs
+    public sealed class EventTargetRetryPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The age in seconds to continue to make retry attempts.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventTargetRetryPolicyArgs()
         {
         }
+        public static new EventTargetRetryPolicyArgs Empty => new EventTargetRetryPolicyArgs();
     }
 }

@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -61,6 +62,7 @@ import javax.annotation.Nullable;
  *                 .operatingSystems(&#34;Linux&#34;)
  *                 .usageText(&#34;Usage Text&#34;)
  *                 .build())
+ *             .tags(Map.of(&#34;env&#34;, &#34;production&#34;))
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.us_east_1())
  *                 .build());
@@ -155,6 +157,18 @@ public class Repository extends com.pulumi.resources.CustomResource {
      */
     public Output<String> repositoryUri() {
         return this.repositoryUri;
+    }
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
+    private Output<Map<String,String>> tagsAll;
+
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
     }
 
     /**

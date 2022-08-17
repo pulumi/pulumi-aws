@@ -150,7 +150,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
      * The maximum interval of time
      * during which a flow of packets is captured and aggregated into a flow
      * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-     * minutes). Default: `600`.
+     * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
      * 
      */
     @Import(name="maxAggregationInterval")
@@ -160,7 +160,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
      * @return The maximum interval of time
      * during which a flow of packets is captured and aggregated into a flow
      * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-     * minutes). Default: `600`.
+     * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
      * 
      */
     public Optional<Output<Integer>> maxAggregationInterval() {
@@ -198,14 +198,14 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider .
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -491,7 +491,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
          * @param maxAggregationInterval The maximum interval of time
          * during which a flow of packets is captured and aggregated into a flow
          * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-         * minutes). Default: `600`.
+         * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
          * @param maxAggregationInterval The maximum interval of time
          * during which a flow of packets is captured and aggregated into a flow
          * log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10
-         * minutes). Default: `600`.
+         * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` _must_ be 60 seconds (1 minute).
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider .
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider .
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

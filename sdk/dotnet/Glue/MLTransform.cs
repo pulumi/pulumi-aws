@@ -15,139 +15,139 @@ namespace Pulumi.Aws.Glue
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testCatalogDatabase = new Aws.Glue.CatalogDatabase("testCatalogDatabase", new()
     ///     {
-    ///         var testCatalogDatabase = new Aws.Glue.CatalogDatabase("testCatalogDatabase", new Aws.Glue.CatalogDatabaseArgs
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var testCatalogTable = new Aws.Glue.CatalogTable("testCatalogTable", new()
+    ///     {
+    ///         Name = "example",
+    ///         DatabaseName = testCatalogDatabase.Name,
+    ///         Owner = "my_owner",
+    ///         Retention = 1,
+    ///         TableType = "VIRTUAL_VIEW",
+    ///         ViewExpandedText = "view_expanded_text_1",
+    ///         ViewOriginalText = "view_original_text_1",
+    ///         StorageDescriptor = new Aws.Glue.Inputs.CatalogTableStorageDescriptorArgs
     ///         {
-    ///             Name = "example",
-    ///         });
-    ///         var testCatalogTable = new Aws.Glue.CatalogTable("testCatalogTable", new Aws.Glue.CatalogTableArgs
-    ///         {
-    ///             Name = "example",
-    ///             DatabaseName = testCatalogDatabase.Name,
-    ///             Owner = "my_owner",
-    ///             Retention = 1,
-    ///             TableType = "VIRTUAL_VIEW",
-    ///             ViewExpandedText = "view_expanded_text_1",
-    ///             ViewOriginalText = "view_original_text_1",
-    ///             StorageDescriptor = new Aws.Glue.Inputs.CatalogTableStorageDescriptorArgs
+    ///             BucketColumns = new[]
     ///             {
-    ///                 BucketColumns = 
-    ///                 {
-    ///                     "bucket_column_1",
-    ///                 },
-    ///                 Compressed = false,
-    ///                 InputFormat = "SequenceFileInputFormat",
-    ///                 Location = "my_location",
-    ///                 NumberOfBuckets = 1,
-    ///                 OutputFormat = "SequenceFileInputFormat",
-    ///                 StoredAsSubDirectories = false,
-    ///                 Parameters = 
-    ///                 {
-    ///                     { "param1", "param1_val" },
-    ///                 },
-    ///                 Columns = 
-    ///                 {
-    ///                     new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
-    ///                     {
-    ///                         Name = "my_column_1",
-    ///                         Type = "int",
-    ///                         Comment = "my_column1_comment",
-    ///                     },
-    ///                     new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
-    ///                     {
-    ///                         Name = "my_column_2",
-    ///                         Type = "string",
-    ///                         Comment = "my_column2_comment",
-    ///                     },
-    ///                 },
-    ///                 SerDeInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSerDeInfoArgs
-    ///                 {
-    ///                     Name = "ser_de_name",
-    ///                     Parameters = 
-    ///                     {
-    ///                         { "param1", "param_val_1" },
-    ///                     },
-    ///                     SerializationLibrary = "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-    ///                 },
-    ///                 SortColumns = 
-    ///                 {
-    ///                     new Aws.Glue.Inputs.CatalogTableStorageDescriptorSortColumnArgs
-    ///                     {
-    ///                         Column = "my_column_1",
-    ///                         SortOrder = 1,
-    ///                     },
-    ///                 },
-    ///                 SkewedInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSkewedInfoArgs
-    ///                 {
-    ///                     SkewedColumnNames = 
-    ///                     {
-    ///                         "my_column_1",
-    ///                     },
-    ///                     SkewedColumnValueLocationMaps = 
-    ///                     {
-    ///                         { "my_column_1", "my_column_1_val_loc_map" },
-    ///                     },
-    ///                     SkewedColumnValues = 
-    ///                     {
-    ///                         "skewed_val_1",
-    ///                     },
-    ///                 },
+    ///                 "bucket_column_1",
     ///             },
-    ///             PartitionKeys = 
-    ///             {
-    ///                 new Aws.Glue.Inputs.CatalogTablePartitionKeyArgs
-    ///                 {
-    ///                     Name = "my_column_1",
-    ///                     Type = "int",
-    ///                     Comment = "my_column_1_comment",
-    ///                 },
-    ///                 new Aws.Glue.Inputs.CatalogTablePartitionKeyArgs
-    ///                 {
-    ///                     Name = "my_column_2",
-    ///                     Type = "string",
-    ///                     Comment = "my_column_2_comment",
-    ///                 },
-    ///             },
+    ///             Compressed = false,
+    ///             InputFormat = "SequenceFileInputFormat",
+    ///             Location = "my_location",
+    ///             NumberOfBuckets = 1,
+    ///             OutputFormat = "SequenceFileInputFormat",
+    ///             StoredAsSubDirectories = false,
     ///             Parameters = 
     ///             {
     ///                 { "param1", "param1_val" },
     ///             },
-    ///         });
-    ///         var testMLTransform = new Aws.Glue.MLTransform("testMLTransform", new Aws.Glue.MLTransformArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Test.Arn,
-    ///             InputRecordTables = 
+    ///             Columns = new[]
     ///             {
-    ///                 new Aws.Glue.Inputs.MLTransformInputRecordTableArgs
+    ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
     ///                 {
-    ///                     DatabaseName = testCatalogTable.DatabaseName,
-    ///                     TableName = testCatalogTable.Name,
+    ///                     Name = "my_column_1",
+    ///                     Type = "int",
+    ///                     Comment = "my_column1_comment",
+    ///                 },
+    ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
+    ///                 {
+    ///                     Name = "my_column_2",
+    ///                     Type = "string",
+    ///                     Comment = "my_column2_comment",
     ///                 },
     ///             },
-    ///             Parameters = new Aws.Glue.Inputs.MLTransformParametersArgs
+    ///             SerDeInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSerDeInfoArgs
     ///             {
-    ///                 TransformType = "FIND_MATCHES",
-    ///                 FindMatchesParameters = new Aws.Glue.Inputs.MLTransformParametersFindMatchesParametersArgs
+    ///                 Name = "ser_de_name",
+    ///                 Parameters = 
     ///                 {
-    ///                     PrimaryKeyColumnName = "my_column_1",
+    ///                     { "param1", "param_val_1" },
+    ///                 },
+    ///                 SerializationLibrary = "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
+    ///             },
+    ///             SortColumns = new[]
+    ///             {
+    ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorSortColumnArgs
+    ///                 {
+    ///                     Column = "my_column_1",
+    ///                     SortOrder = 1,
     ///                 },
     ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
+    ///             SkewedInfo = new Aws.Glue.Inputs.CatalogTableStorageDescriptorSkewedInfoArgs
     ///             {
-    ///                 aws_iam_role_policy_attachment.Test,
+    ///                 SkewedColumnNames = new[]
+    ///                 {
+    ///                     "my_column_1",
+    ///                 },
+    ///                 SkewedColumnValueLocationMaps = 
+    ///                 {
+    ///                     { "my_column_1", "my_column_1_val_loc_map" },
+    ///                 },
+    ///                 SkewedColumnValues = new[]
+    ///                 {
+    ///                     "skewed_val_1",
+    ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         PartitionKeys = new[]
+    ///         {
+    ///             new Aws.Glue.Inputs.CatalogTablePartitionKeyArgs
+    ///             {
+    ///                 Name = "my_column_1",
+    ///                 Type = "int",
+    ///                 Comment = "my_column_1_comment",
+    ///             },
+    ///             new Aws.Glue.Inputs.CatalogTablePartitionKeyArgs
+    ///             {
+    ///                 Name = "my_column_2",
+    ///                 Type = "string",
+    ///                 Comment = "my_column_2_comment",
+    ///             },
+    ///         },
+    ///         Parameters = 
+    ///         {
+    ///             { "param1", "param1_val" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var testMLTransform = new Aws.Glue.MLTransform("testMLTransform", new()
+    ///     {
+    ///         RoleArn = aws_iam_role.Test.Arn,
+    ///         InputRecordTables = new[]
+    ///         {
+    ///             new Aws.Glue.Inputs.MLTransformInputRecordTableArgs
+    ///             {
+    ///                 DatabaseName = testCatalogTable.DatabaseName,
+    ///                 TableName = testCatalogTable.Name,
+    ///             },
+    ///         },
+    ///         Parameters = new Aws.Glue.Inputs.MLTransformParametersArgs
+    ///         {
+    ///             TransformType = "FIND_MATCHES",
+    ///             FindMatchesParameters = new Aws.Glue.Inputs.MLTransformParametersFindMatchesParametersArgs
+    ///             {
+    ///                 PrimaryKeyColumnName = "my_column_1",
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             aws_iam_role_policy_attachment.Test,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Glue
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/mLTransform:MLTransform")]
-    public partial class MLTransform : Pulumi.CustomResource
+    public partial class MLTransform : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue ML Transform.
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.Glue
         }
     }
 
-    public sealed class MLTransformArgs : Pulumi.ResourceArgs
+    public sealed class MLTransformArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the ML Transform.
@@ -390,9 +390,10 @@ namespace Pulumi.Aws.Glue
         public MLTransformArgs()
         {
         }
+        public static new MLTransformArgs Empty => new MLTransformArgs();
     }
 
-    public sealed class MLTransformState : Pulumi.ResourceArgs
+    public sealed class MLTransformState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of Glue ML Transform.
@@ -517,5 +518,6 @@ namespace Pulumi.Aws.Glue
         public MLTransformState()
         {
         }
+        public static new MLTransformState Empty => new MLTransformState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Quicksight.Inputs
 {
 
-    public sealed class DataSourceSslPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceSslPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A Boolean option to control whether SSL should be disabled.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public DataSourceSslPropertiesArgs()
         {
         }
+        public static new DataSourceSslPropertiesArgs Empty => new DataSourceSslPropertiesArgs();
     }
 }

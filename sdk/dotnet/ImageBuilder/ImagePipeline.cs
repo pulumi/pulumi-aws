@@ -15,25 +15,23 @@ namespace Pulumi.Aws.ImageBuilder
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ImageBuilder.ImagePipeline("example", new()
     ///     {
-    ///         var example = new Aws.ImageBuilder.ImagePipeline("example", new Aws.ImageBuilder.ImagePipelineArgs
+    ///         ImageRecipeArn = aws_imagebuilder_image_recipe.Example.Arn,
+    ///         InfrastructureConfigurationArn = aws_imagebuilder_infrastructure_configuration.Example.Arn,
+    ///         Schedule = new Aws.ImageBuilder.Inputs.ImagePipelineScheduleArgs
     ///         {
-    ///             ImageRecipeArn = aws_imagebuilder_image_recipe.Example.Arn,
-    ///             InfrastructureConfigurationArn = aws_imagebuilder_infrastructure_configuration.Example.Arn,
-    ///             Schedule = new Aws.ImageBuilder.Inputs.ImagePipelineScheduleArgs
-    ///             {
-    ///                 ScheduleExpression = "cron(0 0 * * ? *)",
-    ///             },
-    ///         });
-    ///     }
+    ///             ScheduleExpression = "cron(0 0 * * ? *)",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// ```
     /// </summary>
     [AwsResourceType("aws:imagebuilder/imagePipeline:ImagePipeline")]
-    public partial class ImagePipeline : Pulumi.CustomResource
+    public partial class ImagePipeline : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the image pipeline.
@@ -144,13 +142,13 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags for the image pipeline. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -199,7 +197,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
     }
 
-    public sealed class ImagePipelineArgs : Pulumi.ResourceArgs
+    public sealed class ImagePipelineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the container recipe.
@@ -265,7 +263,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the image pipeline. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -276,9 +274,10 @@ namespace Pulumi.Aws.ImageBuilder
         public ImagePipelineArgs()
         {
         }
+        public static new ImagePipelineArgs Empty => new ImagePipelineArgs();
     }
 
-    public sealed class ImagePipelineState : Pulumi.ResourceArgs
+    public sealed class ImagePipelineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the image pipeline.
@@ -380,7 +379,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the image pipeline. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -392,7 +391,7 @@ namespace Pulumi.Aws.ImageBuilder
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -403,5 +402,6 @@ namespace Pulumi.Aws.ImageBuilder
         public ImagePipelineState()
         {
         }
+        public static new ImagePipelineState Empty => new ImagePipelineState();
     }
 }

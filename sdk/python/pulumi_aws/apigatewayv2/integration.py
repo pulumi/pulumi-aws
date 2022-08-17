@@ -703,7 +703,7 @@ class Integration(pulumi.CustomResource):
             runtime="nodejs12.x")
         example_integration = aws.apigatewayv2.Integration("exampleIntegration",
             api_id=aws_apigatewayv2_api["example"]["id"],
-            integration_type="AWS",
+            integration_type="AWS_PROXY",
             connection_type="INTERNET",
             content_handling_strategy="CONVERT_TO_TEXT",
             description="Lambda example",
@@ -837,7 +837,7 @@ class Integration(pulumi.CustomResource):
             runtime="nodejs12.x")
         example_integration = aws.apigatewayv2.Integration("exampleIntegration",
             api_id=aws_apigatewayv2_api["example"]["id"],
-            integration_type="AWS",
+            integration_type="AWS_PROXY",
             connection_type="INTERNET",
             content_handling_strategy="CONVERT_TO_TEXT",
             description="Lambda example",

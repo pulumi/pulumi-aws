@@ -23,62 +23,65 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
-// 			DefaultAction: &wafv2.WebAclDefaultActionArgs{
-// 				Allow: nil,
-// 			},
-// 			Description: pulumi.String("Example of a Cloudfront rate based statement."),
-// 			Rules: wafv2.WebAclRuleArray{
-// 				&wafv2.WebAclRuleArgs{
-// 					Action: &wafv2.WebAclRuleActionArgs{
-// 						Block: nil,
-// 					},
-// 					Name:     pulumi.String("rule-1"),
-// 					Priority: pulumi.Int(1),
-// 					Statement: &wafv2.WebAclRuleStatementArgs{
-// 						RateBasedStatement: &wafv2.WebAclRuleStatementRateBasedStatementArgs{
-// 							AggregateKeyType: pulumi.String("IP"),
-// 							Limit:            pulumi.Int(10000),
-// 							ScopeDownStatement: &wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementArgs{
-// 								GeoMatchStatement: &wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs{
-// 									CountryCodes: pulumi.StringArray{
-// 										pulumi.String("US"),
-// 										pulumi.String("NL"),
-// 									},
-// 								},
-// 							},
-// 						},
-// 					},
-// 					VisibilityConfig: &wafv2.WebAclRuleVisibilityConfigArgs{
-// 						CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 						MetricName:               pulumi.String("friendly-rule-metric-name"),
-// 						SampledRequestsEnabled:   pulumi.Bool(false),
-// 					},
-// 				},
-// 			},
-// 			Scope: pulumi.String("CLOUDFRONT"),
-// 			Tags: pulumi.StringMap{
-// 				"Tag1": pulumi.String("Value1"),
-// 				"Tag2": pulumi.String("Value2"),
-// 			},
-// 			VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
-// 				CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 				MetricName:               pulumi.String("friendly-metric-name"),
-// 				SampledRequestsEnabled:   pulumi.Bool(false),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
+//				DefaultAction: &wafv2.WebAclDefaultActionArgs{
+//					Allow: nil,
+//				},
+//				Description: pulumi.String("Example of a Cloudfront rate based statement."),
+//				Rules: wafv2.WebAclRuleArray{
+//					&wafv2.WebAclRuleArgs{
+//						Action: &wafv2.WebAclRuleActionArgs{
+//							Block: nil,
+//						},
+//						Name:     pulumi.String("rule-1"),
+//						Priority: pulumi.Int(1),
+//						Statement: &wafv2.WebAclRuleStatementArgs{
+//							RateBasedStatement: &wafv2.WebAclRuleStatementRateBasedStatementArgs{
+//								AggregateKeyType: pulumi.String("IP"),
+//								Limit:            pulumi.Int(10000),
+//								ScopeDownStatement: &wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementArgs{
+//									GeoMatchStatement: &wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs{
+//										CountryCodes: pulumi.StringArray{
+//											pulumi.String("US"),
+//											pulumi.String("NL"),
+//										},
+//									},
+//								},
+//							},
+//						},
+//						VisibilityConfig: &wafv2.WebAclRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("friendly-rule-metric-name"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//					},
+//				},
+//				Scope: pulumi.String("CLOUDFRONT"),
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//				VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
+//					CloudwatchMetricsEnabled: pulumi.Bool(false),
+//					MetricName:               pulumi.String("friendly-metric-name"),
+//					SampledRequestsEnabled:   pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Rule Group Reference
 //
@@ -86,131 +89,134 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
-// 			Capacity: pulumi.Int(10),
-// 			Scope:    pulumi.String("REGIONAL"),
-// 			Rules: wafv2.RuleGroupRuleArray{
-// 				&wafv2.RuleGroupRuleArgs{
-// 					Name:     pulumi.String("rule-1"),
-// 					Priority: pulumi.Int(1),
-// 					Action: &wafv2.RuleGroupRuleActionArgs{
-// 						Count: nil,
-// 					},
-// 					Statement: &wafv2.RuleGroupRuleStatementArgs{
-// 						GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
-// 							CountryCodes: pulumi.StringArray{
-// 								pulumi.String("NL"),
-// 							},
-// 						},
-// 					},
-// 					VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-// 						CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 						MetricName:               pulumi.String("friendly-rule-metric-name"),
-// 						SampledRequestsEnabled:   pulumi.Bool(false),
-// 					},
-// 				},
-// 				&wafv2.RuleGroupRuleArgs{
-// 					Name:     pulumi.String("rule-to-exclude-a"),
-// 					Priority: pulumi.Int(10),
-// 					Action: &wafv2.RuleGroupRuleActionArgs{
-// 						Allow: nil,
-// 					},
-// 					Statement: &wafv2.RuleGroupRuleStatementArgs{
-// 						GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
-// 							CountryCodes: pulumi.StringArray{
-// 								pulumi.String("US"),
-// 							},
-// 						},
-// 					},
-// 					VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-// 						CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 						MetricName:               pulumi.String("friendly-rule-metric-name"),
-// 						SampledRequestsEnabled:   pulumi.Bool(false),
-// 					},
-// 				},
-// 				&wafv2.RuleGroupRuleArgs{
-// 					Name:     pulumi.String("rule-to-exclude-b"),
-// 					Priority: pulumi.Int(15),
-// 					Action: &wafv2.RuleGroupRuleActionArgs{
-// 						Allow: nil,
-// 					},
-// 					Statement: &wafv2.RuleGroupRuleStatementArgs{
-// 						GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
-// 							CountryCodes: pulumi.StringArray{
-// 								pulumi.String("GB"),
-// 							},
-// 						},
-// 					},
-// 					VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-// 						CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 						MetricName:               pulumi.String("friendly-rule-metric-name"),
-// 						SampledRequestsEnabled:   pulumi.Bool(false),
-// 					},
-// 				},
-// 			},
-// 			VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
-// 				CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 				MetricName:               pulumi.String("friendly-metric-name"),
-// 				SampledRequestsEnabled:   pulumi.Bool(false),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = wafv2.NewWebAcl(ctx, "test", &wafv2.WebAclArgs{
-// 			Scope: pulumi.String("REGIONAL"),
-// 			DefaultAction: &wafv2.WebAclDefaultActionArgs{
-// 				Block: nil,
-// 			},
-// 			Rules: wafv2.WebAclRuleArray{
-// 				&wafv2.WebAclRuleArgs{
-// 					Name:     pulumi.String("rule-1"),
-// 					Priority: pulumi.Int(1),
-// 					OverrideAction: &wafv2.WebAclRuleOverrideActionArgs{
-// 						Count: nil,
-// 					},
-// 					Statement: &wafv2.WebAclRuleStatementArgs{
-// 						RuleGroupReferenceStatement: &wafv2.WebAclRuleStatementRuleGroupReferenceStatementArgs{
-// 							Arn: example.Arn,
-// 							ExcludedRules: wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArray{
-// 								&wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs{
-// 									Name: pulumi.String("rule-to-exclude-b"),
-// 								},
-// 								&wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs{
-// 									Name: pulumi.String("rule-to-exclude-a"),
-// 								},
-// 							},
-// 						},
-// 					},
-// 					VisibilityConfig: &wafv2.WebAclRuleVisibilityConfigArgs{
-// 						CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 						MetricName:               pulumi.String("friendly-rule-metric-name"),
-// 						SampledRequestsEnabled:   pulumi.Bool(false),
-// 					},
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Tag1": pulumi.String("Value1"),
-// 				"Tag2": pulumi.String("Value2"),
-// 			},
-// 			VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
-// 				CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 				MetricName:               pulumi.String("friendly-metric-name"),
-// 				SampledRequestsEnabled:   pulumi.Bool(false),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
+//				Capacity: pulumi.Int(10),
+//				Scope:    pulumi.String("REGIONAL"),
+//				Rules: wafv2.RuleGroupRuleArray{
+//					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-1"),
+//						Priority: pulumi.Int(1),
+//						Action: &wafv2.RuleGroupRuleActionArgs{
+//							Count: nil,
+//						},
+//						Statement: &wafv2.RuleGroupRuleStatementArgs{
+//							GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
+//								CountryCodes: pulumi.StringArray{
+//									pulumi.String("NL"),
+//								},
+//							},
+//						},
+//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("friendly-rule-metric-name"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//					},
+//					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-to-exclude-a"),
+//						Priority: pulumi.Int(10),
+//						Action: &wafv2.RuleGroupRuleActionArgs{
+//							Allow: nil,
+//						},
+//						Statement: &wafv2.RuleGroupRuleStatementArgs{
+//							GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
+//								CountryCodes: pulumi.StringArray{
+//									pulumi.String("US"),
+//								},
+//							},
+//						},
+//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("friendly-rule-metric-name"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//					},
+//					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-to-exclude-b"),
+//						Priority: pulumi.Int(15),
+//						Action: &wafv2.RuleGroupRuleActionArgs{
+//							Allow: nil,
+//						},
+//						Statement: &wafv2.RuleGroupRuleStatementArgs{
+//							GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
+//								CountryCodes: pulumi.StringArray{
+//									pulumi.String("GB"),
+//								},
+//							},
+//						},
+//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("friendly-rule-metric-name"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//					},
+//				},
+//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
+//					CloudwatchMetricsEnabled: pulumi.Bool(false),
+//					MetricName:               pulumi.String("friendly-metric-name"),
+//					SampledRequestsEnabled:   pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = wafv2.NewWebAcl(ctx, "test", &wafv2.WebAclArgs{
+//				Scope: pulumi.String("REGIONAL"),
+//				DefaultAction: &wafv2.WebAclDefaultActionArgs{
+//					Block: nil,
+//				},
+//				Rules: wafv2.WebAclRuleArray{
+//					&wafv2.WebAclRuleArgs{
+//						Name:     pulumi.String("rule-1"),
+//						Priority: pulumi.Int(1),
+//						OverrideAction: &wafv2.WebAclRuleOverrideActionArgs{
+//							Count: nil,
+//						},
+//						Statement: &wafv2.WebAclRuleStatementArgs{
+//							RuleGroupReferenceStatement: &wafv2.WebAclRuleStatementRuleGroupReferenceStatementArgs{
+//								Arn: example.Arn,
+//								ExcludedRules: wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArray{
+//									&wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs{
+//										Name: pulumi.String("rule-to-exclude-b"),
+//									},
+//									&wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs{
+//										Name: pulumi.String("rule-to-exclude-a"),
+//									},
+//								},
+//							},
+//						},
+//						VisibilityConfig: &wafv2.WebAclRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("friendly-rule-metric-name"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//				VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
+//					CloudwatchMetricsEnabled: pulumi.Bool(false),
+//					MetricName:               pulumi.String("friendly-metric-name"),
+//					SampledRequestsEnabled:   pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -218,7 +224,9 @@ import (
 // WAFv2 Web ACLs can be imported using `ID/Name/Scope` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:wafv2/webAcl:WebAcl example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+//
+//	$ pulumi import aws:wafv2/webAcl:WebAcl example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+//
 // ```
 type WebAcl struct {
 	pulumi.CustomResourceState
@@ -406,7 +414,7 @@ func (i *WebAcl) ToWebAclOutputWithContext(ctx context.Context) WebAclOutput {
 // WebAclArrayInput is an input type that accepts WebAclArray and WebAclArrayOutput values.
 // You can construct a concrete instance of `WebAclArrayInput` via:
 //
-//          WebAclArray{ WebAclArgs{...} }
+//	WebAclArray{ WebAclArgs{...} }
 type WebAclArrayInput interface {
 	pulumi.Input
 
@@ -431,7 +439,7 @@ func (i WebAclArray) ToWebAclArrayOutputWithContext(ctx context.Context) WebAclA
 // WebAclMapInput is an input type that accepts WebAclMap and WebAclMapOutput values.
 // You can construct a concrete instance of `WebAclMapInput` via:
 //
-//          WebAclMap{ "key": WebAclArgs{...} }
+//	WebAclMap{ "key": WebAclArgs{...} }
 type WebAclMapInput interface {
 	pulumi.Input
 

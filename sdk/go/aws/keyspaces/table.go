@@ -21,35 +21,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/keyspaces"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/keyspaces"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := keyspaces.NewTable(ctx, "example", &keyspaces.TableArgs{
-// 			KeyspaceName: pulumi.Any(aws_keyspaces_keyspace.Example.Name),
-// 			TableName:    pulumi.String("my_table"),
-// 			SchemaDefinition: &keyspaces.TableSchemaDefinitionArgs{
-// 				Columns: keyspaces.TableSchemaDefinitionColumnArray{
-// 					&keyspaces.TableSchemaDefinitionColumnArgs{
-// 						Name: pulumi.String("Message"),
-// 						Type: pulumi.String("ASCII"),
-// 					},
-// 				},
-// 				PartitionKeys: keyspaces.TableSchemaDefinitionPartitionKeyArray{
-// 					&keyspaces.TableSchemaDefinitionPartitionKeyArgs{
-// 						Name: pulumi.String("Message"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := keyspaces.NewTable(ctx, "example", &keyspaces.TableArgs{
+//				KeyspaceName: pulumi.Any(aws_keyspaces_keyspace.Example.Name),
+//				TableName:    pulumi.String("my_table"),
+//				SchemaDefinition: &keyspaces.TableSchemaDefinitionArgs{
+//					Columns: keyspaces.TableSchemaDefinitionColumnArray{
+//						&keyspaces.TableSchemaDefinitionColumnArgs{
+//							Name: pulumi.String("Message"),
+//							Type: pulumi.String("ASCII"),
+//						},
+//					},
+//					PartitionKeys: keyspaces.TableSchemaDefinitionPartitionKeyArray{
+//						&keyspaces.TableSchemaDefinitionPartitionKeyArgs{
+//							Name: pulumi.String("Message"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Use the `keyspace_name` and `table_name` separated by `/` to import a table. For example
 //
 // ```sh
-//  $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
+//
+//	$ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
+//
 // ```
 type Table struct {
 	pulumi.CustomResourceState
@@ -81,8 +86,7 @@ type Table struct {
 	// The name of the table.
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
 	Ttl TableTtlPtrOutput `pulumi:"ttl"`
@@ -145,8 +149,7 @@ type tableState struct {
 	// The name of the table.
 	TableName *string `pulumi:"tableName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
 	Ttl *TableTtl `pulumi:"ttl"`
@@ -172,8 +175,7 @@ type TableState struct {
 	// The name of the table.
 	TableName pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
 	Ttl TableTtlPtrInput
@@ -256,7 +258,7 @@ func (i *Table) ToTableOutputWithContext(ctx context.Context) TableOutput {
 // TableArrayInput is an input type that accepts TableArray and TableArrayOutput values.
 // You can construct a concrete instance of `TableArrayInput` via:
 //
-//          TableArray{ TableArgs{...} }
+//	TableArray{ TableArgs{...} }
 type TableArrayInput interface {
 	pulumi.Input
 
@@ -281,7 +283,7 @@ func (i TableArray) ToTableArrayOutputWithContext(ctx context.Context) TableArra
 // TableMapInput is an input type that accepts TableMap and TableMapOutput values.
 // You can construct a concrete instance of `TableMapInput` via:
 //
-//          TableMap{ "key": TableArgs{...} }
+//	TableMap{ "key": TableArgs{...} }
 type TableMapInput interface {
 	pulumi.Input
 
@@ -367,7 +369,6 @@ func (o TableOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o TableOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -15,57 +15,55 @@ namespace Pulumi.Aws.CloudFront
     /// The following example below creates a CloudFront origin request policy.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CloudFront.OriginRequestPolicy("example", new()
     ///     {
-    ///         var example = new Aws.CloudFront.OriginRequestPolicy("example", new Aws.CloudFront.OriginRequestPolicyArgs
+    ///         Comment = "example comment",
+    ///         CookiesConfig = new Aws.CloudFront.Inputs.OriginRequestPolicyCookiesConfigArgs
     ///         {
-    ///             Comment = "example comment",
-    ///             CookiesConfig = new Aws.CloudFront.Inputs.OriginRequestPolicyCookiesConfigArgs
+    ///             CookieBehavior = "whitelist",
+    ///             Cookies = new Aws.CloudFront.Inputs.OriginRequestPolicyCookiesConfigCookiesArgs
     ///             {
-    ///                 CookieBehavior = "whitelist",
-    ///                 Cookies = new Aws.CloudFront.Inputs.OriginRequestPolicyCookiesConfigCookiesArgs
+    ///                 Items = new[]
     ///                 {
-    ///                     Items = 
-    ///                     {
-    ///                         "example",
-    ///                     },
+    ///                     "example",
     ///                 },
     ///             },
-    ///             HeadersConfig = new Aws.CloudFront.Inputs.OriginRequestPolicyHeadersConfigArgs
+    ///         },
+    ///         HeadersConfig = new Aws.CloudFront.Inputs.OriginRequestPolicyHeadersConfigArgs
+    ///         {
+    ///             HeaderBehavior = "whitelist",
+    ///             Headers = new Aws.CloudFront.Inputs.OriginRequestPolicyHeadersConfigHeadersArgs
     ///             {
-    ///                 HeaderBehavior = "whitelist",
-    ///                 Headers = new Aws.CloudFront.Inputs.OriginRequestPolicyHeadersConfigHeadersArgs
+    ///                 Items = new[]
     ///                 {
-    ///                     Items = 
-    ///                     {
-    ///                         "example",
-    ///                     },
+    ///                     "example",
     ///                 },
     ///             },
-    ///             QueryStringsConfig = new Aws.CloudFront.Inputs.OriginRequestPolicyQueryStringsConfigArgs
+    ///         },
+    ///         QueryStringsConfig = new Aws.CloudFront.Inputs.OriginRequestPolicyQueryStringsConfigArgs
+    ///         {
+    ///             QueryStringBehavior = "whitelist",
+    ///             QueryStrings = new Aws.CloudFront.Inputs.OriginRequestPolicyQueryStringsConfigQueryStringsArgs
     ///             {
-    ///                 QueryStringBehavior = "whitelist",
-    ///                 QueryStrings = new Aws.CloudFront.Inputs.OriginRequestPolicyQueryStringsConfigQueryStringsArgs
+    ///                 Items = new[]
     ///                 {
-    ///                     Items = 
-    ///                     {
-    ///                         "example",
-    ///                     },
+    ///                     "example",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/originRequestPolicy:OriginRequestPolicy")]
-    public partial class OriginRequestPolicy : Pulumi.CustomResource
+    public partial class OriginRequestPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Comment to describe the origin request policy.
@@ -147,7 +145,7 @@ namespace Pulumi.Aws.CloudFront
         }
     }
 
-    public sealed class OriginRequestPolicyArgs : Pulumi.ResourceArgs
+    public sealed class OriginRequestPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Comment to describe the origin request policy.
@@ -182,9 +180,10 @@ namespace Pulumi.Aws.CloudFront
         public OriginRequestPolicyArgs()
         {
         }
+        public static new OriginRequestPolicyArgs Empty => new OriginRequestPolicyArgs();
     }
 
-    public sealed class OriginRequestPolicyState : Pulumi.ResourceArgs
+    public sealed class OriginRequestPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Comment to describe the origin request policy.
@@ -225,5 +224,6 @@ namespace Pulumi.Aws.CloudFront
         public OriginRequestPolicyState()
         {
         }
+        public static new OriginRequestPolicyState Empty => new OriginRequestPolicyState();
     }
 }

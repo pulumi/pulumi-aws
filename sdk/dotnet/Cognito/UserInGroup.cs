@@ -15,46 +15,47 @@ namespace Pulumi.Aws.Cognito
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new()
     ///     {
-    ///         var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new Aws.Cognito.UserPoolArgs
+    ///         PasswordPolicy = new Aws.Cognito.Inputs.UserPoolPasswordPolicyArgs
     ///         {
-    ///             PasswordPolicy = new Aws.Cognito.Inputs.UserPoolPasswordPolicyArgs
-    ///             {
-    ///                 TemporaryPasswordValidityDays = 7,
-    ///                 MinimumLength = 6,
-    ///                 RequireUppercase = false,
-    ///                 RequireSymbols = false,
-    ///                 RequireNumbers = false,
-    ///             },
-    ///         });
-    ///         var exampleUser = new Aws.Cognito.User("exampleUser", new Aws.Cognito.UserArgs
-    ///         {
-    ///             UserPoolId = aws_cognito_user_pool.Test.Id,
-    ///             Username = "example",
-    ///         });
-    ///         var exampleUserGroup = new Aws.Cognito.UserGroup("exampleUserGroup", new Aws.Cognito.UserGroupArgs
-    ///         {
-    ///             UserPoolId = aws_cognito_user_pool.Test.Id,
-    ///         });
-    ///         var exampleUserInGroup = new Aws.Cognito.UserInGroup("exampleUserInGroup", new Aws.Cognito.UserInGroupArgs
-    ///         {
-    ///             UserPoolId = exampleUserPool.Id,
-    ///             GroupName = exampleUserGroup.Name,
-    ///             Username = exampleUser.Username,
-    ///         });
-    ///     }
+    ///             TemporaryPasswordValidityDays = 7,
+    ///             MinimumLength = 6,
+    ///             RequireUppercase = false,
+    ///             RequireSymbols = false,
+    ///             RequireNumbers = false,
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleUser = new Aws.Cognito.User("exampleUser", new()
+    ///     {
+    ///         UserPoolId = aws_cognito_user_pool.Test.Id,
+    ///         Username = "example",
+    ///     });
+    /// 
+    ///     var exampleUserGroup = new Aws.Cognito.UserGroup("exampleUserGroup", new()
+    ///     {
+    ///         UserPoolId = aws_cognito_user_pool.Test.Id,
+    ///     });
+    /// 
+    ///     var exampleUserInGroup = new Aws.Cognito.UserInGroup("exampleUserInGroup", new()
+    ///     {
+    ///         UserPoolId = exampleUserPool.Id,
+    ///         GroupName = exampleUserGroup.Name,
+    ///         Username = exampleUser.Username,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/userInGroup:UserInGroup")]
-    public partial class UserInGroup : Pulumi.CustomResource
+    public partial class UserInGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the group to which the user is to be added.
@@ -118,7 +119,7 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
-    public sealed class UserInGroupArgs : Pulumi.ResourceArgs
+    public sealed class UserInGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the group to which the user is to be added.
@@ -141,9 +142,10 @@ namespace Pulumi.Aws.Cognito
         public UserInGroupArgs()
         {
         }
+        public static new UserInGroupArgs Empty => new UserInGroupArgs();
     }
 
-    public sealed class UserInGroupState : Pulumi.ResourceArgs
+    public sealed class UserInGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the group to which the user is to be added.
@@ -166,5 +168,6 @@ namespace Pulumi.Aws.Cognito
         public UserInGroupState()
         {
         }
+        public static new UserInGroupState Empty => new UserInGroupState();
     }
 }

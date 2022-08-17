@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecr.Inputs
 {
 
-    public sealed class RegistryScanningConfigurationRuleRepositoryFilterArgs : Pulumi.ResourceArgs
+    public sealed class RegistryScanningConfigurationRuleRepositoryFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("filter", required: true)]
         public Input<string> Filter { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ecr.Inputs
         public RegistryScanningConfigurationRuleRepositoryFilterArgs()
         {
         }
+        public static new RegistryScanningConfigurationRuleRepositoryFilterArgs Empty => new RegistryScanningConfigurationRuleRepositoryFilterArgs();
     }
 }

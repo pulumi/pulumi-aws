@@ -15,21 +15,19 @@ namespace Pulumi.Aws.AppSync
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppSync.DomainName("example", new()
     ///     {
-    ///         var example = new Aws.AppSync.DomainName("example", new Aws.AppSync.DomainNameArgs
-    ///         {
-    ///             Name = "api.example.com",
-    ///             CertificateArn = aws_acm_certificate.Example.Arn,
-    ///         });
-    ///     }
+    ///         Name = "api.example.com",
+    ///         CertificateArn = aws_acm_certificate.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.AppSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/domainName:DomainName")]
-    public partial class DomainName : Pulumi.CustomResource
+    public partial class DomainName : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The domain name that AppSync provides.
@@ -117,7 +115,7 @@ namespace Pulumi.Aws.AppSync
         }
     }
 
-    public sealed class DomainNameArgs : Pulumi.ResourceArgs
+    public sealed class DomainNameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
@@ -140,9 +138,10 @@ namespace Pulumi.Aws.AppSync
         public DomainNameArgs()
         {
         }
+        public static new DomainNameArgs Empty => new DomainNameArgs();
     }
 
-    public sealed class DomainNameState : Pulumi.ResourceArgs
+    public sealed class DomainNameState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The domain name that AppSync provides.
@@ -177,5 +176,6 @@ namespace Pulumi.Aws.AppSync
         public DomainNameState()
         {
         }
+        public static new DomainNameState Empty => new DomainNameState();
     }
 }

@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/xray"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/xray"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := xray.NewSamplingRule(ctx, "example", &xray.SamplingRuleArgs{
-// 			Attributes: pulumi.StringMap{
-// 				"Hello": pulumi.String("Tris"),
-// 			},
-// 			FixedRate:     pulumi.Float64(0.05),
-// 			Host:          pulumi.String("*"),
-// 			HttpMethod:    pulumi.String("*"),
-// 			Priority:      pulumi.Int(10000),
-// 			ReservoirSize: pulumi.Int(1),
-// 			ResourceArn:   pulumi.String("*"),
-// 			RuleName:      pulumi.String("example"),
-// 			ServiceName:   pulumi.String("*"),
-// 			ServiceType:   pulumi.String("*"),
-// 			UrlPath:       pulumi.String("*"),
-// 			Version:       pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := xray.NewSamplingRule(ctx, "example", &xray.SamplingRuleArgs{
+//				Attributes: pulumi.StringMap{
+//					"Hello": pulumi.String("Tris"),
+//				},
+//				FixedRate:     pulumi.Float64(0.05),
+//				Host:          pulumi.String("*"),
+//				HttpMethod:    pulumi.String("*"),
+//				Priority:      pulumi.Int(10000),
+//				ReservoirSize: pulumi.Int(1),
+//				ResourceArn:   pulumi.String("*"),
+//				RuleName:      pulumi.String("example"),
+//				ServiceName:   pulumi.String("*"),
+//				ServiceType:   pulumi.String("*"),
+//				UrlPath:       pulumi.String("*"),
+//				Version:       pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // XRay Sampling Rules can be imported using the name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:xray/samplingRule:SamplingRule example example
+//
+//	$ pulumi import aws:xray/samplingRule:SamplingRule example example
+//
 // ```
 type SamplingRule struct {
 	pulumi.CustomResourceState
@@ -81,7 +86,7 @@ type SamplingRule struct {
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
 	// Matches the `origin` that the service uses to identify its type in segments.
 	ServiceType pulumi.StringOutput `pulumi:"serviceType"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -172,7 +177,7 @@ type samplingRuleState struct {
 	ServiceName *string `pulumi:"serviceName"`
 	// Matches the `origin` that the service uses to identify its type in segments.
 	ServiceType *string `pulumi:"serviceType"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -205,7 +210,7 @@ type SamplingRuleState struct {
 	ServiceName pulumi.StringPtrInput
 	// Matches the `origin` that the service uses to identify its type in segments.
 	ServiceType pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -240,7 +245,7 @@ type samplingRuleArgs struct {
 	ServiceName string `pulumi:"serviceName"`
 	// Matches the `origin` that the service uses to identify its type in segments.
 	ServiceType string `pulumi:"serviceType"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 	// Matches the path from a request URL.
 	UrlPath string `pulumi:"urlPath"`
@@ -270,7 +275,7 @@ type SamplingRuleArgs struct {
 	ServiceName pulumi.StringInput
 	// Matches the `origin` that the service uses to identify its type in segments.
 	ServiceType pulumi.StringInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 	// Matches the path from a request URL.
 	UrlPath pulumi.StringInput
@@ -304,7 +309,7 @@ func (i *SamplingRule) ToSamplingRuleOutputWithContext(ctx context.Context) Samp
 // SamplingRuleArrayInput is an input type that accepts SamplingRuleArray and SamplingRuleArrayOutput values.
 // You can construct a concrete instance of `SamplingRuleArrayInput` via:
 //
-//          SamplingRuleArray{ SamplingRuleArgs{...} }
+//	SamplingRuleArray{ SamplingRuleArgs{...} }
 type SamplingRuleArrayInput interface {
 	pulumi.Input
 
@@ -329,7 +334,7 @@ func (i SamplingRuleArray) ToSamplingRuleArrayOutputWithContext(ctx context.Cont
 // SamplingRuleMapInput is an input type that accepts SamplingRuleMap and SamplingRuleMapOutput values.
 // You can construct a concrete instance of `SamplingRuleMapInput` via:
 //
-//          SamplingRuleMap{ "key": SamplingRuleArgs{...} }
+//	SamplingRuleMap{ "key": SamplingRuleArgs{...} }
 type SamplingRuleMapInput interface {
 	pulumi.Input
 
@@ -420,7 +425,7 @@ func (o SamplingRuleOutput) ServiceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringOutput { return v.ServiceType }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 func (o SamplingRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

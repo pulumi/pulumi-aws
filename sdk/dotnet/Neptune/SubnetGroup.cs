@@ -15,28 +15,26 @@ namespace Pulumi.Aws.Neptune
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Neptune.SubnetGroup("default", new()
     ///     {
-    ///         var @default = new Aws.Neptune.SubnetGroup("default", new Aws.Neptune.SubnetGroupArgs
+    ///         SubnetIds = new[]
     ///         {
-    ///             SubnetIds = 
-    ///             {
-    ///                 aws_subnet.Frontend.Id,
-    ///                 aws_subnet.Backend.Id,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "My neptune subnet group" },
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_subnet.Frontend.Id,
+    ///             aws_subnet.Backend.Id,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "My neptune subnet group" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Aws.Neptune
     /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/subnetGroup:SubnetGroup")]
-    public partial class SubnetGroup : Pulumi.CustomResource
+    public partial class SubnetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the neptune subnet group.
@@ -87,7 +85,7 @@ namespace Pulumi.Aws.Neptune
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -136,7 +134,7 @@ namespace Pulumi.Aws.Neptune
         }
     }
 
-    public sealed class SubnetGroupArgs : Pulumi.ResourceArgs
+    public sealed class SubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the neptune subnet group. Defaults to "Managed by Pulumi".
@@ -184,9 +182,10 @@ namespace Pulumi.Aws.Neptune
         {
             Description = "Managed by Pulumi";
         }
+        public static new SubnetGroupArgs Empty => new SubnetGroupArgs();
     }
 
-    public sealed class SubnetGroupState : Pulumi.ResourceArgs
+    public sealed class SubnetGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the neptune subnet group.
@@ -240,7 +239,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -252,5 +251,6 @@ namespace Pulumi.Aws.Neptune
         {
             Description = "Managed by Pulumi";
         }
+        public static new SubnetGroupState Empty => new SubnetGroupState();
     }
 }

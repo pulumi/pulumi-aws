@@ -19,77 +19,84 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": "sts:AssumeRole",
-//       "Principal": {
-//         "Service": "cloudfront.amazonaws.com"
-//       },
-//       "Effect": "Allow"
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "sts:AssumeRole",
+//	      "Principal": {
+//	        "Service": "cloudfront.amazonaws.com"
+//	      },
+//	      "Effect": "Allow"
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRolePolicy, err := iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
-// 			Role: exampleRole.ID(),
-// 			Policy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//         "Effect": "Allow",
-//         "Action": [
-//           "kinesis:DescribeStreamSummary",
-//           "kinesis:DescribeStream",
-//           "kinesis:PutRecord",
-//           "kinesis:PutRecords"
-//         ],
-//         "Resource": "%v"
-//     }
-//   ]
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRolePolicy, err := iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
+//				Role: exampleRole.ID(),
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	        "Effect": "Allow",
+//	        "Action": [
+//	          "kinesis:DescribeStreamSummary",
+//	          "kinesis:DescribeStream",
+//	          "kinesis:PutRecord",
+//	          "kinesis:PutRecords"
+//	        ],
+//	        "Resource": "%v"
+//	    }
+//	  ]
+//	}
+//
 // `, aws_kinesis_stream.Example.Arn)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cloudfront.NewRealtimeLogConfig(ctx, "exampleRealtimeLogConfig", &cloudfront.RealtimeLogConfigArgs{
-// 			SamplingRate: pulumi.Int(75),
-// 			Fields: pulumi.StringArray{
-// 				pulumi.String("timestamp"),
-// 				pulumi.String("c-ip"),
-// 			},
-// 			Endpoint: &cloudfront.RealtimeLogConfigEndpointArgs{
-// 				StreamType: pulumi.String("Kinesis"),
-// 				KinesisStreamConfig: &cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs{
-// 					RoleArn:   exampleRole.Arn,
-// 					StreamArn: pulumi.Any(aws_kinesis_stream.Example.Arn),
-// 				},
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleRolePolicy,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudfront.NewRealtimeLogConfig(ctx, "exampleRealtimeLogConfig", &cloudfront.RealtimeLogConfigArgs{
+//				SamplingRate: pulumi.Int(75),
+//				Fields: pulumi.StringArray{
+//					pulumi.String("timestamp"),
+//					pulumi.String("c-ip"),
+//				},
+//				Endpoint: &cloudfront.RealtimeLogConfigEndpointArgs{
+//					StreamType: pulumi.String("Kinesis"),
+//					KinesisStreamConfig: &cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs{
+//						RoleArn:   exampleRole.Arn,
+//						StreamArn: pulumi.Any(aws_kinesis_stream.Example.Arn),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleRolePolicy,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -97,7 +104,9 @@ import (
 // CloudFront real-time log configurations can be imported using the ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
+//
+//	$ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
+//
 // ```
 type RealtimeLogConfig struct {
 	pulumi.CustomResourceState
@@ -230,7 +239,7 @@ func (i *RealtimeLogConfig) ToRealtimeLogConfigOutputWithContext(ctx context.Con
 // RealtimeLogConfigArrayInput is an input type that accepts RealtimeLogConfigArray and RealtimeLogConfigArrayOutput values.
 // You can construct a concrete instance of `RealtimeLogConfigArrayInput` via:
 //
-//          RealtimeLogConfigArray{ RealtimeLogConfigArgs{...} }
+//	RealtimeLogConfigArray{ RealtimeLogConfigArgs{...} }
 type RealtimeLogConfigArrayInput interface {
 	pulumi.Input
 
@@ -255,7 +264,7 @@ func (i RealtimeLogConfigArray) ToRealtimeLogConfigArrayOutputWithContext(ctx co
 // RealtimeLogConfigMapInput is an input type that accepts RealtimeLogConfigMap and RealtimeLogConfigMapOutput values.
 // You can construct a concrete instance of `RealtimeLogConfigMapInput` via:
 //
-//          RealtimeLogConfigMap{ "key": RealtimeLogConfigArgs{...} }
+//	RealtimeLogConfigMap{ "key": RealtimeLogConfigArgs{...} }
 type RealtimeLogConfigMapInput interface {
 	pulumi.Input
 

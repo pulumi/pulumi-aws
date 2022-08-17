@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		app, err := pinpoint.NewApp(ctx, "app", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = pinpoint.NewApnsVoipSandboxChannel(ctx, "apnsVoipSandbox", &pinpoint.ApnsVoipSandboxChannelArgs{
-// 			ApplicationId: app.ApplicationId,
-// 			Certificate:   readFileOrPanic("./certificate.pem"),
-// 			PrivateKey:    readFileOrPanic("./private_key.key"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			app, err := pinpoint.NewApp(ctx, "app", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pinpoint.NewApnsVoipSandboxChannel(ctx, "apnsVoipSandbox", &pinpoint.ApnsVoipSandboxChannelArgs{
+//				ApplicationId: app.ApplicationId,
+//				Certificate:   readFileOrPanic("./certificate.pem"),
+//				PrivateKey:    readFileOrPanic("./private_key.key"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Pinpoint APNs VoIP Sandbox Channel can be imported using the `application-id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
+//
+//	$ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
+//
 // ```
 type ApnsVoipSandboxChannel struct {
 	pulumi.CustomResourceState
@@ -243,7 +248,7 @@ func (i *ApnsVoipSandboxChannel) ToApnsVoipSandboxChannelOutputWithContext(ctx c
 // ApnsVoipSandboxChannelArrayInput is an input type that accepts ApnsVoipSandboxChannelArray and ApnsVoipSandboxChannelArrayOutput values.
 // You can construct a concrete instance of `ApnsVoipSandboxChannelArrayInput` via:
 //
-//          ApnsVoipSandboxChannelArray{ ApnsVoipSandboxChannelArgs{...} }
+//	ApnsVoipSandboxChannelArray{ ApnsVoipSandboxChannelArgs{...} }
 type ApnsVoipSandboxChannelArrayInput interface {
 	pulumi.Input
 
@@ -268,7 +273,7 @@ func (i ApnsVoipSandboxChannelArray) ToApnsVoipSandboxChannelArrayOutputWithCont
 // ApnsVoipSandboxChannelMapInput is an input type that accepts ApnsVoipSandboxChannelMap and ApnsVoipSandboxChannelMapOutput values.
 // You can construct a concrete instance of `ApnsVoipSandboxChannelMapInput` via:
 //
-//          ApnsVoipSandboxChannelMap{ "key": ApnsVoipSandboxChannelArgs{...} }
+//	ApnsVoipSandboxChannelMap{ "key": ApnsVoipSandboxChannelArgs{...} }
 type ApnsVoipSandboxChannelMapInput interface {
 	pulumi.Input
 

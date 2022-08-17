@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs : Pulumi.ResourceArgs
+    public sealed class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the HTTP endpoint common attribute.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs()
         {
         }
+        public static new FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs Empty => new FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs();
     }
 }

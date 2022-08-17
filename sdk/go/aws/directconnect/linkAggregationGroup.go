@@ -21,23 +21,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := directconnect.NewLinkAggregationGroup(ctx, "hoge", &directconnect.LinkAggregationGroupArgs{
-// 			ConnectionsBandwidth: pulumi.String("1Gbps"),
-// 			ForceDestroy:         pulumi.Bool(true),
-// 			Location:             pulumi.String("EqDC2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := directconnect.NewLinkAggregationGroup(ctx, "hoge", &directconnect.LinkAggregationGroupArgs{
+//				ConnectionsBandwidth: pulumi.String("1Gbps"),
+//				ForceDestroy:         pulumi.Bool(true),
+//				Location:             pulumi.String("EqDC2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // Direct Connect LAGs can be imported using the `lag id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
+//
+//	$ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
+//
 // ```
 type LinkAggregationGroup struct {
 	pulumi.CustomResourceState
@@ -226,7 +231,7 @@ func (i *LinkAggregationGroup) ToLinkAggregationGroupOutputWithContext(ctx conte
 // LinkAggregationGroupArrayInput is an input type that accepts LinkAggregationGroupArray and LinkAggregationGroupArrayOutput values.
 // You can construct a concrete instance of `LinkAggregationGroupArrayInput` via:
 //
-//          LinkAggregationGroupArray{ LinkAggregationGroupArgs{...} }
+//	LinkAggregationGroupArray{ LinkAggregationGroupArgs{...} }
 type LinkAggregationGroupArrayInput interface {
 	pulumi.Input
 
@@ -251,7 +256,7 @@ func (i LinkAggregationGroupArray) ToLinkAggregationGroupArrayOutputWithContext(
 // LinkAggregationGroupMapInput is an input type that accepts LinkAggregationGroupMap and LinkAggregationGroupMapOutput values.
 // You can construct a concrete instance of `LinkAggregationGroupMapInput` via:
 //
-//          LinkAggregationGroupMap{ "key": LinkAggregationGroupArgs{...} }
+//	LinkAggregationGroupMap{ "key": LinkAggregationGroupArgs{...} }
 type LinkAggregationGroupMapInput interface {
 	pulumi.Input
 

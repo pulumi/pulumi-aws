@@ -30,7 +30,6 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
         "name": args.name,
         "namespaceId": args.namespaceId,
         "tags": args.tags,
-        "tagsAll": args.tagsAll,
     }, opts);
 }
 
@@ -50,10 +49,6 @@ export interface GetServiceArgs {
      * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: {[key: string]: string};
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: {[key: string]: string};
 }
 
 /**
@@ -119,8 +114,4 @@ export interface GetServiceOutputArgs {
      * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

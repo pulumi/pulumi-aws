@@ -19,62 +19,65 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := iam.NewSamlProvider(ctx, "default", &iam.SamlProviderArgs{
-// 			SamlMetadataDocument: readFileOrPanic("saml-metadata.xml"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cognito.NewIdentityPool(ctx, "main", &cognito.IdentityPoolArgs{
-// 			IdentityPoolName:               pulumi.String("identity pool"),
-// 			AllowUnauthenticatedIdentities: pulumi.Bool(false),
-// 			AllowClassicFlow:               pulumi.Bool(false),
-// 			CognitoIdentityProviders: cognito.IdentityPoolCognitoIdentityProviderArray{
-// 				&cognito.IdentityPoolCognitoIdentityProviderArgs{
-// 					ClientId:             pulumi.String("6lhlkkfbfb4q5kpp90urffae"),
-// 					ProviderName:         pulumi.String("cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ"),
-// 					ServerSideTokenCheck: pulumi.Bool(false),
-// 				},
-// 				&cognito.IdentityPoolCognitoIdentityProviderArgs{
-// 					ClientId:             pulumi.String("7kodkvfqfb4qfkp39eurffae"),
-// 					ProviderName:         pulumi.String("cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu"),
-// 					ServerSideTokenCheck: pulumi.Bool(false),
-// 				},
-// 			},
-// 			SupportedLoginProviders: pulumi.StringMap{
-// 				"graph.facebook.com":  pulumi.String("7346241598935552"),
-// 				"accounts.google.com": pulumi.String("123456789012.apps.googleusercontent.com"),
-// 			},
-// 			SamlProviderArns: pulumi.StringArray{
-// 				_default.Arn,
-// 			},
-// 			OpenidConnectProviderArns: pulumi.StringArray{
-// 				pulumi.String("arn:aws:iam::123456789012:oidc-provider/id.example.com"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.NewSamlProvider(ctx, "default", &iam.SamlProviderArgs{
+//				SamlMetadataDocument: readFileOrPanic("saml-metadata.xml"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognito.NewIdentityPool(ctx, "main", &cognito.IdentityPoolArgs{
+//				IdentityPoolName:               pulumi.String("identity pool"),
+//				AllowUnauthenticatedIdentities: pulumi.Bool(false),
+//				AllowClassicFlow:               pulumi.Bool(false),
+//				CognitoIdentityProviders: cognito.IdentityPoolCognitoIdentityProviderArray{
+//					&cognito.IdentityPoolCognitoIdentityProviderArgs{
+//						ClientId:             pulumi.String("6lhlkkfbfb4q5kpp90urffae"),
+//						ProviderName:         pulumi.String("cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ"),
+//						ServerSideTokenCheck: pulumi.Bool(false),
+//					},
+//					&cognito.IdentityPoolCognitoIdentityProviderArgs{
+//						ClientId:             pulumi.String("7kodkvfqfb4qfkp39eurffae"),
+//						ProviderName:         pulumi.String("cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu"),
+//						ServerSideTokenCheck: pulumi.Bool(false),
+//					},
+//				},
+//				SupportedLoginProviders: pulumi.StringMap{
+//					"graph.facebook.com":  pulumi.String("7346241598935552"),
+//					"accounts.google.com": pulumi.String("123456789012.apps.googleusercontent.com"),
+//				},
+//				SamlProviderArns: pulumi.StringArray{
+//					_default.Arn,
+//				},
+//				OpenidConnectProviderArns: pulumi.StringArray{
+//					pulumi.String("arn:aws:iam::123456789012:oidc-provider/id.example.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -82,7 +85,9 @@ import (
 // Cognito Identity Pool can be imported using its ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2_abc123
+//
+//	$ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2_abc123
+//
 // ```
 type IdentityPool struct {
 	pulumi.CustomResourceState
@@ -106,9 +111,9 @@ type IdentityPool struct {
 	SamlProviderArns pulumi.StringArrayOutput `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders pulumi.StringMapOutput `pulumi:"supportedLoginProviders"`
-	// A map of tags to assign to the Identity Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Identity Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -163,9 +168,9 @@ type identityPoolState struct {
 	SamlProviderArns []string `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders map[string]string `pulumi:"supportedLoginProviders"`
-	// A map of tags to assign to the Identity Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Identity Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -189,9 +194,9 @@ type IdentityPoolState struct {
 	SamlProviderArns pulumi.StringArrayInput
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders pulumi.StringMapInput
-	// A map of tags to assign to the Identity Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Identity Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -217,7 +222,7 @@ type identityPoolArgs struct {
 	SamlProviderArns []string `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders map[string]string `pulumi:"supportedLoginProviders"`
-	// A map of tags to assign to the Identity Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Identity Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -240,7 +245,7 @@ type IdentityPoolArgs struct {
 	SamlProviderArns pulumi.StringArrayInput
 	// Key-Value pairs mapping provider names to provider app IDs.
 	SupportedLoginProviders pulumi.StringMapInput
-	// A map of tags to assign to the Identity Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Identity Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -270,7 +275,7 @@ func (i *IdentityPool) ToIdentityPoolOutputWithContext(ctx context.Context) Iden
 // IdentityPoolArrayInput is an input type that accepts IdentityPoolArray and IdentityPoolArrayOutput values.
 // You can construct a concrete instance of `IdentityPoolArrayInput` via:
 //
-//          IdentityPoolArray{ IdentityPoolArgs{...} }
+//	IdentityPoolArray{ IdentityPoolArgs{...} }
 type IdentityPoolArrayInput interface {
 	pulumi.Input
 
@@ -295,7 +300,7 @@ func (i IdentityPoolArray) ToIdentityPoolArrayOutputWithContext(ctx context.Cont
 // IdentityPoolMapInput is an input type that accepts IdentityPoolMap and IdentityPoolMapOutput values.
 // You can construct a concrete instance of `IdentityPoolMapInput` via:
 //
-//          IdentityPoolMap{ "key": IdentityPoolArgs{...} }
+//	IdentityPoolMap{ "key": IdentityPoolArgs{...} }
 type IdentityPoolMapInput interface {
 	pulumi.Input
 
@@ -379,12 +384,12 @@ func (o IdentityPoolOutput) SupportedLoginProviders() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.StringMapOutput { return v.SupportedLoginProviders }).(pulumi.StringMapOutput)
 }
 
-// A map of tags to assign to the Identity Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the Identity Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o IdentityPoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o IdentityPoolOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

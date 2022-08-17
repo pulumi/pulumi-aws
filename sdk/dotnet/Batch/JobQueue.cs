@@ -16,67 +16,64 @@ namespace Pulumi.Aws.Batch
     /// ### Basic Job Queue
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testQueue = new Aws.Batch.JobQueue("testQueue", new()
     ///     {
-    ///         var testQueue = new Aws.Batch.JobQueue("testQueue", new Aws.Batch.JobQueueArgs
+    ///         State = "ENABLED",
+    ///         Priority = 1,
+    ///         ComputeEnvironments = new[]
     ///         {
-    ///             State = "ENABLED",
-    ///             Priority = 1,
-    ///             ComputeEnvironments = 
-    ///             {
-    ///                 aws_batch_compute_environment.Test_environment_1.Arn,
-    ///                 aws_batch_compute_environment.Test_environment_2.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_batch_compute_environment.Test_environment_1.Arn,
+    ///             aws_batch_compute_environment.Test_environment_2.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Job Queue with a fair share scheduling policy
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleSchedulingPolicy = new Aws.Batch.SchedulingPolicy("exampleSchedulingPolicy", new()
     ///     {
-    ///         var exampleSchedulingPolicy = new Aws.Batch.SchedulingPolicy("exampleSchedulingPolicy", new Aws.Batch.SchedulingPolicyArgs
+    ///         FairSharePolicy = new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyArgs
     ///         {
-    ///             FairSharePolicy = new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyArgs
+    ///             ComputeReservation = 1,
+    ///             ShareDecaySeconds = 3600,
+    ///             ShareDistributions = new[]
     ///             {
-    ///                 ComputeReservation = 1,
-    ///                 ShareDecaySeconds = 3600,
-    ///                 ShareDistributions = 
+    ///                 new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs
     ///                 {
-    ///                     new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs
-    ///                     {
-    ///                         ShareIdentifier = "A1*",
-    ///                         WeightFactor = 0.1,
-    ///                     },
+    ///                     ShareIdentifier = "A1*",
+    ///                     WeightFactor = 0.1,
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleJobQueue = new Aws.Batch.JobQueue("exampleJobQueue", new Aws.Batch.JobQueueArgs
-    ///         {
-    ///             SchedulingPolicyArn = exampleSchedulingPolicy.Arn,
-    ///             State = "ENABLED",
-    ///             Priority = 1,
-    ///             ComputeEnvironments = 
-    ///             {
-    ///                 aws_batch_compute_environment.Test_environment_1.Arn,
-    ///                 aws_batch_compute_environment.Test_environment_2.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleJobQueue = new Aws.Batch.JobQueue("exampleJobQueue", new()
+    ///     {
+    ///         SchedulingPolicyArn = exampleSchedulingPolicy.Arn,
+    ///         State = "ENABLED",
+    ///         Priority = 1,
+    ///         ComputeEnvironments = new[]
+    ///         {
+    ///             aws_batch_compute_environment.Test_environment_1.Arn,
+    ///             aws_batch_compute_environment.Test_environment_2.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +85,7 @@ namespace Pulumi.Aws.Batch
     /// ```
     /// </summary>
     [AwsResourceType("aws:batch/jobQueue:JobQueue")]
-    public partial class JobQueue : Pulumi.CustomResource
+    public partial class JobQueue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name of the job queue.
@@ -136,7 +133,7 @@ namespace Pulumi.Aws.Batch
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -185,7 +182,7 @@ namespace Pulumi.Aws.Batch
         }
     }
 
-    public sealed class JobQueueArgs : Pulumi.ResourceArgs
+    public sealed class JobQueueArgs : global::Pulumi.ResourceArgs
     {
         [Input("computeEnvironments", required: true)]
         private InputList<string>? _computeEnvironments;
@@ -241,9 +238,10 @@ namespace Pulumi.Aws.Batch
         public JobQueueArgs()
         {
         }
+        public static new JobQueueArgs Empty => new JobQueueArgs();
     }
 
-    public sealed class JobQueueState : Pulumi.ResourceArgs
+    public sealed class JobQueueState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name of the job queue.
@@ -306,7 +304,7 @@ namespace Pulumi.Aws.Batch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -317,5 +315,6 @@ namespace Pulumi.Aws.Batch
         public JobQueueState()
         {
         }
+        public static new JobQueueState Empty => new JobQueueState();
     }
 }

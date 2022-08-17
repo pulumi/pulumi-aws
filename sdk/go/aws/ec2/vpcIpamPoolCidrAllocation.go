@@ -21,54 +21,57 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := aws.GetRegion(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "exampleVpcIpam", &ec2.VpcIpamArgs{
-// 			OperatingRegions: ec2.VpcIpamOperatingRegionArray{
-// 				&ec2.VpcIpamOperatingRegionArgs{
-// 					RegionName: pulumi.String(current.Name),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "exampleVpcIpamPool", &ec2.VpcIpamPoolArgs{
-// 			AddressFamily: pulumi.String("ipv4"),
-// 			IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
-// 			Locale:        pulumi.String(current.Name),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "exampleVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
-// 			IpamPoolId: exampleVpcIpamPool.ID(),
-// 			Cidr:       pulumi.String("172.2.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "exampleVpcIpamPoolCidrAllocation", &ec2.VpcIpamPoolCidrAllocationArgs{
-// 			IpamPoolId: exampleVpcIpamPool.ID(),
-// 			Cidr:       pulumi.String("172.2.0.0/24"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleVpcIpamPoolCidr,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "exampleVpcIpam", &ec2.VpcIpamArgs{
+//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
+//					&ec2.VpcIpamOperatingRegionArgs{
+//						RegionName: pulumi.String(current.Name),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "exampleVpcIpamPool", &ec2.VpcIpamPoolArgs{
+//				AddressFamily: pulumi.String("ipv4"),
+//				IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
+//				Locale:        pulumi.String(current.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "exampleVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
+//				IpamPoolId: exampleVpcIpamPool.ID(),
+//				Cidr:       pulumi.String("172.2.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "exampleVpcIpamPoolCidrAllocation", &ec2.VpcIpamPoolCidrAllocationArgs{
+//				IpamPoolId: exampleVpcIpamPool.ID(),
+//				Cidr:       pulumi.String("172.2.0.0/24"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleVpcIpamPoolCidr,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // With the `disallowedCidrs` attribute:
@@ -77,57 +80,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := aws.GetRegion(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "exampleVpcIpam", &ec2.VpcIpamArgs{
-// 			OperatingRegions: ec2.VpcIpamOperatingRegionArray{
-// 				&ec2.VpcIpamOperatingRegionArgs{
-// 					RegionName: pulumi.String(current.Name),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "exampleVpcIpamPool", &ec2.VpcIpamPoolArgs{
-// 			AddressFamily: pulumi.String("ipv4"),
-// 			IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
-// 			Locale:        pulumi.String(current.Name),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "exampleVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
-// 			IpamPoolId: exampleVpcIpamPool.ID(),
-// 			Cidr:       pulumi.String("172.2.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "exampleVpcIpamPoolCidrAllocation", &ec2.VpcIpamPoolCidrAllocationArgs{
-// 			IpamPoolId:    exampleVpcIpamPool.ID(),
-// 			NetmaskLength: pulumi.Int(28),
-// 			DisallowedCidrs: pulumi.StringArray{
-// 				pulumi.String("172.2.0.0/28"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleVpcIpamPoolCidr,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "exampleVpcIpam", &ec2.VpcIpamArgs{
+//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
+//					&ec2.VpcIpamOperatingRegionArgs{
+//						RegionName: pulumi.String(current.Name),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "exampleVpcIpamPool", &ec2.VpcIpamPoolArgs{
+//				AddressFamily: pulumi.String("ipv4"),
+//				IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
+//				Locale:        pulumi.String(current.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "exampleVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
+//				IpamPoolId: exampleVpcIpamPool.ID(),
+//				Cidr:       pulumi.String("172.2.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "exampleVpcIpamPoolCidrAllocation", &ec2.VpcIpamPoolCidrAllocationArgs{
+//				IpamPoolId:    exampleVpcIpamPool.ID(),
+//				NetmaskLength: pulumi.Int(28),
+//				DisallowedCidrs: pulumi.StringArray{
+//					pulumi.String("172.2.0.0/28"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleVpcIpamPoolCidr,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -135,7 +141,9 @@ import (
 // IPAMs can be imported using the `allocation id`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example
+//
+//	$ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example
+//
 // ```
 type VpcIpamPoolCidrAllocation struct {
 	pulumi.CustomResourceState
@@ -287,7 +295,7 @@ func (i *VpcIpamPoolCidrAllocation) ToVpcIpamPoolCidrAllocationOutputWithContext
 // VpcIpamPoolCidrAllocationArrayInput is an input type that accepts VpcIpamPoolCidrAllocationArray and VpcIpamPoolCidrAllocationArrayOutput values.
 // You can construct a concrete instance of `VpcIpamPoolCidrAllocationArrayInput` via:
 //
-//          VpcIpamPoolCidrAllocationArray{ VpcIpamPoolCidrAllocationArgs{...} }
+//	VpcIpamPoolCidrAllocationArray{ VpcIpamPoolCidrAllocationArgs{...} }
 type VpcIpamPoolCidrAllocationArrayInput interface {
 	pulumi.Input
 
@@ -312,7 +320,7 @@ func (i VpcIpamPoolCidrAllocationArray) ToVpcIpamPoolCidrAllocationArrayOutputWi
 // VpcIpamPoolCidrAllocationMapInput is an input type that accepts VpcIpamPoolCidrAllocationMap and VpcIpamPoolCidrAllocationMapOutput values.
 // You can construct a concrete instance of `VpcIpamPoolCidrAllocationMapInput` via:
 //
-//          VpcIpamPoolCidrAllocationMap{ "key": VpcIpamPoolCidrAllocationArgs{...} }
+//	VpcIpamPoolCidrAllocationMap{ "key": VpcIpamPoolCidrAllocationArgs{...} }
 type VpcIpamPoolCidrAllocationMapInput interface {
 	pulumi.Input
 

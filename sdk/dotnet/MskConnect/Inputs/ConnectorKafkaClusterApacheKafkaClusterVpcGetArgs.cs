@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MskConnect.Inputs
 {
 
-    public sealed class ConnectorKafkaClusterApacheKafkaClusterVpcGetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorKafkaClusterApacheKafkaClusterVpcGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroups", required: true)]
         private InputList<string>? _securityGroups;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public ConnectorKafkaClusterApacheKafkaClusterVpcGetArgs()
         {
         }
+        public static new ConnectorKafkaClusterApacheKafkaClusterVpcGetArgs Empty => new ConnectorKafkaClusterApacheKafkaClusterVpcGetArgs();
     }
 }

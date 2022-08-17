@@ -21,35 +21,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/schemas"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/schemas"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		messenger, err := cloudwatch.NewEventBus(ctx, "messenger", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = schemas.NewDiscoverer(ctx, "test", &schemas.DiscovererArgs{
-// 			SourceArn:   messenger.Arn,
-// 			Description: pulumi.String("Auto discover event schemas"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			messenger, err := cloudwatch.NewEventBus(ctx, "messenger", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = schemas.NewDiscoverer(ctx, "test", &schemas.DiscovererArgs{
+//				SourceArn:   messenger.Arn,
+//				Description: pulumi.String("Auto discover event schemas"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// EventBridge discoverers can be imported using the `id`, e.g., console
+// # EventBridge discoverers can be imported using the `id`, e.g., console
 //
 // ```sh
-//  $ pulumi import aws:schemas/discoverer:Discoverer test 123
+//
+//	$ pulumi import aws:schemas/discoverer:Discoverer test 123
+//
 // ```
 type Discoverer struct {
 	pulumi.CustomResourceState
@@ -172,7 +177,7 @@ func (i *Discoverer) ToDiscovererOutputWithContext(ctx context.Context) Discover
 // DiscovererArrayInput is an input type that accepts DiscovererArray and DiscovererArrayOutput values.
 // You can construct a concrete instance of `DiscovererArrayInput` via:
 //
-//          DiscovererArray{ DiscovererArgs{...} }
+//	DiscovererArray{ DiscovererArgs{...} }
 type DiscovererArrayInput interface {
 	pulumi.Input
 
@@ -197,7 +202,7 @@ func (i DiscovererArray) ToDiscovererArrayOutputWithContext(ctx context.Context)
 // DiscovererMapInput is an input type that accepts DiscovererMap and DiscovererMapOutput values.
 // You can construct a concrete instance of `DiscovererMapInput` via:
 //
-//          DiscovererMap{ "key": DiscovererArgs{...} }
+//	DiscovererMap{ "key": DiscovererArgs{...} }
 type DiscovererMapInput interface {
 	pulumi.Input
 

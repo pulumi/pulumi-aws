@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafRegional.Inputs
 {
 
-    public sealed class SqlInjectionMatchSetSqlInjectionMatchTupleArgs : Pulumi.ResourceArgs
+    public sealed class SqlInjectionMatchSetSqlInjectionMatchTupleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies where in a web request to look for snippets of malicious SQL code.
@@ -31,5 +31,6 @@ namespace Pulumi.Aws.WafRegional.Inputs
         public SqlInjectionMatchSetSqlInjectionMatchTupleArgs()
         {
         }
+        public static new SqlInjectionMatchSetSqlInjectionMatchTupleArgs Empty => new SqlInjectionMatchSetSqlInjectionMatchTupleArgs();
     }
 }

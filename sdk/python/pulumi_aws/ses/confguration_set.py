@@ -19,13 +19,15 @@ class ConfgurationSetArgs:
                  delivery_options: Optional[pulumi.Input['ConfgurationSetDeliveryOptionsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None,
-                 sending_enabled: Optional[pulumi.Input[bool]] = None):
+                 sending_enabled: Optional[pulumi.Input[bool]] = None,
+                 tracking_options: Optional[pulumi.Input['ConfgurationSetTrackingOptionsArgs']] = None):
         """
         The set of arguments for constructing a ConfgurationSet resource.
-        :param pulumi.Input['ConfgurationSetDeliveryOptionsArgs'] delivery_options: Configuration block. Detailed below.
+        :param pulumi.Input['ConfgurationSetDeliveryOptionsArgs'] delivery_options: Whether messages that use the configuration set are required to use TLS. See below.
         :param pulumi.Input[str] name: Name of the configuration set.
         :param pulumi.Input[bool] reputation_metrics_enabled: Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
         :param pulumi.Input[bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+        :param pulumi.Input['ConfgurationSetTrackingOptionsArgs'] tracking_options: Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
         """
         if delivery_options is not None:
             pulumi.set(__self__, "delivery_options", delivery_options)
@@ -35,12 +37,14 @@ class ConfgurationSetArgs:
             pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
         if sending_enabled is not None:
             pulumi.set(__self__, "sending_enabled", sending_enabled)
+        if tracking_options is not None:
+            pulumi.set(__self__, "tracking_options", tracking_options)
 
     @property
     @pulumi.getter(name="deliveryOptions")
     def delivery_options(self) -> Optional[pulumi.Input['ConfgurationSetDeliveryOptionsArgs']]:
         """
-        Configuration block. Detailed below.
+        Whether messages that use the configuration set are required to use TLS. See below.
         """
         return pulumi.get(self, "delivery_options")
 
@@ -84,6 +88,18 @@ class ConfgurationSetArgs:
     def sending_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "sending_enabled", value)
 
+    @property
+    @pulumi.getter(name="trackingOptions")
+    def tracking_options(self) -> Optional[pulumi.Input['ConfgurationSetTrackingOptionsArgs']]:
+        """
+        Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+        """
+        return pulumi.get(self, "tracking_options")
+
+    @tracking_options.setter
+    def tracking_options(self, value: Optional[pulumi.Input['ConfgurationSetTrackingOptionsArgs']]):
+        pulumi.set(self, "tracking_options", value)
+
 
 @pulumi.input_type
 class _ConfgurationSetState:
@@ -93,15 +109,17 @@ class _ConfgurationSetState:
                  last_fresh_start: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None,
-                 sending_enabled: Optional[pulumi.Input[bool]] = None):
+                 sending_enabled: Optional[pulumi.Input[bool]] = None,
+                 tracking_options: Optional[pulumi.Input['ConfgurationSetTrackingOptionsArgs']] = None):
         """
         Input properties used for looking up and filtering ConfgurationSet resources.
         :param pulumi.Input[str] arn: SES configuration set ARN.
-        :param pulumi.Input['ConfgurationSetDeliveryOptionsArgs'] delivery_options: Configuration block. Detailed below.
-        :param pulumi.Input[str] last_fresh_start: The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+        :param pulumi.Input['ConfgurationSetDeliveryOptionsArgs'] delivery_options: Whether messages that use the configuration set are required to use TLS. See below.
+        :param pulumi.Input[str] last_fresh_start: Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
         :param pulumi.Input[str] name: Name of the configuration set.
         :param pulumi.Input[bool] reputation_metrics_enabled: Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
         :param pulumi.Input[bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+        :param pulumi.Input['ConfgurationSetTrackingOptionsArgs'] tracking_options: Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -115,6 +133,8 @@ class _ConfgurationSetState:
             pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
         if sending_enabled is not None:
             pulumi.set(__self__, "sending_enabled", sending_enabled)
+        if tracking_options is not None:
+            pulumi.set(__self__, "tracking_options", tracking_options)
 
     @property
     @pulumi.getter
@@ -132,7 +152,7 @@ class _ConfgurationSetState:
     @pulumi.getter(name="deliveryOptions")
     def delivery_options(self) -> Optional[pulumi.Input['ConfgurationSetDeliveryOptionsArgs']]:
         """
-        Configuration block. Detailed below.
+        Whether messages that use the configuration set are required to use TLS. See below.
         """
         return pulumi.get(self, "delivery_options")
 
@@ -144,7 +164,7 @@ class _ConfgurationSetState:
     @pulumi.getter(name="lastFreshStart")
     def last_fresh_start(self) -> Optional[pulumi.Input[str]]:
         """
-        The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+        Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
         """
         return pulumi.get(self, "last_fresh_start")
 
@@ -188,6 +208,18 @@ class _ConfgurationSetState:
     def sending_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "sending_enabled", value)
 
+    @property
+    @pulumi.getter(name="trackingOptions")
+    def tracking_options(self) -> Optional[pulumi.Input['ConfgurationSetTrackingOptionsArgs']]:
+        """
+        Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+        """
+        return pulumi.get(self, "tracking_options")
+
+    @tracking_options.setter
+    def tracking_options(self, value: Optional[pulumi.Input['ConfgurationSetTrackingOptionsArgs']]):
+        pulumi.set(self, "tracking_options", value)
+
 
 warnings.warn("""aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet""", DeprecationWarning)
 
@@ -203,6 +235,7 @@ class ConfgurationSet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  sending_enabled: Optional[pulumi.Input[bool]] = None,
+                 tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfgurationSetTrackingOptionsArgs']]] = None,
                  __props__=None):
         """
         Provides an SES configuration set resource.
@@ -236,10 +269,11 @@ class ConfgurationSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConfgurationSetDeliveryOptionsArgs']] delivery_options: Configuration block. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ConfgurationSetDeliveryOptionsArgs']] delivery_options: Whether messages that use the configuration set are required to use TLS. See below.
         :param pulumi.Input[str] name: Name of the configuration set.
         :param pulumi.Input[bool] reputation_metrics_enabled: Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
         :param pulumi.Input[bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+        :param pulumi.Input[pulumi.InputType['ConfgurationSetTrackingOptionsArgs']] tracking_options: Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
         """
         ...
     @overload
@@ -296,6 +330,7 @@ class ConfgurationSet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  sending_enabled: Optional[pulumi.Input[bool]] = None,
+                 tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfgurationSetTrackingOptionsArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""ConfgurationSet is deprecated: aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -310,6 +345,7 @@ class ConfgurationSet(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["reputation_metrics_enabled"] = reputation_metrics_enabled
             __props__.__dict__["sending_enabled"] = sending_enabled
+            __props__.__dict__["tracking_options"] = tracking_options
             __props__.__dict__["arn"] = None
             __props__.__dict__["last_fresh_start"] = None
         super(ConfgurationSet, __self__).__init__(
@@ -327,7 +363,8 @@ class ConfgurationSet(pulumi.CustomResource):
             last_fresh_start: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None,
-            sending_enabled: Optional[pulumi.Input[bool]] = None) -> 'ConfgurationSet':
+            sending_enabled: Optional[pulumi.Input[bool]] = None,
+            tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfgurationSetTrackingOptionsArgs']]] = None) -> 'ConfgurationSet':
         """
         Get an existing ConfgurationSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -336,11 +373,12 @@ class ConfgurationSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: SES configuration set ARN.
-        :param pulumi.Input[pulumi.InputType['ConfgurationSetDeliveryOptionsArgs']] delivery_options: Configuration block. Detailed below.
-        :param pulumi.Input[str] last_fresh_start: The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+        :param pulumi.Input[pulumi.InputType['ConfgurationSetDeliveryOptionsArgs']] delivery_options: Whether messages that use the configuration set are required to use TLS. See below.
+        :param pulumi.Input[str] last_fresh_start: Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
         :param pulumi.Input[str] name: Name of the configuration set.
         :param pulumi.Input[bool] reputation_metrics_enabled: Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
         :param pulumi.Input[bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
+        :param pulumi.Input[pulumi.InputType['ConfgurationSetTrackingOptionsArgs']] tracking_options: Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -352,6 +390,7 @@ class ConfgurationSet(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["reputation_metrics_enabled"] = reputation_metrics_enabled
         __props__.__dict__["sending_enabled"] = sending_enabled
+        __props__.__dict__["tracking_options"] = tracking_options
         return ConfgurationSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -366,7 +405,7 @@ class ConfgurationSet(pulumi.CustomResource):
     @pulumi.getter(name="deliveryOptions")
     def delivery_options(self) -> pulumi.Output[Optional['outputs.ConfgurationSetDeliveryOptions']]:
         """
-        Configuration block. Detailed below.
+        Whether messages that use the configuration set are required to use TLS. See below.
         """
         return pulumi.get(self, "delivery_options")
 
@@ -374,7 +413,7 @@ class ConfgurationSet(pulumi.CustomResource):
     @pulumi.getter(name="lastFreshStart")
     def last_fresh_start(self) -> pulumi.Output[str]:
         """
-        The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
+        Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
         """
         return pulumi.get(self, "last_fresh_start")
 
@@ -401,4 +440,12 @@ class ConfgurationSet(pulumi.CustomResource):
         Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         """
         return pulumi.get(self, "sending_enabled")
+
+    @property
+    @pulumi.getter(name="trackingOptions")
+    def tracking_options(self) -> pulumi.Output[Optional['outputs.ConfgurationSetTrackingOptions']]:
+        """
+        Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
+        """
+        return pulumi.get(self, "tracking_options")
 

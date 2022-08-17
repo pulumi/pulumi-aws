@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2TransitGateway.Inputs
 {
 
-    public sealed class GetDirectConnectGatewayAttachmentFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetDirectConnectGatewayAttachmentFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2TransitGateway.Inputs
         public GetDirectConnectGatewayAttachmentFilterInputArgs()
         {
         }
+        public static new GetDirectConnectGatewayAttachmentFilterInputArgs Empty => new GetDirectConnectGatewayAttachmentFilterInputArgs();
     }
 }

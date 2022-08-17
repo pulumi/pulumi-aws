@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Kms
     }
 
 
-    public sealed class GetSecretsArgs : Pulumi.InvokeArgs
+    public sealed class GetSecretsArgs : global::Pulumi.InvokeArgs
     {
         [Input("secrets", required: true)]
         private List<Inputs.GetSecretsSecretArgs>? _secrets;
@@ -42,9 +42,10 @@ namespace Pulumi.Aws.Kms
         public GetSecretsArgs()
         {
         }
+        public static new GetSecretsArgs Empty => new GetSecretsArgs();
     }
 
-    public sealed class GetSecretsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSecretsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("secrets", required: true)]
         private InputList<Inputs.GetSecretsSecretInputArgs>? _secrets;
@@ -61,6 +62,7 @@ namespace Pulumi.Aws.Kms
         public GetSecretsInvokeArgs()
         {
         }
+        public static new GetSecretsInvokeArgs Empty => new GetSecretsInvokeArgs();
     }
 
 

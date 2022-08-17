@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LakeFormation.Inputs
 {
 
-    public sealed class GetPermissionsDataLocationArgs : Pulumi.InvokeArgs
+    public sealed class GetPermissionsDataLocationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         public GetPermissionsDataLocationArgs()
         {
         }
+        public static new GetPermissionsDataLocationArgs Empty => new GetPermissionsDataLocationArgs();
     }
 }

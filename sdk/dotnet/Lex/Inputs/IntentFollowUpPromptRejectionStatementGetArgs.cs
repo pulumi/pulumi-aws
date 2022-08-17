@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex.Inputs
 {
 
-    public sealed class IntentFollowUpPromptRejectionStatementGetArgs : Pulumi.ResourceArgs
+    public sealed class IntentFollowUpPromptRejectionStatementGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("messages", required: true)]
         private InputList<Inputs.IntentFollowUpPromptRejectionStatementMessageGetArgs>? _messages;
@@ -37,5 +37,6 @@ namespace Pulumi.Aws.Lex.Inputs
         public IntentFollowUpPromptRejectionStatementGetArgs()
         {
         }
+        public static new IntentFollowUpPromptRejectionStatementGetArgs Empty => new IntentFollowUpPromptRejectionStatementGetArgs();
     }
 }

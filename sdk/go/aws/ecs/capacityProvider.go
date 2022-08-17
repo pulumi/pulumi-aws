@@ -21,43 +21,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testGroup, err := autoscaling.NewGroup(ctx, "testGroup", &autoscaling.GroupArgs{
-// 			Tags: autoscaling.GroupTagArray{
-// 				&autoscaling.GroupTagArgs{
-// 					Key:               pulumi.String("AmazonECSManaged"),
-// 					Value:             pulumi.String("true"),
-// 					PropagateAtLaunch: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ecs.NewCapacityProvider(ctx, "testCapacityProvider", &ecs.CapacityProviderArgs{
-// 			AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
-// 				AutoScalingGroupArn:          testGroup.Arn,
-// 				ManagedTerminationProtection: pulumi.String("ENABLED"),
-// 				ManagedScaling: &ecs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs{
-// 					MaximumScalingStepSize: pulumi.Int(1000),
-// 					MinimumScalingStepSize: pulumi.Int(1),
-// 					Status:                 pulumi.String("ENABLED"),
-// 					TargetCapacity:         pulumi.Int(10),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testGroup, err := autoscaling.NewGroup(ctx, "testGroup", &autoscaling.GroupArgs{
+//				Tags: autoscaling.GroupTagArray{
+//					&autoscaling.GroupTagArgs{
+//						Key:               pulumi.String("AmazonECSManaged"),
+//						Value:             pulumi.String("true"),
+//						PropagateAtLaunch: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecs.NewCapacityProvider(ctx, "testCapacityProvider", &ecs.CapacityProviderArgs{
+//				AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
+//					AutoScalingGroupArn:          testGroup.Arn,
+//					ManagedTerminationProtection: pulumi.String("ENABLED"),
+//					ManagedScaling: &ecs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs{
+//						MaximumScalingStepSize: pulumi.Int(1000),
+//						MinimumScalingStepSize: pulumi.Int(1),
+//						Status:                 pulumi.String("ENABLED"),
+//						TargetCapacity:         pulumi.Int(10),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // ECS Capacity Providers can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+//
+//	$ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+//
 // ```
 type CapacityProvider struct {
 	pulumi.CustomResourceState
@@ -185,7 +190,7 @@ func (i *CapacityProvider) ToCapacityProviderOutputWithContext(ctx context.Conte
 // CapacityProviderArrayInput is an input type that accepts CapacityProviderArray and CapacityProviderArrayOutput values.
 // You can construct a concrete instance of `CapacityProviderArrayInput` via:
 //
-//          CapacityProviderArray{ CapacityProviderArgs{...} }
+//	CapacityProviderArray{ CapacityProviderArgs{...} }
 type CapacityProviderArrayInput interface {
 	pulumi.Input
 
@@ -210,7 +215,7 @@ func (i CapacityProviderArray) ToCapacityProviderArrayOutputWithContext(ctx cont
 // CapacityProviderMapInput is an input type that accepts CapacityProviderMap and CapacityProviderMapOutput values.
 // You can construct a concrete instance of `CapacityProviderMapInput` via:
 //
-//          CapacityProviderMap{ "key": CapacityProviderArgs{...} }
+//	CapacityProviderMap{ "key": CapacityProviderArgs{...} }
 type CapacityProviderMapInput interface {
 	pulumi.Input
 

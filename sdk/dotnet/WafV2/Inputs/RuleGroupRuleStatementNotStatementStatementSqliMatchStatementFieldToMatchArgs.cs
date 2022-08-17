@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Inspect all query arguments.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchArgs()
         {
         }
+        public static new RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchArgs Empty => new RuleGroupRuleStatementNotStatementStatementSqliMatchStatementFieldToMatchArgs();
     }
 }

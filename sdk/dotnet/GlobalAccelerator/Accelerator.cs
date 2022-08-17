@@ -15,27 +15,25 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.GlobalAccelerator.Accelerator("example", new()
     ///     {
-    ///         var example = new Aws.GlobalAccelerator.Accelerator("example", new Aws.GlobalAccelerator.AcceleratorArgs
+    ///         Attributes = new Aws.GlobalAccelerator.Inputs.AcceleratorAttributesArgs
     ///         {
-    ///             Attributes = new Aws.GlobalAccelerator.Inputs.AcceleratorAttributesArgs
-    ///             {
-    ///                 FlowLogsEnabled = true,
-    ///                 FlowLogsS3Bucket = "example-bucket",
-    ///                 FlowLogsS3Prefix = "flow-logs/",
-    ///             },
-    ///             Enabled = true,
-    ///             IpAddressType = "IPV4",
-    ///         });
-    ///     }
+    ///             FlowLogsEnabled = true,
+    ///             FlowLogsS3Bucket = "example-bucket",
+    ///             FlowLogsS3Prefix = "flow-logs/",
+    ///         },
+    ///         Enabled = true,
+    ///         IpAddressType = "IPV4",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// ```
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/accelerator:Accelerator")]
-    public partial class Accelerator : Pulumi.CustomResource
+    public partial class Accelerator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The attributes of the accelerator. Fields documented below.
@@ -74,7 +72,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Output<string> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+        /// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
         /// </summary>
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
@@ -98,7 +96,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -147,7 +145,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         }
     }
 
-    public sealed class AcceleratorArgs : Pulumi.ResourceArgs
+    public sealed class AcceleratorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The attributes of the accelerator. Fields documented below.
@@ -162,7 +160,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+        /// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -188,9 +186,10 @@ namespace Pulumi.Aws.GlobalAccelerator
         public AcceleratorArgs()
         {
         }
+        public static new AcceleratorArgs Empty => new AcceleratorArgs();
     }
 
-    public sealed class AcceleratorState : Pulumi.ResourceArgs
+    public sealed class AcceleratorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The attributes of the accelerator. Fields documented below.
@@ -217,7 +216,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         public Input<string>? HostedZoneId { get; set; }
 
         /// <summary>
-        /// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+        /// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -256,7 +255,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -267,5 +266,6 @@ namespace Pulumi.Aws.GlobalAccelerator
         public AcceleratorState()
         {
         }
+        public static new AcceleratorState Empty => new AcceleratorState();
     }
 }

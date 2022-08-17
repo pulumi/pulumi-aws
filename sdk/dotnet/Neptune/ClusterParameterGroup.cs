@@ -15,29 +15,27 @@ namespace Pulumi.Aws.Neptune
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Neptune.ClusterParameterGroup("example", new()
     ///     {
-    ///         var example = new Aws.Neptune.ClusterParameterGroup("example", new Aws.Neptune.ClusterParameterGroupArgs
+    ///         Description = "neptune cluster parameter group",
+    ///         Family = "neptune1",
+    ///         Parameters = new[]
     ///         {
-    ///             Description = "neptune cluster parameter group",
-    ///             Family = "neptune1",
-    ///             Parameters = 
+    ///             new Aws.Neptune.Inputs.ClusterParameterGroupParameterArgs
     ///             {
-    ///                 new Aws.Neptune.Inputs.ClusterParameterGroupParameterArgs
-    ///                 {
-    ///                     Name = "neptune_enable_audit_log",
-    ///                     Value = "1",
-    ///                 },
+    ///                 Name = "neptune_enable_audit_log",
+    ///                 Value = "1",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.Neptune
     /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/clusterParameterGroup:ClusterParameterGroup")]
-    public partial class ClusterParameterGroup : Pulumi.CustomResource
+    public partial class ClusterParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the neptune cluster parameter group.
@@ -94,7 +92,7 @@ namespace Pulumi.Aws.Neptune
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -143,7 +141,7 @@ namespace Pulumi.Aws.Neptune
         }
     }
 
-    public sealed class ClusterParameterGroupArgs : Pulumi.ResourceArgs
+    public sealed class ClusterParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the neptune cluster parameter group. Defaults to "Managed by Pulumi".
@@ -196,9 +194,10 @@ namespace Pulumi.Aws.Neptune
         public ClusterParameterGroupArgs()
         {
         }
+        public static new ClusterParameterGroupArgs Empty => new ClusterParameterGroupArgs();
     }
 
-    public sealed class ClusterParameterGroupState : Pulumi.ResourceArgs
+    public sealed class ClusterParameterGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the neptune cluster parameter group.
@@ -258,7 +257,7 @@ namespace Pulumi.Aws.Neptune
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -269,5 +268,6 @@ namespace Pulumi.Aws.Neptune
         public ClusterParameterGroupState()
         {
         }
+        public static new ClusterParameterGroupState Empty => new ClusterParameterGroupState();
     }
 }

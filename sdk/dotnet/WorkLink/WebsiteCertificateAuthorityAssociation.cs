@@ -13,25 +13,22 @@ namespace Pulumi.Aws.WorkLink
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.WorkLink.Fleet("example", new Aws.WorkLink.FleetArgs
-    ///         {
-    ///         });
-    ///         var test = new Aws.WorkLink.WebsiteCertificateAuthorityAssociation("test", new Aws.WorkLink.WebsiteCertificateAuthorityAssociationArgs
-    ///         {
-    ///             FleetArn = aws_worklink_fleet.Test.Arn,
-    ///             Certificate = File.ReadAllText("certificate.pem"),
-    ///         });
-    ///     }
+    ///     var example = new Aws.WorkLink.Fleet("example");
     /// 
-    /// }
+    ///     var test = new Aws.WorkLink.WebsiteCertificateAuthorityAssociation("test", new()
+    ///     {
+    ///         FleetArn = aws_worklink_fleet.Test.Arn,
+    ///         Certificate = File.ReadAllText("certificate.pem"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +40,7 @@ namespace Pulumi.Aws.WorkLink
     /// ```
     /// </summary>
     [AwsResourceType("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation")]
-    public partial class WebsiteCertificateAuthorityAssociation : Pulumi.CustomResource
+    public partial class WebsiteCertificateAuthorityAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The root certificate of the Certificate Authority.
@@ -113,7 +110,7 @@ namespace Pulumi.Aws.WorkLink
         }
     }
 
-    public sealed class WebsiteCertificateAuthorityAssociationArgs : Pulumi.ResourceArgs
+    public sealed class WebsiteCertificateAuthorityAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The root certificate of the Certificate Authority.
@@ -136,9 +133,10 @@ namespace Pulumi.Aws.WorkLink
         public WebsiteCertificateAuthorityAssociationArgs()
         {
         }
+        public static new WebsiteCertificateAuthorityAssociationArgs Empty => new WebsiteCertificateAuthorityAssociationArgs();
     }
 
-    public sealed class WebsiteCertificateAuthorityAssociationState : Pulumi.ResourceArgs
+    public sealed class WebsiteCertificateAuthorityAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The root certificate of the Certificate Authority.
@@ -167,5 +165,6 @@ namespace Pulumi.Aws.WorkLink
         public WebsiteCertificateAuthorityAssociationState()
         {
         }
+        public static new WebsiteCertificateAuthorityAssociationState Empty => new WebsiteCertificateAuthorityAssociationState();
     }
 }

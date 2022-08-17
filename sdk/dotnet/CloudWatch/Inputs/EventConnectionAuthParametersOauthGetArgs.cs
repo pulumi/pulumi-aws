@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventConnectionAuthParametersOauthGetArgs : Pulumi.ResourceArgs
+    public sealed class EventConnectionAuthParametersOauthGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL to the authorization endpoint.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventConnectionAuthParametersOauthGetArgs()
         {
         }
+        public static new EventConnectionAuthParametersOauthGetArgs Empty => new EventConnectionAuthParametersOauthGetArgs();
     }
 }

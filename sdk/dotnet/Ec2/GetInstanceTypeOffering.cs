@@ -19,36 +19,34 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetInstanceTypeOffering.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetInstanceTypeOffering.InvokeAsync(new Aws.Ec2.GetInstanceTypeOfferingArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetInstanceTypeOfferingFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetInstanceTypeOfferingFilterArgs
+        ///                 Name = "instance-type",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "instance-type",
-        ///                     Values = 
-        ///                     {
-        ///                         "t2.micro",
-        ///                         "t3.micro",
-        ///                     },
+        ///                     "t2.micro",
+        ///                     "t3.micro",
         ///                 },
         ///             },
-        ///             PreferredInstanceTypes = 
-        ///             {
-        ///                 "t3.micro",
-        ///                 "t2.micro",
-        ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///         PreferredInstanceTypes = new[]
+        ///         {
+        ///             "t3.micro",
+        ///             "t2.micro",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -64,36 +62,34 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetInstanceTypeOffering.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetInstanceTypeOffering.InvokeAsync(new Aws.Ec2.GetInstanceTypeOfferingArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetInstanceTypeOfferingFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetInstanceTypeOfferingFilterArgs
+        ///                 Name = "instance-type",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "instance-type",
-        ///                     Values = 
-        ///                     {
-        ///                         "t2.micro",
-        ///                         "t3.micro",
-        ///                     },
+        ///                     "t2.micro",
+        ///                     "t3.micro",
         ///                 },
         ///             },
-        ///             PreferredInstanceTypes = 
-        ///             {
-        ///                 "t3.micro",
-        ///                 "t2.micro",
-        ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///         PreferredInstanceTypes = new[]
+        ///         {
+        ///             "t3.micro",
+        ///             "t2.micro",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -103,7 +99,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetInstanceTypeOfferingArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceTypeOfferingArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetInstanceTypeOfferingFilterArgs>? _filters;
@@ -138,9 +134,10 @@ namespace Pulumi.Aws.Ec2
         public GetInstanceTypeOfferingArgs()
         {
         }
+        public static new GetInstanceTypeOfferingArgs Empty => new GetInstanceTypeOfferingArgs();
     }
 
-    public sealed class GetInstanceTypeOfferingInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceTypeOfferingInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetInstanceTypeOfferingFilterInputArgs>? _filters;
@@ -175,6 +172,7 @@ namespace Pulumi.Aws.Ec2
         public GetInstanceTypeOfferingInvokeArgs()
         {
         }
+        public static new GetInstanceTypeOfferingInvokeArgs Empty => new GetInstanceTypeOfferingInvokeArgs();
     }
 
 

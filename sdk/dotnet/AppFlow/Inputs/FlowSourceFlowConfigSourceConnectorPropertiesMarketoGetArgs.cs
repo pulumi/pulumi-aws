@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowSourceFlowConfigSourceConnectorPropertiesMarketoGetArgs : Pulumi.ResourceArgs
+    public sealed class FlowSourceFlowConfigSourceConnectorPropertiesMarketoGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The object specified in the Veeva flow source.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowSourceFlowConfigSourceConnectorPropertiesMarketoGetArgs()
         {
         }
+        public static new FlowSourceFlowConfigSourceConnectorPropertiesMarketoGetArgs Empty => new FlowSourceFlowConfigSourceConnectorPropertiesMarketoGetArgs();
     }
 }

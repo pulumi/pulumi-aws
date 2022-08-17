@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ServiceCatalog.Inputs
 {
 
-    public sealed class ProvisionedProductStackSetProvisioningPreferencesGetArgs : Pulumi.ResourceArgs
+    public sealed class ProvisionedProductStackSetProvisioningPreferencesGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("accounts")]
         private InputList<string>? _accounts;
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.ServiceCatalog.Inputs
         public ProvisionedProductStackSetProvisioningPreferencesGetArgs()
         {
         }
+        public static new ProvisionedProductStackSetProvisioningPreferencesGetArgs Empty => new ProvisionedProductStackSetProvisioningPreferencesGetArgs();
     }
 }

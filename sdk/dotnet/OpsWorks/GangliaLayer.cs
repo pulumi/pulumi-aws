@@ -15,25 +15,23 @@ namespace Pulumi.Aws.OpsWorks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var monitor = new Aws.OpsWorks.GangliaLayer("monitor", new()
     ///     {
-    ///         var monitor = new Aws.OpsWorks.GangliaLayer("monitor", new Aws.OpsWorks.GangliaLayerArgs
-    ///         {
-    ///             StackId = aws_opsworks_stack.Main.Id,
-    ///             Password = "foobarbaz",
-    ///         });
-    ///     }
+    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///         Password = "foobarbaz",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/gangliaLayer:GangliaLayer")]
-    public partial class GangliaLayer : Pulumi.CustomResource
+    public partial class GangliaLayer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name(ARN) of the layer.
@@ -156,7 +154,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -223,7 +221,7 @@ namespace Pulumi.Aws.OpsWorks
         }
     }
 
-    public sealed class GangliaLayerArgs : Pulumi.ResourceArgs
+    public sealed class GangliaLayerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to automatically assign an elastic IP address to the layer's instances.
@@ -409,9 +407,10 @@ namespace Pulumi.Aws.OpsWorks
         public GangliaLayerArgs()
         {
         }
+        public static new GangliaLayerArgs Empty => new GangliaLayerArgs();
     }
 
-    public sealed class GangliaLayerState : Pulumi.ResourceArgs
+    public sealed class GangliaLayerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name(ARN) of the layer.
@@ -586,7 +585,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -615,5 +614,6 @@ namespace Pulumi.Aws.OpsWorks
         public GangliaLayerState()
         {
         }
+        public static new GangliaLayerState Empty => new GangliaLayerState();
     }
 }

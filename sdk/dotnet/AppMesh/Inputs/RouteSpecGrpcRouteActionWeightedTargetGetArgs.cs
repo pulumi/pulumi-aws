@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class RouteSpecGrpcRouteActionWeightedTargetGetArgs : Pulumi.ResourceArgs
+    public sealed class RouteSpecGrpcRouteActionWeightedTargetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public RouteSpecGrpcRouteActionWeightedTargetGetArgs()
         {
         }
+        public static new RouteSpecGrpcRouteActionWeightedTargetGetArgs Empty => new RouteSpecGrpcRouteActionWeightedTargetGetArgs();
     }
 }

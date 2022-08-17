@@ -19,20 +19,18 @@ namespace Pulumi.Aws.MskConnect
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MskConnect.GetCustomPlugin.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MskConnect.GetCustomPlugin.InvokeAsync(new Aws.MskConnect.GetCustomPluginArgs
-        ///         {
-        ///             Name = "example-debezium-1",
-        ///         }));
-        ///     }
+        ///         Name = "example-debezium-1",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.MskConnect
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MskConnect.GetCustomPlugin.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MskConnect.GetCustomPlugin.InvokeAsync(new Aws.MskConnect.GetCustomPluginArgs
-        ///         {
-        ///             Name = "example-debezium-1",
-        ///         }));
-        ///     }
+        ///         Name = "example-debezium-1",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.MskConnect
     }
 
 
-    public sealed class GetCustomPluginArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomPluginArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the custom plugin.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.MskConnect
         public GetCustomPluginArgs()
         {
         }
+        public static new GetCustomPluginArgs Empty => new GetCustomPluginArgs();
     }
 
-    public sealed class GetCustomPluginInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCustomPluginInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the custom plugin.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.MskConnect
         public GetCustomPluginInvokeArgs()
         {
         }
+        public static new GetCustomPluginInvokeArgs Empty => new GetCustomPluginInvokeArgs();
     }
 
 

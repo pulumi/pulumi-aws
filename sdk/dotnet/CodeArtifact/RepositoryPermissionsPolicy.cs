@@ -15,32 +15,34 @@ namespace Pulumi.Aws.CodeArtifact
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
     ///     {
-    ///         var exampleKey = new Aws.Kms.Key("exampleKey", new Aws.Kms.KeyArgs
-    ///         {
-    ///             Description = "domain key",
-    ///         });
-    ///         var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new Aws.CodeArtifact.DomainArgs
-    ///         {
-    ///             DomainName = "example",
-    ///             EncryptionKey = exampleKey.Arn,
-    ///         });
-    ///         var exampleRepository = new Aws.CodeArtifact.Repository("exampleRepository", new Aws.CodeArtifact.RepositoryArgs
-    ///         {
-    ///             RepositoryName = "example",
-    ///             Domain = exampleDomain.DomainName,
-    ///         });
-    ///         var exampleRepositoryPermissionsPolicy = new Aws.CodeArtifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", new Aws.CodeArtifact.RepositoryPermissionsPolicyArgs
-    ///         {
-    ///             Repository = exampleRepository.RepositoryName,
-    ///             Domain = exampleDomain.DomainName,
-    ///             PolicyDocument = exampleDomain.Arn.Apply(arn =&gt; @$"{{
+    ///         Description = "domain key",
+    ///     });
+    /// 
+    ///     var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new()
+    ///     {
+    ///         DomainName = "example",
+    ///         EncryptionKey = exampleKey.Arn,
+    ///     });
+    /// 
+    ///     var exampleRepository = new Aws.CodeArtifact.Repository("exampleRepository", new()
+    ///     {
+    ///         RepositoryName = "example",
+    ///         Domain = exampleDomain.DomainName,
+    ///     });
+    /// 
+    ///     var exampleRepositoryPermissionsPolicy = new Aws.CodeArtifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", new()
+    ///     {
+    ///         Repository = exampleRepository.RepositoryName,
+    ///         Domain = exampleDomain.DomainName,
+    ///         PolicyDocument = exampleDomain.Arn.Apply(arn =&gt; @$"{{
     ///     ""Version"": ""2012-10-17"",
     ///     ""Statement"": [
     ///         {{
@@ -52,10 +54,9 @@ namespace Pulumi.Aws.CodeArtifact
     ///     ]
     /// }}
     /// "),
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +68,7 @@ namespace Pulumi.Aws.CodeArtifact
     /// ```
     /// </summary>
     [AwsResourceType("aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy")]
-    public partial class RepositoryPermissionsPolicy : Pulumi.CustomResource
+    public partial class RepositoryPermissionsPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the domain on which to set the resource policy.
@@ -149,7 +150,7 @@ namespace Pulumi.Aws.CodeArtifact
         }
     }
 
-    public sealed class RepositoryPermissionsPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryPermissionsPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the domain on which to set the resource policy.
@@ -184,9 +185,10 @@ namespace Pulumi.Aws.CodeArtifact
         public RepositoryPermissionsPolicyArgs()
         {
         }
+        public static new RepositoryPermissionsPolicyArgs Empty => new RepositoryPermissionsPolicyArgs();
     }
 
-    public sealed class RepositoryPermissionsPolicyState : Pulumi.ResourceArgs
+    public sealed class RepositoryPermissionsPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the domain on which to set the resource policy.
@@ -227,5 +229,6 @@ namespace Pulumi.Aws.CodeArtifact
         public RepositoryPermissionsPolicyState()
         {
         }
+        public static new RepositoryPermissionsPolicyState Empty => new RepositoryPermissionsPolicyState();
     }
 }

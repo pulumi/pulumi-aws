@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestGetArgs : Pulumi.ResourceArgs
+    public sealed class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestGetArgs()
         {
         }
+        public static new DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestGetArgs Empty => new DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestGetArgs();
     }
 }

@@ -19,33 +19,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appstream.NewImageBuilder(ctx, "testFleet", &appstream.ImageBuilderArgs{
-// 			Description:                 pulumi.String("Description of a ImageBuilder"),
-// 			DisplayName:                 pulumi.String("Display name of a ImageBuilder"),
-// 			EnableDefaultInternetAccess: pulumi.Bool(false),
-// 			ImageName:                   pulumi.String("AppStream-WinServer2012R2-07-19-2021"),
-// 			InstanceType:                pulumi.String("stream.standard.large"),
-// 			VpcConfig: &appstream.ImageBuilderVpcConfigArgs{
-// 				SubnetIds: pulumi.StringArray{
-// 					pulumi.Any(aws_subnet.Example.Id),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Example Image Builder"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appstream.NewImageBuilder(ctx, "testFleet", &appstream.ImageBuilderArgs{
+//				Description:                 pulumi.String("Description of a ImageBuilder"),
+//				DisplayName:                 pulumi.String("Display name of a ImageBuilder"),
+//				EnableDefaultInternetAccess: pulumi.Bool(false),
+//				ImageName:                   pulumi.String("AppStream-WinServer2012R2-07-19-2021"),
+//				InstanceType:                pulumi.String("stream.standard.large"),
+//				VpcConfig: &appstream.ImageBuilderVpcConfigArgs{
+//					SubnetIds: pulumi.StringArray{
+//						pulumi.Any(aws_subnet.Example.Id),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example Image Builder"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // `aws_appstream_image_builder` can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
+//
+//	$ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
+//
 // ```
 type ImageBuilder struct {
 	pulumi.CustomResourceState
@@ -288,7 +293,7 @@ func (i *ImageBuilder) ToImageBuilderOutputWithContext(ctx context.Context) Imag
 // ImageBuilderArrayInput is an input type that accepts ImageBuilderArray and ImageBuilderArrayOutput values.
 // You can construct a concrete instance of `ImageBuilderArrayInput` via:
 //
-//          ImageBuilderArray{ ImageBuilderArgs{...} }
+//	ImageBuilderArray{ ImageBuilderArgs{...} }
 type ImageBuilderArrayInput interface {
 	pulumi.Input
 
@@ -313,7 +318,7 @@ func (i ImageBuilderArray) ToImageBuilderArrayOutputWithContext(ctx context.Cont
 // ImageBuilderMapInput is an input type that accepts ImageBuilderMap and ImageBuilderMapOutput values.
 // You can construct a concrete instance of `ImageBuilderMapInput` via:
 //
-//          ImageBuilderMap{ "key": ImageBuilderArgs{...} }
+//	ImageBuilderMap{ "key": ImageBuilderArgs{...} }
 type ImageBuilderMapInput interface {
 	pulumi.Input
 

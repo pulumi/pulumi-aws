@@ -17,49 +17,50 @@ namespace Pulumi.Aws.LicenseManager
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleAmi = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
-    ///         var exampleAmi = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
+    ///         MostRecent = true,
+    ///         Owners = new[]
     ///         {
-    ///             MostRecent = true,
-    ///             Owners = 
+    ///             "amazon",
+    ///         },
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
     ///             {
-    ///                 "amazon",
-    ///             },
-    ///             Filters = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
+    ///                 Name = "name",
+    ///                 Values = new[]
     ///                 {
-    ///                     Name = "name",
-    ///                     Values = 
-    ///                     {
-    ///                         "amzn-ami-vpc-nat*",
-    ///                     },
+    ///                     "amzn-ami-vpc-nat*",
     ///                 },
     ///             },
-    ///         }));
-    ///         var exampleInstance = new Aws.Ec2.Instance("exampleInstance", new Aws.Ec2.InstanceArgs
-    ///         {
-    ///             Ami = exampleAmi.Apply(exampleAmi =&gt; exampleAmi.Id),
-    ///             InstanceType = "t2.micro",
-    ///         });
-    ///         var exampleLicenseConfiguration = new Aws.LicenseManager.LicenseConfiguration("exampleLicenseConfiguration", new Aws.LicenseManager.LicenseConfigurationArgs
-    ///         {
-    ///             LicenseCountingType = "Instance",
-    ///         });
-    ///         var exampleAssociation = new Aws.LicenseManager.Association("exampleAssociation", new Aws.LicenseManager.AssociationArgs
-    ///         {
-    ///             LicenseConfigurationArn = exampleLicenseConfiguration.Arn,
-    ///             ResourceArn = exampleInstance.Arn,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleInstance = new Aws.Ec2.Instance("exampleInstance", new()
+    ///     {
+    ///         Ami = exampleAmi.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         InstanceType = "t2.micro",
+    ///     });
+    /// 
+    ///     var exampleLicenseConfiguration = new Aws.LicenseManager.LicenseConfiguration("exampleLicenseConfiguration", new()
+    ///     {
+    ///         LicenseCountingType = "Instance",
+    ///     });
+    /// 
+    ///     var exampleAssociation = new Aws.LicenseManager.Association("exampleAssociation", new()
+    ///     {
+    ///         LicenseConfigurationArn = exampleLicenseConfiguration.Arn,
+    ///         ResourceArn = exampleInstance.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +72,7 @@ namespace Pulumi.Aws.LicenseManager
     /// ```
     /// </summary>
     [AwsResourceType("aws:licensemanager/association:Association")]
-    public partial class Association : Pulumi.CustomResource
+    public partial class Association : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the license configuration.
@@ -129,7 +130,7 @@ namespace Pulumi.Aws.LicenseManager
         }
     }
 
-    public sealed class AssociationArgs : Pulumi.ResourceArgs
+    public sealed class AssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the license configuration.
@@ -146,9 +147,10 @@ namespace Pulumi.Aws.LicenseManager
         public AssociationArgs()
         {
         }
+        public static new AssociationArgs Empty => new AssociationArgs();
     }
 
-    public sealed class AssociationState : Pulumi.ResourceArgs
+    public sealed class AssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the license configuration.
@@ -165,5 +167,6 @@ namespace Pulumi.Aws.LicenseManager
         public AssociationState()
         {
         }
+        public static new AssociationState Empty => new AssociationState();
     }
 }

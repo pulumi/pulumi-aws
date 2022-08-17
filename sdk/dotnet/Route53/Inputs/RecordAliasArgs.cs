@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53.Inputs
 {
 
-    public sealed class RecordAliasArgs : Pulumi.ResourceArgs
+    public sealed class RecordAliasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Route53.Inputs
         public RecordAliasArgs()
         {
         }
+        public static new RecordAliasArgs Empty => new RecordAliasArgs();
     }
 }

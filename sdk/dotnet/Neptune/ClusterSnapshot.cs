@@ -15,21 +15,19 @@ namespace Pulumi.Aws.Neptune
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Neptune.ClusterSnapshot("example", new()
     ///     {
-    ///         var example = new Aws.Neptune.ClusterSnapshot("example", new Aws.Neptune.ClusterSnapshotArgs
-    ///         {
-    ///             DbClusterIdentifier = aws_neptune_cluster.Example.Id,
-    ///             DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
-    ///         });
-    ///     }
+    ///         DbClusterIdentifier = aws_neptune_cluster.Example.Id,
+    ///         DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Neptune
     /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/clusterSnapshot:ClusterSnapshot")]
-    public partial class ClusterSnapshot : Pulumi.CustomResource
+    public partial class ClusterSnapshot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the allocated storage size in gigabytes (GB).
@@ -171,7 +169,7 @@ namespace Pulumi.Aws.Neptune
         }
     }
 
-    public sealed class ClusterSnapshotArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DB Cluster Identifier from which to take the snapshot.
@@ -188,9 +186,10 @@ namespace Pulumi.Aws.Neptune
         public ClusterSnapshotArgs()
         {
         }
+        public static new ClusterSnapshotArgs Empty => new ClusterSnapshotArgs();
     }
 
-    public sealed class ClusterSnapshotState : Pulumi.ResourceArgs
+    public sealed class ClusterSnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the allocated storage size in gigabytes (GB).
@@ -285,5 +284,6 @@ namespace Pulumi.Aws.Neptune
         public ClusterSnapshotState()
         {
         }
+        public static new ClusterSnapshotState Empty => new ClusterSnapshotState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs : Pulumi.ResourceArgs
+    public sealed class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs()
         {
         }
+        public static new BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs Empty => new BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs();
     }
 }

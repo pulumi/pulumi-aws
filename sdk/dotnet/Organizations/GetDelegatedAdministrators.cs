@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Organizations
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Organizations.GetDelegatedAdministrators.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Organizations.GetDelegatedAdministrators.InvokeAsync(new Aws.Organizations.GetDelegatedAdministratorsArgs
-        ///         {
-        ///             ServicePrincipal = "SERVICE PRINCIPAL",
-        ///         }));
-        ///     }
+        ///         ServicePrincipal = "SERVICE PRINCIPAL",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Organizations
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Organizations.GetDelegatedAdministrators.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Organizations.GetDelegatedAdministrators.InvokeAsync(new Aws.Organizations.GetDelegatedAdministratorsArgs
-        ///         {
-        ///             ServicePrincipal = "SERVICE PRINCIPAL",
-        ///         }));
-        ///     }
+        ///         ServicePrincipal = "SERVICE PRINCIPAL",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Organizations
     }
 
 
-    public sealed class GetDelegatedAdministratorsArgs : Pulumi.InvokeArgs
+    public sealed class GetDelegatedAdministratorsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies a service principal name. If specified, then the operation lists the delegated administrators only for the specified service. If you don't specify a service principal, the operation lists all delegated administrators for all services in your organization.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Organizations
         public GetDelegatedAdministratorsArgs()
         {
         }
+        public static new GetDelegatedAdministratorsArgs Empty => new GetDelegatedAdministratorsArgs();
     }
 
-    public sealed class GetDelegatedAdministratorsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDelegatedAdministratorsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies a service principal name. If specified, then the operation lists the delegated administrators only for the specified service. If you don't specify a service principal, the operation lists all delegated administrators for all services in your organization.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Organizations
         public GetDelegatedAdministratorsInvokeArgs()
         {
         }
+        public static new GetDelegatedAdministratorsInvokeArgs Empty => new GetDelegatedAdministratorsInvokeArgs();
     }
 
 

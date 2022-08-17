@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualServiceSpecProviderGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualServiceSpecProviderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The virtual node associated with a virtual service.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualServiceSpecProviderGetArgs()
         {
         }
+        public static new VirtualServiceSpecProviderGetArgs Empty => new VirtualServiceSpecProviderGetArgs();
     }
 }

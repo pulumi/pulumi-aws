@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewCapacityReservation(ctx, "default", &ec2.CapacityReservationArgs{
-// 			AvailabilityZone: pulumi.String("eu-west-1a"),
-// 			InstanceCount:    pulumi.Int(1),
-// 			InstancePlatform: pulumi.String("Linux/UNIX"),
-// 			InstanceType:     pulumi.String("t2.micro"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewCapacityReservation(ctx, "default", &ec2.CapacityReservationArgs{
+//				AvailabilityZone: pulumi.String("eu-west-1a"),
+//				InstanceCount:    pulumi.Int(1),
+//				InstancePlatform: pulumi.String("Linux/UNIX"),
+//				InstanceType:     pulumi.String("t2.micro"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // Capacity Reservations can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
+//
+//	$ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
+//
 // ```
 type CapacityReservation struct {
 	pulumi.CustomResourceState
@@ -269,7 +274,7 @@ func (i *CapacityReservation) ToCapacityReservationOutputWithContext(ctx context
 // CapacityReservationArrayInput is an input type that accepts CapacityReservationArray and CapacityReservationArrayOutput values.
 // You can construct a concrete instance of `CapacityReservationArrayInput` via:
 //
-//          CapacityReservationArray{ CapacityReservationArgs{...} }
+//	CapacityReservationArray{ CapacityReservationArgs{...} }
 type CapacityReservationArrayInput interface {
 	pulumi.Input
 
@@ -294,7 +299,7 @@ func (i CapacityReservationArray) ToCapacityReservationArrayOutputWithContext(ct
 // CapacityReservationMapInput is an input type that accepts CapacityReservationMap and CapacityReservationMapOutput values.
 // You can construct a concrete instance of `CapacityReservationMapInput` via:
 //
-//          CapacityReservationMap{ "key": CapacityReservationArgs{...} }
+//	CapacityReservationMap{ "key": CapacityReservationArgs{...} }
 type CapacityReservationMapInput interface {
 	pulumi.Input
 

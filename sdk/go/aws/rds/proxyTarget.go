@@ -19,66 +19,69 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProxy, err := rds.NewProxy(ctx, "exampleProxy", &rds.ProxyArgs{
-// 			DebugLogging:      pulumi.Bool(false),
-// 			EngineFamily:      pulumi.String("MYSQL"),
-// 			IdleClientTimeout: pulumi.Int(1800),
-// 			RequireTls:        pulumi.Bool(true),
-// 			RoleArn:           pulumi.Any(aws_iam_role.Example.Arn),
-// 			VpcSecurityGroupIds: pulumi.StringArray{
-// 				pulumi.Any(aws_security_group.Example.Id),
-// 			},
-// 			VpcSubnetIds: pulumi.StringArray{
-// 				pulumi.Any(aws_subnet.Example.Id),
-// 			},
-// 			Auths: rds.ProxyAuthArray{
-// 				&rds.ProxyAuthArgs{
-// 					AuthScheme:  pulumi.String("SECRETS"),
-// 					Description: pulumi.String("example"),
-// 					IamAuth:     pulumi.String("DISABLED"),
-// 					SecretArn:   pulumi.Any(aws_secretsmanager_secret.Example.Arn),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example"),
-// 				"Key":  pulumi.String("value"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleProxyDefaultTargetGroup, err := rds.NewProxyDefaultTargetGroup(ctx, "exampleProxyDefaultTargetGroup", &rds.ProxyDefaultTargetGroupArgs{
-// 			DbProxyName: exampleProxy.Name,
-// 			ConnectionPoolConfig: &rds.ProxyDefaultTargetGroupConnectionPoolConfigArgs{
-// 				ConnectionBorrowTimeout:   pulumi.Int(120),
-// 				InitQuery:                 pulumi.String("SET x=1, y=2"),
-// 				MaxConnectionsPercent:     pulumi.Int(100),
-// 				MaxIdleConnectionsPercent: pulumi.Int(50),
-// 				SessionPinningFilters: pulumi.StringArray{
-// 					pulumi.String("EXCLUDE_VARIABLE_SETS"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = rds.NewProxyTarget(ctx, "exampleProxyTarget", &rds.ProxyTargetArgs{
-// 			DbInstanceIdentifier: pulumi.Any(aws_db_instance.Example.Id),
-// 			DbProxyName:          exampleProxy.Name,
-// 			TargetGroupName:      exampleProxyDefaultTargetGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProxy, err := rds.NewProxy(ctx, "exampleProxy", &rds.ProxyArgs{
+//				DebugLogging:      pulumi.Bool(false),
+//				EngineFamily:      pulumi.String("MYSQL"),
+//				IdleClientTimeout: pulumi.Int(1800),
+//				RequireTls:        pulumi.Bool(true),
+//				RoleArn:           pulumi.Any(aws_iam_role.Example.Arn),
+//				VpcSecurityGroupIds: pulumi.StringArray{
+//					pulumi.Any(aws_security_group.Example.Id),
+//				},
+//				VpcSubnetIds: pulumi.StringArray{
+//					pulumi.Any(aws_subnet.Example.Id),
+//				},
+//				Auths: rds.ProxyAuthArray{
+//					&rds.ProxyAuthArgs{
+//						AuthScheme:  pulumi.String("SECRETS"),
+//						Description: pulumi.String("example"),
+//						IamAuth:     pulumi.String("DISABLED"),
+//						SecretArn:   pulumi.Any(aws_secretsmanager_secret.Example.Arn),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example"),
+//					"Key":  pulumi.String("value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleProxyDefaultTargetGroup, err := rds.NewProxyDefaultTargetGroup(ctx, "exampleProxyDefaultTargetGroup", &rds.ProxyDefaultTargetGroupArgs{
+//				DbProxyName: exampleProxy.Name,
+//				ConnectionPoolConfig: &rds.ProxyDefaultTargetGroupConnectionPoolConfigArgs{
+//					ConnectionBorrowTimeout:   pulumi.Int(120),
+//					InitQuery:                 pulumi.String("SET x=1, y=2"),
+//					MaxConnectionsPercent:     pulumi.Int(100),
+//					MaxIdleConnectionsPercent: pulumi.Int(50),
+//					SessionPinningFilters: pulumi.StringArray{
+//						pulumi.String("EXCLUDE_VARIABLE_SETS"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rds.NewProxyTarget(ctx, "exampleProxyTarget", &rds.ProxyTargetArgs{
+//				DbInstanceIdentifier: pulumi.Any(aws_db_instance.Example.Id),
+//				DbProxyName:          exampleProxy.Name,
+//				TargetGroupName:      exampleProxyDefaultTargetGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -86,13 +89,17 @@ import (
 // RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g., Instances
 //
 // ```sh
-//  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
+//
+//	$ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
+//
 // ```
 //
-//  Provisioned Clusters
+//	Provisioned Clusters
 //
 // ```sh
-//  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
+//
+//	$ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
+//
 // ```
 type ProxyTarget struct {
 	pulumi.CustomResourceState
@@ -252,7 +259,7 @@ func (i *ProxyTarget) ToProxyTargetOutputWithContext(ctx context.Context) ProxyT
 // ProxyTargetArrayInput is an input type that accepts ProxyTargetArray and ProxyTargetArrayOutput values.
 // You can construct a concrete instance of `ProxyTargetArrayInput` via:
 //
-//          ProxyTargetArray{ ProxyTargetArgs{...} }
+//	ProxyTargetArray{ ProxyTargetArgs{...} }
 type ProxyTargetArrayInput interface {
 	pulumi.Input
 
@@ -277,7 +284,7 @@ func (i ProxyTargetArray) ToProxyTargetArrayOutputWithContext(ctx context.Contex
 // ProxyTargetMapInput is an input type that accepts ProxyTargetMap and ProxyTargetMapOutput values.
 // You can construct a concrete instance of `ProxyTargetMapInput` via:
 //
-//          ProxyTargetMap{ "key": ProxyTargetArgs{...} }
+//	ProxyTargetMap{ "key": ProxyTargetArgs{...} }
 type ProxyTargetMapInput interface {
 	pulumi.Input
 

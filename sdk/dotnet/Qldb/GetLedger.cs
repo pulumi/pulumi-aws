@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Qldb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Qldb.GetLedger.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Qldb.GetLedger.InvokeAsync(new Aws.Qldb.GetLedgerArgs
-        ///         {
-        ///             Name = "an_example_ledger",
-        ///         }));
-        ///     }
+        ///         Name = "an_example_ledger",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Qldb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Qldb.GetLedger.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Qldb.GetLedger.InvokeAsync(new Aws.Qldb.GetLedgerArgs
-        ///         {
-        ///             Name = "an_example_ledger",
-        ///         }));
-        ///     }
+        ///         Name = "an_example_ledger",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Qldb
     }
 
 
-    public sealed class GetLedgerArgs : Pulumi.InvokeArgs
+    public sealed class GetLedgerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The friendly name of the ledger to match.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.Qldb
         public GetLedgerArgs()
         {
         }
+        public static new GetLedgerArgs Empty => new GetLedgerArgs();
     }
 
-    public sealed class GetLedgerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLedgerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The friendly name of the ledger to match.
@@ -111,6 +108,7 @@ namespace Pulumi.Aws.Qldb
         public GetLedgerInvokeArgs()
         {
         }
+        public static new GetLedgerInvokeArgs Empty => new GetLedgerInvokeArgs();
     }
 
 

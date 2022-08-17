@@ -19,30 +19,28 @@ namespace Pulumi.Aws.Ssm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ssm.GetInstances.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ssm.GetInstances.InvokeAsync(new Aws.Ssm.GetInstancesArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ssm.Inputs.GetInstancesFilterInputArgs
         ///             {
-        ///                 new Aws.Ssm.Inputs.GetInstancesFilterArgs
+        ///                 Name = "PlatformTypes",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "PlatformTypes",
-        ///                     Values = 
-        ///                     {
-        ///                         "Linux",
-        ///                     },
+        ///                     "Linux",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -58,30 +56,28 @@ namespace Pulumi.Aws.Ssm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ssm.GetInstances.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ssm.GetInstances.InvokeAsync(new Aws.Ssm.GetInstancesArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ssm.Inputs.GetInstancesFilterInputArgs
         ///             {
-        ///                 new Aws.Ssm.Inputs.GetInstancesFilterArgs
+        ///                 Name = "PlatformTypes",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "PlatformTypes",
-        ///                     Values = 
-        ///                     {
-        ///                         "Linux",
-        ///                     },
+        ///                     "Linux",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -91,7 +87,7 @@ namespace Pulumi.Aws.Ssm
     }
 
 
-    public sealed class GetInstancesArgs : Pulumi.InvokeArgs
+    public sealed class GetInstancesArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetInstancesFilterArgs>? _filters;
@@ -108,9 +104,10 @@ namespace Pulumi.Aws.Ssm
         public GetInstancesArgs()
         {
         }
+        public static new GetInstancesArgs Empty => new GetInstancesArgs();
     }
 
-    public sealed class GetInstancesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInstancesInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetInstancesFilterInputArgs>? _filters;
@@ -127,6 +124,7 @@ namespace Pulumi.Aws.Ssm
         public GetInstancesInvokeArgs()
         {
         }
+        public static new GetInstancesInvokeArgs Empty => new GetInstancesInvokeArgs();
     }
 
 

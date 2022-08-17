@@ -20,50 +20,46 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetMulticastDomain.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetMulticastDomain.InvokeAsync(new Aws.Ec2TransitGateway.GetMulticastDomainArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2TransitGateway.Inputs.GetMulticastDomainFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetMulticastDomainFilterArgs
+        ///                 Name = "transit-gateway-multicast-domain-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "transit-gateway-multicast-domain-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "tgw-mcast-domain-12345678",
-        ///                     },
+        ///                     "tgw-mcast-domain-12345678",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetMulticastDomain.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetMulticastDomain.InvokeAsync(new Aws.Ec2TransitGateway.GetMulticastDomainArgs
-        ///         {
-        ///             TransitGatewayMulticastDomainId = "tgw-mcast-domain-12345678",
-        ///         }));
-        ///     }
+        ///         TransitGatewayMulticastDomainId = "tgw-mcast-domain-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -80,50 +76,46 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetMulticastDomain.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetMulticastDomain.InvokeAsync(new Aws.Ec2TransitGateway.GetMulticastDomainArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2TransitGateway.Inputs.GetMulticastDomainFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetMulticastDomainFilterArgs
+        ///                 Name = "transit-gateway-multicast-domain-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "transit-gateway-multicast-domain-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "tgw-mcast-domain-12345678",
-        ///                     },
+        ///                     "tgw-mcast-domain-12345678",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetMulticastDomain.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetMulticastDomain.InvokeAsync(new Aws.Ec2TransitGateway.GetMulticastDomainArgs
-        ///         {
-        ///             TransitGatewayMulticastDomainId = "tgw-mcast-domain-12345678",
-        ///         }));
-        ///     }
+        ///         TransitGatewayMulticastDomainId = "tgw-mcast-domain-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -133,7 +125,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     }
 
 
-    public sealed class GetMulticastDomainArgs : Pulumi.InvokeArgs
+    public sealed class GetMulticastDomainArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetMulticastDomainFilterArgs>? _filters;
@@ -168,9 +160,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetMulticastDomainArgs()
         {
         }
+        public static new GetMulticastDomainArgs Empty => new GetMulticastDomainArgs();
     }
 
-    public sealed class GetMulticastDomainInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMulticastDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetMulticastDomainFilterInputArgs>? _filters;
@@ -205,6 +198,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetMulticastDomainInvokeArgs()
         {
         }
+        public static new GetMulticastDomainInvokeArgs Empty => new GetMulticastDomainInvokeArgs();
     }
 
 

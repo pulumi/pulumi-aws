@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DynamoDB.Inputs
 {
 
-    public sealed class TableReplicaArgs : Pulumi.ResourceArgs
+    public sealed class TableReplicaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public Input<bool>? PointInTimeRecovery { get; set; }
 
         /// <summary>
-        /// Whether to propagate the main table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from main to replica. In other words, tag drift on a replica will not trigger an update. Tag changes on the main table, whether from drift or configuration changes, are propagated to replicas.
+        /// Whether to propagate the global table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
         /// </summary>
         [Input("propagateTags")]
         public Input<bool>? PropagateTags { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public TableReplicaArgs()
         {
         }
+        public static new TableReplicaArgs Empty => new TableReplicaArgs();
     }
 }

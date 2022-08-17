@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigRuleArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
@@ -69,5 +69,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigRuleArgs()
         {
         }
+        public static new BucketReplicationConfigRuleArgs Empty => new BucketReplicationConfigRuleArgs();
     }
 }

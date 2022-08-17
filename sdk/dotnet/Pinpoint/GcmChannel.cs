@@ -15,24 +15,21 @@ namespace Pulumi.Aws.Pinpoint
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var app = new Aws.Pinpoint.App("app", new Aws.Pinpoint.AppArgs
-    ///         {
-    ///         });
-    ///         var gcm = new Aws.Pinpoint.GcmChannel("gcm", new Aws.Pinpoint.GcmChannelArgs
-    ///         {
-    ///             ApplicationId = app.ApplicationId,
-    ///             ApiKey = "api_key",
-    ///         });
-    ///     }
+    ///     var app = new Aws.Pinpoint.App("app");
     /// 
-    /// }
+    ///     var gcm = new Aws.Pinpoint.GcmChannel("gcm", new()
+    ///     {
+    ///         ApplicationId = app.ApplicationId,
+    ///         ApiKey = "api_key",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +41,7 @@ namespace Pulumi.Aws.Pinpoint
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/gcmChannel:GcmChannel")]
-    public partial class GcmChannel : Pulumi.CustomResource
+    public partial class GcmChannel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Platform credential API key from Google.
@@ -108,7 +105,7 @@ namespace Pulumi.Aws.Pinpoint
         }
     }
 
-    public sealed class GcmChannelArgs : Pulumi.ResourceArgs
+    public sealed class GcmChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Platform credential API key from Google.
@@ -131,9 +128,10 @@ namespace Pulumi.Aws.Pinpoint
         public GcmChannelArgs()
         {
         }
+        public static new GcmChannelArgs Empty => new GcmChannelArgs();
     }
 
-    public sealed class GcmChannelState : Pulumi.ResourceArgs
+    public sealed class GcmChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Platform credential API key from Google.
@@ -156,5 +154,6 @@ namespace Pulumi.Aws.Pinpoint
         public GcmChannelState()
         {
         }
+        public static new GcmChannelState Empty => new GcmChannelState();
     }
 }

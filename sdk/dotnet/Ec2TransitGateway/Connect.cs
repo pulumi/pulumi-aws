@@ -15,30 +15,29 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2TransitGateway.VpcAttachment("example", new()
     ///     {
-    ///         var example = new Aws.Ec2TransitGateway.VpcAttachment("example", new Aws.Ec2TransitGateway.VpcAttachmentArgs
+    ///         SubnetIds = new[]
     ///         {
-    ///             SubnetIds = 
-    ///             {
-    ///                 aws_subnet.Example.Id,
-    ///             },
-    ///             TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-    ///             VpcId = aws_vpc.Example.Id,
-    ///         });
-    ///         var attachment = new Aws.Ec2TransitGateway.Connect("attachment", new Aws.Ec2TransitGateway.ConnectArgs
-    ///         {
-    ///             TransportAttachmentId = example.Id,
-    ///             TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-    ///         });
-    ///     }
+    ///             aws_subnet.Example.Id,
+    ///         },
+    ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
+    ///         VpcId = aws_vpc.Example.Id,
+    ///     });
     /// 
-    /// }
+    ///     var attachment = new Aws.Ec2TransitGateway.Connect("attachment", new()
+    ///     {
+    ///         TransportAttachmentId = example.Id,
+    ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +49,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/connect:Connect")]
-    public partial class Connect : Pulumi.CustomResource
+    public partial class Connect : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The tunnel protocol. Valida values: `gre`. Default is `gre`.
@@ -132,7 +131,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
-    public sealed class ConnectArgs : Pulumi.ResourceArgs
+    public sealed class ConnectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The tunnel protocol. Valida values: `gre`. Default is `gre`.
@@ -175,9 +174,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public ConnectArgs()
         {
         }
+        public static new ConnectArgs Empty => new ConnectArgs();
     }
 
-    public sealed class ConnectState : Pulumi.ResourceArgs
+    public sealed class ConnectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The tunnel protocol. Valida values: `gre`. Default is `gre`.
@@ -228,5 +228,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public ConnectState()
         {
         }
+        public static new ConnectState Empty => new ConnectState();
     }
 }

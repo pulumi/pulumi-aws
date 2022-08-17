@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDocumentationPart, err := apigateway.NewDocumentationPart(ctx, "exampleDocumentationPart", &apigateway.DocumentationPartArgs{
-// 			Location: &apigateway.DocumentationPartLocationArgs{
-// 				Type: pulumi.String("API"),
-// 			},
-// 			Properties: pulumi.String("{\"description\":\"Example\"}"),
-// 			RestApiId:  exampleRestApi.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.NewDocumentationVersion(ctx, "exampleDocumentationVersion", &apigateway.DocumentationVersionArgs{
-// 			Version:     pulumi.String("example_version"),
-// 			RestApiId:   exampleRestApi.ID(),
-// 			Description: pulumi.String("Example description"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleDocumentationPart,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleDocumentationPart, err := apigateway.NewDocumentationPart(ctx, "exampleDocumentationPart", &apigateway.DocumentationPartArgs{
+//				Location: &apigateway.DocumentationPartLocationArgs{
+//					Type: pulumi.String("API"),
+//				},
+//				Properties: pulumi.String("{\"description\":\"Example\"}"),
+//				RestApiId:  exampleRestApi.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewDocumentationVersion(ctx, "exampleDocumentationVersion", &apigateway.DocumentationVersionArgs{
+//				Version:     pulumi.String("example_version"),
+//				RestApiId:   exampleRestApi.ID(),
+//				Description: pulumi.String("Example description"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleDocumentationPart,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // API Gateway documentation versions can be imported using `REST-API-ID/VERSION`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
+//
+//	$ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
+//
 // ```
 type DocumentationVersion struct {
 	pulumi.CustomResourceState
@@ -173,7 +178,7 @@ func (i *DocumentationVersion) ToDocumentationVersionOutputWithContext(ctx conte
 // DocumentationVersionArrayInput is an input type that accepts DocumentationVersionArray and DocumentationVersionArrayOutput values.
 // You can construct a concrete instance of `DocumentationVersionArrayInput` via:
 //
-//          DocumentationVersionArray{ DocumentationVersionArgs{...} }
+//	DocumentationVersionArray{ DocumentationVersionArgs{...} }
 type DocumentationVersionArrayInput interface {
 	pulumi.Input
 
@@ -198,7 +203,7 @@ func (i DocumentationVersionArray) ToDocumentationVersionArrayOutputWithContext(
 // DocumentationVersionMapInput is an input type that accepts DocumentationVersionMap and DocumentationVersionMapOutput values.
 // You can construct a concrete instance of `DocumentationVersionMapInput` via:
 //
-//          DocumentationVersionMap{ "key": DocumentationVersionArgs{...} }
+//	DocumentationVersionMap{ "key": DocumentationVersionArgs{...} }
 type DocumentationVersionMapInput interface {
 	pulumi.Input
 

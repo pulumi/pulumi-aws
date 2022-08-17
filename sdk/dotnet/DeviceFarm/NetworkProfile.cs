@@ -17,23 +17,20 @@ namespace Pulumi.Aws.DeviceFarm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleProject = new Aws.DeviceFarm.Project("exampleProject", new Aws.DeviceFarm.ProjectArgs
-    ///         {
-    ///         });
-    ///         var exampleNetworkProfile = new Aws.DeviceFarm.NetworkProfile("exampleNetworkProfile", new Aws.DeviceFarm.NetworkProfileArgs
-    ///         {
-    ///             ProjectArn = exampleProject.Arn,
-    ///         });
-    ///     }
+    ///     var exampleProject = new Aws.DeviceFarm.Project("exampleProject");
     /// 
-    /// }
+    ///     var exampleNetworkProfile = new Aws.DeviceFarm.NetworkProfile("exampleNetworkProfile", new()
+    ///     {
+    ///         ProjectArn = exampleProject.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +42,7 @@ namespace Pulumi.Aws.DeviceFarm
     /// ```
     /// </summary>
     [AwsResourceType("aws:devicefarm/networkProfile:NetworkProfile")]
-    public partial class NetworkProfile : Pulumi.CustomResource
+    public partial class NetworkProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name of this network profile.
@@ -101,9 +98,6 @@ namespace Pulumi.Aws.DeviceFarm
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -181,7 +175,7 @@ namespace Pulumi.Aws.DeviceFarm
         }
     }
 
-    public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
+    public sealed class NetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the network profile.
@@ -270,9 +264,10 @@ namespace Pulumi.Aws.DeviceFarm
         public NetworkProfileArgs()
         {
         }
+        public static new NetworkProfileArgs Empty => new NetworkProfileArgs();
     }
 
-    public sealed class NetworkProfileState : Pulumi.ResourceArgs
+    public sealed class NetworkProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name of this network profile.
@@ -336,10 +331,6 @@ namespace Pulumi.Aws.DeviceFarm
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -379,5 +370,6 @@ namespace Pulumi.Aws.DeviceFarm
         public NetworkProfileState()
         {
         }
+        public static new NetworkProfileState Empty => new NetworkProfileState();
     }
 }

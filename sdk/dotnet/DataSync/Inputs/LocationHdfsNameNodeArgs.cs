@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DataSync.Inputs
 {
 
-    public sealed class LocationHdfsNameNodeArgs : Pulumi.ResourceArgs
+    public sealed class LocationHdfsNameNodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.DataSync.Inputs
         public LocationHdfsNameNodeArgs()
         {
         }
+        public static new LocationHdfsNameNodeArgs Empty => new LocationHdfsNameNodeArgs();
     }
 }

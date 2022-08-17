@@ -20,33 +20,38 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apigatewayv2.NewModel(ctx, "example", &apigatewayv2.ModelArgs{
-// 			ApiId:       pulumi.Any(aws_apigatewayv2_api.Example.Id),
-// 			ContentType: pulumi.String("application/json"),
-// 			Schema: pulumi.String(fmt.Sprintf(`{
-//   "$schema": "http://json-schema.org/draft-04/schema#",
-//   "title": "ExampleModel",
-//   "type": "object",
-//   "properties": {
-//     "id": { "type": "string" }
-//   }
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigatewayv2.NewModel(ctx, "example", &apigatewayv2.ModelArgs{
+//				ApiId:       pulumi.Any(aws_apigatewayv2_api.Example.Id),
+//				ContentType: pulumi.String("application/json"),
+//				Schema: pulumi.String(fmt.Sprintf(`{
+//	  "$schema": "http://json-schema.org/draft-04/schema#",
+//	  "title": "ExampleModel",
+//	  "type": "object",
+//	  "properties": {
+//	    "id": { "type": "string" }
+//	  }
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +59,9 @@ import (
 // `aws_apigatewayv2_model` can be imported by using the API identifier and model identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
+//
+//	$ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
+//
 // ```
 type Model struct {
 	pulumi.CustomResourceState
@@ -191,7 +198,7 @@ func (i *Model) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 // ModelArrayInput is an input type that accepts ModelArray and ModelArrayOutput values.
 // You can construct a concrete instance of `ModelArrayInput` via:
 //
-//          ModelArray{ ModelArgs{...} }
+//	ModelArray{ ModelArgs{...} }
 type ModelArrayInput interface {
 	pulumi.Input
 
@@ -216,7 +223,7 @@ func (i ModelArray) ToModelArrayOutputWithContext(ctx context.Context) ModelArra
 // ModelMapInput is an input type that accepts ModelMap and ModelMapOutput values.
 // You can construct a concrete instance of `ModelMapInput` via:
 //
-//          ModelMap{ "key": ModelArgs{...} }
+//	ModelMap{ "key": ModelArgs{...} }
 type ModelMapInput interface {
 	pulumi.Input
 

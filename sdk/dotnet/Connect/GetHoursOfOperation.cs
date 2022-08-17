@@ -21,41 +21,37 @@ namespace Pulumi.Aws.Connect
         /// By `name`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Connect.GetHoursOfOperation.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Connect.GetHoursOfOperation.InvokeAsync(new Aws.Connect.GetHoursOfOperationArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             Name = "Test",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Test",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// By `hours_of_operation_id`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Connect.GetHoursOfOperation.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Connect.GetHoursOfOperation.InvokeAsync(new Aws.Connect.GetHoursOfOperationArgs
-        ///         {
-        ///             HoursOfOperationId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         }));
-        ///     }
+        ///         HoursOfOperationId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,41 +69,37 @@ namespace Pulumi.Aws.Connect
         /// By `name`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Connect.GetHoursOfOperation.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Connect.GetHoursOfOperation.InvokeAsync(new Aws.Connect.GetHoursOfOperationArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             Name = "Test",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Test",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// By `hours_of_operation_id`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.Connect.GetHoursOfOperation.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.Connect.GetHoursOfOperation.InvokeAsync(new Aws.Connect.GetHoursOfOperationArgs
-        ///         {
-        ///             HoursOfOperationId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///         }));
-        ///     }
+        ///         HoursOfOperationId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -117,7 +109,7 @@ namespace Pulumi.Aws.Connect
     }
 
 
-    public sealed class GetHoursOfOperationArgs : Pulumi.InvokeArgs
+    public sealed class GetHoursOfOperationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Returns information on a specific Hours of Operation by hours of operation id
@@ -152,9 +144,10 @@ namespace Pulumi.Aws.Connect
         public GetHoursOfOperationArgs()
         {
         }
+        public static new GetHoursOfOperationArgs Empty => new GetHoursOfOperationArgs();
     }
 
-    public sealed class GetHoursOfOperationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetHoursOfOperationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Returns information on a specific Hours of Operation by hours of operation id
@@ -189,6 +182,7 @@ namespace Pulumi.Aws.Connect
         public GetHoursOfOperationInvokeArgs()
         {
         }
+        public static new GetHoursOfOperationInvokeArgs Empty => new GetHoursOfOperationInvokeArgs();
     }
 
 

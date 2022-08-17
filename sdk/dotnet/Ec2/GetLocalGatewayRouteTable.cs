@@ -24,22 +24,20 @@ namespace Pulumi.Aws.Ec2
         /// The following example returns a specific local gateway route table ID
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var awsEc2LocalGatewayRouteTable = config.RequireObject&lt;dynamic&gt;("awsEc2LocalGatewayRouteTable");
+        ///     var selected = Aws.Ec2.GetLocalGatewayRouteTable.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var awsEc2LocalGatewayRouteTable = config.RequireObject&lt;dynamic&gt;("awsEc2LocalGatewayRouteTable");
-        ///         var selected = Output.Create(Aws.Ec2.GetLocalGatewayRouteTable.InvokeAsync(new Aws.Ec2.GetLocalGatewayRouteTableArgs
-        ///         {
-        ///             LocalGatewayRouteTableId = awsEc2LocalGatewayRouteTable,
-        ///         }));
-        ///     }
+        ///         LocalGatewayRouteTableId = awsEc2LocalGatewayRouteTable,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -60,22 +58,20 @@ namespace Pulumi.Aws.Ec2
         /// The following example returns a specific local gateway route table ID
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var awsEc2LocalGatewayRouteTable = config.RequireObject&lt;dynamic&gt;("awsEc2LocalGatewayRouteTable");
+        ///     var selected = Aws.Ec2.GetLocalGatewayRouteTable.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var awsEc2LocalGatewayRouteTable = config.RequireObject&lt;dynamic&gt;("awsEc2LocalGatewayRouteTable");
-        ///         var selected = Output.Create(Aws.Ec2.GetLocalGatewayRouteTable.InvokeAsync(new Aws.Ec2.GetLocalGatewayRouteTableArgs
-        ///         {
-        ///             LocalGatewayRouteTableId = awsEc2LocalGatewayRouteTable,
-        ///         }));
-        ///     }
+        ///         LocalGatewayRouteTableId = awsEc2LocalGatewayRouteTable,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -85,7 +81,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetLocalGatewayRouteTableArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalGatewayRouteTableArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetLocalGatewayRouteTableFilterArgs>? _filters;
@@ -135,9 +131,10 @@ namespace Pulumi.Aws.Ec2
         public GetLocalGatewayRouteTableArgs()
         {
         }
+        public static new GetLocalGatewayRouteTableArgs Empty => new GetLocalGatewayRouteTableArgs();
     }
 
-    public sealed class GetLocalGatewayRouteTableInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalGatewayRouteTableInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetLocalGatewayRouteTableFilterInputArgs>? _filters;
@@ -187,6 +184,7 @@ namespace Pulumi.Aws.Ec2
         public GetLocalGatewayRouteTableInvokeArgs()
         {
         }
+        public static new GetLocalGatewayRouteTableInvokeArgs Empty => new GetLocalGatewayRouteTableInvokeArgs();
     }
 
 

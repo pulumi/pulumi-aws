@@ -21,41 +21,37 @@ namespace Pulumi.Aws.Connect
         /// By `name`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetRoutingProfile.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetRoutingProfile.InvokeAsync(new Aws.Connect.GetRoutingProfileArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             Name = "Example",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// By `routing_profile_id`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetRoutingProfile.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetRoutingProfile.InvokeAsync(new Aws.Connect.GetRoutingProfileArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             RoutingProfileId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         RoutingProfileId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,41 +69,37 @@ namespace Pulumi.Aws.Connect
         /// By `name`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetRoutingProfile.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetRoutingProfile.InvokeAsync(new Aws.Connect.GetRoutingProfileArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             Name = "Example",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// By `routing_profile_id`
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Connect.GetRoutingProfile.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Connect.GetRoutingProfile.InvokeAsync(new Aws.Connect.GetRoutingProfileArgs
-        ///         {
-        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        ///             RoutingProfileId = "cccccccc-bbbb-cccc-dddd-111111111111",
-        ///         }));
-        ///     }
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         RoutingProfileId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -117,7 +109,7 @@ namespace Pulumi.Aws.Connect
     }
 
 
-    public sealed class GetRoutingProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetRoutingProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Reference to the hosting Amazon Connect Instance
@@ -152,9 +144,10 @@ namespace Pulumi.Aws.Connect
         public GetRoutingProfileArgs()
         {
         }
+        public static new GetRoutingProfileArgs Empty => new GetRoutingProfileArgs();
     }
 
-    public sealed class GetRoutingProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRoutingProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Reference to the hosting Amazon Connect Instance
@@ -189,6 +182,7 @@ namespace Pulumi.Aws.Connect
         public GetRoutingProfileInvokeArgs()
         {
         }
+        public static new GetRoutingProfileInvokeArgs Empty => new GetRoutingProfileInvokeArgs();
     }
 
 

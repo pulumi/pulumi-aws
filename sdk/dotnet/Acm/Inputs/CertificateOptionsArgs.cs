@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Acm.Inputs
 {
 
-    public sealed class CertificateOptionsArgs : Pulumi.ResourceArgs
+    public sealed class CertificateOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Acm.Inputs
         public CertificateOptionsArgs()
         {
         }
+        public static new CertificateOptionsArgs Empty => new CertificateOptionsArgs();
     }
 }

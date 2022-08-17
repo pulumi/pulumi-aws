@@ -15,36 +15,35 @@ namespace Pulumi.Aws.ElastiCache
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testUser = new Aws.ElastiCache.User("testUser", new()
     ///     {
-    ///         var testUser = new Aws.ElastiCache.User("testUser", new Aws.ElastiCache.UserArgs
+    ///         UserId = "testUserId",
+    ///         UserName = "default",
+    ///         AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
+    ///         Engine = "REDIS",
+    ///         Passwords = new[]
     ///         {
-    ///             UserId = "testUserId",
-    ///             UserName = "default",
-    ///             AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-    ///             Engine = "REDIS",
-    ///             Passwords = 
-    ///             {
-    ///                 "password123456789",
-    ///             },
-    ///         });
-    ///         var testUserGroup = new Aws.ElastiCache.UserGroup("testUserGroup", new Aws.ElastiCache.UserGroupArgs
-    ///         {
-    ///             Engine = "REDIS",
-    ///             UserGroupId = "userGroupId",
-    ///             UserIds = 
-    ///             {
-    ///                 testUser.UserId,
-    ///             },
-    ///         });
-    ///     }
+    ///             "password123456789",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var testUserGroup = new Aws.ElastiCache.UserGroup("testUserGroup", new()
+    ///     {
+    ///         Engine = "REDIS",
+    ///         UserGroupId = "userGroupId",
+    ///         UserIds = new[]
+    ///         {
+    ///             testUser.UserId,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +55,7 @@ namespace Pulumi.Aws.ElastiCache
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/userGroup:UserGroup")]
-    public partial class UserGroup : Pulumi.CustomResource
+    public partial class UserGroup : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -129,7 +128,7 @@ namespace Pulumi.Aws.ElastiCache
         }
     }
 
-    public sealed class UserGroupArgs : Pulumi.ResourceArgs
+    public sealed class UserGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -169,9 +168,10 @@ namespace Pulumi.Aws.ElastiCache
         public UserGroupArgs()
         {
         }
+        public static new UserGroupArgs Empty => new UserGroupArgs();
     }
 
-    public sealed class UserGroupState : Pulumi.ResourceArgs
+    public sealed class UserGroupState : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -219,5 +219,6 @@ namespace Pulumi.Aws.ElastiCache
         public UserGroupState()
         {
         }
+        public static new UserGroupState Empty => new UserGroupState();
     }
 }

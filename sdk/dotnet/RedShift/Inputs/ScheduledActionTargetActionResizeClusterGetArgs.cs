@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RedShift.Inputs
 {
 
-    public sealed class ScheduledActionTargetActionResizeClusterGetArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledActionTargetActionResizeClusterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.RedShift.Inputs
         public ScheduledActionTargetActionResizeClusterGetArgs()
         {
         }
+        public static new ScheduledActionTargetActionResizeClusterGetArgs Empty => new ScheduledActionTargetActionResizeClusterGetArgs();
     }
 }

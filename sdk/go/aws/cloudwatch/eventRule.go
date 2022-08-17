@@ -20,46 +20,49 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		console, err := cloudwatch.NewEventRule(ctx, "console", &cloudwatch.EventRuleArgs{
-// 			Description:  pulumi.String("Capture each AWS Console Sign In"),
-// 			EventPattern: pulumi.String(fmt.Sprintf("{\n  \"detail-type\": [\n    \"AWS Console Sign In via CloudTrail\"\n  ]\n}\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		awsLogins, err := sns.NewTopic(ctx, "awsLogins", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cloudwatch.NewEventTarget(ctx, "sns", &cloudwatch.EventTargetArgs{
-// 			Rule: console.Name,
-// 			Arn:  awsLogins.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
-// 			Arn: awsLogins.Arn,
-// 			Policy: snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (string, error) {
-// 				return snsTopicPolicy.Json, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			console, err := cloudwatch.NewEventRule(ctx, "console", &cloudwatch.EventRuleArgs{
+//				Description:  pulumi.String("Capture each AWS Console Sign In"),
+//				EventPattern: pulumi.String(fmt.Sprintf("{\n  \"detail-type\": [\n    \"AWS Console Sign In via CloudTrail\"\n  ]\n}\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			awsLogins, err := sns.NewTopic(ctx, "awsLogins", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventTarget(ctx, "sns", &cloudwatch.EventTargetArgs{
+//				Rule: console.Name,
+//				Arn:  awsLogins.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
+//				Arn: awsLogins.Arn,
+//				Policy: snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (string, error) {
+//					return snsTopicPolicy.Json, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // EventBridge Rules can be imported using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
+//
+//	$ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
+//
 // ```
 type EventRule struct {
 	pulumi.CustomResourceState
@@ -92,7 +97,7 @@ type EventRule struct {
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -145,7 +150,7 @@ type eventRuleState struct {
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -170,7 +175,7 @@ type EventRuleState struct {
 	ScheduleExpression pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -247,7 +252,7 @@ func (i *EventRule) ToEventRuleOutputWithContext(ctx context.Context) EventRuleO
 // EventRuleArrayInput is an input type that accepts EventRuleArray and EventRuleArrayOutput values.
 // You can construct a concrete instance of `EventRuleArrayInput` via:
 //
-//          EventRuleArray{ EventRuleArgs{...} }
+//	EventRuleArray{ EventRuleArgs{...} }
 type EventRuleArrayInput interface {
 	pulumi.Input
 
@@ -272,7 +277,7 @@ func (i EventRuleArray) ToEventRuleArrayOutputWithContext(ctx context.Context) E
 // EventRuleMapInput is an input type that accepts EventRuleMap and EventRuleMapOutput values.
 // You can construct a concrete instance of `EventRuleMapInput` via:
 //
-//          EventRuleMap{ "key": EventRuleArgs{...} }
+//	EventRuleMap{ "key": EventRuleArgs{...} }
 type EventRuleMapInput interface {
 	pulumi.Input
 
@@ -358,7 +363,7 @@ func (o EventRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EventRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

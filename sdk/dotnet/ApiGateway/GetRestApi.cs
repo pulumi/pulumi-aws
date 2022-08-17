@@ -22,20 +22,18 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var myRestApi = Aws.ApiGateway.GetRestApi.Invoke(new()
         ///     {
-        ///         var myRestApi = Output.Create(Aws.ApiGateway.GetRestApi.InvokeAsync(new Aws.ApiGateway.GetRestApiArgs
-        ///         {
-        ///             Name = "my-rest-api",
-        ///         }));
-        ///     }
+        ///         Name = "my-rest-api",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,20 +52,18 @@ namespace Pulumi.Aws.ApiGateway
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var myRestApi = Aws.ApiGateway.GetRestApi.Invoke(new()
         ///     {
-        ///         var myRestApi = Output.Create(Aws.ApiGateway.GetRestApi.InvokeAsync(new Aws.ApiGateway.GetRestApiArgs
-        ///         {
-        ///             Name = "my-rest-api",
-        ///         }));
-        ///     }
+        ///         Name = "my-rest-api",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.Aws.ApiGateway
     }
 
 
-    public sealed class GetRestApiArgs : Pulumi.InvokeArgs
+    public sealed class GetRestApiArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
@@ -100,9 +96,10 @@ namespace Pulumi.Aws.ApiGateway
         public GetRestApiArgs()
         {
         }
+        public static new GetRestApiArgs Empty => new GetRestApiArgs();
     }
 
-    public sealed class GetRestApiInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRestApiInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
@@ -125,6 +122,7 @@ namespace Pulumi.Aws.ApiGateway
         public GetRestApiInvokeArgs()
         {
         }
+        public static new GetRestApiInvokeArgs Empty => new GetRestApiInvokeArgs();
     }
 
 

@@ -29,26 +29,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewAmiCopy(ctx, "example", &ec2.AmiCopyArgs{
-// 			Description:     pulumi.String("A copy of ami-xxxxxxxx"),
-// 			SourceAmiId:     pulumi.String("ami-xxxxxxxx"),
-// 			SourceAmiRegion: pulumi.String("us-west-1"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("HelloWorld"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewAmiCopy(ctx, "example", &ec2.AmiCopyArgs{
+//				Description:     pulumi.String("A copy of ami-xxxxxxxx"),
+//				SourceAmiId:     pulumi.String("ami-xxxxxxxx"),
+//				SourceAmiRegion: pulumi.String("us-west-1"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("HelloWorld"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type AmiCopy struct {
 	pulumi.CustomResourceState
@@ -394,7 +397,7 @@ func (i *AmiCopy) ToAmiCopyOutputWithContext(ctx context.Context) AmiCopyOutput 
 // AmiCopyArrayInput is an input type that accepts AmiCopyArray and AmiCopyArrayOutput values.
 // You can construct a concrete instance of `AmiCopyArrayInput` via:
 //
-//          AmiCopyArray{ AmiCopyArgs{...} }
+//	AmiCopyArray{ AmiCopyArgs{...} }
 type AmiCopyArrayInput interface {
 	pulumi.Input
 
@@ -419,7 +422,7 @@ func (i AmiCopyArray) ToAmiCopyArrayOutputWithContext(ctx context.Context) AmiCo
 // AmiCopyMapInput is an input type that accepts AmiCopyMap and AmiCopyMapOutput values.
 // You can construct a concrete instance of `AmiCopyMapInput` via:
 //
-//          AmiCopyMap{ "key": AmiCopyArgs{...} }
+//	AmiCopyMap{ "key": AmiCopyArgs{...} }
 type AmiCopyMapInput interface {
 	pulumi.Input
 

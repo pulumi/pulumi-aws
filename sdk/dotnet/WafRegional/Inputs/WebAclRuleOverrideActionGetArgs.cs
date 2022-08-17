@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafRegional.Inputs
 {
 
-    public sealed class WebAclRuleOverrideActionGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleOverrideActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.WafRegional.Inputs
         public WebAclRuleOverrideActionGetArgs()
         {
         }
+        public static new WebAclRuleOverrideActionGetArgs Empty => new WebAclRuleOverrideActionGetArgs();
     }
 }

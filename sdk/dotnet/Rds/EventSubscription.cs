@@ -15,53 +15,51 @@ namespace Pulumi.Aws.Rds
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var defaultInstance = new Aws.Rds.Instance("defaultInstance", new()
     ///     {
-    ///         var defaultInstance = new Aws.Rds.Instance("defaultInstance", new Aws.Rds.InstanceArgs
-    ///         {
-    ///             AllocatedStorage = 10,
-    ///             Engine = "mysql",
-    ///             EngineVersion = "5.6.17",
-    ///             InstanceClass = "db.t2.micro",
-    ///             Name = "mydb",
-    ///             Username = "foo",
-    ///             Password = "bar",
-    ///             DbSubnetGroupName = "my_database_subnet_group",
-    ///             ParameterGroupName = "default.mysql5.6",
-    ///         });
-    ///         var defaultTopic = new Aws.Sns.Topic("defaultTopic", new Aws.Sns.TopicArgs
-    ///         {
-    ///         });
-    ///         var defaultEventSubscription = new Aws.Rds.EventSubscription("defaultEventSubscription", new Aws.Rds.EventSubscriptionArgs
-    ///         {
-    ///             SnsTopic = defaultTopic.Arn,
-    ///             SourceType = "db-instance",
-    ///             SourceIds = 
-    ///             {
-    ///                 defaultInstance.Id,
-    ///             },
-    ///             EventCategories = 
-    ///             {
-    ///                 "availability",
-    ///                 "deletion",
-    ///                 "failover",
-    ///                 "failure",
-    ///                 "low storage",
-    ///                 "maintenance",
-    ///                 "notification",
-    ///                 "read replica",
-    ///                 "recovery",
-    ///                 "restoration",
-    ///             },
-    ///         });
-    ///     }
+    ///         AllocatedStorage = 10,
+    ///         Engine = "mysql",
+    ///         EngineVersion = "5.6.17",
+    ///         InstanceClass = "db.t2.micro",
+    ///         Name = "mydb",
+    ///         Username = "foo",
+    ///         Password = "bar",
+    ///         DbSubnetGroupName = "my_database_subnet_group",
+    ///         ParameterGroupName = "default.mysql5.6",
+    ///     });
     /// 
-    /// }
+    ///     var defaultTopic = new Aws.Sns.Topic("defaultTopic");
+    /// 
+    ///     var defaultEventSubscription = new Aws.Rds.EventSubscription("defaultEventSubscription", new()
+    ///     {
+    ///         SnsTopic = defaultTopic.Arn,
+    ///         SourceType = "db-instance",
+    ///         SourceIds = new[]
+    ///         {
+    ///             defaultInstance.Id,
+    ///         },
+    ///         EventCategories = new[]
+    ///         {
+    ///             "availability",
+    ///             "deletion",
+    ///             "failover",
+    ///             "failure",
+    ///             "low storage",
+    ///             "maintenance",
+    ///             "notification",
+    ///             "read replica",
+    ///             "recovery",
+    ///             "restoration",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +71,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/eventSubscription:EventSubscription")]
-    public partial class EventSubscription : Pulumi.CustomResource
+    public partial class EventSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name of the RDS event notification subscription
@@ -136,7 +134,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -185,7 +183,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class EventSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean flag to enable/disable the subscription. Defaults to true.
@@ -256,9 +254,10 @@ namespace Pulumi.Aws.Rds
         public EventSubscriptionArgs()
         {
         }
+        public static new EventSubscriptionArgs Empty => new EventSubscriptionArgs();
     }
 
-    public sealed class EventSubscriptionState : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name of the RDS event notification subscription
@@ -342,7 +341,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -353,5 +352,6 @@ namespace Pulumi.Aws.Rds
         public EventSubscriptionState()
         {
         }
+        public static new EventSubscriptionState Empty => new EventSubscriptionState();
     }
 }

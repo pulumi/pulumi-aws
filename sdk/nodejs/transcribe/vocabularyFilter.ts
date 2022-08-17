@@ -74,11 +74,8 @@ export class VocabularyFilter extends pulumi.CustomResource {
      * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */
     public readonly languageCode!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the VocabularyFilter. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
      */
@@ -123,12 +120,12 @@ export class VocabularyFilter extends pulumi.CustomResource {
             }
             resourceInputs["languageCode"] = args ? args.languageCode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["vocabularyFilterFileUri"] = args ? args.vocabularyFilterFileUri : undefined;
             resourceInputs["vocabularyFilterName"] = args ? args.vocabularyFilterName : undefined;
             resourceInputs["words"] = args ? args.words : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["downloadUri"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VocabularyFilter.__pulumiType, name, resourceInputs, opts);
@@ -151,9 +148,6 @@ export interface VocabularyFilterState {
      * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */
     languageCode?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the VocabularyFilter. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -178,11 +172,7 @@ export interface VocabularyFilterArgs {
      * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */
     languageCode: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the VocabularyFilter. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
      */

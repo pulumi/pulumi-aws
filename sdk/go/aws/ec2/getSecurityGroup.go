@@ -25,31 +25,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		cfg := config.New(ctx, "")
-// 		securityGroupId := cfg.RequireObject("securityGroupId")
-// 		selected, err := ec2.LookupSecurityGroup(ctx, &ec2.LookupSecurityGroupArgs{
-// 			Id: pulumi.StringRef(securityGroupId),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewSubnet(ctx, "subnet", &ec2.SubnetArgs{
-// 			VpcId:     pulumi.String(selected.VpcId),
-// 			CidrBlock: pulumi.String("10.0.1.0/24"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			securityGroupId := cfg.RequireObject("securityGroupId")
+//			selected, err := ec2.LookupSecurityGroup(ctx, &ec2.LookupSecurityGroupArgs{
+//				Id: pulumi.StringRef(securityGroupId),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewSubnet(ctx, "subnet", &ec2.SubnetArgs{
+//				VpcId:     pulumi.String(selected.VpcId),
+//				CidrBlock: pulumi.String("10.0.1.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupSecurityGroup(ctx *pulumi.Context, args *LookupSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupSecurityGroupResult, error) {
 	var rv LookupSecurityGroupResult

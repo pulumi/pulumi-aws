@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.datasync.TaskArgs;
 import com.pulumi.aws.datasync.inputs.TaskState;
 import com.pulumi.aws.datasync.outputs.TaskExcludes;
+import com.pulumi.aws.datasync.outputs.TaskIncludes;
 import com.pulumi.aws.datasync.outputs.TaskOptions;
 import com.pulumi.aws.datasync.outputs.TaskSchedule;
 import com.pulumi.core.Output;
@@ -66,6 +67,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.datasync.Task;
  * import com.pulumi.aws.datasync.TaskArgs;
  * import com.pulumi.aws.datasync.inputs.TaskExcludesArgs;
+ * import com.pulumi.aws.datasync.inputs.TaskIncludesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -83,6 +85,10 @@ import javax.annotation.Nullable;
  *             .destinationLocationArn(aws_datasync_location_s3.destination().arn())
  *             .sourceLocationArn(aws_datasync_location_nfs.source().arn())
  *             .excludes(TaskExcludesArgs.builder()
+ *                 .filterType(&#34;SIMPLE_PATTERN&#34;)
+ *                 .value(&#34;/folder1|/folder2&#34;)
+ *                 .build())
+ *             .includes(TaskIncludesArgs.builder()
  *                 .filterType(&#34;SIMPLE_PATTERN&#34;)
  *                 .value(&#34;/folder1|/folder2&#34;)
  *                 .build())
@@ -160,6 +166,20 @@ public class Task extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.excludes);
     }
     /**
+     * Filter rules that determines which files to include in a task.
+     * 
+     */
+    @Export(name="includes", type=TaskIncludes.class, parameters={})
+    private Output</* @Nullable */ TaskIncludes> includes;
+
+    /**
+     * @return Filter rules that determines which files to include in a task.
+     * 
+     */
+    public Output<Optional<TaskIncludes>> includes() {
+        return Codegen.optional(this.includes);
+    }
+    /**
      * Name of the DataSync Task.
      * 
      */
@@ -216,28 +236,28 @@ public class Task extends com.pulumi.resources.CustomResource {
         return this.sourceLocationArn;
     }
     /**
-     * Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider .
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -19,29 +19,28 @@ namespace Pulumi.Aws.Msk
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var preferred = Aws.Msk.GetKafkaVersion.Invoke(new()
         ///     {
-        ///         var preferred = Output.Create(Aws.Msk.GetKafkaVersion.InvokeAsync(new Aws.Msk.GetKafkaVersionArgs
+        ///         PreferredVersions = new[]
         ///         {
-        ///             PreferredVersions = 
-        ///             {
-        ///                 "2.4.1.1",
-        ///                 "2.4.1",
-        ///                 "2.2.1",
-        ///             },
-        ///         }));
-        ///         var example = Output.Create(Aws.Msk.GetKafkaVersion.InvokeAsync(new Aws.Msk.GetKafkaVersionArgs
-        ///         {
-        ///             Version = "2.8.0",
-        ///         }));
-        ///     }
+        ///             "2.4.1.1",
+        ///             "2.4.1",
+        ///             "2.2.1",
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var example = Aws.Msk.GetKafkaVersion.Invoke(new()
+        ///     {
+        ///         Version = "2.8.0",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -57,29 +56,28 @@ namespace Pulumi.Aws.Msk
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var preferred = Aws.Msk.GetKafkaVersion.Invoke(new()
         ///     {
-        ///         var preferred = Output.Create(Aws.Msk.GetKafkaVersion.InvokeAsync(new Aws.Msk.GetKafkaVersionArgs
+        ///         PreferredVersions = new[]
         ///         {
-        ///             PreferredVersions = 
-        ///             {
-        ///                 "2.4.1.1",
-        ///                 "2.4.1",
-        ///                 "2.2.1",
-        ///             },
-        ///         }));
-        ///         var example = Output.Create(Aws.Msk.GetKafkaVersion.InvokeAsync(new Aws.Msk.GetKafkaVersionArgs
-        ///         {
-        ///             Version = "2.8.0",
-        ///         }));
-        ///     }
+        ///             "2.4.1.1",
+        ///             "2.4.1",
+        ///             "2.2.1",
+        ///         },
+        ///     });
         /// 
-        /// }
+        ///     var example = Aws.Msk.GetKafkaVersion.Invoke(new()
+        ///     {
+        ///         Version = "2.8.0",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -89,7 +87,7 @@ namespace Pulumi.Aws.Msk
     }
 
 
-    public sealed class GetKafkaVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetKafkaVersionArgs : global::Pulumi.InvokeArgs
     {
         [Input("preferredVersions")]
         private List<string>? _preferredVersions;
@@ -112,9 +110,10 @@ namespace Pulumi.Aws.Msk
         public GetKafkaVersionArgs()
         {
         }
+        public static new GetKafkaVersionArgs Empty => new GetKafkaVersionArgs();
     }
 
-    public sealed class GetKafkaVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKafkaVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("preferredVersions")]
         private InputList<string>? _preferredVersions;
@@ -137,6 +136,7 @@ namespace Pulumi.Aws.Msk
         public GetKafkaVersionInvokeArgs()
         {
         }
+        public static new GetKafkaVersionInvokeArgs Empty => new GetKafkaVersionInvokeArgs();
     }
 
 

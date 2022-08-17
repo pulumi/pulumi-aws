@@ -19,54 +19,48 @@ namespace Pulumi.Aws.Efs
     /// Will create a replica using regional storage in us-west-2 that will be encrypted by the default EFS KMS key `/aws/elasticfilesystem`.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleFileSystem = new Aws.Efs.FileSystem("exampleFileSystem", new Aws.Efs.FileSystemArgs
-    ///         {
-    ///         });
-    ///         var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("exampleReplicationConfiguration", new Aws.Efs.ReplicationConfigurationArgs
-    ///         {
-    ///             SourceFileSystemId = exampleFileSystem.Id,
-    ///             Destination = new Aws.Efs.Inputs.ReplicationConfigurationDestinationArgs
-    ///             {
-    ///                 Region = "us-west-2",
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleFileSystem = new Aws.Efs.FileSystem("exampleFileSystem");
     /// 
-    /// }
+    ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("exampleReplicationConfiguration", new()
+    ///     {
+    ///         SourceFileSystemId = exampleFileSystem.Id,
+    ///         Destination = new Aws.Efs.Inputs.ReplicationConfigurationDestinationArgs
+    ///         {
+    ///             Region = "us-west-2",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleFileSystem = new Aws.Efs.FileSystem("exampleFileSystem", new Aws.Efs.FileSystemArgs
-    ///         {
-    ///         });
-    ///         var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("exampleReplicationConfiguration", new Aws.Efs.ReplicationConfigurationArgs
-    ///         {
-    ///             SourceFileSystemId = exampleFileSystem.Id,
-    ///             Destination = new Aws.Efs.Inputs.ReplicationConfigurationDestinationArgs
-    ///             {
-    ///                 AvailabilityZoneName = "us-west-2b",
-    ///                 KmsKeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleFileSystem = new Aws.Efs.FileSystem("exampleFileSystem");
     /// 
-    /// }
+    ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("exampleReplicationConfiguration", new()
+    ///     {
+    ///         SourceFileSystemId = exampleFileSystem.Id,
+    ///         Destination = new Aws.Efs.Inputs.ReplicationConfigurationDestinationArgs
+    ///         {
+    ///             AvailabilityZoneName = "us-west-2b",
+    ///             KmsKeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +72,7 @@ namespace Pulumi.Aws.Efs
     /// ```
     /// </summary>
     [AwsResourceType("aws:efs/replicationConfiguration:ReplicationConfiguration")]
-    public partial class ReplicationConfiguration : Pulumi.CustomResource
+    public partial class ReplicationConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When the replication configuration was created.
@@ -162,7 +156,7 @@ namespace Pulumi.Aws.Efs
         }
     }
 
-    public sealed class ReplicationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A destination configuration block (documented below).
@@ -179,9 +173,10 @@ namespace Pulumi.Aws.Efs
         public ReplicationConfigurationArgs()
         {
         }
+        public static new ReplicationConfigurationArgs Empty => new ReplicationConfigurationArgs();
     }
 
-    public sealed class ReplicationConfigurationState : Pulumi.ResourceArgs
+    public sealed class ReplicationConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When the replication configuration was created.
@@ -224,5 +219,6 @@ namespace Pulumi.Aws.Efs
         public ReplicationConfigurationState()
         {
         }
+        public static new ReplicationConfigurationState Empty => new ReplicationConfigurationState();
     }
 }

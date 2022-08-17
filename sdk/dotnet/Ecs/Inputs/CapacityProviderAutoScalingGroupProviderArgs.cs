@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class CapacityProviderAutoScalingGroupProviderArgs : Pulumi.ResourceArgs
+    public sealed class CapacityProviderAutoScalingGroupProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - ARN of the associated auto scaling group.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public CapacityProviderAutoScalingGroupProviderArgs()
         {
         }
+        public static new CapacityProviderAutoScalingGroupProviderArgs Empty => new CapacityProviderAutoScalingGroupProviderArgs();
     }
 }

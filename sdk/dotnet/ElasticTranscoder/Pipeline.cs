@@ -15,31 +15,29 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var bar = new Aws.ElasticTranscoder.Pipeline("bar", new()
     ///     {
-    ///         var bar = new Aws.ElasticTranscoder.Pipeline("bar", new Aws.ElasticTranscoder.PipelineArgs
+    ///         InputBucket = aws_s3_bucket.Input_bucket.Bucket,
+    ///         Role = aws_iam_role.Test_role.Arn,
+    ///         ContentConfig = new Aws.ElasticTranscoder.Inputs.PipelineContentConfigArgs
     ///         {
-    ///             InputBucket = aws_s3_bucket.Input_bucket.Bucket,
-    ///             Role = aws_iam_role.Test_role.Arn,
-    ///             ContentConfig = new Aws.ElasticTranscoder.Inputs.PipelineContentConfigArgs
-    ///             {
-    ///                 Bucket = aws_s3_bucket.Content_bucket.Bucket,
-    ///                 StorageClass = "Standard",
-    ///             },
-    ///             ThumbnailConfig = new Aws.ElasticTranscoder.Inputs.PipelineThumbnailConfigArgs
-    ///             {
-    ///                 Bucket = aws_s3_bucket.Thumb_bucket.Bucket,
-    ///                 StorageClass = "Standard",
-    ///             },
-    ///         });
-    ///     }
+    ///             Bucket = aws_s3_bucket.Content_bucket.Bucket,
+    ///             StorageClass = "Standard",
+    ///         },
+    ///         ThumbnailConfig = new Aws.ElasticTranscoder.Inputs.PipelineThumbnailConfigArgs
+    ///         {
+    ///             Bucket = aws_s3_bucket.Thumb_bucket.Bucket,
+    ///             StorageClass = "Standard",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// ```
     /// </summary>
     [AwsResourceType("aws:elastictranscoder/pipeline:Pipeline")]
-    public partial class Pipeline : Pulumi.CustomResource
+    public partial class Pipeline : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Elastictranscoder pipeline.
@@ -163,7 +161,7 @@ namespace Pulumi.Aws.ElasticTranscoder
         }
     }
 
-    public sealed class PipelineArgs : Pulumi.ResourceArgs
+    public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
@@ -240,9 +238,10 @@ namespace Pulumi.Aws.ElasticTranscoder
         public PipelineArgs()
         {
         }
+        public static new PipelineArgs Empty => new PipelineArgs();
     }
 
-    public sealed class PipelineState : Pulumi.ResourceArgs
+    public sealed class PipelineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Elastictranscoder pipeline.
@@ -325,5 +324,6 @@ namespace Pulumi.Aws.ElasticTranscoder
         public PipelineState()
         {
         }
+        public static new PipelineState Empty => new PipelineState();
     }
 }

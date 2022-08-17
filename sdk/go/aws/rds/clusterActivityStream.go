@@ -17,57 +17,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		defaultCluster, err := rds.NewCluster(ctx, "defaultCluster", &rds.ClusterArgs{
-// 			ClusterIdentifier: pulumi.String("aurora-cluster-demo"),
-// 			AvailabilityZones: pulumi.StringArray{
-// 				pulumi.String("us-west-2a"),
-// 				pulumi.String("us-west-2b"),
-// 				pulumi.String("us-west-2c"),
-// 			},
-// 			DatabaseName:   pulumi.String("mydb"),
-// 			MasterUsername: pulumi.String("foo"),
-// 			MasterPassword: pulumi.String("mustbeeightcharaters"),
-// 			Engine:         pulumi.String("aurora-postgresql"),
-// 			EngineVersion:  pulumi.String("13.4"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		defaultClusterInstance, err := rds.NewClusterInstance(ctx, "defaultClusterInstance", &rds.ClusterInstanceArgs{
-// 			Identifier:        pulumi.String("aurora-instance-demo"),
-// 			ClusterIdentifier: defaultCluster.ClusterIdentifier,
-// 			Engine:            defaultCluster.Engine,
-// 			InstanceClass:     pulumi.String("db.r6g.large"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		defaultKey, err := kms.NewKey(ctx, "defaultKey", &kms.KeyArgs{
-// 			Description: pulumi.String("AWS KMS Key to encrypt Database Activity Stream"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = rds.NewClusterActivityStream(ctx, "defaultClusterActivityStream", &rds.ClusterActivityStreamArgs{
-// 			ResourceArn: defaultCluster.Arn,
-// 			Mode:        pulumi.String("async"),
-// 			KmsKeyId:    defaultKey.KeyId,
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			defaultClusterInstance,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			defaultCluster, err := rds.NewCluster(ctx, "defaultCluster", &rds.ClusterArgs{
+//				ClusterIdentifier: pulumi.String("aurora-cluster-demo"),
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-west-2a"),
+//					pulumi.String("us-west-2b"),
+//					pulumi.String("us-west-2c"),
+//				},
+//				DatabaseName:   pulumi.String("mydb"),
+//				MasterUsername: pulumi.String("foo"),
+//				MasterPassword: pulumi.String("mustbeeightcharaters"),
+//				Engine:         pulumi.String("aurora-postgresql"),
+//				EngineVersion:  pulumi.String("13.4"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			defaultClusterInstance, err := rds.NewClusterInstance(ctx, "defaultClusterInstance", &rds.ClusterInstanceArgs{
+//				Identifier:        pulumi.String("aurora-instance-demo"),
+//				ClusterIdentifier: defaultCluster.ClusterIdentifier,
+//				Engine:            defaultCluster.Engine,
+//				InstanceClass:     pulumi.String("db.r6g.large"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			defaultKey, err := kms.NewKey(ctx, "defaultKey", &kms.KeyArgs{
+//				Description: pulumi.String("AWS KMS Key to encrypt Database Activity Stream"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rds.NewClusterActivityStream(ctx, "defaultClusterActivityStream", &rds.ClusterActivityStreamArgs{
+//				ResourceArn: defaultCluster.Arn,
+//				Mode:        pulumi.String("async"),
+//				KmsKeyId:    defaultKey.KeyId,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				defaultClusterInstance,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,10 +78,12 @@ import (
 // RDS Aurora Cluster Database Activity Streams can be imported using the `resource_arn`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
+//
+//	$ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
+//
 // ```
 //
-//  [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html [2]https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html [3]https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html
+//	[1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html [2]https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html [3]https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html
 type ClusterActivityStream struct {
 	pulumi.CustomResourceState
 
@@ -210,7 +215,7 @@ func (i *ClusterActivityStream) ToClusterActivityStreamOutputWithContext(ctx con
 // ClusterActivityStreamArrayInput is an input type that accepts ClusterActivityStreamArray and ClusterActivityStreamArrayOutput values.
 // You can construct a concrete instance of `ClusterActivityStreamArrayInput` via:
 //
-//          ClusterActivityStreamArray{ ClusterActivityStreamArgs{...} }
+//	ClusterActivityStreamArray{ ClusterActivityStreamArgs{...} }
 type ClusterActivityStreamArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +240,7 @@ func (i ClusterActivityStreamArray) ToClusterActivityStreamArrayOutputWithContex
 // ClusterActivityStreamMapInput is an input type that accepts ClusterActivityStreamMap and ClusterActivityStreamMapOutput values.
 // You can construct a concrete instance of `ClusterActivityStreamMapInput` via:
 //
-//          ClusterActivityStreamMap{ "key": ClusterActivityStreamArgs{...} }
+//	ClusterActivityStreamMap{ "key": ClusterActivityStreamArgs{...} }
 type ClusterActivityStreamMapInput interface {
 	pulumi.Input
 

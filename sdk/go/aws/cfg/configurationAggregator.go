@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cfg.NewConfigurationAggregator(ctx, "account", &cfg.ConfigurationAggregatorArgs{
-// 			AccountAggregationSource: &cfg.ConfigurationAggregatorAccountAggregationSourceArgs{
-// 				AccountIds: pulumi.StringArray{
-// 					pulumi.String("123456789012"),
-// 				},
-// 				Regions: pulumi.StringArray{
-// 					pulumi.String("us-west-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cfg.NewConfigurationAggregator(ctx, "account", &cfg.ConfigurationAggregatorArgs{
+//				AccountAggregationSource: &cfg.ConfigurationAggregatorAccountAggregationSourceArgs{
+//					AccountIds: pulumi.StringArray{
+//						pulumi.String("123456789012"),
+//					},
+//					Regions: pulumi.StringArray{
+//						pulumi.String("us-west-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Organization Based Aggregation
 //
@@ -48,55 +51,60 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		organizationRole, err := iam.NewRole(ctx, "organizationRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Sid": "",
-//       "Effect": "Allow",
-//       "Principal": {
-//         "Service": "config.amazonaws.com"
-//       },
-//       "Action": "sts:AssumeRole"
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			organizationRole, err := iam.NewRole(ctx, "organizationRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Sid": "",
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "Service": "config.amazonaws.com"
+//	      },
+//	      "Action": "sts:AssumeRole"
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		organizationRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "organizationRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-// 			Role:      organizationRole.Name,
-// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cfg.NewConfigurationAggregator(ctx, "organizationConfigurationAggregator", &cfg.ConfigurationAggregatorArgs{
-// 			OrganizationAggregationSource: &cfg.ConfigurationAggregatorOrganizationAggregationSourceArgs{
-// 				AllRegions: pulumi.Bool(true),
-// 				RoleArn:    organizationRole.Arn,
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			organizationRolePolicyAttachment,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			organizationRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "organizationRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//				Role:      organizationRole.Name,
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cfg.NewConfigurationAggregator(ctx, "organizationConfigurationAggregator", &cfg.ConfigurationAggregatorArgs{
+//				OrganizationAggregationSource: &cfg.ConfigurationAggregatorOrganizationAggregationSourceArgs{
+//					AllRegions: pulumi.Bool(true),
+//					RoleArn:    organizationRole.Arn,
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				organizationRolePolicyAttachment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -104,7 +112,9 @@ import (
 // Configuration Aggregators can be imported using the name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
+//
+//	$ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
+//
 // ```
 type ConfigurationAggregator struct {
 	pulumi.CustomResourceState
@@ -119,7 +129,7 @@ type ConfigurationAggregator struct {
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrOutput `pulumi:"organizationAggregationSource"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -162,7 +172,7 @@ type configurationAggregatorState struct {
 	OrganizationAggregationSource *ConfigurationAggregatorOrganizationAggregationSource `pulumi:"organizationAggregationSource"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -177,7 +187,7 @@ type ConfigurationAggregatorState struct {
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -234,7 +244,7 @@ func (i *ConfigurationAggregator) ToConfigurationAggregatorOutputWithContext(ctx
 // ConfigurationAggregatorArrayInput is an input type that accepts ConfigurationAggregatorArray and ConfigurationAggregatorArrayOutput values.
 // You can construct a concrete instance of `ConfigurationAggregatorArrayInput` via:
 //
-//          ConfigurationAggregatorArray{ ConfigurationAggregatorArgs{...} }
+//	ConfigurationAggregatorArray{ ConfigurationAggregatorArgs{...} }
 type ConfigurationAggregatorArrayInput interface {
 	pulumi.Input
 
@@ -259,7 +269,7 @@ func (i ConfigurationAggregatorArray) ToConfigurationAggregatorArrayOutputWithCo
 // ConfigurationAggregatorMapInput is an input type that accepts ConfigurationAggregatorMap and ConfigurationAggregatorMapOutput values.
 // You can construct a concrete instance of `ConfigurationAggregatorMapInput` via:
 //
-//          ConfigurationAggregatorMap{ "key": ConfigurationAggregatorArgs{...} }
+//	ConfigurationAggregatorMap{ "key": ConfigurationAggregatorArgs{...} }
 type ConfigurationAggregatorMapInput interface {
 	pulumi.Input
 
@@ -324,7 +334,7 @@ func (o ConfigurationAggregatorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfigurationAggregator) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ConfigurationAggregatorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfigurationAggregator) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

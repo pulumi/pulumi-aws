@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Glue
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Glue.GetConnection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Glue.GetConnection.InvokeAsync(new Aws.Glue.GetConnectionArgs
-        ///         {
-        ///             Id = "123456789123:connection",
-        ///         }));
-        ///     }
+        ///         Id = "123456789123:connection",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Glue
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Glue.GetConnection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Glue.GetConnection.InvokeAsync(new Aws.Glue.GetConnectionArgs
-        ///         {
-        ///             Id = "123456789123:connection",
-        ///         }));
-        ///     }
+        ///         Id = "123456789123:connection",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Glue
     }
 
 
-    public sealed class GetConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A concatenation of the catalog ID and connection name. For example, if your account ID is
@@ -95,9 +91,10 @@ namespace Pulumi.Aws.Glue
         public GetConnectionArgs()
         {
         }
+        public static new GetConnectionArgs Empty => new GetConnectionArgs();
     }
 
-    public sealed class GetConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A concatenation of the catalog ID and connection name. For example, if your account ID is
@@ -121,6 +118,7 @@ namespace Pulumi.Aws.Glue
         public GetConnectionInvokeArgs()
         {
         }
+        public static new GetConnectionInvokeArgs Empty => new GetConnectionInvokeArgs();
     }
 
 

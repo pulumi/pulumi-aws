@@ -17,29 +17,27 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var @group = new Aws.Iam.Group("group", new Aws.Iam.GroupArgs
-    ///         {
-    ///         });
-    ///         var policy = new Aws.Iam.Policy("policy", new Aws.Iam.PolicyArgs
-    ///         {
-    ///             Description = "A test policy",
-    ///             PolicyDocument = "{ ... policy JSON ... }",
-    ///         });
-    ///         var test_attach = new Aws.Iam.GroupPolicyAttachment("test-attach", new Aws.Iam.GroupPolicyAttachmentArgs
-    ///         {
-    ///             Group = @group.Name,
-    ///             PolicyArn = policy.Arn,
-    ///         });
-    ///     }
+    ///     var @group = new Aws.Iam.Group("group");
     /// 
-    /// }
+    ///     var policy = new Aws.Iam.Policy("policy", new()
+    ///     {
+    ///         Description = "A test policy",
+    ///         PolicyDocument = "{ ... policy JSON ... }",
+    ///     });
+    /// 
+    ///     var test_attach = new Aws.Iam.GroupPolicyAttachment("test-attach", new()
+    ///     {
+    ///         Group = @group.Name,
+    ///         PolicyArn = policy.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/groupPolicyAttachment:GroupPolicyAttachment")]
-    public partial class GroupPolicyAttachment : Pulumi.CustomResource
+    public partial class GroupPolicyAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The group the policy should be applied to
@@ -109,7 +107,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class GroupPolicyAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class GroupPolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The group the policy should be applied to
@@ -126,9 +124,10 @@ namespace Pulumi.Aws.Iam
         public GroupPolicyAttachmentArgs()
         {
         }
+        public static new GroupPolicyAttachmentArgs Empty => new GroupPolicyAttachmentArgs();
     }
 
-    public sealed class GroupPolicyAttachmentState : Pulumi.ResourceArgs
+    public sealed class GroupPolicyAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The group the policy should be applied to
@@ -145,5 +144,6 @@ namespace Pulumi.Aws.Iam
         public GroupPolicyAttachmentState()
         {
         }
+        public static new GroupPolicyAttachmentState Empty => new GroupPolicyAttachmentState();
     }
 }

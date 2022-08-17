@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dlm.Inputs
 {
 
-    public sealed class LifecyclePolicyPolicyDetailsParametersGetArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyPolicyDetailsParametersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Dlm.Inputs
         public LifecyclePolicyPolicyDetailsParametersGetArgs()
         {
         }
+        public static new LifecyclePolicyPolicyDetailsParametersGetArgs Empty => new LifecyclePolicyPolicyDetailsParametersGetArgs();
     }
 }

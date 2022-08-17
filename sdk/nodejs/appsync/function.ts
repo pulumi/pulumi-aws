@@ -110,7 +110,7 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The Function DataSource name.
+     * The Function data source name.
      */
     public readonly dataSource!: pulumi.Output<string>;
     /**
@@ -214,7 +214,7 @@ export interface FunctionState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The Function DataSource name.
+     * The Function data source name.
      */
     dataSource?: pulumi.Input<string>;
     /**
@@ -260,7 +260,7 @@ export interface FunctionArgs {
      */
     apiId: pulumi.Input<string>;
     /**
-     * The Function DataSource name.
+     * The Function data source name.
      */
     dataSource: pulumi.Input<string>;
     /**

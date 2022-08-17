@@ -16,51 +16,55 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-// 			BuildSpec: pulumi.String(fmt.Sprintf(`  version: 0.1
-//   frontend:
-//     phases:
-//       preBuild:
-//         commands:
-//           - yarn install
-//       build:
-//         commands:
-//           - yarn run build
-//     artifacts:
-//       baseDirectory: build
-//       files:
-//         - '**/*'
-//     cache:
-//       paths:
-//         - node_modules/**/*
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				BuildSpec: pulumi.String(fmt.Sprintf(`  version: 0.1
+//	  frontend:
+//	    phases:
+//	      preBuild:
+//	        commands:
+//	          - yarn install
+//	      build:
+//	        commands:
+//	          - yarn run build
+//	    artifacts:
+//	      baseDirectory: build
+//	      files:
+//	        - '**/*'
+//	    cache:
+//	      paths:
+//	        - node_modules/**/*
 //
 // `)),
-// 			CustomRules: amplify.AppCustomRuleArray{
-// 				&amplify.AppCustomRuleArgs{
-// 					Source: pulumi.String("/<*>"),
-// 					Status: pulumi.String("404"),
-// 					Target: pulumi.String("/index.html"),
-// 				},
-// 			},
-// 			EnvironmentVariables: pulumi.StringMap{
-// 				"ENV": pulumi.String("test"),
-// 			},
-// 			Repository: pulumi.String("https://github.com/example/app"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				CustomRules: amplify.AppCustomRuleArray{
+//					&amplify.AppCustomRuleArgs{
+//						Source: pulumi.String("/<*>"),
+//						Status: pulumi.String("404"),
+//						Target: pulumi.String("/index.html"),
+//					},
+//				},
+//				EnvironmentVariables: pulumi.StringMap{
+//					"ENV": pulumi.String("test"),
+//				},
+//				Repository: pulumi.String("https://github.com/example/app"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Repository with Tokens
 //
@@ -70,22 +74,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-// 			AccessToken: pulumi.String("..."),
-// 			Repository:  pulumi.String("https://github.com/example/app"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				AccessToken: pulumi.String("..."),
+//				Repository:  pulumi.String("https://github.com/example/app"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // You can omit `accessToken` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
@@ -95,28 +102,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-// 			AutoBranchCreationConfig: &amplify.AppAutoBranchCreationConfigArgs{
-// 				EnableAutoBuild: pulumi.Bool(true),
-// 			},
-// 			AutoBranchCreationPatterns: pulumi.StringArray{
-// 				pulumi.String("*"),
-// 				pulumi.String("*/**"),
-// 			},
-// 			EnableAutoBranchCreation: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				AutoBranchCreationConfig: &amplify.AppAutoBranchCreationConfigArgs{
+//					EnableAutoBuild: pulumi.Bool(true),
+//				},
+//				AutoBranchCreationPatterns: pulumi.StringArray{
+//					pulumi.String("*"),
+//					pulumi.String("*/**"),
+//				},
+//				EnableAutoBranchCreation: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Rewrites and Redirects
 //
@@ -124,34 +134,37 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-// 			CustomRules: amplify.AppCustomRuleArray{
-// 				&amplify.AppCustomRuleArgs{
-// 					Source: pulumi.String("/api/<*>"),
-// 					Status: pulumi.String("200"),
-// 					Target: pulumi.String("https://api.example.com/api/<*>"),
-// 				},
-// 				&amplify.AppCustomRuleArgs{
-// 					Source: pulumi.String(fmt.Sprintf("</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>")),
-// 					Status: pulumi.String("200"),
-// 					Target: pulumi.String("/index.html"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				CustomRules: amplify.AppCustomRuleArray{
+//					&amplify.AppCustomRuleArgs{
+//						Source: pulumi.String("/api/<*>"),
+//						Status: pulumi.String("200"),
+//						Target: pulumi.String("https://api.example.com/api/<*>"),
+//					},
+//					&amplify.AppCustomRuleArgs{
+//						Source: pulumi.String(fmt.Sprintf("</^[^.]+$|\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>")),
+//						Status: pulumi.String("200"),
+//						Target: pulumi.String("/index.html"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -159,10 +172,12 @@ import (
 // Amplify App can be imported using Amplify App ID (appId), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
+//
+//	$ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
+//
 // ```
 //
-//  App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
+//	App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
 type App struct {
 	pulumi.CustomResourceState
 
@@ -443,7 +458,7 @@ func (i *App) ToAppOutputWithContext(ctx context.Context) AppOutput {
 // AppArrayInput is an input type that accepts AppArray and AppArrayOutput values.
 // You can construct a concrete instance of `AppArrayInput` via:
 //
-//          AppArray{ AppArgs{...} }
+//	AppArray{ AppArgs{...} }
 type AppArrayInput interface {
 	pulumi.Input
 
@@ -468,7 +483,7 @@ func (i AppArray) ToAppArrayOutputWithContext(ctx context.Context) AppArrayOutpu
 // AppMapInput is an input type that accepts AppMap and AppMapOutput values.
 // You can construct a concrete instance of `AppMapInput` via:
 //
-//          AppMap{ "key": AppArgs{...} }
+//	AppMap{ "key": AppArgs{...} }
 type AppMapInput interface {
 	pulumi.Input
 

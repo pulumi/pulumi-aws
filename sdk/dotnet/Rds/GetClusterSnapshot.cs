@@ -22,35 +22,35 @@ namespace Pulumi.Aws.Rds
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var developmentFinalSnapshot = Aws.Rds.GetClusterSnapshot.Invoke(new()
         ///     {
-        ///         var developmentFinalSnapshot = Output.Create(Aws.Rds.GetClusterSnapshot.InvokeAsync(new Aws.Rds.GetClusterSnapshotArgs
-        ///         {
-        ///             DbClusterIdentifier = "development_cluster",
-        ///             MostRecent = true,
-        ///         }));
-        ///         // Use the last snapshot of the dev database before it was destroyed to create
-        ///         // a new dev database.
-        ///         var auroraCluster = new Aws.Rds.Cluster("auroraCluster", new Aws.Rds.ClusterArgs
-        ///         {
-        ///             ClusterIdentifier = "development_cluster",
-        ///             SnapshotIdentifier = developmentFinalSnapshot.Apply(developmentFinalSnapshot =&gt; developmentFinalSnapshot.Id),
-        ///             DbSubnetGroupName = "my_db_subnet_group",
-        ///         });
-        ///         var auroraClusterInstance = new Aws.Rds.ClusterInstance("auroraClusterInstance", new Aws.Rds.ClusterInstanceArgs
-        ///         {
-        ///             ClusterIdentifier = auroraCluster.Id,
-        ///             InstanceClass = "db.t2.small",
-        ///             DbSubnetGroupName = "my_db_subnet_group",
-        ///         });
-        ///     }
+        ///         DbClusterIdentifier = "development_cluster",
+        ///         MostRecent = true,
+        ///     });
         /// 
-        /// }
+        ///     // Use the last snapshot of the dev database before it was destroyed to create
+        ///     // a new dev database.
+        ///     var auroraCluster = new Aws.Rds.Cluster("auroraCluster", new()
+        ///     {
+        ///         ClusterIdentifier = "development_cluster",
+        ///         SnapshotIdentifier = developmentFinalSnapshot.Apply(getClusterSnapshotResult =&gt; getClusterSnapshotResult.Id),
+        ///         DbSubnetGroupName = "my_db_subnet_group",
+        ///     });
+        /// 
+        ///     var auroraClusterInstance = new Aws.Rds.ClusterInstance("auroraClusterInstance", new()
+        ///     {
+        ///         ClusterIdentifier = auroraCluster.Id,
+        ///         InstanceClass = "db.t2.small",
+        ///         DbSubnetGroupName = "my_db_subnet_group",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -69,35 +69,35 @@ namespace Pulumi.Aws.Rds
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var developmentFinalSnapshot = Aws.Rds.GetClusterSnapshot.Invoke(new()
         ///     {
-        ///         var developmentFinalSnapshot = Output.Create(Aws.Rds.GetClusterSnapshot.InvokeAsync(new Aws.Rds.GetClusterSnapshotArgs
-        ///         {
-        ///             DbClusterIdentifier = "development_cluster",
-        ///             MostRecent = true,
-        ///         }));
-        ///         // Use the last snapshot of the dev database before it was destroyed to create
-        ///         // a new dev database.
-        ///         var auroraCluster = new Aws.Rds.Cluster("auroraCluster", new Aws.Rds.ClusterArgs
-        ///         {
-        ///             ClusterIdentifier = "development_cluster",
-        ///             SnapshotIdentifier = developmentFinalSnapshot.Apply(developmentFinalSnapshot =&gt; developmentFinalSnapshot.Id),
-        ///             DbSubnetGroupName = "my_db_subnet_group",
-        ///         });
-        ///         var auroraClusterInstance = new Aws.Rds.ClusterInstance("auroraClusterInstance", new Aws.Rds.ClusterInstanceArgs
-        ///         {
-        ///             ClusterIdentifier = auroraCluster.Id,
-        ///             InstanceClass = "db.t2.small",
-        ///             DbSubnetGroupName = "my_db_subnet_group",
-        ///         });
-        ///     }
+        ///         DbClusterIdentifier = "development_cluster",
+        ///         MostRecent = true,
+        ///     });
         /// 
-        /// }
+        ///     // Use the last snapshot of the dev database before it was destroyed to create
+        ///     // a new dev database.
+        ///     var auroraCluster = new Aws.Rds.Cluster("auroraCluster", new()
+        ///     {
+        ///         ClusterIdentifier = "development_cluster",
+        ///         SnapshotIdentifier = developmentFinalSnapshot.Apply(getClusterSnapshotResult =&gt; getClusterSnapshotResult.Id),
+        ///         DbSubnetGroupName = "my_db_subnet_group",
+        ///     });
+        /// 
+        ///     var auroraClusterInstance = new Aws.Rds.ClusterInstance("auroraClusterInstance", new()
+        ///     {
+        ///         ClusterIdentifier = auroraCluster.Id,
+        ///         InstanceClass = "db.t2.small",
+        ///         DbSubnetGroupName = "my_db_subnet_group",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Rds
     }
 
 
-    public sealed class GetClusterSnapshotArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterSnapshotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Returns the list of snapshots created by the specific db_cluster
@@ -165,9 +165,10 @@ namespace Pulumi.Aws.Rds
         public GetClusterSnapshotArgs()
         {
         }
+        public static new GetClusterSnapshotArgs Empty => new GetClusterSnapshotArgs();
     }
 
-    public sealed class GetClusterSnapshotInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterSnapshotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Returns the list of snapshots created by the specific db_cluster
@@ -225,6 +226,7 @@ namespace Pulumi.Aws.Rds
         public GetClusterSnapshotInvokeArgs()
         {
         }
+        public static new GetClusterSnapshotInvokeArgs Empty => new GetClusterSnapshotInvokeArgs();
     }
 
 

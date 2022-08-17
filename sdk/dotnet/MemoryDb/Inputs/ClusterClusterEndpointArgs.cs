@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MemoryDb.Inputs
 {
 
-    public sealed class ClusterClusterEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ClusterClusterEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// DNS hostname of the node.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         public ClusterClusterEndpointArgs()
         {
         }
+        public static new ClusterClusterEndpointArgs Empty => new ClusterClusterEndpointArgs();
     }
 }

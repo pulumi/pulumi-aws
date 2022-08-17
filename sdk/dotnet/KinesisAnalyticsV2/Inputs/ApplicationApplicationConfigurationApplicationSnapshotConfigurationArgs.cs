@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs Empty => new ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs();
     }
 }

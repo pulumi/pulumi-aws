@@ -19,61 +19,64 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := aws.GetRegion(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTrafficPolicyDocument, err := route53.GetTrafficPolicyDocument(ctx, &route53.GetTrafficPolicyDocumentArgs{
-// 			RecordType: pulumi.StringRef("A"),
-// 			StartRule:  pulumi.StringRef("site_switch"),
-// 			Endpoints: []route53.GetTrafficPolicyDocumentEndpoint{
-// 				route53.GetTrafficPolicyDocumentEndpoint{
-// 					Id:    "my_elb",
-// 					Type:  pulumi.StringRef("elastic-load-balancer"),
-// 					Value: pulumi.StringRef(fmt.Sprintf("elb-111111.%v.elb.amazonaws.com", current.Name)),
-// 				},
-// 				route53.GetTrafficPolicyDocumentEndpoint{
-// 					Id:     "site_down_banner",
-// 					Type:   pulumi.StringRef("s3-website"),
-// 					Region: pulumi.StringRef(current.Name),
-// 					Value:  pulumi.StringRef("www.example.com"),
-// 				},
-// 			},
-// 			Rules: []route53.GetTrafficPolicyDocumentRule{
-// 				route53.GetTrafficPolicyDocumentRule{
-// 					Id:   "site_switch",
-// 					Type: pulumi.StringRef("failover"),
-// 					Primary: route53.GetTrafficPolicyDocumentRulePrimary{
-// 						EndpointReference: pulumi.StringRef("my_elb"),
-// 					},
-// 					Secondary: route53.GetTrafficPolicyDocumentRuleSecondary{
-// 						EndpointReference: pulumi.StringRef("site_down_banner"),
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = route53.NewTrafficPolicy(ctx, "exampleTrafficPolicy", &route53.TrafficPolicyArgs{
-// 			Comment:  pulumi.String("example comment"),
-// 			Document: pulumi.String(exampleTrafficPolicyDocument.Json),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleTrafficPolicyDocument, err := route53.GetTrafficPolicyDocument(ctx, &route53.GetTrafficPolicyDocumentArgs{
+//				RecordType: pulumi.StringRef("A"),
+//				StartRule:  pulumi.StringRef("site_switch"),
+//				Endpoints: []route53.GetTrafficPolicyDocumentEndpoint{
+//					route53.GetTrafficPolicyDocumentEndpoint{
+//						Id:    "my_elb",
+//						Type:  pulumi.StringRef("elastic-load-balancer"),
+//						Value: pulumi.StringRef(fmt.Sprintf("elb-111111.%v.elb.amazonaws.com", current.Name)),
+//					},
+//					route53.GetTrafficPolicyDocumentEndpoint{
+//						Id:     "site_down_banner",
+//						Type:   pulumi.StringRef("s3-website"),
+//						Region: pulumi.StringRef(current.Name),
+//						Value:  pulumi.StringRef("www.example.com"),
+//					},
+//				},
+//				Rules: []route53.GetTrafficPolicyDocumentRule{
+//					route53.GetTrafficPolicyDocumentRule{
+//						Id:   "site_switch",
+//						Type: pulumi.StringRef("failover"),
+//						Primary: route53.GetTrafficPolicyDocumentRulePrimary{
+//							EndpointReference: pulumi.StringRef("my_elb"),
+//						},
+//						Secondary: route53.GetTrafficPolicyDocumentRuleSecondary{
+//							EndpointReference: pulumi.StringRef("site_down_banner"),
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewTrafficPolicy(ctx, "exampleTrafficPolicy", &route53.TrafficPolicyArgs{
+//				Comment:  pulumi.String("example comment"),
+//				Document: pulumi.String(exampleTrafficPolicyDocument.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetTrafficPolicyDocument(ctx *pulumi.Context, args *GetTrafficPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetTrafficPolicyDocumentResult, error) {
 	var rv GetTrafficPolicyDocumentResult

@@ -16,49 +16,50 @@ namespace Pulumi.Aws.DataSync
     /// ### With Scheduling
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DataSync.Task("example", new()
     ///     {
-    ///         var example = new Aws.DataSync.Task("example", new Aws.DataSync.TaskArgs
+    ///         DestinationLocationArn = aws_datasync_location_s3.Destination.Arn,
+    ///         SourceLocationArn = aws_datasync_location_nfs.Source.Arn,
+    ///         Schedule = new Aws.DataSync.Inputs.TaskScheduleArgs
     ///         {
-    ///             DestinationLocationArn = aws_datasync_location_s3.Destination.Arn,
-    ///             SourceLocationArn = aws_datasync_location_nfs.Source.Arn,
-    ///             Schedule = new Aws.DataSync.Inputs.TaskScheduleArgs
-    ///             {
-    ///                 ScheduleExpression = "cron(0 12 ? * SUN,WED *)",
-    ///             },
-    ///         });
-    ///     }
+    ///             ScheduleExpression = "cron(0 12 ? * SUN,WED *)",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With Filtering
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DataSync.Task("example", new()
     ///     {
-    ///         var example = new Aws.DataSync.Task("example", new Aws.DataSync.TaskArgs
+    ///         DestinationLocationArn = aws_datasync_location_s3.Destination.Arn,
+    ///         SourceLocationArn = aws_datasync_location_nfs.Source.Arn,
+    ///         Excludes = new Aws.DataSync.Inputs.TaskExcludesArgs
     ///         {
-    ///             DestinationLocationArn = aws_datasync_location_s3.Destination.Arn,
-    ///             SourceLocationArn = aws_datasync_location_nfs.Source.Arn,
-    ///             Excludes = new Aws.DataSync.Inputs.TaskExcludesArgs
-    ///             {
-    ///                 FilterType = "SIMPLE_PATTERN",
-    ///                 Value = "/folder1|/folder2",
-    ///             },
-    ///         });
-    ///     }
+    ///             FilterType = "SIMPLE_PATTERN",
+    ///             Value = "/folder1|/folder2",
+    ///         },
+    ///         Includes = new Aws.DataSync.Inputs.TaskIncludesArgs
+    ///         {
+    ///             FilterType = "SIMPLE_PATTERN",
+    ///             Value = "/folder1|/folder2",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +71,7 @@ namespace Pulumi.Aws.DataSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/task:Task")]
-    public partial class Task : Pulumi.CustomResource
+    public partial class Task : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Task.
@@ -97,6 +98,12 @@ namespace Pulumi.Aws.DataSync
         public Output<Outputs.TaskExcludes?> Excludes { get; private set; } = null!;
 
         /// <summary>
+        /// Filter rules that determines which files to include in a task.
+        /// </summary>
+        [Output("includes")]
+        public Output<Outputs.TaskIncludes?> Includes { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the DataSync Task.
         /// </summary>
         [Output("name")]
@@ -121,13 +128,13 @@ namespace Pulumi.Aws.DataSync
         public Output<string> SourceLocationArn { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -176,7 +183,7 @@ namespace Pulumi.Aws.DataSync
         }
     }
 
-    public sealed class TaskArgs : Pulumi.ResourceArgs
+    public sealed class TaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
@@ -195,6 +202,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("excludes")]
         public Input<Inputs.TaskExcludesArgs>? Excludes { get; set; }
+
+        /// <summary>
+        /// Filter rules that determines which files to include in a task.
+        /// </summary>
+        [Input("includes")]
+        public Input<Inputs.TaskIncludesArgs>? Includes { get; set; }
 
         /// <summary>
         /// Name of the DataSync Task.
@@ -224,7 +237,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -235,9 +248,10 @@ namespace Pulumi.Aws.DataSync
         public TaskArgs()
         {
         }
+        public static new TaskArgs Empty => new TaskArgs();
     }
 
-    public sealed class TaskState : Pulumi.ResourceArgs
+    public sealed class TaskState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Task.
@@ -262,6 +276,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("excludes")]
         public Input<Inputs.TaskExcludesGetArgs>? Excludes { get; set; }
+
+        /// <summary>
+        /// Filter rules that determines which files to include in a task.
+        /// </summary>
+        [Input("includes")]
+        public Input<Inputs.TaskIncludesGetArgs>? Includes { get; set; }
 
         /// <summary>
         /// Name of the DataSync Task.
@@ -291,7 +311,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -303,7 +323,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -314,5 +334,6 @@ namespace Pulumi.Aws.DataSync
         public TaskState()
         {
         }
+        public static new TaskState Empty => new TaskState();
     }
 }

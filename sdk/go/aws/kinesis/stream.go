@@ -21,32 +21,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := kinesis.NewStream(ctx, "testStream", &kinesis.StreamArgs{
-// 			RetentionPeriod: pulumi.Int(48),
-// 			ShardCount:      pulumi.Int(1),
-// 			ShardLevelMetrics: pulumi.StringArray{
-// 				pulumi.String("IncomingBytes"),
-// 				pulumi.String("OutgoingBytes"),
-// 			},
-// 			StreamModeDetails: &kinesis.StreamStreamModeDetailsArgs{
-// 				StreamMode: pulumi.String("PROVISIONED"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("test"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kinesis.NewStream(ctx, "testStream", &kinesis.StreamArgs{
+//				RetentionPeriod: pulumi.Int(48),
+//				ShardCount:      pulumi.Int(1),
+//				ShardLevelMetrics: pulumi.StringArray{
+//					pulumi.String("IncomingBytes"),
+//					pulumi.String("OutgoingBytes"),
+//				},
+//				StreamModeDetails: &kinesis.StreamStreamModeDetailsArgs{
+//					StreamMode: pulumi.String("PROVISIONED"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,10 +57,12 @@ import (
 // Kinesis Streams can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:kinesis/stream:Stream test_stream kinesis-test
+//
+//	$ pulumi import aws:kinesis/stream:Stream test_stream kinesis-test
+//
 // ```
 //
-//  [1]https://aws.amazon.com/documentation/kinesis/ [2]https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html [3]https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
+//	[1]https://aws.amazon.com/documentation/kinesis/ [2]https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html [3]https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
 type Stream struct {
 	pulumi.CustomResourceState
 
@@ -245,7 +250,7 @@ func (i *Stream) ToStreamOutputWithContext(ctx context.Context) StreamOutput {
 // StreamArrayInput is an input type that accepts StreamArray and StreamArrayOutput values.
 // You can construct a concrete instance of `StreamArrayInput` via:
 //
-//          StreamArray{ StreamArgs{...} }
+//	StreamArray{ StreamArgs{...} }
 type StreamArrayInput interface {
 	pulumi.Input
 
@@ -270,7 +275,7 @@ func (i StreamArray) ToStreamArrayOutputWithContext(ctx context.Context) StreamA
 // StreamMapInput is an input type that accepts StreamMap and StreamMapOutput values.
 // You can construct a concrete instance of `StreamMapInput` via:
 //
-//          StreamMap{ "key": StreamArgs{...} }
+//	StreamMap{ "key": StreamArgs{...} }
 type StreamMapInput interface {
 	pulumi.Input
 

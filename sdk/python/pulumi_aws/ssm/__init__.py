@@ -22,5 +22,6 @@ from .parameter import *
 from .patch_baseline import *
 from .patch_group import *
 from .resource_data_sync import *
+from .service_setting import *
 from ._inputs import *
 from . import outputs

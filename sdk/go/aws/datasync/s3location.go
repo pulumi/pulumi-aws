@@ -19,26 +19,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datasync.NewS3Location(ctx, "example", &datasync.S3LocationArgs{
-// 			S3BucketArn:  pulumi.Any(aws_s3_bucket.Example.Arn),
-// 			Subdirectory: pulumi.String("/example/prefix"),
-// 			S3Config: &datasync.S3LocationS3ConfigArgs{
-// 				BucketAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datasync.NewS3Location(ctx, "example", &datasync.S3LocationArgs{
+//				S3BucketArn:  pulumi.Any(aws_s3_bucket.Example.Arn),
+//				Subdirectory: pulumi.String("/example/prefix"),
+//				S3Config: &datasync.S3LocationS3ConfigArgs{
+//					BucketAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // `aws_datasync_location_s3` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+//
+//	$ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+//
 // ```
 type S3Location struct {
 	pulumi.CustomResourceState
@@ -63,9 +68,9 @@ type S3Location struct {
 	S3StorageClass pulumi.StringOutput `pulumi:"s3StorageClass"`
 	// Prefix to perform actions as source or destination.
 	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Uri     pulumi.StringOutput    `pulumi:"uri"`
 }
@@ -120,9 +125,9 @@ type s3locationState struct {
 	S3StorageClass *string `pulumi:"s3StorageClass"`
 	// Prefix to perform actions as source or destination.
 	Subdirectory *string `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	Uri     *string           `pulumi:"uri"`
 }
@@ -140,9 +145,9 @@ type S3LocationState struct {
 	S3StorageClass pulumi.StringPtrInput
 	// Prefix to perform actions as source or destination.
 	Subdirectory pulumi.StringPtrInput
-	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	Uri     pulumi.StringPtrInput
 }
@@ -162,7 +167,7 @@ type s3locationArgs struct {
 	S3StorageClass *string `pulumi:"s3StorageClass"`
 	// Prefix to perform actions as source or destination.
 	Subdirectory string `pulumi:"subdirectory"`
-	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -178,7 +183,7 @@ type S3LocationArgs struct {
 	S3StorageClass pulumi.StringPtrInput
 	// Prefix to perform actions as source or destination.
 	Subdirectory pulumi.StringInput
-	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -208,7 +213,7 @@ func (i *S3Location) ToS3LocationOutputWithContext(ctx context.Context) S3Locati
 // S3LocationArrayInput is an input type that accepts S3LocationArray and S3LocationArrayOutput values.
 // You can construct a concrete instance of `S3LocationArrayInput` via:
 //
-//          S3LocationArray{ S3LocationArgs{...} }
+//	S3LocationArray{ S3LocationArgs{...} }
 type S3LocationArrayInput interface {
 	pulumi.Input
 
@@ -233,7 +238,7 @@ func (i S3LocationArray) ToS3LocationArrayOutputWithContext(ctx context.Context)
 // S3LocationMapInput is an input type that accepts S3LocationMap and S3LocationMapOutput values.
 // You can construct a concrete instance of `S3LocationMapInput` via:
 //
-//          S3LocationMap{ "key": S3LocationArgs{...} }
+//	S3LocationMap{ "key": S3LocationArgs{...} }
 type S3LocationMapInput interface {
 	pulumi.Input
 
@@ -299,12 +304,12 @@ func (o S3LocationOutput) Subdirectory() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringOutput { return v.Subdirectory }).(pulumi.StringOutput)
 }
 
-// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o S3LocationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o S3LocationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *S3Location) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

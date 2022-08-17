@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr")]
-    public partial class VpcIpamPoolCidr : Pulumi.CustomResource
+    public partial class VpcIpamPoolCidr : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The CIDR you want to assign to the pool.
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcIpamPoolCidrArgs : Pulumi.ResourceArgs
+    public sealed class VpcIpamPoolCidrArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CIDR you want to assign to the pool.
@@ -113,9 +113,10 @@ namespace Pulumi.Aws.Ec2
         public VpcIpamPoolCidrArgs()
         {
         }
+        public static new VpcIpamPoolCidrArgs Empty => new VpcIpamPoolCidrArgs();
     }
 
-    public sealed class VpcIpamPoolCidrState : Pulumi.ResourceArgs
+    public sealed class VpcIpamPoolCidrState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The CIDR you want to assign to the pool.
@@ -138,5 +139,6 @@ namespace Pulumi.Aws.Ec2
         public VpcIpamPoolCidrState()
         {
         }
+        public static new VpcIpamPoolCidrState Empty => new VpcIpamPoolCidrState();
     }
 }

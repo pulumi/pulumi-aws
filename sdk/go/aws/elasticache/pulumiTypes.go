@@ -22,7 +22,7 @@ type ClusterCacheNode struct {
 // ClusterCacheNodeInput is an input type that accepts ClusterCacheNodeArgs and ClusterCacheNodeOutput values.
 // You can construct a concrete instance of `ClusterCacheNodeInput` via:
 //
-//          ClusterCacheNodeArgs{...}
+//	ClusterCacheNodeArgs{...}
 type ClusterCacheNodeInput interface {
 	pulumi.Input
 
@@ -54,7 +54,7 @@ func (i ClusterCacheNodeArgs) ToClusterCacheNodeOutputWithContext(ctx context.Co
 // ClusterCacheNodeArrayInput is an input type that accepts ClusterCacheNodeArray and ClusterCacheNodeArrayOutput values.
 // You can construct a concrete instance of `ClusterCacheNodeArrayInput` via:
 //
-//          ClusterCacheNodeArray{ ClusterCacheNodeArgs{...} }
+//	ClusterCacheNodeArray{ ClusterCacheNodeArgs{...} }
 type ClusterCacheNodeArrayInput interface {
 	pulumi.Input
 
@@ -142,7 +142,7 @@ type ClusterLogDeliveryConfiguration struct {
 // ClusterLogDeliveryConfigurationInput is an input type that accepts ClusterLogDeliveryConfigurationArgs and ClusterLogDeliveryConfigurationOutput values.
 // You can construct a concrete instance of `ClusterLogDeliveryConfigurationInput` via:
 //
-//          ClusterLogDeliveryConfigurationArgs{...}
+//	ClusterLogDeliveryConfigurationArgs{...}
 type ClusterLogDeliveryConfigurationInput interface {
 	pulumi.Input
 
@@ -176,7 +176,7 @@ func (i ClusterLogDeliveryConfigurationArgs) ToClusterLogDeliveryConfigurationOu
 // ClusterLogDeliveryConfigurationArrayInput is an input type that accepts ClusterLogDeliveryConfigurationArray and ClusterLogDeliveryConfigurationArrayOutput values.
 // You can construct a concrete instance of `ClusterLogDeliveryConfigurationArrayInput` via:
 //
-//          ClusterLogDeliveryConfigurationArray{ ClusterLogDeliveryConfigurationArgs{...} }
+//	ClusterLogDeliveryConfigurationArray{ ClusterLogDeliveryConfigurationArgs{...} }
 type ClusterLogDeliveryConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -262,7 +262,7 @@ type ParameterGroupParameter struct {
 // ParameterGroupParameterInput is an input type that accepts ParameterGroupParameterArgs and ParameterGroupParameterOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterInput` via:
 //
-//          ParameterGroupParameterArgs{...}
+//	ParameterGroupParameterArgs{...}
 type ParameterGroupParameterInput interface {
 	pulumi.Input
 
@@ -292,7 +292,7 @@ func (i ParameterGroupParameterArgs) ToParameterGroupParameterOutputWithContext(
 // ParameterGroupParameterArrayInput is an input type that accepts ParameterGroupParameterArray and ParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterArrayInput` via:
 //
-//          ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
+//	ParameterGroupParameterArray{ ParameterGroupParameterArgs{...} }
 type ParameterGroupParameterArrayInput interface {
 	pulumi.Input
 
@@ -372,7 +372,7 @@ type ReplicationGroupClusterMode struct {
 // ReplicationGroupClusterModeInput is an input type that accepts ReplicationGroupClusterModeArgs and ReplicationGroupClusterModeOutput values.
 // You can construct a concrete instance of `ReplicationGroupClusterModeInput` via:
 //
-//          ReplicationGroupClusterModeArgs{...}
+//	ReplicationGroupClusterModeArgs{...}
 type ReplicationGroupClusterModeInput interface {
 	pulumi.Input
 
@@ -414,11 +414,11 @@ func (i ReplicationGroupClusterModeArgs) ToReplicationGroupClusterModePtrOutputW
 // ReplicationGroupClusterModePtrInput is an input type that accepts ReplicationGroupClusterModeArgs, ReplicationGroupClusterModePtr and ReplicationGroupClusterModePtrOutput values.
 // You can construct a concrete instance of `ReplicationGroupClusterModePtrInput` via:
 //
-//          ReplicationGroupClusterModeArgs{...}
+//	        ReplicationGroupClusterModeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReplicationGroupClusterModePtrInput interface {
 	pulumi.Input
 
@@ -544,7 +544,7 @@ type ReplicationGroupLogDeliveryConfiguration struct {
 // ReplicationGroupLogDeliveryConfigurationInput is an input type that accepts ReplicationGroupLogDeliveryConfigurationArgs and ReplicationGroupLogDeliveryConfigurationOutput values.
 // You can construct a concrete instance of `ReplicationGroupLogDeliveryConfigurationInput` via:
 //
-//          ReplicationGroupLogDeliveryConfigurationArgs{...}
+//	ReplicationGroupLogDeliveryConfigurationArgs{...}
 type ReplicationGroupLogDeliveryConfigurationInput interface {
 	pulumi.Input
 
@@ -578,7 +578,7 @@ func (i ReplicationGroupLogDeliveryConfigurationArgs) ToReplicationGroupLogDeliv
 // ReplicationGroupLogDeliveryConfigurationArrayInput is an input type that accepts ReplicationGroupLogDeliveryConfigurationArray and ReplicationGroupLogDeliveryConfigurationArrayOutput values.
 // You can construct a concrete instance of `ReplicationGroupLogDeliveryConfigurationArrayInput` via:
 //
-//          ReplicationGroupLogDeliveryConfigurationArray{ ReplicationGroupLogDeliveryConfigurationArgs{...} }
+//	ReplicationGroupLogDeliveryConfigurationArray{ ReplicationGroupLogDeliveryConfigurationArgs{...} }
 type ReplicationGroupLogDeliveryConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -667,7 +667,7 @@ type GetClusterCacheNode struct {
 // GetClusterCacheNodeInput is an input type that accepts GetClusterCacheNodeArgs and GetClusterCacheNodeOutput values.
 // You can construct a concrete instance of `GetClusterCacheNodeInput` via:
 //
-//          GetClusterCacheNodeArgs{...}
+//	GetClusterCacheNodeArgs{...}
 type GetClusterCacheNodeInput interface {
 	pulumi.Input
 
@@ -700,7 +700,7 @@ func (i GetClusterCacheNodeArgs) ToGetClusterCacheNodeOutputWithContext(ctx cont
 // GetClusterCacheNodeArrayInput is an input type that accepts GetClusterCacheNodeArray and GetClusterCacheNodeArrayOutput values.
 // You can construct a concrete instance of `GetClusterCacheNodeArrayInput` via:
 //
-//          GetClusterCacheNodeArray{ GetClusterCacheNodeArgs{...} }
+//	GetClusterCacheNodeArray{ GetClusterCacheNodeArgs{...} }
 type GetClusterCacheNodeArrayInput interface {
 	pulumi.Input
 
@@ -785,7 +785,7 @@ type GetClusterLogDeliveryConfiguration struct {
 // GetClusterLogDeliveryConfigurationInput is an input type that accepts GetClusterLogDeliveryConfigurationArgs and GetClusterLogDeliveryConfigurationOutput values.
 // You can construct a concrete instance of `GetClusterLogDeliveryConfigurationInput` via:
 //
-//          GetClusterLogDeliveryConfigurationArgs{...}
+//	GetClusterLogDeliveryConfigurationArgs{...}
 type GetClusterLogDeliveryConfigurationInput interface {
 	pulumi.Input
 
@@ -815,7 +815,7 @@ func (i GetClusterLogDeliveryConfigurationArgs) ToGetClusterLogDeliveryConfigura
 // GetClusterLogDeliveryConfigurationArrayInput is an input type that accepts GetClusterLogDeliveryConfigurationArray and GetClusterLogDeliveryConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetClusterLogDeliveryConfigurationArrayInput` via:
 //
-//          GetClusterLogDeliveryConfigurationArray{ GetClusterLogDeliveryConfigurationArgs{...} }
+//	GetClusterLogDeliveryConfigurationArray{ GetClusterLogDeliveryConfigurationArgs{...} }
 type GetClusterLogDeliveryConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -897,7 +897,7 @@ type GetReplicationGroupLogDeliveryConfiguration struct {
 // GetReplicationGroupLogDeliveryConfigurationInput is an input type that accepts GetReplicationGroupLogDeliveryConfigurationArgs and GetReplicationGroupLogDeliveryConfigurationOutput values.
 // You can construct a concrete instance of `GetReplicationGroupLogDeliveryConfigurationInput` via:
 //
-//          GetReplicationGroupLogDeliveryConfigurationArgs{...}
+//	GetReplicationGroupLogDeliveryConfigurationArgs{...}
 type GetReplicationGroupLogDeliveryConfigurationInput interface {
 	pulumi.Input
 
@@ -927,7 +927,7 @@ func (i GetReplicationGroupLogDeliveryConfigurationArgs) ToGetReplicationGroupLo
 // GetReplicationGroupLogDeliveryConfigurationArrayInput is an input type that accepts GetReplicationGroupLogDeliveryConfigurationArray and GetReplicationGroupLogDeliveryConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetReplicationGroupLogDeliveryConfigurationArrayInput` via:
 //
-//          GetReplicationGroupLogDeliveryConfigurationArray{ GetReplicationGroupLogDeliveryConfigurationArgs{...} }
+//	GetReplicationGroupLogDeliveryConfigurationArray{ GetReplicationGroupLogDeliveryConfigurationArgs{...} }
 type GetReplicationGroupLogDeliveryConfigurationArrayInput interface {
 	pulumi.Input
 

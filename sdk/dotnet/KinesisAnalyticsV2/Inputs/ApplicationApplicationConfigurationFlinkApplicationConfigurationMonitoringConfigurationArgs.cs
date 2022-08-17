@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `log_level` or `metrics_level` attribute values to be effective.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs Empty => new ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs();
     }
 }

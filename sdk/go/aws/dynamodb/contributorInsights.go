@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := dynamodb.NewContributorInsights(ctx, "test", &dynamodb.ContributorInsightsArgs{
-// 			TableName: pulumi.String("ExampleTableName"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := dynamodb.NewContributorInsights(ctx, "test", &dynamodb.ContributorInsightsArgs{
+//				TableName: pulumi.String("ExampleTableName"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // `aws_dynamodb_contributor_insights` can be imported using the format `name:table_name/index:index_name`, followed by the account number, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:dynamodb/contributorInsights:ContributorInsights test name:ExampleTableName/index:ExampleIndexName/123456789012
+//
+//	$ pulumi import aws:dynamodb/contributorInsights:ContributorInsights test name:ExampleTableName/index:ExampleIndexName/123456789012
+//
 // ```
 type ContributorInsights struct {
 	pulumi.CustomResourceState
@@ -142,7 +147,7 @@ func (i *ContributorInsights) ToContributorInsightsOutputWithContext(ctx context
 // ContributorInsightsArrayInput is an input type that accepts ContributorInsightsArray and ContributorInsightsArrayOutput values.
 // You can construct a concrete instance of `ContributorInsightsArrayInput` via:
 //
-//          ContributorInsightsArray{ ContributorInsightsArgs{...} }
+//	ContributorInsightsArray{ ContributorInsightsArgs{...} }
 type ContributorInsightsArrayInput interface {
 	pulumi.Input
 
@@ -167,7 +172,7 @@ func (i ContributorInsightsArray) ToContributorInsightsArrayOutputWithContext(ct
 // ContributorInsightsMapInput is an input type that accepts ContributorInsightsMap and ContributorInsightsMapOutput values.
 // You can construct a concrete instance of `ContributorInsightsMapInput` via:
 //
-//          ContributorInsightsMap{ "key": ContributorInsightsArgs{...} }
+//	ContributorInsightsMap{ "key": ContributorInsightsArgs{...} }
 type ContributorInsightsMapInput interface {
 	pulumi.Input
 

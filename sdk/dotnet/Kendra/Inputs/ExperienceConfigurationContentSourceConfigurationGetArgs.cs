@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra.Inputs
 {
 
-    public sealed class ExperienceConfigurationContentSourceConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ExperienceConfigurationContentSourceConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataSourceIds")]
         private InputList<string>? _dataSourceIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Kendra.Inputs
         public ExperienceConfigurationContentSourceConfigurationGetArgs()
         {
         }
+        public static new ExperienceConfigurationContentSourceConfigurationGetArgs Empty => new ExperienceConfigurationContentSourceConfigurationGetArgs();
     }
 }

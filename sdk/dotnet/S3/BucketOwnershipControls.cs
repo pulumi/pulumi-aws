@@ -15,27 +15,24 @@ namespace Pulumi.Aws.S3
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("exampleBucketOwnershipControls", new Aws.S3.BucketOwnershipControlsArgs
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
-    ///             {
-    ///                 ObjectOwnership = "BucketOwnerPreferred",
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
-    /// }
+    ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("exampleBucketOwnershipControls", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
+    ///         {
+    ///             ObjectOwnership = "BucketOwnerPreferred",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +44,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketOwnershipControls:BucketOwnershipControls")]
-    public partial class BucketOwnershipControls : Pulumi.CustomResource
+    public partial class BucketOwnershipControls : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the bucket that you want to associate this access point with.
@@ -105,7 +102,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class BucketOwnershipControlsArgs : Pulumi.ResourceArgs
+    public sealed class BucketOwnershipControlsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket that you want to associate this access point with.
@@ -122,9 +119,10 @@ namespace Pulumi.Aws.S3
         public BucketOwnershipControlsArgs()
         {
         }
+        public static new BucketOwnershipControlsArgs Empty => new BucketOwnershipControlsArgs();
     }
 
-    public sealed class BucketOwnershipControlsState : Pulumi.ResourceArgs
+    public sealed class BucketOwnershipControlsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket that you want to associate this access point with.
@@ -141,5 +139,6 @@ namespace Pulumi.Aws.S3
         public BucketOwnershipControlsState()
         {
         }
+        public static new BucketOwnershipControlsState Empty => new BucketOwnershipControlsState();
     }
 }

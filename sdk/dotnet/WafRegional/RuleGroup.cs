@@ -15,36 +15,35 @@ namespace Pulumi.Aws.WafRegional
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleRule = new Aws.WafRegional.Rule("exampleRule", new()
     ///     {
-    ///         var exampleRule = new Aws.WafRegional.Rule("exampleRule", new Aws.WafRegional.RuleArgs
-    ///         {
-    ///             MetricName = "example",
-    ///         });
-    ///         var exampleRuleGroup = new Aws.WafRegional.RuleGroup("exampleRuleGroup", new Aws.WafRegional.RuleGroupArgs
-    ///         {
-    ///             MetricName = "example",
-    ///             ActivatedRules = 
-    ///             {
-    ///                 new Aws.WafRegional.Inputs.RuleGroupActivatedRuleArgs
-    ///                 {
-    ///                     Action = new Aws.WafRegional.Inputs.RuleGroupActivatedRuleActionArgs
-    ///                     {
-    ///                         Type = "COUNT",
-    ///                     },
-    ///                     Priority = 50,
-    ///                     RuleId = exampleRule.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         MetricName = "example",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRuleGroup = new Aws.WafRegional.RuleGroup("exampleRuleGroup", new()
+    ///     {
+    ///         MetricName = "example",
+    ///         ActivatedRules = new[]
+    ///         {
+    ///             new Aws.WafRegional.Inputs.RuleGroupActivatedRuleArgs
+    ///             {
+    ///                 Action = new Aws.WafRegional.Inputs.RuleGroupActivatedRuleActionArgs
+    ///                 {
+    ///                     Type = "COUNT",
+    ///                 },
+    ///                 Priority = 50,
+    ///                 RuleId = exampleRule.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +55,7 @@ namespace Pulumi.Aws.WafRegional
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafregional/ruleGroup:RuleGroup")]
-    public partial class RuleGroup : Pulumi.CustomResource
+    public partial class RuleGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of activated rules, see below
@@ -89,7 +88,7 @@ namespace Pulumi.Aws.WafRegional
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -138,7 +137,7 @@ namespace Pulumi.Aws.WafRegional
         }
     }
 
-    public sealed class RuleGroupArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("activatedRules")]
         private InputList<Inputs.RuleGroupActivatedRuleArgs>? _activatedRules;
@@ -179,9 +178,10 @@ namespace Pulumi.Aws.WafRegional
         public RuleGroupArgs()
         {
         }
+        public static new RuleGroupArgs Empty => new RuleGroupArgs();
     }
 
-    public sealed class RuleGroupState : Pulumi.ResourceArgs
+    public sealed class RuleGroupState : global::Pulumi.ResourceArgs
     {
         [Input("activatedRules")]
         private InputList<Inputs.RuleGroupActivatedRuleGetArgs>? _activatedRules;
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.WafRegional
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -240,5 +240,6 @@ namespace Pulumi.Aws.WafRegional
         public RuleGroupState()
         {
         }
+        public static new RuleGroupState Empty => new RuleGroupState();
     }
 }

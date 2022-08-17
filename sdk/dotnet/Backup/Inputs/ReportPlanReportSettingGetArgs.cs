@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Backup.Inputs
 {
 
-    public sealed class ReportPlanReportSettingGetArgs : Pulumi.ResourceArgs
+    public sealed class ReportPlanReportSettingGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("frameworkArns")]
         private InputList<string>? _frameworkArns;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Backup.Inputs
         public ReportPlanReportSettingGetArgs()
         {
         }
+        public static new ReportPlanReportSettingGetArgs Empty => new ReportPlanReportSettingGetArgs();
     }
 }

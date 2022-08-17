@@ -45,38 +45,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
-// 			CertificateArn: pulumi.Any(aws_acm_certificate_validation.Example.Certificate_arn),
-// 			DomainName:     pulumi.String("api.example.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
-// 			Name:   exampleDomainName.DomainName,
-// 			Type:   pulumi.String("A"),
-// 			ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
-// 			Aliases: route53.RecordAliasArray{
-// 				&route53.RecordAliasArgs{
-// 					EvaluateTargetHealth: pulumi.Bool(true),
-// 					Name:                 exampleDomainName.CloudfrontDomainName,
-// 					ZoneId:               exampleDomainName.CloudfrontZoneId,
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
+//				CertificateArn: pulumi.Any(aws_acm_certificate_validation.Example.Certificate_arn),
+//				DomainName:     pulumi.String("api.example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
+//				Name:   exampleDomainName.DomainName,
+//				Type:   pulumi.String("A"),
+//				ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
+//				Aliases: route53.RecordAliasArray{
+//					&route53.RecordAliasArgs{
+//						EvaluateTargetHealth: pulumi.Bool(true),
+//						Name:                 exampleDomainName.CloudfrontDomainName,
+//						ZoneId:               exampleDomainName.CloudfrontZoneId,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Edge Optimized (IAM Certificate)
 //
@@ -84,52 +87,55 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
-// 			DomainName:            pulumi.String("api.example.com"),
-// 			CertificateName:       pulumi.String("example-api"),
-// 			CertificateBody:       readFileOrPanic(fmt.Sprintf("%v/example.com/example.crt", path.Module)),
-// 			CertificateChain:      readFileOrPanic(fmt.Sprintf("%v/example.com/ca.crt", path.Module)),
-// 			CertificatePrivateKey: readFileOrPanic(fmt.Sprintf("%v/example.com/example.key", path.Module)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
-// 			ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
-// 			Name:   exampleDomainName.DomainName,
-// 			Type:   pulumi.String("A"),
-// 			Aliases: route53.RecordAliasArray{
-// 				&route53.RecordAliasArgs{
-// 					Name:                 exampleDomainName.CloudfrontDomainName,
-// 					ZoneId:               exampleDomainName.CloudfrontZoneId,
-// 					EvaluateTargetHealth: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
+//				DomainName:            pulumi.String("api.example.com"),
+//				CertificateName:       pulumi.String("example-api"),
+//				CertificateBody:       readFileOrPanic(fmt.Sprintf("%v/example.com/example.crt", path.Module)),
+//				CertificateChain:      readFileOrPanic(fmt.Sprintf("%v/example.com/ca.crt", path.Module)),
+//				CertificatePrivateKey: readFileOrPanic(fmt.Sprintf("%v/example.com/example.key", path.Module)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
+//				ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
+//				Name:   exampleDomainName.DomainName,
+//				Type:   pulumi.String("A"),
+//				Aliases: route53.RecordAliasArray{
+//					&route53.RecordAliasArgs{
+//						Name:                 exampleDomainName.CloudfrontDomainName,
+//						ZoneId:               exampleDomainName.CloudfrontZoneId,
+//						EvaluateTargetHealth: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -137,7 +143,9 @@ import (
 // API Gateway domain names can be imported using their `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
+//
+//	$ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
+//
 // ```
 type DomainName struct {
 	pulumi.CustomResourceState
@@ -390,7 +398,7 @@ func (i *DomainName) ToDomainNameOutputWithContext(ctx context.Context) DomainNa
 // DomainNameArrayInput is an input type that accepts DomainNameArray and DomainNameArrayOutput values.
 // You can construct a concrete instance of `DomainNameArrayInput` via:
 //
-//          DomainNameArray{ DomainNameArgs{...} }
+//	DomainNameArray{ DomainNameArgs{...} }
 type DomainNameArrayInput interface {
 	pulumi.Input
 
@@ -415,7 +423,7 @@ func (i DomainNameArray) ToDomainNameArrayOutputWithContext(ctx context.Context)
 // DomainNameMapInput is an input type that accepts DomainNameMap and DomainNameMapOutput values.
 // You can construct a concrete instance of `DomainNameMapInput` via:
 //
-//          DomainNameMap{ "key": DomainNameArgs{...} }
+//	DomainNameMap{ "key": DomainNameArgs{...} }
 type DomainNameMapInput interface {
 	pulumi.Input
 

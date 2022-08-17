@@ -19,45 +19,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudfront.NewOriginRequestPolicy(ctx, "example", &cloudfront.OriginRequestPolicyArgs{
-// 			Comment: pulumi.String("example comment"),
-// 			CookiesConfig: &cloudfront.OriginRequestPolicyCookiesConfigArgs{
-// 				CookieBehavior: pulumi.String("whitelist"),
-// 				Cookies: &cloudfront.OriginRequestPolicyCookiesConfigCookiesArgs{
-// 					Items: pulumi.StringArray{
-// 						pulumi.String("example"),
-// 					},
-// 				},
-// 			},
-// 			HeadersConfig: &cloudfront.OriginRequestPolicyHeadersConfigArgs{
-// 				HeaderBehavior: pulumi.String("whitelist"),
-// 				Headers: &cloudfront.OriginRequestPolicyHeadersConfigHeadersArgs{
-// 					Items: pulumi.StringArray{
-// 						pulumi.String("example"),
-// 					},
-// 				},
-// 			},
-// 			QueryStringsConfig: &cloudfront.OriginRequestPolicyQueryStringsConfigArgs{
-// 				QueryStringBehavior: pulumi.String("whitelist"),
-// 				QueryStrings: &cloudfront.OriginRequestPolicyQueryStringsConfigQueryStringsArgs{
-// 					Items: pulumi.StringArray{
-// 						pulumi.String("example"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewOriginRequestPolicy(ctx, "example", &cloudfront.OriginRequestPolicyArgs{
+//				Comment: pulumi.String("example comment"),
+//				CookiesConfig: &cloudfront.OriginRequestPolicyCookiesConfigArgs{
+//					CookieBehavior: pulumi.String("whitelist"),
+//					Cookies: &cloudfront.OriginRequestPolicyCookiesConfigCookiesArgs{
+//						Items: pulumi.StringArray{
+//							pulumi.String("example"),
+//						},
+//					},
+//				},
+//				HeadersConfig: &cloudfront.OriginRequestPolicyHeadersConfigArgs{
+//					HeaderBehavior: pulumi.String("whitelist"),
+//					Headers: &cloudfront.OriginRequestPolicyHeadersConfigHeadersArgs{
+//						Items: pulumi.StringArray{
+//							pulumi.String("example"),
+//						},
+//					},
+//				},
+//				QueryStringsConfig: &cloudfront.OriginRequestPolicyQueryStringsConfigArgs{
+//					QueryStringBehavior: pulumi.String("whitelist"),
+//					QueryStrings: &cloudfront.OriginRequestPolicyQueryStringsConfigQueryStringsArgs{
+//						Items: pulumi.StringArray{
+//							pulumi.String("example"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type OriginRequestPolicy struct {
 	pulumi.CustomResourceState
@@ -200,7 +203,7 @@ func (i *OriginRequestPolicy) ToOriginRequestPolicyOutputWithContext(ctx context
 // OriginRequestPolicyArrayInput is an input type that accepts OriginRequestPolicyArray and OriginRequestPolicyArrayOutput values.
 // You can construct a concrete instance of `OriginRequestPolicyArrayInput` via:
 //
-//          OriginRequestPolicyArray{ OriginRequestPolicyArgs{...} }
+//	OriginRequestPolicyArray{ OriginRequestPolicyArgs{...} }
 type OriginRequestPolicyArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +228,7 @@ func (i OriginRequestPolicyArray) ToOriginRequestPolicyArrayOutputWithContext(ct
 // OriginRequestPolicyMapInput is an input type that accepts OriginRequestPolicyMap and OriginRequestPolicyMapOutput values.
 // You can construct a concrete instance of `OriginRequestPolicyMapInput` via:
 //
-//          OriginRequestPolicyMap{ "key": OriginRequestPolicyArgs{...} }
+//	OriginRequestPolicyMap{ "key": OriginRequestPolicyArgs{...} }
 type OriginRequestPolicyMapInput interface {
 	pulumi.Input
 

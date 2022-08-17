@@ -19,24 +19,23 @@ namespace Pulumi.Aws.Kinesis
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleStream = new Aws.Kinesis.Stream("exampleStream", new()
     ///     {
-    ///         var exampleStream = new Aws.Kinesis.Stream("exampleStream", new Aws.Kinesis.StreamArgs
-    ///         {
-    ///             ShardCount = 1,
-    ///         });
-    ///         var exampleStreamConsumer = new Aws.Kinesis.StreamConsumer("exampleStreamConsumer", new Aws.Kinesis.StreamConsumerArgs
-    ///         {
-    ///             StreamArn = exampleStream.Arn,
-    ///         });
-    ///     }
+    ///         ShardCount = 1,
+    ///     });
     /// 
-    /// }
+    ///     var exampleStreamConsumer = new Aws.Kinesis.StreamConsumer("exampleStreamConsumer", new()
+    ///     {
+    ///         StreamArn = exampleStream.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +49,7 @@ namespace Pulumi.Aws.Kinesis
     ///  [1]https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html
     /// </summary>
     [AwsResourceType("aws:kinesis/streamConsumer:StreamConsumer")]
-    public partial class StreamConsumer : Pulumi.CustomResource
+    public partial class StreamConsumer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the stream consumer.
@@ -120,7 +119,7 @@ namespace Pulumi.Aws.Kinesis
         }
     }
 
-    public sealed class StreamConsumerArgs : Pulumi.ResourceArgs
+    public sealed class StreamConsumerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the stream consumer.
@@ -137,9 +136,10 @@ namespace Pulumi.Aws.Kinesis
         public StreamConsumerArgs()
         {
         }
+        public static new StreamConsumerArgs Empty => new StreamConsumerArgs();
     }
 
-    public sealed class StreamConsumerState : Pulumi.ResourceArgs
+    public sealed class StreamConsumerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the stream consumer.
@@ -168,5 +168,6 @@ namespace Pulumi.Aws.Kinesis
         public StreamConsumerState()
         {
         }
+        public static new StreamConsumerState Empty => new StreamConsumerState();
     }
 }

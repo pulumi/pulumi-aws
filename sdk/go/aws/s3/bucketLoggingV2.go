@@ -23,45 +23,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
-// 			Bucket: exampleBucketV2.ID(),
-// 			Acl:    pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		logBucket, err := s3.NewBucketV2(ctx, "logBucket", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketAclV2(ctx, "logBucketAcl", &s3.BucketAclV2Args{
-// 			Bucket: logBucket.ID(),
-// 			Acl:    pulumi.String("log-delivery-write"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketLoggingV2(ctx, "exampleBucketLoggingV2", &s3.BucketLoggingV2Args{
-// 			Bucket:       exampleBucketV2.ID(),
-// 			TargetBucket: logBucket.ID(),
-// 			TargetPrefix: pulumi.String("log/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "exampleBucketAclV2", &s3.BucketAclV2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			logBucket, err := s3.NewBucketV2(ctx, "logBucket", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "logBucketAcl", &s3.BucketAclV2Args{
+//				Bucket: logBucket.ID(),
+//				Acl:    pulumi.String("log-delivery-write"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketLoggingV2(ctx, "exampleBucketLoggingV2", &s3.BucketLoggingV2Args{
+//				Bucket:       exampleBucketV2.ID(),
+//				TargetBucket: logBucket.ID(),
+//				TargetPrefix: pulumi.String("log/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,13 +72,17 @@ import (
 // S3 bucket logging can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket logging resource should be imported using the `bucket` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name
+//
+//	$ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name
+//
 // ```
 //
-//  If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket logging resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+//	If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket logging resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
+//
+//	$ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
+//
 // ```
 type BucketLoggingV2 struct {
 	pulumi.CustomResourceState
@@ -212,7 +219,7 @@ func (i *BucketLoggingV2) ToBucketLoggingV2OutputWithContext(ctx context.Context
 // BucketLoggingV2ArrayInput is an input type that accepts BucketLoggingV2Array and BucketLoggingV2ArrayOutput values.
 // You can construct a concrete instance of `BucketLoggingV2ArrayInput` via:
 //
-//          BucketLoggingV2Array{ BucketLoggingV2Args{...} }
+//	BucketLoggingV2Array{ BucketLoggingV2Args{...} }
 type BucketLoggingV2ArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +244,7 @@ func (i BucketLoggingV2Array) ToBucketLoggingV2ArrayOutputWithContext(ctx contex
 // BucketLoggingV2MapInput is an input type that accepts BucketLoggingV2Map and BucketLoggingV2MapOutput values.
 // You can construct a concrete instance of `BucketLoggingV2MapInput` via:
 //
-//          BucketLoggingV2Map{ "key": BucketLoggingV2Args{...} }
+//	BucketLoggingV2Map{ "key": BucketLoggingV2Args{...} }
 type BucketLoggingV2MapInput interface {
 	pulumi.Input
 

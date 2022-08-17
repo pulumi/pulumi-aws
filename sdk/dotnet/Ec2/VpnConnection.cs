@@ -20,129 +20,131 @@ namespace Pulumi.Aws.Ec2
     /// ### EC2 Transit Gateway
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new Aws.Ec2TransitGateway.TransitGatewayArgs
-    ///         {
-    ///         });
-    ///         var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new Aws.Ec2.CustomerGatewayArgs
-    ///         {
-    ///             BgpAsn = "65000",
-    ///             IpAddress = "172.0.0.1",
-    ///             Type = "ipsec.1",
-    ///         });
-    ///         var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new Aws.Ec2.VpnConnectionArgs
-    ///         {
-    ///             CustomerGatewayId = exampleCustomerGateway.Id,
-    ///             TransitGatewayId = exampleTransitGateway.Id,
-    ///             Type = exampleCustomerGateway.Type,
-    ///         });
-    ///     }
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway");
     /// 
-    /// }
+    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new()
+    ///     {
+    ///         BgpAsn = "65000",
+    ///         IpAddress = "172.0.0.1",
+    ///         Type = "ipsec.1",
+    ///     });
+    /// 
+    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new()
+    ///     {
+    ///         CustomerGatewayId = exampleCustomerGateway.Id,
+    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///         Type = exampleCustomerGateway.Type,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Virtual Private Gateway
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var vpc = new Aws.Ec2.Vpc("vpc", new()
     ///     {
-    ///         var vpc = new Aws.Ec2.Vpc("vpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var vpnGateway = new Aws.Ec2.VpnGateway("vpnGateway", new Aws.Ec2.VpnGatewayArgs
-    ///         {
-    ///             VpcId = vpc.Id,
-    ///         });
-    ///         var customerGateway = new Aws.Ec2.CustomerGateway("customerGateway", new Aws.Ec2.CustomerGatewayArgs
-    ///         {
-    ///             BgpAsn = "65000",
-    ///             IpAddress = "172.0.0.1",
-    ///             Type = "ipsec.1",
-    ///         });
-    ///         var main = new Aws.Ec2.VpnConnection("main", new Aws.Ec2.VpnConnectionArgs
-    ///         {
-    ///             VpnGatewayId = vpnGateway.Id,
-    ///             CustomerGatewayId = customerGateway.Id,
-    ///             Type = "ipsec.1",
-    ///             StaticRoutesOnly = true,
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var vpnGateway = new Aws.Ec2.VpnGateway("vpnGateway", new()
+    ///     {
+    ///         VpcId = vpc.Id,
+    ///     });
+    /// 
+    ///     var customerGateway = new Aws.Ec2.CustomerGateway("customerGateway", new()
+    ///     {
+    ///         BgpAsn = "65000",
+    ///         IpAddress = "172.0.0.1",
+    ///         Type = "ipsec.1",
+    ///     });
+    /// 
+    ///     var main = new Aws.Ec2.VpnConnection("main", new()
+    ///     {
+    ///         VpnGatewayId = vpnGateway.Id,
+    ///         CustomerGatewayId = customerGateway.Id,
+    ///         Type = "ipsec.1",
+    ///         StaticRoutesOnly = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### AWS Site to Site Private VPN
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new()
     ///     {
-    ///         var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new Aws.DirectConnect.GatewayArgs
-    ///         {
-    ///             AmazonSideAsn = "64512",
-    ///         });
-    ///         var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new Aws.Ec2TransitGateway.TransitGatewayArgs
-    ///         {
-    ///             AmazonSideAsn = 64513,
-    ///             Description = "terraform_ipsec_vpn_example",
-    ///             TransitGatewayCidrBlocks = 
-    ///             {
-    ///                 "10.0.0.0/24",
-    ///             },
-    ///         });
-    ///         var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new Aws.Ec2.CustomerGatewayArgs
-    ///         {
-    ///             BgpAsn = "64514",
-    ///             IpAddress = "10.0.0.1",
-    ///             Type = "ipsec.1",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "terraform_ipsec_vpn_example" },
-    ///             },
-    ///         });
-    ///         var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new Aws.DirectConnect.GatewayAssociationArgs
-    ///         {
-    ///             DxGatewayId = exampleGateway.Id,
-    ///             AssociatedGatewayId = exampleTransitGateway.Id,
-    ///             AllowedPrefixes = 
-    ///             {
-    ///                 "10.0.0.0/8",
-    ///             },
-    ///         });
-    ///         var exampleDirectConnectGatewayAttachment = Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachment.Invoke(new Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachmentInvokeArgs
-    ///         {
-    ///             TransitGatewayId = exampleTransitGateway.Id,
-    ///             DxGatewayId = exampleGateway.Id,
-    ///         });
-    ///         var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new Aws.Ec2.VpnConnectionArgs
-    ///         {
-    ///             CustomerGatewayId = exampleCustomerGateway.Id,
-    ///             OutsideIpAddressType = "PrivateIpv4",
-    ///             TransitGatewayId = exampleTransitGateway.Id,
-    ///             TransportTransitGatewayAttachmentId = exampleDirectConnectGatewayAttachment.Apply(exampleDirectConnectGatewayAttachment =&gt; exampleDirectConnectGatewayAttachment.Id),
-    ///             Type = "ipsec.1",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "terraform_ipsec_vpn_example" },
-    ///             },
-    ///         });
-    ///     }
+    ///         AmazonSideAsn = "64512",
+    ///     });
     /// 
-    /// }
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new()
+    ///     {
+    ///         AmazonSideAsn = 64513,
+    ///         Description = "terraform_ipsec_vpn_example",
+    ///         TransitGatewayCidrBlocks = new[]
+    ///         {
+    ///             "10.0.0.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new()
+    ///     {
+    ///         BgpAsn = "64514",
+    ///         IpAddress = "10.0.0.1",
+    ///         Type = "ipsec.1",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "terraform_ipsec_vpn_example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new()
+    ///     {
+    ///         DxGatewayId = exampleGateway.Id,
+    ///         AssociatedGatewayId = exampleTransitGateway.Id,
+    ///         AllowedPrefixes = new[]
+    ///         {
+    ///             "10.0.0.0/8",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDirectConnectGatewayAttachment = Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachment.Invoke(new()
+    ///     {
+    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///         DxGatewayId = exampleGateway.Id,
+    ///     });
+    /// 
+    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new()
+    ///     {
+    ///         CustomerGatewayId = exampleCustomerGateway.Id,
+    ///         OutsideIpAddressType = "PrivateIpv4",
+    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///         TransportTransitGatewayAttachmentId = exampleDirectConnectGatewayAttachment.Apply(getDirectConnectGatewayAttachmentResult =&gt; getDirectConnectGatewayAttachmentResult.Id),
+    ///         Type = "ipsec.1",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "terraform_ipsec_vpn_example" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -154,7 +156,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpnConnection:VpnConnection")]
-    public partial class VpnConnection : Pulumi.CustomResource
+    public partial class VpnConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the VPN Connection.
@@ -235,13 +237,13 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> StaticRoutesOnly { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -608,7 +610,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpnConnectionArgs : Pulumi.ResourceArgs
+    public sealed class VpnConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the customer gateway.
@@ -662,7 +664,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1003,9 +1005,10 @@ namespace Pulumi.Aws.Ec2
         public VpnConnectionArgs()
         {
         }
+        public static new VpnConnectionArgs Empty => new VpnConnectionArgs();
     }
 
-    public sealed class VpnConnectionState : Pulumi.ResourceArgs
+    public sealed class VpnConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the VPN Connection.
@@ -1095,7 +1098,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1107,7 +1110,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -1526,5 +1529,6 @@ namespace Pulumi.Aws.Ec2
         public VpnConnectionState()
         {
         }
+        public static new VpnConnectionState Empty => new VpnConnectionState();
     }
 }

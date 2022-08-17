@@ -14,51 +14,49 @@ namespace Pulumi.Aws.LightSail
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.LightSail.ContainerServiceDeploymentVersion("example", new()
     ///     {
-    ///         var example = new Aws.LightSail.ContainerServiceDeploymentVersion("example", new Aws.LightSail.ContainerServiceDeploymentVersionArgs
+    ///         Containers = new[]
     ///         {
-    ///             Containers = 
-    ///             {
-    ///                 new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionContainerArgs
-    ///                 {
-    ///                     ContainerName = "hello-world",
-    ///                     Image = "amazon/amazon-lightsail:hello-world",
-    ///                     Commands = {},
-    ///                     Environment = 
-    ///                     {
-    ///                         { "MY_ENVIRONMENT_VARIABLE", "my_value" },
-    ///                     },
-    ///                     Ports = 
-    ///                     {
-    ///                         { "80", "HTTP" },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             PublicEndpoint = new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs
+    ///             new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionContainerArgs
     ///             {
     ///                 ContainerName = "hello-world",
-    ///                 ContainerPort = 80,
-    ///                 HealthCheck = new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs
+    ///                 Image = "amazon/amazon-lightsail:hello-world",
+    ///                 Commands = new[] {},
+    ///                 Environment = 
     ///                 {
-    ///                     HealthyThreshold = 2,
-    ///                     UnhealthyThreshold = 2,
-    ///                     TimeoutSeconds = 2,
-    ///                     IntervalSeconds = 5,
-    ///                     Path = "/",
-    ///                     SuccessCodes = "200-499",
+    ///                     { "MY_ENVIRONMENT_VARIABLE", "my_value" },
+    ///                 },
+    ///                 Ports = 
+    ///                 {
+    ///                     { "80", "HTTP" },
     ///                 },
     ///             },
-    ///             ServiceName = aws_lightsail_container_service.Example.Name,
-    ///         });
-    ///     }
+    ///         },
+    ///         PublicEndpoint = new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs
+    ///         {
+    ///             ContainerName = "hello-world",
+    ///             ContainerPort = 80,
+    ///             HealthCheck = new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs
+    ///             {
+    ///                 HealthyThreshold = 2,
+    ///                 UnhealthyThreshold = 2,
+    ///                 TimeoutSeconds = 2,
+    ///                 IntervalSeconds = 5,
+    ///                 Path = "/",
+    ///                 SuccessCodes = "200-499",
+    ///             },
+    ///         },
+    ///         ServiceName = aws_lightsail_container_service.Example.Name,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +68,7 @@ namespace Pulumi.Aws.LightSail
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion")]
-    public partial class ContainerServiceDeploymentVersion : Pulumi.CustomResource
+    public partial class ContainerServiceDeploymentVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
@@ -152,7 +150,7 @@ namespace Pulumi.Aws.LightSail
         }
     }
 
-    public sealed class ContainerServiceDeploymentVersionArgs : Pulumi.ResourceArgs
+    public sealed class ContainerServiceDeploymentVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("containers", required: true)]
         private InputList<Inputs.ContainerServiceDeploymentVersionContainerArgs>? _containers;
@@ -181,9 +179,10 @@ namespace Pulumi.Aws.LightSail
         public ContainerServiceDeploymentVersionArgs()
         {
         }
+        public static new ContainerServiceDeploymentVersionArgs Empty => new ContainerServiceDeploymentVersionArgs();
     }
 
-    public sealed class ContainerServiceDeploymentVersionState : Pulumi.ResourceArgs
+    public sealed class ContainerServiceDeploymentVersionState : global::Pulumi.ResourceArgs
     {
         [Input("containers")]
         private InputList<Inputs.ContainerServiceDeploymentVersionContainerGetArgs>? _containers;
@@ -230,5 +229,6 @@ namespace Pulumi.Aws.LightSail
         public ContainerServiceDeploymentVersionState()
         {
         }
+        public static new ContainerServiceDeploymentVersionState Empty => new ContainerServiceDeploymentVersionState();
     }
 }

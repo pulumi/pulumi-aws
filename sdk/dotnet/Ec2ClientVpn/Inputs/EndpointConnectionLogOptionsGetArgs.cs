@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2ClientVpn.Inputs
 {
 
-    public sealed class EndpointConnectionLogOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConnectionLogOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the CloudWatch Logs log group.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2ClientVpn.Inputs
         public EndpointConnectionLogOptionsGetArgs()
         {
         }
+        public static new EndpointConnectionLogOptionsGetArgs Empty => new EndpointConnectionLogOptionsGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ServiceDiscovery.Inputs
 {
 
-    public sealed class ServiceDnsConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceDnsConfigGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dnsRecords", required: true)]
         private InputList<Inputs.ServiceDnsConfigDnsRecordGetArgs>? _dnsRecords;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.ServiceDiscovery.Inputs
         public ServiceDnsConfigGetArgs()
         {
         }
+        public static new ServiceDnsConfigGetArgs Empty => new ServiceDnsConfigGetArgs();
     }
 }

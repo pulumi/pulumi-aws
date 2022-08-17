@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := wafv2.NewIpSet(ctx, "example", &wafv2.IpSetArgs{
-// 			Addresses: pulumi.StringArray{
-// 				pulumi.String("1.2.3.4/32"),
-// 				pulumi.String("5.6.7.8/32"),
-// 			},
-// 			Description:      pulumi.String("Example IP set"),
-// 			IpAddressVersion: pulumi.String("IPV4"),
-// 			Scope:            pulumi.String("REGIONAL"),
-// 			Tags: pulumi.StringMap{
-// 				"Tag1": pulumi.String("Value1"),
-// 				"Tag2": pulumi.String("Value2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := wafv2.NewIpSet(ctx, "example", &wafv2.IpSetArgs{
+//				Addresses: pulumi.StringArray{
+//					pulumi.String("1.2.3.4/32"),
+//					pulumi.String("5.6.7.8/32"),
+//				},
+//				Description:      pulumi.String("Example IP set"),
+//				IpAddressVersion: pulumi.String("IPV4"),
+//				Scope:            pulumi.String("REGIONAL"),
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // WAFv2 IP Sets can be imported using `ID/name/scope`
 //
 // ```sh
-//  $ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+//
+//	$ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+//
 // ```
 type IpSet struct {
 	pulumi.CustomResourceState
@@ -69,9 +74,9 @@ type IpSet struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
 	Scope pulumi.StringOutput `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -123,9 +128,9 @@ type ipSetState struct {
 	Name *string `pulumi:"name"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
 	Scope *string `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -143,9 +148,9 @@ type IpSetState struct {
 	Name pulumi.StringPtrInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
 	Scope pulumi.StringPtrInput
-	// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -164,7 +169,7 @@ type ipSetArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
 	Scope string `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -180,7 +185,7 @@ type IpSetArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
 	Scope pulumi.StringInput
-	// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -210,7 +215,7 @@ func (i *IpSet) ToIpSetOutputWithContext(ctx context.Context) IpSetOutput {
 // IpSetArrayInput is an input type that accepts IpSetArray and IpSetArrayOutput values.
 // You can construct a concrete instance of `IpSetArrayInput` via:
 //
-//          IpSetArray{ IpSetArgs{...} }
+//	IpSetArray{ IpSetArgs{...} }
 type IpSetArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +240,7 @@ func (i IpSetArray) ToIpSetArrayOutputWithContext(ctx context.Context) IpSetArra
 // IpSetMapInput is an input type that accepts IpSetMap and IpSetMapOutput values.
 // You can construct a concrete instance of `IpSetMapInput` via:
 //
-//          IpSetMap{ "key": IpSetArgs{...} }
+//	IpSetMap{ "key": IpSetArgs{...} }
 type IpSetMapInput interface {
 	pulumi.Input
 
@@ -305,12 +310,12 @@ func (o IpSetOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
 }
 
-// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o IpSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o IpSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

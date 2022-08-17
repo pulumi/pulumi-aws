@@ -16,57 +16,54 @@ namespace Pulumi.Aws.Sagemaker
     /// ### Basic usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ni = new Aws.Sagemaker.NotebookInstance("ni", new()
     ///     {
-    ///         var ni = new Aws.Sagemaker.NotebookInstance("ni", new Aws.Sagemaker.NotebookInstanceArgs
+    ///         RoleArn = aws_iam_role.Role.Arn,
+    ///         InstanceType = "ml.t2.medium",
+    ///         Tags = 
     ///         {
-    ///             RoleArn = aws_iam_role.Role.Arn,
-    ///             InstanceType = "ml.t2.medium",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "foo" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "foo" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Code repository usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.CodeRepository("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.CodeRepository("example", new Aws.Sagemaker.CodeRepositoryArgs
+    ///         CodeRepositoryName = "my-notebook-instance-code-repo",
+    ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
     ///         {
-    ///             CodeRepositoryName = "my-notebook-instance-code-repo",
-    ///             GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
-    ///             {
-    ///                 RepositoryUrl = "https://github.com/hashicorp/terraform-provider-aws.git",
-    ///             },
-    ///         });
-    ///         var ni = new Aws.Sagemaker.NotebookInstance("ni", new Aws.Sagemaker.NotebookInstanceArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Role.Arn,
-    ///             InstanceType = "ml.t2.medium",
-    ///             DefaultCodeRepository = example.CodeRepositoryName,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "foo" },
-    ///             },
-    ///         });
-    ///     }
+    ///             RepositoryUrl = "https://github.com/hashicorp/terraform-provider-aws.git",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var ni = new Aws.Sagemaker.NotebookInstance("ni", new()
+    ///     {
+    ///         RoleArn = aws_iam_role.Role.Arn,
+    ///         InstanceType = "ml.t2.medium",
+    ///         DefaultCodeRepository = example.CodeRepositoryName,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "foo" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +75,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/notebookInstance:NotebookInstance")]
-    public partial class NotebookInstance : Pulumi.CustomResource
+    public partial class NotebookInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
@@ -184,7 +181,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -245,7 +242,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class NotebookInstanceArgs : Pulumi.ResourceArgs
+    public sealed class NotebookInstanceArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceleratorTypes")]
         private InputList<string>? _acceleratorTypes;
@@ -371,9 +368,10 @@ namespace Pulumi.Aws.Sagemaker
         public NotebookInstanceArgs()
         {
         }
+        public static new NotebookInstanceArgs Empty => new NotebookInstanceArgs();
     }
 
-    public sealed class NotebookInstanceState : Pulumi.ResourceArgs
+    public sealed class NotebookInstanceState : global::Pulumi.ResourceArgs
     {
         [Input("acceleratorTypes")]
         private InputList<string>? _acceleratorTypes;
@@ -506,7 +504,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -529,5 +527,6 @@ namespace Pulumi.Aws.Sagemaker
         public NotebookInstanceState()
         {
         }
+        public static new NotebookInstanceState Empty => new NotebookInstanceState();
     }
 }

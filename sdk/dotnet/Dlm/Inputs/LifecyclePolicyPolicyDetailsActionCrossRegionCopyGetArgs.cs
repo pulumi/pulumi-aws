@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dlm.Inputs
 {
 
-    public sealed class LifecyclePolicyPolicyDetailsActionCrossRegionCopyGetArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyPolicyDetailsActionCrossRegionCopyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Dlm.Inputs
         public LifecyclePolicyPolicyDetailsActionCrossRegionCopyGetArgs()
         {
         }
+        public static new LifecyclePolicyPolicyDetailsActionCrossRegionCopyGetArgs Empty => new LifecyclePolicyPolicyDetailsActionCrossRegionCopyGetArgs();
     }
 }

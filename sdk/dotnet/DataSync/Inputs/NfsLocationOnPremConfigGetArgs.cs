@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DataSync.Inputs
 {
 
-    public sealed class NfsLocationOnPremConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class NfsLocationOnPremConfigGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("agentArns", required: true)]
         private InputList<string>? _agentArns;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.DataSync.Inputs
         public NfsLocationOnPremConfigGetArgs()
         {
         }
+        public static new NfsLocationOnPremConfigGetArgs Empty => new NfsLocationOnPremConfigGetArgs();
     }
 }

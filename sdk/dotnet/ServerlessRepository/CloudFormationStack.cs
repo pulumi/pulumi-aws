@@ -15,37 +15,37 @@ namespace Pulumi.Aws.ServerlessRepository
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var currentPartition = Output.Create(Aws.GetPartition.InvokeAsync());
-    ///         var currentRegion = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var postgres_rotator = new Aws.ServerlessRepository.CloudFormationStack("postgres-rotator", new Aws.ServerlessRepository.CloudFormationStackArgs
-    ///         {
-    ///             ApplicationId = "arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
-    ///             Capabilities = 
-    ///             {
-    ///                 "CAPABILITY_IAM",
-    ///                 "CAPABILITY_RESOURCE_POLICY",
-    ///             },
-    ///             Parameters = 
-    ///             {
-    ///                 { "endpoint", Output.Tuple(currentRegion, currentPartition).Apply(values =&gt;
-    ///                 {
-    ///                     var currentRegion = values.Item1;
-    ///                     var currentPartition = values.Item2;
-    ///                     return $"secretsmanager.{currentRegion.Name}.{currentPartition.DnsSuffix}";
-    ///                 }) },
-    ///                 { "functionName", "func-postgres-rotator" },
-    ///             },
-    ///         });
-    ///     }
+    ///     var currentPartition = Aws.GetPartition.Invoke();
     /// 
-    /// }
+    ///     var currentRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var postgres_rotator = new Aws.ServerlessRepository.CloudFormationStack("postgres-rotator", new()
+    ///     {
+    ///         ApplicationId = "arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
+    ///         Capabilities = new[]
+    ///         {
+    ///             "CAPABILITY_IAM",
+    ///             "CAPABILITY_RESOURCE_POLICY",
+    ///         },
+    ///         Parameters = 
+    ///         {
+    ///             { "endpoint", Output.Tuple(currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentPartition.Apply(getPartitionResult =&gt; getPartitionResult)).Apply(values =&gt;
+    ///             {
+    ///                 var currentRegion = values.Item1;
+    ///                 var currentPartition = values.Item2;
+    ///                 return $"secretsmanager.{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}.{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}";
+    ///             }) },
+    ///             { "functionName", "func-postgres-rotator" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.ServerlessRepository
     /// ```
     /// </summary>
     [AwsResourceType("aws:serverlessrepository/cloudFormationStack:CloudFormationStack")]
-    public partial class CloudFormationStack : Pulumi.CustomResource
+    public partial class CloudFormationStack : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the application from the Serverless Application Repository.
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.ServerlessRepository
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.ServerlessRepository
         }
     }
 
-    public sealed class CloudFormationStackArgs : Pulumi.ResourceArgs
+    public sealed class CloudFormationStackArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the application from the Serverless Application Repository.
@@ -210,9 +210,10 @@ namespace Pulumi.Aws.ServerlessRepository
         public CloudFormationStackArgs()
         {
         }
+        public static new CloudFormationStackArgs Empty => new CloudFormationStackArgs();
     }
 
-    public sealed class CloudFormationStackState : Pulumi.ResourceArgs
+    public sealed class CloudFormationStackState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the application from the Serverless Application Repository.
@@ -284,7 +285,7 @@ namespace Pulumi.Aws.ServerlessRepository
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -295,5 +296,6 @@ namespace Pulumi.Aws.ServerlessRepository
         public CloudFormationStackState()
         {
         }
+        public static new CloudFormationStackState Empty => new CloudFormationStackState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketV2LifecycleRuleNoncurrentVersionExpirationGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketV2LifecycleRuleNoncurrentVersionExpirationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of days noncurrent object versions expire.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketV2LifecycleRuleNoncurrentVersionExpirationGetArgs()
         {
         }
+        public static new BucketV2LifecycleRuleNoncurrentVersionExpirationGetArgs Empty => new BucketV2LifecycleRuleNoncurrentVersionExpirationGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class EndpointConfigurationProductionVariantServerlessConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigurationProductionVariantServerlessConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public EndpointConfigurationProductionVariantServerlessConfigGetArgs()
         {
         }
+        public static new EndpointConfigurationProductionVariantServerlessConfigGetArgs Empty => new EndpointConfigurationProductionVariantServerlessConfigGetArgs();
     }
 }

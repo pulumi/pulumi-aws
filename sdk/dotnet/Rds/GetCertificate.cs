@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Rds
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Rds.GetCertificate.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Rds.GetCertificate.InvokeAsync(new Aws.Rds.GetCertificateArgs
-        ///         {
-        ///             LatestValidTill = true,
-        ///         }));
-        ///     }
+        ///         LatestValidTill = true,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Rds
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Rds.GetCertificate.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Rds.GetCertificate.InvokeAsync(new Aws.Rds.GetCertificateArgs
-        ///         {
-        ///             LatestValidTill = true,
-        ///         }));
-        ///     }
+        ///         LatestValidTill = true,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Rds
     }
 
 
-    public sealed class GetCertificateArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Certificate identifier. For example, `rds-ca-2019`.
@@ -88,9 +84,10 @@ namespace Pulumi.Aws.Rds
         public GetCertificateArgs()
         {
         }
+        public static new GetCertificateArgs Empty => new GetCertificateArgs();
     }
 
-    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Certificate identifier. For example, `rds-ca-2019`.
@@ -107,6 +104,7 @@ namespace Pulumi.Aws.Rds
         public GetCertificateInvokeArgs()
         {
         }
+        public static new GetCertificateInvokeArgs Empty => new GetCertificateInvokeArgs();
     }
 
 

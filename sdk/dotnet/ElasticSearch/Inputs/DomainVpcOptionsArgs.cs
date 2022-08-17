@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticSearch.Inputs
 {
 
-    public sealed class DomainVpcOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DomainVpcOptionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
@@ -50,5 +50,6 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         public DomainVpcOptionsArgs()
         {
         }
+        public static new DomainVpcOptionsArgs Empty => new DomainVpcOptionsArgs();
     }
 }

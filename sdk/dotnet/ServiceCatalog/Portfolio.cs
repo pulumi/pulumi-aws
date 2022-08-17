@@ -15,21 +15,19 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var portfolio = new Aws.ServiceCatalog.Portfolio("portfolio", new()
     ///     {
-    ///         var portfolio = new Aws.ServiceCatalog.Portfolio("portfolio", new Aws.ServiceCatalog.PortfolioArgs
-    ///         {
-    ///             Description = "List of my organizations apps",
-    ///             ProviderName = "Brett",
-    ///         });
-    ///     }
+    ///         Description = "List of my organizations apps",
+    ///         ProviderName = "Brett",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/portfolio:Portfolio")]
-    public partial class Portfolio : Pulumi.CustomResource
+    public partial class Portfolio : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -68,13 +66,13 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> ProviderName { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -123,7 +121,7 @@ namespace Pulumi.Aws.ServiceCatalog
         }
     }
 
-    public sealed class PortfolioArgs : Pulumi.ResourceArgs
+    public sealed class PortfolioArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the portfolio
@@ -147,7 +145,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -158,9 +156,10 @@ namespace Pulumi.Aws.ServiceCatalog
         public PortfolioArgs()
         {
         }
+        public static new PortfolioArgs Empty => new PortfolioArgs();
     }
 
-    public sealed class PortfolioState : Pulumi.ResourceArgs
+    public sealed class PortfolioState : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -190,7 +189,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -202,7 +201,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -213,5 +212,6 @@ namespace Pulumi.Aws.ServiceCatalog
         public PortfolioState()
         {
         }
+        public static new PortfolioState Empty => new PortfolioState();
     }
 }

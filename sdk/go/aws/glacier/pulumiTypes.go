@@ -20,7 +20,7 @@ type VaultNotification struct {
 // VaultNotificationInput is an input type that accepts VaultNotificationArgs and VaultNotificationOutput values.
 // You can construct a concrete instance of `VaultNotificationInput` via:
 //
-//          VaultNotificationArgs{...}
+//	VaultNotificationArgs{...}
 type VaultNotificationInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i VaultNotificationArgs) ToVaultNotificationPtrOutputWithContext(ctx conte
 // VaultNotificationPtrInput is an input type that accepts VaultNotificationArgs, VaultNotificationPtr and VaultNotificationPtrOutput values.
 // You can construct a concrete instance of `VaultNotificationPtrInput` via:
 //
-//          VaultNotificationArgs{...}
+//	        VaultNotificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VaultNotificationPtrInput interface {
 	pulumi.Input
 

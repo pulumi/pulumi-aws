@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dataexchange"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dataexchange"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := dataexchange.NewRevision(ctx, "example", &dataexchange.RevisionArgs{
-// 			DataSetId: pulumi.Any(aws_dataexchange_data_set.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := dataexchange.NewRevision(ctx, "example", &dataexchange.RevisionArgs{
+//				DataSetId: pulumi.Any(aws_dataexchange_data_set.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // DataExchange Revisions can be imported by their `data-set-id:revision-id`
 //
 // ```sh
-//  $ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+//
+//	$ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+//
 // ```
 type Revision struct {
 	pulumi.CustomResourceState
@@ -55,8 +60,7 @@ type Revision struct {
 	// The Id of the revision.
 	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -101,8 +105,7 @@ type revisionState struct {
 	// The Id of the revision.
 	RevisionId *string `pulumi:"revisionId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -116,8 +119,7 @@ type RevisionState struct {
 	// The Id of the revision.
 	RevisionId pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -170,7 +172,7 @@ func (i *Revision) ToRevisionOutputWithContext(ctx context.Context) RevisionOutp
 // RevisionArrayInput is an input type that accepts RevisionArray and RevisionArrayOutput values.
 // You can construct a concrete instance of `RevisionArrayInput` via:
 //
-//          RevisionArray{ RevisionArgs{...} }
+//	RevisionArray{ RevisionArgs{...} }
 type RevisionArrayInput interface {
 	pulumi.Input
 
@@ -195,7 +197,7 @@ func (i RevisionArray) ToRevisionArrayOutputWithContext(ctx context.Context) Rev
 // RevisionMapInput is an input type that accepts RevisionMap and RevisionMapOutput values.
 // You can construct a concrete instance of `RevisionMapInput` via:
 //
-//          RevisionMap{ "key": RevisionArgs{...} }
+//	RevisionMap{ "key": RevisionArgs{...} }
 type RevisionMapInput interface {
 	pulumi.Input
 
@@ -256,7 +258,6 @@ func (o RevisionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o RevisionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

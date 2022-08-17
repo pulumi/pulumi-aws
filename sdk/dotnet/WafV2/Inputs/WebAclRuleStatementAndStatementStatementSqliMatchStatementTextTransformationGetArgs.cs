@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleStatementAndStatementStatementSqliMatchStatementTextTransformationGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleStatementAndStatementStatementSqliMatchStatementTextTransformationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclRuleStatementAndStatementStatementSqliMatchStatementTextTransformationGetArgs()
         {
         }
+        public static new WebAclRuleStatementAndStatementStatementSqliMatchStatementTextTransformationGetArgs Empty => new WebAclRuleStatementAndStatementStatementSqliMatchStatementTextTransformationGetArgs();
     }
 }

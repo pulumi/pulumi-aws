@@ -20,42 +20,40 @@ namespace Pulumi.Aws.Ebs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ebsVolumes = Aws.Ebs.GetSnapshotIds.Invoke(new()
         ///     {
-        ///         var ebsVolumes = Output.Create(Aws.Ebs.GetSnapshotIds.InvokeAsync(new Aws.Ebs.GetSnapshotIdsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ebs.Inputs.GetSnapshotIdsFilterInputArgs
         ///             {
-        ///                 new Aws.Ebs.Inputs.GetSnapshotIdsFilterArgs
+        ///                 Name = "volume-size",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "volume-size",
-        ///                     Values = 
-        ///                     {
-        ///                         "40",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ebs.Inputs.GetSnapshotIdsFilterArgs
-        ///                 {
-        ///                     Name = "tag:Name",
-        ///                     Values = 
-        ///                     {
-        ///                         "Example",
-        ///                     },
+        ///                     "40",
         ///                 },
         ///             },
-        ///             Owners = 
+        ///             new Aws.Ebs.Inputs.GetSnapshotIdsFilterInputArgs
         ///             {
-        ///                 "self",
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "Example",
+        ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -72,42 +70,40 @@ namespace Pulumi.Aws.Ebs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ebsVolumes = Aws.Ebs.GetSnapshotIds.Invoke(new()
         ///     {
-        ///         var ebsVolumes = Output.Create(Aws.Ebs.GetSnapshotIds.InvokeAsync(new Aws.Ebs.GetSnapshotIdsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ebs.Inputs.GetSnapshotIdsFilterInputArgs
         ///             {
-        ///                 new Aws.Ebs.Inputs.GetSnapshotIdsFilterArgs
+        ///                 Name = "volume-size",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "volume-size",
-        ///                     Values = 
-        ///                     {
-        ///                         "40",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ebs.Inputs.GetSnapshotIdsFilterArgs
-        ///                 {
-        ///                     Name = "tag:Name",
-        ///                     Values = 
-        ///                     {
-        ///                         "Example",
-        ///                     },
+        ///                     "40",
         ///                 },
         ///             },
-        ///             Owners = 
+        ///             new Aws.Ebs.Inputs.GetSnapshotIdsFilterInputArgs
         ///             {
-        ///                 "self",
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "Example",
+        ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -117,7 +113,7 @@ namespace Pulumi.Aws.Ebs
     }
 
 
-    public sealed class GetSnapshotIdsArgs : Pulumi.InvokeArgs
+    public sealed class GetSnapshotIdsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetSnapshotIdsFilterArgs>? _filters;
@@ -160,9 +156,10 @@ namespace Pulumi.Aws.Ebs
         public GetSnapshotIdsArgs()
         {
         }
+        public static new GetSnapshotIdsArgs Empty => new GetSnapshotIdsArgs();
     }
 
-    public sealed class GetSnapshotIdsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSnapshotIdsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetSnapshotIdsFilterInputArgs>? _filters;
@@ -205,6 +202,7 @@ namespace Pulumi.Aws.Ebs
         public GetSnapshotIdsInvokeArgs()
         {
         }
+        public static new GetSnapshotIdsInvokeArgs Empty => new GetSnapshotIdsInvokeArgs();
     }
 
 

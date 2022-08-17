@@ -15,37 +15,35 @@ namespace Pulumi.Aws.WafV2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.WafV2.RegexPatternSet("example", new()
     ///     {
-    ///         var example = new Aws.WafV2.RegexPatternSet("example", new Aws.WafV2.RegexPatternSetArgs
+    ///         Description = "Example regex pattern set",
+    ///         RegularExpressions = new[]
     ///         {
-    ///             Description = "Example regex pattern set",
-    ///             RegularExpressions = 
+    ///             new Aws.WafV2.Inputs.RegexPatternSetRegularExpressionArgs
     ///             {
-    ///                 new Aws.WafV2.Inputs.RegexPatternSetRegularExpressionArgs
-    ///                 {
-    ///                     RegexString = "one",
-    ///                 },
-    ///                 new Aws.WafV2.Inputs.RegexPatternSetRegularExpressionArgs
-    ///                 {
-    ///                     RegexString = "two",
-    ///                 },
+    ///                 RegexString = "one",
     ///             },
-    ///             Scope = "REGIONAL",
-    ///             Tags = 
+    ///             new Aws.WafV2.Inputs.RegexPatternSetRegularExpressionArgs
     ///             {
-    ///                 { "Tag1", "Value1" },
-    ///                 { "Tag2", "Value2" },
+    ///                 RegexString = "two",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Scope = "REGIONAL",
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///             { "Tag2", "Value2" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +55,7 @@ namespace Pulumi.Aws.WafV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafv2/regexPatternSet:RegexPatternSet")]
-    public partial class RegexPatternSet : Pulumi.CustomResource
+    public partial class RegexPatternSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the cluster.
@@ -93,13 +91,13 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// An array of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -148,7 +146,7 @@ namespace Pulumi.Aws.WafV2
         }
     }
 
-    public sealed class RegexPatternSetArgs : Pulumi.ResourceArgs
+    public sealed class RegexPatternSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A friendly description of the regular expression pattern set.
@@ -184,7 +182,7 @@ namespace Pulumi.Aws.WafV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// An array of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -195,9 +193,10 @@ namespace Pulumi.Aws.WafV2
         public RegexPatternSetArgs()
         {
         }
+        public static new RegexPatternSetArgs Empty => new RegexPatternSetArgs();
     }
 
-    public sealed class RegexPatternSetState : Pulumi.ResourceArgs
+    public sealed class RegexPatternSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) that identifies the cluster.
@@ -242,7 +241,7 @@ namespace Pulumi.Aws.WafV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// An array of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -254,7 +253,7 @@ namespace Pulumi.Aws.WafV2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -265,5 +264,6 @@ namespace Pulumi.Aws.WafV2
         public RegexPatternSetState()
         {
         }
+        public static new RegexPatternSetState Empty => new RegexPatternSetState();
     }
 }

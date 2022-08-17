@@ -17,167 +17,157 @@ namespace Pulumi.Aws.Connect
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         var example = new Aws.Connect.User("example", new Aws.Connect.UserArgs
+    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         Password = "Password123",
+    ///         RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
+    ///         SecurityProfileIds = new[]
     ///         {
-    ///             InstanceId = aws_connect_instance.Example.Id,
-    ///             Password = "Password123",
-    ///             RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
-    ///             SecurityProfileIds = 
-    ///             {
-    ///                 aws_connect_security_profile.Example.Security_profile_id,
-    ///             },
-    ///             IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
-    ///             {
-    ///                 FirstName = "example",
-    ///                 LastName = "example2",
-    ///             },
-    ///             PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
-    ///             {
-    ///                 AfterContactWorkTimeLimit = 0,
-    ///                 PhoneType = "SOFT_PHONE",
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_connect_security_profile.Example.Security_profile_id,
+    ///         },
+    ///         IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
+    ///         {
+    ///             FirstName = "example",
+    ///             LastName = "example2",
+    ///         },
+    ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
+    ///         {
+    ///             AfterContactWorkTimeLimit = 0,
+    ///             PhoneType = "SOFT_PHONE",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With hierarchy_group_id
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         var example = new Aws.Connect.User("example", new Aws.Connect.UserArgs
+    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         Password = "Password123",
+    ///         RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
+    ///         HierarchyGroupId = aws_connect_user_hierarchy_group.Example.Hierarchy_group_id,
+    ///         SecurityProfileIds = new[]
     ///         {
-    ///             InstanceId = aws_connect_instance.Example.Id,
-    ///             Password = "Password123",
-    ///             RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
-    ///             HierarchyGroupId = aws_connect_user_hierarchy_group.Example.Hierarchy_group_id,
-    ///             SecurityProfileIds = 
-    ///             {
-    ///                 aws_connect_security_profile.Example.Security_profile_id,
-    ///             },
-    ///             IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
-    ///             {
-    ///                 FirstName = "example",
-    ///                 LastName = "example2",
-    ///             },
-    ///             PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
-    ///             {
-    ///                 AfterContactWorkTimeLimit = 0,
-    ///                 PhoneType = "SOFT_PHONE",
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_connect_security_profile.Example.Security_profile_id,
+    ///         },
+    ///         IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
+    ///         {
+    ///             FirstName = "example",
+    ///             LastName = "example2",
+    ///         },
+    ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
+    ///         {
+    ///             AfterContactWorkTimeLimit = 0,
+    ///             PhoneType = "SOFT_PHONE",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With identity_info filled
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         var example = new Aws.Connect.User("example", new Aws.Connect.UserArgs
+    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         Password = "Password123",
+    ///         RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
+    ///         SecurityProfileIds = new[]
     ///         {
-    ///             InstanceId = aws_connect_instance.Example.Id,
-    ///             Password = "Password123",
-    ///             RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
-    ///             SecurityProfileIds = 
-    ///             {
-    ///                 aws_connect_security_profile.Example.Security_profile_id,
-    ///             },
-    ///             IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
-    ///             {
-    ///                 Email = "example@example.com",
-    ///                 FirstName = "example",
-    ///                 LastName = "example2",
-    ///             },
-    ///             PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
-    ///             {
-    ///                 AfterContactWorkTimeLimit = 0,
-    ///                 PhoneType = "SOFT_PHONE",
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_connect_security_profile.Example.Security_profile_id,
+    ///         },
+    ///         IdentityInfo = new Aws.Connect.Inputs.UserIdentityInfoArgs
+    ///         {
+    ///             Email = "example@example.com",
+    ///             FirstName = "example",
+    ///             LastName = "example2",
+    ///         },
+    ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
+    ///         {
+    ///             AfterContactWorkTimeLimit = 0,
+    ///             PhoneType = "SOFT_PHONE",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With phone_config phone type as desk phone
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         var example = new Aws.Connect.User("example", new Aws.Connect.UserArgs
+    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         Password = "Password123",
+    ///         RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
+    ///         SecurityProfileIds = new[]
     ///         {
-    ///             InstanceId = aws_connect_instance.Example.Id,
-    ///             Password = "Password123",
-    ///             RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
-    ///             SecurityProfileIds = 
-    ///             {
-    ///                 aws_connect_security_profile.Example.Security_profile_id,
-    ///             },
-    ///             PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
-    ///             {
-    ///                 AfterContactWorkTimeLimit = 0,
-    ///                 PhoneType = "SOFT_PHONE",
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_connect_security_profile.Example.Security_profile_id,
+    ///         },
+    ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
+    ///         {
+    ///             AfterContactWorkTimeLimit = 0,
+    ///             PhoneType = "SOFT_PHONE",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With multiple Security profile ids specified in security_profile_ids
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Connect.User("example", new()
     ///     {
-    ///         var example = new Aws.Connect.User("example", new Aws.Connect.UserArgs
+    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         Password = "Password123",
+    ///         RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
+    ///         SecurityProfileIds = new[]
     ///         {
-    ///             InstanceId = aws_connect_instance.Example.Id,
-    ///             Password = "Password123",
-    ///             RoutingProfileId = aws_connect_routing_profile.Example.Routing_profile_id,
-    ///             SecurityProfileIds = 
-    ///             {
-    ///                 aws_connect_security_profile.Example.Security_profile_id,
-    ///                 aws_connect_security_profile.Example2.Security_profile_id,
-    ///             },
-    ///             PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
-    ///             {
-    ///                 AfterContactWorkTimeLimit = 0,
-    ///                 AutoAccept = false,
-    ///                 DeskPhoneNumber = "+112345678912",
-    ///                 PhoneType = "DESK_PHONE",
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_connect_security_profile.Example.Security_profile_id,
+    ///             aws_connect_security_profile.Example2.Security_profile_id,
+    ///         },
+    ///         PhoneConfig = new Aws.Connect.Inputs.UserPhoneConfigArgs
+    ///         {
+    ///             AfterContactWorkTimeLimit = 0,
+    ///             AutoAccept = false,
+    ///             DeskPhoneNumber = "+112345678912",
+    ///             PhoneType = "DESK_PHONE",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -189,7 +179,7 @@ namespace Pulumi.Aws.Connect
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/user:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the user.
@@ -251,16 +241,9 @@ namespace Pulumi.Aws.Connect
         [Output("securityProfileIds")]
         public Output<ImmutableArray<string>> SecurityProfileIds { get; private set; } = null!;
 
-        /// <summary>
-        /// Tags to apply to the user. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -314,7 +297,7 @@ namespace Pulumi.Aws.Connect
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
@@ -378,35 +361,19 @@ namespace Pulumi.Aws.Connect
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the user. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 
-    public sealed class UserState : Pulumi.ResourceArgs
+    public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the user.
@@ -476,11 +443,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the user. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -489,10 +451,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -508,5 +466,6 @@ namespace Pulumi.Aws.Connect
         public UserState()
         {
         }
+        public static new UserState Empty => new UserState();
     }
 }

@@ -24,7 +24,7 @@ type ApplicationAppversionLifecycle struct {
 // ApplicationAppversionLifecycleInput is an input type that accepts ApplicationAppversionLifecycleArgs and ApplicationAppversionLifecycleOutput values.
 // You can construct a concrete instance of `ApplicationAppversionLifecycleInput` via:
 //
-//          ApplicationAppversionLifecycleArgs{...}
+//	ApplicationAppversionLifecycleArgs{...}
 type ApplicationAppversionLifecycleInput interface {
 	pulumi.Input
 
@@ -66,11 +66,11 @@ func (i ApplicationAppversionLifecycleArgs) ToApplicationAppversionLifecyclePtrO
 // ApplicationAppversionLifecyclePtrInput is an input type that accepts ApplicationAppversionLifecycleArgs, ApplicationAppversionLifecyclePtr and ApplicationAppversionLifecyclePtrOutput values.
 // You can construct a concrete instance of `ApplicationAppversionLifecyclePtrInput` via:
 //
-//          ApplicationAppversionLifecycleArgs{...}
+//	        ApplicationAppversionLifecycleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ApplicationAppversionLifecyclePtrInput interface {
 	pulumi.Input
 
@@ -215,7 +215,7 @@ type ConfigurationTemplateSetting struct {
 // ConfigurationTemplateSettingInput is an input type that accepts ConfigurationTemplateSettingArgs and ConfigurationTemplateSettingOutput values.
 // You can construct a concrete instance of `ConfigurationTemplateSettingInput` via:
 //
-//          ConfigurationTemplateSettingArgs{...}
+//	ConfigurationTemplateSettingArgs{...}
 type ConfigurationTemplateSettingInput interface {
 	pulumi.Input
 
@@ -246,7 +246,7 @@ func (i ConfigurationTemplateSettingArgs) ToConfigurationTemplateSettingOutputWi
 // ConfigurationTemplateSettingArrayInput is an input type that accepts ConfigurationTemplateSettingArray and ConfigurationTemplateSettingArrayOutput values.
 // You can construct a concrete instance of `ConfigurationTemplateSettingArrayInput` via:
 //
-//          ConfigurationTemplateSettingArray{ ConfigurationTemplateSettingArgs{...} }
+//	ConfigurationTemplateSettingArray{ ConfigurationTemplateSettingArgs{...} }
 type ConfigurationTemplateSettingArrayInput interface {
 	pulumi.Input
 
@@ -331,7 +331,7 @@ type EnvironmentAllSetting struct {
 // EnvironmentAllSettingInput is an input type that accepts EnvironmentAllSettingArgs and EnvironmentAllSettingOutput values.
 // You can construct a concrete instance of `EnvironmentAllSettingInput` via:
 //
-//          EnvironmentAllSettingArgs{...}
+//	EnvironmentAllSettingArgs{...}
 type EnvironmentAllSettingInput interface {
 	pulumi.Input
 
@@ -363,7 +363,7 @@ func (i EnvironmentAllSettingArgs) ToEnvironmentAllSettingOutputWithContext(ctx 
 // EnvironmentAllSettingArrayInput is an input type that accepts EnvironmentAllSettingArray and EnvironmentAllSettingArrayOutput values.
 // You can construct a concrete instance of `EnvironmentAllSettingArrayInput` via:
 //
-//          EnvironmentAllSettingArray{ EnvironmentAllSettingArgs{...} }
+//	EnvironmentAllSettingArray{ EnvironmentAllSettingArgs{...} }
 type EnvironmentAllSettingArrayInput interface {
 	pulumi.Input
 
@@ -449,7 +449,7 @@ type EnvironmentSetting struct {
 // EnvironmentSettingInput is an input type that accepts EnvironmentSettingArgs and EnvironmentSettingOutput values.
 // You can construct a concrete instance of `EnvironmentSettingInput` via:
 //
-//          EnvironmentSettingArgs{...}
+//	EnvironmentSettingArgs{...}
 type EnvironmentSettingInput interface {
 	pulumi.Input
 
@@ -481,7 +481,7 @@ func (i EnvironmentSettingArgs) ToEnvironmentSettingOutputWithContext(ctx contex
 // EnvironmentSettingArrayInput is an input type that accepts EnvironmentSettingArray and EnvironmentSettingArrayOutput values.
 // You can construct a concrete instance of `EnvironmentSettingArrayInput` via:
 //
-//          EnvironmentSettingArray{ EnvironmentSettingArgs{...} }
+//	EnvironmentSettingArray{ EnvironmentSettingArgs{...} }
 type EnvironmentSettingArrayInput interface {
 	pulumi.Input
 
@@ -569,7 +569,7 @@ type GetApplicationAppversionLifecycle struct {
 // GetApplicationAppversionLifecycleInput is an input type that accepts GetApplicationAppversionLifecycleArgs and GetApplicationAppversionLifecycleOutput values.
 // You can construct a concrete instance of `GetApplicationAppversionLifecycleInput` via:
 //
-//          GetApplicationAppversionLifecycleArgs{...}
+//	GetApplicationAppversionLifecycleArgs{...}
 type GetApplicationAppversionLifecycleInput interface {
 	pulumi.Input
 

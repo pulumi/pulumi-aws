@@ -375,9 +375,8 @@ class ReplicaKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        primary = pulumi.providers.Aws("primary", region="us-east-1")
+        primary = aws.Provider("primary", region="us-east-1")
         primary_key = aws.kms.Key("primaryKey",
             description="Multi-Region primary key",
             deletion_window_in_days=30,
@@ -424,9 +423,8 @@ class ReplicaKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        primary = pulumi.providers.Aws("primary", region="us-east-1")
+        primary = aws.Provider("primary", region="us-east-1")
         primary_key = aws.kms.Key("primaryKey",
             description="Multi-Region primary key",
             deletion_window_in_days=30,

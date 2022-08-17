@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda.Inputs
 {
 
-    public sealed class EventSourceMappingSourceAccessConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class EventSourceMappingSourceAccessConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Lambda.Inputs
         public EventSourceMappingSourceAccessConfigurationArgs()
         {
         }
+        public static new EventSourceMappingSourceAccessConfigurationArgs Empty => new EventSourceMappingSourceAccessConfigurationArgs();
     }
 }

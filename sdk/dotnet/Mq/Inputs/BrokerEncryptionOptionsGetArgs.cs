@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Mq.Inputs
 {
 
-    public sealed class BrokerEncryptionOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class BrokerEncryptionOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Mq.Inputs
         public BrokerEncryptionOptionsGetArgs()
         {
         }
+        public static new BrokerEncryptionOptionsGetArgs Empty => new BrokerEncryptionOptionsGetArgs();
     }
 }

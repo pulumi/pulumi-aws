@@ -17,25 +17,24 @@ namespace Pulumi.Aws.CloudHsmV2
     /// The following example below creates an HSM module in CloudHSM cluster.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var cluster = Aws.CloudHsmV2.GetCluster.Invoke(new()
     ///     {
-    ///         var cluster = Output.Create(Aws.CloudHsmV2.GetCluster.InvokeAsync(new Aws.CloudHsmV2.GetClusterArgs
-    ///         {
-    ///             ClusterId = @var.Cloudhsm_cluster_id,
-    ///         }));
-    ///         var cloudhsmV2Hsm = new Aws.CloudHsmV2.Hsm("cloudhsmV2Hsm", new Aws.CloudHsmV2.HsmArgs
-    ///         {
-    ///             SubnetId = cluster.Apply(cluster =&gt; cluster.SubnetIds?[0]),
-    ///             ClusterId = cluster.Apply(cluster =&gt; cluster.ClusterId),
-    ///         });
-    ///     }
+    ///         ClusterId = @var.Cloudhsm_cluster_id,
+    ///     });
     /// 
-    /// }
+    ///     var cloudhsmV2Hsm = new Aws.CloudHsmV2.Hsm("cloudhsmV2Hsm", new()
+    ///     {
+    ///         SubnetId = cluster.Apply(getClusterResult =&gt; getClusterResult.SubnetIds[0]),
+    ///         ClusterId = cluster.Apply(getClusterResult =&gt; getClusterResult.ClusterId),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Aws.CloudHsmV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudhsmv2/hsm:Hsm")]
-    public partial class Hsm : Pulumi.CustomResource
+    public partial class Hsm : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
@@ -135,7 +134,7 @@ namespace Pulumi.Aws.CloudHsmV2
         }
     }
 
-    public sealed class HsmArgs : Pulumi.ResourceArgs
+    public sealed class HsmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
@@ -164,9 +163,10 @@ namespace Pulumi.Aws.CloudHsmV2
         public HsmArgs()
         {
         }
+        public static new HsmArgs Empty => new HsmArgs();
     }
 
-    public sealed class HsmState : Pulumi.ResourceArgs
+    public sealed class HsmState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IDs of AZ in which HSM module will be located. Do not use together with subnet_id.
@@ -213,5 +213,6 @@ namespace Pulumi.Aws.CloudHsmV2
         public HsmState()
         {
         }
+        public static new HsmState Empty => new HsmState();
     }
 }

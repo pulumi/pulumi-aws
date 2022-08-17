@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class RuleGroupRuleGroupRuleVariablesIpSetArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleGroupRuleVariablesIpSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block that defines a set of IP addresses. See IP Set below for details.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public RuleGroupRuleGroupRuleVariablesIpSetArgs()
         {
         }
+        public static new RuleGroupRuleGroupRuleVariablesIpSetArgs Empty => new RuleGroupRuleGroupRuleVariablesIpSetArgs();
     }
 }

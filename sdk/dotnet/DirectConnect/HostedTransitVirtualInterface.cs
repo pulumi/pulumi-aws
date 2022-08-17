@@ -17,23 +17,21 @@ namespace Pulumi.Aws.DirectConnect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DirectConnect.HostedTransitVirtualInterface("example", new()
     ///     {
-    ///         var example = new Aws.DirectConnect.HostedTransitVirtualInterface("example", new Aws.DirectConnect.HostedTransitVirtualInterfaceArgs
-    ///         {
-    ///             ConnectionId = aws_dx_connection.Example.Id,
-    ///             Vlan = 4094,
-    ///             AddressFamily = "ipv4",
-    ///             BgpAsn = 65352,
-    ///         });
-    ///     }
+    ///         ConnectionId = aws_dx_connection.Example.Id,
+    ///         Vlan = 4094,
+    ///         AddressFamily = "ipv4",
+    ///         BgpAsn = 65352,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.DirectConnect
     /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface")]
-    public partial class HostedTransitVirtualInterface : Pulumi.CustomResource
+    public partial class HostedTransitVirtualInterface : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -172,7 +170,7 @@ namespace Pulumi.Aws.DirectConnect
         }
     }
 
-    public sealed class HostedTransitVirtualInterfaceArgs : Pulumi.ResourceArgs
+    public sealed class HostedTransitVirtualInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -237,9 +235,10 @@ namespace Pulumi.Aws.DirectConnect
         public HostedTransitVirtualInterfaceArgs()
         {
         }
+        public static new HostedTransitVirtualInterfaceArgs Empty => new HostedTransitVirtualInterfaceArgs();
     }
 
-    public sealed class HostedTransitVirtualInterfaceState : Pulumi.ResourceArgs
+    public sealed class HostedTransitVirtualInterfaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -325,5 +324,6 @@ namespace Pulumi.Aws.DirectConnect
         public HostedTransitVirtualInterfaceState()
         {
         }
+        public static new HostedTransitVirtualInterfaceState Empty => new HostedTransitVirtualInterfaceState();
     }
 }

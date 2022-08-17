@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := directconnect.NewGatewayAssociationProposal(ctx, "example", &directconnect.GatewayAssociationProposalArgs{
-// 			DxGatewayId:             pulumi.Any(aws_dx_gateway.Example.Id),
-// 			DxGatewayOwnerAccountId: pulumi.Any(aws_dx_gateway.Example.Owner_account_id),
-// 			AssociatedGatewayId:     pulumi.Any(aws_vpn_gateway.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := directconnect.NewGatewayAssociationProposal(ctx, "example", &directconnect.GatewayAssociationProposalArgs{
+//				DxGatewayId:             pulumi.Any(aws_dx_gateway.Example.Id),
+//				DxGatewayOwnerAccountId: pulumi.Any(aws_dx_gateway.Example.Owner_account_id),
+//				AssociatedGatewayId:     pulumi.Any(aws_vpn_gateway.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,16 +46,20 @@ import (
 // Direct Connect Gateway Association Proposals can be imported using either a proposal ID or proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe
+//
+//	$ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe
+//
 // ```
 //
-//  or
+//	or
 //
 // ```sh
-//  $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe/abcd1234-dcba-5678-be23-cdef9876ab45/vgw-12345678
+//
+//	$ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe/abcd1234-dcba-5678-be23-cdef9876ab45/vgw-12345678
+//
 // ```
 //
-//  The latter case is useful when a previous proposal has been accepted and deleted by AWS. The `aws_dx_gateway_association_proposal` resource will then represent a pseudo-proposal for the same Direct Connect Gateway and associated gateway. If no previous proposal is available, use a tool like [`uuidgen`](http://manpages.ubuntu.com/manpages/bionic/man1/uuidgen.1.html) to generate a new random pseudo-proposal ID.
+//	The latter case is useful when a previous proposal has been accepted and deleted by AWS. The `aws_dx_gateway_association_proposal` resource will then represent a pseudo-proposal for the same Direct Connect Gateway and associated gateway. If no previous proposal is available, use a tool like [`uuidgen`](http://manpages.ubuntu.com/manpages/bionic/man1/uuidgen.1.html) to generate a new random pseudo-proposal ID.
 type GatewayAssociationProposal struct {
 	pulumi.CustomResourceState
 
@@ -190,7 +197,7 @@ func (i *GatewayAssociationProposal) ToGatewayAssociationProposalOutputWithConte
 // GatewayAssociationProposalArrayInput is an input type that accepts GatewayAssociationProposalArray and GatewayAssociationProposalArrayOutput values.
 // You can construct a concrete instance of `GatewayAssociationProposalArrayInput` via:
 //
-//          GatewayAssociationProposalArray{ GatewayAssociationProposalArgs{...} }
+//	GatewayAssociationProposalArray{ GatewayAssociationProposalArgs{...} }
 type GatewayAssociationProposalArrayInput interface {
 	pulumi.Input
 
@@ -215,7 +222,7 @@ func (i GatewayAssociationProposalArray) ToGatewayAssociationProposalArrayOutput
 // GatewayAssociationProposalMapInput is an input type that accepts GatewayAssociationProposalMap and GatewayAssociationProposalMapOutput values.
 // You can construct a concrete instance of `GatewayAssociationProposalMapInput` via:
 //
-//          GatewayAssociationProposalMap{ "key": GatewayAssociationProposalArgs{...} }
+//	GatewayAssociationProposalMap{ "key": GatewayAssociationProposalArgs{...} }
 type GatewayAssociationProposalMapInput interface {
 	pulumi.Input
 

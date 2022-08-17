@@ -19,20 +19,18 @@ namespace Pulumi.Aws.CloudFront
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudFront.GetRealtimeLogConfig.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudFront.GetRealtimeLogConfig.InvokeAsync(new Aws.CloudFront.GetRealtimeLogConfigArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.CloudFront
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CloudFront.GetRealtimeLogConfig.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CloudFront.GetRealtimeLogConfig.InvokeAsync(new Aws.CloudFront.GetRealtimeLogConfigArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.CloudFront
     }
 
 
-    public sealed class GetRealtimeLogConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetRealtimeLogConfigArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique name to identify this real-time log configuration.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.CloudFront
         public GetRealtimeLogConfigArgs()
         {
         }
+        public static new GetRealtimeLogConfigArgs Empty => new GetRealtimeLogConfigArgs();
     }
 
-    public sealed class GetRealtimeLogConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRealtimeLogConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The unique name to identify this real-time log configuration.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.CloudFront
         public GetRealtimeLogConfigInvokeArgs()
         {
         }
+        public static new GetRealtimeLogConfigInvokeArgs Empty => new GetRealtimeLogConfigInvokeArgs();
     }
 
 

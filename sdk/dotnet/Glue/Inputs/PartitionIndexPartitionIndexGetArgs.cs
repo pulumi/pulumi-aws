@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class PartitionIndexPartitionIndexGetArgs : Pulumi.ResourceArgs
+    public sealed class PartitionIndexPartitionIndexGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the partition index.
@@ -36,5 +36,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public PartitionIndexPartitionIndexGetArgs()
         {
         }
+        public static new PartitionIndexPartitionIndexGetArgs Empty => new PartitionIndexPartitionIndexGetArgs();
     }
 }

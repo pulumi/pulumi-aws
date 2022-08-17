@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class ServiceOrderedPlacementStrategyArgs : Pulumi.ResourceArgs
+    public sealed class ServiceOrderedPlacementStrategyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// For the `spread` placement strategy, valid values are `instanceId` (or `host`,
@@ -30,5 +30,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public ServiceOrderedPlacementStrategyArgs()
         {
         }
+        public static new ServiceOrderedPlacementStrategyArgs Empty => new ServiceOrderedPlacementStrategyArgs();
     }
 }

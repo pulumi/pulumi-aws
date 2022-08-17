@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class EndpointConfigurationAsyncInferenceConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigurationAsyncInferenceConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public EndpointConfigurationAsyncInferenceConfigGetArgs()
         {
         }
+        public static new EndpointConfigurationAsyncInferenceConfigGetArgs Empty => new EndpointConfigurationAsyncInferenceConfigGetArgs();
     }
 }

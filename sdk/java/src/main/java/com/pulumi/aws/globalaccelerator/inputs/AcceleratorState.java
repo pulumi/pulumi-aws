@@ -79,14 +79,14 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+     * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+     * @return The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -139,14 +139,14 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider .
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -264,7 +264,7 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+         * @param ipAddressType The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+         * @param ipAddressType The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider .
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class AcceleratorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider .
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

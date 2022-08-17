@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppStream.Inputs
 {
 
-    public sealed class StackApplicationSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class StackApplicationSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppStream.Inputs
         public StackApplicationSettingsGetArgs()
         {
         }
+        public static new StackApplicationSettingsGetArgs Empty => new StackApplicationSettingsGetArgs();
     }
 }

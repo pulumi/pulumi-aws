@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ses.Inputs
 {
 
-    public sealed class ReceiptRuleStopActionArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleStopActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The position of the action in the receipt rule
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ses.Inputs
         public ReceiptRuleStopActionArgs()
         {
         }
+        public static new ReceiptRuleStopActionArgs Empty => new ReceiptRuleStopActionArgs();
     }
 }

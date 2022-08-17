@@ -15,21 +15,19 @@ namespace Pulumi.Aws.Rds
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Rds.ClusterSnapshot("example", new()
     ///     {
-    ///         var example = new Aws.Rds.ClusterSnapshot("example", new Aws.Rds.ClusterSnapshotArgs
-    ///         {
-    ///             DbClusterIdentifier = aws_rds_cluster.Example.Id,
-    ///             DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
-    ///         });
-    ///     }
+    ///         DbClusterIdentifier = aws_rds_cluster.Example.Id,
+    ///         DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/clusterSnapshot:ClusterSnapshot")]
-    public partial class ClusterSnapshot : Pulumi.CustomResource
+    public partial class ClusterSnapshot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the allocated storage size in gigabytes (GB).
@@ -122,13 +120,13 @@ namespace Pulumi.Aws.Rds
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -183,7 +181,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class ClusterSnapshotArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DB Cluster Identifier from which to take the snapshot.
@@ -201,7 +199,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -212,9 +210,10 @@ namespace Pulumi.Aws.Rds
         public ClusterSnapshotArgs()
         {
         }
+        public static new ClusterSnapshotArgs Empty => new ClusterSnapshotArgs();
     }
 
-    public sealed class ClusterSnapshotState : Pulumi.ResourceArgs
+    public sealed class ClusterSnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the allocated storage size in gigabytes (GB).
@@ -304,7 +303,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -316,7 +315,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -333,5 +332,6 @@ namespace Pulumi.Aws.Rds
         public ClusterSnapshotState()
         {
         }
+        public static new ClusterSnapshotState Empty => new ClusterSnapshotState();
     }
 }

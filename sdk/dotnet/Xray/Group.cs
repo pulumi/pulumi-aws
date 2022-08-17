@@ -15,26 +15,24 @@ namespace Pulumi.Aws.Xray
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Xray.Group("example", new()
     ///     {
-    ///         var example = new Aws.Xray.Group("example", new Aws.Xray.GroupArgs
+    ///         FilterExpression = "responsetime &gt; 5",
+    ///         GroupName = "example",
+    ///         InsightsConfiguration = new Aws.Xray.Inputs.GroupInsightsConfigurationArgs
     ///         {
-    ///             FilterExpression = "responsetime &gt; 5",
-    ///             GroupName = "example",
-    ///             InsightsConfiguration = new Aws.Xray.Inputs.GroupInsightsConfigurationArgs
-    ///             {
-    ///                 InsightsEnabled = true,
-    ///                 NotificationsEnabled = true,
-    ///             },
-    ///         });
-    ///     }
+    ///             InsightsEnabled = true,
+    ///             NotificationsEnabled = true,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Aws.Xray
     /// ```
     /// </summary>
     [AwsResourceType("aws:xray/group:Group")]
-    public partial class Group : Pulumi.CustomResource
+    public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Group.
@@ -73,7 +71,7 @@ namespace Pulumi.Aws.Xray
         public Output<Outputs.GroupInsightsConfiguration> InsightsConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -128,7 +126,7 @@ namespace Pulumi.Aws.Xray
         }
     }
 
-    public sealed class GroupArgs : Pulumi.ResourceArgs
+    public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
@@ -152,7 +150,7 @@ namespace Pulumi.Aws.Xray
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -163,9 +161,10 @@ namespace Pulumi.Aws.Xray
         public GroupArgs()
         {
         }
+        public static new GroupArgs Empty => new GroupArgs();
     }
 
-    public sealed class GroupState : Pulumi.ResourceArgs
+    public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Group.
@@ -195,7 +194,7 @@ namespace Pulumi.Aws.Xray
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -218,5 +217,6 @@ namespace Pulumi.Aws.Xray
         public GroupState()
         {
         }
+        public static new GroupState Empty => new GroupState();
     }
 }

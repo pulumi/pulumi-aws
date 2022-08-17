@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class SpotInstanceRequestEnclaveOptionsArgs : Pulumi.ResourceArgs
+    public sealed class SpotInstanceRequestEnclaveOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public SpotInstanceRequestEnclaveOptionsArgs()
         {
         }
+        public static new SpotInstanceRequestEnclaveOptionsArgs Empty => new SpotInstanceRequestEnclaveOptionsArgs();
     }
 }

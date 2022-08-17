@@ -15,52 +15,48 @@ namespace Pulumi.Aws.Glue
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var awsGlueCatalogDatabase = new Aws.Glue.CatalogDatabase("awsGlueCatalogDatabase", new()
     ///     {
-    ///         var awsGlueCatalogDatabase = new Aws.Glue.CatalogDatabase("awsGlueCatalogDatabase", new Aws.Glue.CatalogDatabaseArgs
-    ///         {
-    ///             Name = "MyCatalogDatabase",
-    ///         });
-    ///     }
+    ///         Name = "MyCatalogDatabase",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Create Table Default Permissions
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var awsGlueCatalogDatabase = new Aws.Glue.CatalogDatabase("awsGlueCatalogDatabase", new()
     ///     {
-    ///         var awsGlueCatalogDatabase = new Aws.Glue.CatalogDatabase("awsGlueCatalogDatabase", new Aws.Glue.CatalogDatabaseArgs
+    ///         CreateTableDefaultPermissions = new[]
     ///         {
-    ///             CreateTableDefaultPermissions = 
+    ///             new Aws.Glue.Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs
     ///             {
-    ///                 new Aws.Glue.Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs
+    ///                 Permissions = new[]
     ///                 {
-    ///                     Permissions = 
-    ///                     {
-    ///                         "SELECT",
-    ///                     },
-    ///                     Principal = new Aws.Glue.Inputs.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs
-    ///                     {
-    ///                         DataLakePrincipalIdentifier = "IAM_ALLOWED_PRINCIPALS",
-    ///                     },
+    ///                     "SELECT",
+    ///                 },
+    ///                 Principal = new Aws.Glue.Inputs.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs
+    ///                 {
+    ///                     DataLakePrincipalIdentifier = "IAM_ALLOWED_PRINCIPALS",
     ///                 },
     ///             },
-    ///             Name = "MyCatalogDatabase",
-    ///         });
-    ///     }
+    ///         },
+    ///         Name = "MyCatalogDatabase",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +68,7 @@ namespace Pulumi.Aws.Glue
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/catalogDatabase:CatalogDatabase")]
-    public partial class CatalogDatabase : Pulumi.CustomResource
+    public partial class CatalogDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the Glue Catalog Database.
@@ -166,7 +162,7 @@ namespace Pulumi.Aws.Glue
         }
     }
 
-    public sealed class CatalogDatabaseArgs : Pulumi.ResourceArgs
+    public sealed class CatalogDatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the Data Catalog in which the database resides.
@@ -225,9 +221,10 @@ namespace Pulumi.Aws.Glue
         public CatalogDatabaseArgs()
         {
         }
+        public static new CatalogDatabaseArgs Empty => new CatalogDatabaseArgs();
     }
 
-    public sealed class CatalogDatabaseState : Pulumi.ResourceArgs
+    public sealed class CatalogDatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the Glue Catalog Database.
@@ -292,5 +289,6 @@ namespace Pulumi.Aws.Glue
         public CatalogDatabaseState()
         {
         }
+        public static new CatalogDatabaseState Empty => new CatalogDatabaseState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesS3GetArgs : Pulumi.ResourceArgs
+    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesS3GetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon S3 bucket name where the source files are stored.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowDestinationFlowConfigDestinationConnectorPropertiesS3GetArgs()
         {
         }
+        public static new FlowDestinationFlowConfigDestinationConnectorPropertiesS3GetArgs Empty => new FlowDestinationFlowConfigDestinationConnectorPropertiesS3GetArgs();
     }
 }

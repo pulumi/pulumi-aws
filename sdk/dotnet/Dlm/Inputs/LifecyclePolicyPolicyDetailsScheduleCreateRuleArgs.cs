@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dlm.Inputs
 {
 
-    public sealed class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Dlm.Inputs
         public LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs()
         {
         }
+        public static new LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs Empty => new LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs();
     }
 }

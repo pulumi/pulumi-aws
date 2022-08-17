@@ -21,20 +21,18 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetInstanceProfiles.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetInstanceProfiles.InvokeAsync(new Aws.Iam.GetInstanceProfilesArgs
-        ///         {
-        ///             RoleName = "an_example_iam_role_name",
-        ///         }));
-        ///     }
+        ///         RoleName = "an_example_iam_role_name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,20 +50,18 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetInstanceProfiles.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetInstanceProfiles.InvokeAsync(new Aws.Iam.GetInstanceProfilesArgs
-        ///         {
-        ///             RoleName = "an_example_iam_role_name",
-        ///         }));
-        ///     }
+        ///         RoleName = "an_example_iam_role_name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Iam
     }
 
 
-    public sealed class GetInstanceProfilesArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceProfilesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The IAM role name.
@@ -86,9 +82,10 @@ namespace Pulumi.Aws.Iam
         public GetInstanceProfilesArgs()
         {
         }
+        public static new GetInstanceProfilesArgs Empty => new GetInstanceProfilesArgs();
     }
 
-    public sealed class GetInstanceProfilesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceProfilesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The IAM role name.
@@ -99,6 +96,7 @@ namespace Pulumi.Aws.Iam
         public GetInstanceProfilesInvokeArgs()
         {
         }
+        public static new GetInstanceProfilesInvokeArgs Empty => new GetInstanceProfilesInvokeArgs();
     }
 
 

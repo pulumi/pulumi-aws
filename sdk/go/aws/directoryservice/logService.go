@@ -19,65 +19,68 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
-// 			RetentionInDays: pulumi.Int(14),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ad_log_policyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// 			Statements: iam.GetPolicyDocumentStatementArray{
-// 				&iam.GetPolicyDocumentStatementArgs{
-// 					Actions: pulumi.StringArray{
-// 						pulumi.String("logs:CreateLogStream"),
-// 						pulumi.String("logs:PutLogEvents"),
-// 					},
-// 					Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-// 						&iam.GetPolicyDocumentStatementPrincipalArgs{
-// 							Identifiers: pulumi.StringArray{
-// 								pulumi.String("ds.amazonaws.com"),
-// 							},
-// 							Type: pulumi.String("Service"),
-// 						},
-// 					},
-// 					Resources: pulumi.StringArray{
-// 						exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
-// 							return fmt.Sprintf("%v:*", arn), nil
-// 						}).(pulumi.StringOutput),
-// 					},
-// 					Effect: pulumi.String("Allow"),
-// 				},
-// 			},
-// 		}, nil)
-// 		_, err = cloudwatch.NewLogResourcePolicy(ctx, "ad-log-policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
-// 			PolicyDocument: ad_log_policyPolicyDocument.ApplyT(func(ad_log_policyPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
-// 				return ad_log_policyPolicyDocument.Json, nil
-// 			}).(pulumi.StringOutput),
-// 			PolicyName: pulumi.String("ad-log-policy"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = directoryservice.NewLogService(ctx, "exampleLogService", &directoryservice.LogServiceArgs{
-// 			DirectoryId:  pulumi.Any(aws_directory_service_directory.Example.Id),
-// 			LogGroupName: exampleLogGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
+//				RetentionInDays: pulumi.Int(14),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ad_log_policyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("logs:CreateLogStream"),
+//							pulumi.String("logs:PutLogEvents"),
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("ds.amazonaws.com"),
+//								},
+//								Type: pulumi.String("Service"),
+//							},
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v:*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//						Effect: pulumi.String("Allow"),
+//					},
+//				},
+//			}, nil)
+//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "ad-log-policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
+//				PolicyDocument: ad_log_policyPolicyDocument.ApplyT(func(ad_log_policyPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
+//					return ad_log_policyPolicyDocument.Json, nil
+//				}).(pulumi.StringOutput),
+//				PolicyName: pulumi.String("ad-log-policy"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = directoryservice.NewLogService(ctx, "exampleLogService", &directoryservice.LogServiceArgs{
+//				DirectoryId:  pulumi.Any(aws_directory_service_directory.Example.Id),
+//				LogGroupName: exampleLogGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -85,7 +88,9 @@ import (
 // Directory Service Log Subscriptions can be imported using the directory id, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
+//
+//	$ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
+//
 // ```
 type LogService struct {
 	pulumi.CustomResourceState
@@ -189,7 +194,7 @@ func (i *LogService) ToLogServiceOutputWithContext(ctx context.Context) LogServi
 // LogServiceArrayInput is an input type that accepts LogServiceArray and LogServiceArrayOutput values.
 // You can construct a concrete instance of `LogServiceArrayInput` via:
 //
-//          LogServiceArray{ LogServiceArgs{...} }
+//	LogServiceArray{ LogServiceArgs{...} }
 type LogServiceArrayInput interface {
 	pulumi.Input
 
@@ -214,7 +219,7 @@ func (i LogServiceArray) ToLogServiceArrayOutputWithContext(ctx context.Context)
 // LogServiceMapInput is an input type that accepts LogServiceMap and LogServiceMapOutput values.
 // You can construct a concrete instance of `LogServiceMapInput` via:
 //
-//          LogServiceMap{ "key": LogServiceArgs{...} }
+//	LogServiceMap{ "key": LogServiceArgs{...} }
 type LogServiceMapInput interface {
 	pulumi.Input
 

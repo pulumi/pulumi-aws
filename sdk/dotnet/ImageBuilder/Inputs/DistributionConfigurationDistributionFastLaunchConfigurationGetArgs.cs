@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class DistributionConfigurationDistributionFastLaunchConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationDistributionFastLaunchConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account ID that this configuration applies to.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public DistributionConfigurationDistributionFastLaunchConfigurationGetArgs()
         {
         }
+        public static new DistributionConfigurationDistributionFastLaunchConfigurationGetArgs Empty => new DistributionConfigurationDistributionFastLaunchConfigurationGetArgs();
     }
 }

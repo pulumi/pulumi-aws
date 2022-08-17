@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx.Inputs
 {
 
-    public sealed class OntapStorageVirtualMachineEndpointArgs : Pulumi.ResourceArgs
+    public sealed class OntapStorageVirtualMachineEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("iscses")]
         private InputList<Inputs.OntapStorageVirtualMachineEndpointIscseArgs>? _iscses;
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.Fsx.Inputs
         public OntapStorageVirtualMachineEndpointArgs()
         {
         }
+        public static new OntapStorageVirtualMachineEndpointArgs Empty => new OntapStorageVirtualMachineEndpointArgs();
     }
 }

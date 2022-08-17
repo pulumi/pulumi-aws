@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketIntelligentTieringConfigurationFilterArgs : Pulumi.ResourceArgs
+    public sealed class BucketIntelligentTieringConfigurationFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An object key name prefix that identifies the subset of objects to which the configuration applies.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketIntelligentTieringConfigurationFilterArgs()
         {
         }
+        public static new BucketIntelligentTieringConfigurationFilterArgs Empty => new BucketIntelligentTieringConfigurationFilterArgs();
     }
 }

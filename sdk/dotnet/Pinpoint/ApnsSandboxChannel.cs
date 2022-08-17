@@ -15,26 +15,23 @@ namespace Pulumi.Aws.Pinpoint
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var app = new Aws.Pinpoint.App("app", new Aws.Pinpoint.AppArgs
-    ///         {
-    ///         });
-    ///         var apnsSandbox = new Aws.Pinpoint.ApnsSandboxChannel("apnsSandbox", new Aws.Pinpoint.ApnsSandboxChannelArgs
-    ///         {
-    ///             ApplicationId = app.ApplicationId,
-    ///             Certificate = File.ReadAllText("./certificate.pem"),
-    ///             PrivateKey = File.ReadAllText("./private_key.key"),
-    ///         });
-    ///     }
+    ///     var app = new Aws.Pinpoint.App("app");
     /// 
-    /// }
+    ///     var apnsSandbox = new Aws.Pinpoint.ApnsSandboxChannel("apnsSandbox", new()
+    ///     {
+    ///         ApplicationId = app.ApplicationId,
+    ///         Certificate = File.ReadAllText("./certificate.pem"),
+    ///         PrivateKey = File.ReadAllText("./private_key.key"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +43,7 @@ namespace Pulumi.Aws.Pinpoint
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel")]
-    public partial class ApnsSandboxChannel : Pulumi.CustomResource
+    public partial class ApnsSandboxChannel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application ID.
@@ -149,7 +146,7 @@ namespace Pulumi.Aws.Pinpoint
         }
     }
 
-    public sealed class ApnsSandboxChannelArgs : Pulumi.ResourceArgs
+    public sealed class ApnsSandboxChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -211,9 +208,10 @@ namespace Pulumi.Aws.Pinpoint
         public ApnsSandboxChannelArgs()
         {
         }
+        public static new ApnsSandboxChannelArgs Empty => new ApnsSandboxChannelArgs();
     }
 
-    public sealed class ApnsSandboxChannelState : Pulumi.ResourceArgs
+    public sealed class ApnsSandboxChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -275,5 +273,6 @@ namespace Pulumi.Aws.Pinpoint
         public ApnsSandboxChannelState()
         {
         }
+        public static new ApnsSandboxChannelState Empty => new ApnsSandboxChannelState();
     }
 }

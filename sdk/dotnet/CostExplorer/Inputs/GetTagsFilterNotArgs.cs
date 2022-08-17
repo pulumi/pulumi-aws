@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CostExplorer.Inputs
 {
 
-    public sealed class GetTagsFilterNotInputArgs : Pulumi.ResourceArgs
+    public sealed class GetTagsFilterNotInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block for the filter that's based on `CostCategory` values. See below.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         public GetTagsFilterNotInputArgs()
         {
         }
+        public static new GetTagsFilterNotInputArgs Empty => new GetTagsFilterNotInputArgs();
     }
 }

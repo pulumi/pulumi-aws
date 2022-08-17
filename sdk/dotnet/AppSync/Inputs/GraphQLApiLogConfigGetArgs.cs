@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppSync.Inputs
 {
 
-    public sealed class GraphQLApiLogConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class GraphQLApiLogConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AppSync.Inputs
         public GraphQLApiLogConfigGetArgs()
         {
         }
+        public static new GraphQLApiLogConfigGetArgs Empty => new GraphQLApiLogConfigGetArgs();
     }
 }

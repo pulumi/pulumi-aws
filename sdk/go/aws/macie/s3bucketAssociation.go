@@ -23,25 +23,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := macie.NewS3BucketAssociation(ctx, "example", &macie.S3BucketAssociationArgs{
-// 			BucketName: pulumi.String("tf-macie-example"),
-// 			ClassificationType: &macie.S3BucketAssociationClassificationTypeArgs{
-// 				OneTime: pulumi.String("FULL"),
-// 			},
-// 			Prefix: pulumi.String("data"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := macie.NewS3BucketAssociation(ctx, "example", &macie.S3BucketAssociationArgs{
+//				BucketName: pulumi.String("tf-macie-example"),
+//				ClassificationType: &macie.S3BucketAssociationClassificationTypeArgs{
+//					OneTime: pulumi.String("FULL"),
+//				},
+//				Prefix: pulumi.String("data"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type S3BucketAssociation struct {
 	pulumi.CustomResourceState
@@ -162,7 +165,7 @@ func (i *S3BucketAssociation) ToS3BucketAssociationOutputWithContext(ctx context
 // S3BucketAssociationArrayInput is an input type that accepts S3BucketAssociationArray and S3BucketAssociationArrayOutput values.
 // You can construct a concrete instance of `S3BucketAssociationArrayInput` via:
 //
-//          S3BucketAssociationArray{ S3BucketAssociationArgs{...} }
+//	S3BucketAssociationArray{ S3BucketAssociationArgs{...} }
 type S3BucketAssociationArrayInput interface {
 	pulumi.Input
 
@@ -187,7 +190,7 @@ func (i S3BucketAssociationArray) ToS3BucketAssociationArrayOutputWithContext(ct
 // S3BucketAssociationMapInput is an input type that accepts S3BucketAssociationMap and S3BucketAssociationMapOutput values.
 // You can construct a concrete instance of `S3BucketAssociationMapInput` via:
 //
-//          S3BucketAssociationMap{ "key": S3BucketAssociationArgs{...} }
+//	S3BucketAssociationMap{ "key": S3BucketAssociationArgs{...} }
 type S3BucketAssociationMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm.Inputs
 {
 
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs()
         {
         }
+        public static new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs Empty => new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs();
     }
 }

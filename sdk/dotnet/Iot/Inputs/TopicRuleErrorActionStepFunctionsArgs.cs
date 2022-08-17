@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleErrorActionStepFunctionsArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleErrorActionStepFunctionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The prefix used to generate, along with a UUID, the unique state machine execution name.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleErrorActionStepFunctionsArgs()
         {
         }
+        public static new TopicRuleErrorActionStepFunctionsArgs Empty => new TopicRuleErrorActionStepFunctionsArgs();
     }
 }

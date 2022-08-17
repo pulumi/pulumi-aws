@@ -15,39 +15,37 @@ namespace Pulumi.Aws.SecurityHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.SecurityHub.Account("example", new Aws.SecurityHub.AccountArgs
-    ///         {
-    ///         });
-    ///         var cis = new Aws.SecurityHub.StandardsSubscription("cis", new Aws.SecurityHub.StandardsSubscriptionArgs
-    ///         {
-    ///             StandardsArn = "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 example,
-    ///             },
-    ///         });
-    ///         var pci321 = new Aws.SecurityHub.StandardsSubscription("pci321", new Aws.SecurityHub.StandardsSubscriptionArgs
-    ///         {
-    ///             StandardsArn = "arn:aws:securityhub:us-east-1::standards/pci-dss/v/3.2.1",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 example,
-    ///             },
-    ///         });
-    ///     }
+    ///     var example = new Aws.SecurityHub.Account("example");
     /// 
-    /// }
+    ///     var cis = new Aws.SecurityHub.StandardsSubscription("cis", new()
+    ///     {
+    ///         StandardsArn = "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             example,
+    ///         },
+    ///     });
+    /// 
+    ///     var pci321 = new Aws.SecurityHub.StandardsSubscription("pci321", new()
+    ///     {
+    ///         StandardsArn = "arn:aws:securityhub:us-east-1::standards/pci-dss/v/3.2.1",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             example,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +61,7 @@ namespace Pulumi.Aws.SecurityHub
     /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/standardsSubscription:StandardsSubscription")]
-    public partial class StandardsSubscription : Pulumi.CustomResource
+    public partial class StandardsSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of a standard - see below.
@@ -115,7 +113,7 @@ namespace Pulumi.Aws.SecurityHub
         }
     }
 
-    public sealed class StandardsSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class StandardsSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of a standard - see below.
@@ -126,9 +124,10 @@ namespace Pulumi.Aws.SecurityHub
         public StandardsSubscriptionArgs()
         {
         }
+        public static new StandardsSubscriptionArgs Empty => new StandardsSubscriptionArgs();
     }
 
-    public sealed class StandardsSubscriptionState : Pulumi.ResourceArgs
+    public sealed class StandardsSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of a standard - see below.
@@ -139,5 +138,6 @@ namespace Pulumi.Aws.SecurityHub
         public StandardsSubscriptionState()
         {
         }
+        public static new StandardsSubscriptionState Empty => new StandardsSubscriptionState();
     }
 }

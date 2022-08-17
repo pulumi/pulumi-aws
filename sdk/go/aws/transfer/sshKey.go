@@ -19,84 +19,91 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleServer, err := transfer.NewServer(ctx, "exampleServer", &transfer.ServerArgs{
-// 			IdentityProviderType: pulumi.String("SERVICE_MANAGED"),
-// 			Tags: pulumi.StringMap{
-// 				"NAME": pulumi.String("tf-acc-test-transfer-server"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-// 	"Version": "2012-10-17",
-// 	"Statement": [
-// 		{
-// 		"Effect": "Allow",
-// 		"Principal": {
-// 			"Service": "transfer.amazonaws.com"
-// 		},
-// 		"Action": "sts:AssumeRole"
-// 		}
-// 	]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleServer, err := transfer.NewServer(ctx, "exampleServer", &transfer.ServerArgs{
+//				IdentityProviderType: pulumi.String("SERVICE_MANAGED"),
+//				Tags: pulumi.StringMap{
+//					"NAME": pulumi.String("tf-acc-test-transfer-server"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//		"Version": "2012-10-17",
+//		"Statement": [
+//			{
+//			"Effect": "Allow",
+//			"Principal": {
+//				"Service": "transfer.amazonaws.com"
+//			},
+//			"Action": "sts:AssumeRole"
+//			}
+//		]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUser, err := transfer.NewUser(ctx, "exampleUser", &transfer.UserArgs{
-// 			ServerId: exampleServer.ID(),
-// 			UserName: pulumi.String("tftestuser"),
-// 			Role:     exampleRole.Arn,
-// 			Tags: pulumi.StringMap{
-// 				"NAME": pulumi.String("tftestuser"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = transfer.NewSshKey(ctx, "exampleSshKey", &transfer.SshKeyArgs{
-// 			ServerId: exampleServer.ID(),
-// 			UserName: exampleUser.UserName,
-// 			Body:     pulumi.String("... SSH key ..."),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
-// 			Role: exampleRole.ID(),
-// 			Policy: pulumi.Any(fmt.Sprintf(`{
-// 	"Version": "2012-10-17",
-// 	"Statement": [
-// 		{
-// 			"Sid": "AllowFullAccesstoS3",
-// 			"Effect": "Allow",
-// 			"Action": [
-// 				"s3:*"
-// 			],
-// 			"Resource": "*"
-// 		}
-// 	]
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUser, err := transfer.NewUser(ctx, "exampleUser", &transfer.UserArgs{
+//				ServerId: exampleServer.ID(),
+//				UserName: pulumi.String("tftestuser"),
+//				Role:     exampleRole.Arn,
+//				Tags: pulumi.StringMap{
+//					"NAME": pulumi.String("tftestuser"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = transfer.NewSshKey(ctx, "exampleSshKey", &transfer.SshKeyArgs{
+//				ServerId: exampleServer.ID(),
+//				UserName: exampleUser.UserName,
+//				Body:     pulumi.String("... SSH key ..."),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
+//				Role: exampleRole.ID(),
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//		"Version": "2012-10-17",
+//		"Statement": [
+//			{
+//				"Sid": "AllowFullAccesstoS3",
+//				"Effect": "Allow",
+//				"Action": [
+//					"s3:*"
+//				],
+//				"Resource": "*"
+//			}
+//		]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -104,7 +111,9 @@ import (
 // Transfer SSH Public Key can be imported using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`.
 //
 // ```sh
-//  $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
+//
+//	$ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
+//
 // ```
 type SshKey struct {
 	pulumi.CustomResourceState
@@ -221,7 +230,7 @@ func (i *SshKey) ToSshKeyOutputWithContext(ctx context.Context) SshKeyOutput {
 // SshKeyArrayInput is an input type that accepts SshKeyArray and SshKeyArrayOutput values.
 // You can construct a concrete instance of `SshKeyArrayInput` via:
 //
-//          SshKeyArray{ SshKeyArgs{...} }
+//	SshKeyArray{ SshKeyArgs{...} }
 type SshKeyArrayInput interface {
 	pulumi.Input
 
@@ -246,7 +255,7 @@ func (i SshKeyArray) ToSshKeyArrayOutputWithContext(ctx context.Context) SshKeyA
 // SshKeyMapInput is an input type that accepts SshKeyMap and SshKeyMapOutput values.
 // You can construct a concrete instance of `SshKeyMapInput` via:
 //
-//          SshKeyMap{ "key": SshKeyArgs{...} }
+//	SshKeyMap{ "key": SshKeyArgs{...} }
 type SshKeyMapInput interface {
 	pulumi.Input
 

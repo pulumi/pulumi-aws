@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticLoadBalancing.Inputs
 {
 
-    public sealed class LoadBalancerHealthCheckArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerHealthCheckArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of checks before the instance is declared healthy.
@@ -48,5 +48,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing.Inputs
         public LoadBalancerHealthCheckArgs()
         {
         }
+        public static new LoadBalancerHealthCheckArgs Empty => new LoadBalancerHealthCheckArgs();
     }
 }

@@ -22,6 +22,11 @@ public final class GetDomainEbsOption {
      */
     private final Integer iops;
     /**
+     * @return The throughput (in MiB/s) of the EBS volumes attached to data nodes.
+     * 
+     */
+    private final Integer throughput;
+    /**
      * @return Size of EBS volumes attached to data nodes (in GB).
      * 
      */
@@ -36,10 +41,12 @@ public final class GetDomainEbsOption {
     private GetDomainEbsOption(
         @CustomType.Parameter("ebsEnabled") Boolean ebsEnabled,
         @CustomType.Parameter("iops") Integer iops,
+        @CustomType.Parameter("throughput") Integer throughput,
         @CustomType.Parameter("volumeSize") Integer volumeSize,
         @CustomType.Parameter("volumeType") String volumeType) {
         this.ebsEnabled = ebsEnabled;
         this.iops = iops;
+        this.throughput = throughput;
         this.volumeSize = volumeSize;
         this.volumeType = volumeType;
     }
@@ -57,6 +64,13 @@ public final class GetDomainEbsOption {
      */
     public Integer iops() {
         return this.iops;
+    }
+    /**
+     * @return The throughput (in MiB/s) of the EBS volumes attached to data nodes.
+     * 
+     */
+    public Integer throughput() {
+        return this.throughput;
     }
     /**
      * @return Size of EBS volumes attached to data nodes (in GB).
@@ -84,6 +98,7 @@ public final class GetDomainEbsOption {
     public static final class Builder {
         private Boolean ebsEnabled;
         private Integer iops;
+        private Integer throughput;
         private Integer volumeSize;
         private String volumeType;
 
@@ -95,6 +110,7 @@ public final class GetDomainEbsOption {
     	      Objects.requireNonNull(defaults);
     	      this.ebsEnabled = defaults.ebsEnabled;
     	      this.iops = defaults.iops;
+    	      this.throughput = defaults.throughput;
     	      this.volumeSize = defaults.volumeSize;
     	      this.volumeType = defaults.volumeType;
         }
@@ -107,6 +123,10 @@ public final class GetDomainEbsOption {
             this.iops = Objects.requireNonNull(iops);
             return this;
         }
+        public Builder throughput(Integer throughput) {
+            this.throughput = Objects.requireNonNull(throughput);
+            return this;
+        }
         public Builder volumeSize(Integer volumeSize) {
             this.volumeSize = Objects.requireNonNull(volumeSize);
             return this;
@@ -115,7 +135,7 @@ public final class GetDomainEbsOption {
             this.volumeType = Objects.requireNonNull(volumeType);
             return this;
         }        public GetDomainEbsOption build() {
-            return new GetDomainEbsOption(ebsEnabled, iops, volumeSize, volumeType);
+            return new GetDomainEbsOption(ebsEnabled, iops, throughput, volumeSize, volumeType);
         }
     }
 }

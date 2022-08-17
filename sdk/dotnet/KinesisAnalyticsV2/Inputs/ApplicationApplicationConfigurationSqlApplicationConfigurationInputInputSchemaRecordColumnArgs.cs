@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A reference to the data element in the streaming input or the reference data source.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs Empty => new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs();
     }
 }

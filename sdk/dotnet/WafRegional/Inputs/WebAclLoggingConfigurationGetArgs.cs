@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafRegional.Inputs
 {
 
-    public sealed class WebAclLoggingConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclLoggingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafRegional.Inputs
         public WebAclLoggingConfigurationGetArgs()
         {
         }
+        public static new WebAclLoggingConfigurationGetArgs Empty => new WebAclLoggingConfigurationGetArgs();
     }
 }

@@ -20,7 +20,7 @@ type GrantConstraint struct {
 // GrantConstraintInput is an input type that accepts GrantConstraintArgs and GrantConstraintOutput values.
 // You can construct a concrete instance of `GrantConstraintInput` via:
 //
-//          GrantConstraintArgs{...}
+//	GrantConstraintArgs{...}
 type GrantConstraintInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i GrantConstraintArgs) ToGrantConstraintOutputWithContext(ctx context.Cont
 // GrantConstraintArrayInput is an input type that accepts GrantConstraintArray and GrantConstraintArrayOutput values.
 // You can construct a concrete instance of `GrantConstraintArrayInput` via:
 //
-//          GrantConstraintArray{ GrantConstraintArgs{...} }
+//	GrantConstraintArray{ GrantConstraintArgs{...} }
 type GrantConstraintArrayInput interface {
 	pulumi.Input
 
@@ -125,7 +125,7 @@ type GetKeyMultiRegionConfiguration struct {
 // GetKeyMultiRegionConfigurationInput is an input type that accepts GetKeyMultiRegionConfigurationArgs and GetKeyMultiRegionConfigurationOutput values.
 // You can construct a concrete instance of `GetKeyMultiRegionConfigurationInput` via:
 //
-//          GetKeyMultiRegionConfigurationArgs{...}
+//	GetKeyMultiRegionConfigurationArgs{...}
 type GetKeyMultiRegionConfigurationInput interface {
 	pulumi.Input
 
@@ -154,7 +154,7 @@ func (i GetKeyMultiRegionConfigurationArgs) ToGetKeyMultiRegionConfigurationOutp
 // GetKeyMultiRegionConfigurationArrayInput is an input type that accepts GetKeyMultiRegionConfigurationArray and GetKeyMultiRegionConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetKeyMultiRegionConfigurationArrayInput` via:
 //
-//          GetKeyMultiRegionConfigurationArray{ GetKeyMultiRegionConfigurationArgs{...} }
+//	GetKeyMultiRegionConfigurationArray{ GetKeyMultiRegionConfigurationArgs{...} }
 type GetKeyMultiRegionConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -234,7 +234,7 @@ type GetKeyMultiRegionConfigurationPrimaryKey struct {
 // GetKeyMultiRegionConfigurationPrimaryKeyInput is an input type that accepts GetKeyMultiRegionConfigurationPrimaryKeyArgs and GetKeyMultiRegionConfigurationPrimaryKeyOutput values.
 // You can construct a concrete instance of `GetKeyMultiRegionConfigurationPrimaryKeyInput` via:
 //
-//          GetKeyMultiRegionConfigurationPrimaryKeyArgs{...}
+//	GetKeyMultiRegionConfigurationPrimaryKeyArgs{...}
 type GetKeyMultiRegionConfigurationPrimaryKeyInput interface {
 	pulumi.Input
 
@@ -262,7 +262,7 @@ func (i GetKeyMultiRegionConfigurationPrimaryKeyArgs) ToGetKeyMultiRegionConfigu
 // GetKeyMultiRegionConfigurationPrimaryKeyArrayInput is an input type that accepts GetKeyMultiRegionConfigurationPrimaryKeyArray and GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput values.
 // You can construct a concrete instance of `GetKeyMultiRegionConfigurationPrimaryKeyArrayInput` via:
 //
-//          GetKeyMultiRegionConfigurationPrimaryKeyArray{ GetKeyMultiRegionConfigurationPrimaryKeyArgs{...} }
+//	GetKeyMultiRegionConfigurationPrimaryKeyArray{ GetKeyMultiRegionConfigurationPrimaryKeyArgs{...} }
 type GetKeyMultiRegionConfigurationPrimaryKeyArrayInput interface {
 	pulumi.Input
 
@@ -334,7 +334,7 @@ type GetKeyMultiRegionConfigurationReplicaKey struct {
 // GetKeyMultiRegionConfigurationReplicaKeyInput is an input type that accepts GetKeyMultiRegionConfigurationReplicaKeyArgs and GetKeyMultiRegionConfigurationReplicaKeyOutput values.
 // You can construct a concrete instance of `GetKeyMultiRegionConfigurationReplicaKeyInput` via:
 //
-//          GetKeyMultiRegionConfigurationReplicaKeyArgs{...}
+//	GetKeyMultiRegionConfigurationReplicaKeyArgs{...}
 type GetKeyMultiRegionConfigurationReplicaKeyInput interface {
 	pulumi.Input
 
@@ -362,7 +362,7 @@ func (i GetKeyMultiRegionConfigurationReplicaKeyArgs) ToGetKeyMultiRegionConfigu
 // GetKeyMultiRegionConfigurationReplicaKeyArrayInput is an input type that accepts GetKeyMultiRegionConfigurationReplicaKeyArray and GetKeyMultiRegionConfigurationReplicaKeyArrayOutput values.
 // You can construct a concrete instance of `GetKeyMultiRegionConfigurationReplicaKeyArrayInput` via:
 //
-//          GetKeyMultiRegionConfigurationReplicaKeyArray{ GetKeyMultiRegionConfigurationReplicaKeyArgs{...} }
+//	GetKeyMultiRegionConfigurationReplicaKeyArray{ GetKeyMultiRegionConfigurationReplicaKeyArgs{...} }
 type GetKeyMultiRegionConfigurationReplicaKeyArrayInput interface {
 	pulumi.Input
 
@@ -436,7 +436,7 @@ type GetSecretSecret struct {
 // GetSecretSecretInput is an input type that accepts GetSecretSecretArgs and GetSecretSecretOutput values.
 // You can construct a concrete instance of `GetSecretSecretInput` via:
 //
-//          GetSecretSecretArgs{...}
+//	GetSecretSecretArgs{...}
 type GetSecretSecretInput interface {
 	pulumi.Input
 
@@ -466,7 +466,7 @@ func (i GetSecretSecretArgs) ToGetSecretSecretOutputWithContext(ctx context.Cont
 // GetSecretSecretArrayInput is an input type that accepts GetSecretSecretArray and GetSecretSecretArrayOutput values.
 // You can construct a concrete instance of `GetSecretSecretArrayInput` via:
 //
-//          GetSecretSecretArray{ GetSecretSecretArgs{...} }
+//	GetSecretSecretArray{ GetSecretSecretArgs{...} }
 type GetSecretSecretArrayInput interface {
 	pulumi.Input
 
@@ -552,7 +552,7 @@ type GetSecretsSecret struct {
 // GetSecretsSecretInput is an input type that accepts GetSecretsSecretArgs and GetSecretsSecretOutput values.
 // You can construct a concrete instance of `GetSecretsSecretInput` via:
 //
-//          GetSecretsSecretArgs{...}
+//	GetSecretsSecretArgs{...}
 type GetSecretsSecretInput interface {
 	pulumi.Input
 
@@ -586,7 +586,7 @@ func (i GetSecretsSecretArgs) ToGetSecretsSecretOutputWithContext(ctx context.Co
 // GetSecretsSecretArrayInput is an input type that accepts GetSecretsSecretArray and GetSecretsSecretArrayOutput values.
 // You can construct a concrete instance of `GetSecretsSecretArrayInput` via:
 //
-//          GetSecretsSecretArray{ GetSecretsSecretArgs{...} }
+//	GetSecretsSecretArray{ GetSecretsSecretArgs{...} }
 type GetSecretsSecretArrayInput interface {
 	pulumi.Input
 

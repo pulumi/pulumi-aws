@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoveryreadiness"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoveryreadiness"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := route53recoveryreadiness.NewCell(ctx, "example", &route53recoveryreadiness.CellArgs{
-// 			CellName: pulumi.String("us-west-2-failover-cell"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53recoveryreadiness.NewCell(ctx, "example", &route53recoveryreadiness.CellArgs{
+//				CellName: pulumi.String("us-west-2-failover-cell"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Route53 Recovery Readiness cells can be imported via the cell name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
+//
+//	$ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
+//
 // ```
 type Cell struct {
 	pulumi.CustomResourceState
@@ -54,7 +59,7 @@ type Cell struct {
 	Cells pulumi.StringArrayOutput `pulumi:"cells"`
 	// List of readiness scopes (recovery groups or cells) that contain this cell.
 	ParentReadinessScopes pulumi.StringArrayOutput `pulumi:"parentReadinessScopes"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -100,7 +105,7 @@ type cellState struct {
 	Cells []string `pulumi:"cells"`
 	// List of readiness scopes (recovery groups or cells) that contain this cell.
 	ParentReadinessScopes []string `pulumi:"parentReadinessScopes"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -115,7 +120,7 @@ type CellState struct {
 	Cells pulumi.StringArrayInput
 	// List of readiness scopes (recovery groups or cells) that contain this cell.
 	ParentReadinessScopes pulumi.StringArrayInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -130,7 +135,7 @@ type cellArgs struct {
 	CellName string `pulumi:"cellName"`
 	// List of cell arns to add as nested fault domains within this cell.
 	Cells []string `pulumi:"cells"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -140,7 +145,7 @@ type CellArgs struct {
 	CellName pulumi.StringInput
 	// List of cell arns to add as nested fault domains within this cell.
 	Cells pulumi.StringArrayInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 }
 
@@ -170,7 +175,7 @@ func (i *Cell) ToCellOutputWithContext(ctx context.Context) CellOutput {
 // CellArrayInput is an input type that accepts CellArray and CellArrayOutput values.
 // You can construct a concrete instance of `CellArrayInput` via:
 //
-//          CellArray{ CellArgs{...} }
+//	CellArray{ CellArgs{...} }
 type CellArrayInput interface {
 	pulumi.Input
 
@@ -195,7 +200,7 @@ func (i CellArray) ToCellArrayOutputWithContext(ctx context.Context) CellArrayOu
 // CellMapInput is an input type that accepts CellMap and CellMapOutput values.
 // You can construct a concrete instance of `CellMapInput` via:
 //
-//          CellMap{ "key": CellArgs{...} }
+//	CellMap{ "key": CellArgs{...} }
 type CellMapInput interface {
 	pulumi.Input
 
@@ -251,7 +256,7 @@ func (o CellOutput) ParentReadinessScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cell) pulumi.StringArrayOutput { return v.ParentReadinessScopes }).(pulumi.StringArrayOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 func (o CellOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cell) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

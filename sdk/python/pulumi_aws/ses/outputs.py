@@ -11,7 +11,9 @@ from .. import _utilities
 
 __all__ = [
     'ConfgurationSetDeliveryOptions',
+    'ConfgurationSetTrackingOptions',
     'ConfigurationSetDeliveryOptions',
+    'ConfigurationSetTrackingOptions',
     'EventDestinationCloudwatchDestination',
     'EventDestinationKinesisDestination',
     'EventDestinationSnsDestination',
@@ -46,7 +48,7 @@ class ConfgurationSetDeliveryOptions(dict):
     def __init__(__self__, *,
                  tls_policy: Optional[str] = None):
         """
-        :param str tls_policy: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+        :param str tls_policy: Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
         """
         if tls_policy is not None:
             pulumi.set(__self__, "tls_policy", tls_policy)
@@ -55,9 +57,45 @@ class ConfgurationSetDeliveryOptions(dict):
     @pulumi.getter(name="tlsPolicy")
     def tls_policy(self) -> Optional[str]:
         """
-        Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+        Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
         """
         return pulumi.get(self, "tls_policy")
+
+
+@pulumi.output_type
+class ConfgurationSetTrackingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRedirectDomain":
+            suggest = "custom_redirect_domain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfgurationSetTrackingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfgurationSetTrackingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfgurationSetTrackingOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_redirect_domain: Optional[str] = None):
+        """
+        :param str custom_redirect_domain: Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+        """
+        if custom_redirect_domain is not None:
+            pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+
+    @property
+    @pulumi.getter(name="customRedirectDomain")
+    def custom_redirect_domain(self) -> Optional[str]:
+        """
+        Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+        """
+        return pulumi.get(self, "custom_redirect_domain")
 
 
 @pulumi.output_type
@@ -82,7 +120,7 @@ class ConfigurationSetDeliveryOptions(dict):
     def __init__(__self__, *,
                  tls_policy: Optional[str] = None):
         """
-        :param str tls_policy: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+        :param str tls_policy: Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
         """
         if tls_policy is not None:
             pulumi.set(__self__, "tls_policy", tls_policy)
@@ -91,9 +129,45 @@ class ConfigurationSetDeliveryOptions(dict):
     @pulumi.getter(name="tlsPolicy")
     def tls_policy(self) -> Optional[str]:
         """
-        Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+        Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
         """
         return pulumi.get(self, "tls_policy")
+
+
+@pulumi.output_type
+class ConfigurationSetTrackingOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRedirectDomain":
+            suggest = "custom_redirect_domain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetTrackingOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetTrackingOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetTrackingOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_redirect_domain: Optional[str] = None):
+        """
+        :param str custom_redirect_domain: Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+        """
+        if custom_redirect_domain is not None:
+            pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+
+    @property
+    @pulumi.getter(name="customRedirectDomain")
+    def custom_redirect_domain(self) -> Optional[str]:
+        """
+        Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+        """
+        return pulumi.get(self, "custom_redirect_domain")
 
 
 @pulumi.output_type

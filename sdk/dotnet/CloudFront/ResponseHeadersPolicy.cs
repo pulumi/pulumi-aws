@@ -20,117 +20,111 @@ namespace Pulumi.Aws.CloudFront
     /// The example below creates a CloudFront response headers policy.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new()
     ///     {
-    ///         var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new Aws.CloudFront.ResponseHeadersPolicyArgs
+    ///         Comment = "test comment",
+    ///         CorsConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCorsConfigArgs
     ///         {
-    ///             Comment = "test comment",
-    ///             CorsConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCorsConfigArgs
+    ///             AccessControlAllowCredentials = true,
+    ///             AccessControlAllowHeaders = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs
     ///             {
-    ///                 AccessControlAllowCredentials = true,
-    ///                 AccessControlAllowHeaders = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs
+    ///                 Items = new[]
     ///                 {
-    ///                     Items = 
-    ///                     {
-    ///                         "test",
-    ///                     },
+    ///                     "test",
     ///                 },
-    ///                 AccessControlAllowMethods = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs
-    ///                 {
-    ///                     Items = 
-    ///                     {
-    ///                         "GET",
-    ///                     },
-    ///                 },
-    ///                 AccessControlAllowOrigins = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs
-    ///                 {
-    ///                     Items = 
-    ///                     {
-    ///                         "test.example.comtest",
-    ///                     },
-    ///                 },
-    ///                 OriginOverride = true,
     ///             },
-    ///         });
-    ///     }
+    ///             AccessControlAllowMethods = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs
+    ///             {
+    ///                 Items = new[]
+    ///                 {
+    ///                     "GET",
+    ///                 },
+    ///             },
+    ///             AccessControlAllowOrigins = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs
+    ///             {
+    ///                 Items = new[]
+    ///                 {
+    ///                     "test.example.comtest",
+    ///                 },
+    ///             },
+    ///             OriginOverride = true,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// The example below creates a CloudFront response headers policy with a custom headers config.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new()
     ///     {
-    ///         var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new Aws.CloudFront.ResponseHeadersPolicyArgs
+    ///         CustomHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs
     ///         {
-    ///             CustomHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs
+    ///             Items = new[]
     ///             {
-    ///                 Items = 
+    ///                 new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigItemArgs
     ///                 {
-    ///                     new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigItemArgs
-    ///                     {
-    ///                         Header = "X-Permitted-Cross-Domain-Policies",
-    ///                         Override = true,
-    ///                         Value = "none",
-    ///                     },
-    ///                     new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigItemArgs
-    ///                     {
-    ///                         Header = "X-Test",
-    ///                         Override = true,
-    ///                         Value = "none",
-    ///                     },
+    ///                     Header = "X-Permitted-Cross-Domain-Policies",
+    ///                     Override = true,
+    ///                     Value = "none",
+    ///                 },
+    ///                 new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigItemArgs
+    ///                 {
+    ///                     Header = "X-Test",
+    ///                     Override = true,
+    ///                     Value = "none",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new()
     ///     {
-    ///         var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new Aws.CloudFront.ResponseHeadersPolicyArgs
+    ///         CustomHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs
     ///         {
-    ///             CustomHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs
+    ///             Items = new[]
     ///             {
-    ///                 Items = 
+    ///                 new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigItemArgs
     ///                 {
-    ///                     new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigItemArgs
-    ///                     {
-    ///                         Header = "X-Permitted-Cross-Domain-Policies",
-    ///                         Override = true,
-    ///                         Value = "none",
-    ///                     },
+    ///                     Header = "X-Permitted-Cross-Domain-Policies",
+    ///                     Override = true,
+    ///                     Value = "none",
     ///                 },
     ///             },
-    ///             ServerTimingHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 SamplingRate = 50,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         ServerTimingHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs
+    ///         {
+    ///             Enabled = true,
+    ///             SamplingRate = 50,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -142,7 +136,7 @@ namespace Pulumi.Aws.CloudFront
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy")]
-    public partial class ResponseHeadersPolicy : Pulumi.CustomResource
+    public partial class ResponseHeadersPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
@@ -230,7 +224,7 @@ namespace Pulumi.Aws.CloudFront
         }
     }
 
-    public sealed class ResponseHeadersPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
@@ -277,9 +271,10 @@ namespace Pulumi.Aws.CloudFront
         public ResponseHeadersPolicyArgs()
         {
         }
+        public static new ResponseHeadersPolicyArgs Empty => new ResponseHeadersPolicyArgs();
     }
 
-    public sealed class ResponseHeadersPolicyState : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
@@ -326,5 +321,6 @@ namespace Pulumi.Aws.CloudFront
         public ResponseHeadersPolicyState()
         {
         }
+        public static new ResponseHeadersPolicyState Empty => new ResponseHeadersPolicyState();
     }
 }

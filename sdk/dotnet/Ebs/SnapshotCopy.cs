@@ -15,46 +15,46 @@ namespace Pulumi.Aws.Ebs
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ebs.Volume("example", new()
     ///     {
-    ///         var example = new Aws.Ebs.Volume("example", new Aws.Ebs.VolumeArgs
+    ///         AvailabilityZone = "us-west-2a",
+    ///         Size = 40,
+    ///         Tags = 
     ///         {
-    ///             AvailabilityZone = "us-west-2a",
-    ///             Size = 40,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "HelloWorld" },
-    ///             },
-    ///         });
-    ///         var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new Aws.Ebs.SnapshotArgs
-    ///         {
-    ///             VolumeId = example.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "HelloWorld_snap" },
-    ///             },
-    ///         });
-    ///         var exampleCopy = new Aws.Ebs.SnapshotCopy("exampleCopy", new Aws.Ebs.SnapshotCopyArgs
-    ///         {
-    ///             SourceSnapshotId = exampleSnapshot.Id,
-    ///             SourceRegion = "us-west-2",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "HelloWorld_copy_snap" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "HelloWorld" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new()
+    ///     {
+    ///         VolumeId = example.Id,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "HelloWorld_snap" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCopy = new Aws.Ebs.SnapshotCopy("exampleCopy", new()
+    ///     {
+    ///         SourceSnapshotId = exampleSnapshot.Id,
+    ///         SourceRegion = "us-west-2",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "HelloWorld_copy_snap" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ebs/snapshotCopy:SnapshotCopy")]
-    public partial class SnapshotCopy : Pulumi.CustomResource
+    public partial class SnapshotCopy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the EBS Snapshot.
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Ebs
         }
     }
 
-    public sealed class SnapshotCopyArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotCopyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of what the snapshot is.
@@ -254,9 +254,10 @@ namespace Pulumi.Aws.Ebs
         public SnapshotCopyArgs()
         {
         }
+        public static new SnapshotCopyArgs Empty => new SnapshotCopyArgs();
     }
 
-    public sealed class SnapshotCopyState : Pulumi.ResourceArgs
+    public sealed class SnapshotCopyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the EBS Snapshot.
@@ -365,5 +366,6 @@ namespace Pulumi.Aws.Ebs
         public SnapshotCopyState()
         {
         }
+        public static new SnapshotCopyState Empty => new SnapshotCopyState();
     }
 }

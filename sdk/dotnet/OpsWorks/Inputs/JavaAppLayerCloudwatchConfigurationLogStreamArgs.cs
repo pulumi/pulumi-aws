@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class JavaAppLayerCloudwatchConfigurationLogStreamArgs : Pulumi.ResourceArgs
+    public sealed class JavaAppLayerCloudwatchConfigurationLogStreamArgs : global::Pulumi.ResourceArgs
     {
         [Input("batchCount")]
         public Input<int>? BatchCount { get; set; }
@@ -48,5 +48,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public JavaAppLayerCloudwatchConfigurationLogStreamArgs()
         {
         }
+        public static new JavaAppLayerCloudwatchConfigurationLogStreamArgs Empty => new JavaAppLayerCloudwatchConfigurationLogStreamArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Budgets.Inputs
 {
 
-    public sealed class BudgetActionDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class BudgetActionDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Budgets.Inputs
         public BudgetActionDefinitionArgs()
         {
         }
+        public static new BudgetActionDefinitionArgs Empty => new BudgetActionDefinitionArgs();
     }
 }

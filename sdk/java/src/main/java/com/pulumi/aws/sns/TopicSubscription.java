@@ -112,6 +112,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.pulumi.providers.aws;
  * import com.pulumi.pulumi.providers.ProviderArgs;
+ * import com.pulumi.aws.inputs.ProviderAssumeRoleArgs;
  * import com.pulumi.aws.sns.Topic;
  * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.sqs.Queue;
@@ -201,17 +202,26 @@ import javax.annotation.Nullable;
  * 
  *         var awsSns = new Provider(&#34;awsSns&#34;, ProviderArgs.builder()        
  *             .region(sns.region())
- *             .assumeRole(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .assumeRole(ProviderAssumeRoleArgs.builder()
+ *                 .roleArn(String.format(&#34;arn:aws:iam::%s:role/%s&#34;, sns.account-id(),sns.role-name()))
+ *                 .sessionName(String.format(&#34;sns-%s&#34;, sns.region()))
+ *                 .build())
  *             .build());
  * 
  *         var awsSqs = new Provider(&#34;awsSqs&#34;, ProviderArgs.builder()        
  *             .region(sqs.region())
- *             .assumeRole(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .assumeRole(ProviderAssumeRoleArgs.builder()
+ *                 .roleArn(String.format(&#34;arn:aws:iam::%s:role/%s&#34;, sqs.account-id(),sqs.role-name()))
+ *                 .sessionName(String.format(&#34;sqs-%s&#34;, sqs.region()))
+ *                 .build())
  *             .build());
  * 
  *         var sns2sqs = new Provider(&#34;sns2sqs&#34;, ProviderArgs.builder()        
  *             .region(sns.region())
- *             .assumeRole(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .assumeRole(ProviderAssumeRoleArgs.builder()
+ *                 .roleArn(String.format(&#34;arn:aws:iam::%s:role/%s&#34;, sqs.account-id(),sqs.role-name()))
+ *                 .sessionName(String.format(&#34;sns2sqs-%s&#34;, sns.region()))
+ *                 .build())
  *             .build());
  * 
  *         var sns_topicTopic = new Topic(&#34;sns-topicTopic&#34;, TopicArgs.builder()        

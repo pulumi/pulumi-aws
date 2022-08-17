@@ -22,20 +22,18 @@ namespace Pulumi.Aws.DirectConnect
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.DirectConnect.GetLocation.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.DirectConnect.GetLocation.InvokeAsync(new Aws.DirectConnect.GetLocationArgs
-        ///         {
-        ///             LocationCode = "CS32A-24FL",
-        ///         }));
-        ///     }
+        ///         LocationCode = "CS32A-24FL",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,20 +52,18 @@ namespace Pulumi.Aws.DirectConnect
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.DirectConnect.GetLocation.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.DirectConnect.GetLocation.InvokeAsync(new Aws.DirectConnect.GetLocationArgs
-        ///         {
-        ///             LocationCode = "CS32A-24FL",
-        ///         }));
-        ///     }
+        ///         LocationCode = "CS32A-24FL",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.Aws.DirectConnect
     }
 
 
-    public sealed class GetLocationArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The code for the location to retrieve.
@@ -88,9 +84,10 @@ namespace Pulumi.Aws.DirectConnect
         public GetLocationArgs()
         {
         }
+        public static new GetLocationArgs Empty => new GetLocationArgs();
     }
 
-    public sealed class GetLocationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The code for the location to retrieve.
@@ -101,12 +98,17 @@ namespace Pulumi.Aws.DirectConnect
         public GetLocationInvokeArgs()
         {
         }
+        public static new GetLocationInvokeArgs Empty => new GetLocationInvokeArgs();
     }
 
 
     [OutputType]
     public sealed class GetLocationResult
     {
+        /// <summary>
+        /// The available MAC Security (MACsec) port speeds for the location.
+        /// </summary>
+        public readonly ImmutableArray<string> AvailableMacsecPortSpeeds;
         /// <summary>
         /// The available port speeds for the location.
         /// </summary>
@@ -127,6 +129,8 @@ namespace Pulumi.Aws.DirectConnect
 
         [OutputConstructor]
         private GetLocationResult(
+            ImmutableArray<string> availableMacsecPortSpeeds,
+
             ImmutableArray<string> availablePortSpeeds,
 
             ImmutableArray<string> availableProviders,
@@ -137,6 +141,7 @@ namespace Pulumi.Aws.DirectConnect
 
             string locationName)
         {
+            AvailableMacsecPortSpeeds = availableMacsecPortSpeeds;
             AvailablePortSpeeds = availablePortSpeeds;
             AvailableProviders = availableProviders;
             Id = id;

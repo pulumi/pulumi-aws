@@ -19,21 +19,19 @@ namespace Pulumi.Aws.Lambda
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var production = Aws.Lambda.GetAlias.Invoke(new()
         ///     {
-        ///         var production = Output.Create(Aws.Lambda.GetAlias.InvokeAsync(new Aws.Lambda.GetAliasArgs
-        ///         {
-        ///             FunctionName = "my-lambda-func",
-        ///             Name = "production",
-        ///         }));
-        ///     }
+        ///         FunctionName = "my-lambda-func",
+        ///         Name = "production",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.Lambda
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var production = Aws.Lambda.GetAlias.Invoke(new()
         ///     {
-        ///         var production = Output.Create(Aws.Lambda.GetAlias.InvokeAsync(new Aws.Lambda.GetAliasArgs
-        ///         {
-        ///             FunctionName = "my-lambda-func",
-        ///             Name = "production",
-        ///         }));
-        ///     }
+        ///         FunctionName = "my-lambda-func",
+        ///         Name = "production",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Lambda
     }
 
 
-    public sealed class GetAliasArgs : Pulumi.InvokeArgs
+    public sealed class GetAliasArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the aliased Lambda function.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.Lambda
         public GetAliasArgs()
         {
         }
+        public static new GetAliasArgs Empty => new GetAliasArgs();
     }
 
-    public sealed class GetAliasInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAliasInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the aliased Lambda function.
@@ -109,6 +106,7 @@ namespace Pulumi.Aws.Lambda
         public GetAliasInvokeArgs()
         {
         }
+        public static new GetAliasInvokeArgs Empty => new GetAliasInvokeArgs();
     }
 
 

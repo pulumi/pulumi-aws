@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class AnalyticsApplicationOutputLambdaGetArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsApplicationOutputLambdaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Lambda function.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public AnalyticsApplicationOutputLambdaGetArgs()
         {
         }
+        public static new AnalyticsApplicationOutputLambdaGetArgs Empty => new AnalyticsApplicationOutputLambdaGetArgs();
     }
 }

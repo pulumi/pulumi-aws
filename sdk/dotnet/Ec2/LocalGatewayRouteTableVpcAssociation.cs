@@ -15,29 +15,29 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleLocalGatewayRouteTable = Aws.Ec2.GetLocalGatewayRouteTable.Invoke(new()
     ///     {
-    ///         var exampleLocalGatewayRouteTable = Output.Create(Aws.Ec2.GetLocalGatewayRouteTable.InvokeAsync(new Aws.Ec2.GetLocalGatewayRouteTableArgs
-    ///         {
-    ///             OutpostArn = "arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef",
-    ///         }));
-    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var exampleLocalGatewayRouteTableVpcAssociation = new Aws.Ec2.LocalGatewayRouteTableVpcAssociation("exampleLocalGatewayRouteTableVpcAssociation", new Aws.Ec2.LocalGatewayRouteTableVpcAssociationArgs
-    ///         {
-    ///             LocalGatewayRouteTableId = exampleLocalGatewayRouteTable.Apply(exampleLocalGatewayRouteTable =&gt; exampleLocalGatewayRouteTable.Id),
-    ///             VpcId = exampleVpc.Id,
-    ///         });
-    ///     }
+    ///         OutpostArn = "arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var exampleLocalGatewayRouteTableVpcAssociation = new Aws.Ec2.LocalGatewayRouteTableVpcAssociation("exampleLocalGatewayRouteTableVpcAssociation", new()
+    ///     {
+    ///         LocalGatewayRouteTableId = exampleLocalGatewayRouteTable.Apply(getLocalGatewayRouteTableResult =&gt; getLocalGatewayRouteTableResult.Id),
+    ///         VpcId = exampleVpc.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation")]
-    public partial class LocalGatewayRouteTableVpcAssociation : Pulumi.CustomResource
+    public partial class LocalGatewayRouteTableVpcAssociation : global::Pulumi.CustomResource
     {
         [Output("localGatewayId")]
         public Output<string> LocalGatewayId { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class LocalGatewayRouteTableVpcAssociationArgs : Pulumi.ResourceArgs
+    public sealed class LocalGatewayRouteTableVpcAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of EC2 Local Gateway Route Table.
@@ -151,9 +151,10 @@ namespace Pulumi.Aws.Ec2
         public LocalGatewayRouteTableVpcAssociationArgs()
         {
         }
+        public static new LocalGatewayRouteTableVpcAssociationArgs Empty => new LocalGatewayRouteTableVpcAssociationArgs();
     }
 
-    public sealed class LocalGatewayRouteTableVpcAssociationState : Pulumi.ResourceArgs
+    public sealed class LocalGatewayRouteTableVpcAssociationState : global::Pulumi.ResourceArgs
     {
         [Input("localGatewayId")]
         public Input<string>? LocalGatewayId { get; set; }
@@ -197,5 +198,6 @@ namespace Pulumi.Aws.Ec2
         public LocalGatewayRouteTableVpcAssociationState()
         {
         }
+        public static new LocalGatewayRouteTableVpcAssociationState Empty => new LocalGatewayRouteTableVpcAssociationState();
     }
 }

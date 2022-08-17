@@ -19,24 +19,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := directconnect.NewPrivateVirtualInterface(ctx, "foo", &directconnect.PrivateVirtualInterfaceArgs{
-// 			AddressFamily: pulumi.String("ipv4"),
-// 			BgpAsn:        pulumi.Int(65352),
-// 			ConnectionId:  pulumi.String("dxcon-zzzzzzzz"),
-// 			Vlan:          pulumi.Int(4094),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := directconnect.NewPrivateVirtualInterface(ctx, "foo", &directconnect.PrivateVirtualInterfaceArgs{
+//				AddressFamily: pulumi.String("ipv4"),
+//				BgpAsn:        pulumi.Int(65352),
+//				ConnectionId:  pulumi.String("dxcon-zzzzzzzz"),
+//				Vlan:          pulumi.Int(4094),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // Direct Connect private virtual interfaces can be imported using the `vif id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd
+//
+//	$ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd
+//
 // ```
 type PrivateVirtualInterface struct {
 	pulumi.CustomResourceState
@@ -78,7 +83,7 @@ type PrivateVirtualInterface struct {
 	SitelinkEnabled pulumi.BoolPtrOutput `pulumi:"sitelinkEnabled"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VLAN ID.
 	Vlan pulumi.IntOutput `pulumi:"vlan"`
@@ -156,7 +161,7 @@ type privateVirtualInterfaceState struct {
 	SitelinkEnabled *bool   `pulumi:"sitelinkEnabled"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The VLAN ID.
 	Vlan *int `pulumi:"vlan"`
@@ -194,7 +199,7 @@ type PrivateVirtualInterfaceState struct {
 	SitelinkEnabled pulumi.BoolPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The VLAN ID.
 	Vlan pulumi.IntPtrInput
@@ -291,7 +296,7 @@ func (i *PrivateVirtualInterface) ToPrivateVirtualInterfaceOutputWithContext(ctx
 // PrivateVirtualInterfaceArrayInput is an input type that accepts PrivateVirtualInterfaceArray and PrivateVirtualInterfaceArrayOutput values.
 // You can construct a concrete instance of `PrivateVirtualInterfaceArrayInput` via:
 //
-//          PrivateVirtualInterfaceArray{ PrivateVirtualInterfaceArgs{...} }
+//	PrivateVirtualInterfaceArray{ PrivateVirtualInterfaceArgs{...} }
 type PrivateVirtualInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -316,7 +321,7 @@ func (i PrivateVirtualInterfaceArray) ToPrivateVirtualInterfaceArrayOutputWithCo
 // PrivateVirtualInterfaceMapInput is an input type that accepts PrivateVirtualInterfaceMap and PrivateVirtualInterfaceMapOutput values.
 // You can construct a concrete instance of `PrivateVirtualInterfaceMapInput` via:
 //
-//          PrivateVirtualInterfaceMap{ "key": PrivateVirtualInterfaceArgs{...} }
+//	PrivateVirtualInterfaceMap{ "key": PrivateVirtualInterfaceArgs{...} }
 type PrivateVirtualInterfaceMapInput interface {
 	pulumi.Input
 
@@ -426,7 +431,7 @@ func (o PrivateVirtualInterfaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PrivateVirtualInterfaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PrivateVirtualInterface) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

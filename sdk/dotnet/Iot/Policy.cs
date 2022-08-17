@@ -20,34 +20,29 @@ namespace Pulumi.Aws.Iot
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var pubsub = new Aws.Iot.Policy("pubsub", new()
     ///     {
-    ///         var pubsub = new Aws.Iot.Policy("pubsub", new Aws.Iot.PolicyArgs
+    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 { "Version", "2012-10-17" },
-    ///                 { "Statement", new[]
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = new[]
     ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", new[]
-    ///                                 {
-    ///                                     "iot:*",
-    ///                                 }
-    ///                              },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Resource", "*" },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///         });
-    ///     }
+    ///                         "iot:*",
+    ///                     },
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +54,7 @@ namespace Pulumi.Aws.Iot
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/policy:Policy")]
-    public partial class Policy : Pulumi.CustomResource
+    public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN assigned by AWS to this policy.
@@ -129,7 +124,7 @@ namespace Pulumi.Aws.Iot
         }
     }
 
-    public sealed class PolicyArgs : Pulumi.ResourceArgs
+    public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the policy.
@@ -146,9 +141,10 @@ namespace Pulumi.Aws.Iot
         public PolicyArgs()
         {
         }
+        public static new PolicyArgs Empty => new PolicyArgs();
     }
 
-    public sealed class PolicyState : Pulumi.ResourceArgs
+    public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN assigned by AWS to this policy.
@@ -177,5 +173,6 @@ namespace Pulumi.Aws.Iot
         public PolicyState()
         {
         }
+        public static new PolicyState Empty => new PolicyState();
     }
 }

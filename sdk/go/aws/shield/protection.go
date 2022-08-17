@@ -21,48 +21,51 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/shield"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/shield"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := aws.GetAvailabilityZones(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		currentRegion, err := aws.GetRegion(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
-// 			Vpc: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = shield.NewProtection(ctx, "exampleProtection", &shield.ProtectionArgs{
-// 			ResourceArn: exampleEip.ID().ApplyT(func(id string) (string, error) {
-// 				return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", currentRegion.Name, currentCallerIdentity.AccountId, id), nil
-// 			}).(pulumi.StringOutput),
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("Dev"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.GetAvailabilityZones(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
+//				Vpc: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = shield.NewProtection(ctx, "exampleProtection", &shield.ProtectionArgs{
+//				ResourceArn: exampleEip.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("arn:aws:ec2:%v:%v:eip-allocation/%v", currentRegion.Name, currentCallerIdentity.AccountId, id), nil
+//				}).(pulumi.StringOutput),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Dev"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +73,9 @@ import (
 // Shield protection resources can be imported by specifying their ID e.g.,
 //
 // ```sh
-//  $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
+//
+//	$ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
+//
 // ```
 type Protection struct {
 	pulumi.CustomResourceState
@@ -193,7 +198,7 @@ func (i *Protection) ToProtectionOutputWithContext(ctx context.Context) Protecti
 // ProtectionArrayInput is an input type that accepts ProtectionArray and ProtectionArrayOutput values.
 // You can construct a concrete instance of `ProtectionArrayInput` via:
 //
-//          ProtectionArray{ ProtectionArgs{...} }
+//	ProtectionArray{ ProtectionArgs{...} }
 type ProtectionArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +223,7 @@ func (i ProtectionArray) ToProtectionArrayOutputWithContext(ctx context.Context)
 // ProtectionMapInput is an input type that accepts ProtectionMap and ProtectionMapOutput values.
 // You can construct a concrete instance of `ProtectionMapInput` via:
 //
-//          ProtectionMap{ "key": ProtectionArgs{...} }
+//	ProtectionMap{ "key": ProtectionArgs{...} }
 type ProtectionMapInput interface {
 	pulumi.Input
 

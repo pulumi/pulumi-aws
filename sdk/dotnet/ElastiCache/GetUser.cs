@@ -19,20 +19,18 @@ namespace Pulumi.Aws.ElastiCache
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var bar = Aws.ElastiCache.GetUser.Invoke(new()
         ///     {
-        ///         var bar = Output.Create(Aws.ElastiCache.GetUser.InvokeAsync(new Aws.ElastiCache.GetUserArgs
-        ///         {
-        ///             UserId = "example",
-        ///         }));
-        ///     }
+        ///         UserId = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.ElastiCache
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var bar = Aws.ElastiCache.GetUser.Invoke(new()
         ///     {
-        ///         var bar = Output.Create(Aws.ElastiCache.GetUser.InvokeAsync(new Aws.ElastiCache.GetUserArgs
-        ///         {
-        ///             UserId = "example",
-        ///         }));
-        ///     }
+        ///         UserId = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.ElastiCache
     }
 
 
-    public sealed class GetUserArgs : Pulumi.InvokeArgs
+    public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
@@ -108,9 +104,10 @@ namespace Pulumi.Aws.ElastiCache
         public GetUserArgs()
         {
         }
+        public static new GetUserArgs Empty => new GetUserArgs();
     }
 
-    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
@@ -147,6 +144,7 @@ namespace Pulumi.Aws.ElastiCache
         public GetUserInvokeArgs()
         {
         }
+        public static new GetUserInvokeArgs Empty => new GetUserInvokeArgs();
     }
 
 

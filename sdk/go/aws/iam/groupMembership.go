@@ -26,37 +26,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		group, err := iam.NewGroup(ctx, "group", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		userOne, err := iam.NewUser(ctx, "userOne", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		userTwo, err := iam.NewUser(ctx, "userTwo", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewGroupMembership(ctx, "team", &iam.GroupMembershipArgs{
-// 			Users: pulumi.StringArray{
-// 				userOne.Name,
-// 				userTwo.Name,
-// 			},
-// 			Group: group.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			group, err := iam.NewGroup(ctx, "group", nil)
+//			if err != nil {
+//				return err
+//			}
+//			userOne, err := iam.NewUser(ctx, "userOne", nil)
+//			if err != nil {
+//				return err
+//			}
+//			userTwo, err := iam.NewUser(ctx, "userTwo", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewGroupMembership(ctx, "team", &iam.GroupMembershipArgs{
+//				Users: pulumi.StringArray{
+//					userOne.Name,
+//					userTwo.Name,
+//				},
+//				Group: group.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type GroupMembership struct {
 	pulumi.CustomResourceState
@@ -170,7 +173,7 @@ func (i *GroupMembership) ToGroupMembershipOutputWithContext(ctx context.Context
 // GroupMembershipArrayInput is an input type that accepts GroupMembershipArray and GroupMembershipArrayOutput values.
 // You can construct a concrete instance of `GroupMembershipArrayInput` via:
 //
-//          GroupMembershipArray{ GroupMembershipArgs{...} }
+//	GroupMembershipArray{ GroupMembershipArgs{...} }
 type GroupMembershipArrayInput interface {
 	pulumi.Input
 
@@ -195,7 +198,7 @@ func (i GroupMembershipArray) ToGroupMembershipArrayOutputWithContext(ctx contex
 // GroupMembershipMapInput is an input type that accepts GroupMembershipMap and GroupMembershipMapOutput values.
 // You can construct a concrete instance of `GroupMembershipMapInput` via:
 //
-//          GroupMembershipMap{ "key": GroupMembershipArgs{...} }
+//	GroupMembershipMap{ "key": GroupMembershipArgs{...} }
 type GroupMembershipMapInput interface {
 	pulumi.Input
 

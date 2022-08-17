@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ram.Inputs
 {
 
-    public sealed class GetResourceShareFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetResourceShareFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the tag key to filter on.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ram.Inputs
         public GetResourceShareFilterInputArgs()
         {
         }
+        public static new GetResourceShareFilterInputArgs Empty => new GetResourceShareFilterInputArgs();
     }
 }

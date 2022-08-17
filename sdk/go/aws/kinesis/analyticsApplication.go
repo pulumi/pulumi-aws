@@ -24,55 +24,58 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testStream, err := kinesis.NewStream(ctx, "testStream", &kinesis.StreamArgs{
-// 			ShardCount: pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = kinesis.NewAnalyticsApplication(ctx, "testApplication", &kinesis.AnalyticsApplicationArgs{
-// 			Inputs: &kinesis.AnalyticsApplicationInputsArgs{
-// 				NamePrefix: pulumi.String("test_prefix"),
-// 				KinesisStream: &kinesis.AnalyticsApplicationInputsKinesisStreamArgs{
-// 					ResourceArn: testStream.Arn,
-// 					RoleArn:     pulumi.Any(aws_iam_role.Test.Arn),
-// 				},
-// 				Parallelism: &kinesis.AnalyticsApplicationInputsParallelismArgs{
-// 					Count: pulumi.Int(1),
-// 				},
-// 				Schema: &kinesis.AnalyticsApplicationInputsSchemaArgs{
-// 					RecordColumns: kinesis.AnalyticsApplicationInputsSchemaRecordColumnArray{
-// 						&kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs{
-// 							Mapping: pulumi.String(fmt.Sprintf("$.test")),
-// 							Name:    pulumi.String("test"),
-// 							SqlType: pulumi.String("VARCHAR(8)"),
-// 						},
-// 					},
-// 					RecordEncoding: pulumi.String("UTF-8"),
-// 					RecordFormat: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs{
-// 						MappingParameters: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs{
-// 							Json: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs{
-// 								RecordRowPath: pulumi.String("$"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testStream, err := kinesis.NewStream(ctx, "testStream", &kinesis.StreamArgs{
+//				ShardCount: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kinesis.NewAnalyticsApplication(ctx, "testApplication", &kinesis.AnalyticsApplicationArgs{
+//				Inputs: &kinesis.AnalyticsApplicationInputsArgs{
+//					NamePrefix: pulumi.String("test_prefix"),
+//					KinesisStream: &kinesis.AnalyticsApplicationInputsKinesisStreamArgs{
+//						ResourceArn: testStream.Arn,
+//						RoleArn:     pulumi.Any(aws_iam_role.Test.Arn),
+//					},
+//					Parallelism: &kinesis.AnalyticsApplicationInputsParallelismArgs{
+//						Count: pulumi.Int(1),
+//					},
+//					Schema: &kinesis.AnalyticsApplicationInputsSchemaArgs{
+//						RecordColumns: kinesis.AnalyticsApplicationInputsSchemaRecordColumnArray{
+//							&kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs{
+//								Mapping: pulumi.String(fmt.Sprintf("$.test")),
+//								Name:    pulumi.String("test"),
+//								SqlType: pulumi.String("VARCHAR(8)"),
+//							},
+//						},
+//						RecordEncoding: pulumi.String("UTF-8"),
+//						RecordFormat: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs{
+//							MappingParameters: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs{
+//								Json: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs{
+//									RecordRowPath: pulumi.String("$"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Starting An Application
 //
@@ -80,92 +83,95 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLogStream, err := cloudwatch.NewLogStream(ctx, "exampleLogStream", &cloudwatch.LogStreamArgs{
-// 			LogGroupName: exampleLogGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleStream, err := kinesis.NewStream(ctx, "exampleStream", &kinesis.StreamArgs{
-// 			ShardCount: pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFirehoseDeliveryStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "exampleFirehoseDeliveryStream", &kinesis.FirehoseDeliveryStreamArgs{
-// 			Destination: pulumi.String("extended_s3"),
-// 			ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
-// 				BucketArn: pulumi.Any(aws_s3_bucket.Example.Arn),
-// 				RoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = kinesis.NewAnalyticsApplication(ctx, "test", &kinesis.AnalyticsApplicationArgs{
-// 			CloudwatchLoggingOptions: &kinesis.AnalyticsApplicationCloudwatchLoggingOptionsArgs{
-// 				LogStreamArn: exampleLogStream.Arn,
-// 				RoleArn:      pulumi.Any(aws_iam_role.Example.Arn),
-// 			},
-// 			Inputs: &kinesis.AnalyticsApplicationInputsArgs{
-// 				NamePrefix: pulumi.String("example_prefix"),
-// 				Schema: &kinesis.AnalyticsApplicationInputsSchemaArgs{
-// 					RecordColumns: kinesis.AnalyticsApplicationInputsSchemaRecordColumnArray{
-// 						&kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs{
-// 							Name:    pulumi.String("COLUMN_1"),
-// 							SqlType: pulumi.String("INTEGER"),
-// 						},
-// 					},
-// 					RecordFormat: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs{
-// 						MappingParameters: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs{
-// 							Csv: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs{
-// 								RecordColumnDelimiter: pulumi.String(","),
-// 								RecordRowDelimiter:    pulumi.String("|"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 				KinesisStream: &kinesis.AnalyticsApplicationInputsKinesisStreamArgs{
-// 					ResourceArn: exampleStream.Arn,
-// 					RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
-// 				},
-// 				StartingPositionConfigurations: kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArray{
-// 					&kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArgs{
-// 						StartingPosition: pulumi.String("NOW"),
-// 					},
-// 				},
-// 			},
-// 			Outputs: kinesis.AnalyticsApplicationOutputTypeArray{
-// 				&kinesis.AnalyticsApplicationOutputTypeArgs{
-// 					Name: pulumi.String("OUTPUT_1"),
-// 					Schema: &kinesis.AnalyticsApplicationOutputSchemaArgs{
-// 						RecordFormatType: pulumi.String("CSV"),
-// 					},
-// 					KinesisFirehose: &kinesis.AnalyticsApplicationOutputKinesisFirehoseArgs{
-// 						ResourceArn: exampleFirehoseDeliveryStream.Arn,
-// 						RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
-// 					},
-// 				},
-// 			},
-// 			StartApplication: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleLogStream, err := cloudwatch.NewLogStream(ctx, "exampleLogStream", &cloudwatch.LogStreamArgs{
+//				LogGroupName: exampleLogGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleStream, err := kinesis.NewStream(ctx, "exampleStream", &kinesis.StreamArgs{
+//				ShardCount: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFirehoseDeliveryStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "exampleFirehoseDeliveryStream", &kinesis.FirehoseDeliveryStreamArgs{
+//				Destination: pulumi.String("extended_s3"),
+//				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
+//					BucketArn: pulumi.Any(aws_s3_bucket.Example.Arn),
+//					RoleArn:   pulumi.Any(aws_iam_role.Example.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kinesis.NewAnalyticsApplication(ctx, "test", &kinesis.AnalyticsApplicationArgs{
+//				CloudwatchLoggingOptions: &kinesis.AnalyticsApplicationCloudwatchLoggingOptionsArgs{
+//					LogStreamArn: exampleLogStream.Arn,
+//					RoleArn:      pulumi.Any(aws_iam_role.Example.Arn),
+//				},
+//				Inputs: &kinesis.AnalyticsApplicationInputsArgs{
+//					NamePrefix: pulumi.String("example_prefix"),
+//					Schema: &kinesis.AnalyticsApplicationInputsSchemaArgs{
+//						RecordColumns: kinesis.AnalyticsApplicationInputsSchemaRecordColumnArray{
+//							&kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs{
+//								Name:    pulumi.String("COLUMN_1"),
+//								SqlType: pulumi.String("INTEGER"),
+//							},
+//						},
+//						RecordFormat: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs{
+//							MappingParameters: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs{
+//								Csv: &kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs{
+//									RecordColumnDelimiter: pulumi.String(","),
+//									RecordRowDelimiter:    pulumi.String("|"),
+//								},
+//							},
+//						},
+//					},
+//					KinesisStream: &kinesis.AnalyticsApplicationInputsKinesisStreamArgs{
+//						ResourceArn: exampleStream.Arn,
+//						RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
+//					},
+//					StartingPositionConfigurations: kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArray{
+//						&kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArgs{
+//							StartingPosition: pulumi.String("NOW"),
+//						},
+//					},
+//				},
+//				Outputs: kinesis.AnalyticsApplicationOutputTypeArray{
+//					&kinesis.AnalyticsApplicationOutputTypeArgs{
+//						Name: pulumi.String("OUTPUT_1"),
+//						Schema: &kinesis.AnalyticsApplicationOutputSchemaArgs{
+//							RecordFormatType: pulumi.String("CSV"),
+//						},
+//						KinesisFirehose: &kinesis.AnalyticsApplicationOutputKinesisFirehoseArgs{
+//							ResourceArn: exampleFirehoseDeliveryStream.Arn,
+//							RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
+//						},
+//					},
+//				},
+//				StartApplication: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -173,7 +179,9 @@ import (
 // Kinesis Analytics Application can be imported by using ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
+//
+//	$ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
+//
 // ```
 type AnalyticsApplication struct {
 	pulumi.CustomResourceState
@@ -392,7 +400,7 @@ func (i *AnalyticsApplication) ToAnalyticsApplicationOutputWithContext(ctx conte
 // AnalyticsApplicationArrayInput is an input type that accepts AnalyticsApplicationArray and AnalyticsApplicationArrayOutput values.
 // You can construct a concrete instance of `AnalyticsApplicationArrayInput` via:
 //
-//          AnalyticsApplicationArray{ AnalyticsApplicationArgs{...} }
+//	AnalyticsApplicationArray{ AnalyticsApplicationArgs{...} }
 type AnalyticsApplicationArrayInput interface {
 	pulumi.Input
 
@@ -417,7 +425,7 @@ func (i AnalyticsApplicationArray) ToAnalyticsApplicationArrayOutputWithContext(
 // AnalyticsApplicationMapInput is an input type that accepts AnalyticsApplicationMap and AnalyticsApplicationMapOutput values.
 // You can construct a concrete instance of `AnalyticsApplicationMapInput` via:
 //
-//          AnalyticsApplicationMap{ "key": AnalyticsApplicationArgs{...} }
+//	AnalyticsApplicationMap{ "key": AnalyticsApplicationArgs{...} }
 type AnalyticsApplicationMapInput interface {
 	pulumi.Input
 

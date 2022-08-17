@@ -760,19 +760,6 @@ class Table(pulumi.CustomResource):
                  write_capacity: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Provides a DynamoDB table resource
-
-        > **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `read_capacity` and/or `write_capacity` if there's `autoscaling policy` attached to the table.
-
-        ## DynamoDB Table attributes
-
-        Only define attributes on the table object that are going to be used as:
-
-        * Table hash key or range key
-        * LSI or GSI hash key or range key
-
-        The DynamoDB API expects attribute structure (name and type) to be passed along when creating or updating GSI/LSIs or creating the initial table. In these cases it expects the Hash / Range keys to be provided. Because these get re-used in numerous places (i.e the table's range key could be a part of one or more GSIs), they are stored on the table object to prevent duplication and increase consistency. If you add attributes here that are not used in these scenarios it can cause an infinite loop in planning.
-
         ## Example Usage
         ### Basic Example
 
@@ -823,6 +810,8 @@ class Table(pulumi.CustomResource):
         ### Global Tables
 
         This resource implements support for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) via `replica` configuration blocks. For working with [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html), see the `dynamodb.GlobalTable` resource.
+
+        > **Note:** [dynamodb.TableReplica](https://www.terraform.io/docs/providers/aws/r/dynamodb_table_replica.html) is an alternate way of configuring Global Tables. Do not use `replica` configuration blocks of `dynamodb.Table` together with [dynamodb.TableReplica](https://www.terraform.io/docs/providers/aws/r/dynamodb_table_replica.html).
 
         ```python
         import pulumi
@@ -885,19 +874,6 @@ class Table(pulumi.CustomResource):
                  args: Optional[TableArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a DynamoDB table resource
-
-        > **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `read_capacity` and/or `write_capacity` if there's `autoscaling policy` attached to the table.
-
-        ## DynamoDB Table attributes
-
-        Only define attributes on the table object that are going to be used as:
-
-        * Table hash key or range key
-        * LSI or GSI hash key or range key
-
-        The DynamoDB API expects attribute structure (name and type) to be passed along when creating or updating GSI/LSIs or creating the initial table. In these cases it expects the Hash / Range keys to be provided. Because these get re-used in numerous places (i.e the table's range key could be a part of one or more GSIs), they are stored on the table object to prevent duplication and increase consistency. If you add attributes here that are not used in these scenarios it can cause an infinite loop in planning.
-
         ## Example Usage
         ### Basic Example
 
@@ -948,6 +924,8 @@ class Table(pulumi.CustomResource):
         ### Global Tables
 
         This resource implements support for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) via `replica` configuration blocks. For working with [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html), see the `dynamodb.GlobalTable` resource.
+
+        > **Note:** [dynamodb.TableReplica](https://www.terraform.io/docs/providers/aws/r/dynamodb_table_replica.html) is an alternate way of configuring Global Tables. Do not use `replica` configuration blocks of `dynamodb.Table` together with [dynamodb.TableReplica](https://www.terraform.io/docs/providers/aws/r/dynamodb_table_replica.html).
 
         ```python
         import pulumi

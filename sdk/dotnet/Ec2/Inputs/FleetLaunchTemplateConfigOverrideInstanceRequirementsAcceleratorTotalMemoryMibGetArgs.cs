@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibGetArgs : Pulumi.ResourceArgs
+    public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibGetArgs()
         {
         }
+        public static new FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibGetArgs Empty => new FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibGetArgs();
     }
 }

@@ -19,102 +19,109 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplePolicy, err := iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
-// 			Description: pulumi.String("My example policy"),
-// 			Policy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": [
-//         "ec2:Describe*"
-//       ],
-//       "Effect": "Allow",
-//       "Resource": "*"
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplePolicy, err := iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
+//				Description: pulumi.String("My example policy"),
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": [
+//	        "ec2:Describe*"
+//	      ],
+//	      "Effect": "Allow",
+//	      "Resource": "*"
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		current, err := aws.GetPartition(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Effect": "Allow",
-//       "Principal": {
-//         "Service": [
-//           "budgets.%v"
-//         ]
-//       },
-//       "Action": [
-//         "sts:AssumeRole"
-//       ]
-//     }
-//   ]
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "Service": [
+//	          "budgets.%v"
+//	        ]
+//	      },
+//	      "Action": [
+//	        "sts:AssumeRole"
+//	      ]
+//	    }
+//	  ]
+//	}
+//
 // `, current.DnsSuffix)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleBudget, err := budgets.NewBudget(ctx, "exampleBudget", &budgets.BudgetArgs{
-// 			BudgetType:      pulumi.String("USAGE"),
-// 			LimitAmount:     pulumi.String("10.0"),
-// 			LimitUnit:       pulumi.String("dollars"),
-// 			TimePeriodStart: pulumi.String("2006-01-02_15:04"),
-// 			TimeUnit:        pulumi.String("MONTHLY"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = budgets.NewBudgetAction(ctx, "exampleBudgetAction", &budgets.BudgetActionArgs{
-// 			BudgetName:       exampleBudget.Name,
-// 			ActionType:       pulumi.String("APPLY_IAM_POLICY"),
-// 			ApprovalModel:    pulumi.String("AUTOMATIC"),
-// 			NotificationType: pulumi.String("ACTUAL"),
-// 			ExecutionRoleArn: exampleRole.Arn,
-// 			ActionThreshold: &budgets.BudgetActionActionThresholdArgs{
-// 				ActionThresholdType:  pulumi.String("ABSOLUTE_VALUE"),
-// 				ActionThresholdValue: pulumi.Float64(100),
-// 			},
-// 			Definition: &budgets.BudgetActionDefinitionArgs{
-// 				IamActionDefinition: &budgets.BudgetActionDefinitionIamActionDefinitionArgs{
-// 					PolicyArn: examplePolicy.Arn,
-// 					Roles: pulumi.StringArray{
-// 						exampleRole.Name,
-// 					},
-// 				},
-// 			},
-// 			Subscribers: budgets.BudgetActionSubscriberArray{
-// 				&budgets.BudgetActionSubscriberArgs{
-// 					Address:          pulumi.String("example@example.example"),
-// 					SubscriptionType: pulumi.String("EMAIL"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBudget, err := budgets.NewBudget(ctx, "exampleBudget", &budgets.BudgetArgs{
+//				BudgetType:      pulumi.String("USAGE"),
+//				LimitAmount:     pulumi.String("10.0"),
+//				LimitUnit:       pulumi.String("dollars"),
+//				TimePeriodStart: pulumi.String("2006-01-02_15:04"),
+//				TimeUnit:        pulumi.String("MONTHLY"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = budgets.NewBudgetAction(ctx, "exampleBudgetAction", &budgets.BudgetActionArgs{
+//				BudgetName:       exampleBudget.Name,
+//				ActionType:       pulumi.String("APPLY_IAM_POLICY"),
+//				ApprovalModel:    pulumi.String("AUTOMATIC"),
+//				NotificationType: pulumi.String("ACTUAL"),
+//				ExecutionRoleArn: exampleRole.Arn,
+//				ActionThreshold: &budgets.BudgetActionActionThresholdArgs{
+//					ActionThresholdType:  pulumi.String("ABSOLUTE_VALUE"),
+//					ActionThresholdValue: pulumi.Float64(100),
+//				},
+//				Definition: &budgets.BudgetActionDefinitionArgs{
+//					IamActionDefinition: &budgets.BudgetActionDefinitionIamActionDefinitionArgs{
+//						PolicyArn: examplePolicy.Arn,
+//						Roles: pulumi.StringArray{
+//							exampleRole.Name,
+//						},
+//					},
+//				},
+//				Subscribers: budgets.BudgetActionSubscriberArray{
+//					&budgets.BudgetActionSubscriberArgs{
+//						Address:          pulumi.String("example@example.example"),
+//						SubscriptionType: pulumi.String("EMAIL"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -122,7 +129,9 @@ import (
 // Budgets can be imported using `AccountID:ActionID:BudgetName`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget`
+//
+//	$ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget`
+//
 // ```
 type BudgetAction struct {
 	pulumi.CustomResourceState
@@ -332,7 +341,7 @@ func (i *BudgetAction) ToBudgetActionOutputWithContext(ctx context.Context) Budg
 // BudgetActionArrayInput is an input type that accepts BudgetActionArray and BudgetActionArrayOutput values.
 // You can construct a concrete instance of `BudgetActionArrayInput` via:
 //
-//          BudgetActionArray{ BudgetActionArgs{...} }
+//	BudgetActionArray{ BudgetActionArgs{...} }
 type BudgetActionArrayInput interface {
 	pulumi.Input
 
@@ -357,7 +366,7 @@ func (i BudgetActionArray) ToBudgetActionArrayOutputWithContext(ctx context.Cont
 // BudgetActionMapInput is an input type that accepts BudgetActionMap and BudgetActionMapOutput values.
 // You can construct a concrete instance of `BudgetActionMapInput` via:
 //
-//          BudgetActionMap{ "key": BudgetActionArgs{...} }
+//	BudgetActionMap{ "key": BudgetActionArgs{...} }
 type BudgetActionMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53.Inputs
 {
 
-    public sealed class RecordWeightedRoutingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RecordWeightedRoutingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Route53.Inputs
         public RecordWeightedRoutingPolicyArgs()
         {
         }
+        public static new RecordWeightedRoutingPolicyArgs Empty => new RecordWeightedRoutingPolicyArgs();
     }
 }

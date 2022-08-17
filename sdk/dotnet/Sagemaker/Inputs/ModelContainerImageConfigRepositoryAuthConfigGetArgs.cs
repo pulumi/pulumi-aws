@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class ModelContainerImageConfigRepositoryAuthConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ModelContainerImageConfigRepositoryAuthConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public ModelContainerImageConfigRepositoryAuthConfigGetArgs()
         {
         }
+        public static new ModelContainerImageConfigRepositoryAuthConfigGetArgs Empty => new ModelContainerImageConfigRepositoryAuthConfigGetArgs();
     }
 }

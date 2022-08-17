@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.TimestreamWrite.Inputs
 {
 
-    public sealed class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationGetArgs : Pulumi.ResourceArgs
+    public sealed class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.TimestreamWrite.Inputs
         public TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationGetArgs()
         {
         }
+        public static new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationGetArgs Empty => new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53.Inputs
 {
 
-    public sealed class RecordGeolocationRoutingPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class RecordGeolocationRoutingPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Route53.Inputs
         public RecordGeolocationRoutingPolicyGetArgs()
         {
         }
+        public static new RecordGeolocationRoutingPolicyGetArgs Empty => new RecordGeolocationRoutingPolicyGetArgs();
     }
 }

@@ -15,35 +15,33 @@ namespace Pulumi.Aws.AppStream
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testFleet = new Aws.AppStream.ImageBuilder("testFleet", new()
     ///     {
-    ///         var testFleet = new Aws.AppStream.ImageBuilder("testFleet", new Aws.AppStream.ImageBuilderArgs
+    ///         Description = "Description of a ImageBuilder",
+    ///         DisplayName = "Display name of a ImageBuilder",
+    ///         EnableDefaultInternetAccess = false,
+    ///         ImageName = "AppStream-WinServer2012R2-07-19-2021",
+    ///         InstanceType = "stream.standard.large",
+    ///         VpcConfig = new Aws.AppStream.Inputs.ImageBuilderVpcConfigArgs
     ///         {
-    ///             Description = "Description of a ImageBuilder",
-    ///             DisplayName = "Display name of a ImageBuilder",
-    ///             EnableDefaultInternetAccess = false,
-    ///             ImageName = "AppStream-WinServer2012R2-07-19-2021",
-    ///             InstanceType = "stream.standard.large",
-    ///             VpcConfig = new Aws.AppStream.Inputs.ImageBuilderVpcConfigArgs
+    ///             SubnetIds = new[]
     ///             {
-    ///                 SubnetIds = 
-    ///                 {
-    ///                     aws_subnet.Example.Id,
-    ///                 },
+    ///                 aws_subnet.Example.Id,
     ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example Image Builder" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Image Builder" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +53,7 @@ namespace Pulumi.Aws.AppStream
     /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/imageBuilder:ImageBuilder")]
-    public partial class ImageBuilder : Pulumi.CustomResource
+    public partial class ImageBuilder : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
@@ -203,7 +201,7 @@ namespace Pulumi.Aws.AppStream
         }
     }
 
-    public sealed class ImageBuilderArgs : Pulumi.ResourceArgs
+    public sealed class ImageBuilderArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessEndpoints")]
         private InputList<Inputs.ImageBuilderAccessEndpointArgs>? _accessEndpoints;
@@ -298,9 +296,10 @@ namespace Pulumi.Aws.AppStream
         public ImageBuilderArgs()
         {
         }
+        public static new ImageBuilderArgs Empty => new ImageBuilderArgs();
     }
 
-    public sealed class ImageBuilderState : Pulumi.ResourceArgs
+    public sealed class ImageBuilderState : global::Pulumi.ResourceArgs
     {
         [Input("accessEndpoints")]
         private InputList<Inputs.ImageBuilderAccessEndpointGetArgs>? _accessEndpoints;
@@ -425,5 +424,6 @@ namespace Pulumi.Aws.AppStream
         public ImageBuilderState()
         {
         }
+        public static new ImageBuilderState Empty => new ImageBuilderState();
     }
 }

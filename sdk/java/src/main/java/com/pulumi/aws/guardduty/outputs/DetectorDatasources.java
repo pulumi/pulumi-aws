@@ -4,6 +4,7 @@
 package com.pulumi.aws.guardduty.outputs;
 
 import com.pulumi.aws.guardduty.outputs.DetectorDatasourcesKubernetes;
+import com.pulumi.aws.guardduty.outputs.DetectorDatasourcesMalwareProtection;
 import com.pulumi.aws.guardduty.outputs.DetectorDatasourcesS3Logs;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -19,6 +20,12 @@ public final class DetectorDatasources {
      */
     private final @Nullable DetectorDatasourcesKubernetes kubernetes;
     /**
+     * @return Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+     * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+     * 
+     */
+    private final @Nullable DetectorDatasourcesMalwareProtection malwareProtection;
+    /**
      * @return Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
      * See S3 Logs below for more details.
      * 
@@ -28,8 +35,10 @@ public final class DetectorDatasources {
     @CustomType.Constructor
     private DetectorDatasources(
         @CustomType.Parameter("kubernetes") @Nullable DetectorDatasourcesKubernetes kubernetes,
+        @CustomType.Parameter("malwareProtection") @Nullable DetectorDatasourcesMalwareProtection malwareProtection,
         @CustomType.Parameter("s3Logs") @Nullable DetectorDatasourcesS3Logs s3Logs) {
         this.kubernetes = kubernetes;
+        this.malwareProtection = malwareProtection;
         this.s3Logs = s3Logs;
     }
 
@@ -40,6 +49,14 @@ public final class DetectorDatasources {
      */
     public Optional<DetectorDatasourcesKubernetes> kubernetes() {
         return Optional.ofNullable(this.kubernetes);
+    }
+    /**
+     * @return Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+     * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+     * 
+     */
+    public Optional<DetectorDatasourcesMalwareProtection> malwareProtection() {
+        return Optional.ofNullable(this.malwareProtection);
     }
     /**
      * @return Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
@@ -60,6 +77,7 @@ public final class DetectorDatasources {
 
     public static final class Builder {
         private @Nullable DetectorDatasourcesKubernetes kubernetes;
+        private @Nullable DetectorDatasourcesMalwareProtection malwareProtection;
         private @Nullable DetectorDatasourcesS3Logs s3Logs;
 
         public Builder() {
@@ -69,6 +87,7 @@ public final class DetectorDatasources {
         public Builder(DetectorDatasources defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kubernetes = defaults.kubernetes;
+    	      this.malwareProtection = defaults.malwareProtection;
     	      this.s3Logs = defaults.s3Logs;
         }
 
@@ -76,11 +95,15 @@ public final class DetectorDatasources {
             this.kubernetes = kubernetes;
             return this;
         }
+        public Builder malwareProtection(@Nullable DetectorDatasourcesMalwareProtection malwareProtection) {
+            this.malwareProtection = malwareProtection;
+            return this;
+        }
         public Builder s3Logs(@Nullable DetectorDatasourcesS3Logs s3Logs) {
             this.s3Logs = s3Logs;
             return this;
         }        public DetectorDatasources build() {
-            return new DetectorDatasources(kubernetes, s3Logs);
+            return new DetectorDatasources(kubernetes, malwareProtection, s3Logs);
         }
     }
 }

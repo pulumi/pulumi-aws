@@ -16,67 +16,63 @@ namespace Pulumi.Aws.Sagemaker
     /// ### Cognito Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.Workteam("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.Workteam("example", new Aws.Sagemaker.WorkteamArgs
+    ///         WorkteamName = "example",
+    ///         WorkforceName = aws_sagemaker_workforce.Example.Id,
+    ///         Description = "example",
+    ///         MemberDefinitions = new[]
     ///         {
-    ///             WorkteamName = "example",
-    ///             WorkforceName = aws_sagemaker_workforce.Example.Id,
-    ///             Description = "example",
-    ///             MemberDefinitions = 
+    ///             new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionArgs
     ///             {
-    ///                 new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionArgs
+    ///                 CognitoMemberDefinition = new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionCognitoMemberDefinitionArgs
     ///                 {
-    ///                     CognitoMemberDefinition = new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionCognitoMemberDefinitionArgs
-    ///                     {
-    ///                         ClientId = aws_cognito_user_pool_client.Example.Id,
-    ///                         UserPool = aws_cognito_user_pool_domain.Example.User_pool_id,
-    ///                         UserGroup = aws_cognito_user_group.Example.Id,
-    ///                     },
+    ///                     ClientId = aws_cognito_user_pool_client.Example.Id,
+    ///                     UserPool = aws_cognito_user_pool_domain.Example.User_pool_id,
+    ///                     UserGroup = aws_cognito_user_group.Example.Id,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Oidc Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Sagemaker.Workteam("example", new()
     ///     {
-    ///         var example = new Aws.Sagemaker.Workteam("example", new Aws.Sagemaker.WorkteamArgs
+    ///         WorkteamName = "example",
+    ///         WorkforceName = aws_sagemaker_workforce.Example.Id,
+    ///         Description = "example",
+    ///         MemberDefinitions = new[]
     ///         {
-    ///             WorkteamName = "example",
-    ///             WorkforceName = aws_sagemaker_workforce.Example.Id,
-    ///             Description = "example",
-    ///             MemberDefinitions = 
+    ///             new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionArgs
     ///             {
-    ///                 new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionArgs
+    ///                 OidcMemberDefinition = new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionOidcMemberDefinitionArgs
     ///                 {
-    ///                     OidcMemberDefinition = new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionOidcMemberDefinitionArgs
+    ///                     Groups = new[]
     ///                     {
-    ///                         Groups = 
-    ///                         {
-    ///                             "example",
-    ///                         },
+    ///                         "example",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +84,7 @@ namespace Pulumi.Aws.Sagemaker
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/workteam:Workteam")]
-    public partial class Workteam : Pulumi.CustomResource
+    public partial class Workteam : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
@@ -188,7 +184,7 @@ namespace Pulumi.Aws.Sagemaker
         }
     }
 
-    public sealed class WorkteamArgs : Pulumi.ResourceArgs
+    public sealed class WorkteamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the work team.
@@ -241,9 +237,10 @@ namespace Pulumi.Aws.Sagemaker
         public WorkteamArgs()
         {
         }
+        public static new WorkteamArgs Empty => new WorkteamArgs();
     }
 
-    public sealed class WorkteamState : Pulumi.ResourceArgs
+    public sealed class WorkteamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
@@ -320,5 +317,6 @@ namespace Pulumi.Aws.Sagemaker
         public WorkteamState()
         {
         }
+        public static new WorkteamState Empty => new WorkteamState();
     }
 }

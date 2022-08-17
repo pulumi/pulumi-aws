@@ -15,29 +15,27 @@ namespace Pulumi.Aws.AppConfig
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppConfig.DeploymentStrategy("example", new()
     ///     {
-    ///         var example = new Aws.AppConfig.DeploymentStrategy("example", new Aws.AppConfig.DeploymentStrategyArgs
+    ///         DeploymentDurationInMinutes = 3,
+    ///         Description = "Example Deployment Strategy",
+    ///         FinalBakeTimeInMinutes = 4,
+    ///         GrowthFactor = 10,
+    ///         GrowthType = "LINEAR",
+    ///         ReplicateTo = "NONE",
+    ///         Tags = 
     ///         {
-    ///             DeploymentDurationInMinutes = 3,
-    ///             Description = "Example Deployment Strategy",
-    ///             FinalBakeTimeInMinutes = 4,
-    ///             GrowthFactor = 10,
-    ///             GrowthType = "LINEAR",
-    ///             ReplicateTo = "NONE",
-    ///             Tags = 
-    ///             {
-    ///                 { "Type", "AppConfig Deployment Strategy" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Type", "AppConfig Deployment Strategy" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.AppConfig
     /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/deploymentStrategy:DeploymentStrategy")]
-    public partial class DeploymentStrategy : Pulumi.CustomResource
+    public partial class DeploymentStrategy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AppConfig Deployment Strategy.
@@ -155,7 +153,7 @@ namespace Pulumi.Aws.AppConfig
         }
     }
 
-    public sealed class DeploymentStrategyArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentStrategyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
@@ -214,9 +212,10 @@ namespace Pulumi.Aws.AppConfig
         public DeploymentStrategyArgs()
         {
         }
+        public static new DeploymentStrategyArgs Empty => new DeploymentStrategyArgs();
     }
 
-    public sealed class DeploymentStrategyState : Pulumi.ResourceArgs
+    public sealed class DeploymentStrategyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AppConfig Deployment Strategy.
@@ -293,5 +292,6 @@ namespace Pulumi.Aws.AppConfig
         public DeploymentStrategyState()
         {
         }
+        public static new DeploymentStrategyState Empty => new DeploymentStrategyState();
     }
 }

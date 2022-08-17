@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class FirehoseDeliveryStreamKinesisSourceConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class FirehoseDeliveryStreamKinesisSourceConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The kinesis stream used as the source of the firehose delivery stream.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public FirehoseDeliveryStreamKinesisSourceConfigurationGetArgs()
         {
         }
+        public static new FirehoseDeliveryStreamKinesisSourceConfigurationGetArgs Empty => new FirehoseDeliveryStreamKinesisSourceConfigurationGetArgs();
     }
 }

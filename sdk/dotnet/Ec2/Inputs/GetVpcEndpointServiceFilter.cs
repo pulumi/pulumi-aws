@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetVpcEndpointServiceFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcEndpointServiceFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetVpcEndpointServiceFilterArgs()
         {
         }
+        public static new GetVpcEndpointServiceFilterArgs Empty => new GetVpcEndpointServiceFilterArgs();
     }
 }

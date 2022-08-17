@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs()
         {
         }
+        public static new EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs Empty => new EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs();
     }
 }

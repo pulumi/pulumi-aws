@@ -21,21 +21,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := iam.NewAccountAlias(ctx, "alias", &iam.AccountAliasArgs{
-// 			AccountAlias: pulumi.String("my-account-alias"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.NewAccountAlias(ctx, "alias", &iam.AccountAliasArgs{
+//				AccountAlias: pulumi.String("my-account-alias"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // The current Account Alias can be imported using the `account_alias`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
+//
+//	$ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
+//
 // ```
 type AccountAlias struct {
 	pulumi.CustomResourceState
@@ -134,7 +139,7 @@ func (i *AccountAlias) ToAccountAliasOutputWithContext(ctx context.Context) Acco
 // AccountAliasArrayInput is an input type that accepts AccountAliasArray and AccountAliasArrayOutput values.
 // You can construct a concrete instance of `AccountAliasArrayInput` via:
 //
-//          AccountAliasArray{ AccountAliasArgs{...} }
+//	AccountAliasArray{ AccountAliasArgs{...} }
 type AccountAliasArrayInput interface {
 	pulumi.Input
 
@@ -159,7 +164,7 @@ func (i AccountAliasArray) ToAccountAliasArrayOutputWithContext(ctx context.Cont
 // AccountAliasMapInput is an input type that accepts AccountAliasMap and AccountAliasMapOutput values.
 // You can construct a concrete instance of `AccountAliasMapInput` via:
 //
-//          AccountAliasMap{ "key": AccountAliasArgs{...} }
+//	AccountAliasMap{ "key": AccountAliasArgs{...} }
 type AccountAliasMapInput interface {
 	pulumi.Input
 

@@ -22,22 +22,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicecatalog.NewTagOptionResourceAssociation(ctx, "example", &servicecatalog.TagOptionResourceAssociationArgs{
-// 			ResourceId:  pulumi.String("prod-dnigbtea24ste"),
-// 			TagOptionId: pulumi.String("tag-pjtvyakdlyo3m"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicecatalog.NewTagOptionResourceAssociation(ctx, "example", &servicecatalog.TagOptionResourceAssociationArgs{
+//				ResourceId:  pulumi.String("prod-dnigbtea24ste"),
+//				TagOptionId: pulumi.String("tag-pjtvyakdlyo3m"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // `aws_servicecatalog_tag_option_resource_association` can be imported using the tag option ID and resource ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
+//
+//	$ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
+//
 // ```
 type TagOptionResourceAssociation struct {
 	pulumi.CustomResourceState
@@ -173,7 +178,7 @@ func (i *TagOptionResourceAssociation) ToTagOptionResourceAssociationOutputWithC
 // TagOptionResourceAssociationArrayInput is an input type that accepts TagOptionResourceAssociationArray and TagOptionResourceAssociationArrayOutput values.
 // You can construct a concrete instance of `TagOptionResourceAssociationArrayInput` via:
 //
-//          TagOptionResourceAssociationArray{ TagOptionResourceAssociationArgs{...} }
+//	TagOptionResourceAssociationArray{ TagOptionResourceAssociationArgs{...} }
 type TagOptionResourceAssociationArrayInput interface {
 	pulumi.Input
 
@@ -198,7 +203,7 @@ func (i TagOptionResourceAssociationArray) ToTagOptionResourceAssociationArrayOu
 // TagOptionResourceAssociationMapInput is an input type that accepts TagOptionResourceAssociationMap and TagOptionResourceAssociationMapOutput values.
 // You can construct a concrete instance of `TagOptionResourceAssociationMapInput` via:
 //
-//          TagOptionResourceAssociationMap{ "key": TagOptionResourceAssociationArgs{...} }
+//	TagOptionResourceAssociationMap{ "key": TagOptionResourceAssociationArgs{...} }
 type TagOptionResourceAssociationMapInput interface {
 	pulumi.Input
 

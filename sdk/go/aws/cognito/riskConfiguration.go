@@ -19,26 +19,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cognito.NewRiskConfiguration(ctx, "example", &cognito.RiskConfigurationArgs{
-// 			UserPoolId: pulumi.Any(aws_cognito_user_pool.Example.Id),
-// 			RiskExceptionConfiguration: &cognito.RiskConfigurationRiskExceptionConfigurationArgs{
-// 				BlockedIpRangeLists: pulumi.StringArray{
-// 					pulumi.String("10.10.10.10/32"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cognito.NewRiskConfiguration(ctx, "example", &cognito.RiskConfigurationArgs{
+//				UserPoolId: pulumi.Any(aws_cognito_user_pool.Example.Id),
+//				RiskExceptionConfiguration: &cognito.RiskConfigurationRiskExceptionConfigurationArgs{
+//					BlockedIpRangeLists: pulumi.StringArray{
+//						pulumi.String("10.10.10.10/32"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,11 +49,15 @@ import (
 // Cognito Risk Configurations can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
+//
+//	$ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
+//
 // ```
 //
 // ```sh
-//  $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
+//
+//	$ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
+//
 // ```
 type RiskConfiguration struct {
 	pulumi.CustomResourceState
@@ -181,7 +188,7 @@ func (i *RiskConfiguration) ToRiskConfigurationOutputWithContext(ctx context.Con
 // RiskConfigurationArrayInput is an input type that accepts RiskConfigurationArray and RiskConfigurationArrayOutput values.
 // You can construct a concrete instance of `RiskConfigurationArrayInput` via:
 //
-//          RiskConfigurationArray{ RiskConfigurationArgs{...} }
+//	RiskConfigurationArray{ RiskConfigurationArgs{...} }
 type RiskConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -206,7 +213,7 @@ func (i RiskConfigurationArray) ToRiskConfigurationArrayOutputWithContext(ctx co
 // RiskConfigurationMapInput is an input type that accepts RiskConfigurationMap and RiskConfigurationMapOutput values.
 // You can construct a concrete instance of `RiskConfigurationMapInput` via:
 //
-//          RiskConfigurationMap{ "key": RiskConfigurationArgs{...} }
+//	RiskConfigurationMap{ "key": RiskConfigurationArgs{...} }
 type RiskConfigurationMapInput interface {
 	pulumi.Input
 

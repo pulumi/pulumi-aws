@@ -19,17 +19,15 @@ namespace Pulumi.Aws.Ses
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var main = Output.Create(Aws.Ses.GetActiveReceiptRuleSet.InvokeAsync());
-        ///     }
+        ///     var main = Aws.Ses.GetActiveReceiptRuleSet.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

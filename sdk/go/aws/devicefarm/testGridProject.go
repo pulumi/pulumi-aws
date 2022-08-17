@@ -16,10 +16,12 @@ import (
 //
 // ## Import
 //
-// DeviceFarm Test Grid Projects can be imported by their arn
+// # DeviceFarm Test Grid Projects can be imported by their arn
 //
 // ```sh
-//  $ pulumi import aws:devicefarm/testGridProject:TestGridProject example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+//
+//	$ pulumi import aws:devicefarm/testGridProject:TestGridProject example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+//
 // ```
 type TestGridProject struct {
 	pulumi.CustomResourceState
@@ -31,8 +33,7 @@ type TestGridProject struct {
 	// The name of the Selenium testing project.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VPC security groups and subnets that are attached to a project. See VPC Config below.
 	VpcConfig TestGridProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
@@ -74,8 +75,7 @@ type testGridProjectState struct {
 	// The name of the Selenium testing project.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The VPC security groups and subnets that are attached to a project. See VPC Config below.
 	VpcConfig *TestGridProjectVpcConfig `pulumi:"vpcConfig"`
@@ -89,8 +89,7 @@ type TestGridProjectState struct {
 	// The name of the Selenium testing project.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The VPC security groups and subnets that are attached to a project. See VPC Config below.
 	VpcConfig TestGridProjectVpcConfigPtrInput
@@ -149,7 +148,7 @@ func (i *TestGridProject) ToTestGridProjectOutputWithContext(ctx context.Context
 // TestGridProjectArrayInput is an input type that accepts TestGridProjectArray and TestGridProjectArrayOutput values.
 // You can construct a concrete instance of `TestGridProjectArrayInput` via:
 //
-//          TestGridProjectArray{ TestGridProjectArgs{...} }
+//	TestGridProjectArray{ TestGridProjectArgs{...} }
 type TestGridProjectArrayInput interface {
 	pulumi.Input
 
@@ -174,7 +173,7 @@ func (i TestGridProjectArray) ToTestGridProjectArrayOutputWithContext(ctx contex
 // TestGridProjectMapInput is an input type that accepts TestGridProjectMap and TestGridProjectMapOutput values.
 // You can construct a concrete instance of `TestGridProjectMapInput` via:
 //
-//          TestGridProjectMap{ "key": TestGridProjectArgs{...} }
+//	TestGridProjectMap{ "key": TestGridProjectArgs{...} }
 type TestGridProjectMapInput interface {
 	pulumi.Input
 
@@ -230,7 +229,6 @@ func (o TestGridProjectOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TestGridProject) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o TestGridProjectOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TestGridProject) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

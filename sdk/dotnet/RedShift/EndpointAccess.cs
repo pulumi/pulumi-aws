@@ -15,22 +15,20 @@ namespace Pulumi.Aws.RedShift
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.RedShift.EndpointAccess("example", new()
     ///     {
-    ///         var example = new Aws.RedShift.EndpointAccess("example", new Aws.RedShift.EndpointAccessArgs
-    ///         {
-    ///             EndpointName = "example",
-    ///             SubnetGroupName = aws_redshift_subnet_group.Example.Id,
-    ///             ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
-    ///         });
-    ///     }
+    ///         EndpointName = "example",
+    ///         SubnetGroupName = aws_redshift_subnet_group.Example.Id,
+    ///         ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.RedShift
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/endpointAccess:EndpointAccess")]
-    public partial class EndpointAccess : Pulumi.CustomResource
+    public partial class EndpointAccess : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The DNS address of the endpoint.
@@ -136,7 +134,7 @@ namespace Pulumi.Aws.RedShift
         }
     }
 
-    public sealed class EndpointAccessArgs : Pulumi.ResourceArgs
+    public sealed class EndpointAccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The cluster identifier of the cluster to access.
@@ -177,9 +175,10 @@ namespace Pulumi.Aws.RedShift
         public EndpointAccessArgs()
         {
         }
+        public static new EndpointAccessArgs Empty => new EndpointAccessArgs();
     }
 
-    public sealed class EndpointAccessState : Pulumi.ResourceArgs
+    public sealed class EndpointAccessState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DNS address of the endpoint.
@@ -244,5 +243,6 @@ namespace Pulumi.Aws.RedShift
         public EndpointAccessState()
         {
         }
+        public static new EndpointAccessState Empty => new EndpointAccessState();
     }
 }

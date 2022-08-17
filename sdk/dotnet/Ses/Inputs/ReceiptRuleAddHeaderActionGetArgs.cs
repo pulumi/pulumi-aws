@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ses.Inputs
 {
 
-    public sealed class ReceiptRuleAddHeaderActionGetArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleAddHeaderActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the header to add
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ses.Inputs
         public ReceiptRuleAddHeaderActionGetArgs()
         {
         }
+        public static new ReceiptRuleAddHeaderActionGetArgs Empty => new ReceiptRuleAddHeaderActionGetArgs();
     }
 }

@@ -15,24 +15,22 @@ namespace Pulumi.Aws.Ecr
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Ecr.Repository("foo", new()
     ///     {
-    ///         var foo = new Aws.Ecr.Repository("foo", new Aws.Ecr.RepositoryArgs
+    ///         ImageScanningConfiguration = new Aws.Ecr.Inputs.RepositoryImageScanningConfigurationArgs
     ///         {
-    ///             ImageScanningConfiguration = new Aws.Ecr.Inputs.RepositoryImageScanningConfigurationArgs
-    ///             {
-    ///                 ScanOnPush = true,
-    ///             },
-    ///             ImageTagMutability = "MUTABLE",
-    ///         });
-    ///     }
+    ///             ScanOnPush = true,
+    ///         },
+    ///         ImageTagMutability = "MUTABLE",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.Ecr
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecr/repository:Repository")]
-    public partial class Repository : Pulumi.CustomResource
+    public partial class Repository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Full ARN of the repository.
@@ -151,7 +149,7 @@ namespace Pulumi.Aws.Ecr
         }
     }
 
-    public sealed class RepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryArgs : global::Pulumi.ResourceArgs
     {
         [Input("encryptionConfigurations")]
         private InputList<Inputs.RepositoryEncryptionConfigurationArgs>? _encryptionConfigurations;
@@ -205,9 +203,10 @@ namespace Pulumi.Aws.Ecr
         public RepositoryArgs()
         {
         }
+        public static new RepositoryArgs Empty => new RepositoryArgs();
     }
 
-    public sealed class RepositoryState : Pulumi.ResourceArgs
+    public sealed class RepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Full ARN of the repository.
@@ -291,5 +290,6 @@ namespace Pulumi.Aws.Ecr
         public RepositoryState()
         {
         }
+        public static new RepositoryState Empty => new RepositoryState();
     }
 }

@@ -15,27 +15,25 @@ namespace Pulumi.Aws.Msk
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Msk.Configuration("example", new()
     ///     {
-    ///         var example = new Aws.Msk.Configuration("example", new Aws.Msk.ConfigurationArgs
+    ///         KafkaVersions = new[]
     ///         {
-    ///             KafkaVersions = 
-    ///             {
-    ///                 "2.1.0",
-    ///             },
-    ///             ServerProperties = @"auto.create.topics.enable = true
+    ///             "2.1.0",
+    ///         },
+    ///         ServerProperties = @"auto.create.topics.enable = true
     /// delete.topic.enable = true
     /// 
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Aws.Msk
     /// ```
     /// </summary>
     [AwsResourceType("aws:msk/configuration:Configuration")]
-    public partial class Configuration : Pulumi.CustomResource
+    public partial class Configuration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the configuration.
@@ -129,7 +127,7 @@ namespace Pulumi.Aws.Msk
         }
     }
 
-    public sealed class ConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the configuration.
@@ -164,9 +162,10 @@ namespace Pulumi.Aws.Msk
         public ConfigurationArgs()
         {
         }
+        public static new ConfigurationArgs Empty => new ConfigurationArgs();
     }
 
-    public sealed class ConfigurationState : Pulumi.ResourceArgs
+    public sealed class ConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the configuration.
@@ -213,5 +212,6 @@ namespace Pulumi.Aws.Msk
         public ConfigurationState()
         {
         }
+        public static new ConfigurationState Empty => new ConfigurationState();
     }
 }

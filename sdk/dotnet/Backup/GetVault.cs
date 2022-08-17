@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Backup
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Backup.GetVault.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Backup.GetVault.InvokeAsync(new Aws.Backup.GetVaultArgs
-        ///         {
-        ///             Name = "example_backup_vault",
-        ///         }));
-        ///     }
+        ///         Name = "example_backup_vault",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Backup
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Backup.GetVault.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Backup.GetVault.InvokeAsync(new Aws.Backup.GetVaultArgs
-        ///         {
-        ///             Name = "example_backup_vault",
-        ///         }));
-        ///     }
+        ///         Name = "example_backup_vault",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Backup
     }
 
 
-    public sealed class GetVaultArgs : Pulumi.InvokeArgs
+    public sealed class GetVaultArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the backup vault.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.Backup
         public GetVaultArgs()
         {
         }
+        public static new GetVaultArgs Empty => new GetVaultArgs();
     }
 
-    public sealed class GetVaultInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVaultInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the backup vault.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.Backup
         public GetVaultInvokeArgs()
         {
         }
+        public static new GetVaultInvokeArgs Empty => new GetVaultInvokeArgs();
     }
 
 

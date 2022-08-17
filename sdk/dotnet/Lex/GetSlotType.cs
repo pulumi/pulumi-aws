@@ -19,21 +19,19 @@ namespace Pulumi.Aws.Lex
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var flowerTypes = Aws.Lex.GetSlotType.Invoke(new()
         ///     {
-        ///         var flowerTypes = Output.Create(Aws.Lex.GetSlotType.InvokeAsync(new Aws.Lex.GetSlotTypeArgs
-        ///         {
-        ///             Name = "FlowerTypes",
-        ///             Version = "1",
-        ///         }));
-        ///     }
+        ///         Name = "FlowerTypes",
+        ///         Version = "1",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.Lex
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var flowerTypes = Aws.Lex.GetSlotType.Invoke(new()
         ///     {
-        ///         var flowerTypes = Output.Create(Aws.Lex.GetSlotType.InvokeAsync(new Aws.Lex.GetSlotTypeArgs
-        ///         {
-        ///             Name = "FlowerTypes",
-        ///             Version = "1",
-        ///         }));
-        ///     }
+        ///         Name = "FlowerTypes",
+        ///         Version = "1",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Lex
     }
 
 
-    public sealed class GetSlotTypeArgs : Pulumi.InvokeArgs
+    public sealed class GetSlotTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the slot type. The name is case sensitive.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.Lex
         public GetSlotTypeArgs()
         {
         }
+        public static new GetSlotTypeArgs Empty => new GetSlotTypeArgs();
     }
 
-    public sealed class GetSlotTypeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSlotTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the slot type. The name is case sensitive.
@@ -109,6 +106,7 @@ namespace Pulumi.Aws.Lex
         public GetSlotTypeInvokeArgs()
         {
         }
+        public static new GetSlotTypeInvokeArgs Empty => new GetSlotTypeInvokeArgs();
     }
 
 

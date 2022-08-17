@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketAclV2AccessControlPolicyGrantGranteeGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketAclV2AccessControlPolicyGrantGranteeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The display name of the owner.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketAclV2AccessControlPolicyGrantGranteeGetArgs()
         {
         }
+        public static new BucketAclV2AccessControlPolicyGrantGranteeGetArgs Empty => new BucketAclV2AccessControlPolicyGrantGranteeGetArgs();
     }
 }

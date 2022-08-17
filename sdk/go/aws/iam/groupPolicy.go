@@ -19,46 +19,49 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		myDevelopers, err := iam.NewGroup(ctx, "myDevelopers", &iam.GroupArgs{
-// 			Path: pulumi.String("/users/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"Version": "2012-10-17",
-// 			"Statement": []map[string]interface{}{
-// 				map[string]interface{}{
-// 					"Action": []string{
-// 						"ec2:Describe*",
-// 					},
-// 					"Effect":   "Allow",
-// 					"Resource": "*",
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = iam.NewGroupPolicy(ctx, "myDeveloperPolicy", &iam.GroupPolicyArgs{
-// 			Group:  myDevelopers.Name,
-// 			Policy: pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myDevelopers, err := iam.NewGroup(ctx, "myDevelopers", &iam.GroupArgs{
+//				Path: pulumi.String("/users/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": []string{
+//							"ec2:Describe*",
+//						},
+//						"Effect":   "Allow",
+//						"Resource": "*",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = iam.NewGroupPolicy(ctx, "myDeveloperPolicy", &iam.GroupPolicyArgs{
+//				Group:  myDevelopers.Name,
+//				Policy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -66,7 +69,9 @@ import (
 // IAM Group Policies can be imported using the `group_name:group_policy_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
+//
+//	$ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
+//
 // ```
 type GroupPolicy struct {
 	pulumi.CustomResourceState
@@ -200,7 +205,7 @@ func (i *GroupPolicy) ToGroupPolicyOutputWithContext(ctx context.Context) GroupP
 // GroupPolicyArrayInput is an input type that accepts GroupPolicyArray and GroupPolicyArrayOutput values.
 // You can construct a concrete instance of `GroupPolicyArrayInput` via:
 //
-//          GroupPolicyArray{ GroupPolicyArgs{...} }
+//	GroupPolicyArray{ GroupPolicyArgs{...} }
 type GroupPolicyArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +230,7 @@ func (i GroupPolicyArray) ToGroupPolicyArrayOutputWithContext(ctx context.Contex
 // GroupPolicyMapInput is an input type that accepts GroupPolicyMap and GroupPolicyMapOutput values.
 // You can construct a concrete instance of `GroupPolicyMapInput` via:
 //
-//          GroupPolicyMap{ "key": GroupPolicyArgs{...} }
+//	GroupPolicyMap{ "key": GroupPolicyArgs{...} }
 type GroupPolicyMapInput interface {
 	pulumi.Input
 

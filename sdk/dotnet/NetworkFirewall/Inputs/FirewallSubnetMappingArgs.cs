@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class FirewallSubnetMappingArgs : Pulumi.ResourceArgs
+    public sealed class FirewallSubnetMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique identifier for the subnet.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public FirewallSubnetMappingArgs()
         {
         }
+        public static new FirewallSubnetMappingArgs Empty => new FirewallSubnetMappingArgs();
     }
 }

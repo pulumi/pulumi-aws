@@ -20,32 +20,32 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var network = new Aws.Ec2.Vpc("network", new()
     ///     {
-    ///         var network = new Aws.Ec2.Vpc("network", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var vpn = new Aws.Ec2.VpnGateway("vpn", new Aws.Ec2.VpnGatewayArgs
-    ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example-vpn-gateway" },
-    ///             },
-    ///         });
-    ///         var vpnAttachment = new Aws.Ec2.VpnGatewayAttachment("vpnAttachment", new Aws.Ec2.VpnGatewayAttachmentArgs
-    ///         {
-    ///             VpcId = network.Id,
-    ///             VpnGatewayId = vpn.Id,
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var vpn = new Aws.Ec2.VpnGateway("vpn", new()
+    ///     {
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example-vpn-gateway" },
+    ///         },
+    ///     });
+    /// 
+    ///     var vpnAttachment = new Aws.Ec2.VpnGatewayAttachment("vpnAttachment", new()
+    ///     {
+    ///         VpcId = network.Id,
+    ///         VpnGatewayId = vpn.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Ec2
     /// This resource does not support importing.
     /// </summary>
     [AwsResourceType("aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment")]
-    public partial class VpnGatewayAttachment : Pulumi.CustomResource
+    public partial class VpnGatewayAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the VPC.
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpnGatewayAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class VpnGatewayAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the VPC.
@@ -132,9 +132,10 @@ namespace Pulumi.Aws.Ec2
         public VpnGatewayAttachmentArgs()
         {
         }
+        public static new VpnGatewayAttachmentArgs Empty => new VpnGatewayAttachmentArgs();
     }
 
-    public sealed class VpnGatewayAttachmentState : Pulumi.ResourceArgs
+    public sealed class VpnGatewayAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the VPC.
@@ -151,5 +152,6 @@ namespace Pulumi.Aws.Ec2
         public VpnGatewayAttachmentState()
         {
         }
+        public static new VpnGatewayAttachmentState Empty => new VpnGatewayAttachmentState();
     }
 }

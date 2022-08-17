@@ -23,7 +23,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment")]
-    public partial class ManagedPolicyAttachment : Pulumi.CustomResource
+    public partial class ManagedPolicyAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.SsoAdmin
         }
     }
 
-    public sealed class ManagedPolicyAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class ManagedPolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
@@ -116,9 +116,10 @@ namespace Pulumi.Aws.SsoAdmin
         public ManagedPolicyAttachmentArgs()
         {
         }
+        public static new ManagedPolicyAttachmentArgs Empty => new ManagedPolicyAttachmentArgs();
     }
 
-    public sealed class ManagedPolicyAttachmentState : Pulumi.ResourceArgs
+    public sealed class ManagedPolicyAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
@@ -147,5 +148,6 @@ namespace Pulumi.Aws.SsoAdmin
         public ManagedPolicyAttachmentState()
         {
         }
+        public static new ManagedPolicyAttachmentState Empty => new ManagedPolicyAttachmentState();
     }
 }

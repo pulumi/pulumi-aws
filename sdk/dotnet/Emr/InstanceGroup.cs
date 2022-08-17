@@ -20,22 +20,20 @@ namespace Pulumi.Aws.Emr
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var task = new Aws.Emr.InstanceGroup("task", new()
     ///     {
-    ///         var task = new Aws.Emr.InstanceGroup("task", new Aws.Emr.InstanceGroupArgs
-    ///         {
-    ///             ClusterId = aws_emr_cluster.Tf_test_cluster.Id,
-    ///             InstanceCount = 1,
-    ///             InstanceType = "m5.xlarge",
-    ///         });
-    ///     }
+    ///         ClusterId = aws_emr_cluster.Tf_test_cluster.Id,
+    ///         InstanceCount = 1,
+    ///         InstanceType = "m5.xlarge",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Aws.Emr
     /// ```
     /// </summary>
     [AwsResourceType("aws:emr/instanceGroup:InstanceGroup")]
-    public partial class InstanceGroup : Pulumi.CustomResource
+    public partial class InstanceGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
@@ -89,7 +87,7 @@ namespace Pulumi.Aws.Emr
         /// target number of instances for the instance group. defaults to 0.
         /// </summary>
         [Output("instanceCount")]
-        public Output<int?> InstanceCount { get; private set; } = null!;
+        public Output<int> InstanceCount { get; private set; } = null!;
 
         /// <summary>
         /// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
@@ -153,7 +151,7 @@ namespace Pulumi.Aws.Emr
         }
     }
 
-    public sealed class InstanceGroupArgs : Pulumi.ResourceArgs
+    public sealed class InstanceGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
@@ -218,9 +216,10 @@ namespace Pulumi.Aws.Emr
         public InstanceGroupArgs()
         {
         }
+        public static new InstanceGroupArgs Empty => new InstanceGroupArgs();
     }
 
-    public sealed class InstanceGroupState : Pulumi.ResourceArgs
+    public sealed class InstanceGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
@@ -291,5 +290,6 @@ namespace Pulumi.Aws.Emr
         public InstanceGroupState()
         {
         }
+        public static new InstanceGroupState Empty => new InstanceGroupState();
     }
 }

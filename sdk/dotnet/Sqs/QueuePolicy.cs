@@ -16,20 +16,18 @@ namespace Pulumi.Aws.Sqs
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var queue = new Aws.Sqs.Queue("queue");
+    /// 
+    ///     var test = new Aws.Sqs.QueuePolicy("test", new()
     ///     {
-    ///         var queue = new Aws.Sqs.Queue("queue", new Aws.Sqs.QueueArgs
-    ///         {
-    ///         });
-    ///         var test = new Aws.Sqs.QueuePolicy("test", new Aws.Sqs.QueuePolicyArgs
-    ///         {
-    ///             QueueUrl = queue.Id,
-    ///             Policy = queue.Arn.Apply(arn =&gt; @$"{{
+    ///         QueueUrl = queue.Id,
+    ///         Policy = queue.Arn.Apply(arn =&gt; @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Id"": ""sqspolicy"",
     ///   ""Statement"": [
@@ -48,10 +46,9 @@ namespace Pulumi.Aws.Sqs
     ///   ]
     /// }}
     /// "),
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +60,7 @@ namespace Pulumi.Aws.Sqs
     /// ```
     /// </summary>
     [AwsResourceType("aws:sqs/queuePolicy:QueuePolicy")]
-    public partial class QueuePolicy : Pulumi.CustomResource
+    public partial class QueuePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The JSON policy for the SQS queue.
@@ -121,7 +118,7 @@ namespace Pulumi.Aws.Sqs
         }
     }
 
-    public sealed class QueuePolicyArgs : Pulumi.ResourceArgs
+    public sealed class QueuePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The JSON policy for the SQS queue.
@@ -138,9 +135,10 @@ namespace Pulumi.Aws.Sqs
         public QueuePolicyArgs()
         {
         }
+        public static new QueuePolicyArgs Empty => new QueuePolicyArgs();
     }
 
-    public sealed class QueuePolicyState : Pulumi.ResourceArgs
+    public sealed class QueuePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The JSON policy for the SQS queue.
@@ -157,5 +155,6 @@ namespace Pulumi.Aws.Sqs
         public QueuePolicyState()
         {
         }
+        public static new QueuePolicyState Empty => new QueuePolicyState();
     }
 }

@@ -17,14 +17,12 @@ class VocabularyFilterArgs:
                  language_code: pulumi.Input[str],
                  vocabulary_filter_name: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vocabulary_filter_file_uri: Optional[pulumi.Input[str]] = None,
                  words: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VocabularyFilter resource.
         :param pulumi.Input[str] language_code: The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         :param pulumi.Input[str] vocabulary_filter_name: The name of the VocabularyFilter.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the VocabularyFilter. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vocabulary_filter_file_uri: The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] words: - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         """
@@ -32,8 +30,6 @@ class VocabularyFilterArgs:
         pulumi.set(__self__, "vocabulary_filter_name", vocabulary_filter_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if vocabulary_filter_file_uri is not None:
             pulumi.set(__self__, "vocabulary_filter_file_uri", vocabulary_filter_file_uri)
         if words is not None:
@@ -66,23 +62,11 @@ class VocabularyFilterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the VocabularyFilter. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="vocabularyFilterFileUri")
@@ -125,7 +109,6 @@ class _VocabularyFilterState:
         :param pulumi.Input[str] arn: ARN of the VocabularyFilter.
         :param pulumi.Input[str] download_uri: Generated download URI.
         :param pulumi.Input[str] language_code: The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the VocabularyFilter. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vocabulary_filter_file_uri: The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
         :param pulumi.Input[str] vocabulary_filter_name: The name of the VocabularyFilter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] words: - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
@@ -186,9 +169,6 @@ class _VocabularyFilterState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the VocabularyFilter. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -248,7 +228,6 @@ class VocabularyFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vocabulary_filter_file_uri: Optional[pulumi.Input[str]] = None,
                  vocabulary_filter_name: Optional[pulumi.Input[str]] = None,
                  words: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -285,7 +264,6 @@ class VocabularyFilter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] language_code: The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the VocabularyFilter. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vocabulary_filter_file_uri: The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
         :param pulumi.Input[str] vocabulary_filter_name: The name of the VocabularyFilter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] words: - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
@@ -342,7 +320,6 @@ class VocabularyFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vocabulary_filter_file_uri: Optional[pulumi.Input[str]] = None,
                  vocabulary_filter_name: Optional[pulumi.Input[str]] = None,
                  words: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -359,7 +336,6 @@ class VocabularyFilter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'language_code'")
             __props__.__dict__["language_code"] = language_code
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vocabulary_filter_file_uri"] = vocabulary_filter_file_uri
             if vocabulary_filter_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vocabulary_filter_name'")
@@ -367,6 +343,7 @@ class VocabularyFilter(pulumi.CustomResource):
             __props__.__dict__["words"] = words
             __props__.__dict__["arn"] = None
             __props__.__dict__["download_uri"] = None
+            __props__.__dict__["tags_all"] = None
         super(VocabularyFilter, __self__).__init__(
             'aws:transcribe/vocabularyFilter:VocabularyFilter',
             resource_name,
@@ -395,7 +372,6 @@ class VocabularyFilter(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the VocabularyFilter.
         :param pulumi.Input[str] download_uri: Generated download URI.
         :param pulumi.Input[str] language_code: The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the VocabularyFilter. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vocabulary_filter_file_uri: The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
         :param pulumi.Input[str] vocabulary_filter_name: The name of the VocabularyFilter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] words: - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
@@ -441,9 +417,6 @@ class VocabularyFilter(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the VocabularyFilter. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property

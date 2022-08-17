@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The code provided by the connector when it has been authenticated via the connected app.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs();
     }
 }

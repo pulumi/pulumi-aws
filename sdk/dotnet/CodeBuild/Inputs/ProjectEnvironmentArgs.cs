@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ProjectEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class ProjectEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
@@ -69,5 +69,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ProjectEnvironmentArgs()
         {
         }
+        public static new ProjectEnvironmentArgs Empty => new ProjectEnvironmentArgs();
     }
 }

@@ -20,54 +20,62 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudwatch.NewEventBus(ctx, "messenger", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewEventBus(ctx, "messenger", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplepartnerEventSource, err := cloudwatch.GetEventSource(ctx, &cloudwatch.GetEventSourceArgs{
-// 			NamePrefix: pulumi.StringRef("aws.partner/examplepartner.com"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cloudwatch.NewEventBus(ctx, "examplepartnerEventBus", &cloudwatch.EventBusArgs{
-// 			EventSourceName: pulumi.String(examplepartnerEventSource.Name),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplepartnerEventSource, err := cloudwatch.GetEventSource(ctx, &cloudwatch.GetEventSourceArgs{
+//				NamePrefix: pulumi.StringRef("aws.partner/examplepartner.com"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventBus(ctx, "examplepartnerEventBus", &cloudwatch.EventBusArgs{
+//				EventSourceName: pulumi.String(examplepartnerEventSource.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g., console
+// # EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g., console
 //
 // ```sh
-//  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+//
+//	$ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+//
 // ```
 type EventBus struct {
 	pulumi.CustomResourceState
@@ -78,9 +86,9 @@ type EventBus struct {
 	EventSourceName pulumi.StringPtrOutput `pulumi:"eventSourceName"`
 	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -119,9 +127,9 @@ type eventBusState struct {
 	EventSourceName *string `pulumi:"eventSourceName"`
 	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -132,9 +140,9 @@ type EventBusState struct {
 	EventSourceName pulumi.StringPtrInput
 	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -147,7 +155,7 @@ type eventBusArgs struct {
 	EventSourceName *string `pulumi:"eventSourceName"`
 	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -157,7 +165,7 @@ type EventBusArgs struct {
 	EventSourceName pulumi.StringPtrInput
 	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -187,7 +195,7 @@ func (i *EventBus) ToEventBusOutputWithContext(ctx context.Context) EventBusOutp
 // EventBusArrayInput is an input type that accepts EventBusArray and EventBusArrayOutput values.
 // You can construct a concrete instance of `EventBusArrayInput` via:
 //
-//          EventBusArray{ EventBusArgs{...} }
+//	EventBusArray{ EventBusArgs{...} }
 type EventBusArrayInput interface {
 	pulumi.Input
 
@@ -212,7 +220,7 @@ func (i EventBusArray) ToEventBusArrayOutputWithContext(ctx context.Context) Eve
 // EventBusMapInput is an input type that accepts EventBusMap and EventBusMapOutput values.
 // You can construct a concrete instance of `EventBusMapInput` via:
 //
-//          EventBusMap{ "key": EventBusArgs{...} }
+//	EventBusMap{ "key": EventBusArgs{...} }
 type EventBusMapInput interface {
 	pulumi.Input
 
@@ -263,12 +271,12 @@ func (o EventBusOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EventBusOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EventBusOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

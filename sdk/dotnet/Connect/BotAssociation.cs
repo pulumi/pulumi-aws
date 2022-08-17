@@ -19,99 +19,98 @@ namespace Pulumi.Aws.Connect
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Connect.BotAssociation("example", new()
     ///     {
-    ///         var example = new Aws.Connect.BotAssociation("example", new Aws.Connect.BotAssociationArgs
+    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         LexBot = new Aws.Connect.Inputs.BotAssociationLexBotArgs
     ///         {
-    ///             InstanceId = aws_connect_instance.Example.Id,
-    ///             LexBot = new Aws.Connect.Inputs.BotAssociationLexBotArgs
-    ///             {
-    ///                 LexRegion = "us-west-2",
-    ///                 Name = "Test",
-    ///             },
-    ///         });
-    ///     }
+    ///             LexRegion = "us-west-2",
+    ///             Name = "Test",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Including a sample Lex bot
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var exampleIntent = new Aws.Lex.Intent("exampleIntent", new Aws.Lex.IntentArgs
-    ///         {
-    ///             CreateVersion = true,
-    ///             Name = "connect_lex_intent",
-    ///             FulfillmentActivity = new Aws.Lex.Inputs.IntentFulfillmentActivityArgs
-    ///             {
-    ///                 Type = "ReturnIntent",
-    ///             },
-    ///             SampleUtterances = 
-    ///             {
-    ///                 "I would like to pick up flowers.",
-    ///             },
-    ///         });
-    ///         var exampleBot = new Aws.Lex.Bot("exampleBot", new Aws.Lex.BotArgs
-    ///         {
-    ///             AbortStatement = new Aws.Lex.Inputs.BotAbortStatementArgs
-    ///             {
-    ///                 Messages = 
-    ///                 {
-    ///                     new Aws.Lex.Inputs.BotAbortStatementMessageArgs
-    ///                     {
-    ///                         Content = "Sorry, I am not able to assist at this time.",
-    ///                         ContentType = "PlainText",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             ClarificationPrompt = new Aws.Lex.Inputs.BotClarificationPromptArgs
-    ///             {
-    ///                 MaxAttempts = 2,
-    ///                 Messages = 
-    ///                 {
-    ///                     new Aws.Lex.Inputs.BotClarificationPromptMessageArgs
-    ///                     {
-    ///                         Content = "I didn't understand you, what would you like to do?",
-    ///                         ContentType = "PlainText",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Intents = 
-    ///             {
-    ///                 new Aws.Lex.Inputs.BotIntentArgs
-    ///                 {
-    ///                     IntentName = exampleIntent.Name,
-    ///                     IntentVersion = "1",
-    ///                 },
-    ///             },
-    ///             ChildDirected = false,
-    ///             Name = "connect_lex_bot",
-    ///             ProcessBehavior = "BUILD",
-    ///         });
-    ///         var exampleBotAssociation = new Aws.Connect.BotAssociation("exampleBotAssociation", new Aws.Connect.BotAssociationArgs
-    ///         {
-    ///             InstanceId = aws_connect_instance.Example.Id,
-    ///             LexBot = new Aws.Connect.Inputs.BotAssociationLexBotArgs
-    ///             {
-    ///                 LexRegion = current.Apply(current =&gt; current.Name),
-    ///                 Name = exampleBot.Name,
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
-    /// }
+    ///     var exampleIntent = new Aws.Lex.Intent("exampleIntent", new()
+    ///     {
+    ///         CreateVersion = true,
+    ///         Name = "connect_lex_intent",
+    ///         FulfillmentActivity = new Aws.Lex.Inputs.IntentFulfillmentActivityArgs
+    ///         {
+    ///             Type = "ReturnIntent",
+    ///         },
+    ///         SampleUtterances = new[]
+    ///         {
+    ///             "I would like to pick up flowers.",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBot = new Aws.Lex.Bot("exampleBot", new()
+    ///     {
+    ///         AbortStatement = new Aws.Lex.Inputs.BotAbortStatementArgs
+    ///         {
+    ///             Messages = new[]
+    ///             {
+    ///                 new Aws.Lex.Inputs.BotAbortStatementMessageArgs
+    ///                 {
+    ///                     Content = "Sorry, I am not able to assist at this time.",
+    ///                     ContentType = "PlainText",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ClarificationPrompt = new Aws.Lex.Inputs.BotClarificationPromptArgs
+    ///         {
+    ///             MaxAttempts = 2,
+    ///             Messages = new[]
+    ///             {
+    ///                 new Aws.Lex.Inputs.BotClarificationPromptMessageArgs
+    ///                 {
+    ///                     Content = "I didn't understand you, what would you like to do?",
+    ///                     ContentType = "PlainText",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Intents = new[]
+    ///         {
+    ///             new Aws.Lex.Inputs.BotIntentArgs
+    ///             {
+    ///                 IntentName = exampleIntent.Name,
+    ///                 IntentVersion = "1",
+    ///             },
+    ///         },
+    ///         ChildDirected = false,
+    ///         Name = "connect_lex_bot",
+    ///         ProcessBehavior = "BUILD",
+    ///     });
+    /// 
+    ///     var exampleBotAssociation = new Aws.Connect.BotAssociation("exampleBotAssociation", new()
+    ///     {
+    ///         InstanceId = aws_connect_instance.Example.Id,
+    ///         LexBot = new Aws.Connect.Inputs.BotAssociationLexBotArgs
+    ///         {
+    ///             LexRegion = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             Name = exampleBot.Name,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -123,7 +122,7 @@ namespace Pulumi.Aws.Connect
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/botAssociation:BotAssociation")]
-    public partial class BotAssociation : Pulumi.CustomResource
+    public partial class BotAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
@@ -181,7 +180,7 @@ namespace Pulumi.Aws.Connect
         }
     }
 
-    public sealed class BotAssociationArgs : Pulumi.ResourceArgs
+    public sealed class BotAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
@@ -198,9 +197,10 @@ namespace Pulumi.Aws.Connect
         public BotAssociationArgs()
         {
         }
+        public static new BotAssociationArgs Empty => new BotAssociationArgs();
     }
 
-    public sealed class BotAssociationState : Pulumi.ResourceArgs
+    public sealed class BotAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
@@ -217,5 +217,6 @@ namespace Pulumi.Aws.Connect
         public BotAssociationState()
         {
         }
+        public static new BotAssociationState Empty => new BotAssociationState();
     }
 }

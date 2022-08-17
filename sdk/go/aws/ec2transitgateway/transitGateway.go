@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2transitgateway.NewTransitGateway(ctx, "example", &ec2transitgateway.TransitGatewayArgs{
-// 			Description: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2transitgateway.NewTransitGateway(ctx, "example", &ec2transitgateway.TransitGatewayArgs{
+//				Description: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -40,7 +43,9 @@ import (
 // `aws_ec2_transit_gateway` can be imported by using the EC2 Transit Gateway identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
+//
+//	$ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
+//
 // ```
 type TransitGateway struct {
 	pulumi.CustomResourceState
@@ -248,7 +253,7 @@ func (i *TransitGateway) ToTransitGatewayOutputWithContext(ctx context.Context) 
 // TransitGatewayArrayInput is an input type that accepts TransitGatewayArray and TransitGatewayArrayOutput values.
 // You can construct a concrete instance of `TransitGatewayArrayInput` via:
 //
-//          TransitGatewayArray{ TransitGatewayArgs{...} }
+//	TransitGatewayArray{ TransitGatewayArgs{...} }
 type TransitGatewayArrayInput interface {
 	pulumi.Input
 
@@ -273,7 +278,7 @@ func (i TransitGatewayArray) ToTransitGatewayArrayOutputWithContext(ctx context.
 // TransitGatewayMapInput is an input type that accepts TransitGatewayMap and TransitGatewayMapOutput values.
 // You can construct a concrete instance of `TransitGatewayMapInput` via:
 //
-//          TransitGatewayMap{ "key": TransitGatewayArgs{...} }
+//	TransitGatewayMap{ "key": TransitGatewayArgs{...} }
 type TransitGatewayMapInput interface {
 	pulumi.Input
 

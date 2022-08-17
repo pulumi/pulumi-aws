@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Athena.Inputs
 {
 
-    public sealed class WorkgroupConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class WorkgroupConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Athena.Inputs
         public WorkgroupConfigurationArgs()
         {
         }
+        public static new WorkgroupConfigurationArgs Empty => new WorkgroupConfigurationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
 {
 
-    public sealed class TargetGroupHealthCheckArgs : Pulumi.ResourceArgs
+    public sealed class TargetGroupHealthCheckArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean to enable / disable `stickiness`. Default is `true`.
@@ -69,5 +69,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
         public TargetGroupHealthCheckArgs()
         {
         }
+        public static new TargetGroupHealthCheckArgs Empty => new TargetGroupHealthCheckArgs();
     }
 }

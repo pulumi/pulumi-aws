@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Ebs
     }
 
 
-    public sealed class GetEbsVolumesArgs : Pulumi.InvokeArgs
+    public sealed class GetEbsVolumesArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetEbsVolumesFilterArgs>? _filters;
@@ -59,9 +59,10 @@ namespace Pulumi.Aws.Ebs
         public GetEbsVolumesArgs()
         {
         }
+        public static new GetEbsVolumesArgs Empty => new GetEbsVolumesArgs();
     }
 
-    public sealed class GetEbsVolumesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEbsVolumesInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetEbsVolumesFilterInputArgs>? _filters;
@@ -91,6 +92,7 @@ namespace Pulumi.Aws.Ebs
         public GetEbsVolumesInvokeArgs()
         {
         }
+        public static new GetEbsVolumesInvokeArgs Empty => new GetEbsVolumesInvokeArgs();
     }
 
 

@@ -18,32 +18,32 @@ namespace Pulumi.Aws.Cfg
     /// ### Using Template Body
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
     ///     {
-    ///         var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new Aws.Organizations.OrganizationArgs
+    ///         AwsServiceAccessPrincipals = new[]
     ///         {
-    ///             AwsServiceAccessPrincipals = 
-    ///             {
-    ///                 "config-multiaccountsetup.amazonaws.com",
-    ///             },
-    ///             FeatureSet = "ALL",
-    ///         });
-    ///         var exampleOrganizationConformancePack = new Aws.Cfg.OrganizationConformancePack("exampleOrganizationConformancePack", new Aws.Cfg.OrganizationConformancePackArgs
+    ///             "config-multiaccountsetup.amazonaws.com",
+    ///         },
+    ///         FeatureSet = "ALL",
+    ///     });
+    /// 
+    ///     var exampleOrganizationConformancePack = new Aws.Cfg.OrganizationConformancePack("exampleOrganizationConformancePack", new()
+    ///     {
+    ///         InputParameters = new[]
     ///         {
-    ///             InputParameters = 
+    ///             new Aws.Cfg.Inputs.OrganizationConformancePackInputParameterArgs
     ///             {
-    ///                 new Aws.Cfg.Inputs.OrganizationConformancePackInputParameterArgs
-    ///                 {
-    ///                     ParameterName = "AccessKeysRotatedParameterMaxAccessKeyAge",
-    ///                     ParameterValue = "90",
-    ///                 },
+    ///                 ParameterName = "AccessKeysRotatedParameterMaxAccessKeyAge",
+    ///                 ParameterValue = "90",
     ///             },
-    ///             TemplateBody = @"Parameters:
+    ///         },
+    ///         TemplateBody = @"Parameters:
     ///   AccessKeysRotatedParameterMaxAccessKeyAge:
     ///     Type: String
     /// Resources:
@@ -55,44 +55,42 @@ namespace Pulumi.Aws.Cfg
     ///         SourceIdentifier: IAM_PASSWORD_POLICY
     ///     Type: AWS::Config::ConfigRule
     /// ",
-    ///         }, new CustomResourceOptions
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 aws_config_configuration_recorder.Example,
-    ///                 exampleOrganization,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_config_configuration_recorder.Example,
+    ///             exampleOrganization,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Using Template S3 URI
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
     ///     {
-    ///         var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new Aws.Organizations.OrganizationArgs
+    ///         AwsServiceAccessPrincipals = new[]
     ///         {
-    ///             AwsServiceAccessPrincipals = 
-    ///             {
-    ///                 "config-multiaccountsetup.amazonaws.com",
-    ///             },
-    ///             FeatureSet = "ALL",
-    ///         });
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new Aws.S3.BucketObjectv2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             Key = "example-key",
-    ///             Content = @"Resources:
+    ///             "config-multiaccountsetup.amazonaws.com",
+    ///         },
+    ///         FeatureSet = "ALL",
+    ///     });
+    /// 
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    /// 
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Key = "example-key",
+    ///         Content = @"Resources:
     ///   IAMPasswordPolicy:
     ///     Properties:
     ///       ConfigRuleName: IAMPasswordPolicy
@@ -101,26 +99,26 @@ namespace Pulumi.Aws.Cfg
     ///         SourceIdentifier: IAM_PASSWORD_POLICY
     ///     Type: AWS::Config::ConfigRule
     /// ",
-    ///         });
-    ///         var exampleOrganizationConformancePack = new Aws.Cfg.OrganizationConformancePack("exampleOrganizationConformancePack", new Aws.Cfg.OrganizationConformancePackArgs
-    ///         {
-    ///             TemplateS3Uri = Output.Tuple(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).Apply(values =&gt;
-    ///             {
-    ///                 var bucket = values.Item1;
-    ///                 var key = values.Item2;
-    ///                 return $"s3://{bucket}/{key}";
-    ///             }),
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 aws_config_configuration_recorder.Example,
-    ///                 exampleOrganization,
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var exampleOrganizationConformancePack = new Aws.Cfg.OrganizationConformancePack("exampleOrganizationConformancePack", new()
+    ///     {
+    ///         TemplateS3Uri = Output.Tuple(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).Apply(values =&gt;
+    ///         {
+    ///             var bucket = values.Item1;
+    ///             var key = values.Item2;
+    ///             return $"s3://{bucket}/{key}";
+    ///         }),
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             aws_config_configuration_recorder.Example,
+    ///             exampleOrganization,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -132,7 +130,7 @@ namespace Pulumi.Aws.Cfg
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/organizationConformancePack:OrganizationConformancePack")]
-    public partial class OrganizationConformancePack : Pulumi.CustomResource
+    public partial class OrganizationConformancePack : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the organization conformance pack.
@@ -226,7 +224,7 @@ namespace Pulumi.Aws.Cfg
         }
     }
 
-    public sealed class OrganizationConformancePackArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationConformancePackArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
@@ -285,9 +283,10 @@ namespace Pulumi.Aws.Cfg
         public OrganizationConformancePackArgs()
         {
         }
+        public static new OrganizationConformancePackArgs Empty => new OrganizationConformancePackArgs();
     }
 
-    public sealed class OrganizationConformancePackState : Pulumi.ResourceArgs
+    public sealed class OrganizationConformancePackState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the organization conformance pack.
@@ -352,5 +351,6 @@ namespace Pulumi.Aws.Cfg
         public OrganizationConformancePackState()
         {
         }
+        public static new OrganizationConformancePackState Empty => new OrganizationConformancePackState();
     }
 }

@@ -38,6 +38,7 @@ __all__ = [
     'OpenZfsVolumeUserAndGroupQuota',
     'WindowsFileSystemAuditLogConfiguration',
     'WindowsFileSystemSelfManagedActiveDirectory',
+    'GetOpenZfsSnapshotFilterResult',
 ]
 
 @pulumi.output_type
@@ -808,6 +809,8 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
             suggest = "nfs_exports"
         elif key == "readOnly":
             suggest = "read_only"
+        elif key == "recordSizeKib":
+            suggest = "record_size_kib"
         elif key == "userAndGroupQuotas":
             suggest = "user_and_group_quotas"
 
@@ -827,12 +830,14 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
                  data_compression_type: Optional[str] = None,
                  nfs_exports: Optional['outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExports'] = None,
                  read_only: Optional[bool] = None,
+                 record_size_kib: Optional[int] = None,
                  user_and_group_quotas: Optional[Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota']] = None):
         """
         :param bool copy_tags_to_snapshots: - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param str data_compression_type: - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         :param 'OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs' nfs_exports: - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
         :param bool read_only: - specifies whether the volume is read-only. Default is false.
+        :param int record_size_kib: - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
         :param Sequence['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs'] user_and_group_quotas: - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         """
         if copy_tags_to_snapshots is not None:
@@ -843,6 +848,8 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
             pulumi.set(__self__, "nfs_exports", nfs_exports)
         if read_only is not None:
             pulumi.set(__self__, "read_only", read_only)
+        if record_size_kib is not None:
+            pulumi.set(__self__, "record_size_kib", record_size_kib)
         if user_and_group_quotas is not None:
             pulumi.set(__self__, "user_and_group_quotas", user_and_group_quotas)
 
@@ -877,6 +884,14 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
         - specifies whether the volume is read-only. Default is false.
         """
         return pulumi.get(self, "read_only")
+
+    @property
+    @pulumi.getter(name="recordSizeKib")
+    def record_size_kib(self) -> Optional[int]:
+        """
+        - Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        """
+        return pulumi.get(self, "record_size_kib")
 
     @property
     @pulumi.getter(name="userAndGroupQuotas")
@@ -1323,5 +1338,30 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
         The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
         """
         return pulumi.get(self, "organizational_unit_distinguished_name")
+
+
+@pulumi.output_type
+class GetOpenZfsSnapshotFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the snapshot.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the snapshot.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
 
 

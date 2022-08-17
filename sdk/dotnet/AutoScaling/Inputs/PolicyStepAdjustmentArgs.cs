@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class PolicyStepAdjustmentArgs : Pulumi.ResourceArgs
+    public sealed class PolicyStepAdjustmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The lower bound for the
@@ -40,5 +40,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public PolicyStepAdjustmentArgs()
         {
         }
+        public static new PolicyStepAdjustmentArgs Empty => new PolicyStepAdjustmentArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class CatalogTablePartitionKeyArgs : Pulumi.ResourceArgs
+    public sealed class CatalogTablePartitionKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Free-form text comment.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public CatalogTablePartitionKeyArgs()
         {
         }
+        public static new CatalogTablePartitionKeyArgs Empty => new CatalogTablePartitionKeyArgs();
     }
 }

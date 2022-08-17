@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class DomainDefaultUserSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class DomainDefaultUserSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The execution role ARN for the user.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public DomainDefaultUserSettingsGetArgs()
         {
         }
+        public static new DomainDefaultUserSettingsGetArgs Empty => new DomainDefaultUserSettingsGetArgs();
     }
 }

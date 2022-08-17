@@ -21,25 +21,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		key, err := kms.NewKey(ctx, "key", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = kms.NewAlias(ctx, "alias", &kms.AliasArgs{
-// 			TargetKeyId: key.KeyId,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			key, err := kms.NewKey(ctx, "key", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kms.NewAlias(ctx, "alias", &kms.AliasArgs{
+//				TargetKeyId: key.KeyId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // KMS aliases can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
+//
+//	$ pulumi import aws:kms/alias:Alias a alias/my-key-alias
+//
 // ```
 type Alias struct {
 	pulumi.CustomResourceState
@@ -175,7 +180,7 @@ func (i *Alias) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 // AliasArrayInput is an input type that accepts AliasArray and AliasArrayOutput values.
 // You can construct a concrete instance of `AliasArrayInput` via:
 //
-//          AliasArray{ AliasArgs{...} }
+//	AliasArray{ AliasArgs{...} }
 type AliasArrayInput interface {
 	pulumi.Input
 
@@ -200,7 +205,7 @@ func (i AliasArray) ToAliasArrayOutputWithContext(ctx context.Context) AliasArra
 // AliasMapInput is an input type that accepts AliasMap and AliasMapOutput values.
 // You can construct a concrete instance of `AliasMapInput` via:
 //
-//          AliasMap{ "key": AliasArgs{...} }
+//	AliasMap{ "key": AliasArgs{...} }
 type AliasMapInput interface {
 	pulumi.Input
 

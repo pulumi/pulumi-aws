@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
 {
 
-    public sealed class ListenerRuleActionForwardTargetGroupGetArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleActionForwardTargetGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the target group.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
         public ListenerRuleActionForwardTargetGroupGetArgs()
         {
         }
+        public static new ListenerRuleActionForwardTargetGroupGetArgs Empty => new ListenerRuleActionForwardTargetGroupGetArgs();
     }
 }

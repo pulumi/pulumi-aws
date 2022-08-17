@@ -20,62 +20,57 @@ namespace Pulumi.Aws
         /// ### Get Service DNS Name
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
-        ///         var test = current.Apply(current =&gt; Output.Create(Aws.GetService.InvokeAsync(new Aws.GetServiceArgs
-        ///         {
-        ///             Region = current.Name,
-        ///             ServiceId = "ec2",
-        ///         })));
-        ///     }
+        ///     var current = Aws.GetRegion.Invoke();
         /// 
-        /// }
+        ///     var test = Aws.GetService.Invoke(new()
+        ///     {
+        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+        ///         ServiceId = "ec2",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Use Service Reverse DNS Name to Get Components
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var s3 = Aws.GetService.Invoke(new()
         ///     {
-        ///         var s3 = Output.Create(Aws.GetService.InvokeAsync(new Aws.GetServiceArgs
-        ///         {
-        ///             ReverseDnsName = "cn.com.amazonaws.cn-north-1.s3",
-        ///         }));
-        ///     }
+        ///         ReverseDnsName = "cn.com.amazonaws.cn-north-1.s3",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Determine Regional Support for a Service
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var s3 = Aws.GetService.Invoke(new()
         ///     {
-        ///         var s3 = Output.Create(Aws.GetService.InvokeAsync(new Aws.GetServiceArgs
-        ///         {
-        ///             ReverseDnsName = "com.amazonaws.us-gov-west-1.waf",
-        ///         }));
-        ///     }
+        ///         ReverseDnsName = "com.amazonaws.us-gov-west-1.waf",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -92,62 +87,57 @@ namespace Pulumi.Aws
         /// ### Get Service DNS Name
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
-        ///         var test = current.Apply(current =&gt; Output.Create(Aws.GetService.InvokeAsync(new Aws.GetServiceArgs
-        ///         {
-        ///             Region = current.Name,
-        ///             ServiceId = "ec2",
-        ///         })));
-        ///     }
+        ///     var current = Aws.GetRegion.Invoke();
         /// 
-        /// }
+        ///     var test = Aws.GetService.Invoke(new()
+        ///     {
+        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+        ///         ServiceId = "ec2",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Use Service Reverse DNS Name to Get Components
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var s3 = Aws.GetService.Invoke(new()
         ///     {
-        ///         var s3 = Output.Create(Aws.GetService.InvokeAsync(new Aws.GetServiceArgs
-        ///         {
-        ///             ReverseDnsName = "cn.com.amazonaws.cn-north-1.s3",
-        ///         }));
-        ///     }
+        ///         ReverseDnsName = "cn.com.amazonaws.cn-north-1.s3",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Determine Regional Support for a Service
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var s3 = Aws.GetService.Invoke(new()
         ///     {
-        ///         var s3 = Output.Create(Aws.GetService.InvokeAsync(new Aws.GetServiceArgs
-        ///         {
-        ///             ReverseDnsName = "com.amazonaws.us-gov-west-1.waf",
-        ///         }));
-        ///     }
+        ///         ReverseDnsName = "com.amazonaws.us-gov-west-1.waf",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -157,7 +147,7 @@ namespace Pulumi.Aws
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
@@ -192,9 +182,10 @@ namespace Pulumi.Aws
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
@@ -229,6 +220,7 @@ namespace Pulumi.Aws
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

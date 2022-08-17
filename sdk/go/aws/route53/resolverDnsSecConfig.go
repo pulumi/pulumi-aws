@@ -19,38 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-// 			CidrBlock:          pulumi.String("10.0.0.0/16"),
-// 			EnableDnsSupport:   pulumi.Bool(true),
-// 			EnableDnsHostnames: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = route53.NewResolverDnsSecConfig(ctx, "exampleResolverDnsSecConfig", &route53.ResolverDnsSecConfigArgs{
-// 			ResourceId: exampleVpc.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//				CidrBlock:          pulumi.String("10.0.0.0/16"),
+//				EnableDnsSupport:   pulumi.Bool(true),
+//				EnableDnsHostnames: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewResolverDnsSecConfig(ctx, "exampleResolverDnsSecConfig", &route53.ResolverDnsSecConfigArgs{
+//				ResourceId: exampleVpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-//  Route 53 Resolver DNSSEC configs can be imported using the Route 53 Resolver DNSSEC config ID, e.g.,
+//	Route 53 Resolver DNSSEC configs can be imported using the Route 53 Resolver DNSSEC config ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
+//
+//	$ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
+//
 // ```
 type ResolverDnsSecConfig struct {
 	pulumi.CustomResourceState
@@ -159,7 +164,7 @@ func (i *ResolverDnsSecConfig) ToResolverDnsSecConfigOutputWithContext(ctx conte
 // ResolverDnsSecConfigArrayInput is an input type that accepts ResolverDnsSecConfigArray and ResolverDnsSecConfigArrayOutput values.
 // You can construct a concrete instance of `ResolverDnsSecConfigArrayInput` via:
 //
-//          ResolverDnsSecConfigArray{ ResolverDnsSecConfigArgs{...} }
+//	ResolverDnsSecConfigArray{ ResolverDnsSecConfigArgs{...} }
 type ResolverDnsSecConfigArrayInput interface {
 	pulumi.Input
 
@@ -184,7 +189,7 @@ func (i ResolverDnsSecConfigArray) ToResolverDnsSecConfigArrayOutputWithContext(
 // ResolverDnsSecConfigMapInput is an input type that accepts ResolverDnsSecConfigMap and ResolverDnsSecConfigMapOutput values.
 // You can construct a concrete instance of `ResolverDnsSecConfigMapInput` via:
 //
-//          ResolverDnsSecConfigMap{ "key": ResolverDnsSecConfigArgs{...} }
+//	ResolverDnsSecConfigMap{ "key": ResolverDnsSecConfigArgs{...} }
 type ResolverDnsSecConfigMapInput interface {
 	pulumi.Input
 

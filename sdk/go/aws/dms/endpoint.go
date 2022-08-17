@@ -19,35 +19,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := dms.NewEndpoint(ctx, "test", &dms.EndpointArgs{
-// 			CertificateArn:            pulumi.String("arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012"),
-// 			DatabaseName:              pulumi.String("test"),
-// 			EndpointId:                pulumi.String("test-dms-endpoint-tf"),
-// 			EndpointType:              pulumi.String("source"),
-// 			EngineName:                pulumi.String("aurora"),
-// 			ExtraConnectionAttributes: pulumi.String(""),
-// 			KmsKeyArn:                 pulumi.String("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"),
-// 			Password:                  pulumi.String("test"),
-// 			Port:                      pulumi.Int(3306),
-// 			ServerName:                pulumi.String("test"),
-// 			SslMode:                   pulumi.String("none"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("test"),
-// 			},
-// 			Username: pulumi.String("test"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := dms.NewEndpoint(ctx, "test", &dms.EndpointArgs{
+//				CertificateArn:            pulumi.String("arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012"),
+//				DatabaseName:              pulumi.String("test"),
+//				EndpointId:                pulumi.String("test-dms-endpoint-tf"),
+//				EndpointType:              pulumi.String("source"),
+//				EngineName:                pulumi.String("aurora"),
+//				ExtraConnectionAttributes: pulumi.String(""),
+//				KmsKeyArn:                 pulumi.String("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"),
+//				Password:                  pulumi.String("test"),
+//				Port:                      pulumi.Int(3306),
+//				ServerName:                pulumi.String("test"),
+//				SslMode:                   pulumi.String("none"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("test"),
+//				},
+//				Username: pulumi.String("test"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,7 +58,9 @@ import (
 // Endpoints can be imported using the `endpoint_id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+//
+//	$ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+//
 // ```
 type Endpoint struct {
 	pulumi.CustomResourceState
@@ -374,7 +379,7 @@ func (i *Endpoint) ToEndpointOutputWithContext(ctx context.Context) EndpointOutp
 // EndpointArrayInput is an input type that accepts EndpointArray and EndpointArrayOutput values.
 // You can construct a concrete instance of `EndpointArrayInput` via:
 //
-//          EndpointArray{ EndpointArgs{...} }
+//	EndpointArray{ EndpointArgs{...} }
 type EndpointArrayInput interface {
 	pulumi.Input
 
@@ -399,7 +404,7 @@ func (i EndpointArray) ToEndpointArrayOutputWithContext(ctx context.Context) End
 // EndpointMapInput is an input type that accepts EndpointMap and EndpointMapOutput values.
 // You can construct a concrete instance of `EndpointMapInput` via:
 //
-//          EndpointMap{ "key": EndpointArgs{...} }
+//	EndpointMap{ "key": EndpointArgs{...} }
 type EndpointMapInput interface {
 	pulumi.Input
 

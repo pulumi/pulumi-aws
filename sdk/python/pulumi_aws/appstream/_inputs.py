@@ -329,6 +329,10 @@ class StackAccessEndpointArgs:
     def __init__(__self__, *,
                  endpoint_type: pulumi.Input[str],
                  vpce_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] endpoint_type: The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+        :param pulumi.Input[str] vpce_id: The ID of the VPC in which the interface endpoint is used.
+        """
         pulumi.set(__self__, "endpoint_type", endpoint_type)
         if vpce_id is not None:
             pulumi.set(__self__, "vpce_id", vpce_id)
@@ -336,6 +340,9 @@ class StackAccessEndpointArgs:
     @property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Input[str]:
+        """
+        The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+        """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
@@ -345,6 +352,9 @@ class StackAccessEndpointArgs:
     @property
     @pulumi.getter(name="vpceId")
     def vpce_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC in which the interface endpoint is used.
+        """
         return pulumi.get(self, "vpce_id")
 
     @vpce_id.setter

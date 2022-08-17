@@ -18,47 +18,43 @@ namespace Pulumi.Aws.StorageGateway
     /// ### Create Empty Stored iSCSI Volume
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.StorageGateway.StoredIscsiVolume("example", new()
     ///     {
-    ///         var example = new Aws.StorageGateway.StoredIscsiVolume("example", new Aws.StorageGateway.StoredIscsiVolumeArgs
-    ///         {
-    ///             GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
-    ///             NetworkInterfaceId = aws_instance.Example.Private_ip,
-    ///             TargetName = "example",
-    ///             PreserveExistingData = false,
-    ///             DiskId = data.Aws_storagegateway_local_disk.Test.Id,
-    ///         });
-    ///     }
+    ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
+    ///         NetworkInterfaceId = aws_instance.Example.Private_ip,
+    ///         TargetName = "example",
+    ///         PreserveExistingData = false,
+    ///         DiskId = data.Aws_storagegateway_local_disk.Test.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Create Stored iSCSI Volume From Snapshot
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.StorageGateway.StoredIscsiVolume("example", new()
     ///     {
-    ///         var example = new Aws.StorageGateway.StoredIscsiVolume("example", new Aws.StorageGateway.StoredIscsiVolumeArgs
-    ///         {
-    ///             GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
-    ///             NetworkInterfaceId = aws_instance.Example.Private_ip,
-    ///             SnapshotId = aws_ebs_snapshot.Example.Id,
-    ///             TargetName = "example",
-    ///             PreserveExistingData = false,
-    ///             DiskId = data.Aws_storagegateway_local_disk.Test.Id,
-    ///         });
-    ///     }
+    ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
+    ///         NetworkInterfaceId = aws_instance.Example.Private_ip,
+    ///         SnapshotId = aws_ebs_snapshot.Example.Id,
+    ///         TargetName = "example",
+    ///         PreserveExistingData = false,
+    ///         DiskId = data.Aws_storagegateway_local_disk.Test.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +66,7 @@ namespace Pulumi.Aws.StorageGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:storagegateway/storedIscsiVolume:StoredIscsiVolume")]
-    public partial class StoredIscsiVolume : Pulumi.CustomResource
+    public partial class StoredIscsiVolume : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
@@ -236,7 +232,7 @@ namespace Pulumi.Aws.StorageGateway
         }
     }
 
-    public sealed class StoredIscsiVolumeArgs : Pulumi.ResourceArgs
+    public sealed class StoredIscsiVolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique identifier for the gateway local disk that is configured as a stored volume.
@@ -301,9 +297,10 @@ namespace Pulumi.Aws.StorageGateway
         public StoredIscsiVolumeArgs()
         {
         }
+        public static new StoredIscsiVolumeArgs Empty => new StoredIscsiVolumeArgs();
     }
 
-    public sealed class StoredIscsiVolumeState : Pulumi.ResourceArgs
+    public sealed class StoredIscsiVolumeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
@@ -440,5 +437,6 @@ namespace Pulumi.Aws.StorageGateway
         public StoredIscsiVolumeState()
         {
         }
+        public static new StoredIscsiVolumeState Empty => new StoredIscsiVolumeState();
     }
 }

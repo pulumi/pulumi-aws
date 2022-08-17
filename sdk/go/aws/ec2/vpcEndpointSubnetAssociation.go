@@ -27,22 +27,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewVpcEndpointSubnetAssociation(ctx, "snEc2", &ec2.VpcEndpointSubnetAssociationArgs{
-// 			VpcEndpointId: pulumi.Any(aws_vpc_endpoint.Ec2.Id),
-// 			SubnetId:      pulumi.Any(aws_subnet.Sn.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewVpcEndpointSubnetAssociation(ctx, "snEc2", &ec2.VpcEndpointSubnetAssociationArgs{
+//				VpcEndpointId: pulumi.Any(aws_vpc_endpoint.Ec2.Id),
+//				SubnetId:      pulumi.Any(aws_subnet.Sn.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // VPC Endpoint Subnet Associations can be imported using `vpc_endpoint_id` together with `subnet_id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
+//
+//	$ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
+//
 // ```
 type VpcEndpointSubnetAssociation struct {
 	pulumi.CustomResourceState
@@ -154,7 +159,7 @@ func (i *VpcEndpointSubnetAssociation) ToVpcEndpointSubnetAssociationOutputWithC
 // VpcEndpointSubnetAssociationArrayInput is an input type that accepts VpcEndpointSubnetAssociationArray and VpcEndpointSubnetAssociationArrayOutput values.
 // You can construct a concrete instance of `VpcEndpointSubnetAssociationArrayInput` via:
 //
-//          VpcEndpointSubnetAssociationArray{ VpcEndpointSubnetAssociationArgs{...} }
+//	VpcEndpointSubnetAssociationArray{ VpcEndpointSubnetAssociationArgs{...} }
 type VpcEndpointSubnetAssociationArrayInput interface {
 	pulumi.Input
 
@@ -179,7 +184,7 @@ func (i VpcEndpointSubnetAssociationArray) ToVpcEndpointSubnetAssociationArrayOu
 // VpcEndpointSubnetAssociationMapInput is an input type that accepts VpcEndpointSubnetAssociationMap and VpcEndpointSubnetAssociationMapOutput values.
 // You can construct a concrete instance of `VpcEndpointSubnetAssociationMapInput` via:
 //
-//          VpcEndpointSubnetAssociationMap{ "key": VpcEndpointSubnetAssociationArgs{...} }
+//	VpcEndpointSubnetAssociationMap{ "key": VpcEndpointSubnetAssociationArgs{...} }
 type VpcEndpointSubnetAssociationMapInput interface {
 	pulumi.Input
 

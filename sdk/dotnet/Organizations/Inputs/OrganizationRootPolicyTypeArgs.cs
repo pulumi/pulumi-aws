@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Organizations.Inputs
 {
 
-    public sealed class OrganizationRootPolicyTypeArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationRootPolicyTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The status of the policy type as it relates to the associated root
@@ -24,5 +24,6 @@ namespace Pulumi.Aws.Organizations.Inputs
         public OrganizationRootPolicyTypeArgs()
         {
         }
+        public static new OrganizationRootPolicyTypeArgs Empty => new OrganizationRootPolicyTypeArgs();
     }
 }

@@ -23,43 +23,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleCertificate, err := acm.NewCertificate(ctx, "exampleCertificate", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		frontEndListener, err := lb.NewListener(ctx, "frontEndListener", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = lb.NewListenerCertificate(ctx, "exampleListenerCertificate", &lb.ListenerCertificateArgs{
-// 			ListenerArn:    frontEndListener.Arn,
-// 			CertificateArn: exampleCertificate.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleCertificate, err := acm.NewCertificate(ctx, "exampleCertificate", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+//			if err != nil {
+//				return err
+//			}
+//			frontEndListener, err := lb.NewListener(ctx, "frontEndListener", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewListenerCertificate(ctx, "exampleListenerCertificate", &lb.ListenerCertificateArgs{
+//				ListenerArn:    frontEndListener.Arn,
+//				CertificateArn: exampleCertificate.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// Listener Certificates can be imported using their id, e.g.,
+// Listener Certificates can be imported by using the listener arn and certificate arn, separated by an underscore (`_`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:lb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
+//
+//	$ pulumi import aws:lb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
+//
 // ```
 type ListenerCertificate struct {
 	pulumi.CustomResourceState
@@ -169,7 +174,7 @@ func (i *ListenerCertificate) ToListenerCertificateOutputWithContext(ctx context
 // ListenerCertificateArrayInput is an input type that accepts ListenerCertificateArray and ListenerCertificateArrayOutput values.
 // You can construct a concrete instance of `ListenerCertificateArrayInput` via:
 //
-//          ListenerCertificateArray{ ListenerCertificateArgs{...} }
+//	ListenerCertificateArray{ ListenerCertificateArgs{...} }
 type ListenerCertificateArrayInput interface {
 	pulumi.Input
 
@@ -194,7 +199,7 @@ func (i ListenerCertificateArray) ToListenerCertificateArrayOutputWithContext(ct
 // ListenerCertificateMapInput is an input type that accepts ListenerCertificateMap and ListenerCertificateMapOutput values.
 // You can construct a concrete instance of `ListenerCertificateMapInput` via:
 //
-//          ListenerCertificateMap{ "key": ListenerCertificateArgs{...} }
+//	ListenerCertificateMap{ "key": ListenerCertificateArgs{...} }
 type ListenerCertificateMapInput interface {
 	pulumi.Input
 

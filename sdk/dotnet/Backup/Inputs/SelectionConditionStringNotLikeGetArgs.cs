@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Backup.Inputs
 {
 
-    public sealed class SelectionConditionStringNotLikeGetArgs : Pulumi.ResourceArgs
+    public sealed class SelectionConditionStringNotLikeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The key in a key-value pair.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Backup.Inputs
         public SelectionConditionStringNotLikeGetArgs()
         {
         }
+        public static new SelectionConditionStringNotLikeGetArgs Empty => new SelectionConditionStringNotLikeGetArgs();
     }
 }

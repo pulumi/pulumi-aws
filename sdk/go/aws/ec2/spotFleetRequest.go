@@ -16,7 +16,9 @@ import (
 // Spot Fleet Requests can be imported using `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
+//
+//	$ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
+//
 // ```
 type SpotFleetRequest struct {
 	pulumi.CustomResourceState
@@ -71,7 +73,7 @@ type SpotFleetRequest struct {
 	SpotRequestState pulumi.StringOutput `pulumi:"spotRequestState"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is
@@ -181,7 +183,7 @@ type spotFleetRequestState struct {
 	SpotRequestState *string `pulumi:"spotRequestState"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is
@@ -257,7 +259,7 @@ type SpotFleetRequestState struct {
 	SpotRequestState pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is
@@ -455,7 +457,7 @@ func (i *SpotFleetRequest) ToSpotFleetRequestOutputWithContext(ctx context.Conte
 // SpotFleetRequestArrayInput is an input type that accepts SpotFleetRequestArray and SpotFleetRequestArrayOutput values.
 // You can construct a concrete instance of `SpotFleetRequestArrayInput` via:
 //
-//          SpotFleetRequestArray{ SpotFleetRequestArgs{...} }
+//	SpotFleetRequestArray{ SpotFleetRequestArgs{...} }
 type SpotFleetRequestArrayInput interface {
 	pulumi.Input
 
@@ -480,7 +482,7 @@ func (i SpotFleetRequestArray) ToSpotFleetRequestArrayOutputWithContext(ctx cont
 // SpotFleetRequestMapInput is an input type that accepts SpotFleetRequestMap and SpotFleetRequestMapOutput values.
 // You can construct a concrete instance of `SpotFleetRequestMapInput` via:
 //
-//          SpotFleetRequestMap{ "key": SpotFleetRequestArgs{...} }
+//	SpotFleetRequestMap{ "key": SpotFleetRequestArgs{...} }
 type SpotFleetRequestMapInput interface {
 	pulumi.Input
 
@@ -626,7 +628,7 @@ func (o SpotFleetRequestOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SpotFleetRequest) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SpotFleetRequestOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SpotFleetRequest) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

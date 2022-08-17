@@ -26,62 +26,64 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/providers"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := providers.Newaws(ctx, "peer", &providers.awsArgs{
-// 			Region: "us-west-2",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.0.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		peerVpc, err := ec2.NewVpc(ctx, "peerVpc", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.1.0.0/16"),
-// 		}, pulumi.Provider(aws.Peer))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		peerCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		peerVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "peerVpcPeeringConnection", &ec2.VpcPeeringConnectionArgs{
-// 			VpcId:       main.ID(),
-// 			PeerVpcId:   peerVpc.ID(),
-// 			PeerOwnerId: pulumi.String(peerCallerIdentity.AccountId),
-// 			PeerRegion:  pulumi.String("us-west-2"),
-// 			AutoAccept:  pulumi.Bool(false),
-// 			Tags: pulumi.StringMap{
-// 				"Side": pulumi.String("Requester"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewVpcPeeringConnectionAccepter(ctx, "peerVpcPeeringConnectionAccepter", &ec2.VpcPeeringConnectionAccepterArgs{
-// 			VpcPeeringConnectionId: peerVpcPeeringConnection.ID(),
-// 			AutoAccept:             pulumi.Bool(true),
-// 			Tags: pulumi.StringMap{
-// 				"Side": pulumi.String("Accepter"),
-// 			},
-// 		}, pulumi.Provider(aws.Peer))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewProvider(ctx, "peer", &aws.ProviderArgs{
+//				Region: pulumi.String("us-west-2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			peerVpc, err := ec2.NewVpc(ctx, "peerVpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.1.0.0/16"),
+//			}, pulumi.Provider(aws.Peer))
+//			if err != nil {
+//				return err
+//			}
+//			peerCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			peerVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "peerVpcPeeringConnection", &ec2.VpcPeeringConnectionArgs{
+//				VpcId:       main.ID(),
+//				PeerVpcId:   peerVpc.ID(),
+//				PeerOwnerId: pulumi.String(peerCallerIdentity.AccountId),
+//				PeerRegion:  pulumi.String("us-west-2"),
+//				AutoAccept:  pulumi.Bool(false),
+//				Tags: pulumi.StringMap{
+//					"Side": pulumi.String("Requester"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcPeeringConnectionAccepter(ctx, "peerVpcPeeringConnectionAccepter", &ec2.VpcPeeringConnectionAccepterArgs{
+//				VpcPeeringConnectionId: peerVpcPeeringConnection.ID(),
+//				AutoAccept:             pulumi.Bool(true),
+//				Tags: pulumi.StringMap{
+//					"Side": pulumi.String("Accepter"),
+//				},
+//			}, pulumi.Provider(aws.Peer))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -89,20 +91,22 @@ import (
 // VPC Peering Connection Accepters can be imported by using the Peering Connection ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
+//
+//	$ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
+//
 // ```
 //
-//  Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the provider configuration on an imported resource, this provder will always show a difference. To workaround this behavior, either omit the argument from the configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_vpc_peering_connection_accepter" "example" {
+//	Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the provider configuration on an imported resource, this provder will always show a difference. To workaround this behavior, either omit the argument from the configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_vpc_peering_connection_accepter" "example" {
 //
 // # ... other configuration ...
 //
 // # There is no AWS EC2 API for reading auto_accept
 //
-//  lifecycle {
+//	lifecycle {
 //
-//  ignore_changes = [auto_accept]
+//	ignore_changes = [auto_accept]
 //
-//  } }
+//	} }
 type VpcPeeringConnectionAccepter struct {
 	pulumi.CustomResourceState
 
@@ -124,7 +128,7 @@ type VpcPeeringConnectionAccepter struct {
 	Requester VpcPeeringConnectionAccepterRequesterOutput `pulumi:"requester"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the accepter VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -182,7 +186,7 @@ type vpcPeeringConnectionAccepterState struct {
 	Requester *VpcPeeringConnectionAccepterRequester `pulumi:"requester"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the accepter VPC.
 	VpcId *string `pulumi:"vpcId"`
@@ -209,7 +213,7 @@ type VpcPeeringConnectionAccepterState struct {
 	Requester VpcPeeringConnectionAccepterRequesterPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ID of the accepter VPC.
 	VpcId pulumi.StringPtrInput
@@ -278,7 +282,7 @@ func (i *VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterOutputWithC
 // VpcPeeringConnectionAccepterArrayInput is an input type that accepts VpcPeeringConnectionAccepterArray and VpcPeeringConnectionAccepterArrayOutput values.
 // You can construct a concrete instance of `VpcPeeringConnectionAccepterArrayInput` via:
 //
-//          VpcPeeringConnectionAccepterArray{ VpcPeeringConnectionAccepterArgs{...} }
+//	VpcPeeringConnectionAccepterArray{ VpcPeeringConnectionAccepterArgs{...} }
 type VpcPeeringConnectionAccepterArrayInput interface {
 	pulumi.Input
 
@@ -303,7 +307,7 @@ func (i VpcPeeringConnectionAccepterArray) ToVpcPeeringConnectionAccepterArrayOu
 // VpcPeeringConnectionAccepterMapInput is an input type that accepts VpcPeeringConnectionAccepterMap and VpcPeeringConnectionAccepterMapOutput values.
 // You can construct a concrete instance of `VpcPeeringConnectionAccepterMapInput` via:
 //
-//          VpcPeeringConnectionAccepterMap{ "key": VpcPeeringConnectionAccepterArgs{...} }
+//	VpcPeeringConnectionAccepterMap{ "key": VpcPeeringConnectionAccepterArgs{...} }
 type VpcPeeringConnectionAccepterMapInput interface {
 	pulumi.Input
 
@@ -381,7 +385,7 @@ func (o VpcPeeringConnectionAccepterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcPeeringConnectionAccepterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

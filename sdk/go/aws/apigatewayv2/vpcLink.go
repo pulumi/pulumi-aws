@@ -22,27 +22,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apigatewayv2.NewVpcLink(ctx, "example", &apigatewayv2.VpcLinkArgs{
-// 			SecurityGroupIds: pulumi.StringArray{
-// 				pulumi.Any(data.Aws_security_group.Example.Id),
-// 			},
-// 			SubnetIds: pulumi.Any(data.Aws_subnet_ids.Example.Ids),
-// 			Tags: pulumi.StringMap{
-// 				"Usage": pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigatewayv2.NewVpcLink(ctx, "example", &apigatewayv2.VpcLinkArgs{
+//				SecurityGroupIds: pulumi.StringArray{
+//					pulumi.Any(data.Aws_security_group.Example.Id),
+//				},
+//				SubnetIds: pulumi.Any(data.Aws_subnet_ids.Example.Ids),
+//				Tags: pulumi.StringMap{
+//					"Usage": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // `aws_apigatewayv2_vpc_link` can be imported by using the VPC Link identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
+//
+//	$ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
+//
 // ```
 type VpcLink struct {
 	pulumi.CustomResourceState
@@ -63,9 +68,9 @@ type VpcLink struct {
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// Subnet IDs for the VPC Link.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// A map of tags to assign to the VPC Link. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -112,9 +117,9 @@ type vpcLinkState struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Subnet IDs for the VPC Link.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags to assign to the VPC Link. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -127,9 +132,9 @@ type VpcLinkState struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// Subnet IDs for the VPC Link.
 	SubnetIds pulumi.StringArrayInput
-	// A map of tags to assign to the VPC Link. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -144,7 +149,7 @@ type vpcLinkArgs struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Subnet IDs for the VPC Link.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A map of tags to assign to the VPC Link. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -156,7 +161,7 @@ type VpcLinkArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// Subnet IDs for the VPC Link.
 	SubnetIds pulumi.StringArrayInput
-	// A map of tags to assign to the VPC Link. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -186,7 +191,7 @@ func (i *VpcLink) ToVpcLinkOutputWithContext(ctx context.Context) VpcLinkOutput 
 // VpcLinkArrayInput is an input type that accepts VpcLinkArray and VpcLinkArrayOutput values.
 // You can construct a concrete instance of `VpcLinkArrayInput` via:
 //
-//          VpcLinkArray{ VpcLinkArgs{...} }
+//	VpcLinkArray{ VpcLinkArgs{...} }
 type VpcLinkArrayInput interface {
 	pulumi.Input
 
@@ -211,7 +216,7 @@ func (i VpcLinkArray) ToVpcLinkArrayOutputWithContext(ctx context.Context) VpcLi
 // VpcLinkMapInput is an input type that accepts VpcLinkMap and VpcLinkMapOutput values.
 // You can construct a concrete instance of `VpcLinkMapInput` via:
 //
-//          VpcLinkMap{ "key": VpcLinkArgs{...} }
+//	VpcLinkMap{ "key": VpcLinkArgs{...} }
 type VpcLinkMapInput interface {
 	pulumi.Input
 
@@ -267,12 +272,12 @@ func (o VpcLinkOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the VPC Link. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the VPC Link. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcLinkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcLinkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

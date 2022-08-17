@@ -22,26 +22,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := iam.NewAccountPasswordPolicy(ctx, "strict", &iam.AccountPasswordPolicyArgs{
-// 			AllowUsersToChangePassword: pulumi.Bool(true),
-// 			MinimumPasswordLength:      pulumi.Int(8),
-// 			RequireLowercaseCharacters: pulumi.Bool(true),
-// 			RequireNumbers:             pulumi.Bool(true),
-// 			RequireSymbols:             pulumi.Bool(true),
-// 			RequireUppercaseCharacters: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.NewAccountPasswordPolicy(ctx, "strict", &iam.AccountPasswordPolicyArgs{
+//				AllowUsersToChangePassword: pulumi.Bool(true),
+//				MinimumPasswordLength:      pulumi.Int(8),
+//				RequireLowercaseCharacters: pulumi.Bool(true),
+//				RequireNumbers:             pulumi.Bool(true),
+//				RequireSymbols:             pulumi.Bool(true),
+//				RequireUppercaseCharacters: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // IAM Account Password Policy can be imported using the word `iam-account-password-policy`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
+//
+//	$ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
+//
 // ```
 type AccountPasswordPolicy struct {
 	pulumi.CustomResourceState
@@ -223,7 +228,7 @@ func (i *AccountPasswordPolicy) ToAccountPasswordPolicyOutputWithContext(ctx con
 // AccountPasswordPolicyArrayInput is an input type that accepts AccountPasswordPolicyArray and AccountPasswordPolicyArrayOutput values.
 // You can construct a concrete instance of `AccountPasswordPolicyArrayInput` via:
 //
-//          AccountPasswordPolicyArray{ AccountPasswordPolicyArgs{...} }
+//	AccountPasswordPolicyArray{ AccountPasswordPolicyArgs{...} }
 type AccountPasswordPolicyArrayInput interface {
 	pulumi.Input
 
@@ -248,7 +253,7 @@ func (i AccountPasswordPolicyArray) ToAccountPasswordPolicyArrayOutputWithContex
 // AccountPasswordPolicyMapInput is an input type that accepts AccountPasswordPolicyMap and AccountPasswordPolicyMapOutput values.
 // You can construct a concrete instance of `AccountPasswordPolicyMapInput` via:
 //
-//          AccountPasswordPolicyMap{ "key": AccountPasswordPolicyArgs{...} }
+//	AccountPasswordPolicyMap{ "key": AccountPasswordPolicyArgs{...} }
 type AccountPasswordPolicyMapInput interface {
 	pulumi.Input
 

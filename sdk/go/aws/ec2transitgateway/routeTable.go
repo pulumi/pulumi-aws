@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2transitgateway.NewRouteTable(ctx, "example", &ec2transitgateway.RouteTableArgs{
-// 			TransitGatewayId: pulumi.Any(aws_ec2_transit_gateway.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2transitgateway.NewRouteTable(ctx, "example", &ec2transitgateway.RouteTableArgs{
+//				TransitGatewayId: pulumi.Any(aws_ec2_transit_gateway.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // `aws_ec2_transit_gateway_route_table` can be imported by using the EC2 Transit Gateway Route Table identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
+//
+//	$ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
+//
 // ```
 type RouteTable struct {
 	pulumi.CustomResourceState
@@ -166,7 +171,7 @@ func (i *RouteTable) ToRouteTableOutputWithContext(ctx context.Context) RouteTab
 // RouteTableArrayInput is an input type that accepts RouteTableArray and RouteTableArrayOutput values.
 // You can construct a concrete instance of `RouteTableArrayInput` via:
 //
-//          RouteTableArray{ RouteTableArgs{...} }
+//	RouteTableArray{ RouteTableArgs{...} }
 type RouteTableArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +196,7 @@ func (i RouteTableArray) ToRouteTableArrayOutputWithContext(ctx context.Context)
 // RouteTableMapInput is an input type that accepts RouteTableMap and RouteTableMapOutput values.
 // You can construct a concrete instance of `RouteTableMapInput` via:
 //
-//          RouteTableMap{ "key": RouteTableArgs{...} }
+//	RouteTableMap{ "key": RouteTableArgs{...} }
 type RouteTableMapInput interface {
 	pulumi.Input
 

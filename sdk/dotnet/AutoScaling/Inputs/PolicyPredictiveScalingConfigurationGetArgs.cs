@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class PolicyPredictiveScalingConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class PolicyPredictiveScalingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public PolicyPredictiveScalingConfigurationGetArgs()
         {
         }
+        public static new PolicyPredictiveScalingConfigurationGetArgs Empty => new PolicyPredictiveScalingConfigurationGetArgs();
     }
 }

@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testTopic, err := sns.NewTopic(ctx, "testTopic", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sns.NewTopicPolicy(ctx, "testTopicPolicy", &sns.TopicPolicyArgs{
-// 			Arn: testTopic.Arn,
-// 			Policy: testPolicyDocument.ApplyT(func(testPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
-// 				return testPolicyDocument.Json, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = backup.NewVaultNotifications(ctx, "testVaultNotifications", &backup.VaultNotificationsArgs{
-// 			BackupVaultName: pulumi.String("example_backup_vault"),
-// 			SnsTopicArn:     testTopic.Arn,
-// 			BackupVaultEvents: pulumi.StringArray{
-// 				pulumi.String("BACKUP_JOB_STARTED"),
-// 				pulumi.String("RESTORE_JOB_COMPLETED"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testTopic, err := sns.NewTopic(ctx, "testTopic", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sns.NewTopicPolicy(ctx, "testTopicPolicy", &sns.TopicPolicyArgs{
+//				Arn: testTopic.Arn,
+//				Policy: testPolicyDocument.ApplyT(func(testPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
+//					return testPolicyDocument.Json, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = backup.NewVaultNotifications(ctx, "testVaultNotifications", &backup.VaultNotificationsArgs{
+//				BackupVaultName: pulumi.String("example_backup_vault"),
+//				SnsTopicArn:     testTopic.Arn,
+//				BackupVaultEvents: pulumi.StringArray{
+//					pulumi.String("BACKUP_JOB_STARTED"),
+//					pulumi.String("RESTORE_JOB_COMPLETED"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // Backup vault notifications can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
+//
+//	$ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
+//
 // ```
 type VaultNotifications struct {
 	pulumi.CustomResourceState
@@ -184,7 +189,7 @@ func (i *VaultNotifications) ToVaultNotificationsOutputWithContext(ctx context.C
 // VaultNotificationsArrayInput is an input type that accepts VaultNotificationsArray and VaultNotificationsArrayOutput values.
 // You can construct a concrete instance of `VaultNotificationsArrayInput` via:
 //
-//          VaultNotificationsArray{ VaultNotificationsArgs{...} }
+//	VaultNotificationsArray{ VaultNotificationsArgs{...} }
 type VaultNotificationsArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +214,7 @@ func (i VaultNotificationsArray) ToVaultNotificationsArrayOutputWithContext(ctx 
 // VaultNotificationsMapInput is an input type that accepts VaultNotificationsMap and VaultNotificationsMapOutput values.
 // You can construct a concrete instance of `VaultNotificationsMapInput` via:
 //
-//          VaultNotificationsMap{ "key": VaultNotificationsArgs{...} }
+//	VaultNotificationsMap{ "key": VaultNotificationsArgs{...} }
 type VaultNotificationsMapInput interface {
 	pulumi.Input
 

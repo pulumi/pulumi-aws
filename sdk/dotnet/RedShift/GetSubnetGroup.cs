@@ -19,20 +19,18 @@ namespace Pulumi.Aws.RedShift
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.RedShift.GetSubnetGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.RedShift.GetSubnetGroup.InvokeAsync(new Aws.RedShift.GetSubnetGroupArgs
-        ///         {
-        ///             Name = aws_redshift_subnet_group.Example.Name,
-        ///         }));
-        ///     }
+        ///         Name = aws_redshift_subnet_group.Example.Name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.RedShift
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.RedShift.GetSubnetGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.RedShift.GetSubnetGroup.InvokeAsync(new Aws.RedShift.GetSubnetGroupArgs
-        ///         {
-        ///             Name = aws_redshift_subnet_group.Example.Name,
-        ///         }));
-        ///     }
+        ///         Name = aws_redshift_subnet_group.Example.Name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.RedShift
     }
 
 
-    public sealed class GetSubnetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster subnet group for which information is requested.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.RedShift
         public GetSubnetGroupArgs()
         {
         }
+        public static new GetSubnetGroupArgs Empty => new GetSubnetGroupArgs();
     }
 
-    public sealed class GetSubnetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster subnet group for which information is requested.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.RedShift
         public GetSubnetGroupInvokeArgs()
         {
         }
+        public static new GetSubnetGroupInvokeArgs Empty => new GetSubnetGroupInvokeArgs();
     }
 
 

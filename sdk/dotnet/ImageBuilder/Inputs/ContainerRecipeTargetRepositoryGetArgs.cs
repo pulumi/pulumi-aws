@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class ContainerRecipeTargetRepositoryGetArgs : Pulumi.ResourceArgs
+    public sealed class ContainerRecipeTargetRepositoryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public ContainerRecipeTargetRepositoryGetArgs()
         {
         }
+        public static new ContainerRecipeTargetRepositoryGetArgs Empty => new ContainerRecipeTargetRepositoryGetArgs();
     }
 }

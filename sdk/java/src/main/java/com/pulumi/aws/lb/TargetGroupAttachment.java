@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  * 
  *         var withLb = new Permission(&#34;withLb&#34;, PermissionArgs.builder()        
  *             .action(&#34;lambda:InvokeFunction&#34;)
- *             .function(testFunction.arn())
+ *             .function(testFunction.name())
  *             .principal(&#34;elasticloadbalancing.amazonaws.com&#34;)
  *             .sourceArn(testTargetGroup.arn())
  *             .build());

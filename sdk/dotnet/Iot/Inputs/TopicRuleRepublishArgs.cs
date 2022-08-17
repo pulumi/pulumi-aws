@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleRepublishArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleRepublishArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleRepublishArgs()
         {
         }
+        public static new TopicRuleRepublishArgs Empty => new TopicRuleRepublishArgs();
     }
 }

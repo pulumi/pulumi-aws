@@ -15,41 +15,39 @@ namespace Pulumi.Aws.Route53
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Route53.ResolverEndpoint("foo", new()
     ///     {
-    ///         var foo = new Aws.Route53.ResolverEndpoint("foo", new Aws.Route53.ResolverEndpointArgs
+    ///         Direction = "INBOUND",
+    ///         SecurityGroupIds = new[]
     ///         {
-    ///             Direction = "INBOUND",
-    ///             SecurityGroupIds = 
+    ///             aws_security_group.Sg1.Id,
+    ///             aws_security_group.Sg2.Id,
+    ///         },
+    ///         IpAddresses = new[]
+    ///         {
+    ///             new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
     ///             {
-    ///                 aws_security_group.Sg1.Id,
-    ///                 aws_security_group.Sg2.Id,
+    ///                 SubnetId = aws_subnet.Sn1.Id,
     ///             },
-    ///             IpAddresses = 
+    ///             new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
     ///             {
-    ///                 new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
-    ///                 {
-    ///                     SubnetId = aws_subnet.Sn1.Id,
-    ///                 },
-    ///                 new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
-    ///                 {
-    ///                     SubnetId = aws_subnet.Sn2.Id,
-    ///                     Ip = "10.0.64.4",
-    ///                 },
+    ///                 SubnetId = aws_subnet.Sn2.Id,
+    ///                 Ip = "10.0.64.4",
     ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Prod" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Prod" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +59,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverEndpoint:ResolverEndpoint")]
-    public partial class ResolverEndpoint : Pulumi.CustomResource
+    public partial class ResolverEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Route 53 Resolver endpoint.
@@ -109,7 +107,7 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -158,7 +156,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class ResolverEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ResolverEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The direction of DNS queries to or from the Route 53 Resolver endpoint.
@@ -214,9 +212,10 @@ namespace Pulumi.Aws.Route53
         public ResolverEndpointArgs()
         {
         }
+        public static new ResolverEndpointArgs Empty => new ResolverEndpointArgs();
     }
 
-    public sealed class ResolverEndpointState : Pulumi.ResourceArgs
+    public sealed class ResolverEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Route 53 Resolver endpoint.
@@ -285,7 +284,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -296,5 +295,6 @@ namespace Pulumi.Aws.Route53
         public ResolverEndpointState()
         {
         }
+        public static new ResolverEndpointState Empty => new ResolverEndpointState();
     }
 }

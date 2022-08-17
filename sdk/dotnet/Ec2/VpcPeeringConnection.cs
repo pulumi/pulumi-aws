@@ -27,121 +27,117 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Ec2.VpcPeeringConnection("foo", new()
     ///     {
-    ///         var foo = new Aws.Ec2.VpcPeeringConnection("foo", new Aws.Ec2.VpcPeeringConnectionArgs
-    ///         {
-    ///             PeerOwnerId = @var.Peer_owner_id,
-    ///             PeerVpcId = aws_vpc.Bar.Id,
-    ///             VpcId = aws_vpc.Foo.Id,
-    ///         });
-    ///     }
+    ///         PeerOwnerId = @var.Peer_owner_id,
+    ///         PeerVpcId = aws_vpc.Bar.Id,
+    ///         VpcId = aws_vpc.Foo.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// Basic usage with connection options:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Ec2.VpcPeeringConnection("foo", new()
     ///     {
-    ///         var foo = new Aws.Ec2.VpcPeeringConnection("foo", new Aws.Ec2.VpcPeeringConnectionArgs
+    ///         PeerOwnerId = @var.Peer_owner_id,
+    ///         PeerVpcId = aws_vpc.Bar.Id,
+    ///         VpcId = aws_vpc.Foo.Id,
+    ///         Accepter = new Aws.Ec2.Inputs.VpcPeeringConnectionAccepterArgs
     ///         {
-    ///             PeerOwnerId = @var.Peer_owner_id,
-    ///             PeerVpcId = aws_vpc.Bar.Id,
-    ///             VpcId = aws_vpc.Foo.Id,
-    ///             Accepter = new Aws.Ec2.Inputs.VpcPeeringConnectionAccepterArgs
-    ///             {
-    ///                 AllowRemoteVpcDnsResolution = true,
-    ///             },
-    ///             Requester = new Aws.Ec2.Inputs.VpcPeeringConnectionRequesterArgs
-    ///             {
-    ///                 AllowRemoteVpcDnsResolution = true,
-    ///             },
-    ///         });
-    ///     }
+    ///             AllowRemoteVpcDnsResolution = true,
+    ///         },
+    ///         Requester = new Aws.Ec2.Inputs.VpcPeeringConnectionRequesterArgs
+    ///         {
+    ///             AllowRemoteVpcDnsResolution = true,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// Basic usage with tags:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
     ///     {
-    ///         var fooVpc = new Aws.Ec2.Vpc("fooVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.1.0.0/16",
-    ///         });
-    ///         var bar = new Aws.Ec2.Vpc("bar", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.2.0.0/16",
-    ///         });
-    ///         var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
-    ///         {
-    ///             PeerOwnerId = @var.Peer_owner_id,
-    ///             PeerVpcId = bar.Id,
-    ///             VpcId = fooVpc.Id,
-    ///             AutoAccept = true,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "VPC Peering between foo and bar" },
-    ///             },
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.1.0.0/16",
+    ///     });
     /// 
-    /// }
+    ///     var bar = new Aws.Ec2.Vpc("bar", new()
+    ///     {
+    ///         CidrBlock = "10.2.0.0/16",
+    ///     });
+    /// 
+    ///     var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new()
+    ///     {
+    ///         PeerOwnerId = @var.Peer_owner_id,
+    ///         PeerVpcId = bar.Id,
+    ///         VpcId = fooVpc.Id,
+    ///         AutoAccept = true,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "VPC Peering between foo and bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// Basic usage with region:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
     ///     {
-    ///         var fooVpc = new Aws.Ec2.Vpc("fooVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.1.0.0/16",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Us_west_2,
-    ///         });
-    ///         var bar = new Aws.Ec2.Vpc("bar", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.2.0.0/16",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Us_east_1,
-    ///         });
-    ///         var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new Aws.Ec2.VpcPeeringConnectionArgs
-    ///         {
-    ///             PeerOwnerId = @var.Peer_owner_id,
-    ///             PeerVpcId = bar.Id,
-    ///             VpcId = fooVpc.Id,
-    ///             PeerRegion = "us-east-1",
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.1.0.0/16",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Us_west_2,
+    ///     });
     /// 
-    /// }
+    ///     var bar = new Aws.Ec2.Vpc("bar", new()
+    ///     {
+    ///         CidrBlock = "10.2.0.0/16",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Us_east_1,
+    ///     });
+    /// 
+    ///     var fooVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("fooVpcPeeringConnection", new()
+    ///     {
+    ///         PeerOwnerId = @var.Peer_owner_id,
+    ///         PeerVpcId = bar.Id,
+    ///         VpcId = fooVpc.Id,
+    ///         PeerRegion = "us-east-1",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Notes
     /// 
@@ -160,7 +156,7 @@ namespace Pulumi.Aws.Ec2
     ///  [1]/docs/providers/aws/index.html
     /// </summary>
     [AwsResourceType("aws:ec2/vpcPeeringConnection:VpcPeeringConnection")]
-    public partial class VpcPeeringConnection : Pulumi.CustomResource
+    public partial class VpcPeeringConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The status of the VPC Peering Connection request.
@@ -215,7 +211,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -270,7 +266,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcPeeringConnectionArgs : Pulumi.ResourceArgs
+    public sealed class VpcPeeringConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
@@ -333,9 +329,10 @@ namespace Pulumi.Aws.Ec2
         public VpcPeeringConnectionArgs()
         {
         }
+        public static new VpcPeeringConnectionArgs Empty => new VpcPeeringConnectionArgs();
     }
 
-    public sealed class VpcPeeringConnectionState : Pulumi.ResourceArgs
+    public sealed class VpcPeeringConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The status of the VPC Peering Connection request.
@@ -399,7 +396,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -416,5 +413,6 @@ namespace Pulumi.Aws.Ec2
         public VpcPeeringConnectionState()
         {
         }
+        public static new VpcPeeringConnectionState Empty => new VpcPeeringConnectionState();
     }
 }

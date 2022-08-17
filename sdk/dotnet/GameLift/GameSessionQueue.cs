@@ -15,38 +15,36 @@ namespace Pulumi.Aws.GameLift
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.GameLift.GameSessionQueue("test", new()
     ///     {
-    ///         var test = new Aws.GameLift.GameSessionQueue("test", new Aws.GameLift.GameSessionQueueArgs
+    ///         Destinations = new[]
     ///         {
-    ///             Destinations = 
+    ///             aws_gamelift_fleet.Us_west_2_fleet.Arn,
+    ///             aws_gamelift_fleet.Eu_central_1_fleet.Arn,
+    ///         },
+    ///         NotificationTarget = aws_sns_topic.Game_session_queue_notifications.Arn,
+    ///         PlayerLatencyPolicies = new[]
+    ///         {
+    ///             new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
     ///             {
-    ///                 aws_gamelift_fleet.Us_west_2_fleet.Arn,
-    ///                 aws_gamelift_fleet.Eu_central_1_fleet.Arn,
+    ///                 MaximumIndividualPlayerLatencyMilliseconds = 100,
+    ///                 PolicyDurationSeconds = 5,
     ///             },
-    ///             NotificationTarget = aws_sns_topic.Game_session_queue_notifications.Arn,
-    ///             PlayerLatencyPolicies = 
+    ///             new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
     ///             {
-    ///                 new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
-    ///                 {
-    ///                     MaximumIndividualPlayerLatencyMilliseconds = 100,
-    ///                     PolicyDurationSeconds = 5,
-    ///                 },
-    ///                 new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
-    ///                 {
-    ///                     MaximumIndividualPlayerLatencyMilliseconds = 200,
-    ///                 },
+    ///                 MaximumIndividualPlayerLatencyMilliseconds = 200,
     ///             },
-    ///             TimeoutInSeconds = 60,
-    ///         });
-    ///     }
+    ///         },
+    ///         TimeoutInSeconds = 60,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +56,7 @@ namespace Pulumi.Aws.GameLift
     /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/gameSessionQueue:GameSessionQueue")]
-    public partial class GameSessionQueue : Pulumi.CustomResource
+    public partial class GameSessionQueue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Game Session Queue ARN.
@@ -97,7 +95,7 @@ namespace Pulumi.Aws.GameLift
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -152,7 +150,7 @@ namespace Pulumi.Aws.GameLift
         }
     }
 
-    public sealed class GameSessionQueueArgs : Pulumi.ResourceArgs
+    public sealed class GameSessionQueueArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinations")]
         private InputList<string>? _destinations;
@@ -211,9 +209,10 @@ namespace Pulumi.Aws.GameLift
         public GameSessionQueueArgs()
         {
         }
+        public static new GameSessionQueueArgs Empty => new GameSessionQueueArgs();
     }
 
-    public sealed class GameSessionQueueState : Pulumi.ResourceArgs
+    public sealed class GameSessionQueueState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Game Session Queue ARN.
@@ -273,7 +272,7 @@ namespace Pulumi.Aws.GameLift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -290,5 +289,6 @@ namespace Pulumi.Aws.GameLift
         public GameSessionQueueState()
         {
         }
+        public static new GameSessionQueueState Empty => new GameSessionQueueState();
     }
 }

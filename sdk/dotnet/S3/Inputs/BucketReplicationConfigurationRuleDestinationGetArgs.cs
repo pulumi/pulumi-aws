@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigurationRuleDestinationGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigurationRuleDestinationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
@@ -58,5 +58,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigurationRuleDestinationGetArgs()
         {
         }
+        public static new BucketReplicationConfigurationRuleDestinationGetArgs Empty => new BucketReplicationConfigurationRuleDestinationGetArgs();
     }
 }

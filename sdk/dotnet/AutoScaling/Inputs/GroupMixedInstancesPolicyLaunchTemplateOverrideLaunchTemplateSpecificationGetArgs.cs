@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationGetArgs : Pulumi.ResourceArgs
+    public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the launch template. Conflicts with `launch_template_name`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationGetArgs()
         {
         }
+        public static new GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationGetArgs Empty => new GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationGetArgs();
     }
 }

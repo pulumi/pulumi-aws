@@ -16,25 +16,23 @@ namespace Pulumi.Aws.SecretsManager
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.SecretsManager.SecretRotation("example", new()
     ///     {
-    ///         var example = new Aws.SecretsManager.SecretRotation("example", new Aws.SecretsManager.SecretRotationArgs
+    ///         SecretId = aws_secretsmanager_secret.Example.Id,
+    ///         RotationLambdaArn = aws_lambda_function.Example.Arn,
+    ///         RotationRules = new Aws.SecretsManager.Inputs.SecretRotationRotationRulesArgs
     ///         {
-    ///             SecretId = aws_secretsmanager_secret.Example.Id,
-    ///             RotationLambdaArn = aws_lambda_function.Example.Arn,
-    ///             RotationRules = new Aws.SecretsManager.Inputs.SecretRotationRotationRulesArgs
-    ///             {
-    ///                 AutomaticallyAfterDays = 30,
-    ///             },
-    ///         });
-    ///     }
+    ///             AutomaticallyAfterDays = 30,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Rotation Configuration
     /// 
@@ -53,7 +51,7 @@ namespace Pulumi.Aws.SecretsManager
     /// ```
     /// </summary>
     [AwsResourceType("aws:secretsmanager/secretRotation:SecretRotation")]
-    public partial class SecretRotation : Pulumi.CustomResource
+    public partial class SecretRotation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether automatic rotation is enabled for this secret.
@@ -126,7 +124,7 @@ namespace Pulumi.Aws.SecretsManager
         }
     }
 
-    public sealed class SecretRotationArgs : Pulumi.ResourceArgs
+    public sealed class SecretRotationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ARN of the Lambda function that can rotate the secret.
@@ -157,9 +155,10 @@ namespace Pulumi.Aws.SecretsManager
         public SecretRotationArgs()
         {
         }
+        public static new SecretRotationArgs Empty => new SecretRotationArgs();
     }
 
-    public sealed class SecretRotationState : Pulumi.ResourceArgs
+    public sealed class SecretRotationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether automatic rotation is enabled for this secret.
@@ -196,5 +195,6 @@ namespace Pulumi.Aws.SecretsManager
         public SecretRotationState()
         {
         }
+        public static new SecretRotationState Empty => new SecretRotationState();
     }
 }

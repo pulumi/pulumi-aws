@@ -18,32 +18,32 @@ namespace Pulumi.Aws.DynamoDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
     ///     {
-    ///         var exampleTable = new Aws.DynamoDB.Table("exampleTable", new Aws.DynamoDB.TableArgs
+    ///         ReadCapacity = 10,
+    ///         WriteCapacity = 10,
+    ///         HashKey = "exampleHashKey",
+    ///         Attributes = new[]
     ///         {
-    ///             ReadCapacity = 10,
-    ///             WriteCapacity = 10,
-    ///             HashKey = "exampleHashKey",
-    ///             Attributes = 
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
     ///             {
-    ///                 new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///                 {
-    ///                     Name = "exampleHashKey",
-    ///                     Type = "S",
-    ///                 },
+    ///                 Name = "exampleHashKey",
+    ///                 Type = "S",
     ///             },
-    ///         });
-    ///         var exampleTableItem = new Aws.DynamoDB.TableItem("exampleTableItem", new Aws.DynamoDB.TableItemArgs
-    ///         {
-    ///             TableName = exampleTable.Name,
-    ///             HashKey = exampleTable.HashKey,
-    ///             Item = @"{
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTableItem = new Aws.DynamoDB.TableItem("exampleTableItem", new()
+    ///     {
+    ///         TableName = exampleTable.Name,
+    ///         HashKey = exampleTable.HashKey,
+    ///         Item = @"{
     ///   ""exampleHashKey"": {""S"": ""something""},
     ///   ""one"": {""N"": ""11111""},
     ///   ""two"": {""N"": ""22222""},
@@ -51,10 +51,9 @@ namespace Pulumi.Aws.DynamoDB
     ///   ""four"": {""N"": ""44444""}
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +61,7 @@ namespace Pulumi.Aws.DynamoDB
     /// DynamoDB table items cannot be imported.
     /// </summary>
     [AwsResourceType("aws:dynamodb/tableItem:TableItem")]
-    public partial class TableItem : Pulumi.CustomResource
+    public partial class TableItem : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Hash key to use for lookups and identification of the item
@@ -132,7 +131,7 @@ namespace Pulumi.Aws.DynamoDB
         }
     }
 
-    public sealed class TableItemArgs : Pulumi.ResourceArgs
+    public sealed class TableItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Hash key to use for lookups and identification of the item
@@ -161,9 +160,10 @@ namespace Pulumi.Aws.DynamoDB
         public TableItemArgs()
         {
         }
+        public static new TableItemArgs Empty => new TableItemArgs();
     }
 
-    public sealed class TableItemState : Pulumi.ResourceArgs
+    public sealed class TableItemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Hash key to use for lookups and identification of the item
@@ -192,5 +192,6 @@ namespace Pulumi.Aws.DynamoDB
         public TableItemState()
         {
         }
+        public static new TableItemState Empty => new TableItemState();
     }
 }

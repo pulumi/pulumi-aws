@@ -17,57 +17,56 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleApi = new Aws.ApiGatewayV2.Api("exampleApi", new()
     ///     {
-    ///         var exampleApi = new Aws.ApiGatewayV2.Api("exampleApi", new Aws.ApiGatewayV2.ApiArgs
-    ///         {
-    ///             ProtocolType = "WEBSOCKET",
-    ///             RouteSelectionExpression = "$request.body.action",
-    ///         });
-    ///         var exampleRoute = new Aws.ApiGatewayV2.Route("exampleRoute", new Aws.ApiGatewayV2.RouteArgs
-    ///         {
-    ///             ApiId = exampleApi.Id,
-    ///             RouteKey = "$default",
-    ///         });
-    ///     }
+    ///         ProtocolType = "WEBSOCKET",
+    ///         RouteSelectionExpression = "$request.body.action",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRoute = new Aws.ApiGatewayV2.Route("exampleRoute", new()
+    ///     {
+    ///         ApiId = exampleApi.Id,
+    ///         RouteKey = "$default",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### HTTP Proxy Integration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleApi = new Aws.ApiGatewayV2.Api("exampleApi", new()
     ///     {
-    ///         var exampleApi = new Aws.ApiGatewayV2.Api("exampleApi", new Aws.ApiGatewayV2.ApiArgs
-    ///         {
-    ///             ProtocolType = "HTTP",
-    ///         });
-    ///         var exampleIntegration = new Aws.ApiGatewayV2.Integration("exampleIntegration", new Aws.ApiGatewayV2.IntegrationArgs
-    ///         {
-    ///             ApiId = exampleApi.Id,
-    ///             IntegrationType = "HTTP_PROXY",
-    ///             IntegrationMethod = "ANY",
-    ///             IntegrationUri = "https://example.com/{proxy}",
-    ///         });
-    ///         var exampleRoute = new Aws.ApiGatewayV2.Route("exampleRoute", new Aws.ApiGatewayV2.RouteArgs
-    ///         {
-    ///             ApiId = exampleApi.Id,
-    ///             RouteKey = "ANY /example/{proxy+}",
-    ///             Target = exampleIntegration.Id.Apply(id =&gt; $"integrations/{id}"),
-    ///         });
-    ///     }
+    ///         ProtocolType = "HTTP",
+    ///     });
     /// 
-    /// }
+    ///     var exampleIntegration = new Aws.ApiGatewayV2.Integration("exampleIntegration", new()
+    ///     {
+    ///         ApiId = exampleApi.Id,
+    ///         IntegrationType = "HTTP_PROXY",
+    ///         IntegrationMethod = "ANY",
+    ///         IntegrationUri = "https://example.com/{proxy}",
+    ///     });
+    /// 
+    ///     var exampleRoute = new Aws.ApiGatewayV2.Route("exampleRoute", new()
+    ///     {
+    ///         ApiId = exampleApi.Id,
+    ///         RouteKey = "ANY /example/{proxy+}",
+    ///         Target = exampleIntegration.Id.Apply(id =&gt; $"integrations/{id}"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -79,7 +78,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/route:Route")]
-    public partial class Route : Pulumi.CustomResource
+    public partial class Route : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The API identifier.
@@ -200,7 +199,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
     }
 
-    public sealed class RouteArgs : Pulumi.ResourceArgs
+    public sealed class RouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API identifier.
@@ -298,9 +297,10 @@ namespace Pulumi.Aws.ApiGatewayV2
         public RouteArgs()
         {
         }
+        public static new RouteArgs Empty => new RouteArgs();
     }
 
-    public sealed class RouteState : Pulumi.ResourceArgs
+    public sealed class RouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API identifier.
@@ -398,5 +398,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         public RouteState()
         {
         }
+        public static new RouteState Empty => new RouteState();
     }
 }

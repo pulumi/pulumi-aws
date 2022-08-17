@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class ResourceServerScopeArgs : Pulumi.ResourceArgs
+    public sealed class ResourceServerScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The scope description.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public ResourceServerScopeArgs()
         {
         }
+        public static new ResourceServerScopeArgs Empty => new ResourceServerScopeArgs();
     }
 }

@@ -21,44 +21,40 @@ namespace Pulumi.Aws.Ssm
         /// To retrieve a baseline provided by AWS:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var centos = Aws.Ssm.GetPatchBaseline.Invoke(new()
         ///     {
-        ///         var centos = Output.Create(Aws.Ssm.GetPatchBaseline.InvokeAsync(new Aws.Ssm.GetPatchBaselineArgs
-        ///         {
-        ///             NamePrefix = "AWS-",
-        ///             OperatingSystem = "CENTOS",
-        ///             Owner = "AWS",
-        ///         }));
-        ///     }
+        ///         NamePrefix = "AWS-",
+        ///         OperatingSystem = "CENTOS",
+        ///         Owner = "AWS",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// To retrieve a baseline on your account:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var defaultCustom = Aws.Ssm.GetPatchBaseline.Invoke(new()
         ///     {
-        ///         var defaultCustom = Output.Create(Aws.Ssm.GetPatchBaseline.InvokeAsync(new Aws.Ssm.GetPatchBaselineArgs
-        ///         {
-        ///             DefaultBaseline = true,
-        ///             NamePrefix = "MyCustomBaseline",
-        ///             OperatingSystem = "WINDOWS",
-        ///             Owner = "Self",
-        ///         }));
-        ///     }
+        ///         DefaultBaseline = true,
+        ///         NamePrefix = "MyCustomBaseline",
+        ///         OperatingSystem = "WINDOWS",
+        ///         Owner = "Self",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -76,44 +72,40 @@ namespace Pulumi.Aws.Ssm
         /// To retrieve a baseline provided by AWS:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var centos = Aws.Ssm.GetPatchBaseline.Invoke(new()
         ///     {
-        ///         var centos = Output.Create(Aws.Ssm.GetPatchBaseline.InvokeAsync(new Aws.Ssm.GetPatchBaselineArgs
-        ///         {
-        ///             NamePrefix = "AWS-",
-        ///             OperatingSystem = "CENTOS",
-        ///             Owner = "AWS",
-        ///         }));
-        ///     }
+        ///         NamePrefix = "AWS-",
+        ///         OperatingSystem = "CENTOS",
+        ///         Owner = "AWS",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// To retrieve a baseline on your account:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var defaultCustom = Aws.Ssm.GetPatchBaseline.Invoke(new()
         ///     {
-        ///         var defaultCustom = Output.Create(Aws.Ssm.GetPatchBaseline.InvokeAsync(new Aws.Ssm.GetPatchBaselineArgs
-        ///         {
-        ///             DefaultBaseline = true,
-        ///             NamePrefix = "MyCustomBaseline",
-        ///             OperatingSystem = "WINDOWS",
-        ///             Owner = "Self",
-        ///         }));
-        ///     }
+        ///         DefaultBaseline = true,
+        ///         NamePrefix = "MyCustomBaseline",
+        ///         OperatingSystem = "WINDOWS",
+        ///         Owner = "Self",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -123,7 +115,7 @@ namespace Pulumi.Aws.Ssm
     }
 
 
-    public sealed class GetPatchBaselineArgs : Pulumi.InvokeArgs
+    public sealed class GetPatchBaselineArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Filters the results against the baselines default_baseline field.
@@ -152,9 +144,10 @@ namespace Pulumi.Aws.Ssm
         public GetPatchBaselineArgs()
         {
         }
+        public static new GetPatchBaselineArgs Empty => new GetPatchBaselineArgs();
     }
 
-    public sealed class GetPatchBaselineInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPatchBaselineInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Filters the results against the baselines default_baseline field.
@@ -183,6 +176,7 @@ namespace Pulumi.Aws.Ssm
         public GetPatchBaselineInvokeArgs()
         {
         }
+        public static new GetPatchBaselineInvokeArgs Empty => new GetPatchBaselineInvokeArgs();
     }
 
 

@@ -20,58 +20,54 @@ namespace Pulumi.Aws.Ec2
         /// ### Lookup by DHCP Options ID
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetVpcDhcpOptions.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetVpcDhcpOptions.InvokeAsync(new Aws.Ec2.GetVpcDhcpOptionsArgs
-        ///         {
-        ///             DhcpOptionsId = "dopts-12345678",
-        ///         }));
-        ///     }
+        ///         DhcpOptionsId = "dopts-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Lookup by Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetVpcDhcpOptions.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetVpcDhcpOptions.InvokeAsync(new Aws.Ec2.GetVpcDhcpOptionsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterArgs
+        ///                 Name = "key",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "key",
-        ///                     Values = 
-        ///                     {
-        ///                         "domain-name",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterArgs
-        ///                 {
-        ///                     Name = "value",
-        ///                     Values = 
-        ///                     {
-        ///                         "example.com",
-        ///                     },
+        ///                     "domain-name",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///             new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterInputArgs
+        ///             {
+        ///                 Name = "value",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "example.com",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -88,58 +84,54 @@ namespace Pulumi.Aws.Ec2
         /// ### Lookup by DHCP Options ID
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetVpcDhcpOptions.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetVpcDhcpOptions.InvokeAsync(new Aws.Ec2.GetVpcDhcpOptionsArgs
-        ///         {
-        ///             DhcpOptionsId = "dopts-12345678",
-        ///         }));
-        ///     }
+        ///         DhcpOptionsId = "dopts-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Lookup by Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetVpcDhcpOptions.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetVpcDhcpOptions.InvokeAsync(new Aws.Ec2.GetVpcDhcpOptionsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterArgs
+        ///                 Name = "key",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "key",
-        ///                     Values = 
-        ///                     {
-        ///                         "domain-name",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterArgs
-        ///                 {
-        ///                     Name = "value",
-        ///                     Values = 
-        ///                     {
-        ///                         "example.com",
-        ///                     },
+        ///                     "domain-name",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///             new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterInputArgs
+        ///             {
+        ///                 Name = "value",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "example.com",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -149,7 +141,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetVpcDhcpOptionsArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcDhcpOptionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The EC2 DHCP Options ID.
@@ -184,9 +176,10 @@ namespace Pulumi.Aws.Ec2
         public GetVpcDhcpOptionsArgs()
         {
         }
+        public static new GetVpcDhcpOptionsArgs Empty => new GetVpcDhcpOptionsArgs();
     }
 
-    public sealed class GetVpcDhcpOptionsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpcDhcpOptionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The EC2 DHCP Options ID.
@@ -221,6 +214,7 @@ namespace Pulumi.Aws.Ec2
         public GetVpcDhcpOptionsInvokeArgs()
         {
         }
+        public static new GetVpcDhcpOptionsInvokeArgs Empty => new GetVpcDhcpOptionsInvokeArgs();
     }
 
 

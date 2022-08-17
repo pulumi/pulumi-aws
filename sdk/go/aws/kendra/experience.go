@@ -18,34 +18,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := kendra.NewExperience(ctx, "example", &kendra.ExperienceArgs{
-// 			IndexId:     pulumi.Any(aws_kendra_index.Example.Id),
-// 			Description: pulumi.String("My Kendra Experience"),
-// 			RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
-// 			Configuration: &kendra.ExperienceConfigurationArgs{
-// 				ContentSourceConfiguration: &kendra.ExperienceConfigurationContentSourceConfigurationArgs{
-// 					DirectPutContent: pulumi.Bool(true),
-// 					FaqIds: pulumi.StringArray{
-// 						pulumi.Any(aws_kendra_faq.Example.Faq_id),
-// 					},
-// 				},
-// 				UserIdentityConfiguration: &kendra.ExperienceConfigurationUserIdentityConfigurationArgs{
-// 					IdentityAttributeName: pulumi.String("12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kendra.NewExperience(ctx, "example", &kendra.ExperienceArgs{
+//				IndexId:     pulumi.Any(aws_kendra_index.Example.Id),
+//				Description: pulumi.String("My Kendra Experience"),
+//				RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
+//				Configuration: &kendra.ExperienceConfigurationArgs{
+//					ContentSourceConfiguration: &kendra.ExperienceConfigurationContentSourceConfigurationArgs{
+//						DirectPutContent: pulumi.Bool(true),
+//						FaqIds: pulumi.StringArray{
+//							pulumi.Any(aws_kendra_faq.Example.Faq_id),
+//						},
+//					},
+//					UserIdentityConfiguration: &kendra.ExperienceConfigurationUserIdentityConfigurationArgs{
+//						IdentityAttributeName: pulumi.String("12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // Kendra Experience can be imported using the unique identifiers of the experience and index separated by a slash (`/`) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:kendra/experience:Experience example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
+//
+//	$ pulumi import aws:kendra/experience:Experience example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
+//
 // ```
 type Experience struct {
 	pulumi.CustomResourceState
@@ -206,7 +211,7 @@ func (i *Experience) ToExperienceOutputWithContext(ctx context.Context) Experien
 // ExperienceArrayInput is an input type that accepts ExperienceArray and ExperienceArrayOutput values.
 // You can construct a concrete instance of `ExperienceArrayInput` via:
 //
-//          ExperienceArray{ ExperienceArgs{...} }
+//	ExperienceArray{ ExperienceArgs{...} }
 type ExperienceArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +236,7 @@ func (i ExperienceArray) ToExperienceArrayOutputWithContext(ctx context.Context)
 // ExperienceMapInput is an input type that accepts ExperienceMap and ExperienceMapOutput values.
 // You can construct a concrete instance of `ExperienceMapInput` via:
 //
-//          ExperienceMap{ "key": ExperienceArgs{...} }
+//	ExperienceMap{ "key": ExperienceArgs{...} }
 type ExperienceMapInput interface {
 	pulumi.Input
 

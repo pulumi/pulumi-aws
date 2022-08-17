@@ -24,7 +24,7 @@ type LoadBalancerAccessLogs struct {
 // LoadBalancerAccessLogsInput is an input type that accepts LoadBalancerAccessLogsArgs and LoadBalancerAccessLogsOutput values.
 // You can construct a concrete instance of `LoadBalancerAccessLogsInput` via:
 //
-//          LoadBalancerAccessLogsArgs{...}
+//	LoadBalancerAccessLogsArgs{...}
 type LoadBalancerAccessLogsInput interface {
 	pulumi.Input
 
@@ -66,11 +66,11 @@ func (i LoadBalancerAccessLogsArgs) ToLoadBalancerAccessLogsPtrOutputWithContext
 // LoadBalancerAccessLogsPtrInput is an input type that accepts LoadBalancerAccessLogsArgs, LoadBalancerAccessLogsPtr and LoadBalancerAccessLogsPtrOutput values.
 // You can construct a concrete instance of `LoadBalancerAccessLogsPtrInput` via:
 //
-//          LoadBalancerAccessLogsArgs{...}
+//	        LoadBalancerAccessLogsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LoadBalancerAccessLogsPtrInput interface {
 	pulumi.Input
 
@@ -223,7 +223,7 @@ type LoadBalancerHealthCheck struct {
 // LoadBalancerHealthCheckInput is an input type that accepts LoadBalancerHealthCheckArgs and LoadBalancerHealthCheckOutput values.
 // You can construct a concrete instance of `LoadBalancerHealthCheckInput` via:
 //
-//          LoadBalancerHealthCheckArgs{...}
+//	LoadBalancerHealthCheckArgs{...}
 type LoadBalancerHealthCheckInput interface {
 	pulumi.Input
 
@@ -270,11 +270,11 @@ func (i LoadBalancerHealthCheckArgs) ToLoadBalancerHealthCheckPtrOutputWithConte
 // LoadBalancerHealthCheckPtrInput is an input type that accepts LoadBalancerHealthCheckArgs, LoadBalancerHealthCheckPtr and LoadBalancerHealthCheckPtrOutput values.
 // You can construct a concrete instance of `LoadBalancerHealthCheckPtrInput` via:
 //
-//          LoadBalancerHealthCheckArgs{...}
+//	        LoadBalancerHealthCheckArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LoadBalancerHealthCheckPtrInput interface {
 	pulumi.Input
 
@@ -448,7 +448,7 @@ type LoadBalancerListener struct {
 // LoadBalancerListenerInput is an input type that accepts LoadBalancerListenerArgs and LoadBalancerListenerOutput values.
 // You can construct a concrete instance of `LoadBalancerListenerInput` via:
 //
-//          LoadBalancerListenerArgs{...}
+//	LoadBalancerListenerArgs{...}
 type LoadBalancerListenerInput interface {
 	pulumi.Input
 
@@ -487,7 +487,7 @@ func (i LoadBalancerListenerArgs) ToLoadBalancerListenerOutputWithContext(ctx co
 // LoadBalancerListenerArrayInput is an input type that accepts LoadBalancerListenerArray and LoadBalancerListenerArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerListenerArrayInput` via:
 //
-//          LoadBalancerListenerArray{ LoadBalancerListenerArgs{...} }
+//	LoadBalancerListenerArray{ LoadBalancerListenerArgs{...} }
 type LoadBalancerListenerArrayInput interface {
 	pulumi.Input
 
@@ -579,7 +579,7 @@ type LoadBalancerPolicyPolicyAttribute struct {
 // LoadBalancerPolicyPolicyAttributeInput is an input type that accepts LoadBalancerPolicyPolicyAttributeArgs and LoadBalancerPolicyPolicyAttributeOutput values.
 // You can construct a concrete instance of `LoadBalancerPolicyPolicyAttributeInput` via:
 //
-//          LoadBalancerPolicyPolicyAttributeArgs{...}
+//	LoadBalancerPolicyPolicyAttributeArgs{...}
 type LoadBalancerPolicyPolicyAttributeInput interface {
 	pulumi.Input
 
@@ -607,7 +607,7 @@ func (i LoadBalancerPolicyPolicyAttributeArgs) ToLoadBalancerPolicyPolicyAttribu
 // LoadBalancerPolicyPolicyAttributeArrayInput is an input type that accepts LoadBalancerPolicyPolicyAttributeArray and LoadBalancerPolicyPolicyAttributeArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerPolicyPolicyAttributeArrayInput` via:
 //
-//          LoadBalancerPolicyPolicyAttributeArray{ LoadBalancerPolicyPolicyAttributeArgs{...} }
+//	LoadBalancerPolicyPolicyAttributeArray{ LoadBalancerPolicyPolicyAttributeArgs{...} }
 type LoadBalancerPolicyPolicyAttributeArrayInput interface {
 	pulumi.Input
 
@@ -681,7 +681,7 @@ type SslNegotiationPolicyAttribute struct {
 // SslNegotiationPolicyAttributeInput is an input type that accepts SslNegotiationPolicyAttributeArgs and SslNegotiationPolicyAttributeOutput values.
 // You can construct a concrete instance of `SslNegotiationPolicyAttributeInput` via:
 //
-//          SslNegotiationPolicyAttributeArgs{...}
+//	SslNegotiationPolicyAttributeArgs{...}
 type SslNegotiationPolicyAttributeInput interface {
 	pulumi.Input
 
@@ -711,7 +711,7 @@ func (i SslNegotiationPolicyAttributeArgs) ToSslNegotiationPolicyAttributeOutput
 // SslNegotiationPolicyAttributeArrayInput is an input type that accepts SslNegotiationPolicyAttributeArray and SslNegotiationPolicyAttributeArrayOutput values.
 // You can construct a concrete instance of `SslNegotiationPolicyAttributeArrayInput` via:
 //
-//          SslNegotiationPolicyAttributeArray{ SslNegotiationPolicyAttributeArgs{...} }
+//	SslNegotiationPolicyAttributeArray{ SslNegotiationPolicyAttributeArgs{...} }
 type SslNegotiationPolicyAttributeArrayInput interface {
 	pulumi.Input
 
@@ -787,7 +787,7 @@ type GetLoadBalancerAccessLogs struct {
 // GetLoadBalancerAccessLogsInput is an input type that accepts GetLoadBalancerAccessLogsArgs and GetLoadBalancerAccessLogsOutput values.
 // You can construct a concrete instance of `GetLoadBalancerAccessLogsInput` via:
 //
-//          GetLoadBalancerAccessLogsArgs{...}
+//	GetLoadBalancerAccessLogsArgs{...}
 type GetLoadBalancerAccessLogsInput interface {
 	pulumi.Input
 
@@ -855,7 +855,7 @@ type GetLoadBalancerHealthCheck struct {
 // GetLoadBalancerHealthCheckInput is an input type that accepts GetLoadBalancerHealthCheckArgs and GetLoadBalancerHealthCheckOutput values.
 // You can construct a concrete instance of `GetLoadBalancerHealthCheckInput` via:
 //
-//          GetLoadBalancerHealthCheckArgs{...}
+//	GetLoadBalancerHealthCheckArgs{...}
 type GetLoadBalancerHealthCheckInput interface {
 	pulumi.Input
 
@@ -928,7 +928,7 @@ type GetLoadBalancerListener struct {
 // GetLoadBalancerListenerInput is an input type that accepts GetLoadBalancerListenerArgs and GetLoadBalancerListenerOutput values.
 // You can construct a concrete instance of `GetLoadBalancerListenerInput` via:
 //
-//          GetLoadBalancerListenerArgs{...}
+//	GetLoadBalancerListenerArgs{...}
 type GetLoadBalancerListenerInput interface {
 	pulumi.Input
 
@@ -959,7 +959,7 @@ func (i GetLoadBalancerListenerArgs) ToGetLoadBalancerListenerOutputWithContext(
 // GetLoadBalancerListenerArrayInput is an input type that accepts GetLoadBalancerListenerArray and GetLoadBalancerListenerArrayOutput values.
 // You can construct a concrete instance of `GetLoadBalancerListenerArrayInput` via:
 //
-//          GetLoadBalancerListenerArray{ GetLoadBalancerListenerArgs{...} }
+//	GetLoadBalancerListenerArray{ GetLoadBalancerListenerArgs{...} }
 type GetLoadBalancerListenerArrayInput interface {
 	pulumi.Input
 

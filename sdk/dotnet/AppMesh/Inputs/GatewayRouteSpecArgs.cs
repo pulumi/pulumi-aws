@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class GatewayRouteSpecArgs : Pulumi.ResourceArgs
+    public sealed class GatewayRouteSpecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The specification of a gRPC gateway route.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public GatewayRouteSpecArgs()
         {
         }
+        public static new GatewayRouteSpecArgs Empty => new GatewayRouteSpecArgs();
     }
 }

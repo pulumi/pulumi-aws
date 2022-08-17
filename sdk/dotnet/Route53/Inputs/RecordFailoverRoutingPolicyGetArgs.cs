@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53.Inputs
 {
 
-    public sealed class RecordFailoverRoutingPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class RecordFailoverRoutingPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Route53.Inputs
         public RecordFailoverRoutingPolicyGetArgs()
         {
         }
+        public static new RecordFailoverRoutingPolicyGetArgs Empty => new RecordFailoverRoutingPolicyGetArgs();
     }
 }

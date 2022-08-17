@@ -18,89 +18,95 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicediscovery"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicediscovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-// 			CidrBlock:          pulumi.String("10.0.0.0/16"),
-// 			EnableDnsSupport:   pulumi.Bool(true),
-// 			EnableDnsHostnames: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePrivateDnsNamespace, err := servicediscovery.NewPrivateDnsNamespace(ctx, "examplePrivateDnsNamespace", &servicediscovery.PrivateDnsNamespaceArgs{
-// 			Description: pulumi.String("example"),
-// 			Vpc:         exampleVpc.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = servicediscovery.NewService(ctx, "exampleService", &servicediscovery.ServiceArgs{
-// 			DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
-// 				NamespaceId: examplePrivateDnsNamespace.ID(),
-// 				DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
-// 					&servicediscovery.ServiceDnsConfigDnsRecordArgs{
-// 						Ttl:  pulumi.Int(10),
-// 						Type: pulumi.String("A"),
-// 					},
-// 				},
-// 				RoutingPolicy: pulumi.String("MULTIVALUE"),
-// 			},
-// 			HealthCheckCustomConfig: &servicediscovery.ServiceHealthCheckCustomConfigArgs{
-// 				FailureThreshold: pulumi.Int(1),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
+//				CidrBlock:          pulumi.String("10.0.0.0/16"),
+//				EnableDnsSupport:   pulumi.Bool(true),
+//				EnableDnsHostnames: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePrivateDnsNamespace, err := servicediscovery.NewPrivateDnsNamespace(ctx, "examplePrivateDnsNamespace", &servicediscovery.PrivateDnsNamespaceArgs{
+//				Description: pulumi.String("example"),
+//				Vpc:         exampleVpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = servicediscovery.NewService(ctx, "exampleService", &servicediscovery.ServiceArgs{
+//				DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
+//					NamespaceId: examplePrivateDnsNamespace.ID(),
+//					DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
+//						&servicediscovery.ServiceDnsConfigDnsRecordArgs{
+//							Ttl:  pulumi.Int(10),
+//							Type: pulumi.String("A"),
+//						},
+//					},
+//					RoutingPolicy: pulumi.String("MULTIVALUE"),
+//				},
+//				HealthCheckCustomConfig: &servicediscovery.ServiceHealthCheckCustomConfigArgs{
+//					FailureThreshold: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicediscovery"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicediscovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplePublicDnsNamespace, err := servicediscovery.NewPublicDnsNamespace(ctx, "examplePublicDnsNamespace", &servicediscovery.PublicDnsNamespaceArgs{
-// 			Description: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = servicediscovery.NewService(ctx, "exampleService", &servicediscovery.ServiceArgs{
-// 			DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
-// 				NamespaceId: examplePublicDnsNamespace.ID(),
-// 				DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
-// 					&servicediscovery.ServiceDnsConfigDnsRecordArgs{
-// 						Ttl:  pulumi.Int(10),
-// 						Type: pulumi.String("A"),
-// 					},
-// 				},
-// 			},
-// 			HealthCheckConfig: &servicediscovery.ServiceHealthCheckConfigArgs{
-// 				FailureThreshold: pulumi.Int(10),
-// 				ResourcePath:     pulumi.String("path"),
-// 				Type:             pulumi.String("HTTP"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplePublicDnsNamespace, err := servicediscovery.NewPublicDnsNamespace(ctx, "examplePublicDnsNamespace", &servicediscovery.PublicDnsNamespaceArgs{
+//				Description: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = servicediscovery.NewService(ctx, "exampleService", &servicediscovery.ServiceArgs{
+//				DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
+//					NamespaceId: examplePublicDnsNamespace.ID(),
+//					DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
+//						&servicediscovery.ServiceDnsConfigDnsRecordArgs{
+//							Ttl:  pulumi.Int(10),
+//							Type: pulumi.String("A"),
+//						},
+//					},
+//				},
+//				HealthCheckConfig: &servicediscovery.ServiceHealthCheckConfigArgs{
+//					FailureThreshold: pulumi.Int(10),
+//					ResourcePath:     pulumi.String("path"),
+//					Type:             pulumi.String("HTTP"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -108,7 +114,9 @@ import (
 // Service Discovery Service can be imported using the service ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:servicediscovery/service:Service example 0123456789
+//
+//	$ pulumi import aws:servicediscovery/service:Service example 0123456789
+//
 // ```
 type Service struct {
 	pulumi.CustomResourceState
@@ -129,9 +137,9 @@ type Service struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
-	// A map of tags to assign to the service. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -180,9 +188,9 @@ type serviceState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId *string `pulumi:"namespaceId"`
-	// A map of tags to assign to the service. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -203,9 +211,9 @@ type ServiceState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId pulumi.StringPtrInput
-	// A map of tags to assign to the service. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -228,7 +236,7 @@ type serviceArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId *string `pulumi:"namespaceId"`
-	// A map of tags to assign to the service. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -248,7 +256,7 @@ type ServiceArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId pulumi.StringPtrInput
-	// A map of tags to assign to the service. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -278,7 +286,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 // ServiceArrayInput is an input type that accepts ServiceArray and ServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceArrayInput` via:
 //
-//          ServiceArray{ ServiceArgs{...} }
+//	ServiceArray{ ServiceArgs{...} }
 type ServiceArrayInput interface {
 	pulumi.Input
 
@@ -303,7 +311,7 @@ func (i ServiceArray) ToServiceArrayOutputWithContext(ctx context.Context) Servi
 // ServiceMapInput is an input type that accepts ServiceMap and ServiceMapOutput values.
 // You can construct a concrete instance of `ServiceMapInput` via:
 //
-//          ServiceMap{ "key": ServiceArgs{...} }
+//	ServiceMap{ "key": ServiceArgs{...} }
 type ServiceMapInput interface {
 	pulumi.Input
 
@@ -379,12 +387,12 @@ func (o ServiceOutput) NamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.NamespaceId }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the service. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServiceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -22,7 +22,7 @@ type StateMachineLoggingConfiguration struct {
 // StateMachineLoggingConfigurationInput is an input type that accepts StateMachineLoggingConfigurationArgs and StateMachineLoggingConfigurationOutput values.
 // You can construct a concrete instance of `StateMachineLoggingConfigurationInput` via:
 //
-//          StateMachineLoggingConfigurationArgs{...}
+//	StateMachineLoggingConfigurationArgs{...}
 type StateMachineLoggingConfigurationInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i StateMachineLoggingConfigurationArgs) ToStateMachineLoggingConfiguration
 // StateMachineLoggingConfigurationPtrInput is an input type that accepts StateMachineLoggingConfigurationArgs, StateMachineLoggingConfigurationPtr and StateMachineLoggingConfigurationPtrOutput values.
 // You can construct a concrete instance of `StateMachineLoggingConfigurationPtrInput` via:
 //
-//          StateMachineLoggingConfigurationArgs{...}
+//	        StateMachineLoggingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StateMachineLoggingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -193,7 +193,7 @@ type StateMachineTracingConfiguration struct {
 // StateMachineTracingConfigurationInput is an input type that accepts StateMachineTracingConfigurationArgs and StateMachineTracingConfigurationOutput values.
 // You can construct a concrete instance of `StateMachineTracingConfigurationInput` via:
 //
-//          StateMachineTracingConfigurationArgs{...}
+//	StateMachineTracingConfigurationArgs{...}
 type StateMachineTracingConfigurationInput interface {
 	pulumi.Input
 
@@ -229,11 +229,11 @@ func (i StateMachineTracingConfigurationArgs) ToStateMachineTracingConfiguration
 // StateMachineTracingConfigurationPtrInput is an input type that accepts StateMachineTracingConfigurationArgs, StateMachineTracingConfigurationPtr and StateMachineTracingConfigurationPtrOutput values.
 // You can construct a concrete instance of `StateMachineTracingConfigurationPtrInput` via:
 //
-//          StateMachineTracingConfigurationArgs{...}
+//	        StateMachineTracingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StateMachineTracingConfigurationPtrInput interface {
 	pulumi.Input
 

@@ -15,31 +15,30 @@ namespace Pulumi.Aws.Ses
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ses.DomainIdentity("example", new()
     ///     {
-    ///         var example = new Aws.Ses.DomainIdentity("example", new Aws.Ses.DomainIdentityArgs
-    ///         {
-    ///             Domain = "example.com",
-    ///         });
-    ///         var exampleAmazonsesVerificationRecord = new Aws.Route53.Record("exampleAmazonsesVerificationRecord", new Aws.Route53.RecordArgs
-    ///         {
-    ///             ZoneId = "ABCDEFGHIJ123",
-    ///             Name = "_amazonses.example.com",
-    ///             Type = "TXT",
-    ///             Ttl = 600,
-    ///             Records = 
-    ///             {
-    ///                 example.VerificationToken,
-    ///             },
-    ///         });
-    ///     }
+    ///         Domain = "example.com",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAmazonsesVerificationRecord = new Aws.Route53.Record("exampleAmazonsesVerificationRecord", new()
+    ///     {
+    ///         ZoneId = "ABCDEFGHIJ123",
+    ///         Name = "_amazonses.example.com",
+    ///         Type = "TXT",
+    ///         Ttl = 600,
+    ///         Records = new[]
+    ///         {
+    ///             example.VerificationToken,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +50,7 @@ namespace Pulumi.Aws.Ses
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/domainIdentity:DomainIdentity")]
-    public partial class DomainIdentity : Pulumi.CustomResource
+    public partial class DomainIdentity : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the domain identity.
@@ -121,7 +120,7 @@ namespace Pulumi.Aws.Ses
         }
     }
 
-    public sealed class DomainIdentityArgs : Pulumi.ResourceArgs
+    public sealed class DomainIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The domain name to assign to SES
@@ -132,9 +131,10 @@ namespace Pulumi.Aws.Ses
         public DomainIdentityArgs()
         {
         }
+        public static new DomainIdentityArgs Empty => new DomainIdentityArgs();
     }
 
-    public sealed class DomainIdentityState : Pulumi.ResourceArgs
+    public sealed class DomainIdentityState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the domain identity.
@@ -163,5 +163,6 @@ namespace Pulumi.Aws.Ses
         public DomainIdentityState()
         {
         }
+        public static new DomainIdentityState Empty => new DomainIdentityState();
     }
 }

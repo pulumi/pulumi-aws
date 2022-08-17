@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class CrawlerRecrawlPolicyArgs : Pulumi.ResourceArgs
+    public sealed class CrawlerRecrawlPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public CrawlerRecrawlPolicyArgs()
         {
         }
+        public static new CrawlerRecrawlPolicyArgs Empty => new CrawlerRecrawlPolicyArgs();
     }
 }

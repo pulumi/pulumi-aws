@@ -15,21 +15,19 @@ namespace Pulumi.Aws.DataExchange
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DataExchange.DataSet("example", new()
     ///     {
-    ///         var example = new Aws.DataExchange.DataSet("example", new Aws.DataExchange.DataSetArgs
-    ///         {
-    ///             AssetType = "S3_SNAPSHOT",
-    ///             Description = "example",
-    ///         });
-    ///     }
+    ///         AssetType = "S3_SNAPSHOT",
+    ///         Description = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.DataExchange
     /// ```
     /// </summary>
     [AwsResourceType("aws:dataexchange/dataSet:DataSet")]
-    public partial class DataSet : Pulumi.CustomResource
+    public partial class DataSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name of this data set.
@@ -73,9 +71,6 @@ namespace Pulumi.Aws.DataExchange
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -123,7 +118,7 @@ namespace Pulumi.Aws.DataExchange
         }
     }
 
-    public sealed class DataSetArgs : Pulumi.ResourceArgs
+    public sealed class DataSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
@@ -158,9 +153,10 @@ namespace Pulumi.Aws.DataExchange
         public DataSetArgs()
         {
         }
+        public static new DataSetArgs Empty => new DataSetArgs();
     }
 
-    public sealed class DataSetState : Pulumi.ResourceArgs
+    public sealed class DataSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name of this data set.
@@ -200,10 +196,6 @@ namespace Pulumi.Aws.DataExchange
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -213,5 +205,6 @@ namespace Pulumi.Aws.DataExchange
         public DataSetState()
         {
         }
+        public static new DataSetState Empty => new DataSetState();
     }
 }

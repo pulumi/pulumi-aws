@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm.Inputs
 {
 
-    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs : Pulumi.ResourceArgs
+    public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The parameter name.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs()
         {
         }
+        public static new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs Empty => new MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs();
     }
 }

@@ -15,92 +15,93 @@ namespace Pulumi.Aws.ApiGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new()
     ///     {
-    ///         var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new Aws.ApiGateway.RestApiArgs
+    ///         Description = "This is my API for demonstration purposes",
+    ///     });
+    /// 
+    ///     var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new()
+    ///     {
+    ///         RestApi = myDemoAPI.Id,
+    ///         ParentId = myDemoAPI.RootResourceId,
+    ///         PathPart = "mydemoresource",
+    ///     });
+    /// 
+    ///     var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new()
+    ///     {
+    ///         RestApi = myDemoAPI.Id,
+    ///         ResourceId = myDemoResource.Id,
+    ///         HttpMethod = "GET",
+    ///         Authorization = "NONE",
+    ///     });
+    /// 
+    ///     var myDemoIntegration = new Aws.ApiGateway.Integration("myDemoIntegration", new()
+    ///     {
+    ///         RestApi = myDemoAPI.Id,
+    ///         ResourceId = myDemoResource.Id,
+    ///         HttpMethod = myDemoMethod.HttpMethod,
+    ///         Type = "MOCK",
+    ///         CacheKeyParameters = new[]
     ///         {
-    ///             Description = "This is my API for demonstration purposes",
-    ///         });
-    ///         var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new Aws.ApiGateway.ResourceArgs
+    ///             "method.request.path.param",
+    ///         },
+    ///         CacheNamespace = "foobar",
+    ///         TimeoutMilliseconds = 29000,
+    ///         RequestParameters = 
     ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ParentId = myDemoAPI.RootResourceId,
-    ///             PathPart = "mydemoresource",
-    ///         });
-    ///         var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new Aws.ApiGateway.MethodArgs
+    ///             { "integration.request.header.X-Authorization", "'static'" },
+    ///         },
+    ///         RequestTemplates = 
     ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ResourceId = myDemoResource.Id,
-    ///             HttpMethod = "GET",
-    ///             Authorization = "NONE",
-    ///         });
-    ///         var myDemoIntegration = new Aws.ApiGateway.Integration("myDemoIntegration", new Aws.ApiGateway.IntegrationArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ResourceId = myDemoResource.Id,
-    ///             HttpMethod = myDemoMethod.HttpMethod,
-    ///             Type = "MOCK",
-    ///             CacheKeyParameters = 
-    ///             {
-    ///                 "method.request.path.param",
-    ///             },
-    ///             CacheNamespace = "foobar",
-    ///             TimeoutMilliseconds = 29000,
-    ///             RequestParameters = 
-    ///             {
-    ///                 { "integration.request.header.X-Authorization", "'static'" },
-    ///             },
-    ///             RequestTemplates = 
-    ///             {
-    ///                 { "application/xml", @"{
+    ///             { "application/xml", @"{
     ///    ""body"" : $input.json('$')
     /// }
     /// " },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Lambda integration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var config = new Config();
+    ///     var myregion = config.RequireObject&lt;dynamic&gt;("myregion");
+    ///     var accountId = config.RequireObject&lt;dynamic&gt;("accountId");
+    ///     // API Gateway
+    ///     var api = new Aws.ApiGateway.RestApi("api");
+    /// 
+    ///     var resource = new Aws.ApiGateway.Resource("resource", new()
     ///     {
-    ///         var config = new Config();
-    ///         var myregion = config.RequireObject&lt;dynamic&gt;("myregion");
-    ///         var accountId = config.RequireObject&lt;dynamic&gt;("accountId");
-    ///         // API Gateway
-    ///         var api = new Aws.ApiGateway.RestApi("api", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///         });
-    ///         var resource = new Aws.ApiGateway.Resource("resource", new Aws.ApiGateway.ResourceArgs
-    ///         {
-    ///             PathPart = "resource",
-    ///             ParentId = api.RootResourceId,
-    ///             RestApi = api.Id,
-    ///         });
-    ///         var method = new Aws.ApiGateway.Method("method", new Aws.ApiGateway.MethodArgs
-    ///         {
-    ///             RestApi = api.Id,
-    ///             ResourceId = resource.Id,
-    ///             HttpMethod = "GET",
-    ///             Authorization = "NONE",
-    ///         });
-    ///         // IAM
-    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         PathPart = "resource",
+    ///         ParentId = api.RootResourceId,
+    ///         RestApi = api.Id,
+    ///     });
+    /// 
+    ///     var method = new Aws.ApiGateway.Method("method", new()
+    ///     {
+    ///         RestApi = api.Id,
+    ///         ResourceId = resource.Id,
+    ///         HttpMethod = "GET",
+    ///         Authorization = "NONE",
+    ///     });
+    /// 
+    ///     // IAM
+    ///     var role = new Aws.Iam.Role("role", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -114,40 +115,42 @@ namespace Pulumi.Aws.ApiGateway
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var lambda = new Aws.Lambda.Function("lambda", new Aws.Lambda.FunctionArgs
-    ///         {
-    ///             Code = new FileArchive("lambda.zip"),
-    ///             Role = role.Arn,
-    ///             Handler = "lambda.lambda_handler",
-    ///             Runtime = "python3.7",
-    ///         });
-    ///         var integration = new Aws.ApiGateway.Integration("integration", new Aws.ApiGateway.IntegrationArgs
-    ///         {
-    ///             RestApi = api.Id,
-    ///             ResourceId = resource.Id,
-    ///             HttpMethod = method.HttpMethod,
-    ///             IntegrationHttpMethod = "POST",
-    ///             Type = "AWS_PROXY",
-    ///             Uri = lambda.InvokeArn,
-    ///         });
-    ///         // Lambda
-    ///         var apigwLambda = new Aws.Lambda.Permission("apigwLambda", new Aws.Lambda.PermissionArgs
-    ///         {
-    ///             Action = "lambda:InvokeFunction",
-    ///             Function = lambda.Name,
-    ///             Principal = "apigateway.amazonaws.com",
-    ///             SourceArn = Output.Tuple(api.Id, method.HttpMethod, resource.Path).Apply(values =&gt;
-    ///             {
-    ///                 var id = values.Item1;
-    ///                 var httpMethod = values.Item2;
-    ///                 var path = values.Item3;
-    ///                 return $"arn:aws:execute-api:{myregion}:{accountId}:{id}/*/{httpMethod}{path}";
-    ///             }),
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var lambda = new Aws.Lambda.Function("lambda", new()
+    ///     {
+    ///         Code = new FileArchive("lambda.zip"),
+    ///         Role = role.Arn,
+    ///         Handler = "lambda.lambda_handler",
+    ///         Runtime = "python3.7",
+    ///     });
+    /// 
+    ///     var integration = new Aws.ApiGateway.Integration("integration", new()
+    ///     {
+    ///         RestApi = api.Id,
+    ///         ResourceId = resource.Id,
+    ///         HttpMethod = method.HttpMethod,
+    ///         IntegrationHttpMethod = "POST",
+    ///         Type = "AWS_PROXY",
+    ///         Uri = lambda.InvokeArn,
+    ///     });
+    /// 
+    ///     // Lambda
+    ///     var apigwLambda = new Aws.Lambda.Permission("apigwLambda", new()
+    ///     {
+    ///         Action = "lambda:InvokeFunction",
+    ///         Function = lambda.Name,
+    ///         Principal = "apigateway.amazonaws.com",
+    ///         SourceArn = Output.Tuple(api.Id, method.HttpMethod, resource.Path).Apply(values =&gt;
+    ///         {
+    ///             var id = values.Item1;
+    ///             var httpMethod = values.Item2;
+    ///             var path = values.Item3;
+    ///             return $"arn:aws:execute-api:{myregion}:{accountId}:{id}/*/{httpMethod}{path}";
+    ///         }),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -159,7 +162,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/integration:Integration")]
-    public partial class Integration : Pulumi.CustomResource
+    public partial class Integration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of cache key parameters for the integration.
@@ -315,7 +318,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class IntegrationArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationArgs : global::Pulumi.ResourceArgs
     {
         [Input("cacheKeyParameters")]
         private InputList<string>? _cacheKeyParameters;
@@ -448,9 +451,10 @@ namespace Pulumi.Aws.ApiGateway
         public IntegrationArgs()
         {
         }
+        public static new IntegrationArgs Empty => new IntegrationArgs();
     }
 
-    public sealed class IntegrationState : Pulumi.ResourceArgs
+    public sealed class IntegrationState : global::Pulumi.ResourceArgs
     {
         [Input("cacheKeyParameters")]
         private InputList<string>? _cacheKeyParameters;
@@ -583,5 +587,6 @@ namespace Pulumi.Aws.ApiGateway
         public IntegrationState()
         {
         }
+        public static new IntegrationState Empty => new IntegrationState();
     }
 }

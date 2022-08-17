@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx.Inputs
 {
 
-    public sealed class OpenZfsVolumeUserAndGroupQuotaArgs : Pulumi.ResourceArgs
+    public sealed class OpenZfsVolumeUserAndGroupQuotaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - The ID of the user or group. Valid values between `0` and `2147483647`
@@ -30,5 +30,6 @@ namespace Pulumi.Aws.Fsx.Inputs
         public OpenZfsVolumeUserAndGroupQuotaArgs()
         {
         }
+        public static new OpenZfsVolumeUserAndGroupQuotaArgs Empty => new OpenZfsVolumeUserAndGroupQuotaArgs();
     }
 }

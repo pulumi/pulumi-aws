@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketV2ObjectLockConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketV2ObjectLockConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `object_lock_enabled` instead.
@@ -34,5 +34,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketV2ObjectLockConfigurationGetArgs()
         {
         }
+        public static new BucketV2ObjectLockConfigurationGetArgs Empty => new BucketV2ObjectLockConfigurationGetArgs();
     }
 }

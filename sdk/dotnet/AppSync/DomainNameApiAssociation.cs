@@ -15,21 +15,19 @@ namespace Pulumi.Aws.AppSync
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppSync.DomainNameApiAssociation("example", new()
     ///     {
-    ///         var example = new Aws.AppSync.DomainNameApiAssociation("example", new Aws.AppSync.DomainNameApiAssociationArgs
-    ///         {
-    ///             ApiId = aws_appsync_graphql_api.Example.Id,
-    ///             DomainName = aws_appsync_domain_name.Example.Domain_name,
-    ///         });
-    ///     }
+    ///         ApiId = aws_appsync_graphql_api.Example.Id,
+    ///         DomainName = aws_appsync_domain_name.Example.Domain_name,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.AppSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/domainNameApiAssociation:DomainNameApiAssociation")]
-    public partial class DomainNameApiAssociation : Pulumi.CustomResource
+    public partial class DomainNameApiAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The API ID.
@@ -99,7 +97,7 @@ namespace Pulumi.Aws.AppSync
         }
     }
 
-    public sealed class DomainNameApiAssociationArgs : Pulumi.ResourceArgs
+    public sealed class DomainNameApiAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API ID.
@@ -116,9 +114,10 @@ namespace Pulumi.Aws.AppSync
         public DomainNameApiAssociationArgs()
         {
         }
+        public static new DomainNameApiAssociationArgs Empty => new DomainNameApiAssociationArgs();
     }
 
-    public sealed class DomainNameApiAssociationState : Pulumi.ResourceArgs
+    public sealed class DomainNameApiAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API ID.
@@ -135,5 +134,6 @@ namespace Pulumi.Aws.AppSync
         public DomainNameApiAssociationState()
         {
         }
+        public static new DomainNameApiAssociationState Empty => new DomainNameApiAssociationState();
     }
 }

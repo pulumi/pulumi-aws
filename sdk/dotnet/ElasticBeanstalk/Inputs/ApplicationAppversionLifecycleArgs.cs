@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticBeanstalk.Inputs
 {
 
-    public sealed class ApplicationAppversionLifecycleArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationAppversionLifecycleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.ElasticBeanstalk.Inputs
         public ApplicationAppversionLifecycleArgs()
         {
         }
+        public static new ApplicationAppversionLifecycleArgs Empty => new ApplicationAppversionLifecycleArgs();
     }
 }

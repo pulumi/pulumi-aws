@@ -19,38 +19,36 @@ namespace Pulumi.Aws.S3
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             Acl = "private",
-    ///         });
-    ///         var logBucket = new Aws.S3.BucketV2("logBucket", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var logBucketAcl = new Aws.S3.BucketAclV2("logBucketAcl", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = logBucket.Id,
-    ///             Acl = "log-delivery-write",
-    ///         });
-    ///         var exampleBucketLoggingV2 = new Aws.S3.BucketLoggingV2("exampleBucketLoggingV2", new Aws.S3.BucketLoggingV2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             TargetBucket = logBucket.Id,
-    ///             TargetPrefix = "log/",
-    ///         });
-    ///     }
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
     /// 
-    /// }
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var logBucket = new Aws.S3.BucketV2("logBucket");
+    /// 
+    ///     var logBucketAcl = new Aws.S3.BucketAclV2("logBucketAcl", new()
+    ///     {
+    ///         Bucket = logBucket.Id,
+    ///         Acl = "log-delivery-write",
+    ///     });
+    /// 
+    ///     var exampleBucketLoggingV2 = new Aws.S3.BucketLoggingV2("exampleBucketLoggingV2", new()
+    ///     {
+    ///         Bucket = exampleBucketV2.Id,
+    ///         TargetBucket = logBucket.Id,
+    ///         TargetPrefix = "log/",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +66,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketLoggingV2:BucketLoggingV2")]
-    public partial class BucketLoggingV2 : Pulumi.CustomResource
+    public partial class BucketLoggingV2 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the bucket.
@@ -144,7 +142,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class BucketLoggingV2Args : Pulumi.ResourceArgs
+    public sealed class BucketLoggingV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket.
@@ -185,9 +183,10 @@ namespace Pulumi.Aws.S3
         public BucketLoggingV2Args()
         {
         }
+        public static new BucketLoggingV2Args Empty => new BucketLoggingV2Args();
     }
 
-    public sealed class BucketLoggingV2State : Pulumi.ResourceArgs
+    public sealed class BucketLoggingV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket.
@@ -228,5 +227,6 @@ namespace Pulumi.Aws.S3
         public BucketLoggingV2State()
         {
         }
+        public static new BucketLoggingV2State Empty => new BucketLoggingV2State();
     }
 }

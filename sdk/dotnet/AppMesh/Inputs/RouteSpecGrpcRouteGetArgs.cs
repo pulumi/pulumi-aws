@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class RouteSpecGrpcRouteGetArgs : Pulumi.ResourceArgs
+    public sealed class RouteSpecGrpcRouteGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action to take if a match is determined.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public RouteSpecGrpcRouteGetArgs()
         {
         }
+        public static new RouteSpecGrpcRouteGetArgs Empty => new RouteSpecGrpcRouteGetArgs();
     }
 }

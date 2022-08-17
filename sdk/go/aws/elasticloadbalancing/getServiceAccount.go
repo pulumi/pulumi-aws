@@ -19,78 +19,83 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		main, err := elb.GetServiceAccount(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		elbLogs, err := s3.NewBucketV2(ctx, "elbLogs", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketAclV2(ctx, "elbLogsAcl", &s3.BucketAclV2Args{
-// 			Bucket: elbLogs.ID(),
-// 			Acl:    pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketPolicy(ctx, "allowElbLogging", &s3.BucketPolicyArgs{
-// 			Bucket: elbLogs.ID(),
-// 			Policy: pulumi.Any(fmt.Sprintf(`{
-//   "Id": "Policy",
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Action": [
-//         "s3:PutObject"
-//       ],
-//       "Effect": "Allow",
-//       "Resource": "arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*",
-//       "Principal": {
-//         "AWS": [
-//           "%v"
-//         ]
-//       }
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := elb.GetServiceAccount(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			elbLogs, err := s3.NewBucketV2(ctx, "elbLogs", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "elbLogsAcl", &s3.BucketAclV2Args{
+//				Bucket: elbLogs.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketPolicy(ctx, "allowElbLogging", &s3.BucketPolicyArgs{
+//				Bucket: elbLogs.ID(),
+//				Policy: pulumi.Any(fmt.Sprintf(`{
+//	  "Id": "Policy",
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": [
+//	        "s3:PutObject"
+//	      ],
+//	      "Effect": "Allow",
+//	      "Resource": "arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*",
+//	      "Principal": {
+//	        "AWS": [
+//	          "%v"
+//	        ]
+//	      }
+//	    }
+//	  ]
+//	}
+//
 // `, main.Arn)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = elb.NewLoadBalancer(ctx, "bar", &elb.LoadBalancerArgs{
-// 			AvailabilityZones: pulumi.StringArray{
-// 				pulumi.String("us-west-2a"),
-// 			},
-// 			AccessLogs: &elb.LoadBalancerAccessLogsArgs{
-// 				Bucket:   elbLogs.Bucket,
-// 				Interval: pulumi.Int(5),
-// 			},
-// 			Listeners: elb.LoadBalancerListenerArray{
-// 				&elb.LoadBalancerListenerArgs{
-// 					InstancePort:     pulumi.Int(8000),
-// 					InstanceProtocol: pulumi.String("http"),
-// 					LbPort:           pulumi.Int(80),
-// 					LbProtocol:       pulumi.String("http"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elb.NewLoadBalancer(ctx, "bar", &elb.LoadBalancerArgs{
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-west-2a"),
+//				},
+//				AccessLogs: &elb.LoadBalancerAccessLogsArgs{
+//					Bucket:   elbLogs.Bucket,
+//					Interval: pulumi.Int(5),
+//				},
+//				Listeners: elb.LoadBalancerListenerArray{
+//					&elb.LoadBalancerListenerArgs{
+//						InstancePort:     pulumi.Int(8000),
+//						InstanceProtocol: pulumi.String("http"),
+//						LbPort:           pulumi.Int(80),
+//						LbProtocol:       pulumi.String("http"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Deprecated: aws.elasticloadbalancing.getServiceAccount has been deprecated in favor of aws.elb.getServiceAccount

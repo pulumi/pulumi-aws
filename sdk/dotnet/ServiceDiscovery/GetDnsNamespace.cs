@@ -19,21 +19,19 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.ServiceDiscovery.GetDnsNamespace.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.ServiceDiscovery.GetDnsNamespace.InvokeAsync(new Aws.ServiceDiscovery.GetDnsNamespaceArgs
-        ///         {
-        ///             Name = "example.service.local",
-        ///             Type = "DNS_PRIVATE",
-        ///         }));
-        ///     }
+        ///         Name = "example.service.local",
+        ///         Type = "DNS_PRIVATE",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.ServiceDiscovery.GetDnsNamespace.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.ServiceDiscovery.GetDnsNamespace.InvokeAsync(new Aws.ServiceDiscovery.GetDnsNamespaceArgs
-        ///         {
-        ///             Name = "example.service.local",
-        ///             Type = "DNS_PRIVATE",
-        ///         }));
-        ///     }
+        ///         Name = "example.service.local",
+        ///         Type = "DNS_PRIVATE",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     }
 
 
-    public sealed class GetDnsNamespaceArgs : Pulumi.InvokeArgs
+    public sealed class GetDnsNamespaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the namespace.
@@ -102,9 +98,10 @@ namespace Pulumi.Aws.ServiceDiscovery
         public GetDnsNamespaceArgs()
         {
         }
+        public static new GetDnsNamespaceArgs Empty => new GetDnsNamespaceArgs();
     }
 
-    public sealed class GetDnsNamespaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDnsNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the namespace.
@@ -133,6 +130,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public GetDnsNamespaceInvokeArgs()
         {
         }
+        public static new GetDnsNamespaceInvokeArgs Empty => new GetDnsNamespaceInvokeArgs();
     }
 
 

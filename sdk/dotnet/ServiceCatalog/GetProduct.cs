@@ -22,20 +22,18 @@ namespace Pulumi.Aws.ServiceCatalog
         /// ### Basic Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ServiceCatalog.GetProduct.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ServiceCatalog.GetProduct.InvokeAsync(new Aws.ServiceCatalog.GetProductArgs
-        ///         {
-        ///             Id = "prod-dnigbtea24ste",
-        ///         }));
-        ///     }
+        ///         Id = "prod-dnigbtea24ste",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,20 +52,18 @@ namespace Pulumi.Aws.ServiceCatalog
         /// ### Basic Usage
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ServiceCatalog.GetProduct.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ServiceCatalog.GetProduct.InvokeAsync(new Aws.ServiceCatalog.GetProductArgs
-        ///         {
-        ///             Id = "prod-dnigbtea24ste",
-        ///         }));
-        ///     }
+        ///         Id = "prod-dnigbtea24ste",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.Aws.ServiceCatalog
     }
 
 
-    public sealed class GetProductArgs : Pulumi.InvokeArgs
+    public sealed class GetProductArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -106,9 +102,10 @@ namespace Pulumi.Aws.ServiceCatalog
         public GetProductArgs()
         {
         }
+        public static new GetProductArgs Empty => new GetProductArgs();
     }
 
-    public sealed class GetProductInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetProductInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -137,6 +134,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public GetProductInvokeArgs()
         {
         }
+        public static new GetProductInvokeArgs Empty => new GetProductInvokeArgs();
     }
 
 

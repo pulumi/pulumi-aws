@@ -19,20 +19,18 @@ namespace Pulumi.Aws.MskConnect
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MskConnect.GetWorkerConfiguration.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MskConnect.GetWorkerConfiguration.InvokeAsync(new Aws.MskConnect.GetWorkerConfigurationArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.MskConnect
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MskConnect.GetWorkerConfiguration.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MskConnect.GetWorkerConfiguration.InvokeAsync(new Aws.MskConnect.GetWorkerConfigurationArgs
-        ///         {
-        ///             Name = "example",
-        ///         }));
-        ///     }
+        ///         Name = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.MskConnect
     }
 
 
-    public sealed class GetWorkerConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkerConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the worker configuration.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.MskConnect
         public GetWorkerConfigurationArgs()
         {
         }
+        public static new GetWorkerConfigurationArgs Empty => new GetWorkerConfigurationArgs();
     }
 
-    public sealed class GetWorkerConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkerConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the worker configuration.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.MskConnect
         public GetWorkerConfigurationInvokeArgs()
         {
         }
+        public static new GetWorkerConfigurationInvokeArgs Empty => new GetWorkerConfigurationInvokeArgs();
     }
 
 

@@ -24,23 +24,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-// 			ClusterId:     pulumi.Any(aws_emr_cluster.Tf - test - cluster.Id),
-// 			InstanceCount: pulumi.Int(1),
-// 			InstanceType:  pulumi.String("m5.xlarge"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
+//				ClusterId:     pulumi.Any(aws_emr_cluster.Tf - test - cluster.Id),
+//				InstanceCount: pulumi.Int(1),
+//				InstanceType:  pulumi.String("m5.xlarge"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // EMR task instance group can be imported using their EMR Cluster id and Instance Group id separated by a forward-slash `/`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
+//
+//	$ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
+//
 // ```
 type InstanceGroup struct {
 	pulumi.CustomResourceState
@@ -66,7 +71,7 @@ type InstanceGroup struct {
 	// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
 	EbsOptimized pulumi.BoolPtrOutput `pulumi:"ebsOptimized"`
 	// target number of instances for the instance group. defaults to 0.
-	InstanceCount pulumi.IntPtrOutput `pulumi:"instanceCount"`
+	InstanceCount pulumi.IntOutput `pulumi:"instanceCount"`
 	// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
@@ -228,7 +233,7 @@ func (i *InstanceGroup) ToInstanceGroupOutputWithContext(ctx context.Context) In
 // InstanceGroupArrayInput is an input type that accepts InstanceGroupArray and InstanceGroupArrayOutput values.
 // You can construct a concrete instance of `InstanceGroupArrayInput` via:
 //
-//          InstanceGroupArray{ InstanceGroupArgs{...} }
+//	InstanceGroupArray{ InstanceGroupArgs{...} }
 type InstanceGroupArrayInput interface {
 	pulumi.Input
 
@@ -253,7 +258,7 @@ func (i InstanceGroupArray) ToInstanceGroupArrayOutputWithContext(ctx context.Co
 // InstanceGroupMapInput is an input type that accepts InstanceGroupMap and InstanceGroupMapOutput values.
 // You can construct a concrete instance of `InstanceGroupMapInput` via:
 //
-//          InstanceGroupMap{ "key": InstanceGroupArgs{...} }
+//	InstanceGroupMap{ "key": InstanceGroupArgs{...} }
 type InstanceGroupMapInput interface {
 	pulumi.Input
 
@@ -320,8 +325,8 @@ func (o InstanceGroupOutput) EbsOptimized() pulumi.BoolPtrOutput {
 }
 
 // target number of instances for the instance group. defaults to 0.
-func (o InstanceGroupOutput) InstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *InstanceGroup) pulumi.IntPtrOutput { return v.InstanceCount }).(pulumi.IntPtrOutput)
+func (o InstanceGroupOutput) InstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *InstanceGroup) pulumi.IntOutput { return v.InstanceCount }).(pulumi.IntOutput)
 }
 
 // The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.

@@ -18,63 +18,66 @@ namespace Pulumi.Aws.ApiGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new()
     ///     {
-    ///         var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new Aws.ApiGateway.RestApiArgs
+    ///         Description = "This is my API for demonstration purposes",
+    ///     });
+    /// 
+    ///     var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new()
+    ///     {
+    ///         RestApi = myDemoAPI.Id,
+    ///         ParentId = myDemoAPI.RootResourceId,
+    ///         PathPart = "mydemoresource",
+    ///     });
+    /// 
+    ///     var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new()
+    ///     {
+    ///         RestApi = myDemoAPI.Id,
+    ///         ResourceId = myDemoResource.Id,
+    ///         HttpMethod = "GET",
+    ///         Authorization = "NONE",
+    ///     });
+    /// 
+    ///     var myDemoIntegration = new Aws.ApiGateway.Integration("myDemoIntegration", new()
+    ///     {
+    ///         RestApi = myDemoAPI.Id,
+    ///         ResourceId = myDemoResource.Id,
+    ///         HttpMethod = myDemoMethod.HttpMethod,
+    ///         Type = "MOCK",
+    ///     });
+    /// 
+    ///     var response200 = new Aws.ApiGateway.MethodResponse("response200", new()
+    ///     {
+    ///         RestApi = myDemoAPI.Id,
+    ///         ResourceId = myDemoResource.Id,
+    ///         HttpMethod = myDemoMethod.HttpMethod,
+    ///         StatusCode = "200",
+    ///     });
+    /// 
+    ///     var myDemoIntegrationResponse = new Aws.ApiGateway.IntegrationResponse("myDemoIntegrationResponse", new()
+    ///     {
+    ///         RestApi = myDemoAPI.Id,
+    ///         ResourceId = myDemoResource.Id,
+    ///         HttpMethod = myDemoMethod.HttpMethod,
+    ///         StatusCode = response200.StatusCode,
+    ///         ResponseTemplates = 
     ///         {
-    ///             Description = "This is my API for demonstration purposes",
-    ///         });
-    ///         var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new Aws.ApiGateway.ResourceArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ParentId = myDemoAPI.RootResourceId,
-    ///             PathPart = "mydemoresource",
-    ///         });
-    ///         var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new Aws.ApiGateway.MethodArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ResourceId = myDemoResource.Id,
-    ///             HttpMethod = "GET",
-    ///             Authorization = "NONE",
-    ///         });
-    ///         var myDemoIntegration = new Aws.ApiGateway.Integration("myDemoIntegration", new Aws.ApiGateway.IntegrationArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ResourceId = myDemoResource.Id,
-    ///             HttpMethod = myDemoMethod.HttpMethod,
-    ///             Type = "MOCK",
-    ///         });
-    ///         var response200 = new Aws.ApiGateway.MethodResponse("response200", new Aws.ApiGateway.MethodResponseArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ResourceId = myDemoResource.Id,
-    ///             HttpMethod = myDemoMethod.HttpMethod,
-    ///             StatusCode = "200",
-    ///         });
-    ///         var myDemoIntegrationResponse = new Aws.ApiGateway.IntegrationResponse("myDemoIntegrationResponse", new Aws.ApiGateway.IntegrationResponseArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ResourceId = myDemoResource.Id,
-    ///             HttpMethod = myDemoMethod.HttpMethod,
-    ///             StatusCode = response200.StatusCode,
-    ///             ResponseTemplates = 
-    ///             {
-    ///                 { "application/xml", @"#set($inputRoot = $input.path('$'))
+    ///             { "application/xml", @"#set($inputRoot = $input.path('$'))
     /// &lt;?xml version=""1.0"" encoding=""UTF-8""?&gt;
     /// &lt;message&gt;
     ///     $inputRoot.body
     /// &lt;/message&gt;
     /// " },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -86,7 +89,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/integrationResponse:IntegrationResponse")]
-    public partial class IntegrationResponse : Pulumi.CustomResource
+    public partial class IntegrationResponse : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
@@ -184,7 +187,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class IntegrationResponseArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
@@ -253,9 +256,10 @@ namespace Pulumi.Aws.ApiGateway
         public IntegrationResponseArgs()
         {
         }
+        public static new IntegrationResponseArgs Empty => new IntegrationResponseArgs();
     }
 
-    public sealed class IntegrationResponseState : Pulumi.ResourceArgs
+    public sealed class IntegrationResponseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
@@ -324,5 +328,6 @@ namespace Pulumi.Aws.ApiGateway
         public IntegrationResponseState()
         {
         }
+        public static new IntegrationResponseState Empty => new IntegrationResponseState();
     }
 }

@@ -15,23 +15,21 @@ namespace Pulumi.Aws.Detective
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Detective.Graph("example", new()
     ///     {
-    ///         var example = new Aws.Detective.Graph("example", new Aws.Detective.GraphArgs
+    ///         Tags = 
     ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example-detective-graph" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "example-detective-graph" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.Detective
     /// ```
     /// </summary>
     [AwsResourceType("aws:detective/graph:Graph")]
-    public partial class Graph : Pulumi.CustomResource
+    public partial class Graph : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
@@ -110,7 +108,7 @@ namespace Pulumi.Aws.Detective
         }
     }
 
-    public sealed class GraphArgs : Pulumi.ResourceArgs
+    public sealed class GraphArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -127,9 +125,10 @@ namespace Pulumi.Aws.Detective
         public GraphArgs()
         {
         }
+        public static new GraphArgs Empty => new GraphArgs();
     }
 
-    public sealed class GraphState : Pulumi.ResourceArgs
+    public sealed class GraphState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
@@ -166,5 +165,6 @@ namespace Pulumi.Aws.Detective
         public GraphState()
         {
         }
+        public static new GraphState Empty => new GraphState();
     }
 }

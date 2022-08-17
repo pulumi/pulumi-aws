@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class EndpointConfigurationProductionVariantArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigurationProductionVariantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The size of the Elastic Inference (EI) instance to use for the production variant.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public EndpointConfigurationProductionVariantArgs()
         {
         }
+        public static new EndpointConfigurationProductionVariantArgs Empty => new EndpointConfigurationProductionVariantArgs();
     }
 }

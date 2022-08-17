@@ -19,20 +19,18 @@ namespace Pulumi.Aws.ElastiCache
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var myCluster = Aws.ElastiCache.GetCluster.Invoke(new()
         ///     {
-        ///         var myCluster = Output.Create(Aws.ElastiCache.GetCluster.InvokeAsync(new Aws.ElastiCache.GetClusterArgs
-        ///         {
-        ///             ClusterId = "my-cluster-id",
-        ///         }));
-        ///     }
+        ///         ClusterId = "my-cluster-id",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.ElastiCache
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var myCluster = Aws.ElastiCache.GetCluster.Invoke(new()
         ///     {
-        ///         var myCluster = Output.Create(Aws.ElastiCache.GetCluster.InvokeAsync(new Aws.ElastiCache.GetClusterArgs
-        ///         {
-        ///             ClusterId = "my-cluster-id",
-        ///         }));
-        ///     }
+        ///         ClusterId = "my-cluster-id",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.ElastiCache
     }
 
 
-    public sealed class GetClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Group identifier.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.ElastiCache
         public GetClusterArgs()
         {
         }
+        public static new GetClusterArgs Empty => new GetClusterArgs();
     }
 
-    public sealed class GetClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Group identifier.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.ElastiCache
         public GetClusterInvokeArgs()
         {
         }
+        public static new GetClusterInvokeArgs Empty => new GetClusterInvokeArgs();
     }
 
 

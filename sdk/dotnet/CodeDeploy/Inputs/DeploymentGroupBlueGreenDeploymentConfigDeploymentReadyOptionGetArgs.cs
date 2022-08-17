@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionGetArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
@@ -29,5 +29,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionGetArgs()
         {
         }
+        public static new DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionGetArgs Empty => new DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionGetArgs();
     }
 }

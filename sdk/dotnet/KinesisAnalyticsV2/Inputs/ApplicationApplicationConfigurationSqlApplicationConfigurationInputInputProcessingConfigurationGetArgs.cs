@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationGetArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationGetArgs Empty => new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationGetArgs();
     }
 }

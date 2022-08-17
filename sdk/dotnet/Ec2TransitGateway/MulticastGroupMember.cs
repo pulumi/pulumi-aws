@@ -16,26 +16,24 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2TransitGateway.MulticastGroupMember("example", new()
     ///     {
-    ///         var example = new Aws.Ec2TransitGateway.MulticastGroupMember("example", new Aws.Ec2TransitGateway.MulticastGroupMemberArgs
-    ///         {
-    ///             GroupIpAddress = "224.0.0.1",
-    ///             NetworkInterfaceId = aws_network_interface.Example.Id,
-    ///             TransitGatewayMulticastDomainId = aws_ec2_transit_gateway_multicast_domain.Example.Id,
-    ///         });
-    ///     }
+    ///         GroupIpAddress = "224.0.0.1",
+    ///         NetworkInterfaceId = aws_network_interface.Example.Id,
+    ///         TransitGatewayMulticastDomainId = aws_ec2_transit_gateway_multicast_domain.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember")]
-    public partial class MulticastGroupMember : Pulumi.CustomResource
+    public partial class MulticastGroupMember : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The IP address assigned to the transit gateway multicast group.
@@ -99,7 +97,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
     }
 
-    public sealed class MulticastGroupMemberArgs : Pulumi.ResourceArgs
+    public sealed class MulticastGroupMemberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP address assigned to the transit gateway multicast group.
@@ -122,9 +120,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public MulticastGroupMemberArgs()
         {
         }
+        public static new MulticastGroupMemberArgs Empty => new MulticastGroupMemberArgs();
     }
 
-    public sealed class MulticastGroupMemberState : Pulumi.ResourceArgs
+    public sealed class MulticastGroupMemberState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP address assigned to the transit gateway multicast group.
@@ -147,5 +146,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public MulticastGroupMemberState()
         {
         }
+        public static new MulticastGroupMemberState Empty => new MulticastGroupMemberState();
     }
 }

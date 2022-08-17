@@ -19,36 +19,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleConnection, err := directconnect.NewConnection(ctx, "exampleConnection", &directconnect.ConnectionArgs{
-// 			Bandwidth: pulumi.String("1Gbps"),
-// 			Location:  pulumi.String("EqSe2-EQ"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLinkAggregationGroup, err := directconnect.NewLinkAggregationGroup(ctx, "exampleLinkAggregationGroup", &directconnect.LinkAggregationGroupArgs{
-// 			ConnectionsBandwidth: pulumi.String("1Gbps"),
-// 			Location:             pulumi.String("EqSe2-EQ"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = directconnect.NewConnectionAssociation(ctx, "exampleConnectionAssociation", &directconnect.ConnectionAssociationArgs{
-// 			ConnectionId: exampleConnection.ID(),
-// 			LagId:        exampleLinkAggregationGroup.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleConnection, err := directconnect.NewConnection(ctx, "exampleConnection", &directconnect.ConnectionArgs{
+//				Bandwidth: pulumi.String("1Gbps"),
+//				Location:  pulumi.String("EqSe2-EQ"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinkAggregationGroup, err := directconnect.NewLinkAggregationGroup(ctx, "exampleLinkAggregationGroup", &directconnect.LinkAggregationGroupArgs{
+//				ConnectionsBandwidth: pulumi.String("1Gbps"),
+//				Location:             pulumi.String("EqSe2-EQ"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = directconnect.NewConnectionAssociation(ctx, "exampleConnectionAssociation", &directconnect.ConnectionAssociationArgs{
+//				ConnectionId: exampleConnection.ID(),
+//				LagId:        exampleLinkAggregationGroup.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type ConnectionAssociation struct {
 	pulumi.CustomResourceState
@@ -152,7 +155,7 @@ func (i *ConnectionAssociation) ToConnectionAssociationOutputWithContext(ctx con
 // ConnectionAssociationArrayInput is an input type that accepts ConnectionAssociationArray and ConnectionAssociationArrayOutput values.
 // You can construct a concrete instance of `ConnectionAssociationArrayInput` via:
 //
-//          ConnectionAssociationArray{ ConnectionAssociationArgs{...} }
+//	ConnectionAssociationArray{ ConnectionAssociationArgs{...} }
 type ConnectionAssociationArrayInput interface {
 	pulumi.Input
 
@@ -177,7 +180,7 @@ func (i ConnectionAssociationArray) ToConnectionAssociationArrayOutputWithContex
 // ConnectionAssociationMapInput is an input type that accepts ConnectionAssociationMap and ConnectionAssociationMapOutput values.
 // You can construct a concrete instance of `ConnectionAssociationMapInput` via:
 //
-//          ConnectionAssociationMap{ "key": ConnectionAssociationArgs{...} }
+//	ConnectionAssociationMap{ "key": ConnectionAssociationArgs{...} }
 type ConnectionAssociationMapInput interface {
 	pulumi.Input
 

@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplePublicKey, err := cloudfront.NewPublicKey(ctx, "examplePublicKey", &cloudfront.PublicKeyArgs{
-// 			Comment:    pulumi.String("example public key"),
-// 			EncodedKey: readFileOrPanic("public_key.pem"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cloudfront.NewKeyGroup(ctx, "exampleKeyGroup", &cloudfront.KeyGroupArgs{
-// 			Comment: pulumi.String("example key group"),
-// 			Items: pulumi.StringArray{
-// 				examplePublicKey.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplePublicKey, err := cloudfront.NewPublicKey(ctx, "examplePublicKey", &cloudfront.PublicKeyArgs{
+//				Comment:    pulumi.String("example public key"),
+//				EncodedKey: readFileOrPanic("public_key.pem"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudfront.NewKeyGroup(ctx, "exampleKeyGroup", &cloudfront.KeyGroupArgs{
+//				Comment: pulumi.String("example key group"),
+//				Items: pulumi.StringArray{
+//					examplePublicKey.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // CloudFront Key Group can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
+//
+//	$ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
+//
 // ```
 type KeyGroup struct {
 	pulumi.CustomResourceState
@@ -178,7 +183,7 @@ func (i *KeyGroup) ToKeyGroupOutputWithContext(ctx context.Context) KeyGroupOutp
 // KeyGroupArrayInput is an input type that accepts KeyGroupArray and KeyGroupArrayOutput values.
 // You can construct a concrete instance of `KeyGroupArrayInput` via:
 //
-//          KeyGroupArray{ KeyGroupArgs{...} }
+//	KeyGroupArray{ KeyGroupArgs{...} }
 type KeyGroupArrayInput interface {
 	pulumi.Input
 
@@ -203,7 +208,7 @@ func (i KeyGroupArray) ToKeyGroupArrayOutputWithContext(ctx context.Context) Key
 // KeyGroupMapInput is an input type that accepts KeyGroupMap and KeyGroupMapOutput values.
 // You can construct a concrete instance of `KeyGroupMapInput` via:
 //
-//          KeyGroupMap{ "key": KeyGroupArgs{...} }
+//	KeyGroupMap{ "key": KeyGroupArgs{...} }
 type KeyGroupMapInput interface {
 	pulumi.Input
 

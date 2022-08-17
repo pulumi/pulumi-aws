@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex.Inputs
 {
 
-    public sealed class BotClarificationPromptMessageArgs : Pulumi.ResourceArgs
+    public sealed class BotClarificationPromptMessageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The text of the message.
@@ -34,5 +34,6 @@ namespace Pulumi.Aws.Lex.Inputs
         public BotClarificationPromptMessageArgs()
         {
         }
+        public static new BotClarificationPromptMessageArgs Empty => new BotClarificationPromptMessageArgs();
     }
 }

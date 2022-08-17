@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterLoggingInfoBrokerLogsArgs : Pulumi.ResourceArgs
+    public sealed class ClusterLoggingInfoBrokerLogsArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudwatchLogs")]
         public Input<Inputs.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs>? CloudwatchLogs { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterLoggingInfoBrokerLogsArgs()
         {
         }
+        public static new ClusterLoggingInfoBrokerLogsArgs Empty => new ClusterLoggingInfoBrokerLogsArgs();
     }
 }

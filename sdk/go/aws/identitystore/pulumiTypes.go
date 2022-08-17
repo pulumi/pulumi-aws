@@ -20,7 +20,7 @@ type GetGroupFilter struct {
 // GetGroupFilterInput is an input type that accepts GetGroupFilterArgs and GetGroupFilterOutput values.
 // You can construct a concrete instance of `GetGroupFilterInput` via:
 //
-//          GetGroupFilterArgs{...}
+//	GetGroupFilterArgs{...}
 type GetGroupFilterInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i GetGroupFilterArgs) ToGetGroupFilterOutputWithContext(ctx context.Contex
 // GetGroupFilterArrayInput is an input type that accepts GetGroupFilterArray and GetGroupFilterArrayOutput values.
 // You can construct a concrete instance of `GetGroupFilterArrayInput` via:
 //
-//          GetGroupFilterArray{ GetGroupFilterArgs{...} }
+//	GetGroupFilterArray{ GetGroupFilterArgs{...} }
 type GetGroupFilterArrayInput interface {
 	pulumi.Input
 
@@ -126,7 +126,7 @@ type GetUserFilter struct {
 // GetUserFilterInput is an input type that accepts GetUserFilterArgs and GetUserFilterOutput values.
 // You can construct a concrete instance of `GetUserFilterInput` via:
 //
-//          GetUserFilterArgs{...}
+//	GetUserFilterArgs{...}
 type GetUserFilterInput interface {
 	pulumi.Input
 
@@ -156,7 +156,7 @@ func (i GetUserFilterArgs) ToGetUserFilterOutputWithContext(ctx context.Context)
 // GetUserFilterArrayInput is an input type that accepts GetUserFilterArray and GetUserFilterArrayOutput values.
 // You can construct a concrete instance of `GetUserFilterArrayInput` via:
 //
-//          GetUserFilterArray{ GetUserFilterArgs{...} }
+//	GetUserFilterArray{ GetUserFilterArgs{...} }
 type GetUserFilterArrayInput interface {
 	pulumi.Input
 

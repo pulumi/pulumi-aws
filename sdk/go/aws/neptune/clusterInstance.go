@@ -24,40 +24,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := neptune.NewCluster(ctx, "default", &neptune.ClusterArgs{
-// 			ClusterIdentifier:                pulumi.String("neptune-cluster-demo"),
-// 			Engine:                           pulumi.String("neptune"),
-// 			BackupRetentionPeriod:            pulumi.Int(5),
-// 			PreferredBackupWindow:            pulumi.String("07:00-09:00"),
-// 			SkipFinalSnapshot:                pulumi.Bool(true),
-// 			IamDatabaseAuthenticationEnabled: pulumi.Bool(true),
-// 			ApplyImmediately:                 pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		var example []*neptune.ClusterInstance
-// 		for key0, _ := range 2 {
-// 			__res, err := neptune.NewClusterInstance(ctx, fmt.Sprintf("example-%v", key0), &neptune.ClusterInstanceArgs{
-// 				ClusterIdentifier: _default.ID(),
-// 				Engine:            pulumi.String("neptune"),
-// 				InstanceClass:     pulumi.String("db.r4.large"),
-// 				ApplyImmediately:  pulumi.Bool(true),
-// 			})
-// 			if err != nil {
-// 				return err
-// 			}
-// 			example = append(example, __res)
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := neptune.NewCluster(ctx, "default", &neptune.ClusterArgs{
+//				ClusterIdentifier:                pulumi.String("neptune-cluster-demo"),
+//				Engine:                           pulumi.String("neptune"),
+//				BackupRetentionPeriod:            pulumi.Int(5),
+//				PreferredBackupWindow:            pulumi.String("07:00-09:00"),
+//				SkipFinalSnapshot:                pulumi.Bool(true),
+//				IamDatabaseAuthenticationEnabled: pulumi.Bool(true),
+//				ApplyImmediately:                 pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			var example []*neptune.ClusterInstance
+//			for key0, _ := range 2 {
+//				__res, err := neptune.NewClusterInstance(ctx, fmt.Sprintf("example-%v", key0), &neptune.ClusterInstanceArgs{
+//					ClusterIdentifier: _default.ID(),
+//					Engine:            pulumi.String("neptune"),
+//					InstanceClass:     pulumi.String("db.r4.large"),
+//					ApplyImmediately:  pulumi.Bool(true),
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				example = append(example, __res)
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // `aws_neptune_cluster_instance` can be imported by using the instance identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
+//
+//	$ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
+//
 // ```
 type ClusterInstance struct {
 	pulumi.CustomResourceState
@@ -116,9 +121,9 @@ type ClusterInstance struct {
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// Specifies whether the neptune cluster is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
-	// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolOutput `pulumi:"writer"`
@@ -205,9 +210,9 @@ type clusterInstanceState struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Specifies whether the neptune cluster is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer *bool `pulumi:"writer"`
@@ -260,9 +265,9 @@ type ClusterInstanceState struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Specifies whether the neptune cluster is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
 	Writer pulumi.BoolPtrInput
@@ -307,7 +312,7 @@ type clusterInstanceArgs struct {
 	PromotionTier *int `pulumi:"promotionTier"`
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -347,7 +352,7 @@ type ClusterInstanceArgs struct {
 	PromotionTier pulumi.IntPtrInput
 	// Bool to control if instance is publicly accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrInput
-	// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -377,7 +382,7 @@ func (i *ClusterInstance) ToClusterInstanceOutputWithContext(ctx context.Context
 // ClusterInstanceArrayInput is an input type that accepts ClusterInstanceArray and ClusterInstanceArrayOutput values.
 // You can construct a concrete instance of `ClusterInstanceArrayInput` via:
 //
-//          ClusterInstanceArray{ ClusterInstanceArgs{...} }
+//	ClusterInstanceArray{ ClusterInstanceArgs{...} }
 type ClusterInstanceArrayInput interface {
 	pulumi.Input
 
@@ -402,7 +407,7 @@ func (i ClusterInstanceArray) ToClusterInstanceArrayOutputWithContext(ctx contex
 // ClusterInstanceMapInput is an input type that accepts ClusterInstanceMap and ClusterInstanceMapOutput values.
 // You can construct a concrete instance of `ClusterInstanceMapInput` via:
 //
-//          ClusterInstanceMap{ "key": ClusterInstanceArgs{...} }
+//	ClusterInstanceMap{ "key": ClusterInstanceArgs{...} }
 type ClusterInstanceMapInput interface {
 	pulumi.Input
 
@@ -550,12 +555,12 @@ func (o ClusterInstanceOutput) StorageEncrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolOutput { return v.StorageEncrypted }).(pulumi.BoolOutput)
 }
 
-// A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ClusterInstanceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClusterInstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

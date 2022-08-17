@@ -20,21 +20,19 @@ namespace Pulumi.Aws.Eks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Eks.Addon("example", new()
     ///     {
-    ///         var example = new Aws.Eks.Addon("example", new Aws.Eks.AddonArgs
-    ///         {
-    ///             ClusterName = aws_eks_cluster.Example.Name,
-    ///             AddonName = "vpc-cni",
-    ///         });
-    ///     }
+    ///         ClusterName = aws_eks_cluster.Example.Name,
+    ///         AddonName = "vpc-cni",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Aws.Eks
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/addon:Addon")]
-    public partial class Addon : Pulumi.CustomResource
+    public partial class Addon : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the EKS add-on. The name must match one of
@@ -118,7 +116,7 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Key-value map of resource tags, including those inherited from the provider .
+        /// (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -167,7 +165,7 @@ namespace Pulumi.Aws.Eks
         }
     }
 
-    public sealed class AddonArgs : Pulumi.ResourceArgs
+    public sealed class AddonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the EKS add-on. The name must match one of
@@ -229,9 +227,10 @@ namespace Pulumi.Aws.Eks
         public AddonArgs()
         {
         }
+        public static new AddonArgs Empty => new AddonArgs();
     }
 
-    public sealed class AddonState : Pulumi.ResourceArgs
+    public sealed class AddonState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the EKS add-on. The name must match one of
@@ -312,7 +311,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// (Optional) Key-value map of resource tags, including those inherited from the provider .
+        /// (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -323,5 +322,6 @@ namespace Pulumi.Aws.Eks
         public AddonState()
         {
         }
+        public static new AddonState Empty => new AddonState();
     }
 }

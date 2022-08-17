@@ -19,56 +19,60 @@ namespace Pulumi.Aws.Shield
     /// ### Create an association between a protected EIP and a Route53 Health Check
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var currentRegion = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var currentCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var currentPartition = Output.Create(Aws.GetPartition.InvokeAsync());
-    ///         var exampleEip = new Aws.Ec2.Eip("exampleEip", new Aws.Ec2.EipArgs
-    ///         {
-    ///             Vpc = true,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example" },
-    ///             },
-    ///         });
-    ///         var exampleProtection = new Aws.Shield.Protection("exampleProtection", new Aws.Shield.ProtectionArgs
-    ///         {
-    ///             ResourceArn = Output.Tuple(currentPartition, currentRegion, currentCallerIdentity, exampleEip.Id).Apply(values =&gt;
-    ///             {
-    ///                 var currentPartition = values.Item1;
-    ///                 var currentRegion = values.Item2;
-    ///                 var currentCallerIdentity = values.Item3;
-    ///                 var id = values.Item4;
-    ///                 return $"arn:{currentPartition.Partition}:ec2:{currentRegion.Name}:{currentCallerIdentity.AccountId}:eip-allocation/{id}";
-    ///             }),
-    ///         });
-    ///         var exampleHealthCheck = new Aws.Route53.HealthCheck("exampleHealthCheck", new Aws.Route53.HealthCheckArgs
-    ///         {
-    ///             IpAddress = exampleEip.PublicIp,
-    ///             Port = 80,
-    ///             Type = "HTTP",
-    ///             ResourcePath = "/ready",
-    ///             FailureThreshold = 3,
-    ///             RequestInterval = 30,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "tf-example-health-check" },
-    ///             },
-    ///         });
-    ///         var exampleProtectionHealthCheckAssociation = new Aws.Shield.ProtectionHealthCheckAssociation("exampleProtectionHealthCheckAssociation", new Aws.Shield.ProtectionHealthCheckAssociationArgs
-    ///         {
-    ///             HealthCheckArn = exampleHealthCheck.Arn,
-    ///             ShieldProtectionId = exampleProtection.Id,
-    ///         });
-    ///     }
+    ///     var currentRegion = Aws.GetRegion.Invoke();
     /// 
-    /// }
+    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var currentPartition = Aws.GetPartition.Invoke();
+    /// 
+    ///     var exampleEip = new Aws.Ec2.Eip("exampleEip", new()
+    ///     {
+    ///         Vpc = true,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleProtection = new Aws.Shield.Protection("exampleProtection", new()
+    ///     {
+    ///         ResourceArn = Output.Tuple(currentPartition.Apply(getPartitionResult =&gt; getPartitionResult), currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleEip.Id).Apply(values =&gt;
+    ///         {
+    ///             var currentPartition = values.Item1;
+    ///             var currentRegion = values.Item2;
+    ///             var currentCallerIdentity = values.Item3;
+    ///             var id = values.Item4;
+    ///             return $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:ec2:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleHealthCheck = new Aws.Route53.HealthCheck("exampleHealthCheck", new()
+    ///     {
+    ///         IpAddress = exampleEip.PublicIp,
+    ///         Port = 80,
+    ///         Type = "HTTP",
+    ///         ResourcePath = "/ready",
+    ///         FailureThreshold = 3,
+    ///         RequestInterval = 30,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "tf-example-health-check" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleProtectionHealthCheckAssociation = new Aws.Shield.ProtectionHealthCheckAssociation("exampleProtectionHealthCheckAssociation", new()
+    ///     {
+    ///         HealthCheckArn = exampleHealthCheck.Arn,
+    ///         ShieldProtectionId = exampleProtection.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -80,7 +84,7 @@ namespace Pulumi.Aws.Shield
     /// ```
     /// </summary>
     [AwsResourceType("aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation")]
-    public partial class ProtectionHealthCheckAssociation : Pulumi.CustomResource
+    public partial class ProtectionHealthCheckAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
@@ -138,7 +142,7 @@ namespace Pulumi.Aws.Shield
         }
     }
 
-    public sealed class ProtectionHealthCheckAssociationArgs : Pulumi.ResourceArgs
+    public sealed class ProtectionHealthCheckAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
@@ -155,9 +159,10 @@ namespace Pulumi.Aws.Shield
         public ProtectionHealthCheckAssociationArgs()
         {
         }
+        public static new ProtectionHealthCheckAssociationArgs Empty => new ProtectionHealthCheckAssociationArgs();
     }
 
-    public sealed class ProtectionHealthCheckAssociationState : Pulumi.ResourceArgs
+    public sealed class ProtectionHealthCheckAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
@@ -174,5 +179,6 @@ namespace Pulumi.Aws.Shield
         public ProtectionHealthCheckAssociationState()
         {
         }
+        public static new ProtectionHealthCheckAssociationState Empty => new ProtectionHealthCheckAssociationState();
     }
 }

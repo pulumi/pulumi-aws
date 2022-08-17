@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra.Inputs
 {
 
-    public sealed class IndexUserTokenConfigurationsArgs : Pulumi.ResourceArgs
+    public sealed class IndexUserTokenConfigurationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A block that specifies the information about the JSON token type configuration.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Kendra.Inputs
         public IndexUserTokenConfigurationsArgs()
         {
         }
+        public static new IndexUserTokenConfigurationsArgs Empty => new IndexUserTokenConfigurationsArgs();
     }
 }

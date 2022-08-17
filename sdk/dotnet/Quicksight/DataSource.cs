@@ -15,32 +15,30 @@ namespace Pulumi.Aws.Quicksight
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Quicksight.DataSource("default", new()
     ///     {
-    ///         var @default = new Aws.Quicksight.DataSource("default", new Aws.Quicksight.DataSourceArgs
+    ///         DataSourceId = "example-id",
+    ///         Parameters = new Aws.Quicksight.Inputs.DataSourceParametersArgs
     ///         {
-    ///             DataSourceId = "example-id",
-    ///             Parameters = new Aws.Quicksight.Inputs.DataSourceParametersArgs
+    ///             S3 = new Aws.Quicksight.Inputs.DataSourceParametersS3Args
     ///             {
-    ///                 S3 = new Aws.Quicksight.Inputs.DataSourceParametersS3Args
+    ///                 ManifestFileLocation = new Aws.Quicksight.Inputs.DataSourceParametersS3ManifestFileLocationArgs
     ///                 {
-    ///                     ManifestFileLocation = new Aws.Quicksight.Inputs.DataSourceParametersS3ManifestFileLocationArgs
-    ///                     {
-    ///                         Bucket = "my-bucket",
-    ///                         Key = "path/to/manifest.json",
-    ///                     },
+    ///                     Bucket = "my-bucket",
+    ///                     Key = "path/to/manifest.json",
     ///                 },
     ///             },
-    ///             Type = "S3",
-    ///         });
-    ///     }
+    ///         },
+    ///         Type = "S3",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Aws.Quicksight
     /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/dataSource:DataSource")]
-    public partial class DataSource : Pulumi.CustomResource
+    public partial class DataSource : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the data source
@@ -170,7 +168,7 @@ namespace Pulumi.Aws.Quicksight
         }
     }
 
-    public sealed class DataSourceArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
@@ -247,9 +245,10 @@ namespace Pulumi.Aws.Quicksight
         public DataSourceArgs()
         {
         }
+        public static new DataSourceArgs Empty => new DataSourceArgs();
     }
 
-    public sealed class DataSourceState : Pulumi.ResourceArgs
+    public sealed class DataSourceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the data source
@@ -344,5 +343,6 @@ namespace Pulumi.Aws.Quicksight
         public DataSourceState()
         {
         }
+        public static new DataSourceState Empty => new DataSourceState();
     }
 }

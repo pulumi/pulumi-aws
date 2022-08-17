@@ -15,37 +15,35 @@ namespace Pulumi.Aws.Ebs
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ebs.SnapshotImport("example", new()
     ///     {
-    ///         var example = new Aws.Ebs.SnapshotImport("example", new Aws.Ebs.SnapshotImportArgs
+    ///         DiskContainer = new Aws.Ebs.Inputs.SnapshotImportDiskContainerArgs
     ///         {
-    ///             DiskContainer = new Aws.Ebs.Inputs.SnapshotImportDiskContainerArgs
+    ///             Format = "VHD",
+    ///             UserBucket = new Aws.Ebs.Inputs.SnapshotImportDiskContainerUserBucketArgs
     ///             {
-    ///                 Format = "VHD",
-    ///                 UserBucket = new Aws.Ebs.Inputs.SnapshotImportDiskContainerUserBucketArgs
-    ///                 {
-    ///                     S3Bucket = "disk-images",
-    ///                     S3Key = "source.vhd",
-    ///                 },
+    ///                 S3Bucket = "disk-images",
+    ///                 S3Key = "source.vhd",
     ///             },
-    ///             RoleName = "disk-image-import",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "HelloWorld" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         RoleName = "disk-image-import",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "HelloWorld" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:ebs/snapshotImport:SnapshotImport")]
-    public partial class SnapshotImport : Pulumi.CustomResource
+    public partial class SnapshotImport : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the EBS Snapshot.
@@ -190,7 +188,7 @@ namespace Pulumi.Aws.Ebs
         }
     }
 
-    public sealed class SnapshotImportArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotImportArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client-specific data. Detailed below.
@@ -261,9 +259,10 @@ namespace Pulumi.Aws.Ebs
         public SnapshotImportArgs()
         {
         }
+        public static new SnapshotImportArgs Empty => new SnapshotImportArgs();
     }
 
-    public sealed class SnapshotImportState : Pulumi.ResourceArgs
+    public sealed class SnapshotImportState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the EBS Snapshot.
@@ -378,5 +377,6 @@ namespace Pulumi.Aws.Ebs
         public SnapshotImportState()
         {
         }
+        public static new SnapshotImportState Empty => new SnapshotImportState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transfer.Inputs
 {
 
-    public sealed class WorkflowStepTagStepDetailsTagArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowStepTagStepDetailsTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name assigned to the tag that you create.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Transfer.Inputs
         public WorkflowStepTagStepDetailsTagArgs()
         {
         }
+        public static new WorkflowStepTagStepDetailsTagArgs Empty => new WorkflowStepTagStepDetailsTagArgs();
     }
 }

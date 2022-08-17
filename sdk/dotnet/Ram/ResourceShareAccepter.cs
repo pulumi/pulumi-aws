@@ -19,44 +19,46 @@ namespace Pulumi.Aws.Ram
     /// This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws.ram.ResourceShare` and uses a data source in the _receiver_ account to create a `aws.ram.PrincipalAssociation` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws.ram.ResourceShareAccepter`.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var alternate = new Aws.Provider("alternate", new()
     ///     {
-    ///         var alternate = new Aws.Provider("alternate", new Aws.ProviderArgs
-    ///         {
-    ///             Profile = "profile1",
-    ///         });
-    ///         var senderShare = new Aws.Ram.ResourceShare("senderShare", new Aws.Ram.ResourceShareArgs
-    ///         {
-    ///             AllowExternalPrincipals = true,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "tf-test-resource-share" },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Alternate,
-    ///         });
-    ///         var receiver = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var senderInvite = new Aws.Ram.PrincipalAssociation("senderInvite", new Aws.Ram.PrincipalAssociationArgs
-    ///         {
-    ///             Principal = receiver.Apply(receiver =&gt; receiver.AccountId),
-    ///             ResourceShareArn = senderShare.Arn,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Alternate,
-    ///         });
-    ///         var receiverAccept = new Aws.Ram.ResourceShareAccepter("receiverAccept", new Aws.Ram.ResourceShareAccepterArgs
-    ///         {
-    ///             ShareArn = senderInvite.ResourceShareArn,
-    ///         });
-    ///     }
+    ///         Profile = "profile1",
+    ///     });
     /// 
-    /// }
+    ///     var senderShare = new Aws.Ram.ResourceShare("senderShare", new()
+    ///     {
+    ///         AllowExternalPrincipals = true,
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "tf-test-resource-share" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Alternate,
+    ///     });
+    /// 
+    ///     var receiver = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var senderInvite = new Aws.Ram.PrincipalAssociation("senderInvite", new()
+    ///     {
+    ///         Principal = receiver.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///         ResourceShareArn = senderShare.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Alternate,
+    ///     });
+    /// 
+    ///     var receiverAccept = new Aws.Ram.ResourceShareAccepter("receiverAccept", new()
+    ///     {
+    ///         ShareArn = senderInvite.ResourceShareArn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +70,7 @@ namespace Pulumi.Aws.Ram
     /// ```
     /// </summary>
     [AwsResourceType("aws:ram/resourceShareAccepter:ResourceShareAccepter")]
-    public partial class ResourceShareAccepter : Pulumi.CustomResource
+    public partial class ResourceShareAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the resource share invitation.
@@ -162,7 +164,7 @@ namespace Pulumi.Aws.Ram
         }
     }
 
-    public sealed class ResourceShareAccepterArgs : Pulumi.ResourceArgs
+    public sealed class ResourceShareAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the resource share.
@@ -173,9 +175,10 @@ namespace Pulumi.Aws.Ram
         public ResourceShareAccepterArgs()
         {
         }
+        public static new ResourceShareAccepterArgs Empty => new ResourceShareAccepterArgs();
     }
 
-    public sealed class ResourceShareAccepterState : Pulumi.ResourceArgs
+    public sealed class ResourceShareAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the resource share invitation.
@@ -234,5 +237,6 @@ namespace Pulumi.Aws.Ram
         public ResourceShareAccepterState()
         {
         }
+        public static new ResourceShareAccepterState Empty => new ResourceShareAccepterState();
     }
 }

@@ -16,43 +16,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudsearch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudsearch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudsearch.NewDomain(ctx, "example", &cloudsearch.DomainArgs{
-// 			IndexFields: cloudsearch.DomainIndexFieldArray{
-// 				&cloudsearch.DomainIndexFieldArgs{
-// 					AnalysisScheme: pulumi.String("_en_default_"),
-// 					Highlight:      pulumi.Bool(false),
-// 					Name:           pulumi.String("headline"),
-// 					Return:         pulumi.Bool(true),
-// 					Search:         pulumi.Bool(true),
-// 					Sort:           pulumi.Bool(true),
-// 					Type:           pulumi.String("text"),
-// 				},
-// 				&cloudsearch.DomainIndexFieldArgs{
-// 					Facet:        pulumi.Bool(true),
-// 					Name:         pulumi.String("price"),
-// 					Return:       pulumi.Bool(true),
-// 					Search:       pulumi.Bool(true),
-// 					Sort:         pulumi.Bool(true),
-// 					SourceFields: pulumi.String("headline"),
-// 					Type:         pulumi.String("double"),
-// 				},
-// 			},
-// 			ScalingParameters: &cloudsearch.DomainScalingParametersArgs{
-// 				DesiredInstanceType: pulumi.String("search.medium"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudsearch.NewDomain(ctx, "example", &cloudsearch.DomainArgs{
+//				IndexFields: cloudsearch.DomainIndexFieldArray{
+//					&cloudsearch.DomainIndexFieldArgs{
+//						AnalysisScheme: pulumi.String("_en_default_"),
+//						Highlight:      pulumi.Bool(false),
+//						Name:           pulumi.String("headline"),
+//						Return:         pulumi.Bool(true),
+//						Search:         pulumi.Bool(true),
+//						Sort:           pulumi.Bool(true),
+//						Type:           pulumi.String("text"),
+//					},
+//					&cloudsearch.DomainIndexFieldArgs{
+//						Facet:        pulumi.Bool(true),
+//						Name:         pulumi.String("price"),
+//						Return:       pulumi.Bool(true),
+//						Search:       pulumi.Bool(true),
+//						Sort:         pulumi.Bool(true),
+//						SourceFields: pulumi.String("headline"),
+//						Type:         pulumi.String("double"),
+//					},
+//				},
+//				ScalingParameters: &cloudsearch.DomainScalingParametersArgs{
+//					DesiredInstanceType: pulumi.String("search.medium"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // CloudSearch Domains can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudsearch/domain:Domain example example-domain
+//
+//	$ pulumi import aws:cloudsearch/domain:Domain example example-domain
+//
 // ```
 type Domain struct {
 	pulumi.CustomResourceState
@@ -212,7 +217,7 @@ func (i *Domain) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 // DomainArrayInput is an input type that accepts DomainArray and DomainArrayOutput values.
 // You can construct a concrete instance of `DomainArrayInput` via:
 //
-//          DomainArray{ DomainArgs{...} }
+//	DomainArray{ DomainArgs{...} }
 type DomainArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +242,7 @@ func (i DomainArray) ToDomainArrayOutputWithContext(ctx context.Context) DomainA
 // DomainMapInput is an input type that accepts DomainMap and DomainMapOutput values.
 // You can construct a concrete instance of `DomainMapInput` via:
 //
-//          DomainMap{ "key": DomainArgs{...} }
+//	DomainMap{ "key": DomainArgs{...} }
 type DomainMapInput interface {
 	pulumi.Input
 

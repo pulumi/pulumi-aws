@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MediaConvert.Inputs
 {
 
-    public sealed class QueueReservationPlanSettingsArgs : Pulumi.ResourceArgs
+    public sealed class QueueReservationPlanSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.MediaConvert.Inputs
         public QueueReservationPlanSettingsArgs()
         {
         }
+        public static new QueueReservationPlanSettingsArgs Empty => new QueueReservationPlanSettingsArgs();
     }
 }

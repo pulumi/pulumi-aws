@@ -18,106 +18,100 @@ namespace Pulumi.Aws.Ecs
     /// ### Basic Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Ecs.Cluster("foo", new()
     ///     {
-    ///         var foo = new Aws.Ecs.Cluster("foo", new Aws.Ecs.ClusterArgs
+    ///         Settings = new[]
     ///         {
-    ///             Settings = 
+    ///             new Aws.Ecs.Inputs.ClusterSettingArgs
     ///             {
-    ///                 new Aws.Ecs.Inputs.ClusterSettingArgs
-    ///                 {
-    ///                     Name = "containerInsights",
-    ///                     Value = "enabled",
-    ///                 },
+    ///                 Name = "containerInsights",
+    ///                 Value = "enabled",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example with Log Configuration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
     ///     {
-    ///         var exampleKey = new Aws.Kms.Key("exampleKey", new Aws.Kms.KeyArgs
+    ///         Description = "example",
+    ///         DeletionWindowInDays = 7,
+    ///     });
+    /// 
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
+    /// 
+    ///     var test = new Aws.Ecs.Cluster("test", new()
+    ///     {
+    ///         Configuration = new Aws.Ecs.Inputs.ClusterConfigurationArgs
     ///         {
-    ///             Description = "example",
-    ///             DeletionWindowInDays = 7,
-    ///         });
-    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
-    ///         {
-    ///         });
-    ///         var test = new Aws.Ecs.Cluster("test", new Aws.Ecs.ClusterArgs
-    ///         {
-    ///             Configuration = new Aws.Ecs.Inputs.ClusterConfigurationArgs
+    ///             ExecuteCommandConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationArgs
     ///             {
-    ///                 ExecuteCommandConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationArgs
+    ///                 KmsKeyId = exampleKey.Arn,
+    ///                 Logging = "OVERRIDE",
+    ///                 LogConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs
     ///                 {
-    ///                     KmsKeyId = exampleKey.Arn,
-    ///                     Logging = "OVERRIDE",
-    ///                     LogConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs
-    ///                     {
-    ///                         CloudWatchEncryptionEnabled = true,
-    ///                         CloudWatchLogGroupName = exampleLogGroup.Name,
-    ///                     },
+    ///                     CloudWatchEncryptionEnabled = true,
+    ///                     CloudWatchLogGroupName = exampleLogGroup.Name,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example with Capacity Providers
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleCluster = new Aws.Ecs.Cluster("exampleCluster", new Aws.Ecs.ClusterArgs
-    ///         {
-    ///         });
-    ///         var exampleCapacityProvider = new Aws.Ecs.CapacityProvider("exampleCapacityProvider", new Aws.Ecs.CapacityProviderArgs
-    ///         {
-    ///             AutoScalingGroupProvider = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderArgs
-    ///             {
-    ///                 AutoScalingGroupArn = aws_autoscaling_group.Example.Arn,
-    ///             },
-    ///         });
-    ///         var exampleClusterCapacityProviders = new Aws.Ecs.ClusterCapacityProviders("exampleClusterCapacityProviders", new Aws.Ecs.ClusterCapacityProvidersArgs
-    ///         {
-    ///             ClusterName = exampleCluster.Name,
-    ///             CapacityProviders = 
-    ///             {
-    ///                 exampleCapacityProvider.Name,
-    ///             },
-    ///             DefaultCapacityProviderStrategies = 
-    ///             {
-    ///                 new Aws.Ecs.Inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs
-    ///                 {
-    ///                     Base = 1,
-    ///                     Weight = 100,
-    ///                     CapacityProvider = exampleCapacityProvider.Name,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleCluster = new Aws.Ecs.Cluster("exampleCluster");
     /// 
-    /// }
+    ///     var exampleCapacityProvider = new Aws.Ecs.CapacityProvider("exampleCapacityProvider", new()
+    ///     {
+    ///         AutoScalingGroupProvider = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderArgs
+    ///         {
+    ///             AutoScalingGroupArn = aws_autoscaling_group.Example.Arn,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleClusterCapacityProviders = new Aws.Ecs.ClusterCapacityProviders("exampleClusterCapacityProviders", new()
+    ///     {
+    ///         ClusterName = exampleCluster.Name,
+    ///         CapacityProviders = new[]
+    ///         {
+    ///             exampleCapacityProvider.Name,
+    ///         },
+    ///         DefaultCapacityProviderStrategies = new[]
+    ///         {
+    ///             new Aws.Ecs.Inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs
+    ///             {
+    ///                 Base = 1,
+    ///                 Weight = 100,
+    ///                 CapacityProvider = exampleCapacityProvider.Name,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -129,7 +123,7 @@ namespace Pulumi.Aws.Ecs
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/cluster:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN that identifies the cluster.
@@ -223,7 +217,7 @@ namespace Pulumi.Aws.Ecs
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         [Input("capacityProviders")]
         private InputList<string>? _capacityProviders;
@@ -290,9 +284,10 @@ namespace Pulumi.Aws.Ecs
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 
-    public sealed class ClusterState : Pulumi.ResourceArgs
+    public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN that identifies the cluster.
@@ -377,5 +372,6 @@ namespace Pulumi.Aws.Ecs
         public ClusterState()
         {
         }
+        public static new ClusterState Empty => new ClusterState();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Outposts
     }
 
 
-    public sealed class GetOutpostInstanceTypeArgs : Pulumi.InvokeArgs
+    public sealed class GetOutpostInstanceTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Outpost Amazon Resource Name (ARN).
@@ -54,9 +54,10 @@ namespace Pulumi.Aws.Outposts
         public GetOutpostInstanceTypeArgs()
         {
         }
+        public static new GetOutpostInstanceTypeArgs Empty => new GetOutpostInstanceTypeArgs();
     }
 
-    public sealed class GetOutpostInstanceTypeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOutpostInstanceTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Outpost Amazon Resource Name (ARN).
@@ -85,6 +86,7 @@ namespace Pulumi.Aws.Outposts
         public GetOutpostInstanceTypeInvokeArgs()
         {
         }
+        public static new GetOutpostInstanceTypeInvokeArgs Empty => new GetOutpostInstanceTypeInvokeArgs();
     }
 
 

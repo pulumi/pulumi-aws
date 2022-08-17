@@ -22,27 +22,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = securityhub.NewFindingAggregator(ctx, "exampleFindingAggregator", &securityhub.FindingAggregatorArgs{
-// 			LinkingMode: pulumi.String("ALL_REGIONS"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleAccount,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewFindingAggregator(ctx, "exampleFindingAggregator", &securityhub.FindingAggregatorArgs{
+//				LinkingMode: pulumi.String("ALL_REGIONS"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAccount,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### All Regions Except Specified Regions Usage
 //
@@ -52,31 +55,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = securityhub.NewFindingAggregator(ctx, "exampleFindingAggregator", &securityhub.FindingAggregatorArgs{
-// 			LinkingMode: pulumi.String("ALL_REGIONS_EXCEPT_SPECIFIED"),
-// 			SpecifiedRegions: pulumi.StringArray{
-// 				pulumi.String("eu-west-1"),
-// 				pulumi.String("eu-west-2"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleAccount,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewFindingAggregator(ctx, "exampleFindingAggregator", &securityhub.FindingAggregatorArgs{
+//				LinkingMode: pulumi.String("ALL_REGIONS_EXCEPT_SPECIFIED"),
+//				SpecifiedRegions: pulumi.StringArray{
+//					pulumi.String("eu-west-1"),
+//					pulumi.String("eu-west-2"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAccount,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Specified Regions Usage
 //
@@ -86,31 +92,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = securityhub.NewFindingAggregator(ctx, "exampleFindingAggregator", &securityhub.FindingAggregatorArgs{
-// 			LinkingMode: pulumi.String("SPECIFIED_REGIONS"),
-// 			SpecifiedRegions: pulumi.StringArray{
-// 				pulumi.String("eu-west-1"),
-// 				pulumi.String("eu-west-2"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleAccount,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewFindingAggregator(ctx, "exampleFindingAggregator", &securityhub.FindingAggregatorArgs{
+//				LinkingMode: pulumi.String("SPECIFIED_REGIONS"),
+//				SpecifiedRegions: pulumi.StringArray{
+//					pulumi.String("eu-west-1"),
+//					pulumi.String("eu-west-2"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAccount,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -118,7 +127,9 @@ import (
 // An existing Security Hub finding aggregator can be imported using the `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
+//
+//	$ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
+//
 // ```
 type FindingAggregator struct {
 	pulumi.CustomResourceState
@@ -219,7 +230,7 @@ func (i *FindingAggregator) ToFindingAggregatorOutputWithContext(ctx context.Con
 // FindingAggregatorArrayInput is an input type that accepts FindingAggregatorArray and FindingAggregatorArrayOutput values.
 // You can construct a concrete instance of `FindingAggregatorArrayInput` via:
 //
-//          FindingAggregatorArray{ FindingAggregatorArgs{...} }
+//	FindingAggregatorArray{ FindingAggregatorArgs{...} }
 type FindingAggregatorArrayInput interface {
 	pulumi.Input
 
@@ -244,7 +255,7 @@ func (i FindingAggregatorArray) ToFindingAggregatorArrayOutputWithContext(ctx co
 // FindingAggregatorMapInput is an input type that accepts FindingAggregatorMap and FindingAggregatorMapOutput values.
 // You can construct a concrete instance of `FindingAggregatorMapInput` via:
 //
-//          FindingAggregatorMap{ "key": FindingAggregatorArgs{...} }
+//	FindingAggregatorMap{ "key": FindingAggregatorArgs{...} }
 type FindingAggregatorMapInput interface {
 	pulumi.Input
 

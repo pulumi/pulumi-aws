@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleErrorActionElasticsearchGetArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleErrorActionElasticsearchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The endpoint of your Elasticsearch domain.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleErrorActionElasticsearchGetArgs()
         {
         }
+        public static new TopicRuleErrorActionElasticsearchGetArgs Empty => new TopicRuleErrorActionElasticsearchGetArgs();
     }
 }

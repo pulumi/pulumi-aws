@@ -16,28 +16,27 @@ namespace Pulumi.Aws.DirectConnect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new()
     ///     {
-    ///         var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new Aws.DirectConnect.GatewayArgs
-    ///         {
-    ///             AmazonSideAsn = "64512",
-    ///         });
-    ///         var exampleTransitVirtualInterface = new Aws.DirectConnect.TransitVirtualInterface("exampleTransitVirtualInterface", new Aws.DirectConnect.TransitVirtualInterfaceArgs
-    ///         {
-    ///             ConnectionId = aws_dx_connection.Example.Id,
-    ///             DxGatewayId = exampleGateway.Id,
-    ///             Vlan = 4094,
-    ///             AddressFamily = "ipv4",
-    ///             BgpAsn = 65352,
-    ///         });
-    ///     }
+    ///         AmazonSideAsn = "64512",
+    ///     });
     /// 
-    /// }
+    ///     var exampleTransitVirtualInterface = new Aws.DirectConnect.TransitVirtualInterface("exampleTransitVirtualInterface", new()
+    ///     {
+    ///         ConnectionId = aws_dx_connection.Example.Id,
+    ///         DxGatewayId = exampleGateway.Id,
+    ///         Vlan = 4094,
+    ///         AddressFamily = "ipv4",
+    ///         BgpAsn = 65352,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +48,7 @@ namespace Pulumi.Aws.DirectConnect
     /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/transitVirtualInterface:TransitVirtualInterface")]
-    public partial class TransitVirtualInterface : Pulumi.CustomResource
+    public partial class TransitVirtualInterface : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -137,7 +136,7 @@ namespace Pulumi.Aws.DirectConnect
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -192,7 +191,7 @@ namespace Pulumi.Aws.DirectConnect
         }
     }
 
-    public sealed class TransitVirtualInterfaceArgs : Pulumi.ResourceArgs
+    public sealed class TransitVirtualInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -273,9 +272,10 @@ namespace Pulumi.Aws.DirectConnect
         public TransitVirtualInterfaceArgs()
         {
         }
+        public static new TransitVirtualInterfaceArgs Empty => new TransitVirtualInterfaceArgs();
     }
 
-    public sealed class TransitVirtualInterfaceState : Pulumi.ResourceArgs
+    public sealed class TransitVirtualInterfaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -372,7 +372,7 @@ namespace Pulumi.Aws.DirectConnect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -389,5 +389,6 @@ namespace Pulumi.Aws.DirectConnect
         public TransitVirtualInterfaceState()
         {
         }
+        public static new TransitVirtualInterfaceState Empty => new TransitVirtualInterfaceState();
     }
 }

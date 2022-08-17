@@ -15,26 +15,23 @@ namespace Pulumi.Aws.Pinpoint
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var app = new Aws.Pinpoint.App("app", new Aws.Pinpoint.AppArgs
-    ///         {
-    ///         });
-    ///         var apns = new Aws.Pinpoint.ApnsChannel("apns", new Aws.Pinpoint.ApnsChannelArgs
-    ///         {
-    ///             ApplicationId = app.ApplicationId,
-    ///             Certificate = File.ReadAllText("./certificate.pem"),
-    ///             PrivateKey = File.ReadAllText("./private_key.key"),
-    ///         });
-    ///     }
+    ///     var app = new Aws.Pinpoint.App("app");
     /// 
-    /// }
+    ///     var apns = new Aws.Pinpoint.ApnsChannel("apns", new()
+    ///     {
+    ///         ApplicationId = app.ApplicationId,
+    ///         Certificate = File.ReadAllText("./certificate.pem"),
+    ///         PrivateKey = File.ReadAllText("./private_key.key"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +43,7 @@ namespace Pulumi.Aws.Pinpoint
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/apnsChannel:ApnsChannel")]
-    public partial class ApnsChannel : Pulumi.CustomResource
+    public partial class ApnsChannel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application ID.
@@ -149,7 +146,7 @@ namespace Pulumi.Aws.Pinpoint
         }
     }
 
-    public sealed class ApnsChannelArgs : Pulumi.ResourceArgs
+    public sealed class ApnsChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -211,9 +208,10 @@ namespace Pulumi.Aws.Pinpoint
         public ApnsChannelArgs()
         {
         }
+        public static new ApnsChannelArgs Empty => new ApnsChannelArgs();
     }
 
-    public sealed class ApnsChannelState : Pulumi.ResourceArgs
+    public sealed class ApnsChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application ID.
@@ -275,5 +273,6 @@ namespace Pulumi.Aws.Pinpoint
         public ApnsChannelState()
         {
         }
+        public static new ApnsChannelState Empty => new ApnsChannelState();
     }
 }

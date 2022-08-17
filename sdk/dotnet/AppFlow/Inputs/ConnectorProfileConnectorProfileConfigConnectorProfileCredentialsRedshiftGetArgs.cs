@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftGetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password that corresponds to the user name.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftGetArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftGetArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftGetArgs();
     }
 }

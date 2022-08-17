@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fis.Inputs
 {
 
-    public sealed class ExperimentTemplateTargetFilterArgs : Pulumi.ResourceArgs
+    public sealed class ExperimentTemplateTargetFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Attribute path for the filter.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Fis.Inputs
         public ExperimentTemplateTargetFilterArgs()
         {
         }
+        public static new ExperimentTemplateTargetFilterArgs Empty => new ExperimentTemplateTargetFilterArgs();
     }
 }

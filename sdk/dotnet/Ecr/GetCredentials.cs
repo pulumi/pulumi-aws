@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ecr
     }
 
 
-    public sealed class GetCredentialsArgs : Pulumi.InvokeArgs
+    public sealed class GetCredentialsArgs : global::Pulumi.InvokeArgs
     {
         [Input("registryId", required: true)]
         public string RegistryId { get; set; } = null!;
@@ -27,9 +27,10 @@ namespace Pulumi.Aws.Ecr
         public GetCredentialsArgs()
         {
         }
+        public static new GetCredentialsArgs Empty => new GetCredentialsArgs();
     }
 
-    public sealed class GetCredentialsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCredentialsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("registryId", required: true)]
         public Input<string> RegistryId { get; set; } = null!;
@@ -37,6 +38,7 @@ namespace Pulumi.Aws.Ecr
         public GetCredentialsInvokeArgs()
         {
         }
+        public static new GetCredentialsInvokeArgs Empty => new GetCredentialsInvokeArgs();
     }
 
 

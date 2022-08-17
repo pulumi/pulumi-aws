@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift.Inputs
 {
 
-    public sealed class FleetCertificateConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class FleetCertificateConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.GameLift.Inputs
         public FleetCertificateConfigurationGetArgs()
         {
         }
+        public static new FleetCertificateConfigurationGetArgs Empty => new FleetCertificateConfigurationGetArgs();
     }
 }

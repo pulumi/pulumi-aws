@@ -15,18 +15,17 @@ namespace Pulumi.Aws.ApplicationInsights
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGroup = new Aws.ResourceGroups.Group("exampleGroup", new()
     ///     {
-    ///         var exampleGroup = new Aws.ResourceGroups.Group("exampleGroup", new Aws.ResourceGroups.GroupArgs
+    ///         ResourceQuery = new Aws.ResourceGroups.Inputs.GroupResourceQueryArgs
     ///         {
-    ///             ResourceQuery = new Aws.ResourceGroups.Inputs.GroupResourceQueryArgs
-    ///             {
-    ///                 Query = @"	{
+    ///             Query = @"	{
     /// 		""ResourceTypeFilters"": [
     /// 		  ""AWS::EC2::Instance""
     /// 		],
@@ -40,15 +39,15 @@ namespace Pulumi.Aws.ApplicationInsights
     /// 		]
     /// 	  }
     /// ",
-    ///             },
-    ///         });
-    ///         var exampleApplication = new Aws.ApplicationInsights.Application("exampleApplication", new Aws.ApplicationInsights.ApplicationArgs
-    ///         {
-    ///             ResourceGroupName = exampleGroup.Name,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleApplication = new Aws.ApplicationInsights.Application("exampleApplication", new()
+    ///     {
+    ///         ResourceGroupName = exampleGroup.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +59,7 @@ namespace Pulumi.Aws.ApplicationInsights
     /// ```
     /// </summary>
     [AwsResourceType("aws:applicationinsights/application:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Application.
@@ -116,9 +115,6 @@ namespace Pulumi.Aws.ApplicationInsights
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -166,7 +162,7 @@ namespace Pulumi.Aws.ApplicationInsights
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
@@ -222,24 +218,13 @@ namespace Pulumi.Aws.ApplicationInsights
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 
-    public sealed class ApplicationState : Pulumi.ResourceArgs
+    public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Application.
@@ -303,10 +288,6 @@ namespace Pulumi.Aws.ApplicationInsights
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -316,5 +297,6 @@ namespace Pulumi.Aws.ApplicationInsights
         public ApplicationState()
         {
         }
+        public static new ApplicationState Empty => new ApplicationState();
     }
 }

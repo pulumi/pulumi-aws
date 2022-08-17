@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceGetArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The replacement strategy to use. Only available for spot fleets with `fleet_type` set to `maintain`. Valid values: `launch`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceGetArgs()
         {
         }
+        public static new SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceGetArgs Empty => new SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceGetArgs();
     }
 }

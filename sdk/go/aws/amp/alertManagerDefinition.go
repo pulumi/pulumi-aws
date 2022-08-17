@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amp"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		demoWorkspace, err := amp.NewWorkspace(ctx, "demoWorkspace", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = amp.NewAlertManagerDefinition(ctx, "demoAlertManagerDefinition", &amp.AlertManagerDefinitionArgs{
-// 			WorkspaceId: demoWorkspace.ID(),
-// 			Definition:  pulumi.String(fmt.Sprintf("alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			demoWorkspace, err := amp.NewWorkspace(ctx, "demoWorkspace", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = amp.NewAlertManagerDefinition(ctx, "demoAlertManagerDefinition", &amp.AlertManagerDefinitionArgs{
+//				WorkspaceId: demoWorkspace.ID(),
+//				Definition:  pulumi.String(fmt.Sprintf("alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // The prometheus alert manager definition can be imported using the workspace identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+//
+//	$ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+//
 // ```
 type AlertManagerDefinition struct {
 	pulumi.CustomResourceState
@@ -152,7 +157,7 @@ func (i *AlertManagerDefinition) ToAlertManagerDefinitionOutputWithContext(ctx c
 // AlertManagerDefinitionArrayInput is an input type that accepts AlertManagerDefinitionArray and AlertManagerDefinitionArrayOutput values.
 // You can construct a concrete instance of `AlertManagerDefinitionArrayInput` via:
 //
-//          AlertManagerDefinitionArray{ AlertManagerDefinitionArgs{...} }
+//	AlertManagerDefinitionArray{ AlertManagerDefinitionArgs{...} }
 type AlertManagerDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -177,7 +182,7 @@ func (i AlertManagerDefinitionArray) ToAlertManagerDefinitionArrayOutputWithCont
 // AlertManagerDefinitionMapInput is an input type that accepts AlertManagerDefinitionMap and AlertManagerDefinitionMapOutput values.
 // You can construct a concrete instance of `AlertManagerDefinitionMapInput` via:
 //
-//          AlertManagerDefinitionMap{ "key": AlertManagerDefinitionArgs{...} }
+//	AlertManagerDefinitionMap{ "key": AlertManagerDefinitionArgs{...} }
 type AlertManagerDefinitionMapInput interface {
 	pulumi.Input
 

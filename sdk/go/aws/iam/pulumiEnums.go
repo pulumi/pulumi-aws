@@ -417,7 +417,7 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 // ManagedPolicyInput is an input type that accepts ManagedPolicyArgs and ManagedPolicyOutput values.
 // You can construct a concrete instance of `ManagedPolicyInput` via:
 //
-//          ManagedPolicyArgs{...}
+//	ManagedPolicyArgs{...}
 type ManagedPolicyInput interface {
 	pulumi.Input
 

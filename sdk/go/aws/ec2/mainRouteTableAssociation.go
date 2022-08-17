@@ -17,22 +17,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewMainRouteTableAssociation(ctx, "mainRouteTableAssociation", &ec2.MainRouteTableAssociationArgs{
-// 			VpcId:        pulumi.Any(aws_vpc.Foo.Id),
-// 			RouteTableId: pulumi.Any(aws_route_table.Bar.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewMainRouteTableAssociation(ctx, "mainRouteTableAssociation", &ec2.MainRouteTableAssociationArgs{
+//				VpcId:        pulumi.Any(aws_vpc.Foo.Id),
+//				RouteTableId: pulumi.Any(aws_route_table.Bar.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Notes
 //
@@ -159,7 +162,7 @@ func (i *MainRouteTableAssociation) ToMainRouteTableAssociationOutputWithContext
 // MainRouteTableAssociationArrayInput is an input type that accepts MainRouteTableAssociationArray and MainRouteTableAssociationArrayOutput values.
 // You can construct a concrete instance of `MainRouteTableAssociationArrayInput` via:
 //
-//          MainRouteTableAssociationArray{ MainRouteTableAssociationArgs{...} }
+//	MainRouteTableAssociationArray{ MainRouteTableAssociationArgs{...} }
 type MainRouteTableAssociationArrayInput interface {
 	pulumi.Input
 
@@ -184,7 +187,7 @@ func (i MainRouteTableAssociationArray) ToMainRouteTableAssociationArrayOutputWi
 // MainRouteTableAssociationMapInput is an input type that accepts MainRouteTableAssociationMap and MainRouteTableAssociationMapOutput values.
 // You can construct a concrete instance of `MainRouteTableAssociationMapInput` via:
 //
-//          MainRouteTableAssociationMap{ "key": MainRouteTableAssociationArgs{...} }
+//	MainRouteTableAssociationMap{ "key": MainRouteTableAssociationArgs{...} }
 type MainRouteTableAssociationMapInput interface {
 	pulumi.Input
 

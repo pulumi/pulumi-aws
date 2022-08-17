@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WorkLink.Inputs
 {
 
-    public sealed class FleetNetworkGetArgs : Pulumi.ResourceArgs
+    public sealed class FleetNetworkGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.WorkLink.Inputs
         public FleetNetworkGetArgs()
         {
         }
+        public static new FleetNetworkGetArgs Empty => new FleetNetworkGetArgs();
     }
 }

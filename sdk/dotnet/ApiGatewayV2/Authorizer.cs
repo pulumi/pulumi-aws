@@ -17,57 +17,53 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ### Basic WebSocket API
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ApiGatewayV2.Authorizer("example", new()
     ///     {
-    ///         var example = new Aws.ApiGatewayV2.Authorizer("example", new Aws.ApiGatewayV2.AuthorizerArgs
+    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         AuthorizerType = "REQUEST",
+    ///         AuthorizerUri = aws_lambda_function.Example.Invoke_arn,
+    ///         IdentitySources = new[]
     ///         {
-    ///             ApiId = aws_apigatewayv2_api.Example.Id,
-    ///             AuthorizerType = "REQUEST",
-    ///             AuthorizerUri = aws_lambda_function.Example.Invoke_arn,
-    ///             IdentitySources = 
-    ///             {
-    ///                 "route.request.header.Auth",
-    ///             },
-    ///         });
-    ///     }
+    ///             "route.request.header.Auth",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Basic HTTP API
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ApiGatewayV2.Authorizer("example", new()
     ///     {
-    ///         var example = new Aws.ApiGatewayV2.Authorizer("example", new Aws.ApiGatewayV2.AuthorizerArgs
+    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         AuthorizerType = "JWT",
+    ///         IdentitySources = new[]
     ///         {
-    ///             ApiId = aws_apigatewayv2_api.Example.Id,
-    ///             AuthorizerType = "JWT",
-    ///             IdentitySources = 
+    ///             "$request.header.Authorization",
+    ///         },
+    ///         JwtConfiguration = new Aws.ApiGatewayV2.Inputs.AuthorizerJwtConfigurationArgs
+    ///         {
+    ///             Audiences = new[]
     ///             {
-    ///                 "$request.header.Authorization",
+    ///                 "example",
     ///             },
-    ///             JwtConfiguration = new Aws.ApiGatewayV2.Inputs.AuthorizerJwtConfigurationArgs
-    ///             {
-    ///                 Audiences = 
-    ///                 {
-    ///                     "example",
-    ///                 },
-    ///                 Issuer = $"https://{aws_cognito_user_pool.Example.Endpoint}",
-    ///             },
-    ///         });
-    ///     }
+    ///             Issuer = $"https://{aws_cognito_user_pool.Example.Endpoint}",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -79,7 +75,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/authorizer:Authorizer")]
-    public partial class Authorizer : Pulumi.CustomResource
+    public partial class Authorizer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The API identifier.
@@ -197,7 +193,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
     }
 
-    public sealed class AuthorizerArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API identifier.
@@ -280,9 +276,10 @@ namespace Pulumi.Aws.ApiGatewayV2
         public AuthorizerArgs()
         {
         }
+        public static new AuthorizerArgs Empty => new AuthorizerArgs();
     }
 
-    public sealed class AuthorizerState : Pulumi.ResourceArgs
+    public sealed class AuthorizerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API identifier.
@@ -365,5 +362,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         public AuthorizerState()
         {
         }
+        public static new AuthorizerState Empty => new AuthorizerState();
     }
 }

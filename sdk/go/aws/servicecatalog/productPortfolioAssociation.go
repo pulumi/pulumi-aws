@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicecatalog.NewProductPortfolioAssociation(ctx, "example", &servicecatalog.ProductPortfolioAssociationArgs{
-// 			PortfolioId: pulumi.String("port-68656c6c6f"),
-// 			ProductId:   pulumi.String("prod-dnigbtea24ste"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicecatalog.NewProductPortfolioAssociation(ctx, "example", &servicecatalog.ProductPortfolioAssociationArgs{
+//				PortfolioId: pulumi.String("port-68656c6c6f"),
+//				ProductId:   pulumi.String("prod-dnigbtea24ste"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // `aws_servicecatalog_product_portfolio_association` can be imported using the accept language, portfolio ID, and product ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
+//
+//	$ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
+//
 // ```
 type ProductPortfolioAssociation struct {
 	pulumi.CustomResourceState
@@ -167,7 +172,7 @@ func (i *ProductPortfolioAssociation) ToProductPortfolioAssociationOutputWithCon
 // ProductPortfolioAssociationArrayInput is an input type that accepts ProductPortfolioAssociationArray and ProductPortfolioAssociationArrayOutput values.
 // You can construct a concrete instance of `ProductPortfolioAssociationArrayInput` via:
 //
-//          ProductPortfolioAssociationArray{ ProductPortfolioAssociationArgs{...} }
+//	ProductPortfolioAssociationArray{ ProductPortfolioAssociationArgs{...} }
 type ProductPortfolioAssociationArrayInput interface {
 	pulumi.Input
 
@@ -192,7 +197,7 @@ func (i ProductPortfolioAssociationArray) ToProductPortfolioAssociationArrayOutp
 // ProductPortfolioAssociationMapInput is an input type that accepts ProductPortfolioAssociationMap and ProductPortfolioAssociationMapOutput values.
 // You can construct a concrete instance of `ProductPortfolioAssociationMapInput` via:
 //
-//          ProductPortfolioAssociationMap{ "key": ProductPortfolioAssociationArgs{...} }
+//	ProductPortfolioAssociationMap{ "key": ProductPortfolioAssociationArgs{...} }
 type ProductPortfolioAssociationMapInput interface {
 	pulumi.Input
 

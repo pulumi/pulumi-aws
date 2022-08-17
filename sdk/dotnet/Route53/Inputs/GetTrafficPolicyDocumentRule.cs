@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53.Inputs
 {
 
-    public sealed class GetTrafficPolicyDocumentRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetTrafficPolicyDocumentRuleArgs : global::Pulumi.InvokeArgs
     {
         [Input("geoProximityLocations")]
         private List<Inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs>? _geoProximityLocations;
@@ -87,5 +87,6 @@ namespace Pulumi.Aws.Route53.Inputs
         public GetTrafficPolicyDocumentRuleArgs()
         {
         }
+        public static new GetTrafficPolicyDocumentRuleArgs Empty => new GetTrafficPolicyDocumentRuleArgs();
     }
 }

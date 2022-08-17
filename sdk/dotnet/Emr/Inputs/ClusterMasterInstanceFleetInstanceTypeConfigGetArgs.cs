@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Emr.Inputs
 {
 
-    public sealed class ClusterMasterInstanceFleetInstanceTypeConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterMasterInstanceFleetInstanceTypeConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.Emr.Inputs
         public ClusterMasterInstanceFleetInstanceTypeConfigGetArgs()
         {
         }
+        public static new ClusterMasterInstanceFleetInstanceTypeConfigGetArgs Empty => new ClusterMasterInstanceFleetInstanceTypeConfigGetArgs();
     }
 }

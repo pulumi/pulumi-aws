@@ -21,47 +21,43 @@ namespace Pulumi.Aws.Route53
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Route53.GetResolverEndpoint.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Route53.GetResolverEndpoint.InvokeAsync(new Aws.Route53.GetResolverEndpointArgs
-        ///         {
-        ///             ResolverEndpointId = "rslvr-in-1abc2345ef678g91h",
-        ///         }));
-        ///     }
+        ///         ResolverEndpointId = "rslvr-in-1abc2345ef678g91h",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Route53.GetResolverEndpoint.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Route53.GetResolverEndpoint.InvokeAsync(new Aws.Route53.GetResolverEndpointArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Route53.Inputs.GetResolverEndpointFilterInputArgs
         ///             {
-        ///                 new Aws.Route53.Inputs.GetResolverEndpointFilterArgs
+        ///                 Name = "NAME",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "NAME",
-        ///                     Values = 
-        ///                     {
-        ///                         "MyResolverExampleName",
-        ///                     },
+        ///                     "MyResolverExampleName",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,47 +75,43 @@ namespace Pulumi.Aws.Route53
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Route53.GetResolverEndpoint.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Route53.GetResolverEndpoint.InvokeAsync(new Aws.Route53.GetResolverEndpointArgs
-        ///         {
-        ///             ResolverEndpointId = "rslvr-in-1abc2345ef678g91h",
-        ///         }));
-        ///     }
+        ///         ResolverEndpointId = "rslvr-in-1abc2345ef678g91h",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Route53.GetResolverEndpoint.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Route53.GetResolverEndpoint.InvokeAsync(new Aws.Route53.GetResolverEndpointArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Route53.Inputs.GetResolverEndpointFilterInputArgs
         ///             {
-        ///                 new Aws.Route53.Inputs.GetResolverEndpointFilterArgs
+        ///                 Name = "NAME",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "NAME",
-        ///                     Values = 
-        ///                     {
-        ///                         "MyResolverExampleName",
-        ///                     },
+        ///                     "MyResolverExampleName",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -129,7 +121,7 @@ namespace Pulumi.Aws.Route53
     }
 
 
-    public sealed class GetResolverEndpointArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverEndpointArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetResolverEndpointFilterArgs>? _filters;
@@ -154,9 +146,10 @@ namespace Pulumi.Aws.Route53
         public GetResolverEndpointArgs()
         {
         }
+        public static new GetResolverEndpointArgs Empty => new GetResolverEndpointArgs();
     }
 
-    public sealed class GetResolverEndpointInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResolverEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetResolverEndpointFilterInputArgs>? _filters;
@@ -181,6 +174,7 @@ namespace Pulumi.Aws.Route53
         public GetResolverEndpointInvokeArgs()
         {
         }
+        public static new GetResolverEndpointInvokeArgs Empty => new GetResolverEndpointInvokeArgs();
     }
 
 

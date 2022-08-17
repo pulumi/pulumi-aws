@@ -14,106 +14,100 @@ namespace Pulumi.Aws.Ec2
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var s3 = new Aws.Ec2.VpcEndpoint("s3", new()
     ///     {
-    ///         var s3 = new Aws.Ec2.VpcEndpoint("s3", new Aws.Ec2.VpcEndpointArgs
-    ///         {
-    ///             VpcId = aws_vpc.Main.Id,
-    ///             ServiceName = "com.amazonaws.us-west-2.s3",
-    ///         });
-    ///     }
+    ///         VpcId = aws_vpc.Main.Id,
+    ///         ServiceName = "com.amazonaws.us-west-2.s3",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Basic w/ Tags
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var s3 = new Aws.Ec2.VpcEndpoint("s3", new()
     ///     {
-    ///         var s3 = new Aws.Ec2.VpcEndpoint("s3", new Aws.Ec2.VpcEndpointArgs
+    ///         VpcId = aws_vpc.Main.Id,
+    ///         ServiceName = "com.amazonaws.us-west-2.s3",
+    ///         Tags = 
     ///         {
-    ///             VpcId = aws_vpc.Main.Id,
-    ///             ServiceName = "com.amazonaws.us-west-2.s3",
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "test" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Environment", "test" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Interface Endpoint Type
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ec2 = new Aws.Ec2.VpcEndpoint("ec2", new()
     ///     {
-    ///         var ec2 = new Aws.Ec2.VpcEndpoint("ec2", new Aws.Ec2.VpcEndpointArgs
+    ///         VpcId = aws_vpc.Main.Id,
+    ///         ServiceName = "com.amazonaws.us-west-2.ec2",
+    ///         VpcEndpointType = "Interface",
+    ///         SecurityGroupIds = new[]
     ///         {
-    ///             VpcId = aws_vpc.Main.Id,
-    ///             ServiceName = "com.amazonaws.us-west-2.ec2",
-    ///             VpcEndpointType = "Interface",
-    ///             SecurityGroupIds = 
-    ///             {
-    ///                 aws_security_group.Sg1.Id,
-    ///             },
-    ///             PrivateDnsEnabled = true,
-    ///         });
-    ///     }
+    ///             aws_security_group.Sg1.Id,
+    ///         },
+    ///         PrivateDnsEnabled = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Gateway Load Balancer Endpoint Type
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var exampleVpcEndpointService = new Aws.Ec2.VpcEndpointService("exampleVpcEndpointService", new Aws.Ec2.VpcEndpointServiceArgs
-    ///         {
-    ///             AcceptanceRequired = false,
-    ///             AllowedPrincipals = 
-    ///             {
-    ///                 current.Apply(current =&gt; current.Arn),
-    ///             },
-    ///             GatewayLoadBalancerArns = 
-    ///             {
-    ///                 aws_lb.Example.Arn,
-    ///             },
-    ///         });
-    ///         var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new Aws.Ec2.VpcEndpointArgs
-    ///         {
-    ///             ServiceName = exampleVpcEndpointService.ServiceName,
-    ///             SubnetIds = 
-    ///             {
-    ///                 aws_subnet.Example.Id,
-    ///             },
-    ///             VpcEndpointType = exampleVpcEndpointService.ServiceType,
-    ///             VpcId = aws_vpc.Example.Id,
-    ///         });
-    ///     }
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    /// }
+    ///     var exampleVpcEndpointService = new Aws.Ec2.VpcEndpointService("exampleVpcEndpointService", new()
+    ///     {
+    ///         AcceptanceRequired = false,
+    ///         AllowedPrincipals = new[]
+    ///         {
+    ///             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
+    ///         },
+    ///         GatewayLoadBalancerArns = new[]
+    ///         {
+    ///             aws_lb.Example.Arn,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new()
+    ///     {
+    ///         ServiceName = exampleVpcEndpointService.ServiceName,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             aws_subnet.Example.Id,
+    ///         },
+    ///         VpcEndpointType = exampleVpcEndpointService.ServiceType,
+    ///         VpcId = aws_vpc.Example.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -125,7 +119,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpoint:VpcEndpoint")]
-    public partial class VpcEndpoint : Pulumi.CustomResource
+    public partial class VpcEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the VPC endpoint.
@@ -238,7 +232,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -299,7 +293,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcEndpointArgs : Pulumi.ResourceArgs
+    public sealed class VpcEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
@@ -402,9 +396,10 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointArgs()
         {
         }
+        public static new VpcEndpointArgs Empty => new VpcEndpointArgs();
     }
 
-    public sealed class VpcEndpointState : Pulumi.ResourceArgs
+    public sealed class VpcEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the VPC endpoint.
@@ -562,7 +557,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -585,5 +580,6 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointState()
         {
         }
+        public static new VpcEndpointState Empty => new VpcEndpointState();
     }
 }

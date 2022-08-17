@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class VpcIpamPoolCidrCidrAuthorizationContextArgs : Pulumi.ResourceArgs
+    public sealed class VpcIpamPoolCidrCidrAuthorizationContextArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The plain-text authorization message for the prefix and account.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public VpcIpamPoolCidrCidrAuthorizationContextArgs()
         {
         }
+        public static new VpcIpamPoolCidrCidrAuthorizationContextArgs Empty => new VpcIpamPoolCidrCidrAuthorizationContextArgs();
     }
 }

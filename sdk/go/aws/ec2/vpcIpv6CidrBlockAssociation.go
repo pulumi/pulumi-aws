@@ -21,28 +21,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testVpc, err := ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.0.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewVpcIpv6CidrBlockAssociation(ctx, "testVpcIpv6CidrBlockAssociation", &ec2.VpcIpv6CidrBlockAssociationArgs{
-// 			Ipv6IpamPoolId: pulumi.Any(aws_vpc_ipam_pool.Test.Id),
-// 			VpcId:          testVpc.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testVpc, err := ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpv6CidrBlockAssociation(ctx, "testVpcIpv6CidrBlockAssociation", &ec2.VpcIpv6CidrBlockAssociationArgs{
+//				Ipv6IpamPoolId: pulumi.Any(aws_vpc_ipam_pool.Test.Id),
+//				VpcId:          testVpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // `aws_vpc_ipv6_cidr_block_association` can be imported by using the VPC CIDR Association ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
+//
+//	$ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
+//
 // ```
 type VpcIpv6CidrBlockAssociation struct {
 	pulumi.CustomResourceState
@@ -174,7 +179,7 @@ func (i *VpcIpv6CidrBlockAssociation) ToVpcIpv6CidrBlockAssociationOutputWithCon
 // VpcIpv6CidrBlockAssociationArrayInput is an input type that accepts VpcIpv6CidrBlockAssociationArray and VpcIpv6CidrBlockAssociationArrayOutput values.
 // You can construct a concrete instance of `VpcIpv6CidrBlockAssociationArrayInput` via:
 //
-//          VpcIpv6CidrBlockAssociationArray{ VpcIpv6CidrBlockAssociationArgs{...} }
+//	VpcIpv6CidrBlockAssociationArray{ VpcIpv6CidrBlockAssociationArgs{...} }
 type VpcIpv6CidrBlockAssociationArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +204,7 @@ func (i VpcIpv6CidrBlockAssociationArray) ToVpcIpv6CidrBlockAssociationArrayOutp
 // VpcIpv6CidrBlockAssociationMapInput is an input type that accepts VpcIpv6CidrBlockAssociationMap and VpcIpv6CidrBlockAssociationMapOutput values.
 // You can construct a concrete instance of `VpcIpv6CidrBlockAssociationMapInput` via:
 //
-//          VpcIpv6CidrBlockAssociationMap{ "key": VpcIpv6CidrBlockAssociationArgs{...} }
+//	VpcIpv6CidrBlockAssociationMap{ "key": VpcIpv6CidrBlockAssociationArgs{...} }
 type VpcIpv6CidrBlockAssociationMapInput interface {
 	pulumi.Input
 

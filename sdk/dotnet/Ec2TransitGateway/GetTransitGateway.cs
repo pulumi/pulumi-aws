@@ -20,50 +20,46 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetTransitGateway.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetTransitGateway.InvokeAsync(new Aws.Ec2TransitGateway.GetTransitGatewayArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2TransitGateway.Inputs.GetTransitGatewayFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetTransitGatewayFilterArgs
+        ///                 Name = "options.amazon-side-asn",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "options.amazon-side-asn",
-        ///                     Values = 
-        ///                     {
-        ///                         "64512",
-        ///                     },
+        ///                     "64512",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetTransitGateway.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetTransitGateway.InvokeAsync(new Aws.Ec2TransitGateway.GetTransitGatewayArgs
-        ///         {
-        ///             Id = "tgw-12345678",
-        ///         }));
-        ///     }
+        ///         Id = "tgw-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -80,50 +76,46 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetTransitGateway.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetTransitGateway.InvokeAsync(new Aws.Ec2TransitGateway.GetTransitGatewayArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2TransitGateway.Inputs.GetTransitGatewayFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetTransitGatewayFilterArgs
+        ///                 Name = "options.amazon-side-asn",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "options.amazon-side-asn",
-        ///                     Values = 
-        ///                     {
-        ///                         "64512",
-        ///                     },
+        ///                     "64512",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetTransitGateway.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetTransitGateway.InvokeAsync(new Aws.Ec2TransitGateway.GetTransitGatewayArgs
-        ///         {
-        ///             Id = "tgw-12345678",
-        ///         }));
-        ///     }
+        ///         Id = "tgw-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -133,7 +125,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     }
 
 
-    public sealed class GetTransitGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetTransitGatewayArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetTransitGatewayFilterArgs>? _filters;
@@ -168,9 +160,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetTransitGatewayArgs()
         {
         }
+        public static new GetTransitGatewayArgs Empty => new GetTransitGatewayArgs();
     }
 
-    public sealed class GetTransitGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTransitGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetTransitGatewayFilterInputArgs>? _filters;
@@ -205,6 +198,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetTransitGatewayInvokeArgs()
         {
         }
+        public static new GetTransitGatewayInvokeArgs Empty => new GetTransitGatewayInvokeArgs();
     }
 
 

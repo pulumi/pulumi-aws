@@ -94,7 +94,7 @@ export class Connection extends pulumi.CustomResource {
      */
     public readonly connectionProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
+     * The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
      */
     public readonly connectionType!: pulumi.Output<string | undefined>;
     /**
@@ -180,7 +180,7 @@ export interface ConnectionState {
      */
     connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
+     * The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
      */
     connectionType?: pulumi.Input<string>;
     /**
@@ -222,7 +222,7 @@ export interface ConnectionArgs {
      */
     connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
+     * The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JBDC`.
      */
     connectionType?: pulumi.Input<string>;
     /**

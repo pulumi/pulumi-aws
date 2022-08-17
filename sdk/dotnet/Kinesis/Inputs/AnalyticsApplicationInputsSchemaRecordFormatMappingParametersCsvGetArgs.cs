@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvGetArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Column Delimiter.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvGetArgs()
         {
         }
+        public static new AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvGetArgs Empty => new AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvGetArgs();
     }
 }

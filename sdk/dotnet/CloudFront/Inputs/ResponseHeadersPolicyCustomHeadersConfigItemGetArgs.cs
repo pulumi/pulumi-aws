@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class ResponseHeadersPolicyCustomHeadersConfigItemGetArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicyCustomHeadersConfigItemGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HTTP response header name.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public ResponseHeadersPolicyCustomHeadersConfigItemGetArgs()
         {
         }
+        public static new ResponseHeadersPolicyCustomHeadersConfigItemGetArgs Empty => new ResponseHeadersPolicyCustomHeadersConfigItemGetArgs();
     }
 }

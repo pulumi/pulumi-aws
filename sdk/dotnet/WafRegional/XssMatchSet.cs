@@ -15,38 +15,36 @@ namespace Pulumi.Aws.WafRegional
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var xssMatchSet = new Aws.WafRegional.XssMatchSet("xssMatchSet", new()
     ///     {
-    ///         var xssMatchSet = new Aws.WafRegional.XssMatchSet("xssMatchSet", new Aws.WafRegional.XssMatchSetArgs
+    ///         XssMatchTuples = new[]
     ///         {
-    ///             XssMatchTuples = 
+    ///             new Aws.WafRegional.Inputs.XssMatchSetXssMatchTupleArgs
     ///             {
-    ///                 new Aws.WafRegional.Inputs.XssMatchSetXssMatchTupleArgs
+    ///                 FieldToMatch = new Aws.WafRegional.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
     ///                 {
-    ///                     FieldToMatch = new Aws.WafRegional.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
-    ///                     {
-    ///                         Type = "URI",
-    ///                     },
-    ///                     TextTransformation = "NONE",
+    ///                     Type = "URI",
     ///                 },
-    ///                 new Aws.WafRegional.Inputs.XssMatchSetXssMatchTupleArgs
-    ///                 {
-    ///                     FieldToMatch = new Aws.WafRegional.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
-    ///                     {
-    ///                         Type = "QUERY_STRING",
-    ///                     },
-    ///                     TextTransformation = "NONE",
-    ///                 },
+    ///                 TextTransformation = "NONE",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.WafRegional.Inputs.XssMatchSetXssMatchTupleArgs
+    ///             {
+    ///                 FieldToMatch = new Aws.WafRegional.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
+    ///                 {
+    ///                     Type = "QUERY_STRING",
+    ///                 },
+    ///                 TextTransformation = "NONE",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +56,7 @@ namespace Pulumi.Aws.WafRegional
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafregional/xssMatchSet:XssMatchSet")]
-    public partial class XssMatchSet : Pulumi.CustomResource
+    public partial class XssMatchSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the set
@@ -116,7 +114,7 @@ namespace Pulumi.Aws.WafRegional
         }
     }
 
-    public sealed class XssMatchSetArgs : Pulumi.ResourceArgs
+    public sealed class XssMatchSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the set
@@ -139,9 +137,10 @@ namespace Pulumi.Aws.WafRegional
         public XssMatchSetArgs()
         {
         }
+        public static new XssMatchSetArgs Empty => new XssMatchSetArgs();
     }
 
-    public sealed class XssMatchSetState : Pulumi.ResourceArgs
+    public sealed class XssMatchSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the set
@@ -164,5 +163,6 @@ namespace Pulumi.Aws.WafRegional
         public XssMatchSetState()
         {
         }
+        public static new XssMatchSetState Empty => new XssMatchSetState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Quicksight.Inputs
 {
 
-    public sealed class DataSourceParametersAthenaArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceParametersAthenaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The work-group to which to connect.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public DataSourceParametersAthenaArgs()
         {
         }
+        public static new DataSourceParametersAthenaArgs Empty => new DataSourceParametersAthenaArgs();
     }
 }

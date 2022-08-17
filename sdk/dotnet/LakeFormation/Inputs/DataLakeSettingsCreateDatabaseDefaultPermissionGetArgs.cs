@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.LakeFormation.Inputs
 {
 
-    public sealed class DataLakeSettingsCreateDatabaseDefaultPermissionGetArgs : Pulumi.ResourceArgs
+    public sealed class DataLakeSettingsCreateDatabaseDefaultPermissionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("permissions")]
         private InputList<string>? _permissions;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         public DataLakeSettingsCreateDatabaseDefaultPermissionGetArgs()
         {
         }
+        public static new DataLakeSettingsCreateDatabaseDefaultPermissionGetArgs Empty => new DataLakeSettingsCreateDatabaseDefaultPermissionGetArgs();
     }
 }

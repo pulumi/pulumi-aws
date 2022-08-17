@@ -18,22 +18,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := backup.LookupSelection(ctx, &backup.LookupSelectionArgs{
-// 			PlanId:      data.Aws_backup_plan.Example.Id,
-// 			SelectionId: "selection-id-example",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.LookupSelection(ctx, &backup.LookupSelectionArgs{
+//				PlanId:      data.Aws_backup_plan.Example.Id,
+//				SelectionId: "selection-id-example",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupSelection(ctx *pulumi.Context, args *LookupSelectionArgs, opts ...pulumi.InvokeOption) (*LookupSelectionResult, error) {
 	var rv LookupSelectionResult

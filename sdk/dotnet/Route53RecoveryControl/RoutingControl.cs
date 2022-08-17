@@ -15,38 +15,34 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Route53RecoveryControl.RoutingControl("example", new()
     ///     {
-    ///         var example = new Aws.Route53RecoveryControl.RoutingControl("example", new Aws.Route53RecoveryControl.RoutingControlArgs
-    ///         {
-    ///             ClusterArn = "arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
-    ///         });
-    ///     }
+    ///         ClusterArn = "arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Route53RecoveryControl.RoutingControl("example", new()
     ///     {
-    ///         var example = new Aws.Route53RecoveryControl.RoutingControl("example", new Aws.Route53RecoveryControl.RoutingControlArgs
-    ///         {
-    ///             ClusterArn = "arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
-    ///             ControlPanelArn = "arn:aws:route53-recovery-control::428113431245:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
-    ///         });
-    ///     }
+    ///         ClusterArn = "arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
+    ///         ControlPanelArn = "arn:aws:route53-recovery-control::428113431245:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +54,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53recoverycontrol/routingControl:RoutingControl")]
-    public partial class RoutingControl : Pulumi.CustomResource
+    public partial class RoutingControl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the routing control.
@@ -134,7 +130,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
         }
     }
 
-    public sealed class RoutingControlArgs : Pulumi.ResourceArgs
+    public sealed class RoutingControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the cluster in which this routing control will reside.
@@ -157,9 +153,10 @@ namespace Pulumi.Aws.Route53RecoveryControl
         public RoutingControlArgs()
         {
         }
+        public static new RoutingControlArgs Empty => new RoutingControlArgs();
     }
 
-    public sealed class RoutingControlState : Pulumi.ResourceArgs
+    public sealed class RoutingControlState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the routing control.
@@ -194,5 +191,6 @@ namespace Pulumi.Aws.Route53RecoveryControl
         public RoutingControlState()
         {
         }
+        public static new RoutingControlState Empty => new RoutingControlState();
     }
 }

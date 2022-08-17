@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Table{}
 	case "aws:dynamodb/tableItem:TableItem":
 		r = &TableItem{}
+	case "aws:dynamodb/tableReplica:TableReplica":
+		r = &TableReplica{}
 	case "aws:dynamodb/tag:Tag":
 		r = &Tag{}
 	default:
@@ -69,6 +71,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"dynamodb/tableItem",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"dynamodb/tableReplica",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

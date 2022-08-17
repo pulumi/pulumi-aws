@@ -20,23 +20,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2clientvpn.NewAuthorizationRule(ctx, "example", &ec2clientvpn.AuthorizationRuleArgs{
-// 			ClientVpnEndpointId: pulumi.Any(aws_ec2_client_vpn_endpoint.Example.Id),
-// 			TargetNetworkCidr:   pulumi.Any(aws_subnet.Example.Cidr_block),
-// 			AuthorizeAllGroups:  pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2clientvpn.NewAuthorizationRule(ctx, "example", &ec2clientvpn.AuthorizationRuleArgs{
+//				ClientVpnEndpointId: pulumi.Any(aws_ec2_client_vpn_endpoint.Example.Id),
+//				TargetNetworkCidr:   pulumi.Any(aws_subnet.Example.Cidr_block),
+//				AuthorizeAllGroups:  pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,11 +47,15 @@ import (
 // AWS Client VPN authorization rules can be imported using the endpoint ID and target network CIDR. If there is a specific group name that is included as well. All values are separated by a `,`.
 //
 // ```sh
-//  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
+//
+//	$ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
+//
 // ```
 //
 // ```sh
-//  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
+//
+//	$ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
+//
 // ```
 type AuthorizationRule struct {
 	pulumi.CustomResourceState
@@ -182,7 +189,7 @@ func (i *AuthorizationRule) ToAuthorizationRuleOutputWithContext(ctx context.Con
 // AuthorizationRuleArrayInput is an input type that accepts AuthorizationRuleArray and AuthorizationRuleArrayOutput values.
 // You can construct a concrete instance of `AuthorizationRuleArrayInput` via:
 //
-//          AuthorizationRuleArray{ AuthorizationRuleArgs{...} }
+//	AuthorizationRuleArray{ AuthorizationRuleArgs{...} }
 type AuthorizationRuleArrayInput interface {
 	pulumi.Input
 
@@ -207,7 +214,7 @@ func (i AuthorizationRuleArray) ToAuthorizationRuleArrayOutputWithContext(ctx co
 // AuthorizationRuleMapInput is an input type that accepts AuthorizationRuleMap and AuthorizationRuleMapOutput values.
 // You can construct a concrete instance of `AuthorizationRuleMapInput` via:
 //
-//          AuthorizationRuleMap{ "key": AuthorizationRuleArgs{...} }
+//	AuthorizationRuleMap{ "key": AuthorizationRuleArgs{...} }
 type AuthorizationRuleMapInput interface {
 	pulumi.Input
 

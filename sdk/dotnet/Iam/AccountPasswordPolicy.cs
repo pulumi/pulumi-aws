@@ -19,25 +19,23 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var strict = new Aws.Iam.AccountPasswordPolicy("strict", new()
     ///     {
-    ///         var strict = new Aws.Iam.AccountPasswordPolicy("strict", new Aws.Iam.AccountPasswordPolicyArgs
-    ///         {
-    ///             AllowUsersToChangePassword = true,
-    ///             MinimumPasswordLength = 8,
-    ///             RequireLowercaseCharacters = true,
-    ///             RequireNumbers = true,
-    ///             RequireSymbols = true,
-    ///             RequireUppercaseCharacters = true,
-    ///         });
-    ///     }
+    ///         AllowUsersToChangePassword = true,
+    ///         MinimumPasswordLength = 8,
+    ///         RequireLowercaseCharacters = true,
+    ///         RequireNumbers = true,
+    ///         RequireSymbols = true,
+    ///         RequireUppercaseCharacters = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/accountPasswordPolicy:AccountPasswordPolicy")]
-    public partial class AccountPasswordPolicy : Pulumi.CustomResource
+    public partial class AccountPasswordPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether to allow users to change their own password
@@ -155,7 +153,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class AccountPasswordPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AccountPasswordPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to allow users to change their own password
@@ -214,9 +212,10 @@ namespace Pulumi.Aws.Iam
         public AccountPasswordPolicyArgs()
         {
         }
+        public static new AccountPasswordPolicyArgs Empty => new AccountPasswordPolicyArgs();
     }
 
-    public sealed class AccountPasswordPolicyState : Pulumi.ResourceArgs
+    public sealed class AccountPasswordPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to allow users to change their own password
@@ -281,5 +280,6 @@ namespace Pulumi.Aws.Iam
         public AccountPasswordPolicyState()
         {
         }
+        public static new AccountPasswordPolicyState Empty => new AccountPasswordPolicyState();
     }
 }

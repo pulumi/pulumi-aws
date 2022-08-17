@@ -19,25 +19,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsworks.NewPermission(ctx, "myStackPermission", &opsworks.PermissionArgs{
-// 			AllowSsh:  pulumi.Bool(true),
-// 			AllowSudo: pulumi.Bool(true),
-// 			Level:     pulumi.String("iam_only"),
-// 			UserArn:   pulumi.Any(aws_iam_user.User.Arn),
-// 			StackId:   pulumi.Any(aws_opsworks_stack.Stack.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := opsworks.NewPermission(ctx, "myStackPermission", &opsworks.PermissionArgs{
+//				AllowSsh:  pulumi.Bool(true),
+//				AllowSudo: pulumi.Bool(true),
+//				Level:     pulumi.String("iam_only"),
+//				UserArn:   pulumi.Any(aws_iam_user.User.Arn),
+//				StackId:   pulumi.Any(aws_opsworks_stack.Stack.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Permission struct {
 	pulumi.CustomResourceState
@@ -168,7 +171,7 @@ func (i *Permission) ToPermissionOutputWithContext(ctx context.Context) Permissi
 // PermissionArrayInput is an input type that accepts PermissionArray and PermissionArrayOutput values.
 // You can construct a concrete instance of `PermissionArrayInput` via:
 //
-//          PermissionArray{ PermissionArgs{...} }
+//	PermissionArray{ PermissionArgs{...} }
 type PermissionArrayInput interface {
 	pulumi.Input
 
@@ -193,7 +196,7 @@ func (i PermissionArray) ToPermissionArrayOutputWithContext(ctx context.Context)
 // PermissionMapInput is an input type that accepts PermissionMap and PermissionMapOutput values.
 // You can construct a concrete instance of `PermissionMapInput` via:
 //
-//          PermissionMap{ "key": PermissionArgs{...} }
+//	PermissionMap{ "key": PermissionArgs{...} }
 type PermissionMapInput interface {
 	pulumi.Input
 

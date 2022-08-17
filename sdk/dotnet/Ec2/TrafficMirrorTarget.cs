@@ -18,26 +18,25 @@ namespace Pulumi.Aws.Ec2
     /// To create a basic traffic mirror session
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var nlb = new Aws.Ec2.TrafficMirrorTarget("nlb", new()
     ///     {
-    ///         var nlb = new Aws.Ec2.TrafficMirrorTarget("nlb", new Aws.Ec2.TrafficMirrorTargetArgs
-    ///         {
-    ///             Description = "NLB target",
-    ///             NetworkLoadBalancerArn = aws_lb.Lb.Arn,
-    ///         });
-    ///         var eni = new Aws.Ec2.TrafficMirrorTarget("eni", new Aws.Ec2.TrafficMirrorTargetArgs
-    ///         {
-    ///             Description = "ENI target",
-    ///             NetworkInterfaceId = aws_instance.Test.Primary_network_interface_id,
-    ///         });
-    ///     }
+    ///         Description = "NLB target",
+    ///         NetworkLoadBalancerArn = aws_lb.Lb.Arn,
+    ///     });
     /// 
-    /// }
+    ///     var eni = new Aws.Ec2.TrafficMirrorTarget("eni", new()
+    ///     {
+    ///         Description = "ENI target",
+    ///         NetworkInterfaceId = aws_instance.Test.Primary_network_interface_id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +48,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/trafficMirrorTarget:TrafficMirrorTarget")]
-    public partial class TrafficMirrorTarget : Pulumi.CustomResource
+    public partial class TrafficMirrorTarget : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the traffic mirror target.
@@ -137,7 +136,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class TrafficMirrorTargetArgs : Pulumi.ResourceArgs
+    public sealed class TrafficMirrorTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the traffic mirror session.
@@ -172,9 +171,10 @@ namespace Pulumi.Aws.Ec2
         public TrafficMirrorTargetArgs()
         {
         }
+        public static new TrafficMirrorTargetArgs Empty => new TrafficMirrorTargetArgs();
     }
 
-    public sealed class TrafficMirrorTargetState : Pulumi.ResourceArgs
+    public sealed class TrafficMirrorTargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the traffic mirror target.
@@ -233,5 +233,6 @@ namespace Pulumi.Aws.Ec2
         public TrafficMirrorTargetState()
         {
         }
+        public static new TrafficMirrorTargetState Empty => new TrafficMirrorTargetState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class ClassifierJsonClassifierArgs : Pulumi.ResourceArgs
+    public sealed class ClassifierJsonClassifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public ClassifierJsonClassifierArgs()
         {
         }
+        public static new ClassifierJsonClassifierArgs Empty => new ClassifierJsonClassifierArgs();
     }
 }

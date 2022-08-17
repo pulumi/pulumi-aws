@@ -25,81 +25,76 @@ namespace Pulumi.Aws.Iam
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testRole = new Aws.Iam.Role("testRole", new()
     ///     {
-    ///         var testRole = new Aws.Iam.Role("testRole", new Aws.Iam.RoleArgs
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 { "Version", "2012-10-17" },
-    ///                 { "Statement", new[]
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Sid"] = "",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", "sts:AssumeRole" },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Sid", "" },
-    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "Service", "ec2.amazonaws.com" },
-    ///                             } },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///             Tags = 
-    ///             {
-    ///                 { "tag-key", "tag-value" },
+    ///                         ["Service"] = "ec2.amazonaws.com",
+    ///                     },
+    ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         }),
+    ///         Tags = 
+    ///         {
+    ///             { "tag-key", "tag-value" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example of Using Data Source for Assume Role Policy
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var instance_assume_role_policy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var instance_assume_role_policy = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "sts:AssumeRole",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Type = "Service",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "ec2.amazonaws.com",
-    ///                             },
+    ///                             "ec2.amazonaws.com",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         }));
-    ///         var instance = new Aws.Iam.Role("instance", new Aws.Iam.RoleArgs
-    ///         {
-    ///             Path = "/system/",
-    ///             AssumeRolePolicy = instance_assume_role_policy.Apply(instance_assume_role_policy =&gt; instance_assume_role_policy.Json),
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var instance = new Aws.Iam.Role("instance", new()
+    ///     {
+    ///         Path = "/system/",
+    ///         AssumeRolePolicy = instance_assume_role_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult).Apply(instance_assume_role_policy =&gt; instance_assume_role_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Example of Exclusive Inline Policies
     /// 
@@ -111,88 +106,82 @@ namespace Pulumi.Aws.Iam
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var inlinePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var inlinePolicy = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
-    ///                     {
-    ///                         "ec2:DescribeAccountAttributes",
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         "*",
-    ///                     },
+    ///                     "ec2:DescribeAccountAttributes",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
     ///                 },
     ///             },
-    ///         }));
-    ///         var example = new Aws.Iam.Role("example", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
-    ///             InlinePolicies = 
-    ///             {
-    ///                 new Aws.Iam.Inputs.RoleInlinePolicyArgs
-    ///                 {
-    ///                     Name = "my_inline_policy",
-    ///                     Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "Version", "2012-10-17" },
-    ///                         { "Statement", new[]
-    ///                             {
-    ///                                 new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                     { "Action", new[]
-    ///                                         {
-    ///                                             "ec2:Describe*",
-    ///                                         }
-    ///                                      },
-    ///                                     { "Effect", "Allow" },
-    ///                                     { "Resource", "*" },
-    ///                                 },
-    ///                             }
-    ///                          },
-    ///                     }),
-    ///                 },
-    ///                 new Aws.Iam.Inputs.RoleInlinePolicyArgs
-    ///                 {
-    ///                     Name = "policy-8675309",
-    ///                     Policy = inlinePolicy.Apply(inlinePolicy =&gt; inlinePolicy.Json),
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var example = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
+    ///         InlinePolicies = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
+    ///             {
+    ///                 Name = "my_inline_policy",
+    ///                 Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Version"] = "2012-10-17",
+    ///                     ["Statement"] = new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["Action"] = new[]
+    ///                             {
+    ///                                 "ec2:Describe*",
+    ///                             },
+    ///                             ["Effect"] = "Allow",
+    ///                             ["Resource"] = "*",
+    ///                         },
+    ///                     },
+    ///                 }),
+    ///             },
+    ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
+    ///             {
+    ///                 Name = "policy-8675309",
+    ///                 Policy = inlinePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Example of Removing Inline Policies
     /// 
     /// This example creates an IAM role with what appears to be empty IAM `inline_policy` argument instead of using `inline_policy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, the provider will remove that policy.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         var example = new Aws.Iam.Role("example", new Aws.Iam.RoleArgs
+    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
+    ///         InlinePolicies = new[]
     ///         {
-    ///             AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
-    ///             InlinePolicies = 
-    ///             {
-    ///                 ,
-    ///             },
-    ///         });
-    ///     }
+    ///             ,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example of Exclusive Managed Policies
     /// 
@@ -204,87 +193,80 @@ namespace Pulumi.Aws.Iam
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var policyOne = new Aws.Iam.Policy("policyOne", new()
     ///     {
-    ///         var policyOne = new Aws.Iam.Policy("policyOne", new Aws.Iam.PolicyArgs
+    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 { "Version", "2012-10-17" },
-    ///                 { "Statement", new[]
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = new[]
     ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", new[]
-    ///                                 {
-    ///                                     "ec2:Describe*",
-    ///                                 }
-    ///                              },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Resource", "*" },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///         });
-    ///         var policyTwo = new Aws.Iam.Policy("policyTwo", new Aws.Iam.PolicyArgs
-    ///         {
-    ///             PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "Version", "2012-10-17" },
-    ///                 { "Statement", new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", new[]
-    ///                                 {
-    ///                                     "s3:ListAllMyBuckets",
-    ///                                     "s3:ListBucket",
-    ///                                     "s3:HeadBucket",
-    ///                                 }
-    ///                              },
-    ///                             { "Effect", "Allow" },
-    ///                             { "Resource", "*" },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///         });
-    ///         var example = new Aws.Iam.Role("example", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
-    ///             ManagedPolicyArns = 
-    ///             {
-    ///                 policyOne.Arn,
-    ///                 policyTwo.Arn,
+    ///                         "ec2:Describe*",
+    ///                     },
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Resource"] = "*",
+    ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         }),
+    ///     });
     /// 
-    /// }
+    ///     var policyTwo = new Aws.Iam.Policy("policyTwo", new()
+    ///     {
+    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "s3:ListAllMyBuckets",
+    ///                         "s3:ListBucket",
+    ///                         "s3:HeadBucket",
+    ///                     },
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Resource"] = "*",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     var example = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
+    ///         ManagedPolicyArns = new[]
+    ///         {
+    ///             policyOne.Arn,
+    ///             policyTwo.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Example of Removing Managed Policies
     /// 
     /// This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, the provider will detach that policy.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         var example = new Aws.Iam.Role("example", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
-    ///             ManagedPolicyArns = {},
-    ///         });
-    ///     }
+    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
+    ///         ManagedPolicyArns = new[] {},
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -296,7 +278,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/role:Role")]
-    public partial class Role : Pulumi.CustomResource
+    public partial class Role : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) specifying the role.
@@ -371,13 +353,13 @@ namespace Pulumi.Aws.Iam
         public Output<string?> PermissionsBoundary { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of tags for the IAM role. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -432,7 +414,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class RoleArgs : Pulumi.ResourceArgs
+    public sealed class RoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy that grants an entity permission to assume the role.
@@ -510,7 +492,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the IAM role. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -521,9 +503,10 @@ namespace Pulumi.Aws.Iam
         public RoleArgs()
         {
         }
+        public static new RoleArgs Empty => new RoleArgs();
     }
 
-    public sealed class RoleState : Pulumi.ResourceArgs
+    public sealed class RoleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) specifying the role.
@@ -613,7 +596,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of tags for the IAM role. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -625,7 +608,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -642,5 +625,6 @@ namespace Pulumi.Aws.Iam
         public RoleState()
         {
         }
+        public static new RoleState Empty => new RoleState();
     }
 }

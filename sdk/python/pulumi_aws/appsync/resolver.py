@@ -33,7 +33,7 @@ class ResolverArgs:
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] type: The type name from the schema defined in the GraphQL API.
         :param pulumi.Input['ResolverCachingConfigArgs'] caching_config: The CachingConfig.
-        :param pulumi.Input[str] data_source: The DataSource name.
+        :param pulumi.Input[str] data_source: The data source name.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: The PipelineConfig.
@@ -113,7 +113,7 @@ class ResolverArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[pulumi.Input[str]]:
         """
-        The DataSource name.
+        The data source name.
         """
         return pulumi.get(self, "data_source")
 
@@ -214,7 +214,7 @@ class _ResolverState:
         :param pulumi.Input[str] api_id: The API ID for the GraphQL API.
         :param pulumi.Input[str] arn: The ARN
         :param pulumi.Input['ResolverCachingConfigArgs'] caching_config: The CachingConfig.
-        :param pulumi.Input[str] data_source: The DataSource name.
+        :param pulumi.Input[str] data_source: The data source name.
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
@@ -289,7 +289,7 @@ class _ResolverState:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[pulumi.Input[str]]:
         """
-        The DataSource name.
+        The data source name.
         """
         return pulumi.get(self, "data_source")
 
@@ -504,7 +504,7 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: The API ID for the GraphQL API.
         :param pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']] caching_config: The CachingConfig.
-        :param pulumi.Input[str] data_source: The DataSource name.
+        :param pulumi.Input[str] data_source: The data source name.
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
@@ -694,7 +694,7 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.Input[str] api_id: The API ID for the GraphQL API.
         :param pulumi.Input[str] arn: The ARN
         :param pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']] caching_config: The CachingConfig.
-        :param pulumi.Input[str] data_source: The DataSource name.
+        :param pulumi.Input[str] data_source: The data source name.
         :param pulumi.Input[str] field: The field name from the schema defined in the GraphQL API.
         :param pulumi.Input[str] kind: The resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[int] max_batch_size: The maximum batching size for a resolver. Valid values are between `0` and `2000`.
@@ -750,7 +750,7 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Output[Optional[str]]:
         """
-        The DataSource name.
+        The data source name.
         """
         return pulumi.get(self, "data_source")
 

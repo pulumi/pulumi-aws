@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualServiceSpecArgs : Pulumi.ResourceArgs
+    public sealed class VirtualServiceSpecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualServiceSpecArgs()
         {
         }
+        public static new VirtualServiceSpecArgs Empty => new VirtualServiceSpecArgs();
     }
 }

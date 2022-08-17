@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DocDB.Inputs
 {
 
-    public sealed class ClusterParameterGroupParameterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterParameterGroupParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.DocDB.Inputs
         public ClusterParameterGroupParameterArgs()
         {
         }
+        public static new ClusterParameterGroupParameterArgs Empty => new ClusterParameterGroupParameterArgs();
     }
 }

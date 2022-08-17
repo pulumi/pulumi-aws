@@ -21,34 +21,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		user, err := iam.NewUser(ctx, "user", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
-// 			Description: pulumi.String("A test policy"),
-// 			Policy:      pulumi.Any("{ ... policy JSON ... }"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewUserPolicyAttachment(ctx, "test-attach", &iam.UserPolicyAttachmentArgs{
-// 			User:      user.Name,
-// 			PolicyArn: policy.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			user, err := iam.NewUser(ctx, "user", nil)
+//			if err != nil {
+//				return err
+//			}
+//			policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
+//				Description: pulumi.String("A test policy"),
+//				Policy:      pulumi.Any("{ ... policy JSON ... }"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewUserPolicyAttachment(ctx, "test-attach", &iam.UserPolicyAttachmentArgs{
+//				User:      user.Name,
+//				PolicyArn: policy.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // IAM user policy attachments can be imported using the user name and policy arn separated by `/`.
 //
 // ```sh
-//  $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+//
+//	$ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+//
 // ```
 type UserPolicyAttachment struct {
 	pulumi.CustomResourceState
@@ -160,7 +165,7 @@ func (i *UserPolicyAttachment) ToUserPolicyAttachmentOutputWithContext(ctx conte
 // UserPolicyAttachmentArrayInput is an input type that accepts UserPolicyAttachmentArray and UserPolicyAttachmentArrayOutput values.
 // You can construct a concrete instance of `UserPolicyAttachmentArrayInput` via:
 //
-//          UserPolicyAttachmentArray{ UserPolicyAttachmentArgs{...} }
+//	UserPolicyAttachmentArray{ UserPolicyAttachmentArgs{...} }
 type UserPolicyAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -185,7 +190,7 @@ func (i UserPolicyAttachmentArray) ToUserPolicyAttachmentArrayOutputWithContext(
 // UserPolicyAttachmentMapInput is an input type that accepts UserPolicyAttachmentMap and UserPolicyAttachmentMapOutput values.
 // You can construct a concrete instance of `UserPolicyAttachmentMapInput` via:
 //
-//          UserPolicyAttachmentMap{ "key": UserPolicyAttachmentArgs{...} }
+//	UserPolicyAttachmentMap{ "key": UserPolicyAttachmentArgs{...} }
 type UserPolicyAttachmentMapInput interface {
 	pulumi.Input
 

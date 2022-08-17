@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorGetArgs : Pulumi.ResourceArgs
+    public sealed class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("parameters")]
         private InputList<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterGetArgs>? _parameters;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorGetArgs()
         {
         }
+        public static new FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorGetArgs Empty => new FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorGetArgs();
     }
 }

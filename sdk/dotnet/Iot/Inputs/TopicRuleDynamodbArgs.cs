@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleDynamodbArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleDynamodbArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hash key name.
@@ -75,5 +75,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleDynamodbArgs()
         {
         }
+        public static new TopicRuleDynamodbArgs Empty => new TopicRuleDynamodbArgs();
     }
 }

@@ -15,21 +15,19 @@ namespace Pulumi.Aws.Ses
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var filter = new Aws.Ses.ReceiptFilter("filter", new()
     ///     {
-    ///         var filter = new Aws.Ses.ReceiptFilter("filter", new Aws.Ses.ReceiptFilterArgs
-    ///         {
-    ///             Cidr = "10.10.10.10",
-    ///             Policy = "Block",
-    ///         });
-    ///     }
+    ///         Cidr = "10.10.10.10",
+    ///         Policy = "Block",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Ses
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/receiptFilter:ReceiptFilter")]
-    public partial class ReceiptFilter : Pulumi.CustomResource
+    public partial class ReceiptFilter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The SES receipt filter ARN.
@@ -111,7 +109,7 @@ namespace Pulumi.Aws.Ses
         }
     }
 
-    public sealed class ReceiptFilterArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP address or address range to filter, in CIDR notation
@@ -134,9 +132,10 @@ namespace Pulumi.Aws.Ses
         public ReceiptFilterArgs()
         {
         }
+        public static new ReceiptFilterArgs Empty => new ReceiptFilterArgs();
     }
 
-    public sealed class ReceiptFilterState : Pulumi.ResourceArgs
+    public sealed class ReceiptFilterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SES receipt filter ARN.
@@ -165,5 +164,6 @@ namespace Pulumi.Aws.Ses
         public ReceiptFilterState()
         {
         }
+        public static new ReceiptFilterState Empty => new ReceiptFilterState();
     }
 }

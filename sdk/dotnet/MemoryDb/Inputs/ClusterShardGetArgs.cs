@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MemoryDb.Inputs
 {
 
-    public sealed class ClusterShardGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterShardGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of this node.
@@ -46,5 +46,6 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         public ClusterShardGetArgs()
         {
         }
+        public static new ClusterShardGetArgs Empty => new ClusterShardGetArgs();
     }
 }

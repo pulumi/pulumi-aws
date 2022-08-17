@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleAccount, err := macie2.NewAccount(ctx, "exampleAccount", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = macie2.NewMember(ctx, "exampleMember", &macie2.MemberArgs{
-// 			AccountId:                          pulumi.String("AWS ACCOUNT ID"),
-// 			Email:                              pulumi.String("EMAIL"),
-// 			Invite:                             pulumi.Bool(true),
-// 			InvitationMessage:                  pulumi.String("Message of the invitation"),
-// 			InvitationDisableEmailNotification: pulumi.Bool(true),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleAccount,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccount, err := macie2.NewAccount(ctx, "exampleAccount", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = macie2.NewMember(ctx, "exampleMember", &macie2.MemberArgs{
+//				AccountId:                          pulumi.String("AWS ACCOUNT ID"),
+//				Email:                              pulumi.String("EMAIL"),
+//				Invite:                             pulumi.Bool(true),
+//				InvitationMessage:                  pulumi.String("Message of the invitation"),
+//				InvitationDisableEmailNotification: pulumi.Bool(true),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAccount,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // `aws_macie2_member` can be imported using the account ID of the member account, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:macie2/member:Member example 123456789012
+//
+//	$ pulumi import aws:macie2/member:Member example 123456789012
+//
 // ```
 type Member struct {
 	pulumi.CustomResourceState
@@ -241,7 +246,7 @@ func (i *Member) ToMemberOutputWithContext(ctx context.Context) MemberOutput {
 // MemberArrayInput is an input type that accepts MemberArray and MemberArrayOutput values.
 // You can construct a concrete instance of `MemberArrayInput` via:
 //
-//          MemberArray{ MemberArgs{...} }
+//	MemberArray{ MemberArgs{...} }
 type MemberArrayInput interface {
 	pulumi.Input
 
@@ -266,7 +271,7 @@ func (i MemberArray) ToMemberArrayOutputWithContext(ctx context.Context) MemberA
 // MemberMapInput is an input type that accepts MemberMap and MemberMapOutput values.
 // You can construct a concrete instance of `MemberMapInput` via:
 //
-//          MemberMap{ "key": MemberArgs{...} }
+//	MemberMap{ "key": MemberArgs{...} }
 type MemberMapInput interface {
 	pulumi.Input
 

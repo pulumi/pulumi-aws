@@ -15,30 +15,28 @@ namespace Pulumi.Aws.DirectConnect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.DirectConnect.PublicVirtualInterface("foo", new()
     ///     {
-    ///         var foo = new Aws.DirectConnect.PublicVirtualInterface("foo", new Aws.DirectConnect.PublicVirtualInterfaceArgs
+    ///         AddressFamily = "ipv4",
+    ///         AmazonAddress = "175.45.176.2/30",
+    ///         BgpAsn = 65352,
+    ///         ConnectionId = "dxcon-zzzzzzzz",
+    ///         CustomerAddress = "175.45.176.1/30",
+    ///         RouteFilterPrefixes = new[]
     ///         {
-    ///             AddressFamily = "ipv4",
-    ///             AmazonAddress = "175.45.176.2/30",
-    ///             BgpAsn = 65352,
-    ///             ConnectionId = "dxcon-zzzzzzzz",
-    ///             CustomerAddress = "175.45.176.1/30",
-    ///             RouteFilterPrefixes = 
-    ///             {
-    ///                 "210.52.109.0/24",
-    ///                 "175.45.176.0/22",
-    ///             },
-    ///             Vlan = 4094,
-    ///         });
-    ///     }
+    ///             "210.52.109.0/24",
+    ///             "175.45.176.0/22",
+    ///         },
+    ///         Vlan = 4094,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.DirectConnect
     /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/publicVirtualInterface:PublicVirtualInterface")]
-    public partial class PublicVirtualInterface : Pulumi.CustomResource
+    public partial class PublicVirtualInterface : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -122,7 +120,7 @@ namespace Pulumi.Aws.DirectConnect
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -177,7 +175,7 @@ namespace Pulumi.Aws.DirectConnect
         }
     }
 
-    public sealed class PublicVirtualInterfaceArgs : Pulumi.ResourceArgs
+    public sealed class PublicVirtualInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -254,9 +252,10 @@ namespace Pulumi.Aws.DirectConnect
         public PublicVirtualInterfaceArgs()
         {
         }
+        public static new PublicVirtualInterfaceArgs Empty => new PublicVirtualInterfaceArgs();
     }
 
-    public sealed class PublicVirtualInterfaceState : Pulumi.ResourceArgs
+    public sealed class PublicVirtualInterfaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -343,7 +342,7 @@ namespace Pulumi.Aws.DirectConnect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -360,5 +359,6 @@ namespace Pulumi.Aws.DirectConnect
         public PublicVirtualInterfaceState()
         {
         }
+        public static new PublicVirtualInterfaceState Empty => new PublicVirtualInterfaceState();
     }
 }

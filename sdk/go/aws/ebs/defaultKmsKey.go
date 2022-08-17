@@ -26,29 +26,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ebs.NewDefaultKmsKey(ctx, "example", &ebs.DefaultKmsKeyArgs{
-// 			KeyArn: pulumi.Any(aws_kms_key.Example.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ebs.NewDefaultKmsKey(ctx, "example", &ebs.DefaultKmsKeyArgs{
+//				KeyArn: pulumi.Any(aws_kms_key.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// The EBS default KMS CMK can be imported with the KMS key ARN, e.g., console
+// # The EBS default KMS CMK can be imported with the KMS key ARN, e.g., console
 //
 // ```sh
-//  $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
+//
+//	$ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
+//
 // ```
 type DefaultKmsKey struct {
 	pulumi.CustomResourceState
@@ -139,7 +144,7 @@ func (i *DefaultKmsKey) ToDefaultKmsKeyOutputWithContext(ctx context.Context) De
 // DefaultKmsKeyArrayInput is an input type that accepts DefaultKmsKeyArray and DefaultKmsKeyArrayOutput values.
 // You can construct a concrete instance of `DefaultKmsKeyArrayInput` via:
 //
-//          DefaultKmsKeyArray{ DefaultKmsKeyArgs{...} }
+//	DefaultKmsKeyArray{ DefaultKmsKeyArgs{...} }
 type DefaultKmsKeyArrayInput interface {
 	pulumi.Input
 
@@ -164,7 +169,7 @@ func (i DefaultKmsKeyArray) ToDefaultKmsKeyArrayOutputWithContext(ctx context.Co
 // DefaultKmsKeyMapInput is an input type that accepts DefaultKmsKeyMap and DefaultKmsKeyMapOutput values.
 // You can construct a concrete instance of `DefaultKmsKeyMapInput` via:
 //
-//          DefaultKmsKeyMap{ "key": DefaultKmsKeyArgs{...} }
+//	DefaultKmsKeyMap{ "key": DefaultKmsKeyArgs{...} }
 type DefaultKmsKeyMapInput interface {
 	pulumi.Input
 

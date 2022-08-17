@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager.Inputs
 {
 
-    public sealed class LinkBandwidthGetArgs : Pulumi.ResourceArgs
+    public sealed class LinkBandwidthGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Download speed in Mbps.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public LinkBandwidthGetArgs()
         {
         }
+        public static new LinkBandwidthGetArgs Empty => new LinkBandwidthGetArgs();
     }
 }

@@ -18,47 +18,23 @@ public final class MultiRegionAccessPointDetailsArgs extends com.pulumi.resource
 
     public static final MultiRegionAccessPointDetailsArgs Empty = new MultiRegionAccessPointDetailsArgs();
 
-    /**
-     * The name of the Multi-Region Access Point.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the Multi-Region Access Point.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
-     * 
-     */
     @Import(name="publicAccessBlock")
     private @Nullable Output<MultiRegionAccessPointDetailsPublicAccessBlockArgs> publicAccessBlock;
 
-    /**
-     * @return Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
-     * 
-     */
     public Optional<Output<MultiRegionAccessPointDetailsPublicAccessBlockArgs>> publicAccessBlock() {
         return Optional.ofNullable(this.publicAccessBlock);
     }
 
-    /**
-     * The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-     * 
-     */
     @Import(name="regions", required=true)
     private Output<List<MultiRegionAccessPointDetailsRegionArgs>> regions;
 
-    /**
-     * @return The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-     * 
-     */
     public Output<List<MultiRegionAccessPointDetailsRegionArgs>> regions() {
         return this.regions;
     }
@@ -89,75 +65,33 @@ public final class MultiRegionAccessPointDetailsArgs extends com.pulumi.resource
             $ = new MultiRegionAccessPointDetailsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the Multi-Region Access Point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the Multi-Region Access Point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param publicAccessBlock Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicAccessBlock(@Nullable Output<MultiRegionAccessPointDetailsPublicAccessBlockArgs> publicAccessBlock) {
             $.publicAccessBlock = publicAccessBlock;
             return this;
         }
 
-        /**
-         * @param publicAccessBlock Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicAccessBlock(MultiRegionAccessPointDetailsPublicAccessBlockArgs publicAccessBlock) {
             return publicAccessBlock(Output.of(publicAccessBlock));
         }
 
-        /**
-         * @param regions The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(Output<List<MultiRegionAccessPointDetailsRegionArgs>> regions) {
             $.regions = regions;
             return this;
         }
 
-        /**
-         * @param regions The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(List<MultiRegionAccessPointDetailsRegionArgs> regions) {
             return regions(Output.of(regions));
         }
 
-        /**
-         * @param regions The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(MultiRegionAccessPointDetailsRegionArgs... regions) {
             return regions(List.of(regions));
         }

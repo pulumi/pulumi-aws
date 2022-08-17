@@ -15,34 +15,33 @@ namespace Pulumi.Aws.Rds
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var bar = new Aws.Rds.Instance("bar", new()
     ///     {
-    ///         var bar = new Aws.Rds.Instance("bar", new Aws.Rds.InstanceArgs
-    ///         {
-    ///             AllocatedStorage = 10,
-    ///             Engine = "mysql",
-    ///             EngineVersion = "5.6.21",
-    ///             InstanceClass = "db.t2.micro",
-    ///             Name = "baz",
-    ///             Password = "barbarbarbar",
-    ///             Username = "foo",
-    ///             MaintenanceWindow = "Fri:09:00-Fri:09:30",
-    ///             BackupRetentionPeriod = 0,
-    ///             ParameterGroupName = "default.mysql5.6",
-    ///         });
-    ///         var test = new Aws.Rds.Snapshot("test", new Aws.Rds.SnapshotArgs
-    ///         {
-    ///             DbInstanceIdentifier = bar.Id,
-    ///             DbSnapshotIdentifier = "testsnapshot1234",
-    ///         });
-    ///     }
+    ///         AllocatedStorage = 10,
+    ///         Engine = "mysql",
+    ///         EngineVersion = "5.6.21",
+    ///         InstanceClass = "db.t2.micro",
+    ///         Name = "baz",
+    ///         Password = "barbarbarbar",
+    ///         Username = "foo",
+    ///         MaintenanceWindow = "Fri:09:00-Fri:09:30",
+    ///         BackupRetentionPeriod = 0,
+    ///         ParameterGroupName = "default.mysql5.6",
+    ///     });
     /// 
-    /// }
+    ///     var test = new Aws.Rds.Snapshot("test", new()
+    ///     {
+    ///         DbInstanceIdentifier = bar.Id,
+    ///         DbSnapshotIdentifier = "testsnapshot1234",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +53,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/snapshot:Snapshot")]
-    public partial class Snapshot : Pulumi.CustomResource
+    public partial class Snapshot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the allocated storage size in gigabytes (GB).
@@ -220,7 +219,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class SnapshotArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DB Instance Identifier from which to take the snapshot.
@@ -249,9 +248,10 @@ namespace Pulumi.Aws.Rds
         public SnapshotArgs()
         {
         }
+        public static new SnapshotArgs Empty => new SnapshotArgs();
     }
 
-    public sealed class SnapshotState : Pulumi.ResourceArgs
+    public sealed class SnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the allocated storage size in gigabytes (GB).
@@ -388,5 +388,6 @@ namespace Pulumi.Aws.Rds
         public SnapshotState()
         {
         }
+        public static new SnapshotState Empty => new SnapshotState();
     }
 }

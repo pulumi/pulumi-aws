@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecr.Inputs
 {
 
-    public sealed class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The repository filter details.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ecr.Inputs
         public ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs()
         {
         }
+        public static new ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs Empty => new ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs();
     }
 }

@@ -18,6 +18,10 @@ namespace Pulumi.Aws.GuardDuty.Outputs
         /// </summary>
         public readonly Outputs.OrganizationConfigurationDatasourcesKubernetes? Kubernetes;
         /// <summary>
+        /// Enable Malware Protection automatically for new member accounts.
+        /// </summary>
+        public readonly Outputs.OrganizationConfigurationDatasourcesMalwareProtection? MalwareProtection;
+        /// <summary>
         /// Enable S3 Protection automatically for new member accounts.
         /// </summary>
         public readonly Outputs.OrganizationConfigurationDatasourcesS3Logs? S3Logs;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.GuardDuty.Outputs
         private OrganizationConfigurationDatasources(
             Outputs.OrganizationConfigurationDatasourcesKubernetes? kubernetes,
 
+            Outputs.OrganizationConfigurationDatasourcesMalwareProtection? malwareProtection,
+
             Outputs.OrganizationConfigurationDatasourcesS3Logs? s3Logs)
         {
             Kubernetes = kubernetes;
+            MalwareProtection = malwareProtection;
             S3Logs = s3Logs;
         }
     }

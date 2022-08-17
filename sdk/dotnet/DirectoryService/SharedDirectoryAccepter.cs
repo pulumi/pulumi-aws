@@ -17,32 +17,31 @@ namespace Pulumi.Aws.DirectoryService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleSharedDirectory = new Aws.DirectoryService.SharedDirectory("exampleSharedDirectory", new()
     ///     {
-    ///         var exampleSharedDirectory = new Aws.DirectoryService.SharedDirectory("exampleSharedDirectory", new Aws.DirectoryService.SharedDirectoryArgs
+    ///         DirectoryId = aws_directory_service_directory.Example.Id,
+    ///         Notes = "example",
+    ///         Target = new Aws.DirectoryService.Inputs.SharedDirectoryTargetArgs
     ///         {
-    ///             DirectoryId = aws_directory_service_directory.Example.Id,
-    ///             Notes = "example",
-    ///             Target = new Aws.DirectoryService.Inputs.SharedDirectoryTargetArgs
-    ///             {
-    ///                 Id = data.Aws_caller_identity.Receiver.Account_id,
-    ///             },
-    ///         });
-    ///         var exampleSharedDirectoryAccepter = new Aws.DirectoryService.SharedDirectoryAccepter("exampleSharedDirectoryAccepter", new Aws.DirectoryService.SharedDirectoryAccepterArgs
-    ///         {
-    ///             SharedDirectoryId = exampleSharedDirectory.SharedDirectoryId,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = "awsalternate",
-    ///         });
-    ///     }
+    ///             Id = data.Aws_caller_identity.Receiver.Account_id,
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleSharedDirectoryAccepter = new Aws.DirectoryService.SharedDirectoryAccepter("exampleSharedDirectoryAccepter", new()
+    ///     {
+    ///         SharedDirectoryId = exampleSharedDirectory.SharedDirectoryId,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = "awsalternate",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +53,7 @@ namespace Pulumi.Aws.DirectoryService
     /// ```
     /// </summary>
     [AwsResourceType("aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter")]
-    public partial class SharedDirectoryAccepter : Pulumi.CustomResource
+    public partial class SharedDirectoryAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
@@ -130,7 +129,7 @@ namespace Pulumi.Aws.DirectoryService
         }
     }
 
-    public sealed class SharedDirectoryAccepterArgs : Pulumi.ResourceArgs
+    public sealed class SharedDirectoryAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
@@ -141,9 +140,10 @@ namespace Pulumi.Aws.DirectoryService
         public SharedDirectoryAccepterArgs()
         {
         }
+        public static new SharedDirectoryAccepterArgs Empty => new SharedDirectoryAccepterArgs();
     }
 
-    public sealed class SharedDirectoryAccepterState : Pulumi.ResourceArgs
+    public sealed class SharedDirectoryAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
@@ -178,5 +178,6 @@ namespace Pulumi.Aws.DirectoryService
         public SharedDirectoryAccepterState()
         {
         }
+        public static new SharedDirectoryAccepterState Empty => new SharedDirectoryAccepterState();
     }
 }

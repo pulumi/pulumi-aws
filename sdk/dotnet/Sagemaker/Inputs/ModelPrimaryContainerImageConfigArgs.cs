@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class ModelPrimaryContainerImageConfigArgs : Pulumi.ResourceArgs
+    public sealed class ModelPrimaryContainerImageConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public ModelPrimaryContainerImageConfigArgs()
         {
         }
+        public static new ModelPrimaryContainerImageConfigArgs Empty => new ModelPrimaryContainerImageConfigArgs();
     }
 }

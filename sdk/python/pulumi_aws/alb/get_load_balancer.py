@@ -22,7 +22,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, drop_invalid_header_fields=None, enable_deletion_protection=None, enable_http2=None, enable_waf_fail_open=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None):
+    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, drop_invalid_header_fields=None, enable_deletion_protection=None, enable_http2=None, enable_waf_fail_open=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, preserve_host_header=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         pulumi.set(__self__, "access_logs", access_logs)
@@ -71,6 +71,9 @@ class GetLoadBalancerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if preserve_host_header and not isinstance(preserve_host_header, bool):
+            raise TypeError("Expected argument 'preserve_host_header' to be a bool")
+        pulumi.set(__self__, "preserve_host_header", preserve_host_header)
         if security_groups and not isinstance(security_groups, list):
             raise TypeError("Expected argument 'security_groups' to be a list")
         pulumi.set(__self__, "security_groups", security_groups)
@@ -174,6 +177,11 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="preserveHostHeader")
+    def preserve_host_header(self) -> bool:
+        return pulumi.get(self, "preserve_host_header")
+
+    @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[str]:
         return pulumi.get(self, "security_groups")
@@ -226,6 +234,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             ip_address_type=self.ip_address_type,
             load_balancer_type=self.load_balancer_type,
             name=self.name,
+            preserve_host_header=self.preserve_host_header,
             security_groups=self.security_groups,
             subnet_mappings=self.subnet_mappings,
             subnets=self.subnets,
@@ -293,6 +302,7 @@ def get_load_balancer(arn: Optional[str] = None,
         ip_address_type=__ret__.ip_address_type,
         load_balancer_type=__ret__.load_balancer_type,
         name=__ret__.name,
+        preserve_host_header=__ret__.preserve_host_header,
         security_groups=__ret__.security_groups,
         subnet_mappings=__ret__.subnet_mappings,
         subnets=__ret__.subnets,

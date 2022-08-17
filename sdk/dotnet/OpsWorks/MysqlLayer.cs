@@ -15,24 +15,22 @@ namespace Pulumi.Aws.OpsWorks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var db = new Aws.OpsWorks.MysqlLayer("db", new()
     ///     {
-    ///         var db = new Aws.OpsWorks.MysqlLayer("db", new Aws.OpsWorks.MysqlLayerArgs
-    ///         {
-    ///             StackId = aws_opsworks_stack.Main.Id,
-    ///         });
-    ///     }
+    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/mysqlLayer:MysqlLayer")]
-    public partial class MysqlLayer : Pulumi.CustomResource
+    public partial class MysqlLayer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name(ARN) of the layer.
@@ -161,7 +159,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -216,7 +214,7 @@ namespace Pulumi.Aws.OpsWorks
         }
     }
 
-    public sealed class MysqlLayerArgs : Pulumi.ResourceArgs
+    public sealed class MysqlLayerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to automatically assign an elastic IP address to the layer's instances.
@@ -396,9 +394,10 @@ namespace Pulumi.Aws.OpsWorks
         public MysqlLayerArgs()
         {
         }
+        public static new MysqlLayerArgs Empty => new MysqlLayerArgs();
     }
 
-    public sealed class MysqlLayerState : Pulumi.ResourceArgs
+    public sealed class MysqlLayerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name(ARN) of the layer.
@@ -579,7 +578,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -596,5 +595,6 @@ namespace Pulumi.Aws.OpsWorks
         public MysqlLayerState()
         {
         }
+        public static new MysqlLayerState Empty => new MysqlLayerState();
     }
 }

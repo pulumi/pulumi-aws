@@ -37,49 +37,45 @@ namespace Pulumi.Aws.Rds
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Rds.Instance("default", new()
     ///     {
-    ///         var @default = new Aws.Rds.Instance("default", new Aws.Rds.InstanceArgs
-    ///         {
-    ///             AllocatedStorage = 10,
-    ///             Engine = "mysql",
-    ///             EngineVersion = "5.7",
-    ///             InstanceClass = "db.t3.micro",
-    ///             Name = "mydb",
-    ///             ParameterGroupName = "default.mysql5.7",
-    ///             Password = "foobarbaz",
-    ///             SkipFinalSnapshot = true,
-    ///             Username = "foo",
-    ///         });
-    ///     }
+    ///         AllocatedStorage = 10,
+    ///         Engine = "mysql",
+    ///         EngineVersion = "5.7",
+    ///         InstanceClass = "db.t3.micro",
+    ///         Name = "mydb",
+    ///         ParameterGroupName = "default.mysql5.7",
+    ///         Password = "foobarbaz",
+    ///         SkipFinalSnapshot = true,
+    ///         Username = "foo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Storage Autoscaling
     /// 
     /// To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Rds.Instance("example", new()
     ///     {
-    ///         var example = new Aws.Rds.Instance("example", new Aws.Rds.InstanceArgs
-    ///         {
-    ///             AllocatedStorage = 50,
-    ///             MaxAllocatedStorage = 100,
-    ///         });
-    ///     }
+    ///         AllocatedStorage = 50,
+    ///         MaxAllocatedStorage = 100,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -91,7 +87,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/instance:Instance")]
-    public partial class Instance : Pulumi.CustomResource
+    public partial class Instance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The hostname of the RDS instance. See also `endpoint` and `port`.
@@ -539,7 +535,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -612,7 +608,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class InstanceArgs : Pulumi.ResourceArgs
+    public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
@@ -1058,9 +1054,10 @@ namespace Pulumi.Aws.Rds
         public InstanceArgs()
         {
         }
+        public static new InstanceArgs Empty => new InstanceArgs();
     }
 
-    public sealed class InstanceState : Pulumi.ResourceArgs
+    public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hostname of the RDS instance. See also `endpoint` and `port`.
@@ -1534,7 +1531,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -1575,5 +1572,6 @@ namespace Pulumi.Aws.Rds
         public InstanceState()
         {
         }
+        public static new InstanceState Empty => new InstanceState();
     }
 }

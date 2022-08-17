@@ -21,41 +21,36 @@ namespace Pulumi.Aws.Ec2
         /// The following example shows how to get a EC2 Key Pair including the public key material from its name.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetKeyPair.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetKeyPair.InvokeAsync(new Aws.Ec2.GetKeyPairArgs
+        ///         KeyName = "test",
+        ///         IncludePublicKey = true,
+        ///         Filters = new[]
         ///         {
-        ///             KeyName = "test",
-        ///             IncludePublicKey = true,
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetKeyPairFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetKeyPairFilterArgs
+        ///                 Name = "tag:Component",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "tag:Component",
-        ///                     Values = 
-        ///                     {
-        ///                         "web",
-        ///                     },
+        ///                     "web",
         ///                 },
         ///             },
-        ///         }));
-        ///         this.Fingerprint = example.Apply(example =&gt; example.Fingerprint);
-        ///         this.Name = example.Apply(example =&gt; example.KeyName);
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         },
+        ///     });
         /// 
-        ///     [Output("fingerprint")]
-        ///     public Output&lt;string&gt; Fingerprint { get; set; }
-        ///     [Output("name")]
-        ///     public Output&lt;string&gt; Name { get; set; }
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["fingerprint"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.Fingerprint),
+        ///         ["name"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.KeyName),
+        ///         ["id"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,41 +68,36 @@ namespace Pulumi.Aws.Ec2
         /// The following example shows how to get a EC2 Key Pair including the public key material from its name.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetKeyPair.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetKeyPair.InvokeAsync(new Aws.Ec2.GetKeyPairArgs
+        ///         KeyName = "test",
+        ///         IncludePublicKey = true,
+        ///         Filters = new[]
         ///         {
-        ///             KeyName = "test",
-        ///             IncludePublicKey = true,
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetKeyPairFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetKeyPairFilterArgs
+        ///                 Name = "tag:Component",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "tag:Component",
-        ///                     Values = 
-        ///                     {
-        ///                         "web",
-        ///                     },
+        ///                     "web",
         ///                 },
         ///             },
-        ///         }));
-        ///         this.Fingerprint = example.Apply(example =&gt; example.Fingerprint);
-        ///         this.Name = example.Apply(example =&gt; example.KeyName);
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         },
+        ///     });
         /// 
-        ///     [Output("fingerprint")]
-        ///     public Output&lt;string&gt; Fingerprint { get; set; }
-        ///     [Output("name")]
-        ///     public Output&lt;string&gt; Name { get; set; }
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["fingerprint"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.Fingerprint),
+        ///         ["name"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.KeyName),
+        ///         ["id"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -117,7 +107,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetKeyPairArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyPairArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetKeyPairFilterArgs>? _filters;
@@ -164,9 +154,10 @@ namespace Pulumi.Aws.Ec2
         public GetKeyPairArgs()
         {
         }
+        public static new GetKeyPairArgs Empty => new GetKeyPairArgs();
     }
 
-    public sealed class GetKeyPairInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyPairInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetKeyPairFilterInputArgs>? _filters;
@@ -213,6 +204,7 @@ namespace Pulumi.Aws.Ec2
         public GetKeyPairInvokeArgs()
         {
         }
+        public static new GetKeyPairInvokeArgs Empty => new GetKeyPairInvokeArgs();
     }
 
 

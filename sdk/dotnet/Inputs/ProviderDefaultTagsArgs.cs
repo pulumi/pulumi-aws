@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Inputs
 {
 
-    public sealed class ProviderDefaultTagsArgs : Pulumi.ResourceArgs
+    public sealed class ProviderDefaultTagsArgs : global::Pulumi.ResourceArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -23,5 +23,6 @@ namespace Pulumi.Aws.Inputs
         public ProviderDefaultTagsArgs()
         {
         }
+        public static new ProviderDefaultTagsArgs Empty => new ProviderDefaultTagsArgs();
     }
 }

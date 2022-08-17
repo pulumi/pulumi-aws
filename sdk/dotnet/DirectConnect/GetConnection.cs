@@ -19,20 +19,18 @@ namespace Pulumi.Aws.DirectConnect
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.DirectConnect.GetConnection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.DirectConnect.GetConnection.InvokeAsync(new Aws.DirectConnect.GetConnectionArgs
-        ///         {
-        ///             Name = "tf-dx-connection",
-        ///         }));
-        ///     }
+        ///         Name = "tf-dx-connection",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.DirectConnect
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.DirectConnect.GetConnection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.DirectConnect.GetConnection.InvokeAsync(new Aws.DirectConnect.GetConnectionArgs
-        ///         {
-        ///             Name = "tf-dx-connection",
-        ///         }));
-        ///     }
+        ///         Name = "tf-dx-connection",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.DirectConnect
     }
 
 
-    public sealed class GetConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the connection to retrieve.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.DirectConnect
         public GetConnectionArgs()
         {
         }
+        public static new GetConnectionArgs Empty => new GetConnectionArgs();
     }
 
-    public sealed class GetConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the connection to retrieve.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.DirectConnect
         public GetConnectionInvokeArgs()
         {
         }
+        public static new GetConnectionInvokeArgs Empty => new GetConnectionInvokeArgs();
     }
 
 

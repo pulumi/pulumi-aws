@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx.Inputs
 {
 
-    public sealed class OpenZfsFileSystemRootVolumeConfigurationNfsExportsGetArgs : Pulumi.ResourceArgs
+    public sealed class OpenZfsFileSystemRootVolumeConfigurationNfsExportsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientConfigurations", required: true)]
         private InputList<Inputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationGetArgs>? _clientConfigurations;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Fsx.Inputs
         public OpenZfsFileSystemRootVolumeConfigurationNfsExportsGetArgs()
         {
         }
+        public static new OpenZfsFileSystemRootVolumeConfigurationNfsExportsGetArgs Empty => new OpenZfsFileSystemRootVolumeConfigurationNfsExportsGetArgs();
     }
 }

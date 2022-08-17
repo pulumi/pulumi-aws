@@ -16,113 +16,112 @@ namespace Pulumi.Aws.LakeFormation
     /// ### Database Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleLfTag = new Aws.LakeFormation.LfTag("exampleLfTag", new()
     ///     {
-    ///         var exampleLfTag = new Aws.LakeFormation.LfTag("exampleLfTag", new Aws.LakeFormation.LfTagArgs
+    ///         Key = "right",
+    ///         Values = new[]
     ///         {
-    ///             Key = "right",
-    ///             Values = 
-    ///             {
-    ///                 "abbey",
-    ///                 "village",
-    ///                 "luffield",
-    ///                 "woodcote",
-    ///                 "copse",
-    ///                 "chapel",
-    ///                 "stowe",
-    ///                 "club",
-    ///             },
-    ///         });
-    ///         var exampleResourceLfTags = new Aws.LakeFormation.ResourceLfTags("exampleResourceLfTags", new Aws.LakeFormation.ResourceLfTagsArgs
-    ///         {
-    ///             Database = new Aws.LakeFormation.Inputs.ResourceLfTagsDatabaseArgs
-    ///             {
-    ///                 Name = aws_glue_catalog_database.Example.Name,
-    ///             },
-    ///             LfTags = 
-    ///             {
-    ///                 new Aws.LakeFormation.Inputs.ResourceLfTagsLfTagArgs
-    ///                 {
-    ///                     Key = exampleLfTag.Key,
-    ///                     Value = "stowe",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///             "abbey",
+    ///             "village",
+    ///             "luffield",
+    ///             "woodcote",
+    ///             "copse",
+    ///             "chapel",
+    ///             "stowe",
+    ///             "club",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleResourceLfTags = new Aws.LakeFormation.ResourceLfTags("exampleResourceLfTags", new()
+    ///     {
+    ///         Database = new Aws.LakeFormation.Inputs.ResourceLfTagsDatabaseArgs
+    ///         {
+    ///             Name = aws_glue_catalog_database.Example.Name,
+    ///         },
+    ///         LfTags = new[]
+    ///         {
+    ///             new Aws.LakeFormation.Inputs.ResourceLfTagsLfTagArgs
+    ///             {
+    ///                 Key = exampleLfTag.Key,
+    ///                 Value = "stowe",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Multiple Tags Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleLfTag = new Aws.LakeFormation.LfTag("exampleLfTag", new()
     ///     {
-    ///         var exampleLfTag = new Aws.LakeFormation.LfTag("exampleLfTag", new Aws.LakeFormation.LfTagArgs
+    ///         Key = "right",
+    ///         Values = new[]
     ///         {
-    ///             Key = "right",
-    ///             Values = 
-    ///             {
-    ///                 "abbey",
-    ///                 "village",
-    ///                 "luffield",
-    ///                 "woodcote",
-    ///                 "copse",
-    ///                 "chapel",
-    ///                 "stowe",
-    ///                 "club",
-    ///             },
-    ///         });
-    ///         var example2 = new Aws.LakeFormation.LfTag("example2", new Aws.LakeFormation.LfTagArgs
-    ///         {
-    ///             Key = "left",
-    ///             Values = 
-    ///             {
-    ///                 "farm",
-    ///                 "theloop",
-    ///                 "aintree",
-    ///                 "brooklands",
-    ///                 "maggotts",
-    ///                 "becketts",
-    ///                 "vale",
-    ///             },
-    ///         });
-    ///         var exampleResourceLfTags = new Aws.LakeFormation.ResourceLfTags("exampleResourceLfTags", new Aws.LakeFormation.ResourceLfTagsArgs
-    ///         {
-    ///             Database = new Aws.LakeFormation.Inputs.ResourceLfTagsDatabaseArgs
-    ///             {
-    ///                 Name = aws_glue_catalog_database.Example.Name,
-    ///             },
-    ///             LfTags = 
-    ///             {
-    ///                 new Aws.LakeFormation.Inputs.ResourceLfTagsLfTagArgs
-    ///                 {
-    ///                     Key = "right",
-    ///                     Value = "luffield",
-    ///                 },
-    ///                 new Aws.LakeFormation.Inputs.ResourceLfTagsLfTagArgs
-    ///                 {
-    ///                     Key = "left",
-    ///                     Value = "aintree",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///             "abbey",
+    ///             "village",
+    ///             "luffield",
+    ///             "woodcote",
+    ///             "copse",
+    ///             "chapel",
+    ///             "stowe",
+    ///             "club",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var example2 = new Aws.LakeFormation.LfTag("example2", new()
+    ///     {
+    ///         Key = "left",
+    ///         Values = new[]
+    ///         {
+    ///             "farm",
+    ///             "theloop",
+    ///             "aintree",
+    ///             "brooklands",
+    ///             "maggotts",
+    ///             "becketts",
+    ///             "vale",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleResourceLfTags = new Aws.LakeFormation.ResourceLfTags("exampleResourceLfTags", new()
+    ///     {
+    ///         Database = new Aws.LakeFormation.Inputs.ResourceLfTagsDatabaseArgs
+    ///         {
+    ///             Name = aws_glue_catalog_database.Example.Name,
+    ///         },
+    ///         LfTags = new[]
+    ///         {
+    ///             new Aws.LakeFormation.Inputs.ResourceLfTagsLfTagArgs
+    ///             {
+    ///                 Key = "right",
+    ///                 Value = "luffield",
+    ///             },
+    ///             new Aws.LakeFormation.Inputs.ResourceLfTagsLfTagArgs
+    ///             {
+    ///                 Key = "left",
+    ///                 Value = "aintree",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:lakeformation/resourceLfTags:ResourceLfTags")]
-    public partial class ResourceLfTags : Pulumi.CustomResource
+    public partial class ResourceLfTags : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -198,7 +197,7 @@ namespace Pulumi.Aws.LakeFormation
         }
     }
 
-    public sealed class ResourceLfTagsArgs : Pulumi.ResourceArgs
+    public sealed class ResourceLfTagsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -239,9 +238,10 @@ namespace Pulumi.Aws.LakeFormation
         public ResourceLfTagsArgs()
         {
         }
+        public static new ResourceLfTagsArgs Empty => new ResourceLfTagsArgs();
     }
 
-    public sealed class ResourceLfTagsState : Pulumi.ResourceArgs
+    public sealed class ResourceLfTagsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -282,5 +282,6 @@ namespace Pulumi.Aws.LakeFormation
         public ResourceLfTagsState()
         {
         }
+        public static new ResourceLfTagsState Empty => new ResourceLfTagsState();
     }
 }

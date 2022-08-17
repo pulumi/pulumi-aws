@@ -20,7 +20,9 @@ import (
 // SageMaker Code Studio Lifecycle Configs can be imported using the `studio_lifecycle_config_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
+//
+//	$ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
+//
 // ```
 type StudioLifecycleConfig struct {
 	pulumi.CustomResourceState
@@ -159,7 +161,7 @@ func (i *StudioLifecycleConfig) ToStudioLifecycleConfigOutputWithContext(ctx con
 // StudioLifecycleConfigArrayInput is an input type that accepts StudioLifecycleConfigArray and StudioLifecycleConfigArrayOutput values.
 // You can construct a concrete instance of `StudioLifecycleConfigArrayInput` via:
 //
-//          StudioLifecycleConfigArray{ StudioLifecycleConfigArgs{...} }
+//	StudioLifecycleConfigArray{ StudioLifecycleConfigArgs{...} }
 type StudioLifecycleConfigArrayInput interface {
 	pulumi.Input
 
@@ -184,7 +186,7 @@ func (i StudioLifecycleConfigArray) ToStudioLifecycleConfigArrayOutputWithContex
 // StudioLifecycleConfigMapInput is an input type that accepts StudioLifecycleConfigMap and StudioLifecycleConfigMapOutput values.
 // You can construct a concrete instance of `StudioLifecycleConfigMapInput` via:
 //
-//          StudioLifecycleConfigMap{ "key": StudioLifecycleConfigArgs{...} }
+//	StudioLifecycleConfigMap{ "key": StudioLifecycleConfigArgs{...} }
 type StudioLifecycleConfigMapInput interface {
 	pulumi.Input
 

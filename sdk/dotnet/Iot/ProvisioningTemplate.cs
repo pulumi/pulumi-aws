@@ -20,106 +20,108 @@ namespace Pulumi.Aws.Iot
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var iotAssumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var iotAssumeRolePolicy = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "sts:AssumeRole",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Type = "Service",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 "iot.amazonaws.com",
-    ///                             },
+    ///                             "iot.amazonaws.com",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         }));
-    ///         var iotFleetProvisioning = new Aws.Iam.Role("iotFleetProvisioning", new Aws.Iam.RoleArgs
+    ///         },
+    ///     });
+    /// 
+    ///     var iotFleetProvisioning = new Aws.Iam.Role("iotFleetProvisioning", new()
+    ///     {
+    ///         Path = "/service-role/",
+    ///         AssumeRolePolicy = iotAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var iotFleetProvisioningRegistration = new Aws.Iam.RolePolicyAttachment("iotFleetProvisioningRegistration", new()
+    ///     {
+    ///         Role = iotFleetProvisioning.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration",
+    ///     });
+    /// 
+    ///     var devicePolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
     ///         {
-    ///             Path = "/service-role/",
-    ///             AssumeRolePolicy = iotAssumeRolePolicy.Apply(iotAssumeRolePolicy =&gt; iotAssumeRolePolicy.Json),
-    ///         });
-    ///         var iotFleetProvisioningRegistration = new Aws.Iam.RolePolicyAttachment("iotFleetProvisioningRegistration", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             Role = iotFleetProvisioning.Name,
-    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration",
-    ///         });
-    ///         var devicePolicyPolicyDocument = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
-    ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
-    ///                     {
-    ///                         "iot:Subscribe",
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         "*",
-    ///                     },
+    ///                     "iot:Subscribe",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "*",
     ///                 },
     ///             },
-    ///         }));
-    ///         var devicePolicyPolicy = new Aws.Iot.Policy("devicePolicyPolicy", new Aws.Iot.PolicyArgs
-    ///         {
-    ///             PolicyDocument = devicePolicyPolicyDocument.Apply(devicePolicyPolicyDocument =&gt; devicePolicyPolicyDocument.Json),
-    ///         });
-    ///         var fleet = new Aws.Iot.ProvisioningTemplate("fleet", new Aws.Iot.ProvisioningTemplateArgs
-    ///         {
-    ///             Description = "My provisioning template",
-    ///             ProvisioningRoleArn = iotFleetProvisioning.Arn,
-    ///             TemplateBody = devicePolicyPolicy.Name.Apply(name =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "Parameters", new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "SerialNumber", new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "Type", "String" },
-    ///                     } },
-    ///                 } },
-    ///                 { "Resources", new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "certificate", new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "Properties", new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "CertificateId", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "Ref", "AWS::IoT::Certificate::Id" },
-    ///                             } },
-    ///                             { "Status", "Active" },
-    ///                         } },
-    ///                         { "Type", "AWS::IoT::Certificate" },
-    ///                     } },
-    ///                     { "policy", new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         { "Properties", new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "PolicyName", name },
-    ///                         } },
-    ///                         { "Type", "AWS::IoT::Policy" },
-    ///                     } },
-    ///                 } },
-    ///             })),
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var devicePolicyPolicy = new Aws.Iot.Policy("devicePolicyPolicy", new()
+    ///     {
+    ///         PolicyDocument = devicePolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var fleet = new Aws.Iot.ProvisioningTemplate("fleet", new()
+    ///     {
+    ///         Description = "My provisioning template",
+    ///         ProvisioningRoleArn = iotFleetProvisioning.Arn,
+    ///         TemplateBody = devicePolicyPolicy.Name.Apply(name =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Parameters"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["SerialNumber"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Type"] = "String",
+    ///                 },
+    ///             },
+    ///             ["Resources"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["certificate"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Properties"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["CertificateId"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["Ref"] = "AWS::IoT::Certificate::Id",
+    ///                         },
+    ///                         ["Status"] = "Active",
+    ///                     },
+    ///                     ["Type"] = "AWS::IoT::Certificate",
+    ///                 },
+    ///                 ["policy"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Properties"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["PolicyName"] = name,
+    ///                     },
+    ///                     ["Type"] = "AWS::IoT::Policy",
+    ///                 },
+    ///             },
+    ///         })),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -131,7 +133,7 @@ namespace Pulumi.Aws.Iot
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/provisioningTemplate:ProvisioningTemplate")]
-    public partial class ProvisioningTemplate : Pulumi.CustomResource
+    public partial class ProvisioningTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN that identifies the provisioning template.
@@ -181,9 +183,6 @@ namespace Pulumi.Aws.Iot
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -237,7 +236,7 @@ namespace Pulumi.Aws.Iot
         }
     }
 
-    public sealed class ProvisioningTemplateArgs : Pulumi.ResourceArgs
+    public sealed class ProvisioningTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the fleet provisioning template.
@@ -290,9 +289,10 @@ namespace Pulumi.Aws.Iot
         public ProvisioningTemplateArgs()
         {
         }
+        public static new ProvisioningTemplateArgs Empty => new ProvisioningTemplateArgs();
     }
 
-    public sealed class ProvisioningTemplateState : Pulumi.ResourceArgs
+    public sealed class ProvisioningTemplateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN that identifies the provisioning template.
@@ -350,10 +350,6 @@ namespace Pulumi.Aws.Iot
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -369,5 +365,6 @@ namespace Pulumi.Aws.Iot
         public ProvisioningTemplateState()
         {
         }
+        public static new ProvisioningTemplateState Empty => new ProvisioningTemplateState();
     }
 }

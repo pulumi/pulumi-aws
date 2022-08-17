@@ -15,53 +15,51 @@ namespace Pulumi.Aws.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Iot.IndexingConfiguration("example", new()
     ///     {
-    ///         var example = new Aws.Iot.IndexingConfiguration("example", new Aws.Iot.IndexingConfigurationArgs
+    ///         ThingIndexingConfiguration = new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationArgs
     ///         {
-    ///             ThingIndexingConfiguration = new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationArgs
+    ///             CustomFields = new[]
     ///             {
-    ///                 CustomFields = 
+    ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
     ///                 {
-    ///                     new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
-    ///                     {
-    ///                         Name = "shadow.desired.power",
-    ///                         Type = "Boolean",
-    ///                     },
-    ///                     new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
-    ///                     {
-    ///                         Name = "attributes.version",
-    ///                         Type = "Number",
-    ///                     },
-    ///                     new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
-    ///                     {
-    ///                         Name = "shadow.name.thing1shadow.desired.DefaultDesired",
-    ///                         Type = "String",
-    ///                     },
-    ///                     new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
-    ///                     {
-    ///                         Name = "deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number",
-    ///                         Type = "Number",
-    ///                     },
+    ///                     Name = "shadow.desired.power",
+    ///                     Type = "Boolean",
     ///                 },
-    ///                 DeviceDefenderIndexingMode = "VIOLATIONS",
-    ///                 NamedShadowIndexingMode = "ON",
-    ///                 ThingConnectivityIndexingMode = "STATUS",
-    ///                 ThingIndexingMode = "REGISTRY_AND_SHADOW",
+    ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
+    ///                 {
+    ///                     Name = "attributes.version",
+    ///                     Type = "Number",
+    ///                 },
+    ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
+    ///                 {
+    ///                     Name = "shadow.name.thing1shadow.desired.DefaultDesired",
+    ///                     Type = "String",
+    ///                 },
+    ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
+    ///                 {
+    ///                     Name = "deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number",
+    ///                     Type = "Number",
+    ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             DeviceDefenderIndexingMode = "VIOLATIONS",
+    ///             NamedShadowIndexingMode = "ON",
+    ///             ThingConnectivityIndexingMode = "STATUS",
+    ///             ThingIndexingMode = "REGISTRY_AND_SHADOW",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/indexingConfiguration:IndexingConfiguration")]
-    public partial class IndexingConfiguration : Pulumi.CustomResource
+    public partial class IndexingConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Thing group indexing configuration. See below.
@@ -119,7 +117,7 @@ namespace Pulumi.Aws.Iot
         }
     }
 
-    public sealed class IndexingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class IndexingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Thing group indexing configuration. See below.
@@ -136,9 +134,10 @@ namespace Pulumi.Aws.Iot
         public IndexingConfigurationArgs()
         {
         }
+        public static new IndexingConfigurationArgs Empty => new IndexingConfigurationArgs();
     }
 
-    public sealed class IndexingConfigurationState : Pulumi.ResourceArgs
+    public sealed class IndexingConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Thing group indexing configuration. See below.
@@ -155,5 +154,6 @@ namespace Pulumi.Aws.Iot
         public IndexingConfigurationState()
         {
         }
+        public static new IndexingConfigurationState Empty => new IndexingConfigurationState();
     }
 }

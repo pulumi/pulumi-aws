@@ -21,26 +21,25 @@ namespace Pulumi.Aws.Ec2
         /// The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var fooLocalGateways = Aws.Ec2.GetLocalGateways.Invoke(new()
         ///     {
-        ///         var fooLocalGateways = Output.Create(Aws.Ec2.GetLocalGateways.InvokeAsync(new Aws.Ec2.GetLocalGatewaysArgs
+        ///         Tags = 
         ///         {
-        ///             Tags = 
-        ///             {
-        ///                 { "service", "production" },
-        ///             },
-        ///         }));
-        ///         this.Foo = fooLocalGateways.Apply(fooLocalGateways =&gt; fooLocalGateways.Ids);
-        ///     }
+        ///             { "service", "production" },
+        ///         },
+        ///     });
         /// 
-        ///     [Output("foo")]
-        ///     public Output&lt;string&gt; Foo { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["foo"] = fooLocalGateways.Apply(getLocalGatewaysResult =&gt; getLocalGatewaysResult.Ids),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -58,26 +57,25 @@ namespace Pulumi.Aws.Ec2
         /// The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var fooLocalGateways = Aws.Ec2.GetLocalGateways.Invoke(new()
         ///     {
-        ///         var fooLocalGateways = Output.Create(Aws.Ec2.GetLocalGateways.InvokeAsync(new Aws.Ec2.GetLocalGatewaysArgs
+        ///         Tags = 
         ///         {
-        ///             Tags = 
-        ///             {
-        ///                 { "service", "production" },
-        ///             },
-        ///         }));
-        ///         this.Foo = fooLocalGateways.Apply(fooLocalGateways =&gt; fooLocalGateways.Ids);
-        ///     }
+        ///             { "service", "production" },
+        ///         },
+        ///     });
         /// 
-        ///     [Output("foo")]
-        ///     public Output&lt;string&gt; Foo { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["foo"] = fooLocalGateways.Apply(getLocalGatewaysResult =&gt; getLocalGatewaysResult.Ids),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -87,7 +85,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetLocalGatewaysArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalGatewaysArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetLocalGatewaysFilterArgs>? _filters;
@@ -117,9 +115,10 @@ namespace Pulumi.Aws.Ec2
         public GetLocalGatewaysArgs()
         {
         }
+        public static new GetLocalGatewaysArgs Empty => new GetLocalGatewaysArgs();
     }
 
-    public sealed class GetLocalGatewaysInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalGatewaysInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetLocalGatewaysFilterInputArgs>? _filters;
@@ -149,6 +148,7 @@ namespace Pulumi.Aws.Ec2
         public GetLocalGatewaysInvokeArgs()
         {
         }
+        public static new GetLocalGatewaysInvokeArgs Empty => new GetLocalGatewaysInvokeArgs();
     }
 
 

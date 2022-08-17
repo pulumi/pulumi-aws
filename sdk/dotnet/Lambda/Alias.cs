@@ -18,29 +18,27 @@ namespace Pulumi.Aws.Lambda
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testLambdaAlias = new Aws.Lambda.Alias("testLambdaAlias", new()
     ///     {
-    ///         var testLambdaAlias = new Aws.Lambda.Alias("testLambdaAlias", new Aws.Lambda.AliasArgs
+    ///         Description = "a sample description",
+    ///         FunctionName = aws_lambda_function.Lambda_function_test.Arn,
+    ///         FunctionVersion = "1",
+    ///         RoutingConfig = new Aws.Lambda.Inputs.AliasRoutingConfigArgs
     ///         {
-    ///             Description = "a sample description",
-    ///             FunctionName = aws_lambda_function.Lambda_function_test.Arn,
-    ///             FunctionVersion = "1",
-    ///             RoutingConfig = new Aws.Lambda.Inputs.AliasRoutingConfigArgs
+    ///             AdditionalVersionWeights = 
     ///             {
-    ///                 AdditionalVersionWeights = 
-    ///                 {
-    ///                     { "2", 0.5 },
-    ///                 },
+    ///                 { "2", 0.5 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Aws.Lambda
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/alias:Alias")]
-    public partial class Alias : Pulumi.CustomResource
+    public partial class Alias : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) identifying your Lambda function alias.
@@ -140,7 +138,7 @@ namespace Pulumi.Aws.Lambda
         }
     }
 
-    public sealed class AliasArgs : Pulumi.ResourceArgs
+    public sealed class AliasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the alias.
@@ -175,9 +173,10 @@ namespace Pulumi.Aws.Lambda
         public AliasArgs()
         {
         }
+        public static new AliasArgs Empty => new AliasArgs();
     }
 
-    public sealed class AliasState : Pulumi.ResourceArgs
+    public sealed class AliasState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) identifying your Lambda function alias.
@@ -224,5 +223,6 @@ namespace Pulumi.Aws.Lambda
         public AliasState()
         {
         }
+        public static new AliasState Empty => new AliasState();
     }
 }

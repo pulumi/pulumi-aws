@@ -19,25 +19,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudwatch.NewLogSubscriptionFilter(ctx, "testLambdafunctionLogfilter", &cloudwatch.LogSubscriptionFilterArgs{
-// 			RoleArn:        pulumi.Any(aws_iam_role.Iam_for_lambda.Arn),
-// 			LogGroup:       pulumi.Any("/aws/lambda/example_lambda_name"),
-// 			FilterPattern:  pulumi.String("logtype test"),
-// 			DestinationArn: pulumi.Any(aws_kinesis_stream.Test_logstream.Arn),
-// 			Distribution:   pulumi.String("Random"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewLogSubscriptionFilter(ctx, "testLambdafunctionLogfilter", &cloudwatch.LogSubscriptionFilterArgs{
+//				RoleArn:        pulumi.Any(aws_iam_role.Iam_for_lambda.Arn),
+//				LogGroup:       pulumi.Any("/aws/lambda/example_lambda_name"),
+//				FilterPattern:  pulumi.String("logtype test"),
+//				DestinationArn: pulumi.Any(aws_kinesis_stream.Test_logstream.Arn),
+//				Distribution:   pulumi.String("Random"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // CloudWatch Logs subscription filter can be imported using the log group name and subscription filter name separated by `|`.
 //
 // ```sh
-//  $ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter /aws/lambda/example_lambda_name|test_lambdafunction_logfilter
+//
+//	$ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter /aws/lambda/example_lambda_name|test_lambdafunction_logfilter
+//
 // ```
 type LogSubscriptionFilter struct {
 	pulumi.CustomResourceState
@@ -192,7 +197,7 @@ func (i *LogSubscriptionFilter) ToLogSubscriptionFilterOutputWithContext(ctx con
 // LogSubscriptionFilterArrayInput is an input type that accepts LogSubscriptionFilterArray and LogSubscriptionFilterArrayOutput values.
 // You can construct a concrete instance of `LogSubscriptionFilterArrayInput` via:
 //
-//          LogSubscriptionFilterArray{ LogSubscriptionFilterArgs{...} }
+//	LogSubscriptionFilterArray{ LogSubscriptionFilterArgs{...} }
 type LogSubscriptionFilterArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +222,7 @@ func (i LogSubscriptionFilterArray) ToLogSubscriptionFilterArrayOutputWithContex
 // LogSubscriptionFilterMapInput is an input type that accepts LogSubscriptionFilterMap and LogSubscriptionFilterMapOutput values.
 // You can construct a concrete instance of `LogSubscriptionFilterMapInput` via:
 //
-//          LogSubscriptionFilterMap{ "key": LogSubscriptionFilterArgs{...} }
+//	LogSubscriptionFilterMap{ "key": LogSubscriptionFilterArgs{...} }
 type LogSubscriptionFilterMapInput interface {
 	pulumi.Input
 

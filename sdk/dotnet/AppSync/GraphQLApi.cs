@@ -16,153 +16,141 @@ namespace Pulumi.Aws.AppSync
     /// ### API Key Authentication
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
-    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
-    ///         {
-    ///             AuthenticationType = "API_KEY",
-    ///         });
-    ///     }
+    ///         AuthenticationType = "API_KEY",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### AWS IAM Authentication
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
-    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
-    ///         {
-    ///             AuthenticationType = "AWS_IAM",
-    ///         });
-    ///     }
+    ///         AuthenticationType = "AWS_IAM",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### AWS Cognito User Pool Authentication
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
-    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
+    ///         AuthenticationType = "AMAZON_COGNITO_USER_POOLS",
+    ///         UserPoolConfig = new Aws.AppSync.Inputs.GraphQLApiUserPoolConfigArgs
     ///         {
-    ///             AuthenticationType = "AMAZON_COGNITO_USER_POOLS",
-    ///             UserPoolConfig = new Aws.AppSync.Inputs.GraphQLApiUserPoolConfigArgs
-    ///             {
-    ///                 AwsRegion = data.Aws_region.Current.Name,
-    ///                 DefaultAction = "DENY",
-    ///                 UserPoolId = aws_cognito_user_pool.Example.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///             AwsRegion = data.Aws_region.Current.Name,
+    ///             DefaultAction = "DENY",
+    ///             UserPoolId = aws_cognito_user_pool.Example.Id,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### OpenID Connect Authentication
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
-    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
+    ///         AuthenticationType = "OPENID_CONNECT",
+    ///         OpenidConnectConfig = new Aws.AppSync.Inputs.GraphQLApiOpenidConnectConfigArgs
     ///         {
-    ///             AuthenticationType = "OPENID_CONNECT",
-    ///             OpenidConnectConfig = new Aws.AppSync.Inputs.GraphQLApiOpenidConnectConfigArgs
-    ///             {
-    ///                 Issuer = "https://example.com",
-    ///             },
-    ///         });
-    ///     }
+    ///             Issuer = "https://example.com",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### AWS Lambda Authorizer Authentication
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
-    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
+    ///         AuthenticationType = "AWS_LAMBDA",
+    ///         LambdaAuthorizerConfig = new Aws.AppSync.Inputs.GraphQLApiLambdaAuthorizerConfigArgs
     ///         {
-    ///             AuthenticationType = "AWS_LAMBDA",
-    ///             LambdaAuthorizerConfig = new Aws.AppSync.Inputs.GraphQLApiLambdaAuthorizerConfigArgs
-    ///             {
-    ///                 AuthorizerUri = "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
-    ///             },
-    ///         });
-    ///         var appsyncLambdaAuthorizer = new Aws.Lambda.Permission("appsyncLambdaAuthorizer", new Aws.Lambda.PermissionArgs
-    ///         {
-    ///             Action = "lambda:InvokeFunction",
-    ///             Function = "custom_lambda_authorizer",
-    ///             Principal = "appsync.amazonaws.com",
-    ///             SourceArn = example.Arn,
-    ///         });
-    ///     }
+    ///             AuthorizerUri = "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var appsyncLambdaAuthorizer = new Aws.Lambda.Permission("appsyncLambdaAuthorizer", new()
+    ///     {
+    ///         Action = "lambda:InvokeFunction",
+    ///         Function = "custom_lambda_authorizer",
+    ///         Principal = "appsync.amazonaws.com",
+    ///         SourceArn = example.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### With Multiple Authentication Providers
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
-    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
+    ///         AdditionalAuthenticationProviders = new[]
     ///         {
-    ///             AdditionalAuthenticationProviders = 
+    ///             new Aws.AppSync.Inputs.GraphQLApiAdditionalAuthenticationProviderArgs
     ///             {
-    ///                 new Aws.AppSync.Inputs.GraphQLApiAdditionalAuthenticationProviderArgs
-    ///                 {
-    ///                     AuthenticationType = "AWS_IAM",
-    ///                 },
+    ///                 AuthenticationType = "AWS_IAM",
     ///             },
-    ///             AuthenticationType = "API_KEY",
-    ///         });
-    ///     }
+    ///         },
+    ///         AuthenticationType = "API_KEY",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With Schema
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
-    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
-    ///         {
-    ///             AuthenticationType = "AWS_IAM",
-    ///             Schema = @"schema {
+    ///         AuthenticationType = "AWS_IAM",
+    ///         Schema = @"schema {
     /// 	query: Query
     /// }
     /// type Query {
@@ -170,24 +158,22 @@ namespace Pulumi.Aws.AppSync
     /// }
     /// 
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Enabling Logging
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
     ///     {
-    ///         var exampleRole = new Aws.Iam.Role("exampleRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///     ""Version"": ""2012-10-17"",
     ///     ""Statement"": [
     ///         {
@@ -200,24 +186,25 @@ namespace Pulumi.Aws.AppSync
     ///     ]
     /// }
     /// ",
-    ///         });
-    ///         var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
-    ///             Role = exampleRole.Name,
-    ///         });
-    ///         // ... other configuration ...
-    ///         var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new Aws.AppSync.GraphQLApiArgs
-    ///         {
-    ///             LogConfig = new Aws.AppSync.Inputs.GraphQLApiLogConfigArgs
-    ///             {
-    ///                 CloudwatchLogsRoleArn = exampleRole.Arn,
-    ///                 FieldLogLevel = "ERROR",
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("exampleRolePolicyAttachment", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
+    ///         Role = exampleRole.Name,
+    ///     });
+    /// 
+    ///     // ... other configuration ...
+    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
+    ///     {
+    ///         LogConfig = new Aws.AppSync.Inputs.GraphQLApiLogConfigArgs
+    ///         {
+    ///             CloudwatchLogsRoleArn = exampleRole.Arn,
+    ///             FieldLogLevel = "ERROR",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -229,7 +216,7 @@ namespace Pulumi.Aws.AppSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/graphQLApi:GraphQLApi")]
-    public partial class GraphQLApi : Pulumi.CustomResource
+    public partial class GraphQLApi : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more additional authentication providers for the GraphqlApi. Defined below.
@@ -353,7 +340,7 @@ namespace Pulumi.Aws.AppSync
         }
     }
 
-    public sealed class GraphQLApiArgs : Pulumi.ResourceArgs
+    public sealed class GraphQLApiArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalAuthenticationProviders")]
         private InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs>? _additionalAuthenticationProviders;
@@ -430,9 +417,10 @@ namespace Pulumi.Aws.AppSync
         public GraphQLApiArgs()
         {
         }
+        public static new GraphQLApiArgs Empty => new GraphQLApiArgs();
     }
 
-    public sealed class GraphQLApiState : Pulumi.ResourceArgs
+    public sealed class GraphQLApiState : global::Pulumi.ResourceArgs
     {
         [Input("additionalAuthenticationProviders")]
         private InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderGetArgs>? _additionalAuthenticationProviders;
@@ -539,5 +527,6 @@ namespace Pulumi.Aws.AppSync
         public GraphQLApiState()
         {
         }
+        public static new GraphQLApiState Empty => new GraphQLApiState();
     }
 }

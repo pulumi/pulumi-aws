@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetVpnGatewayFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetVpnGatewayFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the field to filter by, as defined by
@@ -35,5 +35,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetVpnGatewayFilterArgs()
         {
         }
+        public static new GetVpnGatewayFilterArgs Empty => new GetVpnGatewayFilterArgs();
     }
 }

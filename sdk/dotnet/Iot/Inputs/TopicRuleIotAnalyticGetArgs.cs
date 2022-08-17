@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleIotAnalyticGetArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleIotAnalyticGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of AWS IOT Analytics channel.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public TopicRuleIotAnalyticGetArgs()
         {
         }
+        public static new TopicRuleIotAnalyticGetArgs Empty => new TopicRuleIotAnalyticGetArgs();
     }
 }

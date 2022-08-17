@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionGetArgs : Pulumi.ResourceArgs
+    public sealed class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("organizationArns")]
         private InputList<string>? _organizationArns;
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionGetArgs()
         {
         }
+        public static new DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionGetArgs Empty => new DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionGetArgs();
     }
 }

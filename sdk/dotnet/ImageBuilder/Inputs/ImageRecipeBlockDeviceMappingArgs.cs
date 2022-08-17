@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class ImageRecipeBlockDeviceMappingArgs : Pulumi.ResourceArgs
+    public sealed class ImageRecipeBlockDeviceMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public ImageRecipeBlockDeviceMappingArgs()
         {
         }
+        public static new ImageRecipeBlockDeviceMappingArgs Empty => new ImageRecipeBlockDeviceMappingArgs();
     }
 }

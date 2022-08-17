@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationRunConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationRunConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The restore behavior of a restarting application.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationRunConfigurationGetArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationRunConfigurationGetArgs Empty => new ApplicationApplicationConfigurationRunConfigurationGetArgs();
     }
 }

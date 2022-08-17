@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := kinesis.NewVideoStream(ctx, "default", &kinesis.VideoStreamArgs{
-// 			DataRetentionInHours: pulumi.Int(1),
-// 			DeviceName:           pulumi.String("kinesis-video-device-name"),
-// 			MediaType:            pulumi.String("video/h264"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("kinesis-video-stream"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kinesis.NewVideoStream(ctx, "default", &kinesis.VideoStreamArgs{
+//				DataRetentionInHours: pulumi.Int(1),
+//				DeviceName:           pulumi.String("kinesis-video-device-name"),
+//				MediaType:            pulumi.String("video/h264"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("kinesis-video-stream"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,10 +50,12 @@ import (
 // Kinesis Streams can be imported using the `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/terraform-kinesis-test/1554978910975
+//
+//	$ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/terraform-kinesis-test/1554978910975
+//
 // ```
 //
-//  [1]https://aws.amazon.com/documentation/kinesis/ [2]http://www.iana.org/assignments/media-types/media-types.xhtml [3]https://tools.ietf.org/html/rfc6838#section-4.2
+//	[1]https://aws.amazon.com/documentation/kinesis/ [2]http://www.iana.org/assignments/media-types/media-types.xhtml [3]https://tools.ietf.org/html/rfc6838#section-4.2
 type VideoStream struct {
 	pulumi.CustomResourceState
 
@@ -216,7 +221,7 @@ func (i *VideoStream) ToVideoStreamOutputWithContext(ctx context.Context) VideoS
 // VideoStreamArrayInput is an input type that accepts VideoStreamArray and VideoStreamArrayOutput values.
 // You can construct a concrete instance of `VideoStreamArrayInput` via:
 //
-//          VideoStreamArray{ VideoStreamArgs{...} }
+//	VideoStreamArray{ VideoStreamArgs{...} }
 type VideoStreamArrayInput interface {
 	pulumi.Input
 
@@ -241,7 +246,7 @@ func (i VideoStreamArray) ToVideoStreamArrayOutputWithContext(ctx context.Contex
 // VideoStreamMapInput is an input type that accepts VideoStreamMap and VideoStreamMapOutput values.
 // You can construct a concrete instance of `VideoStreamMapInput` via:
 //
-//          VideoStreamMap{ "key": VideoStreamArgs{...} }
+//	VideoStreamMap{ "key": VideoStreamArgs{...} }
 type VideoStreamMapInput interface {
 	pulumi.Input
 

@@ -20,7 +20,7 @@ type TableMagneticStoreWriteProperties struct {
 // TableMagneticStoreWritePropertiesInput is an input type that accepts TableMagneticStoreWritePropertiesArgs and TableMagneticStoreWritePropertiesOutput values.
 // You can construct a concrete instance of `TableMagneticStoreWritePropertiesInput` via:
 //
-//          TableMagneticStoreWritePropertiesArgs{...}
+//	TableMagneticStoreWritePropertiesArgs{...}
 type TableMagneticStoreWritePropertiesInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i TableMagneticStoreWritePropertiesArgs) ToTableMagneticStoreWriteProperti
 // TableMagneticStoreWritePropertiesPtrInput is an input type that accepts TableMagneticStoreWritePropertiesArgs, TableMagneticStoreWritePropertiesPtr and TableMagneticStoreWritePropertiesPtrOutput values.
 // You can construct a concrete instance of `TableMagneticStoreWritePropertiesPtrInput` via:
 //
-//          TableMagneticStoreWritePropertiesArgs{...}
+//	        TableMagneticStoreWritePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableMagneticStoreWritePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -176,7 +176,7 @@ type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation struct {
 // TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationInput is an input type that accepts TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs and TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput values.
 // You can construct a concrete instance of `TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationInput` via:
 //
-//          TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs{...}
+//	TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs{...}
 type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationInput interface {
 	pulumi.Input
 
@@ -212,11 +212,11 @@ func (i TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs) 
 // TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrInput is an input type that accepts TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs, TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtr and TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput values.
 // You can construct a concrete instance of `TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrInput` via:
 //
-//          TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs{...}
+//	        TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrInput interface {
 	pulumi.Input
 
@@ -321,7 +321,7 @@ type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configu
 // TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationInput is an input type that accepts TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs and TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput values.
 // You can construct a concrete instance of `TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationInput` via:
 //
-//          TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs{...}
+//	TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs{...}
 type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationInput interface {
 	pulumi.Input
 
@@ -363,11 +363,11 @@ func (i TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Conf
 // TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrInput is an input type that accepts TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs, TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtr and TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput values.
 // You can construct a concrete instance of `TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrInput` via:
 //
-//          TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs{...}
+//	        TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -519,7 +519,7 @@ type TableRetentionProperties struct {
 // TableRetentionPropertiesInput is an input type that accepts TableRetentionPropertiesArgs and TableRetentionPropertiesOutput values.
 // You can construct a concrete instance of `TableRetentionPropertiesInput` via:
 //
-//          TableRetentionPropertiesArgs{...}
+//	TableRetentionPropertiesArgs{...}
 type TableRetentionPropertiesInput interface {
 	pulumi.Input
 
@@ -557,11 +557,11 @@ func (i TableRetentionPropertiesArgs) ToTableRetentionPropertiesPtrOutputWithCon
 // TableRetentionPropertiesPtrInput is an input type that accepts TableRetentionPropertiesArgs, TableRetentionPropertiesPtr and TableRetentionPropertiesPtrOutput values.
 // You can construct a concrete instance of `TableRetentionPropertiesPtrInput` via:
 //
-//          TableRetentionPropertiesArgs{...}
+//	        TableRetentionPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableRetentionPropertiesPtrInput interface {
 	pulumi.Input
 

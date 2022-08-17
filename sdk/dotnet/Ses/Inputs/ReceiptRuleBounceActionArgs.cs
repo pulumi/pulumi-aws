@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ses.Inputs
 {
 
-    public sealed class ReceiptRuleBounceActionArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleBounceActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The message to send
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Ses.Inputs
         public ReceiptRuleBounceActionArgs()
         {
         }
+        public static new ReceiptRuleBounceActionArgs Empty => new ReceiptRuleBounceActionArgs();
     }
 }

@@ -15,19 +15,15 @@ namespace Pulumi.Aws.Route53
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.Route53.ResolverFirewallDomainList("example", new Aws.Route53.ResolverFirewallDomainListArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var example = new Aws.Route53.ResolverFirewallDomainList("example");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList")]
-    public partial class ResolverFirewallDomainList : Pulumi.CustomResource
+    public partial class ResolverFirewallDomainList : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) of the domain list.
@@ -66,7 +62,7 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -115,7 +111,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class ResolverFirewallDomainListArgs : Pulumi.ResourceArgs
+    public sealed class ResolverFirewallDomainListArgs : global::Pulumi.ResourceArgs
     {
         [Input("domains")]
         private InputList<string>? _domains;
@@ -150,9 +146,10 @@ namespace Pulumi.Aws.Route53
         public ResolverFirewallDomainListArgs()
         {
         }
+        public static new ResolverFirewallDomainListArgs Empty => new ResolverFirewallDomainListArgs();
     }
 
-    public sealed class ResolverFirewallDomainListState : Pulumi.ResourceArgs
+    public sealed class ResolverFirewallDomainListState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN (Amazon Resource Name) of the domain list.
@@ -194,7 +191,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -205,5 +202,6 @@ namespace Pulumi.Aws.Route53
         public ResolverFirewallDomainListState()
         {
         }
+        public static new ResolverFirewallDomainListState Empty => new ResolverFirewallDomainListState();
     }
 }

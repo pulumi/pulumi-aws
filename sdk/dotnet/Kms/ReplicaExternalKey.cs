@@ -16,39 +16,39 @@ namespace Pulumi.Aws.Kms
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var primary = new Aws.Provider("primary", new()
     ///     {
-    ///         var primary = new Aws.Provider("primary", new Aws.ProviderArgs
-    ///         {
-    ///             Region = "us-east-1",
-    ///         });
-    ///         var primaryExternalKey = new Aws.Kms.ExternalKey("primaryExternalKey", new Aws.Kms.ExternalKeyArgs
-    ///         {
-    ///             Description = "Multi-Region primary key",
-    ///             DeletionWindowInDays = 30,
-    ///             MultiRegion = true,
-    ///             Enabled = true,
-    ///             KeyMaterialBase64 = "...",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Primary,
-    ///         });
-    ///         var replica = new Aws.Kms.ReplicaExternalKey("replica", new Aws.Kms.ReplicaExternalKeyArgs
-    ///         {
-    ///             Description = "Multi-Region replica key",
-    ///             DeletionWindowInDays = 7,
-    ///             PrimaryKeyArn = aws_kms_external.Primary.Arn,
-    ///             KeyMaterialBase64 = "...",
-    ///         });
-    ///         // Must be the same key material as the primary's.
-    ///     }
+    ///         Region = "us-east-1",
+    ///     });
     /// 
-    /// }
+    ///     var primaryExternalKey = new Aws.Kms.ExternalKey("primaryExternalKey", new()
+    ///     {
+    ///         Description = "Multi-Region primary key",
+    ///         DeletionWindowInDays = 30,
+    ///         MultiRegion = true,
+    ///         Enabled = true,
+    ///         KeyMaterialBase64 = "...",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Primary,
+    ///     });
+    /// 
+    ///     var replica = new Aws.Kms.ReplicaExternalKey("replica", new()
+    ///     {
+    ///         Description = "Multi-Region replica key",
+    ///         DeletionWindowInDays = 7,
+    ///         PrimaryKeyArn = aws_kms_external.Primary.Arn,
+    ///         KeyMaterialBase64 = "...",
+    ///     });
+    /// 
+    ///     // Must be the same key material as the primary's.
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Kms
     /// ```
     /// </summary>
     [AwsResourceType("aws:kms/replicaExternalKey:ReplicaExternalKey")]
-    public partial class ReplicaExternalKey : Pulumi.CustomResource
+    public partial class ReplicaExternalKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Kms
         }
     }
 
-    public sealed class ReplicaExternalKeyArgs : Pulumi.ResourceArgs
+    public sealed class ReplicaExternalKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag to indicate whether to bypass the key policy lockout safety check.
@@ -263,9 +263,10 @@ namespace Pulumi.Aws.Kms
         public ReplicaExternalKeyArgs()
         {
         }
+        public static new ReplicaExternalKeyArgs Empty => new ReplicaExternalKeyArgs();
     }
 
-    public sealed class ReplicaExternalKeyState : Pulumi.ResourceArgs
+    public sealed class ReplicaExternalKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
@@ -373,5 +374,6 @@ namespace Pulumi.Aws.Kms
         public ReplicaExternalKeyState()
         {
         }
+        public static new ReplicaExternalKeyState Empty => new ReplicaExternalKeyState();
     }
 }

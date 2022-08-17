@@ -24,39 +24,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		web, err := ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
-// 			Ami:              pulumi.String("ami-21f78e11"),
-// 			AvailabilityZone: pulumi.String("us-west-2a"),
-// 			InstanceType:     pulumi.String("t2.micro"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("HelloWorld"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example, err := ec2.NewEip(ctx, "example", &ec2.EipArgs{
-// 			Vpc: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewEipAssociation(ctx, "eipAssoc", &ec2.EipAssociationArgs{
-// 			InstanceId:   web.ID(),
-// 			AllocationId: example.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			web, err := ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
+//				Ami:              pulumi.String("ami-21f78e11"),
+//				AvailabilityZone: pulumi.String("us-west-2a"),
+//				InstanceType:     pulumi.String("t2.micro"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("HelloWorld"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example, err := ec2.NewEip(ctx, "example", &ec2.EipArgs{
+//				Vpc: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewEipAssociation(ctx, "eipAssoc", &ec2.EipAssociationArgs{
+//				InstanceId:   web.ID(),
+//				AllocationId: example.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,7 +67,9 @@ import (
 // EIP Assocations can be imported using their association ID.
 //
 // ```sh
-//  $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
+//
+//	$ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
+//
 // ```
 type EipAssociation struct {
 	pulumi.CustomResourceState
@@ -247,7 +252,7 @@ func (i *EipAssociation) ToEipAssociationOutputWithContext(ctx context.Context) 
 // EipAssociationArrayInput is an input type that accepts EipAssociationArray and EipAssociationArrayOutput values.
 // You can construct a concrete instance of `EipAssociationArrayInput` via:
 //
-//          EipAssociationArray{ EipAssociationArgs{...} }
+//	EipAssociationArray{ EipAssociationArgs{...} }
 type EipAssociationArrayInput interface {
 	pulumi.Input
 
@@ -272,7 +277,7 @@ func (i EipAssociationArray) ToEipAssociationArrayOutputWithContext(ctx context.
 // EipAssociationMapInput is an input type that accepts EipAssociationMap and EipAssociationMapOutput values.
 // You can construct a concrete instance of `EipAssociationMapInput` via:
 //
-//          EipAssociationMap{ "key": EipAssociationArgs{...} }
+//	EipAssociationMap{ "key": EipAssociationArgs{...} }
 type EipAssociationMapInput interface {
 	pulumi.Input
 

@@ -15,24 +15,22 @@ namespace Pulumi.Aws.Dax
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Dax.SubnetGroup("example", new()
     ///     {
-    ///         var example = new Aws.Dax.SubnetGroup("example", new Aws.Dax.SubnetGroupArgs
+    ///         SubnetIds = new[]
     ///         {
-    ///             SubnetIds = 
-    ///             {
-    ///                 aws_subnet.Example1.Id,
-    ///                 aws_subnet.Example2.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_subnet.Example1.Id,
+    ///             aws_subnet.Example2.Id,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.Dax
     /// ```
     /// </summary>
     [AwsResourceType("aws:dax/subnetGroup:SubnetGroup")]
-    public partial class SubnetGroup : Pulumi.CustomResource
+    public partial class SubnetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description of the subnet group.
@@ -114,7 +112,7 @@ namespace Pulumi.Aws.Dax
         }
     }
 
-    public sealed class SubnetGroupArgs : Pulumi.ResourceArgs
+    public sealed class SubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the subnet group.
@@ -143,9 +141,10 @@ namespace Pulumi.Aws.Dax
         public SubnetGroupArgs()
         {
         }
+        public static new SubnetGroupArgs Empty => new SubnetGroupArgs();
     }
 
-    public sealed class SubnetGroupState : Pulumi.ResourceArgs
+    public sealed class SubnetGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the subnet group.
@@ -180,5 +179,6 @@ namespace Pulumi.Aws.Dax
         public SubnetGroupState()
         {
         }
+        public static new SubnetGroupState Empty => new SubnetGroupState();
     }
 }

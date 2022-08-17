@@ -15,22 +15,20 @@ namespace Pulumi.Aws.DirectConnect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DirectConnect.GatewayAssociationProposal("example", new()
     ///     {
-    ///         var example = new Aws.DirectConnect.GatewayAssociationProposal("example", new Aws.DirectConnect.GatewayAssociationProposalArgs
-    ///         {
-    ///             DxGatewayId = aws_dx_gateway.Example.Id,
-    ///             DxGatewayOwnerAccountId = aws_dx_gateway.Example.Owner_account_id,
-    ///             AssociatedGatewayId = aws_vpn_gateway.Example.Id,
-    ///         });
-    ///     }
+    ///         DxGatewayId = aws_dx_gateway.Example.Id,
+    ///         DxGatewayOwnerAccountId = aws_dx_gateway.Example.Owner_account_id,
+    ///         AssociatedGatewayId = aws_vpn_gateway.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.DirectConnect
     ///  The latter case is useful when a previous proposal has been accepted and deleted by AWS. The `aws_dx_gateway_association_proposal` resource will then represent a pseudo-proposal for the same Direct Connect Gateway and associated gateway. If no previous proposal is available, use a tool like [`uuidgen`](http://manpages.ubuntu.com/manpages/bionic/man1/uuidgen.1.html) to generate a new random pseudo-proposal ID.
     /// </summary>
     [AwsResourceType("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal")]
-    public partial class GatewayAssociationProposal : Pulumi.CustomResource
+    public partial class GatewayAssociationProposal : global::Pulumi.CustomResource
     {
         /// <summary>
         /// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
@@ -132,7 +130,7 @@ namespace Pulumi.Aws.DirectConnect
         }
     }
 
-    public sealed class GatewayAssociationProposalArgs : Pulumi.ResourceArgs
+    public sealed class GatewayAssociationProposalArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedPrefixes")]
         private InputList<string>? _allowedPrefixes;
@@ -167,9 +165,10 @@ namespace Pulumi.Aws.DirectConnect
         public GatewayAssociationProposalArgs()
         {
         }
+        public static new GatewayAssociationProposalArgs Empty => new GatewayAssociationProposalArgs();
     }
 
-    public sealed class GatewayAssociationProposalState : Pulumi.ResourceArgs
+    public sealed class GatewayAssociationProposalState : global::Pulumi.ResourceArgs
     {
         [Input("allowedPrefixes")]
         private InputList<string>? _allowedPrefixes;
@@ -216,5 +215,6 @@ namespace Pulumi.Aws.DirectConnect
         public GatewayAssociationProposalState()
         {
         }
+        public static new GatewayAssociationProposalState Empty => new GatewayAssociationProposalState();
     }
 }

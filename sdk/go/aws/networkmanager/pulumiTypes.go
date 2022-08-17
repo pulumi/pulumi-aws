@@ -20,7 +20,7 @@ type DeviceAwsLocation struct {
 // DeviceAwsLocationInput is an input type that accepts DeviceAwsLocationArgs and DeviceAwsLocationOutput values.
 // You can construct a concrete instance of `DeviceAwsLocationInput` via:
 //
-//          DeviceAwsLocationArgs{...}
+//	DeviceAwsLocationArgs{...}
 type DeviceAwsLocationInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i DeviceAwsLocationArgs) ToDeviceAwsLocationPtrOutputWithContext(ctx conte
 // DeviceAwsLocationPtrInput is an input type that accepts DeviceAwsLocationArgs, DeviceAwsLocationPtr and DeviceAwsLocationPtrOutput values.
 // You can construct a concrete instance of `DeviceAwsLocationPtrInput` via:
 //
-//          DeviceAwsLocationArgs{...}
+//	        DeviceAwsLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeviceAwsLocationPtrInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ type DeviceLocation struct {
 // DeviceLocationInput is an input type that accepts DeviceLocationArgs and DeviceLocationOutput values.
 // You can construct a concrete instance of `DeviceLocationInput` via:
 //
-//          DeviceLocationArgs{...}
+//	DeviceLocationArgs{...}
 type DeviceLocationInput interface {
 	pulumi.Input
 
@@ -218,11 +218,11 @@ func (i DeviceLocationArgs) ToDeviceLocationPtrOutputWithContext(ctx context.Con
 // DeviceLocationPtrInput is an input type that accepts DeviceLocationArgs, DeviceLocationPtr and DeviceLocationPtrOutput values.
 // You can construct a concrete instance of `DeviceLocationPtrInput` via:
 //
-//          DeviceLocationArgs{...}
+//	        DeviceLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DeviceLocationPtrInput interface {
 	pulumi.Input
 
@@ -351,7 +351,7 @@ type LinkBandwidth struct {
 // LinkBandwidthInput is an input type that accepts LinkBandwidthArgs and LinkBandwidthOutput values.
 // You can construct a concrete instance of `LinkBandwidthInput` via:
 //
-//          LinkBandwidthArgs{...}
+//	LinkBandwidthArgs{...}
 type LinkBandwidthInput interface {
 	pulumi.Input
 
@@ -389,11 +389,11 @@ func (i LinkBandwidthArgs) ToLinkBandwidthPtrOutputWithContext(ctx context.Conte
 // LinkBandwidthPtrInput is an input type that accepts LinkBandwidthArgs, LinkBandwidthPtr and LinkBandwidthPtrOutput values.
 // You can construct a concrete instance of `LinkBandwidthPtrInput` via:
 //
-//          LinkBandwidthArgs{...}
+//	        LinkBandwidthArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinkBandwidthPtrInput interface {
 	pulumi.Input
 
@@ -509,7 +509,7 @@ type SiteLocation struct {
 // SiteLocationInput is an input type that accepts SiteLocationArgs and SiteLocationOutput values.
 // You can construct a concrete instance of `SiteLocationInput` via:
 //
-//          SiteLocationArgs{...}
+//	SiteLocationArgs{...}
 type SiteLocationInput interface {
 	pulumi.Input
 
@@ -549,11 +549,11 @@ func (i SiteLocationArgs) ToSiteLocationPtrOutputWithContext(ctx context.Context
 // SiteLocationPtrInput is an input type that accepts SiteLocationArgs, SiteLocationPtr and SiteLocationPtrOutput values.
 // You can construct a concrete instance of `SiteLocationPtrInput` via:
 //
-//          SiteLocationArgs{...}
+//	        SiteLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SiteLocationPtrInput interface {
 	pulumi.Input
 
@@ -688,7 +688,7 @@ type GetCoreNetworkPolicyDocumentAttachmentPolicy struct {
 // GetCoreNetworkPolicyDocumentAttachmentPolicyInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentPolicyArgs and GetCoreNetworkPolicyDocumentAttachmentPolicyOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentPolicyInput` via:
 //
-//          GetCoreNetworkPolicyDocumentAttachmentPolicyArgs{...}
+//	GetCoreNetworkPolicyDocumentAttachmentPolicyArgs{...}
 type GetCoreNetworkPolicyDocumentAttachmentPolicyInput interface {
 	pulumi.Input
 
@@ -724,7 +724,7 @@ func (i GetCoreNetworkPolicyDocumentAttachmentPolicyArgs) ToGetCoreNetworkPolicy
 // GetCoreNetworkPolicyDocumentAttachmentPolicyArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentPolicyArray and GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentPolicyArrayInput` via:
 //
-//          GetCoreNetworkPolicyDocumentAttachmentPolicyArray{ GetCoreNetworkPolicyDocumentAttachmentPolicyArgs{...} }
+//	GetCoreNetworkPolicyDocumentAttachmentPolicyArray{ GetCoreNetworkPolicyDocumentAttachmentPolicyArgs{...} }
 type GetCoreNetworkPolicyDocumentAttachmentPolicyArrayInput interface {
 	pulumi.Input
 
@@ -823,7 +823,7 @@ type GetCoreNetworkPolicyDocumentAttachmentPolicyAction struct {
 // GetCoreNetworkPolicyDocumentAttachmentPolicyActionInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs and GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentPolicyActionInput` via:
 //
-//          GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs{...}
+//	GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs{...}
 type GetCoreNetworkPolicyDocumentAttachmentPolicyActionInput interface {
 	pulumi.Input
 
@@ -902,7 +902,7 @@ type GetCoreNetworkPolicyDocumentAttachmentPolicyCondition struct {
 // GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs and GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInput` via:
 //
-//          GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs{...}
+//	GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs{...}
 type GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInput interface {
 	pulumi.Input
 
@@ -936,7 +936,7 @@ func (i GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs) ToGetCoreNetw
 // GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArray and GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayInput` via:
 //
-//          GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArray{ GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs{...} }
+//	GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArray{ GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs{...} }
 type GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayInput interface {
 	pulumi.Input
 
@@ -1026,7 +1026,7 @@ type GetCoreNetworkPolicyDocumentCoreNetworkConfiguration struct {
 // GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInput is an input type that accepts GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs and GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInput` via:
 //
-//          GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{...}
+//	GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{...}
 type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -1060,7 +1060,7 @@ func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs) ToGetCoreNetwo
 // GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray and GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayInput` via:
 //
-//          GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{ GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{...} }
+//	GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{ GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{...} }
 type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -1149,7 +1149,7 @@ type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation struct {
 // GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInput is an input type that accepts GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs and GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInput` via:
 //
-//          GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{...}
+//	GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{...}
 type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInput interface {
 	pulumi.Input
 
@@ -1180,7 +1180,7 @@ func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs) To
 // GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray and GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayInput` via:
 //
-//          GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray{ GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{...} }
+//	GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray{ GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{...} }
 type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayInput interface {
 	pulumi.Input
 
@@ -1272,7 +1272,7 @@ type GetCoreNetworkPolicyDocumentSegment struct {
 // GetCoreNetworkPolicyDocumentSegmentInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentArgs and GetCoreNetworkPolicyDocumentSegmentOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentInput` via:
 //
-//          GetCoreNetworkPolicyDocumentSegmentArgs{...}
+//	GetCoreNetworkPolicyDocumentSegmentArgs{...}
 type GetCoreNetworkPolicyDocumentSegmentInput interface {
 	pulumi.Input
 
@@ -1312,7 +1312,7 @@ func (i GetCoreNetworkPolicyDocumentSegmentArgs) ToGetCoreNetworkPolicyDocumentS
 // GetCoreNetworkPolicyDocumentSegmentArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentArray and GetCoreNetworkPolicyDocumentSegmentArrayOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentArrayInput` via:
 //
-//          GetCoreNetworkPolicyDocumentSegmentArray{ GetCoreNetworkPolicyDocumentSegmentArgs{...} }
+//	GetCoreNetworkPolicyDocumentSegmentArray{ GetCoreNetworkPolicyDocumentSegmentArgs{...} }
 type GetCoreNetworkPolicyDocumentSegmentArrayInput interface {
 	pulumi.Input
 
@@ -1425,7 +1425,7 @@ type GetCoreNetworkPolicyDocumentSegmentAction struct {
 // GetCoreNetworkPolicyDocumentSegmentActionInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentActionArgs and GetCoreNetworkPolicyDocumentSegmentActionOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentActionInput` via:
 //
-//          GetCoreNetworkPolicyDocumentSegmentActionArgs{...}
+//	GetCoreNetworkPolicyDocumentSegmentActionArgs{...}
 type GetCoreNetworkPolicyDocumentSegmentActionInput interface {
 	pulumi.Input
 
@@ -1467,7 +1467,7 @@ func (i GetCoreNetworkPolicyDocumentSegmentActionArgs) ToGetCoreNetworkPolicyDoc
 // GetCoreNetworkPolicyDocumentSegmentActionArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentActionArray and GetCoreNetworkPolicyDocumentSegmentActionArrayOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentActionArrayInput` via:
 //
-//          GetCoreNetworkPolicyDocumentSegmentActionArray{ GetCoreNetworkPolicyDocumentSegmentActionArgs{...} }
+//	GetCoreNetworkPolicyDocumentSegmentActionArray{ GetCoreNetworkPolicyDocumentSegmentActionArgs{...} }
 type GetCoreNetworkPolicyDocumentSegmentActionArrayInput interface {
 	pulumi.Input
 
@@ -1573,7 +1573,7 @@ type GetDeviceAwsLocation struct {
 // GetDeviceAwsLocationInput is an input type that accepts GetDeviceAwsLocationArgs and GetDeviceAwsLocationOutput values.
 // You can construct a concrete instance of `GetDeviceAwsLocationInput` via:
 //
-//          GetDeviceAwsLocationArgs{...}
+//	GetDeviceAwsLocationArgs{...}
 type GetDeviceAwsLocationInput interface {
 	pulumi.Input
 
@@ -1603,7 +1603,7 @@ func (i GetDeviceAwsLocationArgs) ToGetDeviceAwsLocationOutputWithContext(ctx co
 // GetDeviceAwsLocationArrayInput is an input type that accepts GetDeviceAwsLocationArray and GetDeviceAwsLocationArrayOutput values.
 // You can construct a concrete instance of `GetDeviceAwsLocationArrayInput` via:
 //
-//          GetDeviceAwsLocationArray{ GetDeviceAwsLocationArgs{...} }
+//	GetDeviceAwsLocationArray{ GetDeviceAwsLocationArgs{...} }
 type GetDeviceAwsLocationArrayInput interface {
 	pulumi.Input
 
@@ -1681,7 +1681,7 @@ type GetDeviceLocation struct {
 // GetDeviceLocationInput is an input type that accepts GetDeviceLocationArgs and GetDeviceLocationOutput values.
 // You can construct a concrete instance of `GetDeviceLocationInput` via:
 //
-//          GetDeviceLocationArgs{...}
+//	GetDeviceLocationArgs{...}
 type GetDeviceLocationInput interface {
 	pulumi.Input
 
@@ -1713,7 +1713,7 @@ func (i GetDeviceLocationArgs) ToGetDeviceLocationOutputWithContext(ctx context.
 // GetDeviceLocationArrayInput is an input type that accepts GetDeviceLocationArray and GetDeviceLocationArrayOutput values.
 // You can construct a concrete instance of `GetDeviceLocationArrayInput` via:
 //
-//          GetDeviceLocationArray{ GetDeviceLocationArgs{...} }
+//	GetDeviceLocationArray{ GetDeviceLocationArgs{...} }
 type GetDeviceLocationArrayInput interface {
 	pulumi.Input
 
@@ -1794,7 +1794,7 @@ type GetLinkBandwidth struct {
 // GetLinkBandwidthInput is an input type that accepts GetLinkBandwidthArgs and GetLinkBandwidthOutput values.
 // You can construct a concrete instance of `GetLinkBandwidthInput` via:
 //
-//          GetLinkBandwidthArgs{...}
+//	GetLinkBandwidthArgs{...}
 type GetLinkBandwidthInput interface {
 	pulumi.Input
 
@@ -1824,7 +1824,7 @@ func (i GetLinkBandwidthArgs) ToGetLinkBandwidthOutputWithContext(ctx context.Co
 // GetLinkBandwidthArrayInput is an input type that accepts GetLinkBandwidthArray and GetLinkBandwidthArrayOutput values.
 // You can construct a concrete instance of `GetLinkBandwidthArrayInput` via:
 //
-//          GetLinkBandwidthArray{ GetLinkBandwidthArgs{...} }
+//	GetLinkBandwidthArray{ GetLinkBandwidthArgs{...} }
 type GetLinkBandwidthArrayInput interface {
 	pulumi.Input
 
@@ -1902,7 +1902,7 @@ type GetSiteLocation struct {
 // GetSiteLocationInput is an input type that accepts GetSiteLocationArgs and GetSiteLocationOutput values.
 // You can construct a concrete instance of `GetSiteLocationInput` via:
 //
-//          GetSiteLocationArgs{...}
+//	GetSiteLocationArgs{...}
 type GetSiteLocationInput interface {
 	pulumi.Input
 
@@ -1934,7 +1934,7 @@ func (i GetSiteLocationArgs) ToGetSiteLocationOutputWithContext(ctx context.Cont
 // GetSiteLocationArrayInput is an input type that accepts GetSiteLocationArray and GetSiteLocationArrayOutput values.
 // You can construct a concrete instance of `GetSiteLocationArrayInput` via:
 //
-//          GetSiteLocationArray{ GetSiteLocationArgs{...} }
+//	GetSiteLocationArray{ GetSiteLocationArgs{...} }
 type GetSiteLocationArrayInput interface {
 	pulumi.Input
 

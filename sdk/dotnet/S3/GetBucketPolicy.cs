@@ -21,23 +21,22 @@ namespace Pulumi.Aws.S3
         /// The following example retrieves IAM policy of a specified S3 bucket.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.S3.GetBucketPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.S3.GetBucketPolicy.InvokeAsync(new Aws.S3.GetBucketPolicyArgs
-        ///         {
-        ///             Bucket = "example-bucket-name",
-        ///         }));
-        ///         this.Foo = example.Apply(example =&gt; example.Policy);
-        ///     }
+        ///         Bucket = "example-bucket-name",
+        ///     });
         /// 
-        ///     [Output("foo")]
-        ///     public Output&lt;string&gt; Foo { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["foo"] = example.Apply(getBucketPolicyResult =&gt; getBucketPolicyResult.Policy),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,23 +54,22 @@ namespace Pulumi.Aws.S3
         /// The following example retrieves IAM policy of a specified S3 bucket.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.S3.GetBucketPolicy.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.S3.GetBucketPolicy.InvokeAsync(new Aws.S3.GetBucketPolicyArgs
-        ///         {
-        ///             Bucket = "example-bucket-name",
-        ///         }));
-        ///         this.Foo = example.Apply(example =&gt; example.Policy);
-        ///     }
+        ///         Bucket = "example-bucket-name",
+        ///     });
         /// 
-        ///     [Output("foo")]
-        ///     public Output&lt;string&gt; Foo { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["foo"] = example.Apply(getBucketPolicyResult =&gt; getBucketPolicyResult.Policy),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Aws.S3
     }
 
 
-    public sealed class GetBucketPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetBucketPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The bucket name.
@@ -92,9 +90,10 @@ namespace Pulumi.Aws.S3
         public GetBucketPolicyArgs()
         {
         }
+        public static new GetBucketPolicyArgs Empty => new GetBucketPolicyArgs();
     }
 
-    public sealed class GetBucketPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBucketPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The bucket name.
@@ -105,6 +104,7 @@ namespace Pulumi.Aws.S3
         public GetBucketPolicyInvokeArgs()
         {
         }
+        public static new GetBucketPolicyInvokeArgs Empty => new GetBucketPolicyInvokeArgs();
     }
 
 

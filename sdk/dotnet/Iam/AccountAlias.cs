@@ -17,20 +17,18 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @alias = new Aws.Iam.AccountAlias("alias", new()
     ///     {
-    ///         var @alias = new Aws.Iam.AccountAlias("alias", new Aws.Iam.AccountAliasArgs
-    ///         {
-    ///             Alias = "my-account-alias",
-    ///         });
-    ///     }
+    ///         Alias = "my-account-alias",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/accountAlias:AccountAlias")]
-    public partial class AccountAlias : Pulumi.CustomResource
+    public partial class AccountAlias : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The account alias
@@ -94,7 +92,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class AccountAliasArgs : Pulumi.ResourceArgs
+    public sealed class AccountAliasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account alias
@@ -105,9 +103,10 @@ namespace Pulumi.Aws.Iam
         public AccountAliasArgs()
         {
         }
+        public static new AccountAliasArgs Empty => new AccountAliasArgs();
     }
 
-    public sealed class AccountAliasState : Pulumi.ResourceArgs
+    public sealed class AccountAliasState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account alias
@@ -118,5 +117,6 @@ namespace Pulumi.Aws.Iam
         public AccountAliasState()
         {
         }
+        public static new AccountAliasState Empty => new AccountAliasState();
     }
 }

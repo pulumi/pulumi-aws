@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
-// 			DestinationLocationArn: pulumi.Any(aws_datasync_location_s3.Destination.Arn),
-// 			SourceLocationArn:      pulumi.Any(aws_datasync_location_nfs.Source.Arn),
-// 			Schedule: &datasync.TaskScheduleArgs{
-// 				ScheduleExpression: pulumi.String("cron(0 12 ? * SUN,WED *)"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
+//				DestinationLocationArn: pulumi.Any(aws_datasync_location_s3.Destination.Arn),
+//				SourceLocationArn:      pulumi.Any(aws_datasync_location_nfs.Source.Arn),
+//				Schedule: &datasync.TaskScheduleArgs{
+//					ScheduleExpression: pulumi.String("cron(0 12 ? * SUN,WED *)"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With Filtering
 //
@@ -47,27 +50,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
-// 			DestinationLocationArn: pulumi.Any(aws_datasync_location_s3.Destination.Arn),
-// 			SourceLocationArn:      pulumi.Any(aws_datasync_location_nfs.Source.Arn),
-// 			Excludes: &datasync.TaskExcludesArgs{
-// 				FilterType: pulumi.String("SIMPLE_PATTERN"),
-// 				Value:      pulumi.String("/folder1|/folder2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datasync.NewTask(ctx, "example", &datasync.TaskArgs{
+//				DestinationLocationArn: pulumi.Any(aws_datasync_location_s3.Destination.Arn),
+//				SourceLocationArn:      pulumi.Any(aws_datasync_location_nfs.Source.Arn),
+//				Excludes: &datasync.TaskExcludesArgs{
+//					FilterType: pulumi.String("SIMPLE_PATTERN"),
+//					Value:      pulumi.String("/folder1|/folder2"),
+//				},
+//				Includes: &datasync.TaskIncludesArgs{
+//					FilterType: pulumi.String("SIMPLE_PATTERN"),
+//					Value:      pulumi.String("/folder1|/folder2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,7 +85,9 @@ import (
 // `aws_datasync_task` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
+//
+//	$ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
+//
 // ```
 type Task struct {
 	pulumi.CustomResourceState
@@ -88,6 +100,8 @@ type Task struct {
 	DestinationLocationArn pulumi.StringOutput `pulumi:"destinationLocationArn"`
 	// Filter rules that determines which files to exclude from a task.
 	Excludes TaskExcludesPtrOutput `pulumi:"excludes"`
+	// Filter rules that determines which files to include in a task.
+	Includes TaskIncludesPtrOutput `pulumi:"includes"`
 	// Name of the DataSync Task.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
@@ -96,9 +110,9 @@ type Task struct {
 	Schedule TaskSchedulePtrOutput `pulumi:"schedule"`
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn pulumi.StringOutput `pulumi:"sourceLocationArn"`
-	// Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -145,6 +159,8 @@ type taskState struct {
 	DestinationLocationArn *string `pulumi:"destinationLocationArn"`
 	// Filter rules that determines which files to exclude from a task.
 	Excludes *TaskExcludes `pulumi:"excludes"`
+	// Filter rules that determines which files to include in a task.
+	Includes *TaskIncludes `pulumi:"includes"`
 	// Name of the DataSync Task.
 	Name *string `pulumi:"name"`
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
@@ -153,9 +169,9 @@ type taskState struct {
 	Schedule *TaskSchedule `pulumi:"schedule"`
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn *string `pulumi:"sourceLocationArn"`
-	// Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -168,6 +184,8 @@ type TaskState struct {
 	DestinationLocationArn pulumi.StringPtrInput
 	// Filter rules that determines which files to exclude from a task.
 	Excludes TaskExcludesPtrInput
+	// Filter rules that determines which files to include in a task.
+	Includes TaskIncludesPtrInput
 	// Name of the DataSync Task.
 	Name pulumi.StringPtrInput
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
@@ -176,9 +194,9 @@ type TaskState struct {
 	Schedule TaskSchedulePtrInput
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn pulumi.StringPtrInput
-	// Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -193,6 +211,8 @@ type taskArgs struct {
 	DestinationLocationArn string `pulumi:"destinationLocationArn"`
 	// Filter rules that determines which files to exclude from a task.
 	Excludes *TaskExcludes `pulumi:"excludes"`
+	// Filter rules that determines which files to include in a task.
+	Includes *TaskIncludes `pulumi:"includes"`
 	// Name of the DataSync Task.
 	Name *string `pulumi:"name"`
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
@@ -201,7 +221,7 @@ type taskArgs struct {
 	Schedule *TaskSchedule `pulumi:"schedule"`
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn string `pulumi:"sourceLocationArn"`
-	// Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -213,6 +233,8 @@ type TaskArgs struct {
 	DestinationLocationArn pulumi.StringInput
 	// Filter rules that determines which files to exclude from a task.
 	Excludes TaskExcludesPtrInput
+	// Filter rules that determines which files to include in a task.
+	Includes TaskIncludesPtrInput
 	// Name of the DataSync Task.
 	Name pulumi.StringPtrInput
 	// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
@@ -221,7 +243,7 @@ type TaskArgs struct {
 	Schedule TaskSchedulePtrInput
 	// Amazon Resource Name (ARN) of source DataSync Location.
 	SourceLocationArn pulumi.StringInput
-	// Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -251,7 +273,7 @@ func (i *Task) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 // TaskArrayInput is an input type that accepts TaskArray and TaskArrayOutput values.
 // You can construct a concrete instance of `TaskArrayInput` via:
 //
-//          TaskArray{ TaskArgs{...} }
+//	TaskArray{ TaskArgs{...} }
 type TaskArrayInput interface {
 	pulumi.Input
 
@@ -276,7 +298,7 @@ func (i TaskArray) ToTaskArrayOutputWithContext(ctx context.Context) TaskArrayOu
 // TaskMapInput is an input type that accepts TaskMap and TaskMapOutput values.
 // You can construct a concrete instance of `TaskMapInput` via:
 //
-//          TaskMap{ "key": TaskArgs{...} }
+//	TaskMap{ "key": TaskArgs{...} }
 type TaskMapInput interface {
 	pulumi.Input
 
@@ -332,6 +354,11 @@ func (o TaskOutput) Excludes() TaskExcludesPtrOutput {
 	return o.ApplyT(func(v *Task) TaskExcludesPtrOutput { return v.Excludes }).(TaskExcludesPtrOutput)
 }
 
+// Filter rules that determines which files to include in a task.
+func (o TaskOutput) Includes() TaskIncludesPtrOutput {
+	return o.ApplyT(func(v *Task) TaskIncludesPtrOutput { return v.Includes }).(TaskIncludesPtrOutput)
+}
+
 // Name of the DataSync Task.
 func (o TaskOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -352,12 +379,12 @@ func (o TaskOutput) SourceLocationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.SourceLocationArn }).(pulumi.StringOutput)
 }
 
-// Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TaskOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TaskOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

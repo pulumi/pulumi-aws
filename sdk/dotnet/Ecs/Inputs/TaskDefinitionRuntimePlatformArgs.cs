@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class TaskDefinitionRuntimePlatformArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionRuntimePlatformArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public TaskDefinitionRuntimePlatformArgs()
         {
         }
+        public static new TaskDefinitionRuntimePlatformArgs Empty => new TaskDefinitionRuntimePlatformArgs();
     }
 }

@@ -19,51 +19,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResolverFirewallDomainList, err := route53.NewResolverFirewallDomainList(ctx, "exampleResolverFirewallDomainList", &route53.ResolverFirewallDomainListArgs{
-// 			Domains: pulumi.StringArray{
-// 				pulumi.String("example.com"),
-// 			},
-// 			Tags: nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResolverFirewallRuleGroup, err := route53.NewResolverFirewallRuleGroup(ctx, "exampleResolverFirewallRuleGroup", &route53.ResolverFirewallRuleGroupArgs{
-// 			Tags: nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = route53.NewResolverFirewallRule(ctx, "exampleResolverFirewallRule", &route53.ResolverFirewallRuleArgs{
-// 			Action:               pulumi.String("BLOCK"),
-// 			BlockOverrideDnsType: pulumi.String("CNAME"),
-// 			BlockOverrideDomain:  pulumi.String("example.com"),
-// 			BlockOverrideTtl:     pulumi.Int(1),
-// 			BlockResponse:        pulumi.String("OVERRIDE"),
-// 			FirewallDomainListId: exampleResolverFirewallDomainList.ID(),
-// 			FirewallRuleGroupId:  exampleResolverFirewallRuleGroup.ID(),
-// 			Priority:             pulumi.Int(100),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResolverFirewallDomainList, err := route53.NewResolverFirewallDomainList(ctx, "exampleResolverFirewallDomainList", &route53.ResolverFirewallDomainListArgs{
+//				Domains: pulumi.StringArray{
+//					pulumi.String("example.com"),
+//				},
+//				Tags: nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleResolverFirewallRuleGroup, err := route53.NewResolverFirewallRuleGroup(ctx, "exampleResolverFirewallRuleGroup", &route53.ResolverFirewallRuleGroupArgs{
+//				Tags: nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewResolverFirewallRule(ctx, "exampleResolverFirewallRule", &route53.ResolverFirewallRuleArgs{
+//				Action:               pulumi.String("BLOCK"),
+//				BlockOverrideDnsType: pulumi.String("CNAME"),
+//				BlockOverrideDomain:  pulumi.String("example.com"),
+//				BlockOverrideTtl:     pulumi.Int(1),
+//				BlockResponse:        pulumi.String("OVERRIDE"),
+//				FirewallDomainListId: exampleResolverFirewallDomainList.ID(),
+//				FirewallRuleGroupId:  exampleResolverFirewallRuleGroup.ID(),
+//				Priority:             pulumi.Int(100),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-//  Route 53 Resolver DNS Firewall rules can be imported using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':', e.g.,
+//	Route 53 Resolver DNS Firewall rules can be imported using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':', e.g.,
 //
 // ```sh
-//  $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
+//
+//	$ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
+//
 // ```
 type ResolverFirewallRule struct {
 	pulumi.CustomResourceState
@@ -243,7 +248,7 @@ func (i *ResolverFirewallRule) ToResolverFirewallRuleOutputWithContext(ctx conte
 // ResolverFirewallRuleArrayInput is an input type that accepts ResolverFirewallRuleArray and ResolverFirewallRuleArrayOutput values.
 // You can construct a concrete instance of `ResolverFirewallRuleArrayInput` via:
 //
-//          ResolverFirewallRuleArray{ ResolverFirewallRuleArgs{...} }
+//	ResolverFirewallRuleArray{ ResolverFirewallRuleArgs{...} }
 type ResolverFirewallRuleArrayInput interface {
 	pulumi.Input
 
@@ -268,7 +273,7 @@ func (i ResolverFirewallRuleArray) ToResolverFirewallRuleArrayOutputWithContext(
 // ResolverFirewallRuleMapInput is an input type that accepts ResolverFirewallRuleMap and ResolverFirewallRuleMapOutput values.
 // You can construct a concrete instance of `ResolverFirewallRuleMapInput` via:
 //
-//          ResolverFirewallRuleMap{ "key": ResolverFirewallRuleArgs{...} }
+//	ResolverFirewallRuleMap{ "key": ResolverFirewallRuleArgs{...} }
 type ResolverFirewallRuleMapInput interface {
 	pulumi.Input
 

@@ -17,44 +17,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewNetworkAcl(ctx, "main", &ec2.NetworkAclArgs{
-// 			VpcId: pulumi.Any(aws_vpc.Main.Id),
-// 			Egress: ec2.NetworkAclEgressArray{
-// 				&ec2.NetworkAclEgressArgs{
-// 					Protocol:  pulumi.String("tcp"),
-// 					RuleNo:    pulumi.Int(200),
-// 					Action:    pulumi.String("allow"),
-// 					CidrBlock: pulumi.String("10.3.0.0/18"),
-// 					FromPort:  pulumi.Int(443),
-// 					ToPort:    pulumi.Int(443),
-// 				},
-// 			},
-// 			Ingress: ec2.NetworkAclIngressArray{
-// 				&ec2.NetworkAclIngressArgs{
-// 					Protocol:  pulumi.String("tcp"),
-// 					RuleNo:    pulumi.Int(100),
-// 					Action:    pulumi.String("allow"),
-// 					CidrBlock: pulumi.String("10.3.0.0/18"),
-// 					FromPort:  pulumi.Int(80),
-// 					ToPort:    pulumi.Int(80),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("main"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewNetworkAcl(ctx, "main", &ec2.NetworkAclArgs{
+//				VpcId: pulumi.Any(aws_vpc.Main.Id),
+//				Egress: ec2.NetworkAclEgressArray{
+//					&ec2.NetworkAclEgressArgs{
+//						Protocol:  pulumi.String("tcp"),
+//						RuleNo:    pulumi.Int(200),
+//						Action:    pulumi.String("allow"),
+//						CidrBlock: pulumi.String("10.3.0.0/18"),
+//						FromPort:  pulumi.Int(443),
+//						ToPort:    pulumi.Int(443),
+//					},
+//				},
+//				Ingress: ec2.NetworkAclIngressArray{
+//					&ec2.NetworkAclIngressArgs{
+//						Protocol:  pulumi.String("tcp"),
+//						RuleNo:    pulumi.Int(100),
+//						Action:    pulumi.String("allow"),
+//						CidrBlock: pulumi.String("10.3.0.0/18"),
+//						FromPort:  pulumi.Int(80),
+//						ToPort:    pulumi.Int(80),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("main"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +65,9 @@ import (
 // Network ACLs can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
+//
+//	$ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
+//
 // ```
 type NetworkAcl struct {
 	pulumi.CustomResourceState
@@ -77,9 +82,9 @@ type NetworkAcl struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the associated VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -127,9 +132,9 @@ type networkAclState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the associated VPC.
 	VpcId *string `pulumi:"vpcId"`
@@ -146,9 +151,9 @@ type NetworkAclState struct {
 	OwnerId pulumi.StringPtrInput
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ID of the associated VPC.
 	VpcId pulumi.StringPtrInput
@@ -165,7 +170,7 @@ type networkAclArgs struct {
 	Ingress []NetworkAclIngress `pulumi:"ingress"`
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds []string `pulumi:"subnetIds"`
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the associated VPC.
 	VpcId string `pulumi:"vpcId"`
@@ -179,7 +184,7 @@ type NetworkAclArgs struct {
 	Ingress NetworkAclIngressArrayInput
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds pulumi.StringArrayInput
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The ID of the associated VPC.
 	VpcId pulumi.StringInput
@@ -211,7 +216,7 @@ func (i *NetworkAcl) ToNetworkAclOutputWithContext(ctx context.Context) NetworkA
 // NetworkAclArrayInput is an input type that accepts NetworkAclArray and NetworkAclArrayOutput values.
 // You can construct a concrete instance of `NetworkAclArrayInput` via:
 //
-//          NetworkAclArray{ NetworkAclArgs{...} }
+//	NetworkAclArray{ NetworkAclArgs{...} }
 type NetworkAclArrayInput interface {
 	pulumi.Input
 
@@ -236,7 +241,7 @@ func (i NetworkAclArray) ToNetworkAclArrayOutputWithContext(ctx context.Context)
 // NetworkAclMapInput is an input type that accepts NetworkAclMap and NetworkAclMapOutput values.
 // You can construct a concrete instance of `NetworkAclMapInput` via:
 //
-//          NetworkAclMap{ "key": NetworkAclArgs{...} }
+//	NetworkAclMap{ "key": NetworkAclArgs{...} }
 type NetworkAclMapInput interface {
 	pulumi.Input
 
@@ -297,12 +302,12 @@ func (o NetworkAclOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkAcl) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// A mapping of tags to assign to the resource.
+// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NetworkAclOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkAcl) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider.
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NetworkAclOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkAcl) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

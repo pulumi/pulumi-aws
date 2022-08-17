@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class CapacityProviderAutoScalingGroupProviderManagedScalingArgs : Pulumi.ResourceArgs
+    public sealed class CapacityProviderAutoScalingGroupProviderManagedScalingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public CapacityProviderAutoScalingGroupProviderManagedScalingArgs()
         {
         }
+        public static new CapacityProviderAutoScalingGroupProviderManagedScalingArgs Empty => new CapacityProviderAutoScalingGroupProviderManagedScalingArgs();
     }
 }

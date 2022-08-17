@@ -20,56 +20,54 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetAmi.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
+        ///         ExecutableUsers = new[]
         ///         {
-        ///             ExecutableUsers = 
+        ///             "self",
+        ///         },
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
         ///             {
-        ///                 "self",
-        ///             },
-        ///             Filters = 
-        ///             {
-        ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
+        ///                 Name = "name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "name",
-        ///                     Values = 
-        ///                     {
-        ///                         "myami-*",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
-        ///                 {
-        ///                     Name = "root-device-type",
-        ///                     Values = 
-        ///                     {
-        ///                         "ebs",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
-        ///                 {
-        ///                     Name = "virtualization-type",
-        ///                     Values = 
-        ///                     {
-        ///                         "hvm",
-        ///                     },
+        ///                     "myami-*",
         ///                 },
         ///             },
-        ///             MostRecent = true,
-        ///             NameRegex = "^myami-\\d{3}",
-        ///             Owners = 
+        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
         ///             {
-        ///                 "self",
+        ///                 Name = "root-device-type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "ebs",
+        ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
+        ///             {
+        ///                 Name = "virtualization-type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "hvm",
+        ///                 },
+        ///             },
+        ///         },
+        ///         MostRecent = true,
+        ///         NameRegex = "^myami-\\d{3}",
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -86,56 +84,54 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetAmi.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
+        ///         ExecutableUsers = new[]
         ///         {
-        ///             ExecutableUsers = 
+        ///             "self",
+        ///         },
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
         ///             {
-        ///                 "self",
-        ///             },
-        ///             Filters = 
-        ///             {
-        ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
+        ///                 Name = "name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "name",
-        ///                     Values = 
-        ///                     {
-        ///                         "myami-*",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
-        ///                 {
-        ///                     Name = "root-device-type",
-        ///                     Values = 
-        ///                     {
-        ///                         "ebs",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
-        ///                 {
-        ///                     Name = "virtualization-type",
-        ///                     Values = 
-        ///                     {
-        ///                         "hvm",
-        ///                     },
+        ///                     "myami-*",
         ///                 },
         ///             },
-        ///             MostRecent = true,
-        ///             NameRegex = "^myami-\\d{3}",
-        ///             Owners = 
+        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
         ///             {
-        ///                 "self",
+        ///                 Name = "root-device-type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "ebs",
+        ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
+        ///             {
+        ///                 Name = "virtualization-type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "hvm",
+        ///                 },
+        ///             },
+        ///         },
+        ///         MostRecent = true,
+        ///         NameRegex = "^myami-\\d{3}",
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -145,7 +141,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetAmiArgs : Pulumi.InvokeArgs
+    public sealed class GetAmiArgs : global::Pulumi.InvokeArgs
     {
         [Input("executableUsers")]
         private List<string>? _executableUsers;
@@ -226,9 +222,10 @@ namespace Pulumi.Aws.Ec2
         public GetAmiArgs()
         {
         }
+        public static new GetAmiArgs Empty => new GetAmiArgs();
     }
 
-    public sealed class GetAmiInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAmiInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("executableUsers")]
         private InputList<string>? _executableUsers;
@@ -309,6 +306,7 @@ namespace Pulumi.Aws.Ec2
         public GetAmiInvokeArgs()
         {
         }
+        public static new GetAmiInvokeArgs Empty => new GetAmiInvokeArgs();
     }
 
 

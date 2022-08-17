@@ -18,7 +18,9 @@ import (
 // Glue Partitions can be imported with their catalog ID (usually AWS account ID), database name, table name and partition values e.g.,
 //
 // ```sh
-//  $ pulumi import aws:glue/partition:Partition part 123456789012:MyDatabase:MyTable:val1#val2
+//
+//	$ pulumi import aws:glue/partition:Partition part 123456789012:MyDatabase:MyTable:val1#val2
+//
 // ```
 type Partition struct {
 	pulumi.CustomResourceState
@@ -178,7 +180,7 @@ func (i *Partition) ToPartitionOutputWithContext(ctx context.Context) PartitionO
 // PartitionArrayInput is an input type that accepts PartitionArray and PartitionArrayOutput values.
 // You can construct a concrete instance of `PartitionArrayInput` via:
 //
-//          PartitionArray{ PartitionArgs{...} }
+//	PartitionArray{ PartitionArgs{...} }
 type PartitionArrayInput interface {
 	pulumi.Input
 
@@ -203,7 +205,7 @@ func (i PartitionArray) ToPartitionArrayOutputWithContext(ctx context.Context) P
 // PartitionMapInput is an input type that accepts PartitionMap and PartitionMapOutput values.
 // You can construct a concrete instance of `PartitionMapInput` via:
 //
-//          PartitionMap{ "key": PartitionArgs{...} }
+//	PartitionMap{ "key": PartitionArgs{...} }
 type PartitionMapInput interface {
 	pulumi.Input
 

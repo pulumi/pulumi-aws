@@ -15,40 +15,38 @@ namespace Pulumi.Aws.ApiGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///         });
-    ///         var exampleDocumentationPart = new Aws.ApiGateway.DocumentationPart("exampleDocumentationPart", new Aws.ApiGateway.DocumentationPartArgs
-    ///         {
-    ///             Location = new Aws.ApiGateway.Inputs.DocumentationPartLocationArgs
-    ///             {
-    ///                 Type = "API",
-    ///             },
-    ///             Properties = "{\"description\":\"Example\"}",
-    ///             RestApiId = exampleRestApi.Id,
-    ///         });
-    ///         var exampleDocumentationVersion = new Aws.ApiGateway.DocumentationVersion("exampleDocumentationVersion", new Aws.ApiGateway.DocumentationVersionArgs
-    ///         {
-    ///             Version = "example_version",
-    ///             RestApiId = exampleRestApi.Id,
-    ///             Description = "Example description",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleDocumentationPart,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
     /// 
-    /// }
+    ///     var exampleDocumentationPart = new Aws.ApiGateway.DocumentationPart("exampleDocumentationPart", new()
+    ///     {
+    ///         Location = new Aws.ApiGateway.Inputs.DocumentationPartLocationArgs
+    ///         {
+    ///             Type = "API",
+    ///         },
+    ///         Properties = "{\"description\":\"Example\"}",
+    ///         RestApiId = exampleRestApi.Id,
+    ///     });
+    /// 
+    ///     var exampleDocumentationVersion = new Aws.ApiGateway.DocumentationVersion("exampleDocumentationVersion", new()
+    ///     {
+    ///         Version = "example_version",
+    ///         RestApiId = exampleRestApi.Id,
+    ///         Description = "Example description",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleDocumentationPart,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +58,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/documentationVersion:DocumentationVersion")]
-    public partial class DocumentationVersion : Pulumi.CustomResource
+    public partial class DocumentationVersion : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the API documentation version.
@@ -124,7 +122,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class DocumentationVersionArgs : Pulumi.ResourceArgs
+    public sealed class DocumentationVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the API documentation version.
@@ -147,9 +145,10 @@ namespace Pulumi.Aws.ApiGateway
         public DocumentationVersionArgs()
         {
         }
+        public static new DocumentationVersionArgs Empty => new DocumentationVersionArgs();
     }
 
-    public sealed class DocumentationVersionState : Pulumi.ResourceArgs
+    public sealed class DocumentationVersionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the API documentation version.
@@ -172,5 +171,6 @@ namespace Pulumi.Aws.ApiGateway
         public DocumentationVersionState()
         {
         }
+        public static new DocumentationVersionState Empty => new DocumentationVersionState();
     }
 }

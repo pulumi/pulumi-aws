@@ -18,143 +18,131 @@ namespace Pulumi.Aws.Transfer
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Transfer.Server("example", new()
     ///     {
-    ///         var example = new Aws.Transfer.Server("example", new Aws.Transfer.ServerArgs
+    ///         Tags = 
     ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "Example" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Security Policy Name
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Transfer.Server("example", new()
     ///     {
-    ///         var example = new Aws.Transfer.Server("example", new Aws.Transfer.ServerArgs
-    ///         {
-    ///             SecurityPolicyName = "TransferSecurityPolicy-2020-06",
-    ///         });
-    ///     }
+    ///         SecurityPolicyName = "TransferSecurityPolicy-2020-06",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### VPC Endpoint
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Transfer.Server("example", new()
     ///     {
-    ///         var example = new Aws.Transfer.Server("example", new Aws.Transfer.ServerArgs
+    ///         EndpointType = "VPC",
+    ///         EndpointDetails = new Aws.Transfer.Inputs.ServerEndpointDetailsArgs
     ///         {
-    ///             EndpointType = "VPC",
-    ///             EndpointDetails = new Aws.Transfer.Inputs.ServerEndpointDetailsArgs
+    ///             AddressAllocationIds = new[]
     ///             {
-    ///                 AddressAllocationIds = 
-    ///                 {
-    ///                     aws_eip.Example.Id,
-    ///                 },
-    ///                 SubnetIds = 
-    ///                 {
-    ///                     aws_subnet.Example.Id,
-    ///                 },
-    ///                 VpcId = aws_vpc.Example.Id,
+    ///                 aws_eip.Example.Id,
     ///             },
-    ///         });
-    ///     }
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 aws_subnet.Example.Id,
+    ///             },
+    ///             VpcId = aws_vpc.Example.Id,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### AWS Directory authentication
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Transfer.Server("example", new()
     ///     {
-    ///         var example = new Aws.Transfer.Server("example", new Aws.Transfer.ServerArgs
-    ///         {
-    ///             IdentityProviderType = "AWS_DIRECTORY_SERVICE",
-    ///             DirectoryId = aws_directory_service_directory.Example.Id,
-    ///         });
-    ///     }
+    ///         IdentityProviderType = "AWS_DIRECTORY_SERVICE",
+    ///         DirectoryId = aws_directory_service_directory.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### AWS Lambda authentication
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Transfer.Server("example", new()
     ///     {
-    ///         var example = new Aws.Transfer.Server("example", new Aws.Transfer.ServerArgs
-    ///         {
-    ///             IdentityProviderType = "AWS_LAMBDA",
-    ///             Function = aws_lambda_identity_provider.Example.Arn,
-    ///         });
-    ///     }
+    ///         IdentityProviderType = "AWS_LAMBDA",
+    ///         Function = aws_lambda_identity_provider.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Protocols
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Transfer.Server("example", new()
     ///     {
-    ///         var example = new Aws.Transfer.Server("example", new Aws.Transfer.ServerArgs
+    ///         EndpointType = "VPC",
+    ///         EndpointDetails = new Aws.Transfer.Inputs.ServerEndpointDetailsArgs
     ///         {
-    ///             EndpointType = "VPC",
-    ///             EndpointDetails = new Aws.Transfer.Inputs.ServerEndpointDetailsArgs
+    ///             SubnetIds = new[]
     ///             {
-    ///                 SubnetIds = 
-    ///                 {
-    ///                     aws_subnet.Example.Id,
-    ///                 },
-    ///                 VpcId = aws_vpc.Example.Id,
+    ///                 aws_subnet.Example.Id,
     ///             },
-    ///             Protocols = 
-    ///             {
-    ///                 "FTP",
-    ///                 "FTPS",
-    ///             },
-    ///             Certificate = aws_acm_certificate.Example.Arn,
-    ///             IdentityProviderType = "API_GATEWAY",
-    ///             Url = $"{aws_api_gateway_deployment.Example.Invoke_url}{aws_api_gateway_resource.Example.Path}",
-    ///         });
-    ///     }
+    ///             VpcId = aws_vpc.Example.Id,
+    ///         },
+    ///         Protocols = new[]
+    ///         {
+    ///             "FTP",
+    ///             "FTPS",
+    ///         },
+    ///         Certificate = aws_acm_certificate.Example.Arn,
+    ///         IdentityProviderType = "API_GATEWAY",
+    ///         Url = $"{aws_api_gateway_deployment.Example.Invoke_url}{aws_api_gateway_resource.Example.Path}",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -168,7 +156,7 @@ namespace Pulumi.Aws.Transfer
     ///  Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
     /// </summary>
     [AwsResourceType("aws:transfer/server:Server")]
-    public partial class Server : Pulumi.CustomResource
+    public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of Transfer Server
@@ -268,6 +256,7 @@ namespace Pulumi.Aws.Transfer
 
         /// <summary>
         /// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        /// * `AS2`: File transfer over Applicability Statement 2
         /// * `SFTP`: File transfer over SSH
         /// * `FTPS`: File transfer with TLS encryption
         /// * `FTP`: Unencrypted file transfer
@@ -349,7 +338,7 @@ namespace Pulumi.Aws.Transfer
         }
     }
 
-    public sealed class ServerArgs : Pulumi.ResourceArgs
+    public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
@@ -434,6 +423,7 @@ namespace Pulumi.Aws.Transfer
 
         /// <summary>
         /// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        /// * `AS2`: File transfer over Applicability Statement 2
         /// * `SFTP`: File transfer over SSH
         /// * `FTPS`: File transfer with TLS encryption
         /// * `FTP`: Unencrypted file transfer
@@ -477,9 +467,10 @@ namespace Pulumi.Aws.Transfer
         public ServerArgs()
         {
         }
+        public static new ServerArgs Empty => new ServerArgs();
     }
 
-    public sealed class ServerState : Pulumi.ResourceArgs
+    public sealed class ServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of Transfer Server
@@ -582,6 +573,7 @@ namespace Pulumi.Aws.Transfer
 
         /// <summary>
         /// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        /// * `AS2`: File transfer over Applicability Statement 2
         /// * `SFTP`: File transfer over SSH
         /// * `FTPS`: File transfer with TLS encryption
         /// * `FTP`: Unencrypted file transfer
@@ -637,5 +629,6 @@ namespace Pulumi.Aws.Transfer
         public ServerState()
         {
         }
+        public static new ServerState Empty => new ServerState();
     }
 }

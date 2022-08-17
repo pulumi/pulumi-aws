@@ -15,27 +15,25 @@ namespace Pulumi.Aws.OpsWorks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myInstance = new Aws.OpsWorks.RdsDbInstance("myInstance", new()
     ///     {
-    ///         var myInstance = new Aws.OpsWorks.RdsDbInstance("myInstance", new Aws.OpsWorks.RdsDbInstanceArgs
-    ///         {
-    ///             StackId = aws_opsworks_stack.My_stack.Id,
-    ///             RdsDbInstanceArn = aws_db_instance.My_instance.Arn,
-    ///             DbUser = "someUser",
-    ///             DbPassword = "somePass",
-    ///         });
-    ///     }
+    ///         StackId = aws_opsworks_stack.My_stack.Id,
+    ///         RdsDbInstanceArn = aws_db_instance.My_instance.Arn,
+    ///         DbUser = "someUser",
+    ///         DbPassword = "somePass",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/rdsDbInstance:RdsDbInstance")]
-    public partial class RdsDbInstance : Pulumi.CustomResource
+    public partial class RdsDbInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A db password
@@ -105,7 +103,7 @@ namespace Pulumi.Aws.OpsWorks
         }
     }
 
-    public sealed class RdsDbInstanceArgs : Pulumi.ResourceArgs
+    public sealed class RdsDbInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A db password
@@ -134,9 +132,10 @@ namespace Pulumi.Aws.OpsWorks
         public RdsDbInstanceArgs()
         {
         }
+        public static new RdsDbInstanceArgs Empty => new RdsDbInstanceArgs();
     }
 
-    public sealed class RdsDbInstanceState : Pulumi.ResourceArgs
+    public sealed class RdsDbInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A db password
@@ -165,5 +164,6 @@ namespace Pulumi.Aws.OpsWorks
         public RdsDbInstanceState()
         {
         }
+        public static new RdsDbInstanceState Empty => new RdsDbInstanceState();
     }
 }

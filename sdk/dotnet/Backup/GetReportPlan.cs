@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Backup
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Backup.GetReportPlan.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Backup.GetReportPlan.InvokeAsync(new Aws.Backup.GetReportPlanArgs
-        ///         {
-        ///             Name = "tf_example_backup_report_plan_name",
-        ///         }));
-        ///     }
+        ///         Name = "tf_example_backup_report_plan_name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Backup
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Backup.GetReportPlan.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Backup.GetReportPlan.InvokeAsync(new Aws.Backup.GetReportPlanArgs
-        ///         {
-        ///             Name = "tf_example_backup_report_plan_name",
-        ///         }));
-        ///     }
+        ///         Name = "tf_example_backup_report_plan_name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Backup
     }
 
 
-    public sealed class GetReportPlanArgs : Pulumi.InvokeArgs
+    public sealed class GetReportPlanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The backup report plan name.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.Backup
         public GetReportPlanArgs()
         {
         }
+        public static new GetReportPlanArgs Empty => new GetReportPlanArgs();
     }
 
-    public sealed class GetReportPlanInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReportPlanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The backup report plan name.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.Backup
         public GetReportPlanInvokeArgs()
         {
         }
+        public static new GetReportPlanInvokeArgs Empty => new GetReportPlanInvokeArgs();
     }
 
 

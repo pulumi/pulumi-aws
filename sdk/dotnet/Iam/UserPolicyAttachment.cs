@@ -17,29 +17,27 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var user = new Aws.Iam.User("user", new Aws.Iam.UserArgs
-    ///         {
-    ///         });
-    ///         var policy = new Aws.Iam.Policy("policy", new Aws.Iam.PolicyArgs
-    ///         {
-    ///             Description = "A test policy",
-    ///             PolicyDocument = "{ ... policy JSON ... }",
-    ///         });
-    ///         var test_attach = new Aws.Iam.UserPolicyAttachment("test-attach", new Aws.Iam.UserPolicyAttachmentArgs
-    ///         {
-    ///             User = user.Name,
-    ///             PolicyArn = policy.Arn,
-    ///         });
-    ///     }
+    ///     var user = new Aws.Iam.User("user");
     /// 
-    /// }
+    ///     var policy = new Aws.Iam.Policy("policy", new()
+    ///     {
+    ///         Description = "A test policy",
+    ///         PolicyDocument = "{ ... policy JSON ... }",
+    ///     });
+    /// 
+    ///     var test_attach = new Aws.Iam.UserPolicyAttachment("test-attach", new()
+    ///     {
+    ///         User = user.Name,
+    ///         PolicyArn = policy.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/userPolicyAttachment:UserPolicyAttachment")]
-    public partial class UserPolicyAttachment : Pulumi.CustomResource
+    public partial class UserPolicyAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the policy you want to apply
@@ -109,7 +107,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class UserPolicyAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class UserPolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the policy you want to apply
@@ -126,9 +124,10 @@ namespace Pulumi.Aws.Iam
         public UserPolicyAttachmentArgs()
         {
         }
+        public static new UserPolicyAttachmentArgs Empty => new UserPolicyAttachmentArgs();
     }
 
-    public sealed class UserPolicyAttachmentState : Pulumi.ResourceArgs
+    public sealed class UserPolicyAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the policy you want to apply
@@ -145,5 +144,6 @@ namespace Pulumi.Aws.Iam
         public UserPolicyAttachmentState()
         {
         }
+        public static new UserPolicyAttachmentState Empty => new UserPolicyAttachmentState();
     }
 }

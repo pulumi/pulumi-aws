@@ -15,26 +15,24 @@ namespace Pulumi.Aws.DataSync
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DataSync.LocationFsxWindows("example", new()
     ///     {
-    ///         var example = new Aws.DataSync.LocationFsxWindows("example", new Aws.DataSync.LocationFsxWindowsArgs
+    ///         FsxFilesystemArn = aws_fsx_windows_file_system.Example.Arn,
+    ///         User = "SomeUser",
+    ///         Password = "SuperSecretPassw0rd",
+    ///         SecurityGroupArns = new[]
     ///         {
-    ///             FsxFilesystemArn = aws_fsx_windows_file_system.Example.Arn,
-    ///             User = "SomeUser",
-    ///             Password = "SuperSecretPassw0rd",
-    ///             SecurityGroupArns = 
-    ///             {
-    ///                 aws_security_group.Example.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_security_group.Example.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Aws.DataSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/locationFsxWindows:LocationFsxWindows")]
-    public partial class LocationFsxWindows : Pulumi.CustomResource
+    public partial class LocationFsxWindows : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
@@ -97,7 +95,7 @@ namespace Pulumi.Aws.DataSync
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -158,7 +156,7 @@ namespace Pulumi.Aws.DataSync
         }
     }
 
-    public sealed class LocationFsxWindowsArgs : Pulumi.ResourceArgs
+    public sealed class LocationFsxWindowsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Windows domain that the FSx for Windows server belongs to.
@@ -217,9 +215,10 @@ namespace Pulumi.Aws.DataSync
         public LocationFsxWindowsArgs()
         {
         }
+        public static new LocationFsxWindowsArgs Empty => new LocationFsxWindowsArgs();
     }
 
-    public sealed class LocationFsxWindowsState : Pulumi.ResourceArgs
+    public sealed class LocationFsxWindowsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
@@ -285,7 +284,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -308,5 +307,6 @@ namespace Pulumi.Aws.DataSync
         public LocationFsxWindowsState()
         {
         }
+        public static new LocationFsxWindowsState Empty => new LocationFsxWindowsState();
     }
 }

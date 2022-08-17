@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Eks.Inputs
 {
 
-    public sealed class NodeGroupLaunchTemplateGetArgs : Pulumi.ResourceArgs
+    public sealed class NodeGroupLaunchTemplateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of the EC2 Launch Template. Conflicts with `name`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Eks.Inputs
         public NodeGroupLaunchTemplateGetArgs()
         {
         }
+        public static new NodeGroupLaunchTemplateGetArgs Empty => new NodeGroupLaunchTemplateGetArgs();
     }
 }

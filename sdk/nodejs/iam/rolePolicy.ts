@@ -92,7 +92,7 @@ export class RolePolicy extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
-     * The IAM role to attach to the policy.
+     * The name of the IAM role to attach to the policy.
      */
     public readonly role!: pulumi.Output<string>;
 
@@ -150,7 +150,7 @@ export interface RolePolicyState {
      */
     policy?: pulumi.Input<string | PolicyDocument>;
     /**
-     * The IAM role to attach to the policy.
+     * The name of the IAM role to attach to the policy.
      */
     role?: pulumi.Input<string | Role>;
 }
@@ -174,7 +174,7 @@ export interface RolePolicyArgs {
      */
     policy: pulumi.Input<string | PolicyDocument>;
     /**
-     * The IAM role to attach to the policy.
+     * The name of the IAM role to attach to the policy.
      */
     role: pulumi.Input<string | Role>;
 }

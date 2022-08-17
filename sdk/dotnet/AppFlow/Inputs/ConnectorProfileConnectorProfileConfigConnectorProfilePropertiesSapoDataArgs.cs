@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the SAPOData resource.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs();
     }
 }

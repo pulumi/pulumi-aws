@@ -20,24 +20,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lex"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lex"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lex.NewBotAlias(ctx, "orderFlowersProd", &lex.BotAliasArgs{
-// 			BotName:     pulumi.String("OrderFlowers"),
-// 			BotVersion:  pulumi.String("1"),
-// 			Description: pulumi.String("Production Version of the OrderFlowers Bot."),
-// 			Name:        pulumi.String("OrderFlowersProd"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lex.NewBotAlias(ctx, "orderFlowersProd", &lex.BotAliasArgs{
+//				BotName:     pulumi.String("OrderFlowers"),
+//				BotVersion:  pulumi.String("1"),
+//				Description: pulumi.String("Production Version of the OrderFlowers Bot."),
+//				Name:        pulumi.String("OrderFlowersProd"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // Bot aliases can be imported using an ID with the format `bot_name:bot_alias_name`.
 //
 // ```sh
-//  $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
+//
+//	$ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
+//
 // ```
 type BotAlias struct {
 	pulumi.CustomResourceState
@@ -203,7 +208,7 @@ func (i *BotAlias) ToBotAliasOutputWithContext(ctx context.Context) BotAliasOutp
 // BotAliasArrayInput is an input type that accepts BotAliasArray and BotAliasArrayOutput values.
 // You can construct a concrete instance of `BotAliasArrayInput` via:
 //
-//          BotAliasArray{ BotAliasArgs{...} }
+//	BotAliasArray{ BotAliasArgs{...} }
 type BotAliasArrayInput interface {
 	pulumi.Input
 
@@ -228,7 +233,7 @@ func (i BotAliasArray) ToBotAliasArrayOutputWithContext(ctx context.Context) Bot
 // BotAliasMapInput is an input type that accepts BotAliasMap and BotAliasMapOutput values.
 // You can construct a concrete instance of `BotAliasMapInput` via:
 //
-//          BotAliasMap{ "key": BotAliasArgs{...} }
+//	BotAliasMap{ "key": BotAliasArgs{...} }
 type BotAliasMapInput interface {
 	pulumi.Input
 

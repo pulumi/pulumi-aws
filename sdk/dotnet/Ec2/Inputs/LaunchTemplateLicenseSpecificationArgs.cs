@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateLicenseSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateLicenseSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the license configuration.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateLicenseSpecificationArgs()
         {
         }
+        public static new LaunchTemplateLicenseSpecificationArgs Empty => new LaunchTemplateLicenseSpecificationArgs();
     }
 }

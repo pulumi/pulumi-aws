@@ -20,39 +20,37 @@ namespace Pulumi.Aws.Ebs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ebsVolume = Aws.Ebs.GetVolume.Invoke(new()
         ///     {
-        ///         var ebsVolume = Output.Create(Aws.Ebs.GetVolume.InvokeAsync(new Aws.Ebs.GetVolumeArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
         ///             {
-        ///                 new Aws.Ebs.Inputs.GetVolumeFilterArgs
+        ///                 Name = "volume-type",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "volume-type",
-        ///                     Values = 
-        ///                     {
-        ///                         "gp2",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ebs.Inputs.GetVolumeFilterArgs
-        ///                 {
-        ///                     Name = "tag:Name",
-        ///                     Values = 
-        ///                     {
-        ///                         "Example",
-        ///                     },
+        ///                     "gp2",
         ///                 },
         ///             },
-        ///             MostRecent = true,
-        ///         }));
-        ///     }
+        ///             new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
+        ///             {
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "Example",
+        ///                 },
+        ///             },
+        ///         },
+        ///         MostRecent = true,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -69,39 +67,37 @@ namespace Pulumi.Aws.Ebs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var ebsVolume = Aws.Ebs.GetVolume.Invoke(new()
         ///     {
-        ///         var ebsVolume = Output.Create(Aws.Ebs.GetVolume.InvokeAsync(new Aws.Ebs.GetVolumeArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
         ///             {
-        ///                 new Aws.Ebs.Inputs.GetVolumeFilterArgs
+        ///                 Name = "volume-type",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "volume-type",
-        ///                     Values = 
-        ///                     {
-        ///                         "gp2",
-        ///                     },
-        ///                 },
-        ///                 new Aws.Ebs.Inputs.GetVolumeFilterArgs
-        ///                 {
-        ///                     Name = "tag:Name",
-        ///                     Values = 
-        ///                     {
-        ///                         "Example",
-        ///                     },
+        ///                     "gp2",
         ///                 },
         ///             },
-        ///             MostRecent = true,
-        ///         }));
-        ///     }
+        ///             new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
+        ///             {
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "Example",
+        ///                 },
+        ///             },
+        ///         },
+        ///         MostRecent = true,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -111,7 +107,7 @@ namespace Pulumi.Aws.Ebs
     }
 
 
-    public sealed class GetVolumeArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetVolumeFilterArgs>? _filters;
@@ -149,9 +145,10 @@ namespace Pulumi.Aws.Ebs
         public GetVolumeArgs()
         {
         }
+        public static new GetVolumeArgs Empty => new GetVolumeArgs();
     }
 
-    public sealed class GetVolumeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVolumeInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetVolumeFilterInputArgs>? _filters;
@@ -189,6 +186,7 @@ namespace Pulumi.Aws.Ebs
         public GetVolumeInvokeArgs()
         {
         }
+        public static new GetVolumeInvokeArgs Empty => new GetVolumeInvokeArgs();
     }
 
 

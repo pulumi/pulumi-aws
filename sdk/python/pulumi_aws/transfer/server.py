@@ -50,6 +50,7 @@ class ServerArgs:
         :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+               * `AS2`: File transfer over Applicability Statement 2
                * `SFTP`: File transfer over SSH
                * `FTPS`: File transfer with TLS encryption
                * `FTP`: Unencrypted file transfer
@@ -256,6 +257,7 @@ class ServerArgs:
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        * `AS2`: File transfer over Applicability Statement 2
         * `SFTP`: File transfer over SSH
         * `FTPS`: File transfer with TLS encryption
         * `FTP`: Unencrypted file transfer
@@ -359,6 +361,7 @@ class _ServerState:
         :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+               * `AS2`: File transfer over Applicability Statement 2
                * `SFTP`: File transfer over SSH
                * `FTPS`: File transfer with TLS encryption
                * `FTP`: Unencrypted file transfer
@@ -610,6 +613,7 @@ class _ServerState:
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        * `AS2`: File transfer over Applicability Statement 2
         * `SFTP`: File transfer over SSH
         * `FTPS`: File transfer with TLS encryption
         * `FTP`: Unencrypted file transfer
@@ -810,6 +814,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+               * `AS2`: File transfer over Applicability Statement 2
                * `SFTP`: File transfer over SSH
                * `FTPS`: File transfer with TLS encryption
                * `FTP`: Unencrypted file transfer
@@ -1033,6 +1038,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+               * `AS2`: File transfer over Applicability Statement 2
                * `SFTP`: File transfer over SSH
                * `FTPS`: File transfer with TLS encryption
                * `FTP`: Unencrypted file transfer
@@ -1203,6 +1209,7 @@ class Server(pulumi.CustomResource):
     def protocols(self) -> pulumi.Output[Sequence[str]]:
         """
         Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
+        * `AS2`: File transfer over Applicability Statement 2
         * `SFTP`: File transfer over SSH
         * `FTPS`: File transfer with TLS encryption
         * `FTP`: Unencrypted file transfer

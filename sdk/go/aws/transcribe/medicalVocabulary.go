@@ -18,50 +18,53 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transcribe"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transcribe"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
-// 			ForceDestroy: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		object, err := s3.NewBucketObjectv2(ctx, "object", &s3.BucketObjectv2Args{
-// 			Bucket: exampleBucketV2.ID(),
-// 			Key:    pulumi.String("transcribe/test1.txt"),
-// 			Source: pulumi.NewFileAsset("test.txt"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = transcribe.NewMedicalVocabulary(ctx, "exampleMedicalVocabulary", &transcribe.MedicalVocabularyArgs{
-// 			VocabularyName: pulumi.String("example"),
-// 			LanguageCode:   pulumi.String("en-US"),
-// 			VocabularyFileUri: pulumi.All(exampleBucketV2.ID(), object.Key).ApplyT(func(_args []interface{}) (string, error) {
-// 				id := _args[0].(string)
-// 				key := _args[1].(string)
-// 				return fmt.Sprintf("s3://%v/%v", id, key), nil
-// 			}).(pulumi.StringOutput),
-// 			Tags: pulumi.StringMap{
-// 				"tag1": pulumi.String("value1"),
-// 				"tag2": pulumi.String("value3"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			object,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+//				ForceDestroy: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			object, err := s3.NewBucketObjectv2(ctx, "object", &s3.BucketObjectv2Args{
+//				Bucket: exampleBucketV2.ID(),
+//				Key:    pulumi.String("transcribe/test1.txt"),
+//				Source: pulumi.NewFileAsset("test.txt"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = transcribe.NewMedicalVocabulary(ctx, "exampleMedicalVocabulary", &transcribe.MedicalVocabularyArgs{
+//				VocabularyName: pulumi.String("example"),
+//				LanguageCode:   pulumi.String("en-US"),
+//				VocabularyFileUri: pulumi.All(exampleBucketV2.ID(), object.Key).ApplyT(func(_args []interface{}) (string, error) {
+//					id := _args[0].(string)
+//					key := _args[1].(string)
+//					return fmt.Sprintf("s3://%v/%v", id, key), nil
+//				}).(pulumi.StringOutput),
+//				Tags: pulumi.StringMap{
+//					"tag1": pulumi.String("value1"),
+//					"tag2": pulumi.String("value3"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				object,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // Transcribe MedicalVocabulary can be imported using the `vocabulary_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
+//
+//	$ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
+//
 // ```
 type MedicalVocabulary struct {
 	pulumi.CustomResourceState
@@ -166,8 +171,7 @@ type medicalVocabularyArgs struct {
 	// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
 	LanguageCode string `pulumi:"languageCode"`
 	// A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri string `pulumi:"vocabularyFileUri"`
 	// The name of the Medical Vocabulary.
@@ -179,8 +183,7 @@ type MedicalVocabularyArgs struct {
 	// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
 	LanguageCode pulumi.StringInput
 	// A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri pulumi.StringInput
 	// The name of the Medical Vocabulary.
@@ -213,7 +216,7 @@ func (i *MedicalVocabulary) ToMedicalVocabularyOutputWithContext(ctx context.Con
 // MedicalVocabularyArrayInput is an input type that accepts MedicalVocabularyArray and MedicalVocabularyArrayOutput values.
 // You can construct a concrete instance of `MedicalVocabularyArrayInput` via:
 //
-//          MedicalVocabularyArray{ MedicalVocabularyArgs{...} }
+//	MedicalVocabularyArray{ MedicalVocabularyArgs{...} }
 type MedicalVocabularyArrayInput interface {
 	pulumi.Input
 
@@ -238,7 +241,7 @@ func (i MedicalVocabularyArray) ToMedicalVocabularyArrayOutputWithContext(ctx co
 // MedicalVocabularyMapInput is an input type that accepts MedicalVocabularyMap and MedicalVocabularyMapOutput values.
 // You can construct a concrete instance of `MedicalVocabularyMapInput` via:
 //
-//          MedicalVocabularyMap{ "key": MedicalVocabularyArgs{...} }
+//	MedicalVocabularyMap{ "key": MedicalVocabularyArgs{...} }
 type MedicalVocabularyMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Alb.Inputs
 {
 
-    public sealed class ListenerRuleActionGetArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
@@ -60,5 +60,6 @@ namespace Pulumi.Aws.Alb.Inputs
         public ListenerRuleActionGetArgs()
         {
         }
+        public static new ListenerRuleActionGetArgs Empty => new ListenerRuleActionGetArgs();
     }
 }

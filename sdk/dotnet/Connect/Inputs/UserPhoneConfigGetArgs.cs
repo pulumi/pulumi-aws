@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Connect.Inputs
 {
 
-    public sealed class UserPhoneConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class UserPhoneConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Connect.Inputs
         public UserPhoneConfigGetArgs()
         {
         }
+        public static new UserPhoneConfigGetArgs Empty => new UserPhoneConfigGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleStatementRegexPatternSetReferenceStatementGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleStatementRegexPatternSetReferenceStatementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclRuleStatementRegexPatternSetReferenceStatementGetArgs()
         {
         }
+        public static new WebAclRuleStatementRegexPatternSetReferenceStatementGetArgs Empty => new WebAclRuleStatementRegexPatternSetReferenceStatementGetArgs();
     }
 }

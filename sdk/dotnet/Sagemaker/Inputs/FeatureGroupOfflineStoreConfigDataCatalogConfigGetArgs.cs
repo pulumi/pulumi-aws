@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class FeatureGroupOfflineStoreConfigDataCatalogConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class FeatureGroupOfflineStoreConfigDataCatalogConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Glue table catalog.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public FeatureGroupOfflineStoreConfigDataCatalogConfigGetArgs()
         {
         }
+        public static new FeatureGroupOfflineStoreConfigDataCatalogConfigGetArgs Empty => new FeatureGroupOfflineStoreConfigDataCatalogConfigGetArgs();
     }
 }

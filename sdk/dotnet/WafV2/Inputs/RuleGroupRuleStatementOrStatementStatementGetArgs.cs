@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupRuleStatementOrStatementStatementGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleStatementOrStatementStatementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
@@ -81,5 +81,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public RuleGroupRuleStatementOrStatementStatementGetArgs()
         {
         }
+        public static new RuleGroupRuleStatementOrStatementStatementGetArgs Empty => new RuleGroupRuleStatementOrStatementStatementGetArgs();
     }
 }

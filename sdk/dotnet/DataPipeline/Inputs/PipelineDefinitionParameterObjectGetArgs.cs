@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DataPipeline.Inputs
 {
 
-    public sealed class PipelineDefinitionParameterObjectGetArgs : Pulumi.ResourceArgs
+    public sealed class PipelineDefinitionParameterObjectGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         private InputList<Inputs.PipelineDefinitionParameterObjectAttributeGetArgs>? _attributes;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.DataPipeline.Inputs
         public PipelineDefinitionParameterObjectGetArgs()
         {
         }
+        public static new PipelineDefinitionParameterObjectGetArgs Empty => new PipelineDefinitionParameterObjectGetArgs();
     }
 }

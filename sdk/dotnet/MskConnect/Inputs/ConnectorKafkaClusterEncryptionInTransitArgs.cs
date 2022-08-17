@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MskConnect.Inputs
 {
 
-    public sealed class ConnectorKafkaClusterEncryptionInTransitArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorKafkaClusterEncryptionInTransitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public ConnectorKafkaClusterEncryptionInTransitArgs()
         {
         }
+        public static new ConnectorKafkaClusterEncryptionInTransitArgs Empty => new ConnectorKafkaClusterEncryptionInTransitArgs();
     }
 }

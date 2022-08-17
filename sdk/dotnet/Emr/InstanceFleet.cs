@@ -20,68 +20,66 @@ namespace Pulumi.Aws.Emr
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var task = new Aws.Emr.InstanceFleet("task", new()
     ///     {
-    ///         var task = new Aws.Emr.InstanceFleet("task", new Aws.Emr.InstanceFleetArgs
+    ///         ClusterId = aws_emr_cluster.Cluster.Id,
+    ///         InstanceTypeConfigs = new[]
     ///         {
-    ///             ClusterId = aws_emr_cluster.Cluster.Id,
-    ///             InstanceTypeConfigs = 
+    ///             new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigArgs
     ///             {
-    ///                 new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigArgs
+    ///                 BidPriceAsPercentageOfOnDemandPrice = 100,
+    ///                 EbsConfigs = new[]
     ///                 {
-    ///                     BidPriceAsPercentageOfOnDemandPrice = 100,
-    ///                     EbsConfigs = 
+    ///                     new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs
     ///                     {
-    ///                         new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs
-    ///                         {
-    ///                             Size = 100,
-    ///                             Type = "gp2",
-    ///                             VolumesPerInstance = 1,
-    ///                         },
+    ///                         Size = 100,
+    ///                         Type = "gp2",
+    ///                         VolumesPerInstance = 1,
     ///                     },
-    ///                     InstanceType = "m4.xlarge",
-    ///                     WeightedCapacity = 1,
     ///                 },
-    ///                 new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigArgs
+    ///                 InstanceType = "m4.xlarge",
+    ///                 WeightedCapacity = 1,
+    ///             },
+    ///             new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigArgs
+    ///             {
+    ///                 BidPriceAsPercentageOfOnDemandPrice = 100,
+    ///                 EbsConfigs = new[]
     ///                 {
-    ///                     BidPriceAsPercentageOfOnDemandPrice = 100,
-    ///                     EbsConfigs = 
+    ///                     new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs
     ///                     {
-    ///                         new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs
-    ///                         {
-    ///                             Size = 100,
-    ///                             Type = "gp2",
-    ///                             VolumesPerInstance = 1,
-    ///                         },
+    ///                         Size = 100,
+    ///                         Type = "gp2",
+    ///                         VolumesPerInstance = 1,
     ///                     },
-    ///                     InstanceType = "m4.2xlarge",
-    ///                     WeightedCapacity = 2,
+    ///                 },
+    ///                 InstanceType = "m4.2xlarge",
+    ///                 WeightedCapacity = 2,
+    ///             },
+    ///         },
+    ///         LaunchSpecifications = new Aws.Emr.Inputs.InstanceFleetLaunchSpecificationsArgs
+    ///         {
+    ///             SpotSpecifications = new[]
+    ///             {
+    ///                 new Aws.Emr.Inputs.InstanceFleetLaunchSpecificationsSpotSpecificationArgs
+    ///                 {
+    ///                     AllocationStrategy = "capacity-optimized",
+    ///                     BlockDurationMinutes = 0,
+    ///                     TimeoutAction = "TERMINATE_CLUSTER",
+    ///                     TimeoutDurationMinutes = 10,
     ///                 },
     ///             },
-    ///             LaunchSpecifications = new Aws.Emr.Inputs.InstanceFleetLaunchSpecificationsArgs
-    ///             {
-    ///                 SpotSpecifications = 
-    ///                 {
-    ///                     new Aws.Emr.Inputs.InstanceFleetLaunchSpecificationsSpotSpecificationArgs
-    ///                     {
-    ///                         AllocationStrategy = "capacity-optimized",
-    ///                         BlockDurationMinutes = 0,
-    ///                         TimeoutAction = "TERMINATE_CLUSTER",
-    ///                         TimeoutDurationMinutes = 10,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             TargetOnDemandCapacity = 1,
-    ///             TargetSpotCapacity = 1,
-    ///         });
-    ///     }
+    ///         },
+    ///         TargetOnDemandCapacity = 1,
+    ///         TargetSpotCapacity = 1,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -93,7 +91,7 @@ namespace Pulumi.Aws.Emr
     /// ```
     /// </summary>
     [AwsResourceType("aws:emr/instanceFleet:InstanceFleet")]
-    public partial class InstanceFleet : Pulumi.CustomResource
+    public partial class InstanceFleet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
@@ -181,7 +179,7 @@ namespace Pulumi.Aws.Emr
         }
     }
 
-    public sealed class InstanceFleetArgs : Pulumi.ResourceArgs
+    public sealed class InstanceFleetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
@@ -228,9 +226,10 @@ namespace Pulumi.Aws.Emr
         public InstanceFleetArgs()
         {
         }
+        public static new InstanceFleetArgs Empty => new InstanceFleetArgs();
     }
 
-    public sealed class InstanceFleetState : Pulumi.ResourceArgs
+    public sealed class InstanceFleetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
@@ -283,5 +282,6 @@ namespace Pulumi.Aws.Emr
         public InstanceFleetState()
         {
         }
+        public static new InstanceFleetState Empty => new InstanceFleetState();
     }
 }

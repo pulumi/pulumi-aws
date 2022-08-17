@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class ThingGroupMetadataRootToParentGroupGetArgs : Pulumi.ResourceArgs
+    public sealed class ThingGroupMetadataRootToParentGroupGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("groupArn")]
         public Input<string>? GroupArn { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Iot.Inputs
         public ThingGroupMetadataRootToParentGroupGetArgs()
         {
         }
+        public static new ThingGroupMetadataRootToParentGroupGetArgs Empty => new ThingGroupMetadataRootToParentGroupGetArgs();
     }
 }

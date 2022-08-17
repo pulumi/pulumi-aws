@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables or disables data processing.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationGetArgs()
         {
         }
+        public static new FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationGetArgs Empty => new FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationGetArgs();
     }
 }

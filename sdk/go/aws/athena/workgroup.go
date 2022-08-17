@@ -18,33 +18,36 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := athena.NewWorkgroup(ctx, "example", &athena.WorkgroupArgs{
-// 			Configuration: &athena.WorkgroupConfigurationArgs{
-// 				EnforceWorkgroupConfiguration:   pulumi.Bool(true),
-// 				PublishCloudwatchMetricsEnabled: pulumi.Bool(true),
-// 				ResultConfiguration: &athena.WorkgroupConfigurationResultConfigurationArgs{
-// 					OutputLocation: pulumi.String(fmt.Sprintf("s3://%v/output/", aws_s3_bucket.Example.Bucket)),
-// 					EncryptionConfiguration: &athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{
-// 						EncryptionOption: pulumi.String("SSE_KMS"),
-// 						KmsKeyArn:        pulumi.Any(aws_kms_key.Example.Arn),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := athena.NewWorkgroup(ctx, "example", &athena.WorkgroupArgs{
+//				Configuration: &athena.WorkgroupConfigurationArgs{
+//					EnforceWorkgroupConfiguration:   pulumi.Bool(true),
+//					PublishCloudwatchMetricsEnabled: pulumi.Bool(true),
+//					ResultConfiguration: &athena.WorkgroupConfigurationResultConfigurationArgs{
+//						OutputLocation: pulumi.String(fmt.Sprintf("s3://%v/output/", aws_s3_bucket.Example.Bucket)),
+//						EncryptionConfiguration: &athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{
+//							EncryptionOption: pulumi.String("SSE_KMS"),
+//							KmsKeyArn:        pulumi.Any(aws_kms_key.Example.Arn),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // Athena Workgroups can be imported using their name, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:athena/workgroup:Workgroup example example
+//
+//	$ pulumi import aws:athena/workgroup:Workgroup example example
+//
 // ```
 type Workgroup struct {
 	pulumi.CustomResourceState
@@ -71,7 +76,7 @@ type Workgroup struct {
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// Key-value map of resource tags for the workgroup. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -118,7 +123,7 @@ type workgroupState struct {
 	State *string `pulumi:"state"`
 	// Key-value map of resource tags for the workgroup. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -137,7 +142,7 @@ type WorkgroupState struct {
 	State pulumi.StringPtrInput
 	// Key-value map of resource tags for the workgroup. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -202,7 +207,7 @@ func (i *Workgroup) ToWorkgroupOutputWithContext(ctx context.Context) WorkgroupO
 // WorkgroupArrayInput is an input type that accepts WorkgroupArray and WorkgroupArrayOutput values.
 // You can construct a concrete instance of `WorkgroupArrayInput` via:
 //
-//          WorkgroupArray{ WorkgroupArgs{...} }
+//	WorkgroupArray{ WorkgroupArgs{...} }
 type WorkgroupArrayInput interface {
 	pulumi.Input
 
@@ -227,7 +232,7 @@ func (i WorkgroupArray) ToWorkgroupArrayOutputWithContext(ctx context.Context) W
 // WorkgroupMapInput is an input type that accepts WorkgroupMap and WorkgroupMapOutput values.
 // You can construct a concrete instance of `WorkgroupMapInput` via:
 //
-//          WorkgroupMap{ "key": WorkgroupArgs{...} }
+//	WorkgroupMap{ "key": WorkgroupArgs{...} }
 type WorkgroupMapInput interface {
 	pulumi.Input
 
@@ -298,7 +303,7 @@ func (o WorkgroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WorkgroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

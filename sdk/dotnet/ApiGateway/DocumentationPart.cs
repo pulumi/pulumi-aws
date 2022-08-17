@@ -15,30 +15,27 @@ namespace Pulumi.Aws.ApiGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///         });
-    ///         var exampleDocumentationPart = new Aws.ApiGateway.DocumentationPart("exampleDocumentationPart", new Aws.ApiGateway.DocumentationPartArgs
-    ///         {
-    ///             Location = new Aws.ApiGateway.Inputs.DocumentationPartLocationArgs
-    ///             {
-    ///                 Type = "METHOD",
-    ///                 Method = "GET",
-    ///                 Path = "/example",
-    ///             },
-    ///             Properties = "{\"description\":\"Example description\"}",
-    ///             RestApiId = exampleRestApi.Id,
-    ///         });
-    ///     }
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
     /// 
-    /// }
+    ///     var exampleDocumentationPart = new Aws.ApiGateway.DocumentationPart("exampleDocumentationPart", new()
+    ///     {
+    ///         Location = new Aws.ApiGateway.Inputs.DocumentationPartLocationArgs
+    ///         {
+    ///             Type = "METHOD",
+    ///             Method = "GET",
+    ///             Path = "/example",
+    ///         },
+    ///         Properties = "{\"description\":\"Example description\"}",
+    ///         RestApiId = exampleRestApi.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +47,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/documentationPart:DocumentationPart")]
-    public partial class DocumentationPart : Pulumi.CustomResource
+    public partial class DocumentationPart : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The location of the targeted API entity of the to-be-created documentation part. See below.
@@ -114,7 +111,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class DocumentationPartArgs : Pulumi.ResourceArgs
+    public sealed class DocumentationPartArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the targeted API entity of the to-be-created documentation part. See below.
@@ -137,9 +134,10 @@ namespace Pulumi.Aws.ApiGateway
         public DocumentationPartArgs()
         {
         }
+        public static new DocumentationPartArgs Empty => new DocumentationPartArgs();
     }
 
-    public sealed class DocumentationPartState : Pulumi.ResourceArgs
+    public sealed class DocumentationPartState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the targeted API entity of the to-be-created documentation part. See below.
@@ -162,5 +160,6 @@ namespace Pulumi.Aws.ApiGateway
         public DocumentationPartState()
         {
         }
+        public static new DocumentationPartState Empty => new DocumentationPartState();
     }
 }

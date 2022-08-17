@@ -16,22 +16,20 @@ namespace Pulumi.Aws.NetworkManager
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.NetworkManager.Connection("example", new()
     ///     {
-    ///         var example = new Aws.NetworkManager.Connection("example", new Aws.NetworkManager.ConnectionArgs
-    ///         {
-    ///             GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///             DeviceId = aws_networkmanager_device.Example1.Id,
-    ///             ConnectedDeviceId = aws_networkmanager_device.Example2.Id,
-    ///         });
-    ///     }
+    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
+    ///         DeviceId = aws_networkmanager_device.Example1.Id,
+    ///         ConnectedDeviceId = aws_networkmanager_device.Example2.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.NetworkManager
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/connection:Connection")]
-    public partial class Connection : Pulumi.CustomResource
+    public partial class Connection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the connection.
@@ -137,7 +135,7 @@ namespace Pulumi.Aws.NetworkManager
         }
     }
 
-    public sealed class ConnectionArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the second device in the connection.
@@ -186,9 +184,10 @@ namespace Pulumi.Aws.NetworkManager
         public ConnectionArgs()
         {
         }
+        public static new ConnectionArgs Empty => new ConnectionArgs();
     }
 
-    public sealed class ConnectionState : Pulumi.ResourceArgs
+    public sealed class ConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the connection.
@@ -251,5 +250,6 @@ namespace Pulumi.Aws.NetworkManager
         public ConnectionState()
         {
         }
+        public static new ConnectionState Empty => new ConnectionState();
     }
 }

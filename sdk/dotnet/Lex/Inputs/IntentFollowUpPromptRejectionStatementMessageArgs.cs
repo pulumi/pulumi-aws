@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex.Inputs
 {
 
-    public sealed class IntentFollowUpPromptRejectionStatementMessageArgs : Pulumi.ResourceArgs
+    public sealed class IntentFollowUpPromptRejectionStatementMessageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The text of the message. Must be less than or equal to 1000 characters in length.
@@ -34,5 +34,6 @@ namespace Pulumi.Aws.Lex.Inputs
         public IntentFollowUpPromptRejectionStatementMessageArgs()
         {
         }
+        public static new IntentFollowUpPromptRejectionStatementMessageArgs Empty => new IntentFollowUpPromptRejectionStatementMessageArgs();
     }
 }

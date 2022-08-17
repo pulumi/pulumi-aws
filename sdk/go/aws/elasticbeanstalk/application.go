@@ -23,26 +23,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
-// 			Description: pulumi.String("tf-test-desc"),
-// 			AppversionLifecycle: &elasticbeanstalk.ApplicationAppversionLifecycleArgs{
-// 				ServiceRole:        pulumi.Any(aws_iam_role.Beanstalk_service.Arn),
-// 				MaxCount:           pulumi.Int(128),
-// 				DeleteSourceFromS3: pulumi.Bool(true),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
+//				Description: pulumi.String("tf-test-desc"),
+//				AppversionLifecycle: &elasticbeanstalk.ApplicationAppversionLifecycleArgs{
+//					ServiceRole:        pulumi.Any(aws_iam_role.Beanstalk_service.Arn),
+//					MaxCount:           pulumi.Int(128),
+//					DeleteSourceFromS3: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // Elastic Beanstalk Applications can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
+//
+//	$ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
+//
 // ```
 type Application struct {
 	pulumi.CustomResourceState
@@ -175,7 +180,7 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 // ApplicationArrayInput is an input type that accepts ApplicationArray and ApplicationArrayOutput values.
 // You can construct a concrete instance of `ApplicationArrayInput` via:
 //
-//          ApplicationArray{ ApplicationArgs{...} }
+//	ApplicationArray{ ApplicationArgs{...} }
 type ApplicationArrayInput interface {
 	pulumi.Input
 
@@ -200,7 +205,7 @@ func (i ApplicationArray) ToApplicationArrayOutputWithContext(ctx context.Contex
 // ApplicationMapInput is an input type that accepts ApplicationMap and ApplicationMapOutput values.
 // You can construct a concrete instance of `ApplicationMapInput` via:
 //
-//          ApplicationMap{ "key": ApplicationArgs{...} }
+//	ApplicationMap{ "key": ApplicationArgs{...} }
 type ApplicationMapInput interface {
 	pulumi.Input
 

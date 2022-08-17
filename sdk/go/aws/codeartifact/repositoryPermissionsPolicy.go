@@ -19,59 +19,64 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codeartifact"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codeartifact"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-// 			Description: pulumi.String("domain key"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDomain, err := codeartifact.NewDomain(ctx, "exampleDomain", &codeartifact.DomainArgs{
-// 			Domain:        pulumi.String("example"),
-// 			EncryptionKey: exampleKey.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRepository, err := codeartifact.NewRepository(ctx, "exampleRepository", &codeartifact.RepositoryArgs{
-// 			Repository: pulumi.String("example"),
-// 			Domain:     exampleDomain.Domain,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = codeartifact.NewRepositoryPermissionsPolicy(ctx, "exampleRepositoryPermissionsPolicy", &codeartifact.RepositoryPermissionsPolicyArgs{
-// 			Repository: exampleRepository.Repository,
-// 			Domain:     exampleDomain.Domain,
-// 			PolicyDocument: exampleDomain.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf(`{
-//     "Version": "2012-10-17",
-//     "Statement": [
-//         {
-//             "Action": "codeartifact:CreateRepository",
-//             "Effect": "Allow",
-//             "Principal": "*",
-//             "Resource": "%v"
-//         }
-//     ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//				Description: pulumi.String("domain key"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDomain, err := codeartifact.NewDomain(ctx, "exampleDomain", &codeartifact.DomainArgs{
+//				Domain:        pulumi.String("example"),
+//				EncryptionKey: exampleKey.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRepository, err := codeartifact.NewRepository(ctx, "exampleRepository", &codeartifact.RepositoryArgs{
+//				Repository: pulumi.String("example"),
+//				Domain:     exampleDomain.Domain,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codeartifact.NewRepositoryPermissionsPolicy(ctx, "exampleRepositoryPermissionsPolicy", &codeartifact.RepositoryPermissionsPolicyArgs{
+//				Repository: exampleRepository.Repository,
+//				Domain:     exampleDomain.Domain,
+//				PolicyDocument: exampleDomain.Arn.ApplyT(func(arn string) (string, error) {
+//					return fmt.Sprintf(`{
+//	    "Version": "2012-10-17",
+//	    "Statement": [
+//	        {
+//	            "Action": "codeartifact:CreateRepository",
+//	            "Effect": "Allow",
+//	            "Principal": "*",
+//	            "Resource": "%v"
+//	        }
+//	    ]
+//	}
+//
 // `, arn), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -79,7 +84,9 @@ import (
 // CodeArtifact Repository Permissions Policies can be imported using the CodeArtifact Repository ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+//
+//	$ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+//
 // ```
 type RepositoryPermissionsPolicy struct {
 	pulumi.CustomResourceState
@@ -222,7 +229,7 @@ func (i *RepositoryPermissionsPolicy) ToRepositoryPermissionsPolicyOutputWithCon
 // RepositoryPermissionsPolicyArrayInput is an input type that accepts RepositoryPermissionsPolicyArray and RepositoryPermissionsPolicyArrayOutput values.
 // You can construct a concrete instance of `RepositoryPermissionsPolicyArrayInput` via:
 //
-//          RepositoryPermissionsPolicyArray{ RepositoryPermissionsPolicyArgs{...} }
+//	RepositoryPermissionsPolicyArray{ RepositoryPermissionsPolicyArgs{...} }
 type RepositoryPermissionsPolicyArrayInput interface {
 	pulumi.Input
 
@@ -247,7 +254,7 @@ func (i RepositoryPermissionsPolicyArray) ToRepositoryPermissionsPolicyArrayOutp
 // RepositoryPermissionsPolicyMapInput is an input type that accepts RepositoryPermissionsPolicyMap and RepositoryPermissionsPolicyMapOutput values.
 // You can construct a concrete instance of `RepositoryPermissionsPolicyMapInput` via:
 //
-//          RepositoryPermissionsPolicyMap{ "key": RepositoryPermissionsPolicyArgs{...} }
+//	RepositoryPermissionsPolicyMap{ "key": RepositoryPermissionsPolicyArgs{...} }
 type RepositoryPermissionsPolicyMapInput interface {
 	pulumi.Input
 

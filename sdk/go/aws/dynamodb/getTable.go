@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := dynamodb.LookupTable(ctx, &dynamodb.LookupTableArgs{
-// 			Name: "tableName",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := dynamodb.LookupTable(ctx, &dynamodb.LookupTableArgs{
+//				Name: "tableName",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResult, error) {
 	var rv LookupTableResult
@@ -65,7 +68,7 @@ type LookupTableResult struct {
 	PointInTimeRecovery   GetTablePointInTimeRecovery   `pulumi:"pointInTimeRecovery"`
 	RangeKey              string                        `pulumi:"rangeKey"`
 	ReadCapacity          int                           `pulumi:"readCapacity"`
-	Replicas              []GetTableReplica             `pulumi:"replicas"`
+	Replicas              []GetTableReplicaType         `pulumi:"replicas"`
 	ServerSideEncryption  GetTableServerSideEncryption  `pulumi:"serverSideEncryption"`
 	StreamArn             string                        `pulumi:"streamArn"`
 	StreamEnabled         bool                          `pulumi:"streamEnabled"`
@@ -162,8 +165,8 @@ func (o LookupTableResultOutput) ReadCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupTableResult) int { return v.ReadCapacity }).(pulumi.IntOutput)
 }
 
-func (o LookupTableResultOutput) Replicas() GetTableReplicaArrayOutput {
-	return o.ApplyT(func(v LookupTableResult) []GetTableReplica { return v.Replicas }).(GetTableReplicaArrayOutput)
+func (o LookupTableResultOutput) Replicas() GetTableReplicaTypeArrayOutput {
+	return o.ApplyT(func(v LookupTableResult) []GetTableReplicaType { return v.Replicas }).(GetTableReplicaTypeArrayOutput)
 }
 
 func (o LookupTableResultOutput) ServerSideEncryption() GetTableServerSideEncryptionOutput {

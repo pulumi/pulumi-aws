@@ -19,32 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := emr.NewStudio(ctx, "example", &emr.StudioArgs{
-// 			AuthMode:              pulumi.String("SSO"),
-// 			DefaultS3Location:     pulumi.String(fmt.Sprintf("s3://%v/test", aws_s3_bucket.Test.Bucket)),
-// 			EngineSecurityGroupId: pulumi.Any(aws_security_group.Test.Id),
-// 			ServiceRole:           pulumi.Any(aws_iam_role.Test.Arn),
-// 			SubnetIds: pulumi.StringArray{
-// 				pulumi.Any(aws_subnet.Test.Id),
-// 			},
-// 			UserRole:                 pulumi.Any(aws_iam_role.Test.Arn),
-// 			VpcId:                    pulumi.Any(aws_vpc.Test.Id),
-// 			WorkspaceSecurityGroupId: pulumi.Any(aws_security_group.Test.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := emr.NewStudio(ctx, "example", &emr.StudioArgs{
+//				AuthMode:              pulumi.String("SSO"),
+//				DefaultS3Location:     pulumi.String(fmt.Sprintf("s3://%v/test", aws_s3_bucket.Test.Bucket)),
+//				EngineSecurityGroupId: pulumi.Any(aws_security_group.Test.Id),
+//				ServiceRole:           pulumi.Any(aws_iam_role.Test.Arn),
+//				SubnetIds: pulumi.StringArray{
+//					pulumi.Any(aws_subnet.Test.Id),
+//				},
+//				UserRole:                 pulumi.Any(aws_iam_role.Test.Arn),
+//				VpcId:                    pulumi.Any(aws_vpc.Test.Id),
+//				WorkspaceSecurityGroupId: pulumi.Any(aws_security_group.Test.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // EMR studios can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
+//
+//	$ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
+//
 // ```
 type Studio struct {
 	pulumi.CustomResourceState
@@ -293,7 +298,7 @@ func (i *Studio) ToStudioOutputWithContext(ctx context.Context) StudioOutput {
 // StudioArrayInput is an input type that accepts StudioArray and StudioArrayOutput values.
 // You can construct a concrete instance of `StudioArrayInput` via:
 //
-//          StudioArray{ StudioArgs{...} }
+//	StudioArray{ StudioArgs{...} }
 type StudioArrayInput interface {
 	pulumi.Input
 
@@ -318,7 +323,7 @@ func (i StudioArray) ToStudioArrayOutputWithContext(ctx context.Context) StudioA
 // StudioMapInput is an input type that accepts StudioMap and StudioMapOutput values.
 // You can construct a concrete instance of `StudioMapInput` via:
 //
-//          StudioMap{ "key": StudioArgs{...} }
+//	StudioMap{ "key": StudioArgs{...} }
 type StudioMapInput interface {
 	pulumi.Input
 

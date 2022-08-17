@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class CatalogDatabaseTargetDatabaseArgs : Pulumi.ResourceArgs
+    public sealed class CatalogDatabaseTargetDatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the Data Catalog in which the database resides.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public CatalogDatabaseTargetDatabaseArgs()
         {
         }
+        public static new CatalogDatabaseTargetDatabaseArgs Empty => new CatalogDatabaseTargetDatabaseArgs();
     }
 }

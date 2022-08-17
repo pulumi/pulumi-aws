@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodePipeline.Inputs
 {
 
-    public sealed class PipelineStageActionGetArgs : Pulumi.ResourceArgs
+    public sealed class PipelineStageActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
@@ -105,5 +105,6 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         public PipelineStageActionGetArgs()
         {
         }
+        public static new PipelineStageActionGetArgs Empty => new PipelineStageActionGetArgs();
     }
 }

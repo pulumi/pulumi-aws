@@ -17,21 +17,19 @@ namespace Pulumi.Aws.S3Control
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.S3Control.Bucket("example", new()
     ///     {
-    ///         var example = new Aws.S3Control.Bucket("example", new Aws.S3Control.BucketArgs
-    ///         {
-    ///             BucketName = "example",
-    ///             OutpostId = data.Aws_outposts_outpost.Example.Id,
-    ///         });
-    ///     }
+    ///         BucketName = "example",
+    ///         OutpostId = data.Aws_outposts_outpost.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.S3Control
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3control/bucket:Bucket")]
-    public partial class Bucket : Pulumi.CustomResource
+    public partial class Bucket : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the bucket.
@@ -82,7 +80,7 @@ namespace Pulumi.Aws.S3Control
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -131,7 +129,7 @@ namespace Pulumi.Aws.S3Control
         }
     }
 
-    public sealed class BucketArgs : Pulumi.ResourceArgs
+    public sealed class BucketArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the bucket.
@@ -160,9 +158,10 @@ namespace Pulumi.Aws.S3Control
         public BucketArgs()
         {
         }
+        public static new BucketArgs Empty => new BucketArgs();
     }
 
-    public sealed class BucketState : Pulumi.ResourceArgs
+    public sealed class BucketState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the bucket.
@@ -210,7 +209,7 @@ namespace Pulumi.Aws.S3Control
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -221,5 +220,6 @@ namespace Pulumi.Aws.S3Control
         public BucketState()
         {
         }
+        public static new BucketState Empty => new BucketState();
     }
 }

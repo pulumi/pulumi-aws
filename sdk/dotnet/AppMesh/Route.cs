@@ -16,189 +16,181 @@ namespace Pulumi.Aws.AppMesh
     /// ### HTTP Routing
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var serviceb = new Aws.AppMesh.Route("serviceb", new()
     ///     {
-    ///         var serviceb = new Aws.AppMesh.Route("serviceb", new Aws.AppMesh.RouteArgs
+    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
+    ///         Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
     ///         {
-    ///             MeshName = aws_appmesh_mesh.Simple.Id,
-    ///             VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
-    ///             Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
+    ///             HttpRoute = new Aws.AppMesh.Inputs.RouteSpecHttpRouteArgs
     ///             {
-    ///                 HttpRoute = new Aws.AppMesh.Inputs.RouteSpecHttpRouteArgs
+    ///                 Match = new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchArgs
     ///                 {
-    ///                     Match = new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchArgs
+    ///                     Prefix = "/",
+    ///                 },
+    ///                 Action = new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionArgs
+    ///                 {
+    ///                     WeightedTargets = new[]
     ///                     {
-    ///                         Prefix = "/",
-    ///                     },
-    ///                     Action = new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionArgs
-    ///                     {
-    ///                         WeightedTargets = 
+    ///                         new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionWeightedTargetArgs
     ///                         {
-    ///                             new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionWeightedTargetArgs
-    ///                             {
-    ///                                 VirtualNode = aws_appmesh_virtual_node.Serviceb1.Name,
-    ///                                 Weight = 90,
-    ///                             },
-    ///                             new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionWeightedTargetArgs
-    ///                             {
-    ///                                 VirtualNode = aws_appmesh_virtual_node.Serviceb2.Name,
-    ///                                 Weight = 10,
-    ///                             },
+    ///                             VirtualNode = aws_appmesh_virtual_node.Serviceb1.Name,
+    ///                             Weight = 90,
+    ///                         },
+    ///                         new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionWeightedTargetArgs
+    ///                         {
+    ///                             VirtualNode = aws_appmesh_virtual_node.Serviceb2.Name,
+    ///                             Weight = 10,
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### HTTP Header Routing
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var serviceb = new Aws.AppMesh.Route("serviceb", new()
     ///     {
-    ///         var serviceb = new Aws.AppMesh.Route("serviceb", new Aws.AppMesh.RouteArgs
+    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
+    ///         Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
     ///         {
-    ///             MeshName = aws_appmesh_mesh.Simple.Id,
-    ///             VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
-    ///             Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
+    ///             HttpRoute = new Aws.AppMesh.Inputs.RouteSpecHttpRouteArgs
     ///             {
-    ///                 HttpRoute = new Aws.AppMesh.Inputs.RouteSpecHttpRouteArgs
+    ///                 Match = new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchArgs
     ///                 {
-    ///                     Match = new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchArgs
+    ///                     Method = "POST",
+    ///                     Prefix = "/",
+    ///                     Scheme = "https",
+    ///                     Headers = new[]
     ///                     {
-    ///                         Method = "POST",
-    ///                         Prefix = "/",
-    ///                         Scheme = "https",
-    ///                         Headers = 
+    ///                         new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchHeaderArgs
     ///                         {
-    ///                             new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchHeaderArgs
+    ///                             Name = "clientRequestId",
+    ///                             Match = new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchHeaderMatchArgs
     ///                             {
-    ///                                 Name = "clientRequestId",
-    ///                                 Match = new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchHeaderMatchArgs
-    ///                                 {
-    ///                                     Prefix = "123",
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     Action = new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionArgs
-    ///                     {
-    ///                         WeightedTargets = 
-    ///                         {
-    ///                             new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionWeightedTargetArgs
-    ///                             {
-    ///                                 VirtualNode = aws_appmesh_virtual_node.Serviceb.Name,
-    ///                                 Weight = 100,
+    ///                                 Prefix = "123",
     ///                             },
     ///                         },
     ///                     },
     ///                 },
+    ///                 Action = new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionArgs
+    ///                 {
+    ///                     WeightedTargets = new[]
+    ///                     {
+    ///                         new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionWeightedTargetArgs
+    ///                         {
+    ///                             VirtualNode = aws_appmesh_virtual_node.Serviceb.Name,
+    ///                             Weight = 100,
+    ///                         },
+    ///                     },
+    ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Retry Policy
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var serviceb = new Aws.AppMesh.Route("serviceb", new()
     ///     {
-    ///         var serviceb = new Aws.AppMesh.Route("serviceb", new Aws.AppMesh.RouteArgs
+    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
+    ///         Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
     ///         {
-    ///             MeshName = aws_appmesh_mesh.Simple.Id,
-    ///             VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
-    ///             Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
+    ///             HttpRoute = new Aws.AppMesh.Inputs.RouteSpecHttpRouteArgs
     ///             {
-    ///                 HttpRoute = new Aws.AppMesh.Inputs.RouteSpecHttpRouteArgs
+    ///                 Match = new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchArgs
     ///                 {
-    ///                     Match = new Aws.AppMesh.Inputs.RouteSpecHttpRouteMatchArgs
+    ///                     Prefix = "/",
+    ///                 },
+    ///                 RetryPolicy = new Aws.AppMesh.Inputs.RouteSpecHttpRouteRetryPolicyArgs
+    ///                 {
+    ///                     HttpRetryEvents = new[]
     ///                     {
-    ///                         Prefix = "/",
+    ///                         "server-error",
     ///                     },
-    ///                     RetryPolicy = new Aws.AppMesh.Inputs.RouteSpecHttpRouteRetryPolicyArgs
+    ///                     MaxRetries = 1,
+    ///                     PerRetryTimeout = new Aws.AppMesh.Inputs.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs
     ///                     {
-    ///                         HttpRetryEvents = 
-    ///                         {
-    ///                             "server-error",
-    ///                         },
-    ///                         MaxRetries = 1,
-    ///                         PerRetryTimeout = new Aws.AppMesh.Inputs.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs
-    ///                         {
-    ///                             Unit = "s",
-    ///                             Value = 15,
-    ///                         },
+    ///                         Unit = "s",
+    ///                         Value = 15,
     ///                     },
-    ///                     Action = new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionArgs
+    ///                 },
+    ///                 Action = new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionArgs
+    ///                 {
+    ///                     WeightedTargets = new[]
     ///                     {
-    ///                         WeightedTargets = 
+    ///                         new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionWeightedTargetArgs
     ///                         {
-    ///                             new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionWeightedTargetArgs
-    ///                             {
-    ///                                 VirtualNode = aws_appmesh_virtual_node.Serviceb.Name,
-    ///                                 Weight = 100,
-    ///                             },
+    ///                             VirtualNode = aws_appmesh_virtual_node.Serviceb.Name,
+    ///                             Weight = 100,
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### TCP Routing
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var serviceb = new Aws.AppMesh.Route("serviceb", new()
     ///     {
-    ///         var serviceb = new Aws.AppMesh.Route("serviceb", new Aws.AppMesh.RouteArgs
+    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
+    ///         Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
     ///         {
-    ///             MeshName = aws_appmesh_mesh.Simple.Id,
-    ///             VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
-    ///             Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
+    ///             TcpRoute = new Aws.AppMesh.Inputs.RouteSpecTcpRouteArgs
     ///             {
-    ///                 TcpRoute = new Aws.AppMesh.Inputs.RouteSpecTcpRouteArgs
+    ///                 Action = new Aws.AppMesh.Inputs.RouteSpecTcpRouteActionArgs
     ///                 {
-    ///                     Action = new Aws.AppMesh.Inputs.RouteSpecTcpRouteActionArgs
+    ///                     WeightedTargets = new[]
     ///                     {
-    ///                         WeightedTargets = 
+    ///                         new Aws.AppMesh.Inputs.RouteSpecTcpRouteActionWeightedTargetArgs
     ///                         {
-    ///                             new Aws.AppMesh.Inputs.RouteSpecTcpRouteActionWeightedTargetArgs
-    ///                             {
-    ///                                 VirtualNode = aws_appmesh_virtual_node.Serviceb1.Name,
-    ///                                 Weight = 100,
-    ///                             },
+    ///                             VirtualNode = aws_appmesh_virtual_node.Serviceb1.Name,
+    ///                             Weight = 100,
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -212,7 +204,7 @@ namespace Pulumi.Aws.AppMesh
     ///  [1]/docs/providers/aws/index.html
     /// </summary>
     [AwsResourceType("aws:appmesh/route:Route")]
-    public partial class Route : Pulumi.CustomResource
+    public partial class Route : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the route.
@@ -269,7 +261,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -324,7 +316,7 @@ namespace Pulumi.Aws.AppMesh
         }
     }
 
-    public sealed class RouteArgs : Pulumi.ResourceArgs
+    public sealed class RouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
@@ -371,9 +363,10 @@ namespace Pulumi.Aws.AppMesh
         public RouteArgs()
         {
         }
+        public static new RouteArgs Empty => new RouteArgs();
     }
 
-    public sealed class RouteState : Pulumi.ResourceArgs
+    public sealed class RouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the route.
@@ -439,7 +432,7 @@ namespace Pulumi.Aws.AppMesh
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -456,5 +449,6 @@ namespace Pulumi.Aws.AppMesh
         public RouteState()
         {
         }
+        public static new RouteState Empty => new RouteState();
     }
 }

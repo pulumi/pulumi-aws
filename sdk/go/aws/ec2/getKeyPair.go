@@ -20,33 +20,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := ec2.LookupKeyPair(ctx, &ec2.LookupKeyPairArgs{
-// 			KeyName:          pulumi.StringRef("test"),
-// 			IncludePublicKey: pulumi.BoolRef(true),
-// 			Filters: []ec2.GetKeyPairFilter{
-// 				ec2.GetKeyPairFilter{
-// 					Name: "tag:Component",
-// 					Values: []string{
-// 						"web",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("fingerprint", example.Fingerprint)
-// 		ctx.Export("name", example.KeyName)
-// 		ctx.Export("id", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ec2.LookupKeyPair(ctx, &ec2.LookupKeyPairArgs{
+//				KeyName:          pulumi.StringRef("test"),
+//				IncludePublicKey: pulumi.BoolRef(true),
+//				Filters: []ec2.GetKeyPairFilter{
+//					ec2.GetKeyPairFilter{
+//						Name: "tag:Component",
+//						Values: []string{
+//							"web",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("fingerprint", example.Fingerprint)
+//			ctx.Export("name", example.KeyName)
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupKeyPair(ctx *pulumi.Context, args *LookupKeyPairArgs, opts ...pulumi.InvokeOption) (*LookupKeyPairResult, error) {
 	var rv LookupKeyPairResult

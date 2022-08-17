@@ -15,24 +15,24 @@ namespace Pulumi.Aws.Transfer
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var fooServer = new Aws.Transfer.Server("fooServer", new()
     ///     {
-    ///         var fooServer = new Aws.Transfer.Server("fooServer", new Aws.Transfer.ServerArgs
+    ///         IdentityProviderType = "SERVICE_MANAGED",
+    ///         Tags = 
     ///         {
-    ///             IdentityProviderType = "SERVICE_MANAGED",
-    ///             Tags = 
-    ///             {
-    ///                 { "NAME", "tf-acc-test-transfer-server" },
-    ///             },
-    ///         });
-    ///         var fooRole = new Aws.Iam.Role("fooRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///             { "NAME", "tf-acc-test-transfer-server" },
+    ///         },
+    ///     });
+    /// 
+    ///     var fooRole = new Aws.Iam.Role("fooRole", new()
+    ///     {
+    ///         AssumeRolePolicy = @"{
     /// 	""Version"": ""2012-10-17"",
     /// 	""Statement"": [
     /// 		{
@@ -45,11 +45,12 @@ namespace Pulumi.Aws.Transfer
     /// 	]
     /// }
     /// ",
-    ///         });
-    ///         var fooRolePolicy = new Aws.Iam.RolePolicy("fooRolePolicy", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = fooRole.Id,
-    ///             Policy = @"{
+    ///     });
+    /// 
+    ///     var fooRolePolicy = new Aws.Iam.RolePolicy("fooRolePolicy", new()
+    ///     {
+    ///         Role = fooRole.Id,
+    ///         Policy = @"{
     /// 	""Version"": ""2012-10-17"",
     /// 	""Statement"": [
     /// 		{
@@ -63,25 +64,25 @@ namespace Pulumi.Aws.Transfer
     /// 	]
     /// }
     /// ",
-    ///         });
-    ///         var fooUser = new Aws.Transfer.User("fooUser", new Aws.Transfer.UserArgs
-    ///         {
-    ///             ServerId = fooServer.Id,
-    ///             UserName = "tftestuser",
-    ///             Role = fooRole.Arn,
-    ///             HomeDirectoryType = "LOGICAL",
-    ///             HomeDirectoryMappings = 
-    ///             {
-    ///                 new Aws.Transfer.Inputs.UserHomeDirectoryMappingArgs
-    ///                 {
-    ///                     Entry = "/test.pdf",
-    ///                     Target = "/bucket3/test-path/tftestuser.pdf",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var fooUser = new Aws.Transfer.User("fooUser", new()
+    ///     {
+    ///         ServerId = fooServer.Id,
+    ///         UserName = "tftestuser",
+    ///         Role = fooRole.Arn,
+    ///         HomeDirectoryType = "LOGICAL",
+    ///         HomeDirectoryMappings = new[]
+    ///         {
+    ///             new Aws.Transfer.Inputs.UserHomeDirectoryMappingArgs
+    ///             {
+    ///                 Entry = "/test.pdf",
+    ///                 Target = "/bucket3/test-path/tftestuser.pdf",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -93,7 +94,7 @@ namespace Pulumi.Aws.Transfer
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/user:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of Transfer User
@@ -150,7 +151,7 @@ namespace Pulumi.Aws.Transfer
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -205,7 +206,7 @@ namespace Pulumi.Aws.Transfer
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
@@ -276,9 +277,10 @@ namespace Pulumi.Aws.Transfer
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 
-    public sealed class UserState : Pulumi.ResourceArgs
+    public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of Transfer User
@@ -350,7 +352,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -367,5 +369,6 @@ namespace Pulumi.Aws.Transfer
         public UserState()
         {
         }
+        public static new UserState Empty => new UserState();
     }
 }

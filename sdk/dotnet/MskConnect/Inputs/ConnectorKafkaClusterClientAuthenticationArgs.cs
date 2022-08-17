@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MskConnect.Inputs
 {
 
-    public sealed class ConnectorKafkaClusterClientAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorKafkaClusterClientAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public ConnectorKafkaClusterClientAuthenticationArgs()
         {
         }
+        public static new ConnectorKafkaClusterClientAuthenticationArgs Empty => new ConnectorKafkaClusterClientAuthenticationArgs();
     }
 }

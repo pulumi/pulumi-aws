@@ -23,50 +23,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fis"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := fis.NewExperimentTemplate(ctx, "example", &fis.ExperimentTemplateArgs{
-// 			Description: pulumi.String("example"),
-// 			RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
-// 			StopConditions: fis.ExperimentTemplateStopConditionArray{
-// 				&fis.ExperimentTemplateStopConditionArgs{
-// 					Source: pulumi.String("none"),
-// 				},
-// 			},
-// 			Actions: fis.ExperimentTemplateActionArray{
-// 				&fis.ExperimentTemplateActionArgs{
-// 					Name:     pulumi.String("example-action"),
-// 					ActionId: pulumi.String("aws:ec2:terminate-instances"),
-// 					Target: &fis.ExperimentTemplateActionTargetArgs{
-// 						Key:   pulumi.String("Instances"),
-// 						Value: pulumi.String("example-target"),
-// 					},
-// 				},
-// 			},
-// 			Targets: fis.ExperimentTemplateTargetArray{
-// 				&fis.ExperimentTemplateTargetArgs{
-// 					Name:          pulumi.String("example-target"),
-// 					ResourceType:  pulumi.String("aws:ec2:instance"),
-// 					SelectionMode: pulumi.String("COUNT(1)"),
-// 					ResourceTags: fis.ExperimentTemplateTargetResourceTagArray{
-// 						&fis.ExperimentTemplateTargetResourceTagArgs{
-// 							Key:   pulumi.String("env"),
-// 							Value: pulumi.String("example"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := fis.NewExperimentTemplate(ctx, "example", &fis.ExperimentTemplateArgs{
+//				Description: pulumi.String("example"),
+//				RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
+//				StopConditions: fis.ExperimentTemplateStopConditionArray{
+//					&fis.ExperimentTemplateStopConditionArgs{
+//						Source: pulumi.String("none"),
+//					},
+//				},
+//				Actions: fis.ExperimentTemplateActionArray{
+//					&fis.ExperimentTemplateActionArgs{
+//						Name:     pulumi.String("example-action"),
+//						ActionId: pulumi.String("aws:ec2:terminate-instances"),
+//						Target: &fis.ExperimentTemplateActionTargetArgs{
+//							Key:   pulumi.String("Instances"),
+//							Value: pulumi.String("example-target"),
+//						},
+//					},
+//				},
+//				Targets: fis.ExperimentTemplateTargetArray{
+//					&fis.ExperimentTemplateTargetArgs{
+//						Name:          pulumi.String("example-target"),
+//						ResourceType:  pulumi.String("aws:ec2:instance"),
+//						SelectionMode: pulumi.String("COUNT(1)"),
+//						ResourceTags: fis.ExperimentTemplateTargetResourceTagArray{
+//							&fis.ExperimentTemplateTargetResourceTagArgs{
+//								Key:   pulumi.String("env"),
+//								Value: pulumi.String("example"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -74,7 +77,9 @@ import (
 // FIS Experiment Templates can be imported using the `id`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
+//
+//	$ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
+//
 // ```
 type ExperimentTemplate struct {
 	pulumi.CustomResourceState
@@ -87,9 +92,8 @@ type ExperimentTemplate struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// When an ongoing experiment should be stopped. See below.
 	StopConditions ExperimentTemplateStopConditionArrayOutput `pulumi:"stopConditions"`
-	// Key-value mapping of tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	Tags           pulumi.StringMapOutput                     `pulumi:"tags"`
+	TagsAll        pulumi.StringMapOutput                     `pulumi:"tagsAll"`
 	// Action's target, if applicable. See below.
 	Targets ExperimentTemplateTargetArrayOutput `pulumi:"targets"`
 }
@@ -143,9 +147,8 @@ type experimentTemplateState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// When an ongoing experiment should be stopped. See below.
 	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
-	// Key-value mapping of tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags           map[string]string                 `pulumi:"tags"`
+	TagsAll        map[string]string                 `pulumi:"tagsAll"`
 	// Action's target, if applicable. See below.
 	Targets []ExperimentTemplateTarget `pulumi:"targets"`
 }
@@ -159,9 +162,8 @@ type ExperimentTemplateState struct {
 	RoleArn pulumi.StringPtrInput
 	// When an ongoing experiment should be stopped. See below.
 	StopConditions ExperimentTemplateStopConditionArrayInput
-	// Key-value mapping of tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags           pulumi.StringMapInput
+	TagsAll        pulumi.StringMapInput
 	// Action's target, if applicable. See below.
 	Targets ExperimentTemplateTargetArrayInput
 }
@@ -179,9 +181,7 @@ type experimentTemplateArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// When an ongoing experiment should be stopped. See below.
 	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
-	// Key-value mapping of tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags           map[string]string                 `pulumi:"tags"`
 	// Action's target, if applicable. See below.
 	Targets []ExperimentTemplateTarget `pulumi:"targets"`
 }
@@ -196,9 +196,7 @@ type ExperimentTemplateArgs struct {
 	RoleArn pulumi.StringInput
 	// When an ongoing experiment should be stopped. See below.
 	StopConditions ExperimentTemplateStopConditionArrayInput
-	// Key-value mapping of tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags           pulumi.StringMapInput
 	// Action's target, if applicable. See below.
 	Targets ExperimentTemplateTargetArrayInput
 }
@@ -229,7 +227,7 @@ func (i *ExperimentTemplate) ToExperimentTemplateOutputWithContext(ctx context.C
 // ExperimentTemplateArrayInput is an input type that accepts ExperimentTemplateArray and ExperimentTemplateArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateArrayInput` via:
 //
-//          ExperimentTemplateArray{ ExperimentTemplateArgs{...} }
+//	ExperimentTemplateArray{ ExperimentTemplateArgs{...} }
 type ExperimentTemplateArrayInput interface {
 	pulumi.Input
 
@@ -254,7 +252,7 @@ func (i ExperimentTemplateArray) ToExperimentTemplateArrayOutputWithContext(ctx 
 // ExperimentTemplateMapInput is an input type that accepts ExperimentTemplateMap and ExperimentTemplateMapOutput values.
 // You can construct a concrete instance of `ExperimentTemplateMapInput` via:
 //
-//          ExperimentTemplateMap{ "key": ExperimentTemplateArgs{...} }
+//	ExperimentTemplateMap{ "key": ExperimentTemplateArgs{...} }
 type ExperimentTemplateMapInput interface {
 	pulumi.Input
 
@@ -310,7 +308,6 @@ func (o ExperimentTemplateOutput) StopConditions() ExperimentTemplateStopConditi
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateStopConditionArrayOutput { return v.StopConditions }).(ExperimentTemplateStopConditionArrayOutput)
 }
 
-// Key-value mapping of tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ExperimentTemplateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

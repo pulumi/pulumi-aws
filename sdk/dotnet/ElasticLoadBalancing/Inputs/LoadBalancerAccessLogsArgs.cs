@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticLoadBalancing.Inputs
 {
 
-    public sealed class LoadBalancerAccessLogsArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerAccessLogsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The S3 bucket name to store the logs in.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing.Inputs
         public LoadBalancerAccessLogsArgs()
         {
         }
+        public static new LoadBalancerAccessLogsArgs Empty => new LoadBalancerAccessLogsArgs();
     }
 }

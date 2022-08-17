@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kms.Inputs
 {
 
-    public sealed class GetSecretsSecretInputArgs : Pulumi.ResourceArgs
+    public sealed class GetSecretsSecretInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("context")]
         private InputMap<string>? _context;
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Kms.Inputs
         public GetSecretsSecretInputArgs()
         {
         }
+        public static new GetSecretsSecretInputArgs Empty => new GetSecretsSecretInputArgs();
     }
 }

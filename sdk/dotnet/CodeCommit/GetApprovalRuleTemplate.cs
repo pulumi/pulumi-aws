@@ -19,20 +19,18 @@ namespace Pulumi.Aws.CodeCommit
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CodeCommit.GetApprovalRuleTemplate.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CodeCommit.GetApprovalRuleTemplate.InvokeAsync(new Aws.CodeCommit.GetApprovalRuleTemplateArgs
-        ///         {
-        ///             Name = "MyExampleApprovalRuleTemplate",
-        ///         }));
-        ///     }
+        ///         Name = "MyExampleApprovalRuleTemplate",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.CodeCommit
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CodeCommit.GetApprovalRuleTemplate.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CodeCommit.GetApprovalRuleTemplate.InvokeAsync(new Aws.CodeCommit.GetApprovalRuleTemplateArgs
-        ///         {
-        ///             Name = "MyExampleApprovalRuleTemplate",
-        ///         }));
-        ///     }
+        ///         Name = "MyExampleApprovalRuleTemplate",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.CodeCommit
     }
 
 
-    public sealed class GetApprovalRuleTemplateArgs : Pulumi.InvokeArgs
+    public sealed class GetApprovalRuleTemplateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name for the approval rule template. This needs to be less than 100 characters.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.CodeCommit
         public GetApprovalRuleTemplateArgs()
         {
         }
+        public static new GetApprovalRuleTemplateArgs Empty => new GetApprovalRuleTemplateArgs();
     }
 
-    public sealed class GetApprovalRuleTemplateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApprovalRuleTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name for the approval rule template. This needs to be less than 100 characters.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.CodeCommit
         public GetApprovalRuleTemplateInvokeArgs()
         {
         }
+        public static new GetApprovalRuleTemplateInvokeArgs Empty => new GetApprovalRuleTemplateInvokeArgs();
     }
 
 

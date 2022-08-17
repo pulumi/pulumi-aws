@@ -10,19 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Macie2.Inputs
 {
 
-    public sealed class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs : Pulumi.ResourceArgs
+    public sealed class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The object property to use in the condition.
+        /// The tag key.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// The tag value.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 
         public ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs()
         {
         }
+        public static new ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs Empty => new ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs();
     }
 }

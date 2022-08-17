@@ -122,17 +122,18 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
      * Name of the security group.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly namePrefix!: pulumi.Output<string>;
     /**
      * Owner ID.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     public readonly revokeRulesOnDelete!: pulumi.Output<boolean | undefined>;
     /**
-     * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -158,6 +159,7 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
             resourceInputs["egress"] = state ? state.egress : undefined;
             resourceInputs["ingress"] = state ? state.ingress : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["revokeRulesOnDelete"] = state ? state.revokeRulesOnDelete : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -173,6 +175,7 @@ export class DefaultSecurityGroup extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["namePrefix"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -205,17 +208,18 @@ export interface DefaultSecurityGroupState {
      * Name of the security group.
      */
     name?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * Owner ID.
      */
     ownerId?: pulumi.Input<string>;
     revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
-     * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -238,7 +242,7 @@ export interface DefaultSecurityGroupArgs {
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupIngress>[]>;
     revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
-     * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

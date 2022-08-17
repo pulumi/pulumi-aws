@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Amazon S3 bucket associated with Snowflake.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs()
         {
         }
+        public static new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs Empty => new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecr.Inputs
 {
 
-    public sealed class ReplicationConfigurationReplicationConfigurationRuleArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationConfigurationReplicationConfigurationRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinations", required: true)]
         private InputList<Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs>? _destinations;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Ecr.Inputs
         public ReplicationConfigurationReplicationConfigurationRuleArgs()
         {
         }
+        public static new ReplicationConfigurationReplicationConfigurationRuleArgs Empty => new ReplicationConfigurationReplicationConfigurationRuleArgs();
     }
 }

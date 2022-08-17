@@ -16,54 +16,48 @@ namespace Pulumi.Aws.Cognito
     /// ### Create a basic resource server
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var pool = new Aws.Cognito.UserPool("pool", new Aws.Cognito.UserPoolArgs
-    ///         {
-    ///         });
-    ///         var resource = new Aws.Cognito.ResourceServer("resource", new Aws.Cognito.ResourceServerArgs
-    ///         {
-    ///             Identifier = "https://example.com",
-    ///             UserPoolId = pool.Id,
-    ///         });
-    ///     }
+    ///     var pool = new Aws.Cognito.UserPool("pool");
     /// 
-    /// }
+    ///     var resource = new Aws.Cognito.ResourceServer("resource", new()
+    ///     {
+    ///         Identifier = "https://example.com",
+    ///         UserPoolId = pool.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Create a resource server with sample-scope
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var pool = new Aws.Cognito.UserPool("pool", new Aws.Cognito.UserPoolArgs
-    ///         {
-    ///         });
-    ///         var resource = new Aws.Cognito.ResourceServer("resource", new Aws.Cognito.ResourceServerArgs
-    ///         {
-    ///             Identifier = "https://example.com",
-    ///             Scopes = 
-    ///             {
-    ///                 new Aws.Cognito.Inputs.ResourceServerScopeArgs
-    ///                 {
-    ///                     ScopeName = "sample-scope",
-    ///                     ScopeDescription = "a Sample Scope Description",
-    ///                 },
-    ///             },
-    ///             UserPoolId = pool.Id,
-    ///         });
-    ///     }
+    ///     var pool = new Aws.Cognito.UserPool("pool");
     /// 
-    /// }
+    ///     var resource = new Aws.Cognito.ResourceServer("resource", new()
+    ///     {
+    ///         Identifier = "https://example.com",
+    ///         Scopes = new[]
+    ///         {
+    ///             new Aws.Cognito.Inputs.ResourceServerScopeArgs
+    ///             {
+    ///                 ScopeName = "sample-scope",
+    ///                 ScopeDescription = "a Sample Scope Description",
+    ///             },
+    ///         },
+    ///         UserPoolId = pool.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +69,7 @@ namespace Pulumi.Aws.Cognito
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/resourceServer:ResourceServer")]
-    public partial class ResourceServer : Pulumi.CustomResource
+    public partial class ResourceServer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An identifier for the resource server.
@@ -148,7 +142,7 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
-    public sealed class ResourceServerArgs : Pulumi.ResourceArgs
+    public sealed class ResourceServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An identifier for the resource server.
@@ -180,9 +174,10 @@ namespace Pulumi.Aws.Cognito
         public ResourceServerArgs()
         {
         }
+        public static new ResourceServerArgs Empty => new ResourceServerArgs();
     }
 
-    public sealed class ResourceServerState : Pulumi.ResourceArgs
+    public sealed class ResourceServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An identifier for the resource server.
@@ -226,5 +221,6 @@ namespace Pulumi.Aws.Cognito
         public ResourceServerState()
         {
         }
+        public static new ResourceServerState Empty => new ResourceServerState();
     }
 }

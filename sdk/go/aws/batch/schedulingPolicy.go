@@ -18,37 +18,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := batch.NewSchedulingPolicy(ctx, "example", &batch.SchedulingPolicyArgs{
-// 			FairSharePolicy: &batch.SchedulingPolicyFairSharePolicyArgs{
-// 				ComputeReservation: pulumi.Int(1),
-// 				ShareDecaySeconds:  pulumi.Int(3600),
-// 				ShareDistributions: batch.SchedulingPolicyFairSharePolicyShareDistributionArray{
-// 					&batch.SchedulingPolicyFairSharePolicyShareDistributionArgs{
-// 						ShareIdentifier: pulumi.String("A1*"),
-// 						WeightFactor:    pulumi.Float64(0.1),
-// 					},
-// 					&batch.SchedulingPolicyFairSharePolicyShareDistributionArgs{
-// 						ShareIdentifier: pulumi.String("A2"),
-// 						WeightFactor:    pulumi.Float64(0.2),
-// 					},
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Example Batch Scheduling Policy"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := batch.NewSchedulingPolicy(ctx, "example", &batch.SchedulingPolicyArgs{
+//				FairSharePolicy: &batch.SchedulingPolicyFairSharePolicyArgs{
+//					ComputeReservation: pulumi.Int(1),
+//					ShareDecaySeconds:  pulumi.Int(3600),
+//					ShareDistributions: batch.SchedulingPolicyFairSharePolicyShareDistributionArray{
+//						&batch.SchedulingPolicyFairSharePolicyShareDistributionArgs{
+//							ShareIdentifier: pulumi.String("A1*"),
+//							WeightFactor:    pulumi.Float64(0.1),
+//						},
+//						&batch.SchedulingPolicyFairSharePolicyShareDistributionArgs{
+//							ShareIdentifier: pulumi.String("A2"),
+//							WeightFactor:    pulumi.Float64(0.2),
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example Batch Scheduling Policy"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // Batch Scheduling Policy can be imported using the `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
+//
+//	$ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
+//
 // ```
 type SchedulingPolicy struct {
 	pulumi.CustomResourceState
@@ -67,8 +72,7 @@ type SchedulingPolicy struct {
 	// Specifies the name of the scheduling policy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -107,8 +111,7 @@ type schedulingPolicyState struct {
 	// Specifies the name of the scheduling policy.
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -119,8 +122,7 @@ type SchedulingPolicyState struct {
 	// Specifies the name of the scheduling policy.
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -171,7 +173,7 @@ func (i *SchedulingPolicy) ToSchedulingPolicyOutputWithContext(ctx context.Conte
 // SchedulingPolicyArrayInput is an input type that accepts SchedulingPolicyArray and SchedulingPolicyArrayOutput values.
 // You can construct a concrete instance of `SchedulingPolicyArrayInput` via:
 //
-//          SchedulingPolicyArray{ SchedulingPolicyArgs{...} }
+//	SchedulingPolicyArray{ SchedulingPolicyArgs{...} }
 type SchedulingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -196,7 +198,7 @@ func (i SchedulingPolicyArray) ToSchedulingPolicyArrayOutputWithContext(ctx cont
 // SchedulingPolicyMapInput is an input type that accepts SchedulingPolicyMap and SchedulingPolicyMapOutput values.
 // You can construct a concrete instance of `SchedulingPolicyMapInput` via:
 //
-//          SchedulingPolicyMap{ "key": SchedulingPolicyArgs{...} }
+//	SchedulingPolicyMap{ "key": SchedulingPolicyArgs{...} }
 type SchedulingPolicyMapInput interface {
 	pulumi.Input
 
@@ -251,7 +253,6 @@ func (o SchedulingPolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SchedulingPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o SchedulingPolicyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SchedulingPolicy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

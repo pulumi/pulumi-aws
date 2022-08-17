@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A local file certificate.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs()
         {
         }
+        public static new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs Empty => new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs();
     }
 }

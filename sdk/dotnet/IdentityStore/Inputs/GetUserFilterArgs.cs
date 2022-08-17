@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.IdentityStore.Inputs
 {
 
-    public sealed class GetUserFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetUserFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.IdentityStore.Inputs
         public GetUserFilterInputArgs()
         {
         }
+        public static new GetUserFilterInputArgs Empty => new GetUserFilterInputArgs();
     }
 }

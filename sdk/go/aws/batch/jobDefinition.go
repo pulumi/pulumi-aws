@@ -19,56 +19,60 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
-// 			ContainerProperties: pulumi.String(fmt.Sprintf(`{
-// 	"command": ["ls", "-la"],
-// 	"image": "busybox",
-// 	"memory": 1024,
-// 	"vcpus": 1,
-// 	"volumes": [
-//       {
-//         "host": {
-//           "sourcePath": "/tmp"
-//         },
-//         "name": "tmp"
-//       }
-//     ],
-// 	"environment": [
-// 		{"name": "VARNAME", "value": "VARVAL"}
-// 	],
-// 	"mountPoints": [
-// 		{
-//           "sourceVolume": "tmp",
-//           "containerPath": "/tmp",
-//           "readOnly": false
-//         }
-// 	],
-//     "ulimits": [
-//       {
-//         "hardLimit": 1024,
-//         "name": "nofile",
-//         "softLimit": 1024
-//       }
-//     ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
+//				ContainerProperties: pulumi.String(fmt.Sprintf(`{
+//		"command": ["ls", "-la"],
+//		"image": "busybox",
+//		"memory": 1024,
+//		"vcpus": 1,
+//		"volumes": [
+//	      {
+//	        "host": {
+//	          "sourcePath": "/tmp"
+//	        },
+//	        "name": "tmp"
+//	      }
+//	    ],
+//		"environment": [
+//			{"name": "VARNAME", "value": "VARVAL"}
+//		],
+//		"mountPoints": [
+//			{
+//	          "sourceVolume": "tmp",
+//	          "containerPath": "/tmp",
+//	          "readOnly": false
+//	        }
+//		],
+//	    "ulimits": [
+//	      {
+//	        "hardLimit": 1024,
+//	        "name": "nofile",
+//	        "softLimit": 1024
+//	      }
+//	    ]
+//	}
 //
 // `)),
-// 			Type: pulumi.String("container"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				Type: pulumi.String("container"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Fargate Platform Capability
 //
@@ -76,75 +80,80 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		assumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Actions: []string{
-// 						"sts:AssumeRole",
-// 					},
-// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// 						iam.GetPolicyDocumentStatementPrincipal{
-// 							Type: "Service",
-// 							Identifiers: []string{
-// 								"ecs-tasks.amazonaws.com",
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ecsTaskExecutionRole, err := iam.NewRole(ctx, "ecsTaskExecutionRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(assumeRolePolicy.Json),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "ecsTaskExecutionRolePolicy", &iam.RolePolicyAttachmentArgs{
-// 			Role:      ecsTaskExecutionRole.Name,
-// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
-// 			Type: pulumi.String("container"),
-// 			PlatformCapabilities: pulumi.StringArray{
-// 				pulumi.String("FARGATE"),
-// 			},
-// 			ContainerProperties: ecsTaskExecutionRole.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf(`{
-//   "command": ["echo", "test"],
-//   "image": "busybox",
-//   "fargatePlatformConfiguration": {
-//     "platformVersion": "LATEST"
-//   },
-//   "resourceRequirements": [
-//     {"type": "VCPU", "value": "0.25"},
-//     {"type": "MEMORY", "value": "512"}
-//   ],
-//   "executionRoleArn": "%v"
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					iam.GetPolicyDocumentStatement{
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							iam.GetPolicyDocumentStatementPrincipal{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"ecs-tasks.amazonaws.com",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ecsTaskExecutionRole, err := iam.NewRole(ctx, "ecsTaskExecutionRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.String(assumeRolePolicy.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "ecsTaskExecutionRolePolicy", &iam.RolePolicyAttachmentArgs{
+//				Role:      ecsTaskExecutionRole.Name,
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
+//				Type: pulumi.String("container"),
+//				PlatformCapabilities: pulumi.StringArray{
+//					pulumi.String("FARGATE"),
+//				},
+//				ContainerProperties: ecsTaskExecutionRole.Arn.ApplyT(func(arn string) (string, error) {
+//					return fmt.Sprintf(`{
+//	  "command": ["echo", "test"],
+//	  "image": "busybox",
+//	  "fargatePlatformConfiguration": {
+//	    "platformVersion": "LATEST"
+//	  },
+//	  "resourceRequirements": [
+//	    {"type": "VCPU", "value": "0.25"},
+//	    {"type": "MEMORY", "value": "512"}
+//	  ],
+//	  "executionRoleArn": "%v"
+//	}
+//
 // `, arn), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -152,7 +161,9 @@ import (
 // Batch Job Definition can be imported using the `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
+//
+//	$ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
+//
 // ```
 type JobDefinition struct {
 	pulumi.CustomResourceState
@@ -177,7 +188,7 @@ type JobDefinition struct {
 	Revision pulumi.IntOutput `pulumi:"revision"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout JobDefinitionTimeoutPtrOutput `pulumi:"timeout"`
@@ -237,7 +248,7 @@ type jobDefinitionState struct {
 	Revision *int `pulumi:"revision"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout *JobDefinitionTimeout `pulumi:"timeout"`
@@ -266,7 +277,7 @@ type JobDefinitionState struct {
 	Revision pulumi.IntPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout JobDefinitionTimeoutPtrInput
@@ -351,7 +362,7 @@ func (i *JobDefinition) ToJobDefinitionOutputWithContext(ctx context.Context) Jo
 // JobDefinitionArrayInput is an input type that accepts JobDefinitionArray and JobDefinitionArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionArrayInput` via:
 //
-//          JobDefinitionArray{ JobDefinitionArgs{...} }
+//	JobDefinitionArray{ JobDefinitionArgs{...} }
 type JobDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -376,7 +387,7 @@ func (i JobDefinitionArray) ToJobDefinitionArrayOutputWithContext(ctx context.Co
 // JobDefinitionMapInput is an input type that accepts JobDefinitionMap and JobDefinitionMapOutput values.
 // You can construct a concrete instance of `JobDefinitionMapInput` via:
 //
-//          JobDefinitionMap{ "key": JobDefinitionArgs{...} }
+//	JobDefinitionMap{ "key": JobDefinitionArgs{...} }
 type JobDefinitionMapInput interface {
 	pulumi.Input
 
@@ -459,7 +470,7 @@ func (o JobDefinitionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o JobDefinitionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

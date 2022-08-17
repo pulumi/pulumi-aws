@@ -21,26 +21,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		delegated, err := aws.GetCallerIdentity(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewVpcIpamOrganizationAdminAccount(ctx, "example", &ec2.VpcIpamOrganizationAdminAccountArgs{
-// 			DelegatedAdminAccountId: pulumi.String(delegated.AccountId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			delegated, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpamOrganizationAdminAccount(ctx, "example", &ec2.VpcIpamOrganizationAdminAccountArgs{
+//				DelegatedAdminAccountId: pulumi.String(delegated.AccountId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // IPAMs can be imported using the `delegate account id`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
+//
+//	$ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
+//
 // ```
 type VpcIpamOrganizationAdminAccount struct {
 	pulumi.CustomResourceState
@@ -158,7 +163,7 @@ func (i *VpcIpamOrganizationAdminAccount) ToVpcIpamOrganizationAdminAccountOutpu
 // VpcIpamOrganizationAdminAccountArrayInput is an input type that accepts VpcIpamOrganizationAdminAccountArray and VpcIpamOrganizationAdminAccountArrayOutput values.
 // You can construct a concrete instance of `VpcIpamOrganizationAdminAccountArrayInput` via:
 //
-//          VpcIpamOrganizationAdminAccountArray{ VpcIpamOrganizationAdminAccountArgs{...} }
+//	VpcIpamOrganizationAdminAccountArray{ VpcIpamOrganizationAdminAccountArgs{...} }
 type VpcIpamOrganizationAdminAccountArrayInput interface {
 	pulumi.Input
 
@@ -183,7 +188,7 @@ func (i VpcIpamOrganizationAdminAccountArray) ToVpcIpamOrganizationAdminAccountA
 // VpcIpamOrganizationAdminAccountMapInput is an input type that accepts VpcIpamOrganizationAdminAccountMap and VpcIpamOrganizationAdminAccountMapOutput values.
 // You can construct a concrete instance of `VpcIpamOrganizationAdminAccountMapInput` via:
 //
-//          VpcIpamOrganizationAdminAccountMap{ "key": VpcIpamOrganizationAdminAccountArgs{...} }
+//	VpcIpamOrganizationAdminAccountMap{ "key": VpcIpamOrganizationAdminAccountArgs{...} }
 type VpcIpamOrganizationAdminAccountMapInput interface {
 	pulumi.Input
 

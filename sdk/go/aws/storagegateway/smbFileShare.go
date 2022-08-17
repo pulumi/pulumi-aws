@@ -22,24 +22,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storagegateway.NewSmbFileShare(ctx, "example", &storagegateway.SmbFileShareArgs{
-// 			Authentication: pulumi.String("ActiveDirectory"),
-// 			GatewayArn:     pulumi.Any(aws_storagegateway_gateway.Example.Arn),
-// 			LocationArn:    pulumi.Any(aws_s3_bucket.Example.Arn),
-// 			RoleArn:        pulumi.Any(aws_iam_role.Example.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewSmbFileShare(ctx, "example", &storagegateway.SmbFileShareArgs{
+//				Authentication: pulumi.String("ActiveDirectory"),
+//				GatewayArn:     pulumi.Any(aws_storagegateway_gateway.Example.Arn),
+//				LocationArn:    pulumi.Any(aws_s3_bucket.Example.Arn),
+//				RoleArn:        pulumi.Any(aws_iam_role.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Guest Authentication
 //
@@ -49,24 +52,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := storagegateway.NewSmbFileShare(ctx, "example", &storagegateway.SmbFileShareArgs{
-// 			Authentication: pulumi.String("GuestAccess"),
-// 			GatewayArn:     pulumi.Any(aws_storagegateway_gateway.Example.Arn),
-// 			LocationArn:    pulumi.Any(aws_s3_bucket.Example.Arn),
-// 			RoleArn:        pulumi.Any(aws_iam_role.Example.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewSmbFileShare(ctx, "example", &storagegateway.SmbFileShareArgs{
+//				Authentication: pulumi.String("GuestAccess"),
+//				GatewayArn:     pulumi.Any(aws_storagegateway_gateway.Example.Arn),
+//				LocationArn:    pulumi.Any(aws_s3_bucket.Example.Arn),
+//				RoleArn:        pulumi.Any(aws_iam_role.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -74,7 +80,9 @@ import (
 // `aws_storagegateway_smb_file_share` can be imported by using the SMB File Share Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+//
+//	$ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+//
 // ```
 type SmbFileShare struct {
 	pulumi.CustomResourceState
@@ -131,7 +139,7 @@ type SmbFileShare struct {
 	SmbAclEnabled pulumi.BoolPtrOutput `pulumi:"smbAclEnabled"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists pulumi.StringArrayOutput `pulumi:"validUserLists"`
@@ -229,7 +237,7 @@ type smbFileShareState struct {
 	SmbAclEnabled *bool `pulumi:"smbAclEnabled"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists []string `pulumi:"validUserLists"`
@@ -290,7 +298,7 @@ type SmbFileShareState struct {
 	SmbAclEnabled pulumi.BoolPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists pulumi.StringArrayInput
@@ -435,7 +443,7 @@ func (i *SmbFileShare) ToSmbFileShareOutputWithContext(ctx context.Context) SmbF
 // SmbFileShareArrayInput is an input type that accepts SmbFileShareArray and SmbFileShareArrayOutput values.
 // You can construct a concrete instance of `SmbFileShareArrayInput` via:
 //
-//          SmbFileShareArray{ SmbFileShareArgs{...} }
+//	SmbFileShareArray{ SmbFileShareArgs{...} }
 type SmbFileShareArrayInput interface {
 	pulumi.Input
 
@@ -460,7 +468,7 @@ func (i SmbFileShareArray) ToSmbFileShareArrayOutputWithContext(ctx context.Cont
 // SmbFileShareMapInput is an input type that accepts SmbFileShareMap and SmbFileShareMapOutput values.
 // You can construct a concrete instance of `SmbFileShareMapInput` via:
 //
-//          SmbFileShareMap{ "key": SmbFileShareArgs{...} }
+//	SmbFileShareMap{ "key": SmbFileShareArgs{...} }
 type SmbFileShareMapInput interface {
 	pulumi.Input
 
@@ -626,7 +634,7 @@ func (o SmbFileShareOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SmbFileShare) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SmbFileShareOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SmbFileShare) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

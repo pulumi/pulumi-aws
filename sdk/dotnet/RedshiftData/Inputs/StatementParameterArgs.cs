@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RedshiftData.Inputs
 {
 
-    public sealed class StatementParameterArgs : Pulumi.ResourceArgs
+    public sealed class StatementParameterArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.RedshiftData.Inputs
         public StatementParameterArgs()
         {
         }
+        public static new StatementParameterArgs Empty => new StatementParameterArgs();
     }
 }

@@ -20,27 +20,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
-// 			AllocationId: pulumi.Any(aws_eip.Example.Id),
-// 			SubnetId:     pulumi.Any(aws_subnet.Example.Id),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("gw NAT"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			aws_internet_gateway.Example,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
+//				AllocationId: pulumi.Any(aws_eip.Example.Id),
+//				SubnetId:     pulumi.Any(aws_subnet.Example.Id),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("gw NAT"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				aws_internet_gateway.Example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Private NAT
 //
@@ -48,22 +51,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
-// 			ConnectivityType: pulumi.String("private"),
-// 			SubnetId:         pulumi.Any(aws_subnet.Example.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
+//				ConnectivityType: pulumi.String("private"),
+//				SubnetId:         pulumi.Any(aws_subnet.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +77,9 @@ import (
 // NAT Gateways can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
+//
+//	$ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
+//
 // ```
 type NatGateway struct {
 	pulumi.CustomResourceState
@@ -90,7 +98,7 @@ type NatGateway struct {
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -140,7 +148,7 @@ type natGatewayState struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -159,7 +167,7 @@ type NatGatewayState struct {
 	SubnetId pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -216,7 +224,7 @@ func (i *NatGateway) ToNatGatewayOutputWithContext(ctx context.Context) NatGatew
 // NatGatewayArrayInput is an input type that accepts NatGatewayArray and NatGatewayArrayOutput values.
 // You can construct a concrete instance of `NatGatewayArrayInput` via:
 //
-//          NatGatewayArray{ NatGatewayArgs{...} }
+//	NatGatewayArray{ NatGatewayArgs{...} }
 type NatGatewayArrayInput interface {
 	pulumi.Input
 
@@ -241,7 +249,7 @@ func (i NatGatewayArray) ToNatGatewayArrayOutputWithContext(ctx context.Context)
 // NatGatewayMapInput is an input type that accepts NatGatewayMap and NatGatewayMapOutput values.
 // You can construct a concrete instance of `NatGatewayMapInput` via:
 //
-//          NatGatewayMap{ "key": NatGatewayArgs{...} }
+//	NatGatewayMap{ "key": NatGatewayArgs{...} }
 type NatGatewayMapInput interface {
 	pulumi.Input
 
@@ -312,7 +320,7 @@ func (o NatGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o NatGatewayOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

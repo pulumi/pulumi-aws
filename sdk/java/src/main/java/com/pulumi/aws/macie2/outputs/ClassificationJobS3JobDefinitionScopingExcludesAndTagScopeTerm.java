@@ -19,7 +19,7 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
      */
     private final @Nullable String comparator;
     /**
-     * @return The tag key to use in the condition.
+     * @return The tag key to use in the condition. The only valid value is `TAG`.
      * 
      */
     private final @Nullable String key;
@@ -29,7 +29,7 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
      */
     private final @Nullable List<ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue> tagValues;
     /**
-     * @return The type of object to apply the condition to.
+     * @return The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
      * 
      */
     private final @Nullable String target;
@@ -54,7 +54,7 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
         return Optional.ofNullable(this.comparator);
     }
     /**
-     * @return The tag key to use in the condition.
+     * @return The tag key to use in the condition. The only valid value is `TAG`.
      * 
      */
     public Optional<String> key() {
@@ -68,7 +68,7 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
         return this.tagValues == null ? List.of() : this.tagValues;
     }
     /**
-     * @return The type of object to apply the condition to.
+     * @return The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
      * 
      */
     public Optional<String> target() {

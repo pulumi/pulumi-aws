@@ -15,22 +15,20 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Ec2.NetworkInsightsPath("test", new()
     ///     {
-    ///         var test = new Aws.Ec2.NetworkInsightsPath("test", new Aws.Ec2.NetworkInsightsPathArgs
-    ///         {
-    ///             Source = aws_network_interface.Source.Id,
-    ///             Destination = aws_network_interface.Destination.Id,
-    ///             Protocol = "tcp",
-    ///         });
-    ///     }
+    ///         Source = aws_network_interface.Source.Id,
+    ///         Destination = aws_network_interface.Destination.Id,
+    ///         Protocol = "tcp",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkInsightsPath:NetworkInsightsPath")]
-    public partial class NetworkInsightsPath : Pulumi.CustomResource
+    public partial class NetworkInsightsPath : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the Network Insights Path.
@@ -92,9 +90,6 @@ namespace Pulumi.Aws.Ec2
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -142,7 +137,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class NetworkInsightsPathArgs : Pulumi.ResourceArgs
+    public sealed class NetworkInsightsPathArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
@@ -195,9 +190,10 @@ namespace Pulumi.Aws.Ec2
         public NetworkInsightsPathArgs()
         {
         }
+        public static new NetworkInsightsPathArgs Empty => new NetworkInsightsPathArgs();
     }
 
-    public sealed class NetworkInsightsPathState : Pulumi.ResourceArgs
+    public sealed class NetworkInsightsPathState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the Network Insights Path.
@@ -255,10 +251,6 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -268,5 +260,6 @@ namespace Pulumi.Aws.Ec2
         public NetworkInsightsPathState()
         {
         }
+        public static new NetworkInsightsPathState Empty => new NetworkInsightsPathState();
     }
 }

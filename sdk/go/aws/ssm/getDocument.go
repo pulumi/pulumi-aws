@@ -20,23 +20,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		foo, err := ssm.LookupDocument(ctx, &ssm.LookupDocumentArgs{
-// 			Name:           "AWS-GatherSoftwareInventory",
-// 			DocumentFormat: pulumi.StringRef("YAML"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("content", foo.Content)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			foo, err := ssm.LookupDocument(ctx, &ssm.LookupDocumentArgs{
+//				Name:           "AWS-GatherSoftwareInventory",
+//				DocumentFormat: pulumi.StringRef("YAML"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("content", foo.Content)
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // To get the contents of the custom document.
@@ -45,22 +48,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssm.LookupDocument(ctx, &ssm.LookupDocumentArgs{
-// 			Name:           aws_ssm_document.Test.Name,
-// 			DocumentFormat: pulumi.StringRef("JSON"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssm.LookupDocument(ctx, &ssm.LookupDocumentArgs{
+//				Name:           aws_ssm_document.Test.Name,
+//				DocumentFormat: pulumi.StringRef("JSON"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupDocument(ctx *pulumi.Context, args *LookupDocumentArgs, opts ...pulumi.InvokeOption) (*LookupDocumentResult, error) {
 	var rv LookupDocumentResult

@@ -40,12 +40,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
  * 
- *         var test = new OrganizationAdminAccount(&#34;test&#34;, OrganizationAdminAccountArgs.builder()        
+ *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount(&#34;exampleOrganizationAdminAccount&#34;, OrganizationAdminAccountArgs.builder()        
  *             .adminAccountId(&#34;ID OF THE ADMIN ACCOUNT&#34;)
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_macie2_account.test())
+ *                 .dependsOn(exampleAccount)
  *                 .build());
  * 
  *     }

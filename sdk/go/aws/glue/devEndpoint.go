@@ -21,55 +21,58 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Actions: []string{
-// 						"sts:AssumeRole",
-// 					},
-// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// 						iam.GetPolicyDocumentStatementPrincipal{
-// 							Type: "Service",
-// 							Identifiers: []string{
-// 								"glue.amazonaws.com",
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(examplePolicyDocument.Json),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = glue.NewDevEndpoint(ctx, "exampleDevEndpoint", &glue.DevEndpointArgs{
-// 			RoleArn: exampleRole.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "example-AWSGlueServiceRole", &iam.RolePolicyAttachmentArgs{
-// 			PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"),
-// 			Role:      exampleRole.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					iam.GetPolicyDocumentStatement{
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							iam.GetPolicyDocumentStatementPrincipal{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"glue.amazonaws.com",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.String(examplePolicyDocument.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewDevEndpoint(ctx, "exampleDevEndpoint", &glue.DevEndpointArgs{
+//				RoleArn: exampleRole.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example-AWSGlueServiceRole", &iam.RolePolicyAttachmentArgs{
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"),
+//				Role:      exampleRole.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -77,7 +80,9 @@ import (
 // A Glue Development Endpoint can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
+//
+//	$ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
+//
 // ```
 type DevEndpoint struct {
 	pulumi.CustomResourceState
@@ -368,7 +373,7 @@ func (i *DevEndpoint) ToDevEndpointOutputWithContext(ctx context.Context) DevEnd
 // DevEndpointArrayInput is an input type that accepts DevEndpointArray and DevEndpointArrayOutput values.
 // You can construct a concrete instance of `DevEndpointArrayInput` via:
 //
-//          DevEndpointArray{ DevEndpointArgs{...} }
+//	DevEndpointArray{ DevEndpointArgs{...} }
 type DevEndpointArrayInput interface {
 	pulumi.Input
 
@@ -393,7 +398,7 @@ func (i DevEndpointArray) ToDevEndpointArrayOutputWithContext(ctx context.Contex
 // DevEndpointMapInput is an input type that accepts DevEndpointMap and DevEndpointMapOutput values.
 // You can construct a concrete instance of `DevEndpointMapInput` via:
 //
-//          DevEndpointMap{ "key": DevEndpointArgs{...} }
+//	DevEndpointMap{ "key": DevEndpointArgs{...} }
 type DevEndpointMapInput interface {
 	pulumi.Input
 

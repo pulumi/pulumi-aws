@@ -21,66 +21,69 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := backup.NewFramework(ctx, "example", &backup.FrameworkArgs{
-// 			Controls: backup.FrameworkControlArray{
-// 				&backup.FrameworkControlArgs{
-// 					InputParameters: backup.FrameworkControlInputParameterArray{
-// 						&backup.FrameworkControlInputParameterArgs{
-// 							Name:  pulumi.String("requiredRetentionDays"),
-// 							Value: pulumi.String("35"),
-// 						},
-// 					},
-// 					Name: pulumi.String("BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK"),
-// 				},
-// 				&backup.FrameworkControlArgs{
-// 					InputParameters: backup.FrameworkControlInputParameterArray{
-// 						&backup.FrameworkControlInputParameterArgs{
-// 							Name:  pulumi.String("requiredFrequencyUnit"),
-// 							Value: pulumi.String("hours"),
-// 						},
-// 						&backup.FrameworkControlInputParameterArgs{
-// 							Name:  pulumi.String("requiredRetentionDays"),
-// 							Value: pulumi.String("35"),
-// 						},
-// 						&backup.FrameworkControlInputParameterArgs{
-// 							Name:  pulumi.String("requiredFrequencyValue"),
-// 							Value: pulumi.String("1"),
-// 						},
-// 					},
-// 					Name: pulumi.String("BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK"),
-// 				},
-// 				&backup.FrameworkControlArgs{
-// 					Name: pulumi.String("BACKUP_RECOVERY_POINT_ENCRYPTED"),
-// 				},
-// 				&backup.FrameworkControlArgs{
-// 					Name: pulumi.String("BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN"),
-// 					Scope: &backup.FrameworkControlScopeArgs{
-// 						ComplianceResourceTypes: pulumi.StringArray{
-// 							pulumi.String("EBS"),
-// 						},
-// 					},
-// 				},
-// 				&backup.FrameworkControlArgs{
-// 					Name: pulumi.String("BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED"),
-// 				},
-// 			},
-// 			Description: pulumi.String("this is an example framework"),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Example Framework"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.NewFramework(ctx, "example", &backup.FrameworkArgs{
+//				Controls: backup.FrameworkControlArray{
+//					&backup.FrameworkControlArgs{
+//						InputParameters: backup.FrameworkControlInputParameterArray{
+//							&backup.FrameworkControlInputParameterArgs{
+//								Name:  pulumi.String("requiredRetentionDays"),
+//								Value: pulumi.String("35"),
+//							},
+//						},
+//						Name: pulumi.String("BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK"),
+//					},
+//					&backup.FrameworkControlArgs{
+//						InputParameters: backup.FrameworkControlInputParameterArray{
+//							&backup.FrameworkControlInputParameterArgs{
+//								Name:  pulumi.String("requiredFrequencyUnit"),
+//								Value: pulumi.String("hours"),
+//							},
+//							&backup.FrameworkControlInputParameterArgs{
+//								Name:  pulumi.String("requiredRetentionDays"),
+//								Value: pulumi.String("35"),
+//							},
+//							&backup.FrameworkControlInputParameterArgs{
+//								Name:  pulumi.String("requiredFrequencyValue"),
+//								Value: pulumi.String("1"),
+//							},
+//						},
+//						Name: pulumi.String("BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK"),
+//					},
+//					&backup.FrameworkControlArgs{
+//						Name: pulumi.String("BACKUP_RECOVERY_POINT_ENCRYPTED"),
+//					},
+//					&backup.FrameworkControlArgs{
+//						Name: pulumi.String("BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN"),
+//						Scope: &backup.FrameworkControlScopeArgs{
+//							ComplianceResourceTypes: pulumi.StringArray{
+//								pulumi.String("EBS"),
+//							},
+//						},
+//					},
+//					&backup.FrameworkControlArgs{
+//						Name: pulumi.String("BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED"),
+//					},
+//				},
+//				Description: pulumi.String("this is an example framework"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example Framework"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -88,7 +91,9 @@ import (
 // Backup Framework can be imported using the `id` which corresponds to the name of the Backup Framework, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:backup/framework:Framework test <id>
+//
+//	$ pulumi import aws:backup/framework:Framework test <id>
+//
 // ```
 type Framework struct {
 	pulumi.CustomResourceState
@@ -108,8 +113,7 @@ type Framework struct {
 	// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -160,8 +164,7 @@ type frameworkState struct {
 	// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
 	Status *string `pulumi:"status"`
 	// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -181,8 +184,7 @@ type FrameworkState struct {
 	// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
 	Status pulumi.StringPtrInput
 	// The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -239,7 +241,7 @@ func (i *Framework) ToFrameworkOutputWithContext(ctx context.Context) FrameworkO
 // FrameworkArrayInput is an input type that accepts FrameworkArray and FrameworkArrayOutput values.
 // You can construct a concrete instance of `FrameworkArrayInput` via:
 //
-//          FrameworkArray{ FrameworkArgs{...} }
+//	FrameworkArray{ FrameworkArgs{...} }
 type FrameworkArrayInput interface {
 	pulumi.Input
 
@@ -264,7 +266,7 @@ func (i FrameworkArray) ToFrameworkArrayOutputWithContext(ctx context.Context) F
 // FrameworkMapInput is an input type that accepts FrameworkMap and FrameworkMapOutput values.
 // You can construct a concrete instance of `FrameworkMapInput` via:
 //
-//          FrameworkMap{ "key": FrameworkArgs{...} }
+//	FrameworkMap{ "key": FrameworkArgs{...} }
 type FrameworkMapInput interface {
 	pulumi.Input
 
@@ -340,7 +342,6 @@ func (o FrameworkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o FrameworkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

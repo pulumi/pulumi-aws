@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Waf.Inputs
 {
 
-    public sealed class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchGetArgs : Pulumi.ResourceArgs
+    public sealed class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
@@ -31,5 +31,6 @@ namespace Pulumi.Aws.Waf.Inputs
         public SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchGetArgs()
         {
         }
+        public static new SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchGetArgs Empty => new SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchGetArgs();
     }
 }

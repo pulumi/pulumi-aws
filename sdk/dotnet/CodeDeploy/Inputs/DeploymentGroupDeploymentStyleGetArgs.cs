@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentGroupDeploymentStyleGetArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentGroupDeploymentStyleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentGroupDeploymentStyleGetArgs()
         {
         }
+        public static new DeploymentGroupDeploymentStyleGetArgs Empty => new DeploymentGroupDeploymentStyleGetArgs();
     }
 }

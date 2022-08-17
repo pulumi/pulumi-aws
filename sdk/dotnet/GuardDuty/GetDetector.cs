@@ -19,17 +19,15 @@ namespace Pulumi.Aws.GuardDuty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Aws.GuardDuty.GetDetector.InvokeAsync());
-        ///     }
+        ///     var example = Aws.GuardDuty.GetDetector.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -45,17 +43,15 @@ namespace Pulumi.Aws.GuardDuty
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Aws.GuardDuty.GetDetector.InvokeAsync());
-        ///     }
+        ///     var example = Aws.GuardDuty.GetDetector.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -65,7 +61,7 @@ namespace Pulumi.Aws.GuardDuty
     }
 
 
-    public sealed class GetDetectorArgs : Pulumi.InvokeArgs
+    public sealed class GetDetectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the detector.
@@ -76,9 +72,10 @@ namespace Pulumi.Aws.GuardDuty
         public GetDetectorArgs()
         {
         }
+        public static new GetDetectorArgs Empty => new GetDetectorArgs();
     }
 
-    public sealed class GetDetectorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDetectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the detector.
@@ -89,6 +86,7 @@ namespace Pulumi.Aws.GuardDuty
         public GetDetectorInvokeArgs()
         {
         }
+        public static new GetDetectorInvokeArgs Empty => new GetDetectorInvokeArgs();
     }
 
 

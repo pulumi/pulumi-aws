@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Keyspaces.Inputs
 {
 
-    public sealed class TableCapacitySpecificationGetArgs : Pulumi.ResourceArgs
+    public sealed class TableCapacitySpecificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The throughput capacity specified for read operations defined in read capacity units (RCUs).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
         public TableCapacitySpecificationGetArgs()
         {
         }
+        public static new TableCapacitySpecificationGetArgs Empty => new TableCapacitySpecificationGetArgs();
     }
 }

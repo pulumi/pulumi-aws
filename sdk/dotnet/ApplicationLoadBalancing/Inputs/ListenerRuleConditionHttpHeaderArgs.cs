@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
 {
 
-    public sealed class ListenerRuleConditionHttpHeaderArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleConditionHttpHeaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
         public ListenerRuleConditionHttpHeaderArgs()
         {
         }
+        public static new ListenerRuleConditionHttpHeaderArgs Empty => new ListenerRuleConditionHttpHeaderArgs();
     }
 }

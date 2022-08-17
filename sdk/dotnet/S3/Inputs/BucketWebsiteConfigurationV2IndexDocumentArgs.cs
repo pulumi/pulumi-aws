@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketWebsiteConfigurationV2IndexDocumentArgs : Pulumi.ResourceArgs
+    public sealed class BucketWebsiteConfigurationV2IndexDocumentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A suffix that is appended to a request that is for a directory on the website endpoint.
@@ -23,5 +23,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketWebsiteConfigurationV2IndexDocumentArgs()
         {
         }
+        public static new BucketWebsiteConfigurationV2IndexDocumentArgs Empty => new BucketWebsiteConfigurationV2IndexDocumentArgs();
     }
 }

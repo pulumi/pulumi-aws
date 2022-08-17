@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclLoggingConfigurationLoggingFilterArgs : Pulumi.ResourceArgs
+    public sealed class WebAclLoggingConfigurationLoggingFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Default handling for logs that don't match any of the specified filtering conditions. Valid values: `KEEP` or `DROP`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclLoggingConfigurationLoggingFilterArgs()
         {
         }
+        public static new WebAclLoggingConfigurationLoggingFilterArgs Empty => new WebAclLoggingConfigurationLoggingFilterArgs();
     }
 }

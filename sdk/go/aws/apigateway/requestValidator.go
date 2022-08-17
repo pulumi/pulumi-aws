@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := apigateway.NewRequestValidator(ctx, "example", &apigateway.RequestValidatorArgs{
-// 			RestApi:                   pulumi.Any(aws_api_gateway_rest_api.Example.Id),
-// 			ValidateRequestBody:       pulumi.Bool(true),
-// 			ValidateRequestParameters: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.NewRequestValidator(ctx, "example", &apigateway.RequestValidatorArgs{
+//				RestApi:                   pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				ValidateRequestBody:       pulumi.Bool(true),
+//				ValidateRequestParameters: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // `aws_api_gateway_request_validator` can be imported using `REST-API-ID/REQUEST-VALIDATOR-ID`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
+//
+//	$ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
+//
 // ```
 type RequestValidator struct {
 	pulumi.CustomResourceState
@@ -164,7 +169,7 @@ func (i *RequestValidator) ToRequestValidatorOutputWithContext(ctx context.Conte
 // RequestValidatorArrayInput is an input type that accepts RequestValidatorArray and RequestValidatorArrayOutput values.
 // You can construct a concrete instance of `RequestValidatorArrayInput` via:
 //
-//          RequestValidatorArray{ RequestValidatorArgs{...} }
+//	RequestValidatorArray{ RequestValidatorArgs{...} }
 type RequestValidatorArrayInput interface {
 	pulumi.Input
 
@@ -189,7 +194,7 @@ func (i RequestValidatorArray) ToRequestValidatorArrayOutputWithContext(ctx cont
 // RequestValidatorMapInput is an input type that accepts RequestValidatorMap and RequestValidatorMapOutput values.
 // You can construct a concrete instance of `RequestValidatorMapInput` via:
 //
-//          RequestValidatorMap{ "key": RequestValidatorArgs{...} }
+//	RequestValidatorMap{ "key": RequestValidatorArgs{...} }
 type RequestValidatorMapInput interface {
 	pulumi.Input
 

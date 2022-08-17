@@ -20,23 +20,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sns.NewPlatformApplication(ctx, "apnsApplication", &sns.PlatformApplicationArgs{
-// 			Platform:           pulumi.String("APNS"),
-// 			PlatformCredential: pulumi.String("<APNS PRIVATE KEY>"),
-// 			PlatformPrincipal:  pulumi.String("<APNS CERTIFICATE>"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sns.NewPlatformApplication(ctx, "apnsApplication", &sns.PlatformApplicationArgs{
+//				Platform:           pulumi.String("APNS"),
+//				PlatformCredential: pulumi.String("<APNS PRIVATE KEY>"),
+//				PlatformPrincipal:  pulumi.String("<APNS CERTIFICATE>"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Google Cloud Messaging (GCM)
 //
@@ -44,22 +47,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sns.NewPlatformApplication(ctx, "gcmApplication", &sns.PlatformApplicationArgs{
-// 			Platform:           pulumi.String("GCM"),
-// 			PlatformCredential: pulumi.String("<GCM API KEY>"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sns.NewPlatformApplication(ctx, "gcmApplication", &sns.PlatformApplicationArgs{
+//				Platform:           pulumi.String("GCM"),
+//				PlatformCredential: pulumi.String("<GCM API KEY>"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +73,9 @@ import (
 // SNS platform applications can be imported using the ARN, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
+//
+//	$ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
+//
 // ```
 type PlatformApplication struct {
 	pulumi.CustomResourceState
@@ -267,7 +275,7 @@ func (i *PlatformApplication) ToPlatformApplicationOutputWithContext(ctx context
 // PlatformApplicationArrayInput is an input type that accepts PlatformApplicationArray and PlatformApplicationArrayOutput values.
 // You can construct a concrete instance of `PlatformApplicationArrayInput` via:
 //
-//          PlatformApplicationArray{ PlatformApplicationArgs{...} }
+//	PlatformApplicationArray{ PlatformApplicationArgs{...} }
 type PlatformApplicationArrayInput interface {
 	pulumi.Input
 
@@ -292,7 +300,7 @@ func (i PlatformApplicationArray) ToPlatformApplicationArrayOutputWithContext(ct
 // PlatformApplicationMapInput is an input type that accepts PlatformApplicationMap and PlatformApplicationMapOutput values.
 // You can construct a concrete instance of `PlatformApplicationMapInput` via:
 //
-//          PlatformApplicationMap{ "key": PlatformApplicationArgs{...} }
+//	PlatformApplicationMap{ "key": PlatformApplicationArgs{...} }
 type PlatformApplicationMapInput interface {
 	pulumi.Input
 

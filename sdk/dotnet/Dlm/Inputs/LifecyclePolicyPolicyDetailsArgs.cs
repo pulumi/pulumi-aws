@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dlm.Inputs
 {
 
-    public sealed class LifecyclePolicyPolicyDetailsArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyPolicyDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
@@ -81,5 +81,6 @@ namespace Pulumi.Aws.Dlm.Inputs
         public LifecyclePolicyPolicyDetailsArgs()
         {
         }
+        public static new LifecyclePolicyPolicyDetailsArgs Empty => new LifecyclePolicyPolicyDetailsArgs();
     }
 }

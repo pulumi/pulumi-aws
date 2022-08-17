@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex.Inputs
 {
 
-    public sealed class IntentFollowUpPromptGetArgs : Pulumi.ResourceArgs
+    public sealed class IntentFollowUpPromptGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Prompts for information from the user. Attributes are documented under prompt.
@@ -29,5 +29,6 @@ namespace Pulumi.Aws.Lex.Inputs
         public IntentFollowUpPromptGetArgs()
         {
         }
+        public static new IntentFollowUpPromptGetArgs Empty => new IntentFollowUpPromptGetArgs();
     }
 }

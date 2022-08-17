@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class FirehoseDeliveryStreamElasticsearchConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
@@ -93,5 +93,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public FirehoseDeliveryStreamElasticsearchConfigurationGetArgs()
         {
         }
+        public static new FirehoseDeliveryStreamElasticsearchConfigurationGetArgs Empty => new FirehoseDeliveryStreamElasticsearchConfigurationGetArgs();
     }
 }

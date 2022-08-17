@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Dlm.Inputs
 {
 
-    public sealed class LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs : Pulumi.ResourceArgs
+    public sealed class LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// How many snapshots to keep. Must be an integer between `1` and `1000`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Dlm.Inputs
         public LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs()
         {
         }
+        public static new LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs Empty => new LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Capacity Reservation in which to run the instance.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs()
         {
         }
+        public static new LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs Empty => new LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs();
     }
 }

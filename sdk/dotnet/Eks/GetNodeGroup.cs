@@ -19,21 +19,19 @@ namespace Pulumi.Aws.Eks
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Eks.GetNodeGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Eks.GetNodeGroup.InvokeAsync(new Aws.Eks.GetNodeGroupArgs
-        ///         {
-        ///             ClusterName = "example",
-        ///             NodeGroupName = "example",
-        ///         }));
-        ///     }
+        ///         ClusterName = "example",
+        ///         NodeGroupName = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.Eks
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Eks.GetNodeGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Eks.GetNodeGroup.InvokeAsync(new Aws.Eks.GetNodeGroupArgs
-        ///         {
-        ///             ClusterName = "example",
-        ///             NodeGroupName = "example",
-        ///         }));
-        ///     }
+        ///         ClusterName = "example",
+        ///         NodeGroupName = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Eks
     }
 
 
-    public sealed class GetNodeGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetNodeGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -102,9 +98,10 @@ namespace Pulumi.Aws.Eks
         public GetNodeGroupArgs()
         {
         }
+        public static new GetNodeGroupArgs Empty => new GetNodeGroupArgs();
     }
 
-    public sealed class GetNodeGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNodeGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster.
@@ -133,6 +130,7 @@ namespace Pulumi.Aws.Eks
         public GetNodeGroupInvokeArgs()
         {
         }
+        public static new GetNodeGroupInvokeArgs Empty => new GetNodeGroupInvokeArgs();
     }
 
 

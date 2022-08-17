@@ -13,41 +13,44 @@ import (
 
 // ## Example Usage
 //
-// Basic usage
+// # Basic usage
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewManagedPrefixList(ctx, "example", &ec2.ManagedPrefixListArgs{
-// 			AddressFamily: pulumi.String("IPv4"),
-// 			MaxEntries:    pulumi.Int(5),
-// 			Entries: ec2.ManagedPrefixListEntryTypeArray{
-// 				&ec2.ManagedPrefixListEntryTypeArgs{
-// 					Cidr:        pulumi.Any(aws_vpc.Example.Cidr_block),
-// 					Description: pulumi.String("Primary"),
-// 				},
-// 				&ec2.ManagedPrefixListEntryTypeArgs{
-// 					Cidr:        pulumi.Any(aws_vpc_ipv4_cidr_block_association.Example.Cidr_block),
-// 					Description: pulumi.String("Secondary"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Env": pulumi.String("live"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewManagedPrefixList(ctx, "example", &ec2.ManagedPrefixListArgs{
+//				AddressFamily: pulumi.String("IPv4"),
+//				MaxEntries:    pulumi.Int(5),
+//				Entries: ec2.ManagedPrefixListEntryTypeArray{
+//					&ec2.ManagedPrefixListEntryTypeArgs{
+//						Cidr:        pulumi.Any(aws_vpc.Example.Cidr_block),
+//						Description: pulumi.String("Primary"),
+//					},
+//					&ec2.ManagedPrefixListEntryTypeArgs{
+//						Cidr:        pulumi.Any(aws_vpc_ipv4_cidr_block_association.Example.Cidr_block),
+//						Description: pulumi.String("Secondary"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Env": pulumi.String("live"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,7 +58,9 @@ import (
 // Prefix Lists can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
+//
+//	$ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
+//
 // ```
 type ManagedPrefixList struct {
 	pulumi.CustomResourceState
@@ -210,7 +215,7 @@ func (i *ManagedPrefixList) ToManagedPrefixListOutputWithContext(ctx context.Con
 // ManagedPrefixListArrayInput is an input type that accepts ManagedPrefixListArray and ManagedPrefixListArrayOutput values.
 // You can construct a concrete instance of `ManagedPrefixListArrayInput` via:
 //
-//          ManagedPrefixListArray{ ManagedPrefixListArgs{...} }
+//	ManagedPrefixListArray{ ManagedPrefixListArgs{...} }
 type ManagedPrefixListArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +240,7 @@ func (i ManagedPrefixListArray) ToManagedPrefixListArrayOutputWithContext(ctx co
 // ManagedPrefixListMapInput is an input type that accepts ManagedPrefixListMap and ManagedPrefixListMapOutput values.
 // You can construct a concrete instance of `ManagedPrefixListMapInput` via:
 //
-//          ManagedPrefixListMap{ "key": ManagedPrefixListArgs{...} }
+//	ManagedPrefixListMap{ "key": ManagedPrefixListArgs{...} }
 type ManagedPrefixListMapInput interface {
 	pulumi.Input
 

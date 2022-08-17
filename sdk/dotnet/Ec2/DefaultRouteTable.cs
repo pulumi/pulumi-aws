@@ -21,61 +21,57 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.DefaultRouteTable("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.DefaultRouteTable("example", new Aws.Ec2.DefaultRouteTableArgs
+    ///         DefaultRouteTableId = aws_vpc.Example.Default_route_table_id,
+    ///         Routes = new[]
     ///         {
-    ///             DefaultRouteTableId = aws_vpc.Example.Default_route_table_id,
-    ///             Routes = 
+    ///             new Aws.Ec2.Inputs.DefaultRouteTableRouteArgs
     ///             {
-    ///                 new Aws.Ec2.Inputs.DefaultRouteTableRouteArgs
-    ///                 {
-    ///                     CidrBlock = "10.0.1.0/24",
-    ///                     GatewayId = aws_internet_gateway.Example.Id,
-    ///                 },
-    ///                 new Aws.Ec2.Inputs.DefaultRouteTableRouteArgs
-    ///                 {
-    ///                     Ipv6CidrBlock = "::/0",
-    ///                     EgressOnlyGatewayId = aws_egress_only_internet_gateway.Example.Id,
-    ///                 },
+    ///                 CidrBlock = "10.0.1.0/24",
+    ///                 GatewayId = aws_internet_gateway.Example.Id,
     ///             },
-    ///             Tags = 
+    ///             new Aws.Ec2.Inputs.DefaultRouteTableRouteArgs
     ///             {
-    ///                 { "Name", "example" },
+    ///                 Ipv6CidrBlock = "::/0",
+    ///                 EgressOnlyGatewayId = aws_egress_only_internet_gateway.Example.Id,
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// To subsequently remove all managed routes:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.DefaultRouteTable("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.DefaultRouteTable("example", new Aws.Ec2.DefaultRouteTableArgs
+    ///         DefaultRouteTableId = aws_vpc.Example.Default_route_table_id,
+    ///         Routes = new[] {},
+    ///         Tags = 
     ///         {
-    ///             DefaultRouteTableId = aws_vpc.Example.Default_route_table_id,
-    ///             Routes = {},
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "example" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -89,7 +85,7 @@ namespace Pulumi.Aws.Ec2
     ///  [aws-route-tables]http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table [tf-route-tables]/docs/providers/aws/r/route_table.html [tf-main-route-table-association]/docs/providers/aws/r/main_route_table_association.html
     /// </summary>
     [AwsResourceType("aws:ec2/defaultRouteTable:DefaultRouteTable")]
-    public partial class DefaultRouteTable : Pulumi.CustomResource
+    public partial class DefaultRouteTable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the route table.
@@ -128,7 +124,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -183,7 +179,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class DefaultRouteTableArgs : Pulumi.ResourceArgs
+    public sealed class DefaultRouteTableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the default route table.
@@ -230,9 +226,10 @@ namespace Pulumi.Aws.Ec2
         public DefaultRouteTableArgs()
         {
         }
+        public static new DefaultRouteTableArgs Empty => new DefaultRouteTableArgs();
     }
 
-    public sealed class DefaultRouteTableState : Pulumi.ResourceArgs
+    public sealed class DefaultRouteTableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the route table.
@@ -292,7 +289,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -309,5 +306,6 @@ namespace Pulumi.Aws.Ec2
         public DefaultRouteTableState()
         {
         }
+        public static new DefaultRouteTableState Empty => new DefaultRouteTableState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class CrawlerDynamodbTargetGetArgs : Pulumi.ResourceArgs
+    public sealed class CrawlerDynamodbTargetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path of the Amazon DocumentDB or MongoDB target (database/collection).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public CrawlerDynamodbTargetGetArgs()
         {
         }
+        public static new CrawlerDynamodbTargetGetArgs Empty => new CrawlerDynamodbTargetGetArgs();
     }
 }

@@ -21,52 +21,55 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleStage, err := apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
-// 			Deployment: pulumi.Any(aws_api_gateway_deployment.Example.Id),
-// 			RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
-// 			StageName:  pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
-// 			DomainName:            pulumi.String("example.com"),
-// 			CertificateName:       pulumi.String("example-api"),
-// 			CertificateBody:       readFileOrPanic(fmt.Sprintf("%v/example.com/example.crt", path.Module)),
-// 			CertificateChain:      readFileOrPanic(fmt.Sprintf("%v/example.com/ca.crt", path.Module)),
-// 			CertificatePrivateKey: readFileOrPanic(fmt.Sprintf("%v/example.com/example.key", path.Module)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.NewBasePathMapping(ctx, "exampleBasePathMapping", &apigateway.BasePathMappingArgs{
-// 			RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
-// 			StageName:  exampleStage.StageName,
-// 			DomainName: exampleDomainName.DomainName,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleStage, err := apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
+//				Deployment: pulumi.Any(aws_api_gateway_deployment.Example.Id),
+//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				StageName:  pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
+//				DomainName:            pulumi.String("example.com"),
+//				CertificateName:       pulumi.String("example-api"),
+//				CertificateBody:       readFileOrPanic(fmt.Sprintf("%v/example.com/example.crt", path.Module)),
+//				CertificateChain:      readFileOrPanic(fmt.Sprintf("%v/example.com/ca.crt", path.Module)),
+//				CertificatePrivateKey: readFileOrPanic(fmt.Sprintf("%v/example.com/example.key", path.Module)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewBasePathMapping(ctx, "exampleBasePathMapping", &apigateway.BasePathMappingArgs{
+//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				StageName:  exampleStage.StageName,
+//				DomainName: exampleDomainName.DomainName,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -74,13 +77,17 @@ import (
 // `aws_api_gateway_base_path_mapping` can be imported by using the domain name and base path, e.g., For empty `base_path` (e.g., root path (`/`))
 //
 // ```sh
-//  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
+//
+//	$ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
+//
 // ```
 //
-//  Otherwise
+//	Otherwise
 //
 // ```sh
-//  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+//
+//	$ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+//
 // ```
 type BasePathMapping struct {
 	pulumi.CustomResourceState
@@ -204,7 +211,7 @@ func (i *BasePathMapping) ToBasePathMappingOutputWithContext(ctx context.Context
 // BasePathMappingArrayInput is an input type that accepts BasePathMappingArray and BasePathMappingArrayOutput values.
 // You can construct a concrete instance of `BasePathMappingArrayInput` via:
 //
-//          BasePathMappingArray{ BasePathMappingArgs{...} }
+//	BasePathMappingArray{ BasePathMappingArgs{...} }
 type BasePathMappingArrayInput interface {
 	pulumi.Input
 
@@ -229,7 +236,7 @@ func (i BasePathMappingArray) ToBasePathMappingArrayOutputWithContext(ctx contex
 // BasePathMappingMapInput is an input type that accepts BasePathMappingMap and BasePathMappingMapOutput values.
 // You can construct a concrete instance of `BasePathMappingMapInput` via:
 //
-//          BasePathMappingMap{ "key": BasePathMappingArgs{...} }
+//	BasePathMappingMap{ "key": BasePathMappingArgs{...} }
 type BasePathMappingMapInput interface {
 	pulumi.Input
 

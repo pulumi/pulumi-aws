@@ -15,23 +15,21 @@ namespace Pulumi.Aws.Account
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var operations = new Aws.Account.AlternativeContact("operations", new()
     ///     {
-    ///         var operations = new Aws.Account.AlternativeContact("operations", new Aws.Account.AlternativeContactArgs
-    ///         {
-    ///             AlternateContactType = "OPERATIONS",
-    ///             EmailAddress = "test@example.com",
-    ///             PhoneNumber = "+1234567890",
-    ///             Title = "Example",
-    ///         });
-    ///     }
+    ///         AlternateContactType = "OPERATIONS",
+    ///         EmailAddress = "test@example.com",
+    ///         PhoneNumber = "+1234567890",
+    ///         Title = "Example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.Account
     /// ```
     /// </summary>
     [AwsResourceType("aws:account/alternativeContact:AlternativeContact")]
-    public partial class AlternativeContact : Pulumi.CustomResource
+    public partial class AlternativeContact : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
@@ -131,7 +129,7 @@ namespace Pulumi.Aws.Account
         }
     }
 
-    public sealed class AlternativeContactArgs : Pulumi.ResourceArgs
+    public sealed class AlternativeContactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
@@ -172,9 +170,10 @@ namespace Pulumi.Aws.Account
         public AlternativeContactArgs()
         {
         }
+        public static new AlternativeContactArgs Empty => new AlternativeContactArgs();
     }
 
-    public sealed class AlternativeContactState : Pulumi.ResourceArgs
+    public sealed class AlternativeContactState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
@@ -215,5 +214,6 @@ namespace Pulumi.Aws.Account
         public AlternativeContactState()
         {
         }
+        public static new AlternativeContactState Empty => new AlternativeContactState();
     }
 }

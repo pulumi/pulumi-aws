@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Acmpca.Inputs
 {
 
-    public sealed class CertificateAuthorityCertificateAuthorityConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityCertificateAuthorityConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public CertificateAuthorityCertificateAuthorityConfigurationGetArgs()
         {
         }
+        public static new CertificateAuthorityCertificateAuthorityConfigurationGetArgs Empty => new CertificateAuthorityCertificateAuthorityConfigurationGetArgs();
     }
 }

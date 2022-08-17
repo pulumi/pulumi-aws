@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx.Inputs
 {
 
-    public sealed class DataRepositoryAssociationS3Args : Pulumi.ResourceArgs
+    public sealed class DataRepositoryAssociationS3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Fsx.Inputs
         public DataRepositoryAssociationS3Args()
         {
         }
+        public static new DataRepositoryAssociationS3Args Empty => new DataRepositoryAssociationS3Args();
     }
 }

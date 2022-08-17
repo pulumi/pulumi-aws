@@ -19,20 +19,18 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetContainerRecipe.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetContainerRecipe.InvokeAsync(new Aws.ImageBuilder.GetContainerRecipeArgs
-        ///         {
-        ///             Arn = "arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.ImageBuilder
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.ImageBuilder.GetContainerRecipe.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.ImageBuilder.GetContainerRecipe.InvokeAsync(new Aws.ImageBuilder.GetContainerRecipeArgs
-        ///         {
-        ///             Arn = "arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0",
-        ///         }));
-        ///     }
+        ///         Arn = "arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.ImageBuilder
     }
 
 
-    public sealed class GetContainerRecipeArgs : Pulumi.InvokeArgs
+    public sealed class GetContainerRecipeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the container recipe.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.ImageBuilder
         public GetContainerRecipeArgs()
         {
         }
+        public static new GetContainerRecipeArgs Empty => new GetContainerRecipeArgs();
     }
 
-    public sealed class GetContainerRecipeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetContainerRecipeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the container recipe.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.ImageBuilder
         public GetContainerRecipeInvokeArgs()
         {
         }
+        public static new GetContainerRecipeInvokeArgs Empty => new GetContainerRecipeInvokeArgs();
     }
 
 

@@ -257,7 +257,6 @@ class CostCategoryRuleRule(dict):
         :param 'CostCategoryRuleRuleDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
         :param 'CostCategoryRuleRuleNotArgs' not_: Return results that match both `Dimension` object.
         :param Sequence['CostCategoryRuleRuleOrArgs'] ors: Return results that match both `Dimension` object.
-        :param 'CostCategoryRuleRuleTagsArgs' tags: Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if ands is not None:
             pulumi.set(__self__, "ands", ands)
@@ -315,9 +314,6 @@ class CostCategoryRuleRule(dict):
     @property
     @pulumi.getter
     def tags(self) -> Optional['outputs.CostCategoryRuleRuleTags']:
-        """
-        Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -347,7 +343,6 @@ class CostCategoryRuleRuleAnd(dict):
         """
         :param 'CostCategoryRuleRuleAndCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
         :param 'CostCategoryRuleRuleAndDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param 'CostCategoryRuleRuleAndTagsArgs' tags: Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
@@ -375,9 +370,6 @@ class CostCategoryRuleRuleAnd(dict):
     @property
     @pulumi.getter
     def tags(self) -> Optional['outputs.CostCategoryRuleRuleAndTags']:
-        """
-        Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -707,7 +699,6 @@ class CostCategoryRuleRuleNot(dict):
         """
         :param 'CostCategoryRuleRuleNotCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
         :param 'CostCategoryRuleRuleNotDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param 'CostCategoryRuleRuleNotTagsArgs' tags: Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
@@ -735,9 +726,6 @@ class CostCategoryRuleRuleNot(dict):
     @property
     @pulumi.getter
     def tags(self) -> Optional['outputs.CostCategoryRuleRuleNotTags']:
-        """
-        Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -947,7 +935,6 @@ class CostCategoryRuleRuleOr(dict):
         """
         :param 'CostCategoryRuleRuleOrCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
         :param 'CostCategoryRuleRuleOrDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param 'CostCategoryRuleRuleOrTagsArgs' tags: Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
@@ -975,9 +962,6 @@ class CostCategoryRuleRuleOr(dict):
     @property
     @pulumi.getter
     def tags(self) -> Optional['outputs.CostCategoryRuleRuleOrTags']:
-        """
-        Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
 

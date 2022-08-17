@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetLocalGatewayRouteTablesArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalGatewayRouteTablesArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetLocalGatewayRouteTablesFilterArgs>? _filters;
@@ -55,9 +55,10 @@ namespace Pulumi.Aws.Ec2
         public GetLocalGatewayRouteTablesArgs()
         {
         }
+        public static new GetLocalGatewayRouteTablesArgs Empty => new GetLocalGatewayRouteTablesArgs();
     }
 
-    public sealed class GetLocalGatewayRouteTablesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalGatewayRouteTablesInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetLocalGatewayRouteTablesFilterInputArgs>? _filters;
@@ -87,6 +88,7 @@ namespace Pulumi.Aws.Ec2
         public GetLocalGatewayRouteTablesInvokeArgs()
         {
         }
+        public static new GetLocalGatewayRouteTablesInvokeArgs Empty => new GetLocalGatewayRouteTablesInvokeArgs();
     }
 
 

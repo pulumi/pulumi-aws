@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds.Inputs
 {
 
-    public sealed class InstanceRestoreToPointInTimeArgs : Pulumi.ResourceArgs
+    public sealed class InstanceRestoreToPointInTimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Rds.Inputs
         public InstanceRestoreToPointInTimeArgs()
         {
         }
+        public static new InstanceRestoreToPointInTimeArgs Empty => new InstanceRestoreToPointInTimeArgs();
     }
 }

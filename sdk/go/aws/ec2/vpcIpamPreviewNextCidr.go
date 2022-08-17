@@ -21,57 +21,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := aws.GetRegion(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "exampleVpcIpam", &ec2.VpcIpamArgs{
-// 			OperatingRegions: ec2.VpcIpamOperatingRegionArray{
-// 				&ec2.VpcIpamOperatingRegionArgs{
-// 					RegionName: pulumi.String(current.Name),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "exampleVpcIpamPool", &ec2.VpcIpamPoolArgs{
-// 			AddressFamily: pulumi.String("ipv4"),
-// 			IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
-// 			Locale:        pulumi.String(current.Name),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "exampleVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
-// 			IpamPoolId: exampleVpcIpamPool.ID(),
-// 			Cidr:       pulumi.String("172.2.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewVpcIpamPreviewNextCidr(ctx, "exampleVpcIpamPreviewNextCidr", &ec2.VpcIpamPreviewNextCidrArgs{
-// 			IpamPoolId:    exampleVpcIpamPool.ID(),
-// 			NetmaskLength: pulumi.Int(28),
-// 			DisallowedCidrs: pulumi.StringArray{
-// 				pulumi.String("172.2.0.0/32"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleVpcIpamPoolCidr,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "exampleVpcIpam", &ec2.VpcIpamArgs{
+//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
+//					&ec2.VpcIpamOperatingRegionArgs{
+//						RegionName: pulumi.String(current.Name),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "exampleVpcIpamPool", &ec2.VpcIpamPoolArgs{
+//				AddressFamily: pulumi.String("ipv4"),
+//				IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
+//				Locale:        pulumi.String(current.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "exampleVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
+//				IpamPoolId: exampleVpcIpamPool.ID(),
+//				Cidr:       pulumi.String("172.2.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpamPreviewNextCidr(ctx, "exampleVpcIpamPreviewNextCidr", &ec2.VpcIpamPreviewNextCidrArgs{
+//				IpamPoolId:    exampleVpcIpamPool.ID(),
+//				NetmaskLength: pulumi.Int(28),
+//				DisallowedCidrs: pulumi.StringArray{
+//					pulumi.String("172.2.0.0/32"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleVpcIpamPoolCidr,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type VpcIpamPreviewNextCidr struct {
 	pulumi.CustomResourceState
@@ -188,7 +191,7 @@ func (i *VpcIpamPreviewNextCidr) ToVpcIpamPreviewNextCidrOutputWithContext(ctx c
 // VpcIpamPreviewNextCidrArrayInput is an input type that accepts VpcIpamPreviewNextCidrArray and VpcIpamPreviewNextCidrArrayOutput values.
 // You can construct a concrete instance of `VpcIpamPreviewNextCidrArrayInput` via:
 //
-//          VpcIpamPreviewNextCidrArray{ VpcIpamPreviewNextCidrArgs{...} }
+//	VpcIpamPreviewNextCidrArray{ VpcIpamPreviewNextCidrArgs{...} }
 type VpcIpamPreviewNextCidrArrayInput interface {
 	pulumi.Input
 
@@ -213,7 +216,7 @@ func (i VpcIpamPreviewNextCidrArray) ToVpcIpamPreviewNextCidrArrayOutputWithCont
 // VpcIpamPreviewNextCidrMapInput is an input type that accepts VpcIpamPreviewNextCidrMap and VpcIpamPreviewNextCidrMapOutput values.
 // You can construct a concrete instance of `VpcIpamPreviewNextCidrMapInput` via:
 //
-//          VpcIpamPreviewNextCidrMap{ "key": VpcIpamPreviewNextCidrArgs{...} }
+//	VpcIpamPreviewNextCidrMap{ "key": VpcIpamPreviewNextCidrArgs{...} }
 type VpcIpamPreviewNextCidrMapInput interface {
 	pulumi.Input
 

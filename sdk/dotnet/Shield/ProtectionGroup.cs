@@ -18,95 +18,93 @@ namespace Pulumi.Aws.Shield
     /// ### Create protection group for all resources
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Shield.ProtectionGroup("example", new()
     ///     {
-    ///         var example = new Aws.Shield.ProtectionGroup("example", new Aws.Shield.ProtectionGroupArgs
-    ///         {
-    ///             Aggregation = "MAX",
-    ///             Pattern = "ALL",
-    ///             ProtectionGroupId = "example",
-    ///         });
-    ///     }
+    ///         Aggregation = "MAX",
+    ///         Pattern = "ALL",
+    ///         ProtectionGroupId = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Create protection group for arbitrary number of resources
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var currentRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleEip = new Aws.Ec2.Eip("exampleEip", new()
     ///     {
-    ///         var currentRegion = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var currentCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var exampleEip = new Aws.Ec2.Eip("exampleEip", new Aws.Ec2.EipArgs
+    ///         Vpc = true,
+    ///     });
+    /// 
+    ///     var exampleProtection = new Aws.Shield.Protection("exampleProtection", new()
+    ///     {
+    ///         ResourceArn = Output.Tuple(currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleEip.Id).Apply(values =&gt;
     ///         {
-    ///             Vpc = true,
-    ///         });
-    ///         var exampleProtection = new Aws.Shield.Protection("exampleProtection", new Aws.Shield.ProtectionArgs
+    ///             var currentRegion = values.Item1;
+    ///             var currentCallerIdentity = values.Item2;
+    ///             var id = values.Item3;
+    ///             return $"arn:aws:ec2:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleProtectionGroup = new Aws.Shield.ProtectionGroup("exampleProtectionGroup", new()
+    ///     {
+    ///         ProtectionGroupId = "example",
+    ///         Aggregation = "MEAN",
+    ///         Pattern = "ARBITRARY",
+    ///         Members = new[]
     ///         {
-    ///             ResourceArn = Output.Tuple(currentRegion, currentCallerIdentity, exampleEip.Id).Apply(values =&gt;
+    ///             Output.Tuple(currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleEip.Id).Apply(values =&gt;
     ///             {
     ///                 var currentRegion = values.Item1;
     ///                 var currentCallerIdentity = values.Item2;
     ///                 var id = values.Item3;
-    ///                 return $"arn:aws:ec2:{currentRegion.Name}:{currentCallerIdentity.AccountId}:eip-allocation/{id}";
+    ///                 return $"arn:aws:ec2:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
     ///             }),
-    ///         });
-    ///         var exampleProtectionGroup = new Aws.Shield.ProtectionGroup("exampleProtectionGroup", new Aws.Shield.ProtectionGroupArgs
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             ProtectionGroupId = "example",
-    ///             Aggregation = "MEAN",
-    ///             Pattern = "ARBITRARY",
-    ///             Members = 
-    ///             {
-    ///                 Output.Tuple(currentRegion, currentCallerIdentity, exampleEip.Id).Apply(values =&gt;
-    ///                 {
-    ///                     var currentRegion = values.Item1;
-    ///                     var currentCallerIdentity = values.Item2;
-    ///                     var id = values.Item3;
-    ///                     return $"arn:aws:ec2:{currentRegion.Name}:{currentCallerIdentity.AccountId}:eip-allocation/{id}";
-    ///                 }),
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleProtection,
-    ///             },
-    ///         });
-    ///     }
+    ///             exampleProtection,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Create protection group for a type of resource
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Shield.ProtectionGroup("example", new()
     ///     {
-    ///         var example = new Aws.Shield.ProtectionGroup("example", new Aws.Shield.ProtectionGroupArgs
-    ///         {
-    ///             Aggregation = "SUM",
-    ///             Pattern = "BY_RESOURCE_TYPE",
-    ///             ProtectionGroupId = "example",
-    ///             ResourceType = "ELASTIC_IP_ALLOCATION",
-    ///         });
-    ///     }
+    ///         Aggregation = "SUM",
+    ///         Pattern = "BY_RESOURCE_TYPE",
+    ///         ProtectionGroupId = "example",
+    ///         ResourceType = "ELASTIC_IP_ALLOCATION",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -118,7 +116,7 @@ namespace Pulumi.Aws.Shield
     /// ```
     /// </summary>
     [AwsResourceType("aws:shield/protectionGroup:ProtectionGroup")]
-    public partial class ProtectionGroup : Pulumi.CustomResource
+    public partial class ProtectionGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
@@ -212,7 +210,7 @@ namespace Pulumi.Aws.Shield
         }
     }
 
-    public sealed class ProtectionGroupArgs : Pulumi.ResourceArgs
+    public sealed class ProtectionGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
@@ -265,9 +263,10 @@ namespace Pulumi.Aws.Shield
         public ProtectionGroupArgs()
         {
         }
+        public static new ProtectionGroupArgs Empty => new ProtectionGroupArgs();
     }
 
-    public sealed class ProtectionGroupState : Pulumi.ResourceArgs
+    public sealed class ProtectionGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
@@ -338,5 +337,6 @@ namespace Pulumi.Aws.Shield
         public ProtectionGroupState()
         {
         }
+        public static new ProtectionGroupState Empty => new ProtectionGroupState();
     }
 }

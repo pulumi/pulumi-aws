@@ -15,24 +15,22 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var vpnGw = new Aws.Ec2.VpnGateway("vpnGw", new()
     ///     {
-    ///         var vpnGw = new Aws.Ec2.VpnGateway("vpnGw", new Aws.Ec2.VpnGatewayArgs
+    ///         VpcId = aws_vpc.Main.Id,
+    ///         Tags = 
     ///         {
-    ///             VpcId = aws_vpc.Main.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "main" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "main" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpnGateway:VpnGateway")]
-    public partial class VpnGateway : Pulumi.CustomResource
+    public partial class VpnGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
@@ -71,7 +69,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -126,7 +124,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpnGatewayArgs : Pulumi.ResourceArgs
+    public sealed class VpnGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
@@ -161,9 +159,10 @@ namespace Pulumi.Aws.Ec2
         public VpnGatewayArgs()
         {
         }
+        public static new VpnGatewayArgs Empty => new VpnGatewayArgs();
     }
 
-    public sealed class VpnGatewayState : Pulumi.ResourceArgs
+    public sealed class VpnGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
@@ -199,7 +198,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -216,5 +215,6 @@ namespace Pulumi.Aws.Ec2
         public VpnGatewayState()
         {
         }
+        public static new VpnGatewayState Empty => new VpnGatewayState();
     }
 }

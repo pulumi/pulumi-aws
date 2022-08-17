@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetVpcPeeringConnectionFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetVpcPeeringConnectionFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the field to filter by, as defined by
@@ -35,5 +35,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetVpcPeeringConnectionFilterInputArgs()
         {
         }
+        public static new GetVpcPeeringConnectionFilterInputArgs Empty => new GetVpcPeeringConnectionFilterInputArgs();
     }
 }

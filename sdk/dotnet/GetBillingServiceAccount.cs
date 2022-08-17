@@ -19,30 +19,30 @@ namespace Pulumi.Aws
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var main = Aws.GetBillingServiceAccount.Invoke();
+        /// 
+        ///     var billingLogs = new Aws.S3.BucketV2("billingLogs");
+        /// 
+        ///     var billingLogsAcl = new Aws.S3.BucketAclV2("billingLogsAcl", new()
         ///     {
-        ///         var main = Output.Create(Aws.GetBillingServiceAccount.InvokeAsync());
-        ///         var billingLogs = new Aws.S3.BucketV2("billingLogs", new Aws.S3.BucketV2Args
+        ///         Bucket = billingLogs.Id,
+        ///         Acl = "private",
+        ///     });
+        /// 
+        ///     var allowBillingLogging = new Aws.S3.BucketPolicy("allowBillingLogging", new()
+        ///     {
+        ///         Bucket = billingLogs.Id,
+        ///         Policy = Output.Tuple(main.Apply(getBillingServiceAccountResult =&gt; getBillingServiceAccountResult), main.Apply(getBillingServiceAccountResult =&gt; getBillingServiceAccountResult)).Apply(values =&gt;
         ///         {
-        ///         });
-        ///         var billingLogsAcl = new Aws.S3.BucketAclV2("billingLogsAcl", new Aws.S3.BucketAclV2Args
-        ///         {
-        ///             Bucket = billingLogs.Id,
-        ///             Acl = "private",
-        ///         });
-        ///         var allowBillingLogging = new Aws.S3.BucketPolicy("allowBillingLogging", new Aws.S3.BucketPolicyArgs
-        ///         {
-        ///             Bucket = billingLogs.Id,
-        ///             Policy = Output.Tuple(main, main).Apply(values =&gt;
-        ///             {
-        ///                 var main = values.Item1;
-        ///                 var main1 = values.Item2;
-        ///                 return @$"{{
+        ///             var main = values.Item1;
+        ///             var main1 = values.Item2;
+        ///             return @$"{{
         ///   ""Id"": ""Policy"",
         ///   ""Version"": ""2012-10-17"",
         ///   ""Statement"": [
@@ -54,7 +54,7 @@ namespace Pulumi.Aws
         ///       ""Resource"": ""arn:aws:s3:::my-billing-tf-test-bucket"",
         ///       ""Principal"": {{
         ///         ""AWS"": [
-        ///           ""{main.Arn}""
+        ///           ""{main.Apply(getBillingServiceAccountResult =&gt; getBillingServiceAccountResult.Arn)}""
         ///         ]
         ///       }}
         ///     }},
@@ -73,11 +73,10 @@ namespace Pulumi.Aws
         ///   ]
         /// }}
         /// ";
-        ///             }),
-        ///         });
-        ///     }
+        ///         }),
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

@@ -19,25 +19,23 @@ namespace Pulumi.Aws.RedShift
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.RedShift.GetOrderableCluster.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.RedShift.GetOrderableCluster.InvokeAsync(new Aws.RedShift.GetOrderableClusterArgs
+        ///         ClusterType = "multi-node",
+        ///         PreferredNodeTypes = new[]
         ///         {
-        ///             ClusterType = "multi-node",
-        ///             PreferredNodeTypes = 
-        ///             {
-        ///                 "dc2.large",
-        ///                 "ds2.xlarge",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "dc2.large",
+        ///             "ds2.xlarge",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +51,23 @@ namespace Pulumi.Aws.RedShift
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.RedShift.GetOrderableCluster.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.RedShift.GetOrderableCluster.InvokeAsync(new Aws.RedShift.GetOrderableClusterArgs
+        ///         ClusterType = "multi-node",
+        ///         PreferredNodeTypes = new[]
         ///         {
-        ///             ClusterType = "multi-node",
-        ///             PreferredNodeTypes = 
-        ///             {
-        ///                 "dc2.large",
-        ///                 "ds2.xlarge",
-        ///             },
-        ///         }));
-        ///     }
+        ///             "dc2.large",
+        ///             "ds2.xlarge",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +77,7 @@ namespace Pulumi.Aws.RedShift
     }
 
 
-    public sealed class GetOrderableClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetOrderableClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Reshift Cluster typeE.g., `multi-node` or `single-node`
@@ -116,9 +112,10 @@ namespace Pulumi.Aws.RedShift
         public GetOrderableClusterArgs()
         {
         }
+        public static new GetOrderableClusterArgs Empty => new GetOrderableClusterArgs();
     }
 
-    public sealed class GetOrderableClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetOrderableClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Reshift Cluster typeE.g., `multi-node` or `single-node`
@@ -153,6 +150,7 @@ namespace Pulumi.Aws.RedShift
         public GetOrderableClusterInvokeArgs()
         {
         }
+        public static new GetOrderableClusterInvokeArgs Empty => new GetOrderableClusterInvokeArgs();
     }
 
 

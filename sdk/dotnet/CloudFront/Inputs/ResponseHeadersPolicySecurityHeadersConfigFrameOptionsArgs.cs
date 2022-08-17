@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs()
         {
         }
+        public static new ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs Empty => new ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs();
     }
 }

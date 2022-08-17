@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class VirtualNodeSpecServiceDiscoveryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNodeSpecServiceDiscoveryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies any AWS Cloud Map information for the virtual node.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public VirtualNodeSpecServiceDiscoveryArgs()
         {
         }
+        public static new VirtualNodeSpecServiceDiscoveryArgs Empty => new VirtualNodeSpecServiceDiscoveryArgs();
     }
 }

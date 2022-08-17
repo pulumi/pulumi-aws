@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Maximum.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs()
         {
         }
+        public static new LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs Empty => new LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs();
     }
 }

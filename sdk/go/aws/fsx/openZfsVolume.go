@@ -20,21 +20,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := fsx.NewOpenZfsVolume(ctx, "test", &fsx.OpenZfsVolumeArgs{
-// 			ParentVolumeId: pulumi.Any(aws_fsx_openzfs_file_system.Test.Root_volume_id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := fsx.NewOpenZfsVolume(ctx, "test", &fsx.OpenZfsVolumeArgs{
+//				ParentVolumeId: pulumi.Any(aws_fsx_openzfs_file_system.Test.Root_volume_id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // FSx Volumes can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
+//
+//	$ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
+//
 // ```
 type OpenZfsVolume struct {
 	pulumi.CustomResourceState
@@ -63,13 +68,14 @@ type OpenZfsVolume struct {
 	ParentVolumeId pulumi.StringOutput `pulumi:"parentVolumeId"`
 	// specifies whether the volume is read-only. Default is false.
 	ReadOnly pulumi.BoolOutput `pulumi:"readOnly"`
+	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+	RecordSizeKib pulumi.IntPtrOutput `pulumi:"recordSizeKib"`
 	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
 	StorageCapacityQuotaGib pulumi.IntOutput `pulumi:"storageCapacityQuotaGib"`
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib pulumi.IntOutput `pulumi:"storageCapacityReservationGib"`
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayOutput `pulumi:"userAndGroupQuotas"`
@@ -124,13 +130,14 @@ type openZfsVolumeState struct {
 	ParentVolumeId *string `pulumi:"parentVolumeId"`
 	// specifies whether the volume is read-only. Default is false.
 	ReadOnly *bool `pulumi:"readOnly"`
+	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+	RecordSizeKib *int `pulumi:"recordSizeKib"`
 	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
 	StorageCapacityQuotaGib *int `pulumi:"storageCapacityQuotaGib"`
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib *int `pulumi:"storageCapacityReservationGib"`
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas []OpenZfsVolumeUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
@@ -154,13 +161,14 @@ type OpenZfsVolumeState struct {
 	ParentVolumeId pulumi.StringPtrInput
 	// specifies whether the volume is read-only. Default is false.
 	ReadOnly pulumi.BoolPtrInput
+	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+	RecordSizeKib pulumi.IntPtrInput
 	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
 	StorageCapacityQuotaGib pulumi.IntPtrInput
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib pulumi.IntPtrInput
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayInput
@@ -186,11 +194,13 @@ type openZfsVolumeArgs struct {
 	ParentVolumeId string `pulumi:"parentVolumeId"`
 	// specifies whether the volume is read-only. Default is false.
 	ReadOnly *bool `pulumi:"readOnly"`
+	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+	RecordSizeKib *int `pulumi:"recordSizeKib"`
 	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
 	StorageCapacityQuotaGib *int `pulumi:"storageCapacityQuotaGib"`
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib *int `pulumi:"storageCapacityReservationGib"`
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas []OpenZfsVolumeUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
@@ -213,11 +223,13 @@ type OpenZfsVolumeArgs struct {
 	ParentVolumeId pulumi.StringInput
 	// specifies whether the volume is read-only. Default is false.
 	ReadOnly pulumi.BoolPtrInput
+	// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+	RecordSizeKib pulumi.IntPtrInput
 	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
 	StorageCapacityQuotaGib pulumi.IntPtrInput
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib pulumi.IntPtrInput
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayInput
@@ -250,7 +262,7 @@ func (i *OpenZfsVolume) ToOpenZfsVolumeOutputWithContext(ctx context.Context) Op
 // OpenZfsVolumeArrayInput is an input type that accepts OpenZfsVolumeArray and OpenZfsVolumeArrayOutput values.
 // You can construct a concrete instance of `OpenZfsVolumeArrayInput` via:
 //
-//          OpenZfsVolumeArray{ OpenZfsVolumeArgs{...} }
+//	OpenZfsVolumeArray{ OpenZfsVolumeArgs{...} }
 type OpenZfsVolumeArrayInput interface {
 	pulumi.Input
 
@@ -275,7 +287,7 @@ func (i OpenZfsVolumeArray) ToOpenZfsVolumeArrayOutputWithContext(ctx context.Co
 // OpenZfsVolumeMapInput is an input type that accepts OpenZfsVolumeMap and OpenZfsVolumeMapOutput values.
 // You can construct a concrete instance of `OpenZfsVolumeMapInput` via:
 //
-//          OpenZfsVolumeMap{ "key": OpenZfsVolumeArgs{...} }
+//	OpenZfsVolumeMap{ "key": OpenZfsVolumeArgs{...} }
 type OpenZfsVolumeMapInput interface {
 	pulumi.Input
 
@@ -351,6 +363,11 @@ func (o OpenZfsVolumeOutput) ReadOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.BoolOutput { return v.ReadOnly }).(pulumi.BoolOutput)
 }
 
+// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+func (o OpenZfsVolumeOutput) RecordSizeKib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OpenZfsVolume) pulumi.IntPtrOutput { return v.RecordSizeKib }).(pulumi.IntPtrOutput)
+}
+
 // - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
 func (o OpenZfsVolumeOutput) StorageCapacityQuotaGib() pulumi.IntOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.IntOutput { return v.StorageCapacityQuotaGib }).(pulumi.IntOutput)
@@ -361,12 +378,11 @@ func (o OpenZfsVolumeOutput) StorageCapacityReservationGib() pulumi.IntOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.IntOutput { return v.StorageCapacityReservationGib }).(pulumi.IntOutput)
 }
 
-// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o OpenZfsVolumeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o OpenZfsVolumeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

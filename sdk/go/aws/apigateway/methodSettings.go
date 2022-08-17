@@ -21,104 +21,107 @@ import (
 // package main
 //
 // import (
-// 	"crypto/sha1"
-// 	"encoding/json"
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"crypto/sha1"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func sha1Hash(input string) string {
-// 	hash := sha1.Sum([]byte(input))
-// 	return hex.EncodeToString(hash[:])
-// }
+//	func sha1Hash(input string) string {
+//		hash := sha1.Sum([]byte(input))
+//		return hex.EncodeToString(hash[:])
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"openapi": "3.0.1",
-// 			"info": map[string]interface{}{
-// 				"title":   "example",
-// 				"version": "1.0",
-// 			},
-// 			"paths": map[string]interface{}{
-// 				"/path1": map[string]interface{}{
-// 					"get": map[string]interface{}{
-// 						"x-amazon-apigateway-integration": map[string]interface{}{
-// 							"httpMethod":           "GET",
-// 							"payloadFormatVersion": "1.0",
-// 							"type":                 "HTTP_PROXY",
-// 							"uri":                  "https://ip-ranges.amazonaws.com/ip-ranges.json",
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", &apigateway.RestApiArgs{
-// 			Body: pulumi.String(json0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
-// 			RestApi: exampleRestApi.ID(),
-// 			Triggers: pulumi.StringMap{
-// 				"redeployment": exampleRestApi.Body.ApplyT(func(body string) (pulumi.String, error) {
-// 					var _zero pulumi.String
-// 					tmpJSON1, err := json.Marshal(body)
-// 					if err != nil {
-// 						return _zero, err
-// 					}
-// 					json1 := string(tmpJSON1)
-// 					return json1, nil
-// 				}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
-// 					return sha1Hash(toJSON), nil
-// 				}).(pulumi.StringOutput),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleStage, err := apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
-// 			Deployment: exampleDeployment.ID(),
-// 			RestApi:    exampleRestApi.ID(),
-// 			StageName:  pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.NewMethodSettings(ctx, "all", &apigateway.MethodSettingsArgs{
-// 			RestApi:    exampleRestApi.ID(),
-// 			StageName:  exampleStage.StageName,
-// 			MethodPath: pulumi.String("*/*"),
-// 			Settings: &apigateway.MethodSettingsSettingsArgs{
-// 				MetricsEnabled: pulumi.Bool(true),
-// 				LoggingLevel:   pulumi.String("ERROR"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.NewMethodSettings(ctx, "pathSpecific", &apigateway.MethodSettingsArgs{
-// 			RestApi:    exampleRestApi.ID(),
-// 			StageName:  exampleStage.StageName,
-// 			MethodPath: pulumi.String("path1/GET"),
-// 			Settings: &apigateway.MethodSettingsSettingsArgs{
-// 				MetricsEnabled: pulumi.Bool(true),
-// 				LoggingLevel:   pulumi.String("INFO"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"openapi": "3.0.1",
+//				"info": map[string]interface{}{
+//					"title":   "example",
+//					"version": "1.0",
+//				},
+//				"paths": map[string]interface{}{
+//					"/path1": map[string]interface{}{
+//						"get": map[string]interface{}{
+//							"x-amazon-apigateway-integration": map[string]interface{}{
+//								"httpMethod":           "GET",
+//								"payloadFormatVersion": "1.0",
+//								"type":                 "HTTP_PROXY",
+//								"uri":                  "https://ip-ranges.amazonaws.com/ip-ranges.json",
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", &apigateway.RestApiArgs{
+//				Body: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
+//				RestApi: exampleRestApi.ID(),
+//				Triggers: pulumi.StringMap{
+//					"redeployment": exampleRestApi.Body.ApplyT(func(body string) (pulumi.String, error) {
+//						var _zero pulumi.String
+//						tmpJSON1, err := json.Marshal(body)
+//						if err != nil {
+//							return _zero, err
+//						}
+//						json1 := string(tmpJSON1)
+//						return json1, nil
+//					}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
+//						return sha1Hash(toJSON), nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleStage, err := apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
+//				Deployment: exampleDeployment.ID(),
+//				RestApi:    exampleRestApi.ID(),
+//				StageName:  pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewMethodSettings(ctx, "all", &apigateway.MethodSettingsArgs{
+//				RestApi:    exampleRestApi.ID(),
+//				StageName:  exampleStage.StageName,
+//				MethodPath: pulumi.String("*/*"),
+//				Settings: &apigateway.MethodSettingsSettingsArgs{
+//					MetricsEnabled: pulumi.Bool(true),
+//					LoggingLevel:   pulumi.String("ERROR"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewMethodSettings(ctx, "pathSpecific", &apigateway.MethodSettingsArgs{
+//				RestApi:    exampleRestApi.ID(),
+//				StageName:  exampleStage.StageName,
+//				MethodPath: pulumi.String("path1/GET"),
+//				Settings: &apigateway.MethodSettingsSettingsArgs{
+//					MetricsEnabled: pulumi.Bool(true),
+//					LoggingLevel:   pulumi.String("INFO"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -126,7 +129,9 @@ import (
 // `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
+//
+//	$ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
+//
 // ```
 type MethodSettings struct {
 	pulumi.CustomResourceState
@@ -256,7 +261,7 @@ func (i *MethodSettings) ToMethodSettingsOutputWithContext(ctx context.Context) 
 // MethodSettingsArrayInput is an input type that accepts MethodSettingsArray and MethodSettingsArrayOutput values.
 // You can construct a concrete instance of `MethodSettingsArrayInput` via:
 //
-//          MethodSettingsArray{ MethodSettingsArgs{...} }
+//	MethodSettingsArray{ MethodSettingsArgs{...} }
 type MethodSettingsArrayInput interface {
 	pulumi.Input
 
@@ -281,7 +286,7 @@ func (i MethodSettingsArray) ToMethodSettingsArrayOutputWithContext(ctx context.
 // MethodSettingsMapInput is an input type that accepts MethodSettingsMap and MethodSettingsMapOutput values.
 // You can construct a concrete instance of `MethodSettingsMapInput` via:
 //
-//          MethodSettingsMap{ "key": MethodSettingsArgs{...} }
+//	MethodSettingsMap{ "key": MethodSettingsArgs{...} }
 type MethodSettingsMapInput interface {
 	pulumi.Input
 

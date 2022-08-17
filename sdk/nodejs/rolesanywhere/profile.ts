@@ -11,20 +11,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const current = aws.getPartition({});
  * const testRole = new aws.iam.Role("testRole", {
  *     path: "/",
- *     assumeRolePolicy: current.then(current => JSON.stringify({
+ *     assumeRolePolicy: JSON.stringify({
  *         Version: "2012-10-17",
  *         Statement: [{
- *             Action: "sts:AssumeRole",
+ *             Action: [
+ *                 "sts:AssumeRole",
+ *                 "sts:TagSession",
+ *                 "sts:SetSourceIdentity",
+ *             ],
  *             Principal: {
- *                 Service: `ec2.${current.dnsSuffix}`,
+ *                 Service: "rolesanywhere.amazonaws.com",
  *             },
  *             Effect: "Allow",
  *             Sid: "",
  *         }],
- *     })),
+ *     }),
  * });
  * const testProfile = new aws.rolesanywhere.Profile("testProfile", {roleArns: [testRole.arn]});
  * ```
@@ -97,14 +100,8 @@ export class Profile extends pulumi.CustomResource {
      * A session policy that applies to the trust boundary of the vended session credentials.
      */
     public readonly sessionPolicy!: pulumi.Output<string | undefined>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -142,8 +139,8 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["roleArns"] = args ? args.roleArns : undefined;
             resourceInputs["sessionPolicy"] = args ? args.sessionPolicy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Profile.__pulumiType, name, resourceInputs, opts);
@@ -186,13 +183,7 @@ export interface ProfileState {
      * A session policy that applies to the trust boundary of the vended session credentials.
      */
     sessionPolicy?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -228,12 +219,5 @@ export interface ProfileArgs {
      * A session policy that applies to the trust boundary of the vended session credentials.
      */
     sessionPolicy?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

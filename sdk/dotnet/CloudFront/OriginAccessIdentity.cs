@@ -22,20 +22,18 @@ namespace Pulumi.Aws.CloudFront
     /// The following example below creates a CloudFront origin access identity.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CloudFront.OriginAccessIdentity("example", new()
     ///     {
-    ///         var example = new Aws.CloudFront.OriginAccessIdentity("example", new Aws.CloudFront.OriginAccessIdentityArgs
-    ///         {
-    ///             Comment = "Some comment",
-    ///         });
-    ///     }
+    ///         Comment = "Some comment",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Using With CloudFront
     /// 
@@ -46,30 +44,28 @@ namespace Pulumi.Aws.CloudFront
     /// `aws.cloudfront.Distribution` resource:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // ... other configuration ...
+    ///     var example = new Aws.CloudFront.Distribution("example", new()
     ///     {
-    ///         // ... other configuration ...
-    ///         var example = new Aws.CloudFront.Distribution("example", new Aws.CloudFront.DistributionArgs
+    ///         Origins = new[]
     ///         {
-    ///             Origins = 
+    ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
     ///             {
-    ///                 new Aws.CloudFront.Inputs.DistributionOriginArgs
+    ///                 S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
     ///                 {
-    ///                     S3OriginConfig = new Aws.CloudFront.Inputs.DistributionOriginS3OriginConfigArgs
-    ///                     {
-    ///                         OriginAccessIdentity = aws_cloudfront_origin_access_identity.Example.Cloudfront_access_identity_path,
-    ///                     },
+    ///                     OriginAccessIdentity = aws_cloudfront_origin_access_identity.Example.Cloudfront_access_identity_path,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ### Updating your bucket policy
@@ -80,49 +76,48 @@ namespace Pulumi.Aws.CloudFront
     /// you see this behaviour, use the `iam_arn` instead:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var s3Policy = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         var s3Policy = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         Statements = new[]
     ///         {
-    ///             Statements = 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 Actions = new[]
     ///                 {
-    ///                     Actions = 
+    ///                     "s3:GetObject",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{aws_s3_bucket.Example.Arn}/*",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         "s3:GetObject",
-    ///                     },
-    ///                     Resources = 
-    ///                     {
-    ///                         $"{aws_s3_bucket.Example.Arn}/*",
-    ///                     },
-    ///                     Principals = 
-    ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             Type = "AWS",
-    ///                             Identifiers = 
-    ///                             {
-    ///                                 aws_cloudfront_origin_access_identity.Example.Iam_arn,
-    ///                             },
+    ///                             aws_cloudfront_origin_access_identity.Example.Iam_arn,
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///         }));
-    ///         var example = new Aws.S3.BucketPolicy("example", new Aws.S3.BucketPolicyArgs
-    ///         {
-    ///             Bucket = aws_s3_bucket.Example.Id,
-    ///             Policy = s3Policy.Apply(s3Policy =&gt; s3Policy.Json),
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var example = new Aws.S3.BucketPolicy("example", new()
+    ///     {
+    ///         Bucket = aws_s3_bucket.Example.Id,
+    ///         Policy = s3Policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
@@ -137,7 +132,7 @@ namespace Pulumi.Aws.CloudFront
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/originAccessIdentity:OriginAccessIdentity")]
-    public partial class OriginAccessIdentity : Pulumi.CustomResource
+    public partial class OriginAccessIdentity : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Internal value used by CloudFront to allow future
@@ -226,7 +221,7 @@ namespace Pulumi.Aws.CloudFront
         }
     }
 
-    public sealed class OriginAccessIdentityArgs : Pulumi.ResourceArgs
+    public sealed class OriginAccessIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An optional comment for the origin access identity.
@@ -237,9 +232,10 @@ namespace Pulumi.Aws.CloudFront
         public OriginAccessIdentityArgs()
         {
         }
+        public static new OriginAccessIdentityArgs Empty => new OriginAccessIdentityArgs();
     }
 
-    public sealed class OriginAccessIdentityState : Pulumi.ResourceArgs
+    public sealed class OriginAccessIdentityState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Internal value used by CloudFront to allow future
@@ -287,5 +283,6 @@ namespace Pulumi.Aws.CloudFront
         public OriginAccessIdentityState()
         {
         }
+        public static new OriginAccessIdentityState Empty => new OriginAccessIdentityState();
     }
 }

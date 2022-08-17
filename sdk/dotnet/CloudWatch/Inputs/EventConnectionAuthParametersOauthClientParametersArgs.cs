@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventConnectionAuthParametersOauthClientParametersArgs : Pulumi.ResourceArgs
+    public sealed class EventConnectionAuthParametersOauthClientParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventConnectionAuthParametersOauthClientParametersArgs()
         {
         }
+        public static new EventConnectionAuthParametersOauthClientParametersArgs Empty => new EventConnectionAuthParametersOauthClientParametersArgs();
     }
 }

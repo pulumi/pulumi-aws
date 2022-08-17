@@ -24,22 +24,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudwatch.NewEventPermission(ctx, "devAccountAccess", &cloudwatch.EventPermissionArgs{
-// 			Principal:   pulumi.String("123456789012"),
-// 			StatementId: pulumi.String("DevAccountAccess"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewEventPermission(ctx, "devAccountAccess", &cloudwatch.EventPermissionArgs{
+//				Principal:   pulumi.String("123456789012"),
+//				StatementId: pulumi.String("DevAccountAccess"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Organization Access
 //
@@ -47,27 +50,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudwatch.NewEventPermission(ctx, "organizationAccess", &cloudwatch.EventPermissionArgs{
-// 			Principal:   pulumi.String("*"),
-// 			StatementId: pulumi.String("OrganizationAccess"),
-// 			Condition: &cloudwatch.EventPermissionConditionArgs{
-// 				Key:   pulumi.String("aws:PrincipalOrgID"),
-// 				Type:  pulumi.String("StringEquals"),
-// 				Value: pulumi.Any(aws_organizations_organization.Example.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewEventPermission(ctx, "organizationAccess", &cloudwatch.EventPermissionArgs{
+//				Principal:   pulumi.String("*"),
+//				StatementId: pulumi.String("OrganizationAccess"),
+//				Condition: &cloudwatch.EventPermissionConditionArgs{
+//					Key:   pulumi.String("aws:PrincipalOrgID"),
+//					Type:  pulumi.String("StringEquals"),
+//					Value: pulumi.Any(aws_organizations_organization.Example.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,7 +81,9 @@ import (
 // EventBridge permissions can be imported using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
+//
+//	$ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
+//
 // ```
 type EventPermission struct {
 	pulumi.CustomResourceState
@@ -209,7 +217,7 @@ func (i *EventPermission) ToEventPermissionOutputWithContext(ctx context.Context
 // EventPermissionArrayInput is an input type that accepts EventPermissionArray and EventPermissionArrayOutput values.
 // You can construct a concrete instance of `EventPermissionArrayInput` via:
 //
-//          EventPermissionArray{ EventPermissionArgs{...} }
+//	EventPermissionArray{ EventPermissionArgs{...} }
 type EventPermissionArrayInput interface {
 	pulumi.Input
 
@@ -234,7 +242,7 @@ func (i EventPermissionArray) ToEventPermissionArrayOutputWithContext(ctx contex
 // EventPermissionMapInput is an input type that accepts EventPermissionMap and EventPermissionMapOutput values.
 // You can construct a concrete instance of `EventPermissionMapInput` via:
 //
-//          EventPermissionMap{ "key": EventPermissionArgs{...} }
+//	EventPermissionMap{ "key": EventPermissionArgs{...} }
 type EventPermissionMapInput interface {
 	pulumi.Input
 

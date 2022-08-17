@@ -15,27 +15,24 @@ namespace Pulumi.Aws.Detective
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleGraph = new Aws.Detective.Graph("exampleGraph", new Aws.Detective.GraphArgs
-    ///         {
-    ///         });
-    ///         var exampleMember = new Aws.Detective.Member("exampleMember", new Aws.Detective.MemberArgs
-    ///         {
-    ///             AccountId = "AWS ACCOUNT ID",
-    ///             EmailAddress = "EMAIL",
-    ///             GraphArn = exampleGraph.Id,
-    ///             Message = "Message of the invitation",
-    ///             DisableEmailNotification = true,
-    ///         });
-    ///     }
+    ///     var exampleGraph = new Aws.Detective.Graph("exampleGraph");
     /// 
-    /// }
+    ///     var exampleMember = new Aws.Detective.Member("exampleMember", new()
+    ///     {
+    ///         AccountId = "AWS ACCOUNT ID",
+    ///         EmailAddress = "EMAIL",
+    ///         GraphArn = exampleGraph.Id,
+    ///         Message = "Message of the invitation",
+    ///         DisableEmailNotification = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +44,7 @@ namespace Pulumi.Aws.Detective
     /// ```
     /// </summary>
     [AwsResourceType("aws:detective/member:Member")]
-    public partial class Member : Pulumi.CustomResource
+    public partial class Member : global::Pulumi.CustomResource
     {
         /// <summary>
         /// AWS account ID for the account.
@@ -156,7 +153,7 @@ namespace Pulumi.Aws.Detective
         }
     }
 
-    public sealed class MemberArgs : Pulumi.ResourceArgs
+    public sealed class MemberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AWS account ID for the account.
@@ -191,9 +188,10 @@ namespace Pulumi.Aws.Detective
         public MemberArgs()
         {
         }
+        public static new MemberArgs Empty => new MemberArgs();
     }
 
-    public sealed class MemberState : Pulumi.ResourceArgs
+    public sealed class MemberState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// AWS account ID for the account.
@@ -261,5 +259,6 @@ namespace Pulumi.Aws.Detective
         public MemberState()
         {
         }
+        public static new MemberState Empty => new MemberState();
     }
 }

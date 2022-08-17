@@ -89,7 +89,7 @@ export class InstanceGroup extends pulumi.CustomResource {
     /**
      * target number of instances for the instance group. defaults to 0.
      */
-    public readonly instanceCount!: pulumi.Output<number | undefined>;
+    public readonly instanceCount!: pulumi.Output<number>;
     /**
      * The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
      */

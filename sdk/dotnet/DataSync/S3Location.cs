@@ -15,25 +15,23 @@ namespace Pulumi.Aws.DataSync
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DataSync.S3Location("example", new()
     ///     {
-    ///         var example = new Aws.DataSync.S3Location("example", new Aws.DataSync.S3LocationArgs
+    ///         S3BucketArn = aws_s3_bucket.Example.Arn,
+    ///         Subdirectory = "/example/prefix",
+    ///         S3Config = new Aws.DataSync.Inputs.S3LocationS3ConfigArgs
     ///         {
-    ///             S3BucketArn = aws_s3_bucket.Example.Arn,
-    ///             Subdirectory = "/example/prefix",
-    ///             S3Config = new Aws.DataSync.Inputs.S3LocationS3ConfigArgs
-    ///             {
-    ///                 BucketAccessRoleArn = aws_iam_role.Example.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             BucketAccessRoleArn = aws_iam_role.Example.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.DataSync
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/s3Location:S3Location")]
-    public partial class S3Location : Pulumi.CustomResource
+    public partial class S3Location : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of DataSync Agent ARNs with which this location will be associated.
@@ -84,13 +82,13 @@ namespace Pulumi.Aws.DataSync
         public Output<string> Subdirectory { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -142,7 +140,7 @@ namespace Pulumi.Aws.DataSync
         }
     }
 
-    public sealed class S3LocationArgs : Pulumi.ResourceArgs
+    public sealed class S3LocationArgs : global::Pulumi.ResourceArgs
     {
         [Input("agentArns")]
         private InputList<string>? _agentArns;
@@ -184,7 +182,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -195,9 +193,10 @@ namespace Pulumi.Aws.DataSync
         public S3LocationArgs()
         {
         }
+        public static new S3LocationArgs Empty => new S3LocationArgs();
     }
 
-    public sealed class S3LocationState : Pulumi.ResourceArgs
+    public sealed class S3LocationState : global::Pulumi.ResourceArgs
     {
         [Input("agentArns")]
         private InputList<string>? _agentArns;
@@ -245,7 +244,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -257,7 +256,7 @@ namespace Pulumi.Aws.DataSync
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -271,5 +270,6 @@ namespace Pulumi.Aws.DataSync
         public S3LocationState()
         {
         }
+        public static new S3LocationState Empty => new S3LocationState();
     }
 }

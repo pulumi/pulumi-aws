@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Rum
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Rum.AppMonitor("example", new()
     ///     {
-    ///         var example = new Aws.Rum.AppMonitor("example", new Aws.Rum.AppMonitorArgs
-    ///         {
-    ///             Domain = "localhost",
-    ///         });
-    ///     }
+    ///         Domain = "localhost",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.Rum
     /// ```
     /// </summary>
     [AwsResourceType("aws:rum/appMonitor:AppMonitor")]
-    public partial class AppMonitor : Pulumi.CustomResource
+    public partial class AppMonitor : global::Pulumi.CustomResource
     {
         [Output("appMonitorConfiguration")]
         public Output<Outputs.AppMonitorAppMonitorConfiguration> AppMonitorConfiguration { get; private set; } = null!;
@@ -81,9 +79,6 @@ namespace Pulumi.Aws.Rum
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -131,7 +126,7 @@ namespace Pulumi.Aws.Rum
         }
     }
 
-    public sealed class AppMonitorArgs : Pulumi.ResourceArgs
+    public sealed class AppMonitorArgs : global::Pulumi.ResourceArgs
     {
         [Input("appMonitorConfiguration")]
         public Input<Inputs.AppMonitorAppMonitorConfigurationArgs>? AppMonitorConfiguration { get; set; }
@@ -166,24 +161,13 @@ namespace Pulumi.Aws.Rum
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public AppMonitorArgs()
         {
         }
+        public static new AppMonitorArgs Empty => new AppMonitorArgs();
     }
 
-    public sealed class AppMonitorState : Pulumi.ResourceArgs
+    public sealed class AppMonitorState : global::Pulumi.ResourceArgs
     {
         [Input("appMonitorConfiguration")]
         public Input<Inputs.AppMonitorAppMonitorConfigurationGetArgs>? AppMonitorConfiguration { get; set; }
@@ -232,10 +216,6 @@ namespace Pulumi.Aws.Rum
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -245,5 +225,6 @@ namespace Pulumi.Aws.Rum
         public AppMonitorState()
         {
         }
+        public static new AppMonitorState Empty => new AppMonitorState();
     }
 }

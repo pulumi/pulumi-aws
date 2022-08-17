@@ -21,66 +21,60 @@ namespace Pulumi.Aws
         /// Enabled AWS Regions:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.GetRegions.InvokeAsync());
-        ///     }
+        ///     var current = Aws.GetRegions.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// All the regions regardless of the availability
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Aws.GetRegions.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Aws.GetRegions.InvokeAsync(new Aws.GetRegionsArgs
-        ///         {
-        ///             AllRegions = true,
-        ///         }));
-        ///     }
+        ///         AllRegions = true,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Aws.GetRegions.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Aws.GetRegions.InvokeAsync(new Aws.GetRegionsArgs
+        ///         AllRegions = true,
+        ///         Filters = new[]
         ///         {
-        ///             AllRegions = true,
-        ///             Filters = 
+        ///             new Aws.Inputs.GetRegionsFilterInputArgs
         ///             {
-        ///                 new Aws.Inputs.GetRegionsFilterArgs
+        ///                 Name = "opt-in-status",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "opt-in-status",
-        ///                     Values = 
-        ///                     {
-        ///                         "not-opted-in",
-        ///                     },
+        ///                     "not-opted-in",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -98,66 +92,60 @@ namespace Pulumi.Aws
         /// Enabled AWS Regions:
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.GetRegions.InvokeAsync());
-        ///     }
+        ///     var current = Aws.GetRegions.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// All the regions regardless of the availability
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Aws.GetRegions.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Aws.GetRegions.InvokeAsync(new Aws.GetRegionsArgs
-        ///         {
-        ///             AllRegions = true,
-        ///         }));
-        ///     }
+        ///         AllRegions = true,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// 
         /// To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Aws.GetRegions.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Aws.GetRegions.InvokeAsync(new Aws.GetRegionsArgs
+        ///         AllRegions = true,
+        ///         Filters = new[]
         ///         {
-        ///             AllRegions = true,
-        ///             Filters = 
+        ///             new Aws.Inputs.GetRegionsFilterInputArgs
         ///             {
-        ///                 new Aws.Inputs.GetRegionsFilterArgs
+        ///                 Name = "opt-in-status",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "opt-in-status",
-        ///                     Values = 
-        ///                     {
-        ///                         "not-opted-in",
-        ///                     },
+        ///                     "not-opted-in",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -167,7 +155,7 @@ namespace Pulumi.Aws
     }
 
 
-    public sealed class GetRegionsArgs : Pulumi.InvokeArgs
+    public sealed class GetRegionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// If true the source will query all regions regardless of availability.
@@ -190,9 +178,10 @@ namespace Pulumi.Aws
         public GetRegionsArgs()
         {
         }
+        public static new GetRegionsArgs Empty => new GetRegionsArgs();
     }
 
-    public sealed class GetRegionsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRegionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// If true the source will query all regions regardless of availability.
@@ -215,6 +204,7 @@ namespace Pulumi.Aws
         public GetRegionsInvokeArgs()
         {
         }
+        public static new GetRegionsInvokeArgs Empty => new GetRegionsInvokeArgs();
     }
 
 

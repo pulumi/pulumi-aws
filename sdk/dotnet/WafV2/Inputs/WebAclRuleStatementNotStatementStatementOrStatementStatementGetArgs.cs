@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleStatementNotStatementStatementOrStatementStatementGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleStatementNotStatementStatementOrStatementStatementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
@@ -81,5 +81,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclRuleStatementNotStatementStatementOrStatementStatementGetArgs()
         {
         }
+        public static new WebAclRuleStatementNotStatementStatementOrStatementStatementGetArgs Empty => new WebAclRuleStatementNotStatementStatementOrStatementStatementGetArgs();
     }
 }

@@ -24,28 +24,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
-// 			Description: pulumi.String("tf-test-desc"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = elasticbeanstalk.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk.EnvironmentArgs{
-// 			Application:       tftest.Name,
-// 			SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
+//				Description: pulumi.String("tf-test-desc"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticbeanstalk.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk.EnvironmentArgs{
+//				Application:       tftest.Name,
+//				SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Option Settings
 //
@@ -65,40 +68,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
-// 			Description: pulumi.String("tf-test-desc"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = elasticbeanstalk.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk.EnvironmentArgs{
-// 			Application:       tftest.Name,
-// 			SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
-// 			Settings: elasticbeanstalk.EnvironmentSettingArray{
-// 				&elasticbeanstalk.EnvironmentSettingArgs{
-// 					Namespace: pulumi.String("aws:ec2:vpc"),
-// 					Name:      pulumi.String("VPCId"),
-// 					Value:     pulumi.String("vpc-xxxxxxxx"),
-// 				},
-// 				&elasticbeanstalk.EnvironmentSettingArgs{
-// 					Namespace: pulumi.String("aws:ec2:vpc"),
-// 					Name:      pulumi.String("Subnets"),
-// 					Value:     pulumi.String("subnet-xxxxxxxx"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
+//				Description: pulumi.String("tf-test-desc"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticbeanstalk.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk.EnvironmentArgs{
+//				Application:       tftest.Name,
+//				SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
+//				Settings: elasticbeanstalk.EnvironmentSettingArray{
+//					&elasticbeanstalk.EnvironmentSettingArgs{
+//						Namespace: pulumi.String("aws:ec2:vpc"),
+//						Name:      pulumi.String("VPCId"),
+//						Value:     pulumi.String("vpc-xxxxxxxx"),
+//					},
+//					&elasticbeanstalk.EnvironmentSettingArgs{
+//						Namespace: pulumi.String("aws:ec2:vpc"),
+//						Name:      pulumi.String("Subnets"),
+//						Value:     pulumi.String("subnet-xxxxxxxx"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -106,7 +112,9 @@ import (
 // Elastic Beanstalk Environments can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
+//
+//	$ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
+//
 // ```
 type Environment struct {
 	pulumi.CustomResourceState
@@ -466,7 +474,7 @@ func (i *Environment) ToEnvironmentOutputWithContext(ctx context.Context) Enviro
 // EnvironmentArrayInput is an input type that accepts EnvironmentArray and EnvironmentArrayOutput values.
 // You can construct a concrete instance of `EnvironmentArrayInput` via:
 //
-//          EnvironmentArray{ EnvironmentArgs{...} }
+//	EnvironmentArray{ EnvironmentArgs{...} }
 type EnvironmentArrayInput interface {
 	pulumi.Input
 
@@ -491,7 +499,7 @@ func (i EnvironmentArray) ToEnvironmentArrayOutputWithContext(ctx context.Contex
 // EnvironmentMapInput is an input type that accepts EnvironmentMap and EnvironmentMapOutput values.
 // You can construct a concrete instance of `EnvironmentMapInput` via:
 //
-//          EnvironmentMap{ "key": EnvironmentArgs{...} }
+//	EnvironmentMap{ "key": EnvironmentArgs{...} }
 type EnvironmentMapInput interface {
 	pulumi.Input
 

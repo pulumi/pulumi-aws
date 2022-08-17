@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Connect.Inputs
 {
 
-    public sealed class QuickConnectQuickConnectConfigUserConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class QuickConnectQuickConnectConfigUserConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the identifier of the contact flow.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Connect.Inputs
         public QuickConnectQuickConnectConfigUserConfigGetArgs()
         {
         }
+        public static new QuickConnectQuickConnectConfigUserConfigGetArgs Empty => new QuickConnectQuickConnectConfigUserConfigGetArgs();
     }
 }

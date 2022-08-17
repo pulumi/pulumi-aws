@@ -15,39 +15,39 @@ namespace Pulumi.Aws.Rds
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleInstance = new Aws.Rds.Instance("exampleInstance", new()
     ///     {
-    ///         var exampleInstance = new Aws.Rds.Instance("exampleInstance", new Aws.Rds.InstanceArgs
-    ///         {
-    ///             AllocatedStorage = 10,
-    ///             Engine = "mysql",
-    ///             EngineVersion = "5.6.21",
-    ///             InstanceClass = "db.t2.micro",
-    ///             Name = "baz",
-    ///             Password = "barbarbarbar",
-    ///             Username = "foo",
-    ///             MaintenanceWindow = "Fri:09:00-Fri:09:30",
-    ///             BackupRetentionPeriod = 0,
-    ///             ParameterGroupName = "default.mysql5.6",
-    ///         });
-    ///         var exampleSnapshot = new Aws.Rds.Snapshot("exampleSnapshot", new Aws.Rds.SnapshotArgs
-    ///         {
-    ///             DbInstanceIdentifier = exampleInstance.Id,
-    ///             DbSnapshotIdentifier = "testsnapshot1234",
-    ///         });
-    ///         var exampleSnapshotCopy = new Aws.Rds.SnapshotCopy("exampleSnapshotCopy", new Aws.Rds.SnapshotCopyArgs
-    ///         {
-    ///             SourceDbSnapshotIdentifier = exampleSnapshot.DbSnapshotArn,
-    ///             TargetDbSnapshotIdentifier = "testsnapshot1234-copy",
-    ///         });
-    ///     }
+    ///         AllocatedStorage = 10,
+    ///         Engine = "mysql",
+    ///         EngineVersion = "5.6.21",
+    ///         InstanceClass = "db.t2.micro",
+    ///         Name = "baz",
+    ///         Password = "barbarbarbar",
+    ///         Username = "foo",
+    ///         MaintenanceWindow = "Fri:09:00-Fri:09:30",
+    ///         BackupRetentionPeriod = 0,
+    ///         ParameterGroupName = "default.mysql5.6",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSnapshot = new Aws.Rds.Snapshot("exampleSnapshot", new()
+    ///     {
+    ///         DbInstanceIdentifier = exampleInstance.Id,
+    ///         DbSnapshotIdentifier = "testsnapshot1234",
+    ///     });
+    /// 
+    ///     var exampleSnapshotCopy = new Aws.Rds.SnapshotCopy("exampleSnapshotCopy", new()
+    ///     {
+    ///         SourceDbSnapshotIdentifier = exampleSnapshot.DbSnapshotArn,
+    ///         TargetDbSnapshotIdentifier = "testsnapshot1234-copy",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/snapshotCopy:SnapshotCopy")]
-    public partial class SnapshotCopy : Pulumi.CustomResource
+    public partial class SnapshotCopy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the allocated storage size in gigabytes (GB).
@@ -169,9 +169,6 @@ namespace Pulumi.Aws.Rds
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -237,7 +234,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class SnapshotCopyArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotCopyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to copy existing tags. Defaults to `false`.
@@ -302,9 +299,10 @@ namespace Pulumi.Aws.Rds
         public SnapshotCopyArgs()
         {
         }
+        public static new SnapshotCopyArgs Empty => new SnapshotCopyArgs();
     }
 
-    public sealed class SnapshotCopyState : Pulumi.ResourceArgs
+    public sealed class SnapshotCopyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the allocated storage size in gigabytes (GB).
@@ -422,10 +420,6 @@ namespace Pulumi.Aws.Rds
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -453,5 +447,6 @@ namespace Pulumi.Aws.Rds
         public SnapshotCopyState()
         {
         }
+        public static new SnapshotCopyState Empty => new SnapshotCopyState();
     }
 }

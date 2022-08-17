@@ -17,37 +17,39 @@ namespace Pulumi.Aws.Shield
     /// ### Create protection
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var available = Output.Create(Aws.GetAvailabilityZones.InvokeAsync());
-    ///         var currentRegion = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var currentCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var exampleEip = new Aws.Ec2.Eip("exampleEip", new Aws.Ec2.EipArgs
-    ///         {
-    ///             Vpc = true,
-    ///         });
-    ///         var exampleProtection = new Aws.Shield.Protection("exampleProtection", new Aws.Shield.ProtectionArgs
-    ///         {
-    ///             ResourceArn = Output.Tuple(currentRegion, currentCallerIdentity, exampleEip.Id).Apply(values =&gt;
-    ///             {
-    ///                 var currentRegion = values.Item1;
-    ///                 var currentCallerIdentity = values.Item2;
-    ///                 var id = values.Item3;
-    ///                 return $"arn:aws:ec2:{currentRegion.Name}:{currentCallerIdentity.AccountId}:eip-allocation/{id}";
-    ///             }),
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Dev" },
-    ///             },
-    ///         });
-    ///     }
+    ///     var available = Aws.GetAvailabilityZones.Invoke();
     /// 
-    /// }
+    ///     var currentRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var exampleEip = new Aws.Ec2.Eip("exampleEip", new()
+    ///     {
+    ///         Vpc = true,
+    ///     });
+    /// 
+    ///     var exampleProtection = new Aws.Shield.Protection("exampleProtection", new()
+    ///     {
+    ///         ResourceArn = Output.Tuple(currentRegion.Apply(getRegionResult =&gt; getRegionResult), currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), exampleEip.Id).Apply(values =&gt;
+    ///         {
+    ///             var currentRegion = values.Item1;
+    ///             var currentCallerIdentity = values.Item2;
+    ///             var id = values.Item3;
+    ///             return $"arn:aws:ec2:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
+    ///         }),
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Dev" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +61,7 @@ namespace Pulumi.Aws.Shield
     /// ```
     /// </summary>
     [AwsResourceType("aws:shield/protection:Protection")]
-    public partial class Protection : Pulumi.CustomResource
+    public partial class Protection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the Protection.
@@ -135,7 +137,7 @@ namespace Pulumi.Aws.Shield
         }
     }
 
-    public sealed class ProtectionArgs : Pulumi.ResourceArgs
+    public sealed class ProtectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A friendly name for the Protection you are creating.
@@ -164,9 +166,10 @@ namespace Pulumi.Aws.Shield
         public ProtectionArgs()
         {
         }
+        public static new ProtectionArgs Empty => new ProtectionArgs();
     }
 
-    public sealed class ProtectionState : Pulumi.ResourceArgs
+    public sealed class ProtectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the Protection.
@@ -213,5 +216,6 @@ namespace Pulumi.Aws.Shield
         public ProtectionState()
         {
         }
+        public static new ProtectionState Empty => new ProtectionState();
     }
 }

@@ -13,54 +13,55 @@ namespace Pulumi.Aws.Rds
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var defaultCluster = new Aws.Rds.Cluster("defaultCluster", new()
     ///     {
-    ///         var defaultCluster = new Aws.Rds.Cluster("defaultCluster", new Aws.Rds.ClusterArgs
+    ///         ClusterIdentifier = "aurora-cluster-demo",
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             ClusterIdentifier = "aurora-cluster-demo",
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-west-2a",
-    ///                 "us-west-2b",
-    ///                 "us-west-2c",
-    ///             },
-    ///             DatabaseName = "mydb",
-    ///             MasterUsername = "foo",
-    ///             MasterPassword = "mustbeeightcharaters",
-    ///             Engine = "aurora-postgresql",
-    ///             EngineVersion = "13.4",
-    ///         });
-    ///         var defaultClusterInstance = new Aws.Rds.ClusterInstance("defaultClusterInstance", new Aws.Rds.ClusterInstanceArgs
-    ///         {
-    ///             Identifier = "aurora-instance-demo",
-    ///             ClusterIdentifier = defaultCluster.ClusterIdentifier,
-    ///             Engine = defaultCluster.Engine,
-    ///             InstanceClass = "db.r6g.large",
-    ///         });
-    ///         var defaultKey = new Aws.Kms.Key("defaultKey", new Aws.Kms.KeyArgs
-    ///         {
-    ///             Description = "AWS KMS Key to encrypt Database Activity Stream",
-    ///         });
-    ///         var defaultClusterActivityStream = new Aws.Rds.ClusterActivityStream("defaultClusterActivityStream", new Aws.Rds.ClusterActivityStreamArgs
-    ///         {
-    ///             ResourceArn = defaultCluster.Arn,
-    ///             Mode = "async",
-    ///             KmsKeyId = defaultKey.KeyId,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 defaultClusterInstance,
-    ///             },
-    ///         });
-    ///     }
+    ///             "us-west-2a",
+    ///             "us-west-2b",
+    ///             "us-west-2c",
+    ///         },
+    ///         DatabaseName = "mydb",
+    ///         MasterUsername = "foo",
+    ///         MasterPassword = "mustbeeightcharaters",
+    ///         Engine = "aurora-postgresql",
+    ///         EngineVersion = "13.4",
+    ///     });
     /// 
-    /// }
+    ///     var defaultClusterInstance = new Aws.Rds.ClusterInstance("defaultClusterInstance", new()
+    ///     {
+    ///         Identifier = "aurora-instance-demo",
+    ///         ClusterIdentifier = defaultCluster.ClusterIdentifier,
+    ///         Engine = defaultCluster.Engine,
+    ///         InstanceClass = "db.r6g.large",
+    ///     });
+    /// 
+    ///     var defaultKey = new Aws.Kms.Key("defaultKey", new()
+    ///     {
+    ///         Description = "AWS KMS Key to encrypt Database Activity Stream",
+    ///     });
+    /// 
+    ///     var defaultClusterActivityStream = new Aws.Rds.ClusterActivityStream("defaultClusterActivityStream", new()
+    ///     {
+    ///         ResourceArn = defaultCluster.Arn,
+    ///         Mode = "async",
+    ///         KmsKeyId = defaultKey.KeyId,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             defaultClusterInstance,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +75,7 @@ namespace Pulumi.Aws.Rds
     ///  [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html [2]https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html [3]https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html
     /// </summary>
     [AwsResourceType("aws:rds/clusterActivityStream:ClusterActivityStream")]
-    public partial class ClusterActivityStream : Pulumi.CustomResource
+    public partial class ClusterActivityStream : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
@@ -150,7 +151,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class ClusterActivityStreamArgs : Pulumi.ResourceArgs
+    public sealed class ClusterActivityStreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
@@ -179,9 +180,10 @@ namespace Pulumi.Aws.Rds
         public ClusterActivityStreamArgs()
         {
         }
+        public static new ClusterActivityStreamArgs Empty => new ClusterActivityStreamArgs();
     }
 
-    public sealed class ClusterActivityStreamState : Pulumi.ResourceArgs
+    public sealed class ClusterActivityStreamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
@@ -216,5 +218,6 @@ namespace Pulumi.Aws.Rds
         public ClusterActivityStreamState()
         {
         }
+        public static new ClusterActivityStreamState Empty => new ClusterActivityStreamState();
     }
 }

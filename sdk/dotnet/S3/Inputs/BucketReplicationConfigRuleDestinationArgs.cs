@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigRuleDestinationArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigRuleDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block that specifies the overrides to use for object owners on replication documented below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigRuleDestinationArgs()
         {
         }
+        public static new BucketReplicationConfigRuleDestinationArgs Empty => new BucketReplicationConfigRuleDestinationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class SecurityConfigurationEncryptionConfigurationS3EncryptionGetArgs : Pulumi.ResourceArgs
+    public sealed class SecurityConfigurationEncryptionConfigurationS3EncryptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public SecurityConfigurationEncryptionConfigurationS3EncryptionGetArgs()
         {
         }
+        public static new SecurityConfigurationEncryptionConfigurationS3EncryptionGetArgs Empty => new SecurityConfigurationEncryptionConfigurationS3EncryptionGetArgs();
     }
 }

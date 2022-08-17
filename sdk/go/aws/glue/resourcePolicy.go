@@ -19,68 +19,73 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		currentPartition, err := aws.GetPartition(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		currentRegion, err := aws.GetRegion(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		glue_example_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Actions: []string{
-// 						"glue:CreateTable",
-// 					},
-// 					Resources: []string{
-// 						fmt.Sprintf("arn:%v:glue:%v:%v:*", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId),
-// 					},
-// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// 						iam.GetPolicyDocumentStatementPrincipal{
-// 							Identifiers: []string{
-// 								"*",
-// 							},
-// 							Type: "AWS",
-// 						},
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = glue.NewResourcePolicy(ctx, "example", &glue.ResourcePolicyArgs{
-// 			Policy: pulumi.String(glue_example_policy.Json),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			glue_example_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					iam.GetPolicyDocumentStatement{
+//						Actions: []string{
+//							"glue:CreateTable",
+//						},
+//						Resources: []string{
+//							fmt.Sprintf("arn:%v:glue:%v:%v:*", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId),
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							iam.GetPolicyDocumentStatementPrincipal{
+//								Identifiers: []string{
+//									"*",
+//								},
+//								Type: "AWS",
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewResourcePolicy(ctx, "example", &glue.ResourcePolicyArgs{
+//				Policy: pulumi.String(glue_example_policy.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
 //
-// Glue Resource Policy can be imported using the account ID
+// # Glue Resource Policy can be imported using the account ID
 //
 // ```sh
-//  $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+//
+//	$ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+//
 // ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
@@ -176,7 +181,7 @@ func (i *ResourcePolicy) ToResourcePolicyOutputWithContext(ctx context.Context) 
 // ResourcePolicyArrayInput is an input type that accepts ResourcePolicyArray and ResourcePolicyArrayOutput values.
 // You can construct a concrete instance of `ResourcePolicyArrayInput` via:
 //
-//          ResourcePolicyArray{ ResourcePolicyArgs{...} }
+//	ResourcePolicyArray{ ResourcePolicyArgs{...} }
 type ResourcePolicyArrayInput interface {
 	pulumi.Input
 
@@ -201,7 +206,7 @@ func (i ResourcePolicyArray) ToResourcePolicyArrayOutputWithContext(ctx context.
 // ResourcePolicyMapInput is an input type that accepts ResourcePolicyMap and ResourcePolicyMapOutput values.
 // You can construct a concrete instance of `ResourcePolicyMapInput` via:
 //
-//          ResourcePolicyMap{ "key": ResourcePolicyArgs{...} }
+//	ResourcePolicyMap{ "key": ResourcePolicyArgs{...} }
 type ResourcePolicyMapInput interface {
 	pulumi.Input
 

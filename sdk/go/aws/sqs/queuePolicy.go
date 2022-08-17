@@ -20,49 +20,54 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		queue, err := sqs.NewQueue(ctx, "queue", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{
-// 			QueueUrl: queue.ID(),
-// 			Policy: queue.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Id": "sqspolicy",
-//   "Statement": [
-//     {
-//       "Sid": "First",
-//       "Effect": "Allow",
-//       "Principal": "*",
-//       "Action": "sqs:SendMessage",
-//       "Resource": "%v",
-//       "Condition": {
-//         "ArnEquals": {
-//           "aws:SourceArn": "%v"
-//         }
-//       }
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			queue, err := sqs.NewQueue(ctx, "queue", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{
+//				QueueUrl: queue.ID(),
+//				Policy: queue.Arn.ApplyT(func(arn string) (string, error) {
+//					return fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Id": "sqspolicy",
+//	  "Statement": [
+//	    {
+//	      "Sid": "First",
+//	      "Effect": "Allow",
+//	      "Principal": "*",
+//	      "Action": "sqs:SendMessage",
+//	      "Resource": "%v",
+//	      "Condition": {
+//	        "ArnEquals": {
+//	          "aws:SourceArn": "%v"
+//	        }
+//	      }
+//	    }
+//	  ]
+//	}
+//
 // `, arn, aws_sns_topic.Example.Arn), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +75,9 @@ import (
 // SQS Queue Policies can be imported using the queue URL, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+//
+//	$ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+//
 // ```
 type QueuePolicy struct {
 	pulumi.CustomResourceState
@@ -174,7 +181,7 @@ func (i *QueuePolicy) ToQueuePolicyOutputWithContext(ctx context.Context) QueueP
 // QueuePolicyArrayInput is an input type that accepts QueuePolicyArray and QueuePolicyArrayOutput values.
 // You can construct a concrete instance of `QueuePolicyArrayInput` via:
 //
-//          QueuePolicyArray{ QueuePolicyArgs{...} }
+//	QueuePolicyArray{ QueuePolicyArgs{...} }
 type QueuePolicyArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +206,7 @@ func (i QueuePolicyArray) ToQueuePolicyArrayOutputWithContext(ctx context.Contex
 // QueuePolicyMapInput is an input type that accepts QueuePolicyMap and QueuePolicyMapOutput values.
 // You can construct a concrete instance of `QueuePolicyMapInput` via:
 //
-//          QueuePolicyMap{ "key": QueuePolicyArgs{...} }
+//	QueuePolicyMap{ "key": QueuePolicyArgs{...} }
 type QueuePolicyMapInput interface {
 	pulumi.Input
 

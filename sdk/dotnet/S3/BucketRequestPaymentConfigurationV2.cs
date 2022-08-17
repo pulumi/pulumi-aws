@@ -17,21 +17,19 @@ namespace Pulumi.Aws.S3
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.S3.BucketRequestPaymentConfigurationV2("example", new()
     ///     {
-    ///         var example = new Aws.S3.BucketRequestPaymentConfigurationV2("example", new Aws.S3.BucketRequestPaymentConfigurationV2Args
-    ///         {
-    ///             Bucket = aws_s3_bucket.Example.Bucket,
-    ///             Payer = "Requester",
-    ///         });
-    ///     }
+    ///         Bucket = aws_s3_bucket.Example.Bucket,
+    ///         Payer = "Requester",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")]
-    public partial class BucketRequestPaymentConfigurationV2 : Pulumi.CustomResource
+    public partial class BucketRequestPaymentConfigurationV2 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the bucket.
@@ -113,7 +111,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class BucketRequestPaymentConfigurationV2Args : Pulumi.ResourceArgs
+    public sealed class BucketRequestPaymentConfigurationV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket.
@@ -136,9 +134,10 @@ namespace Pulumi.Aws.S3
         public BucketRequestPaymentConfigurationV2Args()
         {
         }
+        public static new BucketRequestPaymentConfigurationV2Args Empty => new BucketRequestPaymentConfigurationV2Args();
     }
 
-    public sealed class BucketRequestPaymentConfigurationV2State : Pulumi.ResourceArgs
+    public sealed class BucketRequestPaymentConfigurationV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket.
@@ -161,5 +160,6 @@ namespace Pulumi.Aws.S3
         public BucketRequestPaymentConfigurationV2State()
         {
         }
+        public static new BucketRequestPaymentConfigurationV2State Empty => new BucketRequestPaymentConfigurationV2State();
     }
 }

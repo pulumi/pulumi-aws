@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Connect.Inputs
 {
 
-    public sealed class BotAssociationLexBotArgs : Pulumi.ResourceArgs
+    public sealed class BotAssociationLexBotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Connect.Inputs
         public BotAssociationLexBotArgs()
         {
         }
+        public static new BotAssociationLexBotArgs Empty => new BotAssociationLexBotArgs();
     }
 }

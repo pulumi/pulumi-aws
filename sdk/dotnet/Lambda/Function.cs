@@ -24,16 +24,15 @@ namespace Pulumi.Aws.Lambda
     /// ### Basic Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var iamForLambda = new Aws.Iam.Role("iamForLambda", new()
     ///     {
-    ///         var iamForLambda = new Aws.Iam.Role("iamForLambda", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -47,65 +46,61 @@ namespace Pulumi.Aws.Lambda
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
-    ///         {
-    ///             Code = new FileArchive("lambda_function_payload.zip"),
-    ///             Role = iamForLambda.Arn,
-    ///             Handler = "index.test",
-    ///             Runtime = "nodejs12.x",
-    ///             Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
-    ///             {
-    ///                 Variables = 
-    ///                 {
-    ///                     { "foo", "bar" },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
+    ///     {
+    ///         Code = new FileArchive("lambda_function_payload.zip"),
+    ///         Role = iamForLambda.Arn,
+    ///         Handler = "index.test",
+    ///         Runtime = "nodejs12.x",
+    ///         Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
+    ///         {
+    ///             Variables = 
+    ///             {
+    ///                 { "foo", "bar" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Lambda Layers
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleLayerVersion = new Aws.Lambda.LayerVersion("exampleLayerVersion", new Aws.Lambda.LayerVersionArgs
-    ///         {
-    ///         });
-    ///         // ... other configuration ...
-    ///         var exampleFunction = new Aws.Lambda.Function("exampleFunction", new Aws.Lambda.FunctionArgs
-    ///         {
-    ///             Layers = 
-    ///             {
-    ///                 exampleLayerVersion.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleLayerVersion = new Aws.Lambda.LayerVersion("exampleLayerVersion");
     /// 
-    /// }
+    ///     // ... other configuration ...
+    ///     var exampleFunction = new Aws.Lambda.Function("exampleFunction", new()
+    ///     {
+    ///         Layers = new[]
+    ///         {
+    ///             exampleLayerVersion.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Lambda Ephemeral Storage
     /// 
     /// Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var iamForLambda = new Aws.Iam.Role("iamForLambda", new()
     ///     {
-    ///         var iamForLambda = new Aws.Iam.Role("iamForLambda", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -119,129 +114,130 @@ namespace Pulumi.Aws.Lambda
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
-    ///         {
-    ///             Code = new FileArchive("lambda_function_payload.zip"),
-    ///             Role = iamForLambda.Arn,
-    ///             Handler = "index.test",
-    ///             Runtime = "nodejs14.x",
-    ///             EphemeralStorage = new Aws.Lambda.Inputs.FunctionEphemeralStorageArgs
-    ///             {
-    ///                 Size = 10240,
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
+    ///     {
+    ///         Code = new FileArchive("lambda_function_payload.zip"),
+    ///         Role = iamForLambda.Arn,
+    ///         Handler = "index.test",
+    ///         Runtime = "nodejs14.x",
+    ///         EphemeralStorage = new Aws.Lambda.Inputs.FunctionEphemeralStorageArgs
+    ///         {
+    ///             Size = 10240,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Lambda File Systems
     /// 
     /// Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // EFS file system
+    ///     var efsForLambda = new Aws.Efs.FileSystem("efsForLambda", new()
     ///     {
-    ///         // EFS file system
-    ///         var efsForLambda = new Aws.Efs.FileSystem("efsForLambda", new Aws.Efs.FileSystemArgs
+    ///         Tags = 
     ///         {
-    ///             Tags = 
+    ///             { "Name", "efs_for_lambda" },
+    ///         },
+    ///     });
+    /// 
+    ///     // Mount target connects the file system to the subnet
+    ///     var alpha = new Aws.Efs.MountTarget("alpha", new()
+    ///     {
+    ///         FileSystemId = efsForLambda.Id,
+    ///         SubnetId = aws_subnet.Subnet_for_lambda.Id,
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             aws_security_group.Sg_for_lambda.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     // EFS access point used by lambda file system
+    ///     var accessPointForLambda = new Aws.Efs.AccessPoint("accessPointForLambda", new()
+    ///     {
+    ///         FileSystemId = efsForLambda.Id,
+    ///         RootDirectory = new Aws.Efs.Inputs.AccessPointRootDirectoryArgs
+    ///         {
+    ///             Path = "/lambda",
+    ///             CreationInfo = new Aws.Efs.Inputs.AccessPointRootDirectoryCreationInfoArgs
     ///             {
-    ///                 { "Name", "efs_for_lambda" },
+    ///                 OwnerGid = 1000,
+    ///                 OwnerUid = 1000,
+    ///                 Permissions = "777",
     ///             },
-    ///         });
-    ///         // Mount target connects the file system to the subnet
-    ///         var alpha = new Aws.Efs.MountTarget("alpha", new Aws.Efs.MountTargetArgs
+    ///         },
+    ///         PosixUser = new Aws.Efs.Inputs.AccessPointPosixUserArgs
     ///         {
-    ///             FileSystemId = efsForLambda.Id,
-    ///             SubnetId = aws_subnet.Subnet_for_lambda.Id,
-    ///             SecurityGroups = 
+    ///             Gid = 1000,
+    ///             Uid = 1000,
+    ///         },
+    ///     });
+    /// 
+    ///     // A lambda function connected to an EFS file system
+    ///     // ... other configuration ...
+    ///     var example = new Aws.Lambda.Function("example", new()
+    ///     {
+    ///         FileSystemConfig = new Aws.Lambda.Inputs.FunctionFileSystemConfigArgs
+    ///         {
+    ///             Arn = accessPointForLambda.Arn,
+    ///             LocalMountPath = "/mnt/efs",
+    ///         },
+    ///         VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
+    ///         {
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 aws_subnet.Subnet_for_lambda.Id,
+    ///             },
+    ///             SecurityGroupIds = new[]
     ///             {
     ///                 aws_security_group.Sg_for_lambda.Id,
     ///             },
-    ///         });
-    ///         // EFS access point used by lambda file system
-    ///         var accessPointForLambda = new Aws.Efs.AccessPoint("accessPointForLambda", new Aws.Efs.AccessPointArgs
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             FileSystemId = efsForLambda.Id,
-    ///             RootDirectory = new Aws.Efs.Inputs.AccessPointRootDirectoryArgs
-    ///             {
-    ///                 Path = "/lambda",
-    ///                 CreationInfo = new Aws.Efs.Inputs.AccessPointRootDirectoryCreationInfoArgs
-    ///                 {
-    ///                     OwnerGid = 1000,
-    ///                     OwnerUid = 1000,
-    ///                     Permissions = "777",
-    ///                 },
-    ///             },
-    ///             PosixUser = new Aws.Efs.Inputs.AccessPointPosixUserArgs
-    ///             {
-    ///                 Gid = 1000,
-    ///                 Uid = 1000,
-    ///             },
-    ///         });
-    ///         // A lambda function connected to an EFS file system
-    ///         // ... other configuration ...
-    ///         var example = new Aws.Lambda.Function("example", new Aws.Lambda.FunctionArgs
-    ///         {
-    ///             FileSystemConfig = new Aws.Lambda.Inputs.FunctionFileSystemConfigArgs
-    ///             {
-    ///                 Arn = accessPointForLambda.Arn,
-    ///                 LocalMountPath = "/mnt/efs",
-    ///             },
-    ///             VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
-    ///             {
-    ///                 SubnetIds = 
-    ///                 {
-    ///                     aws_subnet.Subnet_for_lambda.Id,
-    ///                 },
-    ///                 SecurityGroupIds = 
-    ///                 {
-    ///                     aws_security_group.Sg_for_lambda.Id,
-    ///                 },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 alpha,
-    ///             },
-    ///         });
-    ///     }
+    ///             alpha,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### CloudWatch Logging and Permissions
     /// 
     /// For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var config = new Config();
+    ///     var lambdaFunctionName = config.Get("lambdaFunctionName") ?? "lambda_function_name";
+    ///     // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
+    ///     // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
+    ///     var example = new Aws.CloudWatch.LogGroup("example", new()
     ///     {
-    ///         var config = new Config();
-    ///         var lambdaFunctionName = config.Get("lambdaFunctionName") ?? "lambda_function_name";
-    ///         // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
-    ///         // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
-    ///         var example = new Aws.CloudWatch.LogGroup("example", new Aws.CloudWatch.LogGroupArgs
-    ///         {
-    ///             RetentionInDays = 14,
-    ///         });
-    ///         // See also the following AWS managed policy: AWSLambdaBasicExecutionRole
-    ///         var lambdaLogging = new Aws.Iam.Policy("lambdaLogging", new Aws.Iam.PolicyArgs
-    ///         {
-    ///             Path = "/",
-    ///             Description = "IAM policy for logging from a lambda",
-    ///             PolicyDocument = @"{
+    ///         RetentionInDays = 14,
+    ///     });
+    /// 
+    ///     // See also the following AWS managed policy: AWSLambdaBasicExecutionRole
+    ///     var lambdaLogging = new Aws.Iam.Policy("lambdaLogging", new()
+    ///     {
+    ///         Path = "/",
+    ///         Description = "IAM policy for logging from a lambda",
+    ///         PolicyDocument = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -256,39 +252,39 @@ namespace Pulumi.Aws.Lambda
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var lambdaLogs = new Aws.Iam.RolePolicyAttachment("lambdaLogs", new Aws.Iam.RolePolicyAttachmentArgs
-    ///         {
-    ///             Role = aws_iam_role.Iam_for_lambda.Name,
-    ///             PolicyArn = lambdaLogging.Arn,
-    ///         });
-    ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
-    ///         {
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 lambdaLogs,
-    ///                 example,
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var lambdaLogs = new Aws.Iam.RolePolicyAttachment("lambdaLogs", new()
+    ///     {
+    ///         Role = aws_iam_role.Iam_for_lambda.Name,
+    ///         PolicyArn = lambdaLogging.Arn,
+    ///     });
+    /// 
+    ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
+    ///     {
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             lambdaLogs,
+    ///             example,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Lambda with Targetted Architecture
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var iamForLambda = new Aws.Iam.Role("iamForLambda", new()
     ///     {
-    ///         var iamForLambda = new Aws.Iam.Role("iamForLambda", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -302,28 +298,28 @@ namespace Pulumi.Aws.Lambda
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
-    ///         {
-    ///             Code = new FileArchive("lambda_function_payload.zip"),
-    ///             Role = iamForLambda.Arn,
-    ///             Handler = "index.test",
-    ///             Runtime = "nodejs12.x",
-    ///             Architectures = 
-    ///             {
-    ///                 "arm64",
-    ///             },
-    ///             Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
-    ///             {
-    ///                 Variables = 
-    ///                 {
-    ///                     { "foo", "bar" },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
+    ///     {
+    ///         Code = new FileArchive("lambda_function_payload.zip"),
+    ///         Role = iamForLambda.Arn,
+    ///         Handler = "index.test",
+    ///         Runtime = "nodejs12.x",
+    ///         Architectures = new[]
+    ///         {
+    ///             "arm64",
+    ///         },
+    ///         Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
+    ///         {
+    ///             Variables = 
+    ///             {
+    ///                 { "foo", "bar" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment package via S3 it may be useful to use the `aws.s3.BucketObjectv2` resource to upload it.
@@ -337,7 +333,7 @@ namespace Pulumi.Aws.Lambda
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/function:Function")]
-    public partial class Function : Pulumi.CustomResource
+    public partial class Function : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
@@ -526,13 +522,13 @@ namespace Pulumi.Aws.Lambda
         public Output<int> SourceCodeSize { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the object.
+        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -606,7 +602,7 @@ namespace Pulumi.Aws.Lambda
         }
     }
 
-    public sealed class FunctionArgs : Pulumi.ResourceArgs
+    public sealed class FunctionArgs : global::Pulumi.ResourceArgs
     {
         [Input("architectures")]
         private InputList<string>? _architectures;
@@ -768,7 +764,7 @@ namespace Pulumi.Aws.Lambda
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the object.
+        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -797,9 +793,10 @@ namespace Pulumi.Aws.Lambda
         public FunctionArgs()
         {
         }
+        public static new FunctionArgs Empty => new FunctionArgs();
     }
 
-    public sealed class FunctionState : Pulumi.ResourceArgs
+    public sealed class FunctionState : global::Pulumi.ResourceArgs
     {
         [Input("architectures")]
         private InputList<string>? _architectures;
@@ -1003,7 +1000,7 @@ namespace Pulumi.Aws.Lambda
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the object.
+        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1015,7 +1012,7 @@ namespace Pulumi.Aws.Lambda
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -1051,5 +1048,6 @@ namespace Pulumi.Aws.Lambda
         public FunctionState()
         {
         }
+        public static new FunctionState Empty => new FunctionState();
     }
 }

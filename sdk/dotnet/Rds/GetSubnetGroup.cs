@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Rds
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var database = Aws.Rds.GetSubnetGroup.Invoke(new()
         ///     {
-        ///         var database = Output.Create(Aws.Rds.GetSubnetGroup.InvokeAsync(new Aws.Rds.GetSubnetGroupArgs
-        ///         {
-        ///             Name = "my-test-database-subnet-group",
-        ///         }));
-        ///     }
+        ///         Name = "my-test-database-subnet-group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Rds
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var database = Aws.Rds.GetSubnetGroup.Invoke(new()
         ///     {
-        ///         var database = Output.Create(Aws.Rds.GetSubnetGroup.InvokeAsync(new Aws.Rds.GetSubnetGroupArgs
-        ///         {
-        ///             Name = "my-test-database-subnet-group",
-        ///         }));
-        ///     }
+        ///         Name = "my-test-database-subnet-group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Rds
     }
 
 
-    public sealed class GetSubnetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the RDS database subnet group.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Rds
         public GetSubnetGroupArgs()
         {
         }
+        public static new GetSubnetGroupArgs Empty => new GetSubnetGroupArgs();
     }
 
-    public sealed class GetSubnetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the RDS database subnet group.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Rds
         public GetSubnetGroupInvokeArgs()
         {
         }
+        public static new GetSubnetGroupInvokeArgs Empty => new GetSubnetGroupInvokeArgs();
     }
 
 

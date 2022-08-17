@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs()
         {
         }
+        public static new DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs Empty => new DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs();
     }
 }

@@ -18,27 +18,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/globalaccelerator"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/globalaccelerator"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := globalaccelerator.NewAccelerator(ctx, "example", &globalaccelerator.AcceleratorArgs{
-// 			Attributes: &globalaccelerator.AcceleratorAttributesArgs{
-// 				FlowLogsEnabled:  pulumi.Bool(true),
-// 				FlowLogsS3Bucket: pulumi.String("example-bucket"),
-// 				FlowLogsS3Prefix: pulumi.String("flow-logs/"),
-// 			},
-// 			Enabled:       pulumi.Bool(true),
-// 			IpAddressType: pulumi.String("IPV4"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := globalaccelerator.NewAccelerator(ctx, "example", &globalaccelerator.AcceleratorArgs{
+//				Attributes: &globalaccelerator.AcceleratorAttributesArgs{
+//					FlowLogsEnabled:  pulumi.Bool(true),
+//					FlowLogsS3Bucket: pulumi.String("example-bucket"),
+//					FlowLogsS3Prefix: pulumi.String("flow-logs/"),
+//				},
+//				Enabled:       pulumi.Bool(true),
+//				IpAddressType: pulumi.String("IPV4"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // Global Accelerator accelerators can be imported using the `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+//
+//	$ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+//
 // ```
 type Accelerator struct {
 	pulumi.CustomResourceState
@@ -61,7 +66,7 @@ type Accelerator struct {
 	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled      pulumi.BoolPtrOutput `pulumi:"enabled"`
 	HostedZoneId pulumi.StringOutput  `pulumi:"hostedZoneId"`
-	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// IP address set associated with the accelerator.
 	IpSets AcceleratorIpSetArrayOutput `pulumi:"ipSets"`
@@ -69,7 +74,7 @@ type Accelerator struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -112,7 +117,7 @@ type acceleratorState struct {
 	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled      *bool   `pulumi:"enabled"`
 	HostedZoneId *string `pulumi:"hostedZoneId"`
-	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// IP address set associated with the accelerator.
 	IpSets []AcceleratorIpSet `pulumi:"ipSets"`
@@ -120,7 +125,7 @@ type acceleratorState struct {
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -135,7 +140,7 @@ type AcceleratorState struct {
 	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled      pulumi.BoolPtrInput
 	HostedZoneId pulumi.StringPtrInput
-	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
 	IpAddressType pulumi.StringPtrInput
 	// IP address set associated with the accelerator.
 	IpSets AcceleratorIpSetArrayInput
@@ -143,7 +148,7 @@ type AcceleratorState struct {
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -156,7 +161,7 @@ type acceleratorArgs struct {
 	Attributes *AcceleratorAttributes `pulumi:"attributes"`
 	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The name of the accelerator.
 	Name *string `pulumi:"name"`
@@ -170,7 +175,7 @@ type AcceleratorArgs struct {
 	Attributes AcceleratorAttributesPtrInput
 	// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
 	Enabled pulumi.BoolPtrInput
-	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+	// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
 	IpAddressType pulumi.StringPtrInput
 	// The name of the accelerator.
 	Name pulumi.StringPtrInput
@@ -204,7 +209,7 @@ func (i *Accelerator) ToAcceleratorOutputWithContext(ctx context.Context) Accele
 // AcceleratorArrayInput is an input type that accepts AcceleratorArray and AcceleratorArrayOutput values.
 // You can construct a concrete instance of `AcceleratorArrayInput` via:
 //
-//          AcceleratorArray{ AcceleratorArgs{...} }
+//	AcceleratorArray{ AcceleratorArgs{...} }
 type AcceleratorArrayInput interface {
 	pulumi.Input
 
@@ -229,7 +234,7 @@ func (i AcceleratorArray) ToAcceleratorArrayOutputWithContext(ctx context.Contex
 // AcceleratorMapInput is an input type that accepts AcceleratorMap and AcceleratorMapOutput values.
 // You can construct a concrete instance of `AcceleratorMapInput` via:
 //
-//          AcceleratorMap{ "key": AcceleratorArgs{...} }
+//	AcceleratorMap{ "key": AcceleratorArgs{...} }
 type AcceleratorMapInput interface {
 	pulumi.Input
 
@@ -271,9 +276,9 @@ func (o AcceleratorOutput) Attributes() AcceleratorAttributesPtrOutput {
 }
 
 // The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-// * `hostedZoneId` --  The Global Accelerator Route 53 zone ID that can be used to
-//   route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-//   is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+//   - `hostedZoneId` --  The Global Accelerator Route 53 zone ID that can be used to
+//     route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+//     is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
 func (o AcceleratorOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
@@ -287,7 +292,7 @@ func (o AcceleratorOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
 }
 
-// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
+// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
 func (o AcceleratorOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
@@ -307,7 +312,7 @@ func (o AcceleratorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AcceleratorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.macie2.inputs;
 
+import com.pulumi.aws.macie2.inputs.ClassificationJobS3JobDefinitionBucketCriteriaArgs;
 import com.pulumi.aws.macie2.inputs.ClassificationJobS3JobDefinitionBucketDefinitionArgs;
 import com.pulumi.aws.macie2.inputs.ClassificationJobS3JobDefinitionScopingArgs;
 import com.pulumi.core.Output;
@@ -18,14 +19,29 @@ public final class ClassificationJobS3JobDefinitionArgs extends com.pulumi.resou
     public static final ClassificationJobS3JobDefinitionArgs Empty = new ClassificationJobS3JobDefinitionArgs();
 
     /**
-     * An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. (documented below)
+     * The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucket_definitions`. (documented below)
+     * 
+     */
+    @Import(name="bucketCriteria")
+    private @Nullable Output<ClassificationJobS3JobDefinitionBucketCriteriaArgs> bucketCriteria;
+
+    /**
+     * @return The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucket_definitions`. (documented below)
+     * 
+     */
+    public Optional<Output<ClassificationJobS3JobDefinitionBucketCriteriaArgs>> bucketCriteria() {
+        return Optional.ofNullable(this.bucketCriteria);
+    }
+
+    /**
+     * An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucket_criteria`. (documented below)
      * 
      */
     @Import(name="bucketDefinitions")
     private @Nullable Output<List<ClassificationJobS3JobDefinitionBucketDefinitionArgs>> bucketDefinitions;
 
     /**
-     * @return An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. (documented below)
+     * @return An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucket_criteria`. (documented below)
      * 
      */
     public Optional<Output<List<ClassificationJobS3JobDefinitionBucketDefinitionArgs>>> bucketDefinitions() {
@@ -50,6 +66,7 @@ public final class ClassificationJobS3JobDefinitionArgs extends com.pulumi.resou
     private ClassificationJobS3JobDefinitionArgs() {}
 
     private ClassificationJobS3JobDefinitionArgs(ClassificationJobS3JobDefinitionArgs $) {
+        this.bucketCriteria = $.bucketCriteria;
         this.bucketDefinitions = $.bucketDefinitions;
         this.scoping = $.scoping;
     }
@@ -73,7 +90,28 @@ public final class ClassificationJobS3JobDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param bucketDefinitions An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. (documented below)
+         * @param bucketCriteria The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucket_definitions`. (documented below)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bucketCriteria(@Nullable Output<ClassificationJobS3JobDefinitionBucketCriteriaArgs> bucketCriteria) {
+            $.bucketCriteria = bucketCriteria;
+            return this;
+        }
+
+        /**
+         * @param bucketCriteria The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucket_definitions`. (documented below)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bucketCriteria(ClassificationJobS3JobDefinitionBucketCriteriaArgs bucketCriteria) {
+            return bucketCriteria(Output.of(bucketCriteria));
+        }
+
+        /**
+         * @param bucketDefinitions An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucket_criteria`. (documented below)
          * 
          * @return builder
          * 
@@ -84,7 +122,7 @@ public final class ClassificationJobS3JobDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param bucketDefinitions An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. (documented below)
+         * @param bucketDefinitions An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucket_criteria`. (documented below)
          * 
          * @return builder
          * 
@@ -94,7 +132,7 @@ public final class ClassificationJobS3JobDefinitionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param bucketDefinitions An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. (documented below)
+         * @param bucketDefinitions An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucket_criteria`. (documented below)
          * 
          * @return builder
          * 

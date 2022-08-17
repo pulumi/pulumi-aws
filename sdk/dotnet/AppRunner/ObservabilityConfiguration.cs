@@ -15,28 +15,26 @@ namespace Pulumi.Aws.AppRunner
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppRunner.ObservabilityConfiguration("example", new()
     ///     {
-    ///         var example = new Aws.AppRunner.ObservabilityConfiguration("example", new Aws.AppRunner.ObservabilityConfigurationArgs
+    ///         ObservabilityConfigurationName = "example",
+    ///         Tags = 
     ///         {
-    ///             ObservabilityConfigurationName = "example",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example-apprunner-observability-configuration" },
-    ///             },
-    ///             TraceConfiguration = new Aws.AppRunner.Inputs.ObservabilityConfigurationTraceConfigurationArgs
-    ///             {
-    ///                 Vendor = "AWSXRAY",
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "example-apprunner-observability-configuration" },
+    ///         },
+    ///         TraceConfiguration = new Aws.AppRunner.Inputs.ObservabilityConfigurationTraceConfigurationArgs
+    ///         {
+    ///             Vendor = "AWSXRAY",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Aws.AppRunner
     /// ```
     /// </summary>
     [AwsResourceType("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration")]
-    public partial class ObservabilityConfiguration : Pulumi.CustomResource
+    public partial class ObservabilityConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of this observability configuration.
@@ -86,9 +84,6 @@ namespace Pulumi.Aws.AppRunner
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -142,7 +137,7 @@ namespace Pulumi.Aws.AppRunner
         }
     }
 
-    public sealed class ObservabilityConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ObservabilityConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the observability configuration.
@@ -162,18 +157,6 @@ namespace Pulumi.Aws.AppRunner
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         /// </summary>
@@ -183,9 +166,10 @@ namespace Pulumi.Aws.AppRunner
         public ObservabilityConfigurationArgs()
         {
         }
+        public static new ObservabilityConfigurationArgs Empty => new ObservabilityConfigurationArgs();
     }
 
-    public sealed class ObservabilityConfigurationState : Pulumi.ResourceArgs
+    public sealed class ObservabilityConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of this observability configuration.
@@ -231,10 +215,6 @@ namespace Pulumi.Aws.AppRunner
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -250,5 +230,6 @@ namespace Pulumi.Aws.AppRunner
         public ObservabilityConfigurationState()
         {
         }
+        public static new ObservabilityConfigurationState Empty => new ObservabilityConfigurationState();
     }
 }

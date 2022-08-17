@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53.Inputs
 {
 
-    public sealed class ZoneVpcArgs : Pulumi.ResourceArgs
+    public sealed class ZoneVpcArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the VPC to associate.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Route53.Inputs
         public ZoneVpcArgs()
         {
         }
+        public static new ZoneVpcArgs Empty => new ZoneVpcArgs();
     }
 }

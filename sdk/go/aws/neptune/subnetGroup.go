@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := neptune.NewSubnetGroup(ctx, "default", &neptune.SubnetGroupArgs{
-// 			SubnetIds: pulumi.StringArray{
-// 				pulumi.Any(aws_subnet.Frontend.Id),
-// 				pulumi.Any(aws_subnet.Backend.Id),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("My neptune subnet group"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := neptune.NewSubnetGroup(ctx, "default", &neptune.SubnetGroupArgs{
+//				SubnetIds: pulumi.StringArray{
+//					pulumi.Any(aws_subnet.Frontend.Id),
+//					pulumi.Any(aws_subnet.Backend.Id),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("My neptune subnet group"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Neptune Subnet groups can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:neptune/subnetGroup:SubnetGroup default production-subnet-group
+//
+//	$ pulumi import aws:neptune/subnetGroup:SubnetGroup default production-subnet-group
+//
 // ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState
@@ -64,7 +69,7 @@ type SubnetGroup struct {
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -115,7 +120,7 @@ type subnetGroupState struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -132,7 +137,7 @@ type SubnetGroupState struct {
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -193,7 +198,7 @@ func (i *SubnetGroup) ToSubnetGroupOutputWithContext(ctx context.Context) Subnet
 // SubnetGroupArrayInput is an input type that accepts SubnetGroupArray and SubnetGroupArrayOutput values.
 // You can construct a concrete instance of `SubnetGroupArrayInput` via:
 //
-//          SubnetGroupArray{ SubnetGroupArgs{...} }
+//	SubnetGroupArray{ SubnetGroupArgs{...} }
 type SubnetGroupArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +223,7 @@ func (i SubnetGroupArray) ToSubnetGroupArrayOutputWithContext(ctx context.Contex
 // SubnetGroupMapInput is an input type that accepts SubnetGroupMap and SubnetGroupMapOutput values.
 // You can construct a concrete instance of `SubnetGroupMapInput` via:
 //
-//          SubnetGroupMap{ "key": SubnetGroupArgs{...} }
+//	SubnetGroupMap{ "key": SubnetGroupArgs{...} }
 type SubnetGroupMapInput interface {
 	pulumi.Input
 
@@ -284,7 +289,7 @@ func (o SubnetGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SubnetGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

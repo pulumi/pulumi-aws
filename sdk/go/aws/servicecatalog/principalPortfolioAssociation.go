@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicecatalog.NewPrincipalPortfolioAssociation(ctx, "example", &servicecatalog.PrincipalPortfolioAssociationArgs{
-// 			PortfolioId:  pulumi.String("port-68656c6c6f"),
-// 			PrincipalArn: pulumi.String("arn:aws:iam::123456789012:user/Eleanor"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicecatalog.NewPrincipalPortfolioAssociation(ctx, "example", &servicecatalog.PrincipalPortfolioAssociationArgs{
+//				PortfolioId:  pulumi.String("port-68656c6c6f"),
+//				PrincipalArn: pulumi.String("arn:aws:iam::123456789012:user/Eleanor"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // `aws_servicecatalog_principal_portfolio_association` can be imported using the accept language, principal ARN, and portfolio ID, separated by a comma, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f
+//
+//	$ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f
+//
 // ```
 type PrincipalPortfolioAssociation struct {
 	pulumi.CustomResourceState
@@ -167,7 +172,7 @@ func (i *PrincipalPortfolioAssociation) ToPrincipalPortfolioAssociationOutputWit
 // PrincipalPortfolioAssociationArrayInput is an input type that accepts PrincipalPortfolioAssociationArray and PrincipalPortfolioAssociationArrayOutput values.
 // You can construct a concrete instance of `PrincipalPortfolioAssociationArrayInput` via:
 //
-//          PrincipalPortfolioAssociationArray{ PrincipalPortfolioAssociationArgs{...} }
+//	PrincipalPortfolioAssociationArray{ PrincipalPortfolioAssociationArgs{...} }
 type PrincipalPortfolioAssociationArrayInput interface {
 	pulumi.Input
 
@@ -192,7 +197,7 @@ func (i PrincipalPortfolioAssociationArray) ToPrincipalPortfolioAssociationArray
 // PrincipalPortfolioAssociationMapInput is an input type that accepts PrincipalPortfolioAssociationMap and PrincipalPortfolioAssociationMapOutput values.
 // You can construct a concrete instance of `PrincipalPortfolioAssociationMapInput` via:
 //
-//          PrincipalPortfolioAssociationMap{ "key": PrincipalPortfolioAssociationArgs{...} }
+//	PrincipalPortfolioAssociationMap{ "key": PrincipalPortfolioAssociationArgs{...} }
 type PrincipalPortfolioAssociationMapInput interface {
 	pulumi.Input
 

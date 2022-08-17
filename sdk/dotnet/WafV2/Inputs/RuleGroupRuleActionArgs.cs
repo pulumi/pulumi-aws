@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupRuleActionArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Instructs AWS WAF to allow the web request. See Allow below for details.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public RuleGroupRuleActionArgs()
         {
         }
+        public static new RuleGroupRuleActionArgs Empty => new RuleGroupRuleActionArgs();
     }
 }

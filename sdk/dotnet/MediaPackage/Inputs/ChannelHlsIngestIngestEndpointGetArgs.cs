@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MediaPackage.Inputs
 {
 
-    public sealed class ChannelHlsIngestIngestEndpointGetArgs : Pulumi.ResourceArgs
+    public sealed class ChannelHlsIngestIngestEndpointGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.MediaPackage.Inputs
         public ChannelHlsIngestIngestEndpointGetArgs()
         {
         }
+        public static new ChannelHlsIngestIngestEndpointGetArgs Empty => new ChannelHlsIngestIngestEndpointGetArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.RedShift
     }
 
 
-    public sealed class GetClusterCredentialsArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterCredentialsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Create a database user with the name specified for the user named in `db_user` if one does not exist.
@@ -72,9 +72,10 @@ namespace Pulumi.Aws.RedShift
         public GetClusterCredentialsArgs()
         {
         }
+        public static new GetClusterCredentialsArgs Empty => new GetClusterCredentialsArgs();
     }
 
-    public sealed class GetClusterCredentialsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterCredentialsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Create a database user with the name specified for the user named in `db_user` if one does not exist.
@@ -121,6 +122,7 @@ namespace Pulumi.Aws.RedShift
         public GetClusterCredentialsInvokeArgs()
         {
         }
+        public static new GetClusterCredentialsInvokeArgs Empty => new GetClusterCredentialsInvokeArgs();
     }
 
 

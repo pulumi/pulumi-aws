@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppSync.Inputs
 {
 
-    public sealed class GraphQLApiAdditionalAuthenticationProviderArgs : Pulumi.ResourceArgs
+    public sealed class GraphQLApiAdditionalAuthenticationProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppSync.Inputs
         public GraphQLApiAdditionalAuthenticationProviderArgs()
         {
         }
+        public static new GraphQLApiAdditionalAuthenticationProviderArgs Empty => new GraphQLApiAdditionalAuthenticationProviderArgs();
     }
 }

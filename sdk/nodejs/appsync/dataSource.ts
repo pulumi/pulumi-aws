@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides an AppSync DataSource.
+ * Provides an AppSync Data Source.
  *
  * ## Example Usage
  *
@@ -103,7 +103,7 @@ export class DataSource extends pulumi.CustomResource {
     }
 
     /**
-     * The API ID for the GraphQL API for the DataSource.
+     * The API ID for the GraphQL API for the data source.
      */
     public readonly apiId!: pulumi.Output<string>;
     /**
@@ -111,7 +111,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A description of the DataSource.
+     * A description of the data source.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -131,7 +131,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly lambdaConfig!: pulumi.Output<outputs.appsync.DataSourceLambdaConfig | undefined>;
     /**
-     * A user-supplied name for the DataSource.
+     * A user-supplied name for the data source.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -143,7 +143,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly serviceRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -201,7 +201,7 @@ export class DataSource extends pulumi.CustomResource {
  */
 export interface DataSourceState {
     /**
-     * The API ID for the GraphQL API for the DataSource.
+     * The API ID for the GraphQL API for the data source.
      */
     apiId?: pulumi.Input<string>;
     /**
@@ -209,7 +209,7 @@ export interface DataSourceState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * A description of the DataSource.
+     * A description of the data source.
      */
     description?: pulumi.Input<string>;
     /**
@@ -229,7 +229,7 @@ export interface DataSourceState {
      */
     lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfig>;
     /**
-     * A user-supplied name for the DataSource.
+     * A user-supplied name for the data source.
      */
     name?: pulumi.Input<string>;
     /**
@@ -241,7 +241,7 @@ export interface DataSourceState {
      */
     serviceRoleArn?: pulumi.Input<string>;
     /**
-     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
      */
     type?: pulumi.Input<string>;
 }
@@ -251,11 +251,11 @@ export interface DataSourceState {
  */
 export interface DataSourceArgs {
     /**
-     * The API ID for the GraphQL API for the DataSource.
+     * The API ID for the GraphQL API for the data source.
      */
     apiId: pulumi.Input<string>;
     /**
-     * A description of the DataSource.
+     * A description of the data source.
      */
     description?: pulumi.Input<string>;
     /**
@@ -275,7 +275,7 @@ export interface DataSourceArgs {
      */
     lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfig>;
     /**
-     * A user-supplied name for the DataSource.
+     * A user-supplied name for the data source.
      */
     name?: pulumi.Input<string>;
     /**
@@ -287,7 +287,7 @@ export interface DataSourceArgs {
      */
     serviceRoleArn?: pulumi.Input<string>;
     /**
-     * The type of the DataSource. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
+     * The type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
      */
     type: pulumi.Input<string>;
 }

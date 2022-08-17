@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53.Inputs
 {
 
-    public sealed class GetTrafficPolicyDocumentRuleLocationArgs : Pulumi.InvokeArgs
+    public sealed class GetTrafficPolicyDocumentRuleLocationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Value of a continent.
@@ -63,5 +63,6 @@ namespace Pulumi.Aws.Route53.Inputs
         public GetTrafficPolicyDocumentRuleLocationArgs()
         {
         }
+        public static new GetTrafficPolicyDocumentRuleLocationArgs Empty => new GetTrafficPolicyDocumentRuleLocationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fms.Inputs
 {
 
-    public sealed class PolicySecurityServicePolicyDataArgs : Pulumi.ResourceArgs
+    public sealed class PolicySecurityServicePolicyDataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Fms.Inputs
         public PolicySecurityServicePolicyDataArgs()
         {
         }
+        public static new PolicySecurityServicePolicyDataArgs Empty => new PolicySecurityServicePolicyDataArgs();
     }
 }

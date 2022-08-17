@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppRunner.Inputs
 {
 
-    public sealed class ServiceSourceConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSourceConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public ServiceSourceConfigurationGetArgs()
         {
         }
+        public static new ServiceSourceConfigurationGetArgs Empty => new ServiceSourceConfigurationGetArgs();
     }
 }

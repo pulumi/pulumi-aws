@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Acmpca.Inputs
 {
 
-    public sealed class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs : Pulumi.ResourceArgs
+    public sealed class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
@@ -93,5 +93,6 @@ namespace Pulumi.Aws.Acmpca.Inputs
         public CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs()
         {
         }
+        public static new CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs Empty => new CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs();
     }
 }

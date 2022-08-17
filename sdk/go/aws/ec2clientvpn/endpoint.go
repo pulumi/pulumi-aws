@@ -22,34 +22,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2clientvpn.NewEndpoint(ctx, "example", &ec2clientvpn.EndpointArgs{
-// 			Description:          pulumi.String("clientvpn-example"),
-// 			ServerCertificateArn: pulumi.Any(aws_acm_certificate.Cert.Arn),
-// 			ClientCidrBlock:      pulumi.String("10.0.0.0/16"),
-// 			AuthenticationOptions: ec2clientvpn.EndpointAuthenticationOptionArray{
-// 				&ec2clientvpn.EndpointAuthenticationOptionArgs{
-// 					Type:                    pulumi.String("certificate-authentication"),
-// 					RootCertificateChainArn: pulumi.Any(aws_acm_certificate.Root_cert.Arn),
-// 				},
-// 			},
-// 			ConnectionLogOptions: &ec2clientvpn.EndpointConnectionLogOptionsArgs{
-// 				Enabled:             pulumi.Bool(true),
-// 				CloudwatchLogGroup:  pulumi.Any(aws_cloudwatch_log_group.Lg.Name),
-// 				CloudwatchLogStream: pulumi.Any(aws_cloudwatch_log_stream.Ls.Name),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2clientvpn.NewEndpoint(ctx, "example", &ec2clientvpn.EndpointArgs{
+//				Description:          pulumi.String("clientvpn-example"),
+//				ServerCertificateArn: pulumi.Any(aws_acm_certificate.Cert.Arn),
+//				ClientCidrBlock:      pulumi.String("10.0.0.0/16"),
+//				AuthenticationOptions: ec2clientvpn.EndpointAuthenticationOptionArray{
+//					&ec2clientvpn.EndpointAuthenticationOptionArgs{
+//						Type:                    pulumi.String("certificate-authentication"),
+//						RootCertificateChainArn: pulumi.Any(aws_acm_certificate.Root_cert.Arn),
+//					},
+//				},
+//				ConnectionLogOptions: &ec2clientvpn.EndpointConnectionLogOptionsArgs{
+//					Enabled:             pulumi.Bool(true),
+//					CloudwatchLogGroup:  pulumi.Any(aws_cloudwatch_log_group.Lg.Name),
+//					CloudwatchLogStream: pulumi.Any(aws_cloudwatch_log_stream.Ls.Name),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // AWS Client VPN endpoints can be imported using the `id` value found via `aws ec2 describe-client-vpn-endpoints`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
+//
+//	$ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
+//
 // ```
 type Endpoint struct {
 	pulumi.CustomResourceState
@@ -337,7 +342,7 @@ func (i *Endpoint) ToEndpointOutputWithContext(ctx context.Context) EndpointOutp
 // EndpointArrayInput is an input type that accepts EndpointArray and EndpointArrayOutput values.
 // You can construct a concrete instance of `EndpointArrayInput` via:
 //
-//          EndpointArray{ EndpointArgs{...} }
+//	EndpointArray{ EndpointArgs{...} }
 type EndpointArrayInput interface {
 	pulumi.Input
 
@@ -362,7 +367,7 @@ func (i EndpointArray) ToEndpointArrayOutputWithContext(ctx context.Context) End
 // EndpointMapInput is an input type that accepts EndpointMap and EndpointMapOutput values.
 // You can construct a concrete instance of `EndpointMapInput` via:
 //
-//          EndpointMap{ "key": EndpointArgs{...} }
+//	EndpointMap{ "key": EndpointArgs{...} }
 type EndpointMapInput interface {
 	pulumi.Input
 

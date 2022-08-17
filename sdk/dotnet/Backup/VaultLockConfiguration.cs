@@ -15,23 +15,21 @@ namespace Pulumi.Aws.Backup
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Backup.VaultLockConfiguration("test", new()
     ///     {
-    ///         var test = new Aws.Backup.VaultLockConfiguration("test", new Aws.Backup.VaultLockConfigurationArgs
-    ///         {
-    ///             BackupVaultName = "example_backup_vault",
-    ///             ChangeableForDays = 3,
-    ///             MaxRetentionDays = 1200,
-    ///             MinRetentionDays = 7,
-    ///         });
-    ///     }
+    ///         BackupVaultName = "example_backup_vault",
+    ///         ChangeableForDays = 3,
+    ///         MaxRetentionDays = 1200,
+    ///         MinRetentionDays = 7,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.Backup
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/vaultLockConfiguration:VaultLockConfiguration")]
-    public partial class VaultLockConfiguration : Pulumi.CustomResource
+    public partial class VaultLockConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the vault.
@@ -119,7 +117,7 @@ namespace Pulumi.Aws.Backup
         }
     }
 
-    public sealed class VaultLockConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class VaultLockConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the backup vault to add a lock configuration for.
@@ -148,9 +146,10 @@ namespace Pulumi.Aws.Backup
         public VaultLockConfigurationArgs()
         {
         }
+        public static new VaultLockConfigurationArgs Empty => new VaultLockConfigurationArgs();
     }
 
-    public sealed class VaultLockConfigurationState : Pulumi.ResourceArgs
+    public sealed class VaultLockConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the vault.
@@ -185,5 +184,6 @@ namespace Pulumi.Aws.Backup
         public VaultLockConfigurationState()
         {
         }
+        public static new VaultLockConfigurationState Empty => new VaultLockConfigurationState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time in minutes. Valid values: `15`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs()
         {
         }
+        public static new BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs Empty => new BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs();
     }
 }

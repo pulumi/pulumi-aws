@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationGetArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationGetArgs Empty => new ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationGetArgs();
     }
 }

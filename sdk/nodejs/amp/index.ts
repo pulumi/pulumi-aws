@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./alertManagerDefinition";
+export * from "./getWorkspace";
 export * from "./ruleGroupNamespace";
 export * from "./workspace";
 

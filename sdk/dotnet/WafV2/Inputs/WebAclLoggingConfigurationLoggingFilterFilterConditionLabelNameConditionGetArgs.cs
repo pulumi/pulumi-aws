@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionGetArgs : Pulumi.ResourceArgs
+    public sealed class WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionGetArgs()
         {
         }
+        public static new WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionGetArgs Empty => new WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionGetArgs();
     }
 }

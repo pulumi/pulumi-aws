@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketVersioningV2VersioningConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class BucketVersioningV2VersioningConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketVersioningV2VersioningConfigurationArgs()
         {
         }
+        public static new BucketVersioningV2VersioningConfigurationArgs Empty => new BucketVersioningV2VersioningConfigurationArgs();
     }
 }

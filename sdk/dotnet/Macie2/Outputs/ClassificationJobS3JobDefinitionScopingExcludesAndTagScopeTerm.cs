@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Macie2.Outputs
         /// </summary>
         public readonly string? Comparator;
         /// <summary>
-        /// The tag key to use in the condition.
+        /// The tag key to use in the condition. The only valid value is `TAG`.
         /// </summary>
         public readonly string? Key;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Macie2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue> TagValues;
         /// <summary>
-        /// The type of object to apply the condition to.
+        /// The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
         /// </summary>
         public readonly string? Target;
 

@@ -37,30 +37,28 @@ namespace Pulumi.Aws.ElastiCache
     /// To create a single shard primary with single read replica:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ElastiCache.ReplicationGroup("example", new()
     ///     {
-    ///         var example = new Aws.ElastiCache.ReplicationGroup("example", new Aws.ElastiCache.ReplicationGroupArgs
+    ///         AutomaticFailoverEnabled = true,
+    ///         Description = "example description",
+    ///         NodeType = "cache.m4.large",
+    ///         NumCacheClusters = 2,
+    ///         ParameterGroupName = "default.redis3.2",
+    ///         Port = 6379,
+    ///         PreferredCacheClusterAzs = new[]
     ///         {
-    ///             AutomaticFailoverEnabled = true,
-    ///             Description = "example description",
-    ///             NodeType = "cache.m4.large",
-    ///             NumCacheClusters = 2,
-    ///             ParameterGroupName = "default.redis3.2",
-    ///             Port = 6379,
-    ///             PreferredCacheClusterAzs = 
-    ///             {
-    ///                 "us-west-2a",
-    ///                 "us-west-2b",
-    ///             },
-    ///         });
-    ///     }
+    ///             "us-west-2a",
+    ///             "us-west-2b",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// You have two options for adjusting the number of replicas:
@@ -73,103 +71,96 @@ namespace Pulumi.Aws.ElastiCache
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ElastiCache.ReplicationGroup("example", new()
     ///     {
-    ///         var example = new Aws.ElastiCache.ReplicationGroup("example", new Aws.ElastiCache.ReplicationGroupArgs
+    ///         AutomaticFailoverEnabled = true,
+    ///         PreferredCacheClusterAzs = new[]
     ///         {
-    ///             AutomaticFailoverEnabled = true,
-    ///             PreferredCacheClusterAzs = 
-    ///             {
-    ///                 "us-west-2a",
-    ///                 "us-west-2b",
-    ///             },
-    ///             Description = "example description",
-    ///             NodeType = "cache.m4.large",
-    ///             NumCacheClusters = 2,
-    ///             ParameterGroupName = "default.redis3.2",
-    ///             Port = 6379,
-    ///         });
-    ///         var replica = new List&lt;Aws.ElastiCache.Cluster&gt;();
-    ///         for (var rangeIndex = 0; rangeIndex &lt; (1 == true); rangeIndex++)
-    ///         {
-    ///             var range = new { Value = rangeIndex };
-    ///             replica.Add(new Aws.ElastiCache.Cluster($"replica-{range.Value}", new Aws.ElastiCache.ClusterArgs
-    ///             {
-    ///                 ReplicationGroupId = example.Id,
-    ///             }));
-    ///         }
-    ///     }
+    ///             "us-west-2a",
+    ///             "us-west-2b",
+    ///         },
+    ///         Description = "example description",
+    ///         NodeType = "cache.m4.large",
+    ///         NumCacheClusters = 2,
+    ///         ParameterGroupName = "default.redis3.2",
+    ///         Port = 6379,
+    ///     });
     /// 
-    /// }
+    ///     var replica = new List&lt;Aws.ElastiCache.Cluster&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; (1 == true); rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         replica.Add(new Aws.ElastiCache.Cluster($"replica-{range.Value}", new()
+    ///         {
+    ///             ReplicationGroupId = example.Id,
+    ///         }));
+    ///     }
+    /// });
     /// ```
     /// ### Redis Cluster Mode Enabled
     /// 
     /// To create two shards with a primary and a single read replica each:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var baz = new Aws.ElastiCache.ReplicationGroup("baz", new()
     ///     {
-    ///         var baz = new Aws.ElastiCache.ReplicationGroup("baz", new Aws.ElastiCache.ReplicationGroupArgs
-    ///         {
-    ///             AutomaticFailoverEnabled = true,
-    ///             Description = "example description",
-    ///             NodeType = "cache.t2.small",
-    ///             NumNodeGroups = 2,
-    ///             ParameterGroupName = "default.redis3.2.cluster.on",
-    ///             Port = 6379,
-    ///             ReplicasPerNodeGroup = 1,
-    ///         });
-    ///     }
+    ///         AutomaticFailoverEnabled = true,
+    ///         Description = "example description",
+    ///         NodeType = "cache.t2.small",
+    ///         NumNodeGroups = 2,
+    ///         ParameterGroupName = "default.redis3.2.cluster.on",
+    ///         Port = 6379,
+    ///         ReplicasPerNodeGroup = 1,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Redis Log Delivery configuration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.ElastiCache.ReplicationGroup("test", new()
     ///     {
-    ///         var test = new Aws.ElastiCache.ReplicationGroup("test", new Aws.ElastiCache.ReplicationGroupArgs
+    ///         Description = "test description",
+    ///         NodeType = "cache.t3.small",
+    ///         Port = 6379,
+    ///         ApplyImmediately = true,
+    ///         AutoMinorVersionUpgrade = false,
+    ///         MaintenanceWindow = "tue:06:30-tue:07:30",
+    ///         SnapshotWindow = "01:00-02:00",
+    ///         LogDeliveryConfigurations = new[]
     ///         {
-    ///             Description = "test description",
-    ///             NodeType = "cache.t3.small",
-    ///             Port = 6379,
-    ///             ApplyImmediately = true,
-    ///             AutoMinorVersionUpgrade = false,
-    ///             MaintenanceWindow = "tue:06:30-tue:07:30",
-    ///             SnapshotWindow = "01:00-02:00",
-    ///             LogDeliveryConfigurations = 
+    ///             new Aws.ElastiCache.Inputs.ReplicationGroupLogDeliveryConfigurationArgs
     ///             {
-    ///                 new Aws.ElastiCache.Inputs.ReplicationGroupLogDeliveryConfigurationArgs
-    ///                 {
-    ///                     Destination = aws_cloudwatch_log_group.Example.Name,
-    ///                     DestinationType = "cloudwatch-logs",
-    ///                     LogFormat = "text",
-    ///                     LogType = "slow-log",
-    ///                 },
-    ///                 new Aws.ElastiCache.Inputs.ReplicationGroupLogDeliveryConfigurationArgs
-    ///                 {
-    ///                     Destination = aws_kinesis_firehose_delivery_stream.Example.Name,
-    ///                     DestinationType = "kinesis-firehose",
-    ///                     LogFormat = "json",
-    ///                     LogType = "engine-log",
-    ///                 },
+    ///                 Destination = aws_cloudwatch_log_group.Example.Name,
+    ///                 DestinationType = "cloudwatch-logs",
+    ///                 LogFormat = "text",
+    ///                 LogType = "slow-log",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.ElastiCache.Inputs.ReplicationGroupLogDeliveryConfigurationArgs
+    ///             {
+    ///                 Destination = aws_kinesis_firehose_delivery_stream.Example.Name,
+    ///                 DestinationType = "kinesis-firehose",
+    ///                 LogFormat = "json",
+    ///                 LogType = "engine-log",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// &gt; **Note:** We currently do not support passing a `primary_cluster_id` in order to create the Replication Group.
@@ -182,41 +173,41 @@ namespace Pulumi.Aws.ElastiCache
     /// A Global Replication Group can have one one two secondary Replication Groups in different regions. These are added to an existing Global Replication Group.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var primary = new Aws.ElastiCache.ReplicationGroup("primary", new()
     ///     {
-    ///         var primary = new Aws.ElastiCache.ReplicationGroup("primary", new Aws.ElastiCache.ReplicationGroupArgs
-    ///         {
-    ///             Description = "primary replication group",
-    ///             Engine = "redis",
-    ///             EngineVersion = "5.0.6",
-    ///             NodeType = "cache.m5.large",
-    ///             NumCacheClusters = 1,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Other_region,
-    ///         });
-    ///         var example = new Aws.ElastiCache.GlobalReplicationGroup("example", new Aws.ElastiCache.GlobalReplicationGroupArgs
-    ///         {
-    ///             GlobalReplicationGroupIdSuffix = "example",
-    ///             PrimaryReplicationGroupId = primary.Id,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Other_region,
-    ///         });
-    ///         var secondary = new Aws.ElastiCache.ReplicationGroup("secondary", new Aws.ElastiCache.ReplicationGroupArgs
-    ///         {
-    ///             Description = "secondary replication group",
-    ///             GlobalReplicationGroupId = example.GlobalReplicationGroupId,
-    ///             NumCacheClusters = 1,
-    ///         });
-    ///     }
+    ///         Description = "primary replication group",
+    ///         Engine = "redis",
+    ///         EngineVersion = "5.0.6",
+    ///         NodeType = "cache.m5.large",
+    ///         NumCacheClusters = 1,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Other_region,
+    ///     });
     /// 
-    /// }
+    ///     var example = new Aws.ElastiCache.GlobalReplicationGroup("example", new()
+    ///     {
+    ///         GlobalReplicationGroupIdSuffix = "example",
+    ///         PrimaryReplicationGroupId = primary.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         Provider = aws.Other_region,
+    ///     });
+    /// 
+    ///     var secondary = new Aws.ElastiCache.ReplicationGroup("secondary", new()
+    ///     {
+    ///         Description = "secondary replication group",
+    ///         GlobalReplicationGroupId = example.GlobalReplicationGroupId,
+    ///         NumCacheClusters = 1,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -228,7 +219,7 @@ namespace Pulumi.Aws.ElastiCache
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/replicationGroup:ReplicationGroup")]
-    public partial class ReplicationGroup : Pulumi.CustomResource
+    public partial class ReplicationGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
@@ -550,7 +541,7 @@ namespace Pulumi.Aws.ElastiCache
         }
     }
 
-    public sealed class ReplicationGroupArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
@@ -833,9 +824,10 @@ namespace Pulumi.Aws.ElastiCache
         public ReplicationGroupArgs()
         {
         }
+        public static new ReplicationGroupArgs Empty => new ReplicationGroupArgs();
     }
 
-    public sealed class ReplicationGroupState : Pulumi.ResourceArgs
+    public sealed class ReplicationGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
@@ -1174,5 +1166,6 @@ namespace Pulumi.Aws.ElastiCache
         public ReplicationGroupState()
         {
         }
+        public static new ReplicationGroupState Empty => new ReplicationGroupState();
     }
 }

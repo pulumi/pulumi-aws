@@ -22,37 +22,33 @@ namespace Pulumi.Aws.S3Control
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.S3Control.BucketPolicy("example", new()
     ///     {
-    ///         var example = new Aws.S3Control.BucketPolicy("example", new Aws.S3Control.BucketPolicyArgs
+    ///         Bucket = aws_s3control_bucket.Example.Arn,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             Bucket = aws_s3control_bucket.Example.Arn,
-    ///             Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["Id"] = "testBucketPolicy",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 { "Id", "testBucketPolicy" },
-    ///                 { "Statement", new[]
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = "s3-outposts:PutBucketLifecycleConfiguration",
+    ///                     ["Effect"] = "Deny",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "Action", "s3-outposts:PutBucketLifecycleConfiguration" },
-    ///                             { "Effect", "Deny" },
-    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "AWS", "*" },
-    ///                             } },
-    ///                             { "Resource", aws_s3control_bucket.Example.Arn },
-    ///                             { "Sid", "statement1" },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///                 { "Version", "2012-10-17" },
-    ///             }),
-    ///         });
-    ///     }
+    ///                         ["AWS"] = "*",
+    ///                     },
+    ///                     ["Resource"] = aws_s3control_bucket.Example.Arn,
+    ///                     ["Sid"] = "statement1",
+    ///                 },
+    ///             },
+    ///             ["Version"] = "2012-10-17",
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +60,7 @@ namespace Pulumi.Aws.S3Control
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3control/bucketPolicy:BucketPolicy")]
-    public partial class BucketPolicy : Pulumi.CustomResource
+    public partial class BucketPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the bucket.
@@ -122,7 +118,7 @@ namespace Pulumi.Aws.S3Control
         }
     }
 
-    public sealed class BucketPolicyArgs : Pulumi.ResourceArgs
+    public sealed class BucketPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the bucket.
@@ -139,9 +135,10 @@ namespace Pulumi.Aws.S3Control
         public BucketPolicyArgs()
         {
         }
+        public static new BucketPolicyArgs Empty => new BucketPolicyArgs();
     }
 
-    public sealed class BucketPolicyState : Pulumi.ResourceArgs
+    public sealed class BucketPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the bucket.
@@ -158,5 +155,6 @@ namespace Pulumi.Aws.S3Control
         public BucketPolicyState()
         {
         }
+        public static new BucketPolicyState Empty => new BucketPolicyState();
     }
 }

@@ -18,28 +18,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := waf.NewSqlInjectionMatchSet(ctx, "sqlInjectionMatchSet", &waf.SqlInjectionMatchSetArgs{
-// 			SqlInjectionMatchTuples: waf.SqlInjectionMatchSetSqlInjectionMatchTupleArray{
-// 				&waf.SqlInjectionMatchSetSqlInjectionMatchTupleArgs{
-// 					FieldToMatch: &waf.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs{
-// 						Type: pulumi.String("QUERY_STRING"),
-// 					},
-// 					TextTransformation: pulumi.String("URL_DECODE"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := waf.NewSqlInjectionMatchSet(ctx, "sqlInjectionMatchSet", &waf.SqlInjectionMatchSetArgs{
+//				SqlInjectionMatchTuples: waf.SqlInjectionMatchSetSqlInjectionMatchTupleArray{
+//					&waf.SqlInjectionMatchSetSqlInjectionMatchTupleArgs{
+//						FieldToMatch: &waf.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs{
+//							Type: pulumi.String("QUERY_STRING"),
+//						},
+//						TextTransformation: pulumi.String("URL_DECODE"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // AWS WAF SQL Injection Match Set can be imported using their ID, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
+//	$ pulumi import aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
 // ```
 type SqlInjectionMatchSet struct {
 	pulumi.CustomResourceState
@@ -145,7 +150,7 @@ func (i *SqlInjectionMatchSet) ToSqlInjectionMatchSetOutputWithContext(ctx conte
 // SqlInjectionMatchSetArrayInput is an input type that accepts SqlInjectionMatchSetArray and SqlInjectionMatchSetArrayOutput values.
 // You can construct a concrete instance of `SqlInjectionMatchSetArrayInput` via:
 //
-//          SqlInjectionMatchSetArray{ SqlInjectionMatchSetArgs{...} }
+//	SqlInjectionMatchSetArray{ SqlInjectionMatchSetArgs{...} }
 type SqlInjectionMatchSetArrayInput interface {
 	pulumi.Input
 
@@ -170,7 +175,7 @@ func (i SqlInjectionMatchSetArray) ToSqlInjectionMatchSetArrayOutputWithContext(
 // SqlInjectionMatchSetMapInput is an input type that accepts SqlInjectionMatchSetMap and SqlInjectionMatchSetMapOutput values.
 // You can construct a concrete instance of `SqlInjectionMatchSetMapInput` via:
 //
-//          SqlInjectionMatchSetMap{ "key": SqlInjectionMatchSetArgs{...} }
+//	SqlInjectionMatchSetMap{ "key": SqlInjectionMatchSetArgs{...} }
 type SqlInjectionMatchSetMapInput interface {
 	pulumi.Input
 

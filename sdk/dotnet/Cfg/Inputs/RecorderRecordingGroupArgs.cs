@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cfg.Inputs
 {
 
-    public sealed class RecorderRecordingGroupArgs : Pulumi.ResourceArgs
+    public sealed class RecorderRecordingGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Cfg.Inputs
         public RecorderRecordingGroupArgs()
         {
         }
+        public static new RecorderRecordingGroupArgs Empty => new RecorderRecordingGroupArgs();
     }
 }

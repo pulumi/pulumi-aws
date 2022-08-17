@@ -16,30 +16,28 @@ namespace Pulumi.Aws.Connect
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Connect.SecurityProfile("example", new()
     ///     {
-    ///         var example = new Aws.Connect.SecurityProfile("example", new Aws.Connect.SecurityProfileArgs
+    ///         Description = "example description",
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Permissions = new[]
     ///         {
-    ///             Description = "example description",
-    ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///             Permissions = 
-    ///             {
-    ///                 "BasicAgentAccess",
-    ///                 "OutboundCallAccess",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example Security Profile" },
-    ///             },
-    ///         });
-    ///     }
+    ///             "BasicAgentAccess",
+    ///             "OutboundCallAccess",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Security Profile" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Aws.Connect
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/securityProfile:SecurityProfile")]
-    public partial class SecurityProfile : Pulumi.CustomResource
+    public partial class SecurityProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Security Profile.
@@ -95,16 +93,9 @@ namespace Pulumi.Aws.Connect
         [Output("securityProfileId")]
         public Output<string> SecurityProfileId { get; private set; } = null!;
 
-        /// <summary>
-        /// Tags to apply to the Security Profile. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -152,7 +143,7 @@ namespace Pulumi.Aws.Connect
         }
     }
 
-    public sealed class SecurityProfileArgs : Pulumi.ResourceArgs
+    public sealed class SecurityProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the description of the Security Profile.
@@ -186,11 +177,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the Security Profile. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -200,9 +186,10 @@ namespace Pulumi.Aws.Connect
         public SecurityProfileArgs()
         {
         }
+        public static new SecurityProfileArgs Empty => new SecurityProfileArgs();
     }
 
-    public sealed class SecurityProfileState : Pulumi.ResourceArgs
+    public sealed class SecurityProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Security Profile.
@@ -254,11 +241,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Tags to apply to the Security Profile. If configured with a provider
-        /// [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -267,10 +249,6 @@ namespace Pulumi.Aws.Connect
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -280,5 +258,6 @@ namespace Pulumi.Aws.Connect
         public SecurityProfileState()
         {
         }
+        public static new SecurityProfileState Empty => new SecurityProfileState();
     }
 }

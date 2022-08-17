@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppConfig.Inputs
 {
 
-    public sealed class ConfigurationProfileValidatorGetArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationProfileValidatorGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda function.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppConfig.Inputs
         public ConfigurationProfileValidatorGetArgs()
         {
         }
+        public static new ConfigurationProfileValidatorGetArgs Empty => new ConfigurationProfileValidatorGetArgs();
     }
 }

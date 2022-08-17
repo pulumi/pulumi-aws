@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketLoggingV2TargetGrantGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketLoggingV2TargetGrantGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A configuration block for the person being granted permissions documented below.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketLoggingV2TargetGrantGetArgs()
         {
         }
+        public static new BucketLoggingV2TargetGrantGetArgs Empty => new BucketLoggingV2TargetGrantGetArgs();
     }
 }

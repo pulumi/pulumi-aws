@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ProjectCacheArgs : Pulumi.ResourceArgs
+    public sealed class ProjectCacheArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Location of the source code from git or s3.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ProjectCacheArgs()
         {
         }
+        public static new ProjectCacheArgs Empty => new ProjectCacheArgs();
     }
 }

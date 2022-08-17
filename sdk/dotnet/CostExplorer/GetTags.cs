@@ -19,24 +19,22 @@ namespace Pulumi.Aws.CostExplorer
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.CostExplorer.GetTags.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.CostExplorer.GetTags.InvokeAsync(new Aws.CostExplorer.GetTagsArgs
+        ///         TimePeriod = new Aws.CostExplorer.Inputs.GetTagsTimePeriodInputArgs
         ///         {
-        ///             TimePeriod = new Aws.CostExplorer.Inputs.GetTagsTimePeriodArgs
-        ///             {
-        ///                 End = "2022-12-01",
-        ///                 Start = "2021-01-01",
-        ///             },
-        ///         }));
-        ///     }
+        ///             End = "2022-12-01",
+        ///             Start = "2021-01-01",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +50,22 @@ namespace Pulumi.Aws.CostExplorer
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.CostExplorer.GetTags.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.CostExplorer.GetTags.InvokeAsync(new Aws.CostExplorer.GetTagsArgs
+        ///         TimePeriod = new Aws.CostExplorer.Inputs.GetTagsTimePeriodInputArgs
         ///         {
-        ///             TimePeriod = new Aws.CostExplorer.Inputs.GetTagsTimePeriodArgs
-        ///             {
-        ///                 End = "2022-12-01",
-        ///                 Start = "2021-01-01",
-        ///             },
-        ///         }));
-        ///     }
+        ///             End = "2022-12-01",
+        ///             Start = "2021-01-01",
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +75,7 @@ namespace Pulumi.Aws.CostExplorer
     }
 
 
-    public sealed class GetTagsArgs : Pulumi.InvokeArgs
+    public sealed class GetTagsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Configuration block for the `Expression` object used to categorize costs. See below.
@@ -120,9 +116,10 @@ namespace Pulumi.Aws.CostExplorer
         public GetTagsArgs()
         {
         }
+        public static new GetTagsArgs Empty => new GetTagsArgs();
     }
 
-    public sealed class GetTagsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTagsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Configuration block for the `Expression` object used to categorize costs. See below.
@@ -163,6 +160,7 @@ namespace Pulumi.Aws.CostExplorer
         public GetTagsInvokeArgs()
         {
         }
+        public static new GetTagsInvokeArgs Empty => new GetTagsInvokeArgs();
     }
 
 

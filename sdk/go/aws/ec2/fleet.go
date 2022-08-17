@@ -19,30 +19,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewFleet(ctx, "example", &ec2.FleetArgs{
-// 			LaunchTemplateConfig: &ec2.FleetLaunchTemplateConfigArgs{
-// 				LaunchTemplateSpecification: &ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{
-// 					LaunchTemplateId: pulumi.Any(aws_launch_template.Example.Id),
-// 					Version:          pulumi.Any(aws_launch_template.Example.Latest_version),
-// 				},
-// 			},
-// 			TargetCapacitySpecification: &ec2.FleetTargetCapacitySpecificationArgs{
-// 				DefaultTargetCapacityType: pulumi.String("spot"),
-// 				TotalTargetCapacity:       pulumi.Int(5),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewFleet(ctx, "example", &ec2.FleetArgs{
+//				LaunchTemplateConfig: &ec2.FleetLaunchTemplateConfigArgs{
+//					LaunchTemplateSpecification: &ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{
+//						LaunchTemplateId: pulumi.Any(aws_launch_template.Example.Id),
+//						Version:          pulumi.Any(aws_launch_template.Example.Latest_version),
+//					},
+//				},
+//				TargetCapacitySpecification: &ec2.FleetTargetCapacitySpecificationArgs{
+//					DefaultTargetCapacityType: pulumi.String("spot"),
+//					TotalTargetCapacity:       pulumi.Int(5),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // `aws_ec2_fleet` can be imported by using the Fleet identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
+//
+//	$ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
+//
 // ```
 type Fleet struct {
 	pulumi.CustomResourceState
@@ -256,7 +261,7 @@ func (i *Fleet) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 // FleetArrayInput is an input type that accepts FleetArray and FleetArrayOutput values.
 // You can construct a concrete instance of `FleetArrayInput` via:
 //
-//          FleetArray{ FleetArgs{...} }
+//	FleetArray{ FleetArgs{...} }
 type FleetArrayInput interface {
 	pulumi.Input
 
@@ -281,7 +286,7 @@ func (i FleetArray) ToFleetArrayOutputWithContext(ctx context.Context) FleetArra
 // FleetMapInput is an input type that accepts FleetMap and FleetMapOutput values.
 // You can construct a concrete instance of `FleetMapInput` via:
 //
-//          FleetMap{ "key": FleetArgs{...} }
+//	FleetMap{ "key": FleetArgs{...} }
 type FleetMapInput interface {
 	pulumi.Input
 

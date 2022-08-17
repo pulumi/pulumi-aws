@@ -16,81 +16,73 @@ namespace Pulumi.Aws.Cognito
     /// ### Basic configuration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var pool = new Aws.Cognito.UserPool("pool", new Aws.Cognito.UserPoolArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var pool = new Aws.Cognito.UserPool("pool");
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Enabling SMS and Software Token Multi-Factor Authentication
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // ... other configuration ...
+    ///     var example = new Aws.Cognito.UserPool("example", new()
     ///     {
-    ///         // ... other configuration ...
-    ///         var example = new Aws.Cognito.UserPool("example", new Aws.Cognito.UserPoolArgs
+    ///         MfaConfiguration = "ON",
+    ///         SmsAuthenticationMessage = "Your code is {####}",
+    ///         SmsConfiguration = new Aws.Cognito.Inputs.UserPoolSmsConfigurationArgs
     ///         {
-    ///             MfaConfiguration = "ON",
-    ///             SmsAuthenticationMessage = "Your code is {####}",
-    ///             SmsConfiguration = new Aws.Cognito.Inputs.UserPoolSmsConfigurationArgs
-    ///             {
-    ///                 ExternalId = "example",
-    ///                 SnsCallerArn = aws_iam_role.Example.Arn,
-    ///             },
-    ///             SoftwareTokenMfaConfiguration = new Aws.Cognito.Inputs.UserPoolSoftwareTokenMfaConfigurationArgs
-    ///             {
-    ///                 Enabled = true,
-    ///             },
-    ///         });
-    ///     }
+    ///             ExternalId = "example",
+    ///             SnsCallerArn = aws_iam_role.Example.Arn,
+    ///         },
+    ///         SoftwareTokenMfaConfiguration = new Aws.Cognito.Inputs.UserPoolSoftwareTokenMfaConfigurationArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Using Account Recovery Setting
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new Aws.Cognito.UserPool("test", new()
     ///     {
-    ///         var test = new Aws.Cognito.UserPool("test", new Aws.Cognito.UserPoolArgs
+    ///         AccountRecoverySetting = new Aws.Cognito.Inputs.UserPoolAccountRecoverySettingArgs
     ///         {
-    ///             AccountRecoverySetting = new Aws.Cognito.Inputs.UserPoolAccountRecoverySettingArgs
+    ///             RecoveryMechanisms = new[]
     ///             {
-    ///                 RecoveryMechanisms = 
+    ///                 new Aws.Cognito.Inputs.UserPoolAccountRecoverySettingRecoveryMechanismArgs
     ///                 {
-    ///                     new Aws.Cognito.Inputs.UserPoolAccountRecoverySettingRecoveryMechanismArgs
-    ///                     {
-    ///                         Name = "verified_email",
-    ///                         Priority = 1,
-    ///                     },
-    ///                     new Aws.Cognito.Inputs.UserPoolAccountRecoverySettingRecoveryMechanismArgs
-    ///                     {
-    ///                         Name = "verified_phone_number",
-    ///                         Priority = 2,
-    ///                     },
+    ///                     Name = "verified_email",
+    ///                     Priority = 1,
+    ///                 },
+    ///                 new Aws.Cognito.Inputs.UserPoolAccountRecoverySettingRecoveryMechanismArgs
+    ///                 {
+    ///                     Name = "verified_phone_number",
+    ///                     Priority = 2,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -102,7 +94,7 @@ namespace Pulumi.Aws.Cognito
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/userPool:UserPool")]
-    public partial class UserPool : Pulumi.CustomResource
+    public partial class UserPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
@@ -249,13 +241,13 @@ namespace Pulumi.Aws.Cognito
         public Output<Outputs.UserPoolSoftwareTokenMfaConfiguration?> SoftwareTokenMfaConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the User Pool. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -328,7 +320,7 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
-    public sealed class UserPoolArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
@@ -454,7 +446,7 @@ namespace Pulumi.Aws.Cognito
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the User Pool. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -495,9 +487,10 @@ namespace Pulumi.Aws.Cognito
         public UserPoolArgs()
         {
         }
+        public static new UserPoolArgs Empty => new UserPoolArgs();
     }
 
-    public sealed class UserPoolState : Pulumi.ResourceArgs
+    public sealed class UserPoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
@@ -665,7 +658,7 @@ namespace Pulumi.Aws.Cognito
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the User Pool. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -677,7 +670,7 @@ namespace Pulumi.Aws.Cognito
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -718,5 +711,6 @@ namespace Pulumi.Aws.Cognito
         public UserPoolState()
         {
         }
+        public static new UserPoolState Empty => new UserPoolState();
     }
 }

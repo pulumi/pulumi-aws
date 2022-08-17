@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppStream.Inputs
 {
 
-    public sealed class ImageBuilderAccessEndpointGetArgs : Pulumi.ResourceArgs
+    public sealed class ImageBuilderAccessEndpointGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of interface endpoint.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppStream.Inputs
         public ImageBuilderAccessEndpointGetArgs()
         {
         }
+        public static new ImageBuilderAccessEndpointGetArgs Empty => new ImageBuilderAccessEndpointGetArgs();
     }
 }

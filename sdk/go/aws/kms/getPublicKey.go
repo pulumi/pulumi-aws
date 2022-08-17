@@ -18,39 +18,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := kms.GetPublicKey(ctx, &kms.GetPublicKeyArgs{
-// 			KeyId: "alias/my-key",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = kms.GetPublicKey(ctx, &kms.GetPublicKeyArgs{
-// 			KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = kms.GetPublicKey(ctx, &kms.GetPublicKeyArgs{
-// 			KeyId: "arn:aws:kms:us-east-1:111122223333:alias/my-key",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = kms.GetPublicKey(ctx, &kms.GetPublicKeyArgs{
-// 			KeyId: "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kms.GetPublicKey(ctx, &kms.GetPublicKeyArgs{
+//				KeyId: "alias/my-key",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kms.GetPublicKey(ctx, &kms.GetPublicKeyArgs{
+//				KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kms.GetPublicKey(ctx, &kms.GetPublicKeyArgs{
+//				KeyId: "arn:aws:kms:us-east-1:111122223333:alias/my-key",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kms.GetPublicKey(ctx, &kms.GetPublicKeyArgs{
+//				KeyId: "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetPublicKey(ctx *pulumi.Context, args *GetPublicKeyArgs, opts ...pulumi.InvokeOption) (*GetPublicKeyResult, error) {
 	var rv GetPublicKeyResult

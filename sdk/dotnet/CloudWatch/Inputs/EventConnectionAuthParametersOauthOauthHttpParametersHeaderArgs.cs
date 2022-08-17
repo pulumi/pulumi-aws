@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs : Pulumi.ResourceArgs
+    public sealed class EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specified whether the value is secret.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs()
         {
         }
+        public static new EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs Empty => new EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs();
     }
 }

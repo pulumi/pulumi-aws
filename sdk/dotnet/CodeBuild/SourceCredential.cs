@@ -18,43 +18,39 @@ namespace Pulumi.Aws.CodeBuild
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CodeBuild.SourceCredential("example", new()
     ///     {
-    ///         var example = new Aws.CodeBuild.SourceCredential("example", new Aws.CodeBuild.SourceCredentialArgs
-    ///         {
-    ///             AuthType = "PERSONAL_ACCESS_TOKEN",
-    ///             ServerType = "GITHUB",
-    ///             Token = "example",
-    ///         });
-    ///     }
+    ///         AuthType = "PERSONAL_ACCESS_TOKEN",
+    ///         ServerType = "GITHUB",
+    ///         Token = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Bitbucket Server Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.CodeBuild.SourceCredential("example", new()
     ///     {
-    ///         var example = new Aws.CodeBuild.SourceCredential("example", new Aws.CodeBuild.SourceCredentialArgs
-    ///         {
-    ///             AuthType = "BASIC_AUTH",
-    ///             ServerType = "BITBUCKET",
-    ///             Token = "example",
-    ///             UserName = "test-user",
-    ///         });
-    ///     }
+    ///         AuthType = "BASIC_AUTH",
+    ///         ServerType = "BITBUCKET",
+    ///         Token = "example",
+    ///         UserName = "test-user",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +62,7 @@ namespace Pulumi.Aws.CodeBuild
     /// ```
     /// </summary>
     [AwsResourceType("aws:codebuild/sourceCredential:SourceCredential")]
-    public partial class SourceCredential : Pulumi.CustomResource
+    public partial class SourceCredential : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of Source Credential.
@@ -142,7 +138,7 @@ namespace Pulumi.Aws.CodeBuild
         }
     }
 
-    public sealed class SourceCredentialArgs : Pulumi.ResourceArgs
+    public sealed class SourceCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
@@ -171,9 +167,10 @@ namespace Pulumi.Aws.CodeBuild
         public SourceCredentialArgs()
         {
         }
+        public static new SourceCredentialArgs Empty => new SourceCredentialArgs();
     }
 
-    public sealed class SourceCredentialState : Pulumi.ResourceArgs
+    public sealed class SourceCredentialState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of Source Credential.
@@ -208,5 +205,6 @@ namespace Pulumi.Aws.CodeBuild
         public SourceCredentialState()
         {
         }
+        public static new SourceCredentialState Empty => new SourceCredentialState();
     }
 }

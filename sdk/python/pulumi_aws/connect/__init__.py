@@ -23,6 +23,7 @@ from .get_user_hierarchy_group import *
 from .get_user_hierarchy_structure import *
 from .hours_of_operation import *
 from .instance import *
+from .instance_storage_config import *
 from .lambda_function_association import *
 from .queue import *
 from .quick_connect import *

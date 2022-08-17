@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Mwaa.Inputs
 {
 
-    public sealed class EnvironmentLastUpdatedErrorGetArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentLastUpdatedErrorGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("errorCode")]
         public Input<string>? ErrorCode { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Mwaa.Inputs
         public EnvironmentLastUpdatedErrorGetArgs()
         {
         }
+        public static new EnvironmentLastUpdatedErrorGetArgs Empty => new EnvironmentLastUpdatedErrorGetArgs();
     }
 }

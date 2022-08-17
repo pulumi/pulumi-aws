@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class EndpointConfigurationAsyncInferenceConfigOutputConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigurationAsyncInferenceConfigOutputConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public EndpointConfigurationAsyncInferenceConfigOutputConfigGetArgs()
         {
         }
+        public static new EndpointConfigurationAsyncInferenceConfigOutputConfigGetArgs Empty => new EndpointConfigurationAsyncInferenceConfigOutputConfigGetArgs();
     }
 }

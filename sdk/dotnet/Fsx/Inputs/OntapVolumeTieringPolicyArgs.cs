@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Fsx.Inputs
 {
 
-    public sealed class OntapVolumeTieringPolicyArgs : Pulumi.ResourceArgs
+    public sealed class OntapVolumeTieringPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("coolingPeriod")]
         public Input<int>? CoolingPeriod { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Aws.Fsx.Inputs
         public OntapVolumeTieringPolicyArgs()
         {
         }
+        public static new OntapVolumeTieringPolicyArgs Empty => new OntapVolumeTieringPolicyArgs();
     }
 }

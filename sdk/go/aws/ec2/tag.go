@@ -21,44 +21,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
-// 			BgpAsn:    pulumi.String("65000"),
-// 			IpAddress: pulumi.String("172.0.0.1"),
-// 			Type:      pulumi.String("ipsec.1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVpnConnection, err := ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
-// 			CustomerGatewayId: exampleCustomerGateway.ID(),
-// 			TransitGatewayId:  exampleTransitGateway.ID(),
-// 			Type:              exampleCustomerGateway.Type,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewTag(ctx, "exampleTag", &ec2.TagArgs{
-// 			ResourceId: exampleVpnConnection.TransitGatewayAttachmentId,
-// 			Key:        pulumi.String("Name"),
-// 			Value:      pulumi.String("Hello World"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
+//				BgpAsn:    pulumi.String("65000"),
+//				IpAddress: pulumi.String("172.0.0.1"),
+//				Type:      pulumi.String("ipsec.1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpnConnection, err := ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
+//				CustomerGatewayId: exampleCustomerGateway.ID(),
+//				TransitGatewayId:  exampleTransitGateway.ID(),
+//				Type:              exampleCustomerGateway.Type,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewTag(ctx, "exampleTag", &ec2.TagArgs{
+//				ResourceId: exampleVpnConnection.TransitGatewayAttachmentId,
+//				Key:        pulumi.String("Name"),
+//				Value:      pulumi.String("Hello World"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -66,7 +69,9 @@ import (
 // `aws_ec2_tag` can be imported by using the EC2 resource identifier and key, separated by a comma (`,`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
+//
+//	$ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
+//
 // ```
 type Tag struct {
 	pulumi.CustomResourceState
@@ -183,7 +188,7 @@ func (i *Tag) ToTagOutputWithContext(ctx context.Context) TagOutput {
 // TagArrayInput is an input type that accepts TagArray and TagArrayOutput values.
 // You can construct a concrete instance of `TagArrayInput` via:
 //
-//          TagArray{ TagArgs{...} }
+//	TagArray{ TagArgs{...} }
 type TagArrayInput interface {
 	pulumi.Input
 
@@ -208,7 +213,7 @@ func (i TagArray) ToTagArrayOutputWithContext(ctx context.Context) TagArrayOutpu
 // TagMapInput is an input type that accepts TagMap and TagMapOutput values.
 // You can construct a concrete instance of `TagMapInput` via:
 //
-//          TagMap{ "key": TagArgs{...} }
+//	TagMap{ "key": TagArgs{...} }
 type TagMapInput interface {
 	pulumi.Input
 

@@ -156,6 +156,13 @@ class OrganizationConfiguration(pulumi.CustomResource):
                         enable=True,
                     ),
                 ),
+                malware_protection=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionArgs(
+                    scan_ec2_instance_with_findings=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs(
+                        ebs_volumes=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs(
+                            auto_enable=True,
+                        ),
+                    ),
+                ),
             ))
         ```
 
@@ -201,6 +208,13 @@ class OrganizationConfiguration(pulumi.CustomResource):
                 kubernetes=aws.guardduty.OrganizationConfigurationDatasourcesKubernetesArgs(
                     audit_logs=aws.guardduty.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs(
                         enable=True,
+                    ),
+                ),
+                malware_protection=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionArgs(
+                    scan_ec2_instance_with_findings=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs(
+                        ebs_volumes=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs(
+                            auto_enable=True,
+                        ),
                     ),
                 ),
             ))

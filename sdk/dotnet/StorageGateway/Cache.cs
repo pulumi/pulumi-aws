@@ -17,21 +17,19 @@ namespace Pulumi.Aws.StorageGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.StorageGateway.Cache("example", new()
     ///     {
-    ///         var example = new Aws.StorageGateway.Cache("example", new Aws.StorageGateway.CacheArgs
-    ///         {
-    ///             DiskId = data.Aws_storagegateway_local_disk.Example.Id,
-    ///             GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///         });
-    ///     }
+    ///         DiskId = data.Aws_storagegateway_local_disk.Example.Id,
+    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.StorageGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:storagegateway/cache:Cache")]
-    public partial class Cache : Pulumi.CustomResource
+    public partial class Cache : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
@@ -101,7 +99,7 @@ namespace Pulumi.Aws.StorageGateway
         }
     }
 
-    public sealed class CacheArgs : Pulumi.ResourceArgs
+    public sealed class CacheArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
@@ -118,9 +116,10 @@ namespace Pulumi.Aws.StorageGateway
         public CacheArgs()
         {
         }
+        public static new CacheArgs Empty => new CacheArgs();
     }
 
-    public sealed class CacheState : Pulumi.ResourceArgs
+    public sealed class CacheState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
@@ -137,5 +136,6 @@ namespace Pulumi.Aws.StorageGateway
         public CacheState()
         {
         }
+        public static new CacheState Empty => new CacheState();
     }
 }

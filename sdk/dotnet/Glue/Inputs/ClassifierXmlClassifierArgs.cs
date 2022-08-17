@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class ClassifierXmlClassifierArgs : Pulumi.ResourceArgs
+    public sealed class ClassifierXmlClassifierArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An identifier of the data format that the classifier matches.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public ClassifierXmlClassifierArgs()
         {
         }
+        public static new ClassifierXmlClassifierArgs Empty => new ClassifierXmlClassifierArgs();
     }
 }

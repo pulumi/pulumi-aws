@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift.Inputs
 {
 
-    public sealed class AliasRoutingStrategyArgs : Pulumi.ResourceArgs
+    public sealed class AliasRoutingStrategyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the GameLift Fleet to point the alias to.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.GameLift.Inputs
         public AliasRoutingStrategyArgs()
         {
         }
+        public static new AliasRoutingStrategyArgs Empty => new AliasRoutingStrategyArgs();
     }
 }

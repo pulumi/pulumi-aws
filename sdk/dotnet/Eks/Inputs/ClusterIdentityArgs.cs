@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Eks.Inputs
 {
 
-    public sealed class ClusterIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ClusterIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("oidcs")]
         private InputList<Inputs.ClusterIdentityOidcArgs>? _oidcs;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Eks.Inputs
         public ClusterIdentityArgs()
         {
         }
+        public static new ClusterIdentityArgs Empty => new ClusterIdentityArgs();
     }
 }

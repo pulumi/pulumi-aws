@@ -23,70 +23,73 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/shield"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/shield"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		currentRegion, err := aws.GetRegion(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		currentPartition, err := aws.GetPartition(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
-// 			Vpc: pulumi.Bool(true),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleProtection, err := shield.NewProtection(ctx, "exampleProtection", &shield.ProtectionArgs{
-// 			ResourceArn: exampleEip.ID().ApplyT(func(id string) (string, error) {
-// 				return fmt.Sprintf("arn:%v:ec2:%v:%v:eip-allocation/%v", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId, id), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleHealthCheck, err := route53.NewHealthCheck(ctx, "exampleHealthCheck", &route53.HealthCheckArgs{
-// 			IpAddress:        exampleEip.PublicIp,
-// 			Port:             pulumi.Int(80),
-// 			Type:             pulumi.String("HTTP"),
-// 			ResourcePath:     pulumi.String("/ready"),
-// 			FailureThreshold: pulumi.Int(3),
-// 			RequestInterval:  pulumi.Int(30),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("tf-example-health-check"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = shield.NewProtectionHealthCheckAssociation(ctx, "exampleProtectionHealthCheckAssociation", &shield.ProtectionHealthCheckAssociationArgs{
-// 			HealthCheckArn:     exampleHealthCheck.Arn,
-// 			ShieldProtectionId: exampleProtection.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
+//				Vpc: pulumi.Bool(true),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleProtection, err := shield.NewProtection(ctx, "exampleProtection", &shield.ProtectionArgs{
+//				ResourceArn: exampleEip.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("arn:%v:ec2:%v:%v:eip-allocation/%v", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId, id), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleHealthCheck, err := route53.NewHealthCheck(ctx, "exampleHealthCheck", &route53.HealthCheckArgs{
+//				IpAddress:        exampleEip.PublicIp,
+//				Port:             pulumi.Int(80),
+//				Type:             pulumi.String("HTTP"),
+//				ResourcePath:     pulumi.String("/ready"),
+//				FailureThreshold: pulumi.Int(3),
+//				RequestInterval:  pulumi.Int(30),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("tf-example-health-check"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = shield.NewProtectionHealthCheckAssociation(ctx, "exampleProtectionHealthCheckAssociation", &shield.ProtectionHealthCheckAssociationArgs{
+//				HealthCheckArn:     exampleHealthCheck.Arn,
+//				ShieldProtectionId: exampleProtection.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -94,7 +97,9 @@ import (
 // Shield protection health check association resources can be imported by specifying the `shield_protection_id` and `health_check_arn` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
+//
+//	$ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
+//
 // ```
 type ProtectionHealthCheckAssociation struct {
 	pulumi.CustomResourceState
@@ -198,7 +203,7 @@ func (i *ProtectionHealthCheckAssociation) ToProtectionHealthCheckAssociationOut
 // ProtectionHealthCheckAssociationArrayInput is an input type that accepts ProtectionHealthCheckAssociationArray and ProtectionHealthCheckAssociationArrayOutput values.
 // You can construct a concrete instance of `ProtectionHealthCheckAssociationArrayInput` via:
 //
-//          ProtectionHealthCheckAssociationArray{ ProtectionHealthCheckAssociationArgs{...} }
+//	ProtectionHealthCheckAssociationArray{ ProtectionHealthCheckAssociationArgs{...} }
 type ProtectionHealthCheckAssociationArrayInput interface {
 	pulumi.Input
 
@@ -223,7 +228,7 @@ func (i ProtectionHealthCheckAssociationArray) ToProtectionHealthCheckAssociatio
 // ProtectionHealthCheckAssociationMapInput is an input type that accepts ProtectionHealthCheckAssociationMap and ProtectionHealthCheckAssociationMapOutput values.
 // You can construct a concrete instance of `ProtectionHealthCheckAssociationMapInput` via:
 //
-//          ProtectionHealthCheckAssociationMap{ "key": ProtectionHealthCheckAssociationArgs{...} }
+//	ProtectionHealthCheckAssociationMap{ "key": ProtectionHealthCheckAssociationArgs{...} }
 type ProtectionHealthCheckAssociationMapInput interface {
 	pulumi.Input
 

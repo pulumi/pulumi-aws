@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class InstanceEphemeralBlockDeviceGetArgs : Pulumi.ResourceArgs
+    public sealed class InstanceEphemeralBlockDeviceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the block device to mount on the instance.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public InstanceEphemeralBlockDeviceGetArgs()
         {
         }
+        public static new InstanceEphemeralBlockDeviceGetArgs Empty => new InstanceEphemeralBlockDeviceGetArgs();
     }
 }

@@ -23,33 +23,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cur"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cur"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cur.NewReportDefinition(ctx, "exampleCurReportDefinition", &cur.ReportDefinitionArgs{
-// 			AdditionalArtifacts: pulumi.StringArray{
-// 				pulumi.String("REDSHIFT"),
-// 				pulumi.String("QUICKSIGHT"),
-// 			},
-// 			AdditionalSchemaElements: pulumi.StringArray{
-// 				pulumi.String("RESOURCES"),
-// 			},
-// 			Compression: pulumi.String("GZIP"),
-// 			Format:      pulumi.String("textORcsv"),
-// 			ReportName:  pulumi.String("example-cur-report-definition"),
-// 			S3Bucket:    pulumi.String("example-bucket-name"),
-// 			S3Region:    pulumi.String("us-east-1"),
-// 			TimeUnit:    pulumi.String("HOURLY"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cur.NewReportDefinition(ctx, "exampleCurReportDefinition", &cur.ReportDefinitionArgs{
+//				AdditionalArtifacts: pulumi.StringArray{
+//					pulumi.String("REDSHIFT"),
+//					pulumi.String("QUICKSIGHT"),
+//				},
+//				AdditionalSchemaElements: pulumi.StringArray{
+//					pulumi.String("RESOURCES"),
+//				},
+//				Compression: pulumi.String("GZIP"),
+//				Format:      pulumi.String("textORcsv"),
+//				ReportName:  pulumi.String("example-cur-report-definition"),
+//				S3Bucket:    pulumi.String("example-bucket-name"),
+//				S3Region:    pulumi.String("us-east-1"),
+//				TimeUnit:    pulumi.String("HOURLY"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Report Definitions can be imported using the `report_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
+//
+//	$ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
+//
 // ```
 type ReportDefinition struct {
 	pulumi.CustomResourceState
@@ -272,7 +277,7 @@ func (i *ReportDefinition) ToReportDefinitionOutputWithContext(ctx context.Conte
 // ReportDefinitionArrayInput is an input type that accepts ReportDefinitionArray and ReportDefinitionArrayOutput values.
 // You can construct a concrete instance of `ReportDefinitionArrayInput` via:
 //
-//          ReportDefinitionArray{ ReportDefinitionArgs{...} }
+//	ReportDefinitionArray{ ReportDefinitionArgs{...} }
 type ReportDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -297,7 +302,7 @@ func (i ReportDefinitionArray) ToReportDefinitionArrayOutputWithContext(ctx cont
 // ReportDefinitionMapInput is an input type that accepts ReportDefinitionMap and ReportDefinitionMapOutput values.
 // You can construct a concrete instance of `ReportDefinitionMapInput` via:
 //
-//          ReportDefinitionMap{ "key": ReportDefinitionArgs{...} }
+//	ReportDefinitionMap{ "key": ReportDefinitionArgs{...} }
 type ReportDefinitionMapInput interface {
 	pulumi.Input
 

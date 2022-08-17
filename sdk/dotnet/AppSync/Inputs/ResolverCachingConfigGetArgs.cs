@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppSync.Inputs
 {
 
-    public sealed class ResolverCachingConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ResolverCachingConfigGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("cachingKeys")]
         private InputList<string>? _cachingKeys;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AppSync.Inputs
         public ResolverCachingConfigGetArgs()
         {
         }
+        public static new ResolverCachingConfigGetArgs Empty => new ResolverCachingConfigGetArgs();
     }
 }

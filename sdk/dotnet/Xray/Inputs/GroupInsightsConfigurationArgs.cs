@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Xray.Inputs
 {
 
-    public sealed class GroupInsightsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class GroupInsightsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether insights are enabled.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Xray.Inputs
         public GroupInsightsConfigurationArgs()
         {
         }
+        public static new GroupInsightsConfigurationArgs Empty => new GroupInsightsConfigurationArgs();
     }
 }

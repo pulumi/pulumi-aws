@@ -19,67 +19,72 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := aws.GetCallerIdentity(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-// 			Description:          pulumi.String("my test kms key"),
-// 			DeletionWindowInDays: pulumi.Int(7),
-// 			Policy: pulumi.String(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Id": "kms-tf-1",
-//   "Statement": [
-//     {
-//       "Sid": "Enable IAM User Permissions",
-//       "Effect": "Allow",
-//       "Principal": {
-//         "AWS": "arn:aws:iam::%v:root"
-//       },
-//       "Action": "kms:*",
-//       "Resource": "*"
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//				Description:          pulumi.String("my test kms key"),
+//				DeletionWindowInDays: pulumi.Int(7),
+//				Policy: pulumi.String(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Id": "kms-tf-1",
+//	  "Statement": [
+//	    {
+//	      "Sid": "Enable IAM User Permissions",
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "AWS": "arn:aws:iam::%v:root"
+//	      },
+//	      "Action": "kms:*",
+//	      "Resource": "*"
+//	    }
+//	  ]
+//	}
+//
 // `, current.AccountId)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = codebuild.NewReportGroup(ctx, "exampleReportGroup", &codebuild.ReportGroupArgs{
-// 			Type: pulumi.String("TEST"),
-// 			ExportConfig: &codebuild.ReportGroupExportConfigArgs{
-// 				Type: pulumi.String("S3"),
-// 				S3Destination: &codebuild.ReportGroupExportConfigS3DestinationArgs{
-// 					Bucket:             exampleBucketV2.ID(),
-// 					EncryptionDisabled: pulumi.Bool(false),
-// 					EncryptionKey:      exampleKey.Arn,
-// 					Packaging:          pulumi.String("NONE"),
-// 					Path:               pulumi.String("/some"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codebuild.NewReportGroup(ctx, "exampleReportGroup", &codebuild.ReportGroupArgs{
+//				Type: pulumi.String("TEST"),
+//				ExportConfig: &codebuild.ReportGroupExportConfigArgs{
+//					Type: pulumi.String("S3"),
+//					S3Destination: &codebuild.ReportGroupExportConfigS3DestinationArgs{
+//						Bucket:             exampleBucketV2.ID(),
+//						EncryptionDisabled: pulumi.Bool(false),
+//						EncryptionKey:      exampleKey.Arn,
+//						Packaging:          pulumi.String("NONE"),
+//						Path:               pulumi.String("/some"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -87,7 +92,9 @@ import (
 // CodeBuild Report Group can be imported using the CodeBuild Report Group arn, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+//
+//	$ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+//
 // ```
 type ReportGroup struct {
 	pulumi.CustomResourceState
@@ -104,7 +111,7 @@ type ReportGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -157,7 +164,7 @@ type reportGroupState struct {
 	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
 	Type *string `pulumi:"type"`
@@ -176,7 +183,7 @@ type ReportGroupState struct {
 	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The export configuration type. Valid values are `S3` and `NO_EXPORT`.
 	Type pulumi.StringPtrInput
@@ -239,7 +246,7 @@ func (i *ReportGroup) ToReportGroupOutputWithContext(ctx context.Context) Report
 // ReportGroupArrayInput is an input type that accepts ReportGroupArray and ReportGroupArrayOutput values.
 // You can construct a concrete instance of `ReportGroupArrayInput` via:
 //
-//          ReportGroupArray{ ReportGroupArgs{...} }
+//	ReportGroupArray{ ReportGroupArgs{...} }
 type ReportGroupArrayInput interface {
 	pulumi.Input
 
@@ -264,7 +271,7 @@ func (i ReportGroupArray) ToReportGroupArrayOutputWithContext(ctx context.Contex
 // ReportGroupMapInput is an input type that accepts ReportGroupMap and ReportGroupMapOutput values.
 // You can construct a concrete instance of `ReportGroupMapInput` via:
 //
-//          ReportGroupMap{ "key": ReportGroupArgs{...} }
+//	ReportGroupMap{ "key": ReportGroupArgs{...} }
 type ReportGroupMapInput interface {
 	pulumi.Input
 
@@ -330,7 +337,7 @@ func (o ReportGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReportGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ReportGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReportGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

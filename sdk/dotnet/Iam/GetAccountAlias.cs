@@ -20,20 +20,19 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Aws.Iam.GetAccountAlias.InvokeAsync());
-        ///         this.AccountId = current.Apply(current =&gt; current.AccountAlias);
-        ///     }
+        ///     var current = Aws.Iam.GetAccountAlias.Invoke();
         /// 
-        ///     [Output("accountId")]
-        ///     public Output&lt;string&gt; AccountId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["accountId"] = current.Apply(getAccountAliasResult =&gt; getAccountAliasResult.AccountAlias),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

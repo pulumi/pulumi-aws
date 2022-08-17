@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatementArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The string to match against.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public RuleGroupRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatementArgs()
         {
         }
+        public static new RuleGroupRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatementArgs Empty => new RuleGroupRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatementArgs();
     }
 }

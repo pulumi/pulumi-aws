@@ -17,21 +17,19 @@ namespace Pulumi.Aws.Swf
     /// To register a basic SWF domain:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Swf.Domain("foo", new()
     ///     {
-    ///         var foo = new Aws.Swf.Domain("foo", new Aws.Swf.DomainArgs
-    ///         {
-    ///             Description = "SWF Domain",
-    ///             WorkflowExecutionRetentionPeriodInDays = "30",
-    ///         });
-    ///     }
+    ///         Description = "SWF Domain",
+    ///         WorkflowExecutionRetentionPeriodInDays = "30",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Aws.Swf
     /// ```
     /// </summary>
     [AwsResourceType("aws:swf/domain:Domain")]
-    public partial class Domain : Pulumi.CustomResource
+    public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN)
@@ -76,7 +74,7 @@ namespace Pulumi.Aws.Swf
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -131,7 +129,7 @@ namespace Pulumi.Aws.Swf
         }
     }
 
-    public sealed class DomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The domain description.
@@ -172,9 +170,10 @@ namespace Pulumi.Aws.Swf
         public DomainArgs()
         {
         }
+        public static new DomainArgs Empty => new DomainArgs();
     }
 
-    public sealed class DomainState : Pulumi.ResourceArgs
+    public sealed class DomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN)
@@ -216,7 +215,7 @@ namespace Pulumi.Aws.Swf
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -233,5 +232,6 @@ namespace Pulumi.Aws.Swf
         public DomainState()
         {
         }
+        public static new DomainState Empty => new DomainState();
     }
 }

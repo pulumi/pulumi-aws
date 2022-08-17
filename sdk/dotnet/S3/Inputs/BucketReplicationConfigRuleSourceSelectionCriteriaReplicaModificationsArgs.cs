@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs : Pulumi.ResourceArgs
+    public sealed class BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs()
         {
         }
+        public static new BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs Empty => new BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs();
     }
 }

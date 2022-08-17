@@ -19,32 +19,30 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetSpotPrice.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetSpotPrice.InvokeAsync(new Aws.Ec2.GetSpotPriceArgs
+        ///         AvailabilityZone = "us-west-2a",
+        ///         Filters = new[]
         ///         {
-        ///             AvailabilityZone = "us-west-2a",
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetSpotPriceFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetSpotPriceFilterArgs
+        ///                 Name = "product-description",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "product-description",
-        ///                     Values = 
-        ///                     {
-        ///                         "Linux/UNIX",
-        ///                     },
+        ///                     "Linux/UNIX",
         ///                 },
         ///             },
-        ///             InstanceType = "t3.medium",
-        ///         }));
-        ///     }
+        ///         },
+        ///         InstanceType = "t3.medium",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -60,32 +58,30 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetSpotPrice.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetSpotPrice.InvokeAsync(new Aws.Ec2.GetSpotPriceArgs
+        ///         AvailabilityZone = "us-west-2a",
+        ///         Filters = new[]
         ///         {
-        ///             AvailabilityZone = "us-west-2a",
-        ///             Filters = 
+        ///             new Aws.Ec2.Inputs.GetSpotPriceFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2.Inputs.GetSpotPriceFilterArgs
+        ///                 Name = "product-description",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "product-description",
-        ///                     Values = 
-        ///                     {
-        ///                         "Linux/UNIX",
-        ///                     },
+        ///                     "Linux/UNIX",
         ///                 },
         ///             },
-        ///             InstanceType = "t3.medium",
-        ///         }));
-        ///     }
+        ///         },
+        ///         InstanceType = "t3.medium",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -95,7 +91,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetSpotPriceArgs : Pulumi.InvokeArgs
+    public sealed class GetSpotPriceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The availability zone in which to query Spot price information.
@@ -124,9 +120,10 @@ namespace Pulumi.Aws.Ec2
         public GetSpotPriceArgs()
         {
         }
+        public static new GetSpotPriceArgs Empty => new GetSpotPriceArgs();
     }
 
-    public sealed class GetSpotPriceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSpotPriceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The availability zone in which to query Spot price information.
@@ -155,6 +152,7 @@ namespace Pulumi.Aws.Ec2
         public GetSpotPriceInvokeArgs()
         {
         }
+        public static new GetSpotPriceInvokeArgs Empty => new GetSpotPriceInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class FieldLevelEncryptionConfigQueryArgProfileConfigArgs : Pulumi.ResourceArgs
+    public sealed class FieldLevelEncryptionConfigQueryArgProfileConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public FieldLevelEncryptionConfigQueryArgProfileConfigArgs()
         {
         }
+        public static new FieldLevelEncryptionConfigQueryArgProfileConfigArgs Empty => new FieldLevelEncryptionConfigQueryArgProfileConfigArgs();
     }
 }

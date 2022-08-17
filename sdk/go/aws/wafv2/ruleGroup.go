@@ -20,49 +20,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
-// 			Capacity: pulumi.Int(2),
-// 			Rules: wafv2.RuleGroupRuleArray{
-// 				&wafv2.RuleGroupRuleArgs{
-// 					Action: &wafv2.RuleGroupRuleActionArgs{
-// 						Allow: nil,
-// 					},
-// 					Name:     pulumi.String("rule-1"),
-// 					Priority: pulumi.Int(1),
-// 					Statement: &wafv2.RuleGroupRuleStatementArgs{
-// 						GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
-// 							CountryCodes: pulumi.StringArray{
-// 								pulumi.String("US"),
-// 								pulumi.String("NL"),
-// 							},
-// 						},
-// 					},
-// 					VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-// 						CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 						MetricName:               pulumi.String("friendly-rule-metric-name"),
-// 						SampledRequestsEnabled:   pulumi.Bool(false),
-// 					},
-// 				},
-// 			},
-// 			Scope: pulumi.String("REGIONAL"),
-// 			VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
-// 				CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 				MetricName:               pulumi.String("friendly-metric-name"),
-// 				SampledRequestsEnabled:   pulumi.Bool(false),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
+//				Capacity: pulumi.Int(2),
+//				Rules: wafv2.RuleGroupRuleArray{
+//					&wafv2.RuleGroupRuleArgs{
+//						Action: &wafv2.RuleGroupRuleActionArgs{
+//							Allow: nil,
+//						},
+//						Name:     pulumi.String("rule-1"),
+//						Priority: pulumi.Int(1),
+//						Statement: &wafv2.RuleGroupRuleStatementArgs{
+//							GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
+//								CountryCodes: pulumi.StringArray{
+//									pulumi.String("US"),
+//									pulumi.String("NL"),
+//								},
+//							},
+//						},
+//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("friendly-rule-metric-name"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//					},
+//				},
+//				Scope: pulumi.String("REGIONAL"),
+//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
+//					CloudwatchMetricsEnabled: pulumi.Bool(false),
+//					MetricName:               pulumi.String("friendly-metric-name"),
+//					SampledRequestsEnabled:   pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Complex
 //
@@ -70,226 +73,229 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testIpSet, err := wafv2.NewIpSet(ctx, "testIpSet", &wafv2.IpSetArgs{
-// 			Scope:            pulumi.String("REGIONAL"),
-// 			IpAddressVersion: pulumi.String("IPV4"),
-// 			Addresses: pulumi.StringArray{
-// 				pulumi.String("1.1.1.1/32"),
-// 				pulumi.String("2.2.2.2/32"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testRegexPatternSet, err := wafv2.NewRegexPatternSet(ctx, "testRegexPatternSet", &wafv2.RegexPatternSetArgs{
-// 			Scope: pulumi.String("REGIONAL"),
-// 			RegularExpressions: wafv2.RegexPatternSetRegularExpressionArray{
-// 				&wafv2.RegexPatternSetRegularExpressionArgs{
-// 					RegexString: pulumi.String("one"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
-// 			Description: pulumi.String("An rule group containing all statements"),
-// 			Scope:       pulumi.String("REGIONAL"),
-// 			Capacity:    pulumi.Int(500),
-// 			Rules: wafv2.RuleGroupRuleArray{
-// 				&wafv2.RuleGroupRuleArgs{
-// 					Name:     pulumi.String("rule-1"),
-// 					Priority: pulumi.Int(1),
-// 					Action: &wafv2.RuleGroupRuleActionArgs{
-// 						Block: nil,
-// 					},
-// 					Statement: &wafv2.RuleGroupRuleStatementArgs{
-// 						NotStatement: &wafv2.RuleGroupRuleStatementNotStatementArgs{
-// 							Statements: wafv2.RuleGroupRuleStatementNotStatementStatementArray{
-// 								&wafv2.RuleGroupRuleStatementNotStatementStatementArgs{
-// 									AndStatement: &wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementArgs{
-// 										Statements: wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementArray{
-// 											&wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs{
-// 												GeoMatchStatement: &wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementGeoMatchStatementArgs{
-// 													CountryCodes: pulumi.StringArray{
-// 														pulumi.String("US"),
-// 													},
-// 												},
-// 											},
-// 											&wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs{
-// 												ByteMatchStatement: &wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementArgs{
-// 													PositionalConstraint: pulumi.String("CONTAINS"),
-// 													SearchString:         pulumi.String("word"),
-// 													FieldToMatch: &wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchArgs{
-// 														AllQueryArguments: nil,
-// 													},
-// 													TextTransformations: wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformationArray{
-// 														&wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformationArgs{
-// 															Priority: pulumi.Int(5),
-// 															Type:     pulumi.String("CMD_LINE"),
-// 														},
-// 														&wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformationArgs{
-// 															Priority: pulumi.Int(2),
-// 															Type:     pulumi.String("LOWERCASE"),
-// 														},
-// 													},
-// 												},
-// 											},
-// 										},
-// 									},
-// 								},
-// 							},
-// 						},
-// 					},
-// 					VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-// 						CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 						MetricName:               pulumi.String("rule-1"),
-// 						SampledRequestsEnabled:   pulumi.Bool(false),
-// 					},
-// 				},
-// 				&wafv2.RuleGroupRuleArgs{
-// 					Name:     pulumi.String("rule-2"),
-// 					Priority: pulumi.Int(2),
-// 					Action: &wafv2.RuleGroupRuleActionArgs{
-// 						Count: nil,
-// 					},
-// 					Statement: &wafv2.RuleGroupRuleStatementArgs{
-// 						OrStatement: &wafv2.RuleGroupRuleStatementOrStatementArgs{
-// 							Statements: wafv2.RuleGroupRuleStatementOrStatementStatementArray{
-// 								&wafv2.RuleGroupRuleStatementOrStatementStatementArgs{
-// 									SqliMatchStatement: &wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementArgs{
-// 										FieldToMatch: &wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchArgs{
-// 											Body: nil,
-// 										},
-// 										TextTransformations: wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArray{
-// 											&wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs{
-// 												Priority: pulumi.Int(5),
-// 												Type:     pulumi.String("URL_DECODE"),
-// 											},
-// 											&wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs{
-// 												Priority: pulumi.Int(4),
-// 												Type:     pulumi.String("HTML_ENTITY_DECODE"),
-// 											},
-// 											&wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs{
-// 												Priority: pulumi.Int(3),
-// 												Type:     pulumi.String("COMPRESS_WHITE_SPACE"),
-// 											},
-// 										},
-// 									},
-// 								},
-// 								&wafv2.RuleGroupRuleStatementOrStatementStatementArgs{
-// 									XssMatchStatement: &wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementArgs{
-// 										FieldToMatch: &wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchArgs{
-// 											Method: nil,
-// 										},
-// 										TextTransformations: wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementTextTransformationArray{
-// 											&wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementTextTransformationArgs{
-// 												Priority: pulumi.Int(2),
-// 												Type:     pulumi.String("NONE"),
-// 											},
-// 										},
-// 									},
-// 								},
-// 							},
-// 						},
-// 					},
-// 					VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-// 						CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 						MetricName:               pulumi.String("rule-2"),
-// 						SampledRequestsEnabled:   pulumi.Bool(false),
-// 					},
-// 				},
-// 				&wafv2.RuleGroupRuleArgs{
-// 					Name:     pulumi.String("rule-3"),
-// 					Priority: pulumi.Int(3),
-// 					Action: &wafv2.RuleGroupRuleActionArgs{
-// 						Block: nil,
-// 					},
-// 					Statement: &wafv2.RuleGroupRuleStatementArgs{
-// 						SizeConstraintStatement: &wafv2.RuleGroupRuleStatementSizeConstraintStatementArgs{
-// 							ComparisonOperator: pulumi.String("GT"),
-// 							Size:               pulumi.Int(100),
-// 							FieldToMatch: &wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs{
-// 								SingleQueryArgument: &wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs{
-// 									Name: pulumi.String("username"),
-// 								},
-// 							},
-// 							TextTransformations: wafv2.RuleGroupRuleStatementSizeConstraintStatementTextTransformationArray{
-// 								&wafv2.RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs{
-// 									Priority: pulumi.Int(5),
-// 									Type:     pulumi.String("NONE"),
-// 								},
-// 							},
-// 						},
-// 					},
-// 					VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-// 						CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 						MetricName:               pulumi.String("rule-3"),
-// 						SampledRequestsEnabled:   pulumi.Bool(false),
-// 					},
-// 				},
-// 				&wafv2.RuleGroupRuleArgs{
-// 					Name:     pulumi.String("rule-4"),
-// 					Priority: pulumi.Int(4),
-// 					Action: &wafv2.RuleGroupRuleActionArgs{
-// 						Block: nil,
-// 					},
-// 					Statement: &wafv2.RuleGroupRuleStatementArgs{
-// 						OrStatement: &wafv2.RuleGroupRuleStatementOrStatementArgs{
-// 							Statements: wafv2.RuleGroupRuleStatementOrStatementStatementArray{
-// 								&wafv2.RuleGroupRuleStatementOrStatementStatementArgs{
-// 									IpSetReferenceStatement: &wafv2.RuleGroupRuleStatementOrStatementStatementIpSetReferenceStatementArgs{
-// 										Arn: testIpSet.Arn,
-// 									},
-// 								},
-// 								&wafv2.RuleGroupRuleStatementOrStatementStatementArgs{
-// 									RegexPatternSetReferenceStatement: &wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementArgs{
-// 										Arn: testRegexPatternSet.Arn,
-// 										FieldToMatch: &wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchArgs{
-// 											SingleHeader: &wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs{
-// 												Name: pulumi.String("referer"),
-// 											},
-// 										},
-// 										TextTransformations: wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationArray{
-// 											&wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationArgs{
-// 												Priority: pulumi.Int(2),
-// 												Type:     pulumi.String("NONE"),
-// 											},
-// 										},
-// 									},
-// 								},
-// 							},
-// 						},
-// 					},
-// 					VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-// 						CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 						MetricName:               pulumi.String("rule-4"),
-// 						SampledRequestsEnabled:   pulumi.Bool(false),
-// 					},
-// 				},
-// 			},
-// 			VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
-// 				CloudwatchMetricsEnabled: pulumi.Bool(false),
-// 				MetricName:               pulumi.String("friendly-metric-name"),
-// 				SampledRequestsEnabled:   pulumi.Bool(false),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example-and-statement"),
-// 				"Code": pulumi.String("123456"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testIpSet, err := wafv2.NewIpSet(ctx, "testIpSet", &wafv2.IpSetArgs{
+//				Scope:            pulumi.String("REGIONAL"),
+//				IpAddressVersion: pulumi.String("IPV4"),
+//				Addresses: pulumi.StringArray{
+//					pulumi.String("1.1.1.1/32"),
+//					pulumi.String("2.2.2.2/32"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testRegexPatternSet, err := wafv2.NewRegexPatternSet(ctx, "testRegexPatternSet", &wafv2.RegexPatternSetArgs{
+//				Scope: pulumi.String("REGIONAL"),
+//				RegularExpressions: wafv2.RegexPatternSetRegularExpressionArray{
+//					&wafv2.RegexPatternSetRegularExpressionArgs{
+//						RegexString: pulumi.String("one"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
+//				Description: pulumi.String("An rule group containing all statements"),
+//				Scope:       pulumi.String("REGIONAL"),
+//				Capacity:    pulumi.Int(500),
+//				Rules: wafv2.RuleGroupRuleArray{
+//					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-1"),
+//						Priority: pulumi.Int(1),
+//						Action: &wafv2.RuleGroupRuleActionArgs{
+//							Block: nil,
+//						},
+//						Statement: &wafv2.RuleGroupRuleStatementArgs{
+//							NotStatement: &wafv2.RuleGroupRuleStatementNotStatementArgs{
+//								Statements: wafv2.RuleGroupRuleStatementNotStatementStatementArray{
+//									&wafv2.RuleGroupRuleStatementNotStatementStatementArgs{
+//										AndStatement: &wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementArgs{
+//											Statements: wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementArray{
+//												&wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs{
+//													GeoMatchStatement: &wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementGeoMatchStatementArgs{
+//														CountryCodes: pulumi.StringArray{
+//															pulumi.String("US"),
+//														},
+//													},
+//												},
+//												&wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs{
+//													ByteMatchStatement: &wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementArgs{
+//														PositionalConstraint: pulumi.String("CONTAINS"),
+//														SearchString:         pulumi.String("word"),
+//														FieldToMatch: &wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchArgs{
+//															AllQueryArguments: nil,
+//														},
+//														TextTransformations: wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformationArray{
+//															&wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformationArgs{
+//																Priority: pulumi.Int(5),
+//																Type:     pulumi.String("CMD_LINE"),
+//															},
+//															&wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformationArgs{
+//																Priority: pulumi.Int(2),
+//																Type:     pulumi.String("LOWERCASE"),
+//															},
+//														},
+//													},
+//												},
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("rule-1"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//					},
+//					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-2"),
+//						Priority: pulumi.Int(2),
+//						Action: &wafv2.RuleGroupRuleActionArgs{
+//							Count: nil,
+//						},
+//						Statement: &wafv2.RuleGroupRuleStatementArgs{
+//							OrStatement: &wafv2.RuleGroupRuleStatementOrStatementArgs{
+//								Statements: wafv2.RuleGroupRuleStatementOrStatementStatementArray{
+//									&wafv2.RuleGroupRuleStatementOrStatementStatementArgs{
+//										SqliMatchStatement: &wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementArgs{
+//											FieldToMatch: &wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchArgs{
+//												Body: nil,
+//											},
+//											TextTransformations: wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArray{
+//												&wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs{
+//													Priority: pulumi.Int(5),
+//													Type:     pulumi.String("URL_DECODE"),
+//												},
+//												&wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs{
+//													Priority: pulumi.Int(4),
+//													Type:     pulumi.String("HTML_ENTITY_DECODE"),
+//												},
+//												&wafv2.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs{
+//													Priority: pulumi.Int(3),
+//													Type:     pulumi.String("COMPRESS_WHITE_SPACE"),
+//												},
+//											},
+//										},
+//									},
+//									&wafv2.RuleGroupRuleStatementOrStatementStatementArgs{
+//										XssMatchStatement: &wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementArgs{
+//											FieldToMatch: &wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchArgs{
+//												Method: nil,
+//											},
+//											TextTransformations: wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementTextTransformationArray{
+//												&wafv2.RuleGroupRuleStatementOrStatementStatementXssMatchStatementTextTransformationArgs{
+//													Priority: pulumi.Int(2),
+//													Type:     pulumi.String("NONE"),
+//												},
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("rule-2"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//					},
+//					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-3"),
+//						Priority: pulumi.Int(3),
+//						Action: &wafv2.RuleGroupRuleActionArgs{
+//							Block: nil,
+//						},
+//						Statement: &wafv2.RuleGroupRuleStatementArgs{
+//							SizeConstraintStatement: &wafv2.RuleGroupRuleStatementSizeConstraintStatementArgs{
+//								ComparisonOperator: pulumi.String("GT"),
+//								Size:               pulumi.Int(100),
+//								FieldToMatch: &wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs{
+//									SingleQueryArgument: &wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs{
+//										Name: pulumi.String("username"),
+//									},
+//								},
+//								TextTransformations: wafv2.RuleGroupRuleStatementSizeConstraintStatementTextTransformationArray{
+//									&wafv2.RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs{
+//										Priority: pulumi.Int(5),
+//										Type:     pulumi.String("NONE"),
+//									},
+//								},
+//							},
+//						},
+//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("rule-3"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//					},
+//					&wafv2.RuleGroupRuleArgs{
+//						Name:     pulumi.String("rule-4"),
+//						Priority: pulumi.Int(4),
+//						Action: &wafv2.RuleGroupRuleActionArgs{
+//							Block: nil,
+//						},
+//						Statement: &wafv2.RuleGroupRuleStatementArgs{
+//							OrStatement: &wafv2.RuleGroupRuleStatementOrStatementArgs{
+//								Statements: wafv2.RuleGroupRuleStatementOrStatementStatementArray{
+//									&wafv2.RuleGroupRuleStatementOrStatementStatementArgs{
+//										IpSetReferenceStatement: &wafv2.RuleGroupRuleStatementOrStatementStatementIpSetReferenceStatementArgs{
+//											Arn: testIpSet.Arn,
+//										},
+//									},
+//									&wafv2.RuleGroupRuleStatementOrStatementStatementArgs{
+//										RegexPatternSetReferenceStatement: &wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementArgs{
+//											Arn: testRegexPatternSet.Arn,
+//											FieldToMatch: &wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchArgs{
+//												SingleHeader: &wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs{
+//													Name: pulumi.String("referer"),
+//												},
+//											},
+//											TextTransformations: wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationArray{
+//												&wafv2.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationArgs{
+//													Priority: pulumi.Int(2),
+//													Type:     pulumi.String("NONE"),
+//												},
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
+//							CloudwatchMetricsEnabled: pulumi.Bool(false),
+//							MetricName:               pulumi.String("rule-4"),
+//							SampledRequestsEnabled:   pulumi.Bool(false),
+//						},
+//					},
+//				},
+//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
+//					CloudwatchMetricsEnabled: pulumi.Bool(false),
+//					MetricName:               pulumi.String("friendly-metric-name"),
+//					SampledRequestsEnabled:   pulumi.Bool(false),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example-and-statement"),
+//					"Code": pulumi.String("123456"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -297,7 +303,9 @@ import (
 // WAFv2 Rule Group can be imported using `ID/name/scope` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+//
+//	$ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+//
 // ```
 type RuleGroup struct {
 	pulumi.CustomResourceState
@@ -317,9 +325,9 @@ type RuleGroup struct {
 	Rules RuleGroupRuleArrayOutput `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringOutput `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig RuleGroupVisibilityConfigOutput `pulumi:"visibilityConfig"`
@@ -378,9 +386,9 @@ type ruleGroupState struct {
 	Rules []RuleGroupRule `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope *string `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig *RuleGroupVisibilityConfig `pulumi:"visibilityConfig"`
@@ -402,9 +410,9 @@ type RuleGroupState struct {
 	Rules RuleGroupRuleArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringPtrInput
-	// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig RuleGroupVisibilityConfigPtrInput
@@ -427,7 +435,7 @@ type ruleGroupArgs struct {
 	Rules []RuleGroupRule `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope string `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig RuleGroupVisibilityConfig `pulumi:"visibilityConfig"`
@@ -447,7 +455,7 @@ type RuleGroupArgs struct {
 	Rules RuleGroupRuleArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringInput
-	// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig RuleGroupVisibilityConfigInput
@@ -479,7 +487,7 @@ func (i *RuleGroup) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupO
 // RuleGroupArrayInput is an input type that accepts RuleGroupArray and RuleGroupArrayOutput values.
 // You can construct a concrete instance of `RuleGroupArrayInput` via:
 //
-//          RuleGroupArray{ RuleGroupArgs{...} }
+//	RuleGroupArray{ RuleGroupArgs{...} }
 type RuleGroupArrayInput interface {
 	pulumi.Input
 
@@ -504,7 +512,7 @@ func (i RuleGroupArray) ToRuleGroupArrayOutputWithContext(ctx context.Context) R
 // RuleGroupMapInput is an input type that accepts RuleGroupMap and RuleGroupMapOutput values.
 // You can construct a concrete instance of `RuleGroupMapInput` via:
 //
-//          RuleGroupMap{ "key": RuleGroupArgs{...} }
+//	RuleGroupMap{ "key": RuleGroupArgs{...} }
 type RuleGroupMapInput interface {
 	pulumi.Input
 
@@ -579,12 +587,12 @@ func (o RuleGroupOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
 }
 
-// An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RuleGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RuleGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

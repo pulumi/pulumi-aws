@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kinesis.Inputs
 {
 
-    public sealed class AnalyticsApplicationReferenceDataSourcesS3Args : Pulumi.ResourceArgs
+    public sealed class AnalyticsApplicationReferenceDataSourcesS3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The S3 Bucket ARN.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public AnalyticsApplicationReferenceDataSourcesS3Args()
         {
         }
+        public static new AnalyticsApplicationReferenceDataSourcesS3Args Empty => new AnalyticsApplicationReferenceDataSourcesS3Args();
     }
 }

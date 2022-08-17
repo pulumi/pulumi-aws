@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetSubnetIdsFilterInputArgs : Pulumi.ResourceArgs
+    public sealed class GetSubnetIdsFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the field to filter by, as defined by
@@ -36,5 +36,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetSubnetIdsFilterInputArgs()
         {
         }
+        public static new GetSubnetIdsFilterInputArgs Empty => new GetSubnetIdsFilterInputArgs();
     }
 }

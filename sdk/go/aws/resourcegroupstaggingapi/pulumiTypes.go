@@ -22,7 +22,7 @@ type GetResourcesResourceTagMappingList struct {
 // GetResourcesResourceTagMappingListInput is an input type that accepts GetResourcesResourceTagMappingListArgs and GetResourcesResourceTagMappingListOutput values.
 // You can construct a concrete instance of `GetResourcesResourceTagMappingListInput` via:
 //
-//          GetResourcesResourceTagMappingListArgs{...}
+//	GetResourcesResourceTagMappingListArgs{...}
 type GetResourcesResourceTagMappingListInput interface {
 	pulumi.Input
 
@@ -54,7 +54,7 @@ func (i GetResourcesResourceTagMappingListArgs) ToGetResourcesResourceTagMapping
 // GetResourcesResourceTagMappingListArrayInput is an input type that accepts GetResourcesResourceTagMappingListArray and GetResourcesResourceTagMappingListArrayOutput values.
 // You can construct a concrete instance of `GetResourcesResourceTagMappingListArrayInput` via:
 //
-//          GetResourcesResourceTagMappingListArray{ GetResourcesResourceTagMappingListArgs{...} }
+//	GetResourcesResourceTagMappingListArray{ GetResourcesResourceTagMappingListArgs{...} }
 type GetResourcesResourceTagMappingListArrayInput interface {
 	pulumi.Input
 
@@ -139,7 +139,7 @@ type GetResourcesResourceTagMappingListComplianceDetail struct {
 // GetResourcesResourceTagMappingListComplianceDetailInput is an input type that accepts GetResourcesResourceTagMappingListComplianceDetailArgs and GetResourcesResourceTagMappingListComplianceDetailOutput values.
 // You can construct a concrete instance of `GetResourcesResourceTagMappingListComplianceDetailInput` via:
 //
-//          GetResourcesResourceTagMappingListComplianceDetailArgs{...}
+//	GetResourcesResourceTagMappingListComplianceDetailArgs{...}
 type GetResourcesResourceTagMappingListComplianceDetailInput interface {
 	pulumi.Input
 
@@ -171,7 +171,7 @@ func (i GetResourcesResourceTagMappingListComplianceDetailArgs) ToGetResourcesRe
 // GetResourcesResourceTagMappingListComplianceDetailArrayInput is an input type that accepts GetResourcesResourceTagMappingListComplianceDetailArray and GetResourcesResourceTagMappingListComplianceDetailArrayOutput values.
 // You can construct a concrete instance of `GetResourcesResourceTagMappingListComplianceDetailArrayInput` via:
 //
-//          GetResourcesResourceTagMappingListComplianceDetailArray{ GetResourcesResourceTagMappingListComplianceDetailArgs{...} }
+//	GetResourcesResourceTagMappingListComplianceDetailArray{ GetResourcesResourceTagMappingListComplianceDetailArgs{...} }
 type GetResourcesResourceTagMappingListComplianceDetailArrayInput interface {
 	pulumi.Input
 
@@ -254,7 +254,7 @@ type GetResourcesTagFilter struct {
 // GetResourcesTagFilterInput is an input type that accepts GetResourcesTagFilterArgs and GetResourcesTagFilterOutput values.
 // You can construct a concrete instance of `GetResourcesTagFilterInput` via:
 //
-//          GetResourcesTagFilterArgs{...}
+//	GetResourcesTagFilterArgs{...}
 type GetResourcesTagFilterInput interface {
 	pulumi.Input
 
@@ -284,7 +284,7 @@ func (i GetResourcesTagFilterArgs) ToGetResourcesTagFilterOutputWithContext(ctx 
 // GetResourcesTagFilterArrayInput is an input type that accepts GetResourcesTagFilterArray and GetResourcesTagFilterArrayOutput values.
 // You can construct a concrete instance of `GetResourcesTagFilterArrayInput` via:
 //
-//          GetResourcesTagFilterArray{ GetResourcesTagFilterArgs{...} }
+//	GetResourcesTagFilterArray{ GetResourcesTagFilterArgs{...} }
 type GetResourcesTagFilterArrayInput interface {
 	pulumi.Input
 

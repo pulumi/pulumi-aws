@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Connect.Inputs
 {
 
-    public sealed class QuickConnectQuickConnectConfigPhoneConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class QuickConnectQuickConnectConfigPhoneConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the phone number in in E.164 format.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Connect.Inputs
         public QuickConnectQuickConnectConfigPhoneConfigGetArgs()
         {
         }
+        public static new QuickConnectQuickConnectConfigPhoneConfigGetArgs Empty => new QuickConnectQuickConnectConfigPhoneConfigGetArgs();
     }
 }

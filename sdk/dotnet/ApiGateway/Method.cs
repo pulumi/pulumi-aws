@@ -15,80 +15,80 @@ namespace Pulumi.Aws.ApiGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new()
     ///     {
-    ///         var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///             Description = "This is my API for demonstration purposes",
-    ///         });
-    ///         var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new Aws.ApiGateway.ResourceArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ParentId = myDemoAPI.RootResourceId,
-    ///             PathPart = "mydemoresource",
-    ///         });
-    ///         var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new Aws.ApiGateway.MethodArgs
-    ///         {
-    ///             RestApi = myDemoAPI.Id,
-    ///             ResourceId = myDemoResource.Id,
-    ///             HttpMethod = "GET",
-    ///             Authorization = "NONE",
-    ///         });
-    ///     }
+    ///         Description = "This is my API for demonstration purposes",
+    ///     });
     /// 
-    /// }
+    ///     var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new()
+    ///     {
+    ///         RestApi = myDemoAPI.Id,
+    ///         ParentId = myDemoAPI.RootResourceId,
+    ///         PathPart = "mydemoresource",
+    ///     });
+    /// 
+    ///     var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new()
+    ///     {
+    ///         RestApi = myDemoAPI.Id,
+    ///         ResourceId = myDemoResource.Id,
+    ///         HttpMethod = "GET",
+    ///         Authorization = "NONE",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Usage with Cognito User Pool Authorizer
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var config = new Config();
+    ///     var cognitoUserPoolName = config.RequireObject&lt;dynamic&gt;("cognitoUserPoolName");
+    ///     var thisUserPools = Aws.Cognito.GetUserPools.Invoke(new()
     ///     {
-    ///         var config = new Config();
-    ///         var cognitoUserPoolName = config.RequireObject&lt;dynamic&gt;("cognitoUserPoolName");
-    ///         var thisUserPools = Output.Create(Aws.Cognito.GetUserPools.InvokeAsync(new Aws.Cognito.GetUserPoolsArgs
-    ///         {
-    ///             Name = cognitoUserPoolName,
-    ///         }));
-    ///         var thisRestApi = new Aws.ApiGateway.RestApi("thisRestApi", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///         });
-    ///         var thisResource = new Aws.ApiGateway.Resource("thisResource", new Aws.ApiGateway.ResourceArgs
-    ///         {
-    ///             RestApi = thisRestApi.Id,
-    ///             ParentId = thisRestApi.RootResourceId,
-    ///             PathPart = "{proxy+}",
-    ///         });
-    ///         var thisAuthorizer = new Aws.ApiGateway.Authorizer("thisAuthorizer", new Aws.ApiGateway.AuthorizerArgs
-    ///         {
-    ///             Type = "COGNITO_USER_POOLS",
-    ///             RestApi = thisRestApi.Id,
-    ///             ProviderArns = thisUserPools.Apply(thisUserPools =&gt; thisUserPools.Arns),
-    ///         });
-    ///         var any = new Aws.ApiGateway.Method("any", new Aws.ApiGateway.MethodArgs
-    ///         {
-    ///             RestApi = thisRestApi.Id,
-    ///             ResourceId = thisResource.Id,
-    ///             HttpMethod = "ANY",
-    ///             Authorization = "COGNITO_USER_POOLS",
-    ///             AuthorizerId = thisAuthorizer.Id,
-    ///             RequestParameters = 
-    ///             {
-    ///                 { "method.request.path.proxy", true },
-    ///             },
-    ///         });
-    ///     }
+    ///         Name = cognitoUserPoolName,
+    ///     });
     /// 
-    /// }
+    ///     var thisRestApi = new Aws.ApiGateway.RestApi("thisRestApi");
+    /// 
+    ///     var thisResource = new Aws.ApiGateway.Resource("thisResource", new()
+    ///     {
+    ///         RestApi = thisRestApi.Id,
+    ///         ParentId = thisRestApi.RootResourceId,
+    ///         PathPart = "{proxy+}",
+    ///     });
+    /// 
+    ///     var thisAuthorizer = new Aws.ApiGateway.Authorizer("thisAuthorizer", new()
+    ///     {
+    ///         Type = "COGNITO_USER_POOLS",
+    ///         RestApi = thisRestApi.Id,
+    ///         ProviderArns = thisUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
+    ///     });
+    /// 
+    ///     var any = new Aws.ApiGateway.Method("any", new()
+    ///     {
+    ///         RestApi = thisRestApi.Id,
+    ///         ResourceId = thisResource.Id,
+    ///         HttpMethod = "ANY",
+    ///         Authorization = "COGNITO_USER_POOLS",
+    ///         AuthorizerId = thisAuthorizer.Id,
+    ///         RequestParameters = 
+    ///         {
+    ///             { "method.request.path.proxy", true },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/method:Method")]
-    public partial class Method : Pulumi.CustomResource
+    public partial class Method : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specify if the method requires an API key
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.ApiGateway
         }
     }
 
-    public sealed class MethodArgs : Pulumi.ResourceArgs
+    public sealed class MethodArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify if the method requires an API key
@@ -307,9 +307,10 @@ namespace Pulumi.Aws.ApiGateway
         public MethodArgs()
         {
         }
+        public static new MethodArgs Empty => new MethodArgs();
     }
 
-    public sealed class MethodState : Pulumi.ResourceArgs
+    public sealed class MethodState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify if the method requires an API key
@@ -401,5 +402,6 @@ namespace Pulumi.Aws.ApiGateway
         public MethodState()
         {
         }
+        public static new MethodState Empty => new MethodState();
     }
 }

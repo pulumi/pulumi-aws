@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class BucketV2LifecycleRuleTransitionGetArgs : Pulumi.ResourceArgs
+    public sealed class BucketV2LifecycleRuleTransitionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the date after which you want the corresponding action to take effect.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.S3.Inputs
         public BucketV2LifecycleRuleTransitionGetArgs()
         {
         }
+        public static new BucketV2LifecycleRuleTransitionGetArgs Empty => new BucketV2LifecycleRuleTransitionGetArgs();
     }
 }

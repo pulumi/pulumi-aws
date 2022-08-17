@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ses.Inputs
 {
 
-    public sealed class EventDestinationCloudwatchDestinationGetArgs : Pulumi.ResourceArgs
+    public sealed class EventDestinationCloudwatchDestinationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default value for the event
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ses.Inputs
         public EventDestinationCloudwatchDestinationGetArgs()
         {
         }
+        public static new EventDestinationCloudwatchDestinationGetArgs Empty => new EventDestinationCloudwatchDestinationGetArgs();
     }
 }

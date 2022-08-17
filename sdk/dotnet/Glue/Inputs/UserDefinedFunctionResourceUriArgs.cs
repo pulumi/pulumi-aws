@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class UserDefinedFunctionResourceUriArgs : Pulumi.ResourceArgs
+    public sealed class UserDefinedFunctionResourceUriArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public UserDefinedFunctionResourceUriArgs()
         {
         }
+        public static new UserDefinedFunctionResourceUriArgs Empty => new UserDefinedFunctionResourceUriArgs();
     }
 }

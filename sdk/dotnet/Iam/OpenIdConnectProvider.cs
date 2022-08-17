@@ -15,25 +15,23 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Iam.OpenIdConnectProvider("default", new()
     ///     {
-    ///         var @default = new Aws.Iam.OpenIdConnectProvider("default", new Aws.Iam.OpenIdConnectProviderArgs
+    ///         ClientIdLists = new[]
     ///         {
-    ///             ClientIdLists = 
-    ///             {
-    ///                 "266362248691-342342xasdasdasda-apps.googleusercontent.com",
-    ///             },
-    ///             ThumbprintLists = {},
-    ///             Url = "https://accounts.google.com",
-    ///         });
-    ///     }
+    ///             "266362248691-342342xasdasdasda-apps.googleusercontent.com",
+    ///         },
+    ///         ThumbprintLists = new[] {},
+    ///         Url = "https://accounts.google.com",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/openIdConnectProvider:OpenIdConnectProvider")]
-    public partial class OpenIdConnectProvider : Pulumi.CustomResource
+    public partial class OpenIdConnectProvider : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN assigned by AWS for this provider.
@@ -60,13 +58,13 @@ namespace Pulumi.Aws.Iam
         public Output<ImmutableArray<string>> ClientIdLists { get; private set; } = null!;
 
         /// <summary>
-        /// Map of resource tags for the IAM OIDC provider. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -127,7 +125,7 @@ namespace Pulumi.Aws.Iam
         }
     }
 
-    public sealed class OpenIdConnectProviderArgs : Pulumi.ResourceArgs
+    public sealed class OpenIdConnectProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientIdLists", required: true)]
         private InputList<string>? _clientIdLists;
@@ -145,7 +143,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags for the IAM OIDC provider. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -174,9 +172,10 @@ namespace Pulumi.Aws.Iam
         public OpenIdConnectProviderArgs()
         {
         }
+        public static new OpenIdConnectProviderArgs Empty => new OpenIdConnectProviderArgs();
     }
 
-    public sealed class OpenIdConnectProviderState : Pulumi.ResourceArgs
+    public sealed class OpenIdConnectProviderState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN assigned by AWS for this provider.
@@ -200,7 +199,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of resource tags for the IAM OIDC provider. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -212,7 +211,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -241,5 +240,6 @@ namespace Pulumi.Aws.Iam
         public OpenIdConnectProviderState()
         {
         }
+        public static new OpenIdConnectProviderState Empty => new OpenIdConnectProviderState();
     }
 }

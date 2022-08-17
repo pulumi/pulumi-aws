@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewNetworkInsightsPath(ctx, "test", &ec2.NetworkInsightsPathArgs{
-// 			Source:      pulumi.Any(aws_network_interface.Source.Id),
-// 			Destination: pulumi.Any(aws_network_interface.Destination.Id),
-// 			Protocol:    pulumi.String("tcp"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewNetworkInsightsPath(ctx, "test", &ec2.NetworkInsightsPathArgs{
+//				Source:      pulumi.Any(aws_network_interface.Source.Id),
+//				Destination: pulumi.Any(aws_network_interface.Destination.Id),
+//				Protocol:    pulumi.String("tcp"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Network Insights Paths can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
+//
+//	$ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
+//
 // ```
 type NetworkInsightsPath struct {
 	pulumi.CustomResourceState
@@ -63,8 +68,7 @@ type NetworkInsightsPath struct {
 	// IP address of the source resource.
 	SourceIp pulumi.StringPtrOutput `pulumi:"sourceIp"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -121,8 +125,7 @@ type networkInsightsPathState struct {
 	// IP address of the source resource.
 	SourceIp *string `pulumi:"sourceIp"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -142,8 +145,7 @@ type NetworkInsightsPathState struct {
 	// IP address of the source resource.
 	SourceIp pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -212,7 +214,7 @@ func (i *NetworkInsightsPath) ToNetworkInsightsPathOutputWithContext(ctx context
 // NetworkInsightsPathArrayInput is an input type that accepts NetworkInsightsPathArray and NetworkInsightsPathArrayOutput values.
 // You can construct a concrete instance of `NetworkInsightsPathArrayInput` via:
 //
-//          NetworkInsightsPathArray{ NetworkInsightsPathArgs{...} }
+//	NetworkInsightsPathArray{ NetworkInsightsPathArgs{...} }
 type NetworkInsightsPathArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +239,7 @@ func (i NetworkInsightsPathArray) ToNetworkInsightsPathArrayOutputWithContext(ct
 // NetworkInsightsPathMapInput is an input type that accepts NetworkInsightsPathMap and NetworkInsightsPathMapOutput values.
 // You can construct a concrete instance of `NetworkInsightsPathMapInput` via:
 //
-//          NetworkInsightsPathMap{ "key": NetworkInsightsPathArgs{...} }
+//	NetworkInsightsPathMap{ "key": NetworkInsightsPathArgs{...} }
 type NetworkInsightsPathMapInput interface {
 	pulumi.Input
 
@@ -313,7 +315,6 @@ func (o NetworkInsightsPathOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o NetworkInsightsPathOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

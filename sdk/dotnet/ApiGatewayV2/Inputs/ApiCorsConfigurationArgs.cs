@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGatewayV2.Inputs
 {
 
-    public sealed class ApiCorsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ApiCorsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether credentials are included in the CORS request.
@@ -75,5 +75,6 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         public ApiCorsConfigurationArgs()
         {
         }
+        public static new ApiCorsConfigurationArgs Empty => new ApiCorsConfigurationArgs();
     }
 }

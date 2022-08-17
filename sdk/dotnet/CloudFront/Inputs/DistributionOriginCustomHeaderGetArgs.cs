@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionOriginCustomHeaderGetArgs : Pulumi.ResourceArgs
+    public sealed class DistributionOriginCustomHeaderGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionOriginCustomHeaderGetArgs()
         {
         }
+        public static new DistributionOriginCustomHeaderGetArgs Empty => new DistributionOriginCustomHeaderGetArgs();
     }
 }

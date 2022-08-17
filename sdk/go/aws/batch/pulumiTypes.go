@@ -48,7 +48,7 @@ type ComputeEnvironmentComputeResources struct {
 // ComputeEnvironmentComputeResourcesInput is an input type that accepts ComputeEnvironmentComputeResourcesArgs and ComputeEnvironmentComputeResourcesOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentComputeResourcesInput` via:
 //
-//          ComputeEnvironmentComputeResourcesArgs{...}
+//	ComputeEnvironmentComputeResourcesArgs{...}
 type ComputeEnvironmentComputeResourcesInput interface {
 	pulumi.Input
 
@@ -114,11 +114,11 @@ func (i ComputeEnvironmentComputeResourcesArgs) ToComputeEnvironmentComputeResou
 // ComputeEnvironmentComputeResourcesPtrInput is an input type that accepts ComputeEnvironmentComputeResourcesArgs, ComputeEnvironmentComputeResourcesPtr and ComputeEnvironmentComputeResourcesPtrOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentComputeResourcesPtrInput` via:
 //
-//          ComputeEnvironmentComputeResourcesArgs{...}
+//	        ComputeEnvironmentComputeResourcesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComputeEnvironmentComputeResourcesPtrInput interface {
 	pulumi.Input
 
@@ -446,7 +446,7 @@ type ComputeEnvironmentComputeResourcesEc2Configuration struct {
 // ComputeEnvironmentComputeResourcesEc2ConfigurationInput is an input type that accepts ComputeEnvironmentComputeResourcesEc2ConfigurationArgs and ComputeEnvironmentComputeResourcesEc2ConfigurationOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentComputeResourcesEc2ConfigurationInput` via:
 //
-//          ComputeEnvironmentComputeResourcesEc2ConfigurationArgs{...}
+//	ComputeEnvironmentComputeResourcesEc2ConfigurationArgs{...}
 type ComputeEnvironmentComputeResourcesEc2ConfigurationInput interface {
 	pulumi.Input
 
@@ -484,11 +484,11 @@ func (i ComputeEnvironmentComputeResourcesEc2ConfigurationArgs) ToComputeEnviron
 // ComputeEnvironmentComputeResourcesEc2ConfigurationPtrInput is an input type that accepts ComputeEnvironmentComputeResourcesEc2ConfigurationArgs, ComputeEnvironmentComputeResourcesEc2ConfigurationPtr and ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentComputeResourcesEc2ConfigurationPtrInput` via:
 //
-//          ComputeEnvironmentComputeResourcesEc2ConfigurationArgs{...}
+//	        ComputeEnvironmentComputeResourcesEc2ConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComputeEnvironmentComputeResourcesEc2ConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -604,7 +604,7 @@ type ComputeEnvironmentComputeResourcesLaunchTemplate struct {
 // ComputeEnvironmentComputeResourcesLaunchTemplateInput is an input type that accepts ComputeEnvironmentComputeResourcesLaunchTemplateArgs and ComputeEnvironmentComputeResourcesLaunchTemplateOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentComputeResourcesLaunchTemplateInput` via:
 //
-//          ComputeEnvironmentComputeResourcesLaunchTemplateArgs{...}
+//	ComputeEnvironmentComputeResourcesLaunchTemplateArgs{...}
 type ComputeEnvironmentComputeResourcesLaunchTemplateInput interface {
 	pulumi.Input
 
@@ -644,11 +644,11 @@ func (i ComputeEnvironmentComputeResourcesLaunchTemplateArgs) ToComputeEnvironme
 // ComputeEnvironmentComputeResourcesLaunchTemplatePtrInput is an input type that accepts ComputeEnvironmentComputeResourcesLaunchTemplateArgs, ComputeEnvironmentComputeResourcesLaunchTemplatePtr and ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentComputeResourcesLaunchTemplatePtrInput` via:
 //
-//          ComputeEnvironmentComputeResourcesLaunchTemplateArgs{...}
+//	        ComputeEnvironmentComputeResourcesLaunchTemplateArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComputeEnvironmentComputeResourcesLaunchTemplatePtrInput interface {
 	pulumi.Input
 
@@ -777,7 +777,7 @@ type JobDefinitionRetryStrategy struct {
 // JobDefinitionRetryStrategyInput is an input type that accepts JobDefinitionRetryStrategyArgs and JobDefinitionRetryStrategyOutput values.
 // You can construct a concrete instance of `JobDefinitionRetryStrategyInput` via:
 //
-//          JobDefinitionRetryStrategyArgs{...}
+//	JobDefinitionRetryStrategyArgs{...}
 type JobDefinitionRetryStrategyInput interface {
 	pulumi.Input
 
@@ -815,11 +815,11 @@ func (i JobDefinitionRetryStrategyArgs) ToJobDefinitionRetryStrategyPtrOutputWit
 // JobDefinitionRetryStrategyPtrInput is an input type that accepts JobDefinitionRetryStrategyArgs, JobDefinitionRetryStrategyPtr and JobDefinitionRetryStrategyPtrOutput values.
 // You can construct a concrete instance of `JobDefinitionRetryStrategyPtrInput` via:
 //
-//          JobDefinitionRetryStrategyArgs{...}
+//	        JobDefinitionRetryStrategyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobDefinitionRetryStrategyPtrInput interface {
 	pulumi.Input
 
@@ -939,7 +939,7 @@ type JobDefinitionRetryStrategyEvaluateOnExit struct {
 // JobDefinitionRetryStrategyEvaluateOnExitInput is an input type that accepts JobDefinitionRetryStrategyEvaluateOnExitArgs and JobDefinitionRetryStrategyEvaluateOnExitOutput values.
 // You can construct a concrete instance of `JobDefinitionRetryStrategyEvaluateOnExitInput` via:
 //
-//          JobDefinitionRetryStrategyEvaluateOnExitArgs{...}
+//	JobDefinitionRetryStrategyEvaluateOnExitArgs{...}
 type JobDefinitionRetryStrategyEvaluateOnExitInput interface {
 	pulumi.Input
 
@@ -973,7 +973,7 @@ func (i JobDefinitionRetryStrategyEvaluateOnExitArgs) ToJobDefinitionRetryStrate
 // JobDefinitionRetryStrategyEvaluateOnExitArrayInput is an input type that accepts JobDefinitionRetryStrategyEvaluateOnExitArray and JobDefinitionRetryStrategyEvaluateOnExitArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionRetryStrategyEvaluateOnExitArrayInput` via:
 //
-//          JobDefinitionRetryStrategyEvaluateOnExitArray{ JobDefinitionRetryStrategyEvaluateOnExitArgs{...} }
+//	JobDefinitionRetryStrategyEvaluateOnExitArray{ JobDefinitionRetryStrategyEvaluateOnExitArgs{...} }
 type JobDefinitionRetryStrategyEvaluateOnExitArrayInput interface {
 	pulumi.Input
 
@@ -1057,7 +1057,7 @@ type JobDefinitionTimeout struct {
 // JobDefinitionTimeoutInput is an input type that accepts JobDefinitionTimeoutArgs and JobDefinitionTimeoutOutput values.
 // You can construct a concrete instance of `JobDefinitionTimeoutInput` via:
 //
-//          JobDefinitionTimeoutArgs{...}
+//	JobDefinitionTimeoutArgs{...}
 type JobDefinitionTimeoutInput interface {
 	pulumi.Input
 
@@ -1093,11 +1093,11 @@ func (i JobDefinitionTimeoutArgs) ToJobDefinitionTimeoutPtrOutputWithContext(ctx
 // JobDefinitionTimeoutPtrInput is an input type that accepts JobDefinitionTimeoutArgs, JobDefinitionTimeoutPtr and JobDefinitionTimeoutPtrOutput values.
 // You can construct a concrete instance of `JobDefinitionTimeoutPtrInput` via:
 //
-//          JobDefinitionTimeoutArgs{...}
+//	        JobDefinitionTimeoutArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobDefinitionTimeoutPtrInput interface {
 	pulumi.Input
 
@@ -1197,7 +1197,7 @@ type SchedulingPolicyFairSharePolicy struct {
 // SchedulingPolicyFairSharePolicyInput is an input type that accepts SchedulingPolicyFairSharePolicyArgs and SchedulingPolicyFairSharePolicyOutput values.
 // You can construct a concrete instance of `SchedulingPolicyFairSharePolicyInput` via:
 //
-//          SchedulingPolicyFairSharePolicyArgs{...}
+//	SchedulingPolicyFairSharePolicyArgs{...}
 type SchedulingPolicyFairSharePolicyInput interface {
 	pulumi.Input
 
@@ -1236,11 +1236,11 @@ func (i SchedulingPolicyFairSharePolicyArgs) ToSchedulingPolicyFairSharePolicyPt
 // SchedulingPolicyFairSharePolicyPtrInput is an input type that accepts SchedulingPolicyFairSharePolicyArgs, SchedulingPolicyFairSharePolicyPtr and SchedulingPolicyFairSharePolicyPtrOutput values.
 // You can construct a concrete instance of `SchedulingPolicyFairSharePolicyPtrInput` via:
 //
-//          SchedulingPolicyFairSharePolicyArgs{...}
+//	        SchedulingPolicyFairSharePolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SchedulingPolicyFairSharePolicyPtrInput interface {
 	pulumi.Input
 
@@ -1369,7 +1369,7 @@ type SchedulingPolicyFairSharePolicyShareDistribution struct {
 // SchedulingPolicyFairSharePolicyShareDistributionInput is an input type that accepts SchedulingPolicyFairSharePolicyShareDistributionArgs and SchedulingPolicyFairSharePolicyShareDistributionOutput values.
 // You can construct a concrete instance of `SchedulingPolicyFairSharePolicyShareDistributionInput` via:
 //
-//          SchedulingPolicyFairSharePolicyShareDistributionArgs{...}
+//	SchedulingPolicyFairSharePolicyShareDistributionArgs{...}
 type SchedulingPolicyFairSharePolicyShareDistributionInput interface {
 	pulumi.Input
 
@@ -1399,7 +1399,7 @@ func (i SchedulingPolicyFairSharePolicyShareDistributionArgs) ToSchedulingPolicy
 // SchedulingPolicyFairSharePolicyShareDistributionArrayInput is an input type that accepts SchedulingPolicyFairSharePolicyShareDistributionArray and SchedulingPolicyFairSharePolicyShareDistributionArrayOutput values.
 // You can construct a concrete instance of `SchedulingPolicyFairSharePolicyShareDistributionArrayInput` via:
 //
-//          SchedulingPolicyFairSharePolicyShareDistributionArray{ SchedulingPolicyFairSharePolicyShareDistributionArgs{...} }
+//	SchedulingPolicyFairSharePolicyShareDistributionArray{ SchedulingPolicyFairSharePolicyShareDistributionArgs{...} }
 type SchedulingPolicyFairSharePolicyShareDistributionArrayInput interface {
 	pulumi.Input
 
@@ -1473,7 +1473,7 @@ type GetJobQueueComputeEnvironmentOrder struct {
 // GetJobQueueComputeEnvironmentOrderInput is an input type that accepts GetJobQueueComputeEnvironmentOrderArgs and GetJobQueueComputeEnvironmentOrderOutput values.
 // You can construct a concrete instance of `GetJobQueueComputeEnvironmentOrderInput` via:
 //
-//          GetJobQueueComputeEnvironmentOrderArgs{...}
+//	GetJobQueueComputeEnvironmentOrderArgs{...}
 type GetJobQueueComputeEnvironmentOrderInput interface {
 	pulumi.Input
 
@@ -1501,7 +1501,7 @@ func (i GetJobQueueComputeEnvironmentOrderArgs) ToGetJobQueueComputeEnvironmentO
 // GetJobQueueComputeEnvironmentOrderArrayInput is an input type that accepts GetJobQueueComputeEnvironmentOrderArray and GetJobQueueComputeEnvironmentOrderArrayOutput values.
 // You can construct a concrete instance of `GetJobQueueComputeEnvironmentOrderArrayInput` via:
 //
-//          GetJobQueueComputeEnvironmentOrderArray{ GetJobQueueComputeEnvironmentOrderArgs{...} }
+//	GetJobQueueComputeEnvironmentOrderArray{ GetJobQueueComputeEnvironmentOrderArgs{...} }
 type GetJobQueueComputeEnvironmentOrderArrayInput interface {
 	pulumi.Input
 
@@ -1576,7 +1576,7 @@ type GetSchedulingPolicyFairSharePolicy struct {
 // GetSchedulingPolicyFairSharePolicyInput is an input type that accepts GetSchedulingPolicyFairSharePolicyArgs and GetSchedulingPolicyFairSharePolicyOutput values.
 // You can construct a concrete instance of `GetSchedulingPolicyFairSharePolicyInput` via:
 //
-//          GetSchedulingPolicyFairSharePolicyArgs{...}
+//	GetSchedulingPolicyFairSharePolicyArgs{...}
 type GetSchedulingPolicyFairSharePolicyInput interface {
 	pulumi.Input
 
@@ -1607,7 +1607,7 @@ func (i GetSchedulingPolicyFairSharePolicyArgs) ToGetSchedulingPolicyFairSharePo
 // GetSchedulingPolicyFairSharePolicyArrayInput is an input type that accepts GetSchedulingPolicyFairSharePolicyArray and GetSchedulingPolicyFairSharePolicyArrayOutput values.
 // You can construct a concrete instance of `GetSchedulingPolicyFairSharePolicyArrayInput` via:
 //
-//          GetSchedulingPolicyFairSharePolicyArray{ GetSchedulingPolicyFairSharePolicyArgs{...} }
+//	GetSchedulingPolicyFairSharePolicyArray{ GetSchedulingPolicyFairSharePolicyArgs{...} }
 type GetSchedulingPolicyFairSharePolicyArrayInput interface {
 	pulumi.Input
 
@@ -1689,7 +1689,7 @@ type GetSchedulingPolicyFairSharePolicyShareDistribution struct {
 // GetSchedulingPolicyFairSharePolicyShareDistributionInput is an input type that accepts GetSchedulingPolicyFairSharePolicyShareDistributionArgs and GetSchedulingPolicyFairSharePolicyShareDistributionOutput values.
 // You can construct a concrete instance of `GetSchedulingPolicyFairSharePolicyShareDistributionInput` via:
 //
-//          GetSchedulingPolicyFairSharePolicyShareDistributionArgs{...}
+//	GetSchedulingPolicyFairSharePolicyShareDistributionArgs{...}
 type GetSchedulingPolicyFairSharePolicyShareDistributionInput interface {
 	pulumi.Input
 
@@ -1719,7 +1719,7 @@ func (i GetSchedulingPolicyFairSharePolicyShareDistributionArgs) ToGetScheduling
 // GetSchedulingPolicyFairSharePolicyShareDistributionArrayInput is an input type that accepts GetSchedulingPolicyFairSharePolicyShareDistributionArray and GetSchedulingPolicyFairSharePolicyShareDistributionArrayOutput values.
 // You can construct a concrete instance of `GetSchedulingPolicyFairSharePolicyShareDistributionArrayInput` via:
 //
-//          GetSchedulingPolicyFairSharePolicyShareDistributionArray{ GetSchedulingPolicyFairSharePolicyShareDistributionArgs{...} }
+//	GetSchedulingPolicyFairSharePolicyShareDistributionArray{ GetSchedulingPolicyFairSharePolicyShareDistributionArgs{...} }
 type GetSchedulingPolicyFairSharePolicyShareDistributionArrayInput interface {
 	pulumi.Input
 

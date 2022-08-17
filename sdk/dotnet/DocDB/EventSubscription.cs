@@ -15,47 +15,45 @@ namespace Pulumi.Aws.DocDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleCluster = new Aws.DocDB.Cluster("exampleCluster", new()
     ///     {
-    ///         var exampleCluster = new Aws.DocDB.Cluster("exampleCluster", new Aws.DocDB.ClusterArgs
+    ///         ClusterIdentifier = "example",
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             ClusterIdentifier = "example",
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 data.Aws_availability_zones.Available.Names[0],
-    ///                 data.Aws_availability_zones.Available.Names[1],
-    ///                 data.Aws_availability_zones.Available.Names[2],
-    ///             },
-    ///             MasterUsername = "foo",
-    ///             MasterPassword = "mustbeeightcharaters",
-    ///             SkipFinalSnapshot = true,
-    ///         });
-    ///         var exampleTopic = new Aws.Sns.Topic("exampleTopic", new Aws.Sns.TopicArgs
-    ///         {
-    ///         });
-    ///         var exampleEventSubscription = new Aws.DocDB.EventSubscription("exampleEventSubscription", new Aws.DocDB.EventSubscriptionArgs
-    ///         {
-    ///             Enabled = true,
-    ///             EventCategories = 
-    ///             {
-    ///                 "creation",
-    ///                 "failure",
-    ///             },
-    ///             SourceType = "db-cluster",
-    ///             SourceIds = 
-    ///             {
-    ///                 exampleCluster.Id,
-    ///             },
-    ///             SnsTopicArn = exampleTopic.Arn,
-    ///         });
-    ///     }
+    ///             data.Aws_availability_zones.Available.Names[0],
+    ///             data.Aws_availability_zones.Available.Names[1],
+    ///             data.Aws_availability_zones.Available.Names[2],
+    ///         },
+    ///         MasterUsername = "foo",
+    ///         MasterPassword = "mustbeeightcharaters",
+    ///         SkipFinalSnapshot = true,
+    ///     });
     /// 
-    /// }
+    ///     var exampleTopic = new Aws.Sns.Topic("exampleTopic");
+    /// 
+    ///     var exampleEventSubscription = new Aws.DocDB.EventSubscription("exampleEventSubscription", new()
+    ///     {
+    ///         Enabled = true,
+    ///         EventCategories = new[]
+    ///         {
+    ///             "creation",
+    ///             "failure",
+    ///         },
+    ///         SourceType = "db-cluster",
+    ///         SourceIds = new[]
+    ///         {
+    ///             exampleCluster.Id,
+    ///         },
+    ///         SnsTopicArn = exampleTopic.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +65,7 @@ namespace Pulumi.Aws.DocDB
     /// ```
     /// </summary>
     [AwsResourceType("aws:docdb/eventSubscription:EventSubscription")]
-    public partial class EventSubscription : Pulumi.CustomResource
+    public partial class EventSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name of the DocDB event notification subscription
@@ -123,9 +121,6 @@ namespace Pulumi.Aws.DocDB
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -173,7 +168,7 @@ namespace Pulumi.Aws.DocDB
         }
     }
 
-    public sealed class EventSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean flag to enable/disable the subscription. Defaults to true.
@@ -238,9 +233,10 @@ namespace Pulumi.Aws.DocDB
         public EventSubscriptionArgs()
         {
         }
+        public static new EventSubscriptionArgs Empty => new EventSubscriptionArgs();
     }
 
-    public sealed class EventSubscriptionState : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name of the DocDB event notification subscription
@@ -316,10 +312,6 @@ namespace Pulumi.Aws.DocDB
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -329,5 +321,6 @@ namespace Pulumi.Aws.DocDB
         public EventSubscriptionState()
         {
         }
+        public static new EventSubscriptionState Empty => new EventSubscriptionState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("csvContentTypes")]
         private InputList<string>? _csvContentTypes;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderGetArgs()
         {
         }
+        public static new EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderGetArgs Empty => new EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderGetArgs();
     }
 }

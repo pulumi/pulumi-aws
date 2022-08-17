@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class WebhookFilterGroupArgs : Pulumi.ResourceArgs
+    public sealed class WebhookFilterGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("filters")]
         private InputList<Inputs.WebhookFilterGroupFilterArgs>? _filters;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public WebhookFilterGroupArgs()
         {
         }
+        public static new WebhookFilterGroupArgs Empty => new WebhookFilterGroupArgs();
     }
 }

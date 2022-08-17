@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MskConnect.Inputs
 {
 
-    public sealed class ConnectorLogDeliveryWorkerLogDeliveryArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorLogDeliveryWorkerLogDeliveryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Details about delivering logs to Amazon CloudWatch Logs. See below.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public ConnectorLogDeliveryWorkerLogDeliveryArgs()
         {
         }
+        public static new ConnectorLogDeliveryWorkerLogDeliveryArgs Empty => new ConnectorLogDeliveryWorkerLogDeliveryArgs();
     }
 }

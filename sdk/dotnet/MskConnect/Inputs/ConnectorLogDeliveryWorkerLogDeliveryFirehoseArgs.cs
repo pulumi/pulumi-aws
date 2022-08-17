@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MskConnect.Inputs
 {
 
-    public sealed class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs()
         {
         }
+        public static new ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs Empty => new ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs();
     }
 }

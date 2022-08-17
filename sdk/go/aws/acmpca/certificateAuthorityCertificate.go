@@ -20,56 +20,59 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca.CertificateAuthorityArgs{
-// 			Type: pulumi.String("ROOT"),
-// 			CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-// 				KeyAlgorithm:     pulumi.String("RSA_4096"),
-// 				SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-// 				Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-// 					CommonName: pulumi.String("example.com"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		current, err := aws.GetPartition(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCertificate, err := acmpca.NewCertificate(ctx, "exampleCertificate", &acmpca.CertificateArgs{
-// 			CertificateAuthorityArn:   exampleCertificateAuthority.Arn,
-// 			CertificateSigningRequest: exampleCertificateAuthority.CertificateSigningRequest,
-// 			SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
-// 			TemplateArn:               pulumi.String(fmt.Sprintf("arn:%v:acm-pca:::template/RootCACertificate/V1", current.Partition)),
-// 			Validity: &acmpca.CertificateValidityArgs{
-// 				Type:  pulumi.String("YEARS"),
-// 				Value: pulumi.String("1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = acmpca.NewCertificateAuthorityCertificate(ctx, "exampleCertificateAuthorityCertificate", &acmpca.CertificateAuthorityCertificateArgs{
-// 			CertificateAuthorityArn: exampleCertificateAuthority.Arn,
-// 			Certificate:             exampleCertificate.Certificate,
-// 			CertificateChain:        exampleCertificate.CertificateChain,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca.CertificateAuthorityArgs{
+//				Type: pulumi.String("ROOT"),
+//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
+//					KeyAlgorithm:     pulumi.String("RSA_4096"),
+//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
+//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
+//						CommonName: pulumi.String("example.com"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificate, err := acmpca.NewCertificate(ctx, "exampleCertificate", &acmpca.CertificateArgs{
+//				CertificateAuthorityArn:   exampleCertificateAuthority.Arn,
+//				CertificateSigningRequest: exampleCertificateAuthority.CertificateSigningRequest,
+//				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
+//				TemplateArn:               pulumi.String(fmt.Sprintf("arn:%v:acm-pca:::template/RootCACertificate/V1", current.Partition)),
+//				Validity: &acmpca.CertificateValidityArgs{
+//					Type:  pulumi.String("YEARS"),
+//					Value: pulumi.String("1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = acmpca.NewCertificateAuthorityCertificate(ctx, "exampleCertificateAuthorityCertificate", &acmpca.CertificateAuthorityCertificateArgs{
+//				CertificateAuthorityArn: exampleCertificateAuthority.Arn,
+//				Certificate:             exampleCertificate.Certificate,
+//				CertificateChain:        exampleCertificate.CertificateChain,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Certificate for Subordinate Certificate Authority
 //
@@ -79,68 +82,71 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		subordinateCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "subordinateCertificateAuthority", &acmpca.CertificateAuthorityArgs{
-// 			Type: pulumi.String("SUBORDINATE"),
-// 			CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-// 				KeyAlgorithm:     pulumi.String("RSA_2048"),
-// 				SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-// 				Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-// 					CommonName: pulumi.String("sub.example.com"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		rootCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "rootCertificateAuthority", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		current, err := aws.GetPartition(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		subordinateCertificate, err := acmpca.NewCertificate(ctx, "subordinateCertificate", &acmpca.CertificateArgs{
-// 			CertificateAuthorityArn:   rootCertificateAuthority.Arn,
-// 			CertificateSigningRequest: subordinateCertificateAuthority.CertificateSigningRequest,
-// 			SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
-// 			TemplateArn:               pulumi.String(fmt.Sprintf("arn:%v:acm-pca:::template/SubordinateCACertificate_PathLen0/V1", current.Partition)),
-// 			Validity: &acmpca.CertificateValidityArgs{
-// 				Type:  pulumi.String("YEARS"),
-// 				Value: pulumi.String("1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = acmpca.NewCertificateAuthorityCertificate(ctx, "subordinateCertificateAuthorityCertificate", &acmpca.CertificateAuthorityCertificateArgs{
-// 			CertificateAuthorityArn: subordinateCertificateAuthority.Arn,
-// 			Certificate:             subordinateCertificate.Certificate,
-// 			CertificateChain:        subordinateCertificate.CertificateChain,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = acmpca.NewCertificateAuthorityCertificate(ctx, "rootCertificateAuthorityCertificate", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = acmpca.NewCertificate(ctx, "rootCertificate", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			subordinateCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "subordinateCertificateAuthority", &acmpca.CertificateAuthorityArgs{
+//				Type: pulumi.String("SUBORDINATE"),
+//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
+//					KeyAlgorithm:     pulumi.String("RSA_2048"),
+//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
+//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
+//						CommonName: pulumi.String("sub.example.com"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			rootCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "rootCertificateAuthority", nil)
+//			if err != nil {
+//				return err
+//			}
+//			current, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			subordinateCertificate, err := acmpca.NewCertificate(ctx, "subordinateCertificate", &acmpca.CertificateArgs{
+//				CertificateAuthorityArn:   rootCertificateAuthority.Arn,
+//				CertificateSigningRequest: subordinateCertificateAuthority.CertificateSigningRequest,
+//				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
+//				TemplateArn:               pulumi.String(fmt.Sprintf("arn:%v:acm-pca:::template/SubordinateCACertificate_PathLen0/V1", current.Partition)),
+//				Validity: &acmpca.CertificateValidityArgs{
+//					Type:  pulumi.String("YEARS"),
+//					Value: pulumi.String("1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = acmpca.NewCertificateAuthorityCertificate(ctx, "subordinateCertificateAuthorityCertificate", &acmpca.CertificateAuthorityCertificateArgs{
+//				CertificateAuthorityArn: subordinateCertificateAuthority.Arn,
+//				Certificate:             subordinateCertificate.Certificate,
+//				CertificateChain:        subordinateCertificate.CertificateChain,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = acmpca.NewCertificateAuthorityCertificate(ctx, "rootCertificateAuthorityCertificate", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = acmpca.NewCertificate(ctx, "rootCertificate", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type CertificateAuthorityCertificate struct {
 	pulumi.CustomResourceState
@@ -254,7 +260,7 @@ func (i *CertificateAuthorityCertificate) ToCertificateAuthorityCertificateOutpu
 // CertificateAuthorityCertificateArrayInput is an input type that accepts CertificateAuthorityCertificateArray and CertificateAuthorityCertificateArrayOutput values.
 // You can construct a concrete instance of `CertificateAuthorityCertificateArrayInput` via:
 //
-//          CertificateAuthorityCertificateArray{ CertificateAuthorityCertificateArgs{...} }
+//	CertificateAuthorityCertificateArray{ CertificateAuthorityCertificateArgs{...} }
 type CertificateAuthorityCertificateArrayInput interface {
 	pulumi.Input
 
@@ -279,7 +285,7 @@ func (i CertificateAuthorityCertificateArray) ToCertificateAuthorityCertificateA
 // CertificateAuthorityCertificateMapInput is an input type that accepts CertificateAuthorityCertificateMap and CertificateAuthorityCertificateMapOutput values.
 // You can construct a concrete instance of `CertificateAuthorityCertificateMapInput` via:
 //
-//          CertificateAuthorityCertificateMap{ "key": CertificateAuthorityCertificateArgs{...} }
+//	CertificateAuthorityCertificateMap{ "key": CertificateAuthorityCertificateArgs{...} }
 type CertificateAuthorityCertificateMapInput interface {
 	pulumi.Input
 

@@ -31,157 +31,160 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("My bucket"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3.NewBucketAclV2(ctx, "bAcl", &s3.BucketAclV2Args{
-// 			Bucket: bucketV2.ID(),
-// 			Acl:    pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		s3OriginId := "myS3Origin"
-// 		_, err = cloudfront.NewDistribution(ctx, "s3Distribution", &cloudfront.DistributionArgs{
-// 			Origins: cloudfront.DistributionOriginArray{
-// 				&cloudfront.DistributionOriginArgs{
-// 					DomainName: bucketV2.BucketRegionalDomainName,
-// 					OriginId:   pulumi.String(s3OriginId),
-// 					S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
-// 						OriginAccessIdentity: pulumi.String("origin-access-identity/cloudfront/ABCDEFG1234567"),
-// 					},
-// 				},
-// 			},
-// 			Enabled:           pulumi.Bool(true),
-// 			IsIpv6Enabled:     pulumi.Bool(true),
-// 			Comment:           pulumi.String("Some comment"),
-// 			DefaultRootObject: pulumi.String("index.html"),
-// 			LoggingConfig: &cloudfront.DistributionLoggingConfigArgs{
-// 				IncludeCookies: pulumi.Bool(false),
-// 				Bucket:         pulumi.String("mylogs.s3.amazonaws.com"),
-// 				Prefix:         pulumi.String("myprefix"),
-// 			},
-// 			Aliases: pulumi.StringArray{
-// 				pulumi.String("mysite.example.com"),
-// 				pulumi.String("yoursite.example.com"),
-// 			},
-// 			DefaultCacheBehavior: &cloudfront.DistributionDefaultCacheBehaviorArgs{
-// 				AllowedMethods: pulumi.StringArray{
-// 					pulumi.String("DELETE"),
-// 					pulumi.String("GET"),
-// 					pulumi.String("HEAD"),
-// 					pulumi.String("OPTIONS"),
-// 					pulumi.String("PATCH"),
-// 					pulumi.String("POST"),
-// 					pulumi.String("PUT"),
-// 				},
-// 				CachedMethods: pulumi.StringArray{
-// 					pulumi.String("GET"),
-// 					pulumi.String("HEAD"),
-// 				},
-// 				TargetOriginId: pulumi.String(s3OriginId),
-// 				ForwardedValues: &cloudfront.DistributionDefaultCacheBehaviorForwardedValuesArgs{
-// 					QueryString: pulumi.Bool(false),
-// 					Cookies: &cloudfront.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs{
-// 						Forward: pulumi.String("none"),
-// 					},
-// 				},
-// 				ViewerProtocolPolicy: pulumi.String("allow-all"),
-// 				MinTtl:               pulumi.Int(0),
-// 				DefaultTtl:           pulumi.Int(3600),
-// 				MaxTtl:               pulumi.Int(86400),
-// 			},
-// 			OrderedCacheBehaviors: cloudfront.DistributionOrderedCacheBehaviorArray{
-// 				&cloudfront.DistributionOrderedCacheBehaviorArgs{
-// 					PathPattern: pulumi.String("/content/immutable/*"),
-// 					AllowedMethods: pulumi.StringArray{
-// 						pulumi.String("GET"),
-// 						pulumi.String("HEAD"),
-// 						pulumi.String("OPTIONS"),
-// 					},
-// 					CachedMethods: pulumi.StringArray{
-// 						pulumi.String("GET"),
-// 						pulumi.String("HEAD"),
-// 						pulumi.String("OPTIONS"),
-// 					},
-// 					TargetOriginId: pulumi.String(s3OriginId),
-// 					ForwardedValues: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs{
-// 						QueryString: pulumi.Bool(false),
-// 						Headers: pulumi.StringArray{
-// 							pulumi.String("Origin"),
-// 						},
-// 						Cookies: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs{
-// 							Forward: pulumi.String("none"),
-// 						},
-// 					},
-// 					MinTtl:               pulumi.Int(0),
-// 					DefaultTtl:           pulumi.Int(86400),
-// 					MaxTtl:               pulumi.Int(31536000),
-// 					Compress:             pulumi.Bool(true),
-// 					ViewerProtocolPolicy: pulumi.String("redirect-to-https"),
-// 				},
-// 				&cloudfront.DistributionOrderedCacheBehaviorArgs{
-// 					PathPattern: pulumi.String("/content/*"),
-// 					AllowedMethods: pulumi.StringArray{
-// 						pulumi.String("GET"),
-// 						pulumi.String("HEAD"),
-// 						pulumi.String("OPTIONS"),
-// 					},
-// 					CachedMethods: pulumi.StringArray{
-// 						pulumi.String("GET"),
-// 						pulumi.String("HEAD"),
-// 					},
-// 					TargetOriginId: pulumi.String(s3OriginId),
-// 					ForwardedValues: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs{
-// 						QueryString: pulumi.Bool(false),
-// 						Cookies: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs{
-// 							Forward: pulumi.String("none"),
-// 						},
-// 					},
-// 					MinTtl:               pulumi.Int(0),
-// 					DefaultTtl:           pulumi.Int(3600),
-// 					MaxTtl:               pulumi.Int(86400),
-// 					Compress:             pulumi.Bool(true),
-// 					ViewerProtocolPolicy: pulumi.String("redirect-to-https"),
-// 				},
-// 			},
-// 			PriceClass: pulumi.String("PriceClass_200"),
-// 			Restrictions: &cloudfront.DistributionRestrictionsArgs{
-// 				GeoRestriction: &cloudfront.DistributionRestrictionsGeoRestrictionArgs{
-// 					RestrictionType: pulumi.String("whitelist"),
-// 					Locations: pulumi.StringArray{
-// 						pulumi.String("US"),
-// 						pulumi.String("CA"),
-// 						pulumi.String("GB"),
-// 						pulumi.String("DE"),
-// 					},
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("production"),
-// 			},
-// 			ViewerCertificate: &cloudfront.DistributionViewerCertificateArgs{
-// 				CloudfrontDefaultCertificate: pulumi.Bool(true),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			bucketV2, err := s3.NewBucketV2(ctx, "bucketV2", &s3.BucketV2Args{
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("My bucket"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketAclV2(ctx, "bAcl", &s3.BucketAclV2Args{
+//				Bucket: bucketV2.ID(),
+//				Acl:    pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			s3OriginId := "myS3Origin"
+//			_, err = cloudfront.NewDistribution(ctx, "s3Distribution", &cloudfront.DistributionArgs{
+//				Origins: cloudfront.DistributionOriginArray{
+//					&cloudfront.DistributionOriginArgs{
+//						DomainName: bucketV2.BucketRegionalDomainName,
+//						OriginId:   pulumi.String(s3OriginId),
+//						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
+//							OriginAccessIdentity: pulumi.String("origin-access-identity/cloudfront/ABCDEFG1234567"),
+//						},
+//					},
+//				},
+//				Enabled:           pulumi.Bool(true),
+//				IsIpv6Enabled:     pulumi.Bool(true),
+//				Comment:           pulumi.String("Some comment"),
+//				DefaultRootObject: pulumi.String("index.html"),
+//				LoggingConfig: &cloudfront.DistributionLoggingConfigArgs{
+//					IncludeCookies: pulumi.Bool(false),
+//					Bucket:         pulumi.String("mylogs.s3.amazonaws.com"),
+//					Prefix:         pulumi.String("myprefix"),
+//				},
+//				Aliases: pulumi.StringArray{
+//					pulumi.String("mysite.example.com"),
+//					pulumi.String("yoursite.example.com"),
+//				},
+//				DefaultCacheBehavior: &cloudfront.DistributionDefaultCacheBehaviorArgs{
+//					AllowedMethods: pulumi.StringArray{
+//						pulumi.String("DELETE"),
+//						pulumi.String("GET"),
+//						pulumi.String("HEAD"),
+//						pulumi.String("OPTIONS"),
+//						pulumi.String("PATCH"),
+//						pulumi.String("POST"),
+//						pulumi.String("PUT"),
+//					},
+//					CachedMethods: pulumi.StringArray{
+//						pulumi.String("GET"),
+//						pulumi.String("HEAD"),
+//					},
+//					TargetOriginId: pulumi.String(s3OriginId),
+//					ForwardedValues: &cloudfront.DistributionDefaultCacheBehaviorForwardedValuesArgs{
+//						QueryString: pulumi.Bool(false),
+//						Cookies: &cloudfront.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs{
+//							Forward: pulumi.String("none"),
+//						},
+//					},
+//					ViewerProtocolPolicy: pulumi.String("allow-all"),
+//					MinTtl:               pulumi.Int(0),
+//					DefaultTtl:           pulumi.Int(3600),
+//					MaxTtl:               pulumi.Int(86400),
+//				},
+//				OrderedCacheBehaviors: cloudfront.DistributionOrderedCacheBehaviorArray{
+//					&cloudfront.DistributionOrderedCacheBehaviorArgs{
+//						PathPattern: pulumi.String("/content/immutable/*"),
+//						AllowedMethods: pulumi.StringArray{
+//							pulumi.String("GET"),
+//							pulumi.String("HEAD"),
+//							pulumi.String("OPTIONS"),
+//						},
+//						CachedMethods: pulumi.StringArray{
+//							pulumi.String("GET"),
+//							pulumi.String("HEAD"),
+//							pulumi.String("OPTIONS"),
+//						},
+//						TargetOriginId: pulumi.String(s3OriginId),
+//						ForwardedValues: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs{
+//							QueryString: pulumi.Bool(false),
+//							Headers: pulumi.StringArray{
+//								pulumi.String("Origin"),
+//							},
+//							Cookies: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs{
+//								Forward: pulumi.String("none"),
+//							},
+//						},
+//						MinTtl:               pulumi.Int(0),
+//						DefaultTtl:           pulumi.Int(86400),
+//						MaxTtl:               pulumi.Int(31536000),
+//						Compress:             pulumi.Bool(true),
+//						ViewerProtocolPolicy: pulumi.String("redirect-to-https"),
+//					},
+//					&cloudfront.DistributionOrderedCacheBehaviorArgs{
+//						PathPattern: pulumi.String("/content/*"),
+//						AllowedMethods: pulumi.StringArray{
+//							pulumi.String("GET"),
+//							pulumi.String("HEAD"),
+//							pulumi.String("OPTIONS"),
+//						},
+//						CachedMethods: pulumi.StringArray{
+//							pulumi.String("GET"),
+//							pulumi.String("HEAD"),
+//						},
+//						TargetOriginId: pulumi.String(s3OriginId),
+//						ForwardedValues: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs{
+//							QueryString: pulumi.Bool(false),
+//							Cookies: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs{
+//								Forward: pulumi.String("none"),
+//							},
+//						},
+//						MinTtl:               pulumi.Int(0),
+//						DefaultTtl:           pulumi.Int(3600),
+//						MaxTtl:               pulumi.Int(86400),
+//						Compress:             pulumi.Bool(true),
+//						ViewerProtocolPolicy: pulumi.String("redirect-to-https"),
+//					},
+//				},
+//				PriceClass: pulumi.String("PriceClass_200"),
+//				Restrictions: &cloudfront.DistributionRestrictionsArgs{
+//					GeoRestriction: &cloudfront.DistributionRestrictionsGeoRestrictionArgs{
+//						RestrictionType: pulumi.String("whitelist"),
+//						Locations: pulumi.StringArray{
+//							pulumi.String("US"),
+//							pulumi.String("CA"),
+//							pulumi.String("GB"),
+//							pulumi.String("DE"),
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("production"),
+//				},
+//				ViewerCertificate: &cloudfront.DistributionViewerCertificateArgs{
+//					CloudfrontDefaultCertificate: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // The following example below creates a Cloudfront distribution with an origin group for failover routing:
@@ -190,60 +193,63 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudfront.NewDistribution(ctx, "s3Distribution", &cloudfront.DistributionArgs{
-// 			OriginGroups: cloudfront.DistributionOriginGroupArray{
-// 				&cloudfront.DistributionOriginGroupArgs{
-// 					OriginId: pulumi.String("groupS3"),
-// 					FailoverCriteria: &cloudfront.DistributionOriginGroupFailoverCriteriaArgs{
-// 						StatusCodes: pulumi.IntArray{
-// 							pulumi.Int(403),
-// 							pulumi.Int(404),
-// 							pulumi.Int(500),
-// 							pulumi.Int(502),
-// 						},
-// 					},
-// 					Members: cloudfront.DistributionOriginGroupMemberArray{
-// 						&cloudfront.DistributionOriginGroupMemberArgs{
-// 							OriginId: pulumi.String("primaryS3"),
-// 						},
-// 						&cloudfront.DistributionOriginGroupMemberArgs{
-// 							OriginId: pulumi.String("failoverS3"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			Origins: cloudfront.DistributionOriginArray{
-// 				&cloudfront.DistributionOriginArgs{
-// 					DomainName: pulumi.Any(aws_s3_bucket.Primary.Bucket_regional_domain_name),
-// 					OriginId:   pulumi.String("primaryS3"),
-// 					S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
-// 						OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path),
-// 					},
-// 				},
-// 				&cloudfront.DistributionOriginArgs{
-// 					DomainName: pulumi.Any(aws_s3_bucket.Failover.Bucket_regional_domain_name),
-// 					OriginId:   pulumi.String("failoverS3"),
-// 					S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
-// 						OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path),
-// 					},
-// 				},
-// 			},
-// 			DefaultCacheBehavior: &cloudfront.DistributionDefaultCacheBehaviorArgs{
-// 				TargetOriginId: pulumi.String("groupS3"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewDistribution(ctx, "s3Distribution", &cloudfront.DistributionArgs{
+//				OriginGroups: cloudfront.DistributionOriginGroupArray{
+//					&cloudfront.DistributionOriginGroupArgs{
+//						OriginId: pulumi.String("groupS3"),
+//						FailoverCriteria: &cloudfront.DistributionOriginGroupFailoverCriteriaArgs{
+//							StatusCodes: pulumi.IntArray{
+//								pulumi.Int(403),
+//								pulumi.Int(404),
+//								pulumi.Int(500),
+//								pulumi.Int(502),
+//							},
+//						},
+//						Members: cloudfront.DistributionOriginGroupMemberArray{
+//							&cloudfront.DistributionOriginGroupMemberArgs{
+//								OriginId: pulumi.String("primaryS3"),
+//							},
+//							&cloudfront.DistributionOriginGroupMemberArgs{
+//								OriginId: pulumi.String("failoverS3"),
+//							},
+//						},
+//					},
+//				},
+//				Origins: cloudfront.DistributionOriginArray{
+//					&cloudfront.DistributionOriginArgs{
+//						DomainName: pulumi.Any(aws_s3_bucket.Primary.Bucket_regional_domain_name),
+//						OriginId:   pulumi.String("primaryS3"),
+//						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
+//							OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path),
+//						},
+//					},
+//					&cloudfront.DistributionOriginArgs{
+//						DomainName: pulumi.Any(aws_s3_bucket.Failover.Bucket_regional_domain_name),
+//						OriginId:   pulumi.String("failoverS3"),
+//						S3OriginConfig: &cloudfront.DistributionOriginS3OriginConfigArgs{
+//							OriginAccessIdentity: pulumi.Any(aws_cloudfront_origin_access_identity.Default.Cloudfront_access_identity_path),
+//						},
+//					},
+//				},
+//				DefaultCacheBehavior: &cloudfront.DistributionDefaultCacheBehaviorArgs{
+//					TargetOriginId: pulumi.String("groupS3"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -251,7 +257,9 @@ import (
 // Cloudfront Distributions can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
+//
+//	$ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
+//
 // ```
 type Distribution struct {
 	pulumi.CustomResourceState
@@ -328,7 +336,7 @@ type Distribution struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
 	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
@@ -470,7 +478,7 @@ type distributionState struct {
 	Status *string `pulumi:"status"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
 	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
@@ -569,7 +577,7 @@ type DistributionState struct {
 	Status pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
 	// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
@@ -760,7 +768,7 @@ func (i *Distribution) ToDistributionOutputWithContext(ctx context.Context) Dist
 // DistributionArrayInput is an input type that accepts DistributionArray and DistributionArrayOutput values.
 // You can construct a concrete instance of `DistributionArrayInput` via:
 //
-//          DistributionArray{ DistributionArgs{...} }
+//	DistributionArray{ DistributionArgs{...} }
 type DistributionArrayInput interface {
 	pulumi.Input
 
@@ -785,7 +793,7 @@ func (i DistributionArray) ToDistributionArrayOutputWithContext(ctx context.Cont
 // DistributionMapInput is an input type that accepts DistributionMap and DistributionMapOutput values.
 // You can construct a concrete instance of `DistributionMapInput` via:
 //
-//          DistributionMap{ "key": DistributionArgs{...} }
+//	DistributionMap{ "key": DistributionArgs{...} }
 type DistributionMapInput interface {
 	pulumi.Input
 
@@ -965,7 +973,7 @@ func (o DistributionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DistributionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

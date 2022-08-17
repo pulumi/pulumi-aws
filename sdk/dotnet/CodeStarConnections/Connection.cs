@@ -17,72 +17,71 @@ namespace Pulumi.Aws.CodeStarConnections
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleConnection = new Aws.CodeStarConnections.Connection("exampleConnection", new()
     ///     {
-    ///         var exampleConnection = new Aws.CodeStarConnections.Connection("exampleConnection", new Aws.CodeStarConnections.ConnectionArgs
+    ///         ProviderType = "Bitbucket",
+    ///     });
+    /// 
+    ///     var examplePipeline = new Aws.CodePipeline.Pipeline("examplePipeline", new()
+    ///     {
+    ///         RoleArn = aws_iam_role.Codepipeline_role.Arn,
+    ///         ArtifactStores = new[]
     ///         {
-    ///             ProviderType = "Bitbucket",
-    ///         });
-    ///         var examplePipeline = new Aws.CodePipeline.Pipeline("examplePipeline", new Aws.CodePipeline.PipelineArgs
+    ///             ,
+    ///         },
+    ///         Stages = new[]
     ///         {
-    ///             RoleArn = aws_iam_role.Codepipeline_role.Arn,
-    ///             ArtifactStores = 
+    ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
     ///             {
-    ///                 ,
-    ///             },
-    ///             Stages = 
-    ///             {
-    ///                 new Aws.CodePipeline.Inputs.PipelineStageArgs
+    ///                 Name = "Source",
+    ///                 Actions = new[]
     ///                 {
-    ///                     Name = "Source",
-    ///                     Actions = 
+    ///                     new Aws.CodePipeline.Inputs.PipelineStageActionArgs
     ///                     {
-    ///                         new Aws.CodePipeline.Inputs.PipelineStageActionArgs
+    ///                         Name = "Source",
+    ///                         Category = "Source",
+    ///                         Owner = "AWS",
+    ///                         Provider = "CodeStarSourceConnection",
+    ///                         Version = "1",
+    ///                         OutputArtifacts = new[]
     ///                         {
-    ///                             Name = "Source",
-    ///                             Category = "Source",
-    ///                             Owner = "AWS",
-    ///                             Provider = "CodeStarSourceConnection",
-    ///                             Version = "1",
-    ///                             OutputArtifacts = 
-    ///                             {
-    ///                                 "source_output",
-    ///                             },
-    ///                             Configuration = 
-    ///                             {
-    ///                                 { "ConnectionArn", exampleConnection.Arn },
-    ///                                 { "FullRepositoryId", "my-organization/test" },
-    ///                                 { "BranchName", "main" },
-    ///                             },
+    ///                             "source_output",
+    ///                         },
+    ///                         Configuration = 
+    ///                         {
+    ///                             { "ConnectionArn", exampleConnection.Arn },
+    ///                             { "FullRepositoryId", "my-organization/test" },
+    ///                             { "BranchName", "main" },
     ///                         },
     ///                     },
     ///                 },
-    ///                 new Aws.CodePipeline.Inputs.PipelineStageArgs
+    ///             },
+    ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
+    ///             {
+    ///                 Name = "Build",
+    ///                 Actions = new[]
     ///                 {
-    ///                     Name = "Build",
-    ///                     Actions = 
-    ///                     {
-    ///                         ,
-    ///                     },
-    ///                 },
-    ///                 new Aws.CodePipeline.Inputs.PipelineStageArgs
-    ///                 {
-    ///                     Name = "Deploy",
-    ///                     Actions = 
-    ///                     {
-    ///                         ,
-    ///                     },
+    ///                     ,
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.CodePipeline.Inputs.PipelineStageArgs
+    ///             {
+    ///                 Name = "Deploy",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     ,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -94,7 +93,7 @@ namespace Pulumi.Aws.CodeStarConnections
     /// ```
     /// </summary>
     [AwsResourceType("aws:codestarconnections/connection:Connection")]
-    public partial class Connection : Pulumi.CustomResource
+    public partial class Connection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The codestar connection ARN.
@@ -127,13 +126,13 @@ namespace Pulumi.Aws.CodeStarConnections
         public Output<string> ProviderType { get; private set; } = null!;
 
         /// <summary>
-        /// Map of key-value resource tags to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -182,7 +181,7 @@ namespace Pulumi.Aws.CodeStarConnections
         }
     }
 
-    public sealed class ConnectionArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
@@ -206,7 +205,7 @@ namespace Pulumi.Aws.CodeStarConnections
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of key-value resource tags to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -217,9 +216,10 @@ namespace Pulumi.Aws.CodeStarConnections
         public ConnectionArgs()
         {
         }
+        public static new ConnectionArgs Empty => new ConnectionArgs();
     }
 
-    public sealed class ConnectionState : Pulumi.ResourceArgs
+    public sealed class ConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The codestar connection ARN.
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.CodeStarConnections
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of key-value resource tags to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.CodeStarConnections
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -278,5 +278,6 @@ namespace Pulumi.Aws.CodeStarConnections
         public ConnectionState()
         {
         }
+        public static new ConnectionState Empty => new ConnectionState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53.Inputs
 {
 
-    public sealed class RecordLatencyRoutingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RecordLatencyRoutingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Route53.Inputs
         public RecordLatencyRoutingPolicyArgs()
         {
         }
+        public static new RecordLatencyRoutingPolicyArgs Empty => new RecordLatencyRoutingPolicyArgs();
     }
 }

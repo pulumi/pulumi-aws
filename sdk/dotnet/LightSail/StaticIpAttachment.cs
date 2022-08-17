@@ -17,35 +17,33 @@ namespace Pulumi.Aws.LightSail
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var testStaticIp = new Aws.LightSail.StaticIp("testStaticIp", new Aws.LightSail.StaticIpArgs
-    ///         {
-    ///         });
-    ///         var testInstance = new Aws.LightSail.Instance("testInstance", new Aws.LightSail.InstanceArgs
-    ///         {
-    ///             AvailabilityZone = "us-east-1b",
-    ///             BlueprintId = "string",
-    ///             BundleId = "string",
-    ///             KeyPairName = "some_key_name",
-    ///         });
-    ///         var testStaticIpAttachment = new Aws.LightSail.StaticIpAttachment("testStaticIpAttachment", new Aws.LightSail.StaticIpAttachmentArgs
-    ///         {
-    ///             StaticIpName = testStaticIp.Id,
-    ///             InstanceName = testInstance.Id,
-    ///         });
-    ///     }
+    ///     var testStaticIp = new Aws.LightSail.StaticIp("testStaticIp");
     /// 
-    /// }
+    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
+    ///     {
+    ///         AvailabilityZone = "us-east-1b",
+    ///         BlueprintId = "string",
+    ///         BundleId = "string",
+    ///         KeyPairName = "some_key_name",
+    ///     });
+    /// 
+    ///     var testStaticIpAttachment = new Aws.LightSail.StaticIpAttachment("testStaticIpAttachment", new()
+    ///     {
+    ///         StaticIpName = testStaticIp.Id,
+    ///         InstanceName = testInstance.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/staticIpAttachment:StaticIpAttachment")]
-    public partial class StaticIpAttachment : Pulumi.CustomResource
+    public partial class StaticIpAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Lightsail instance to attach the IP to
@@ -109,7 +107,7 @@ namespace Pulumi.Aws.LightSail
         }
     }
 
-    public sealed class StaticIpAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class StaticIpAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Lightsail instance to attach the IP to
@@ -126,9 +124,10 @@ namespace Pulumi.Aws.LightSail
         public StaticIpAttachmentArgs()
         {
         }
+        public static new StaticIpAttachmentArgs Empty => new StaticIpAttachmentArgs();
     }
 
-    public sealed class StaticIpAttachmentState : Pulumi.ResourceArgs
+    public sealed class StaticIpAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Lightsail instance to attach the IP to
@@ -151,5 +150,6 @@ namespace Pulumi.Aws.LightSail
         public StaticIpAttachmentState()
         {
         }
+        public static new StaticIpAttachmentState Empty => new StaticIpAttachmentState();
     }
 }

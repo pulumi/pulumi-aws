@@ -18,7 +18,8 @@ class RepositoryArgs:
     def __init__(__self__, *,
                  repository_name: pulumi.Input[str],
                  catalog_data: Optional[pulumi.Input['RepositoryCatalogDataArgs']] = None,
-                 force_destroy: Optional[pulumi.Input[bool]] = None):
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Repository resource.
         :param pulumi.Input[str] repository_name: Name of the repository.
@@ -29,6 +30,8 @@ class RepositoryArgs:
             pulumi.set(__self__, "catalog_data", catalog_data)
         if force_destroy is not None:
             pulumi.set(__self__, "force_destroy", force_destroy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="repositoryName")
@@ -63,6 +66,15 @@ class RepositoryArgs:
     def force_destroy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "force_destroy", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _RepositoryState:
@@ -72,7 +84,9 @@ class _RepositoryState:
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  registry_id: Optional[pulumi.Input[str]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
-                 repository_uri: Optional[pulumi.Input[str]] = None):
+                 repository_uri: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Repository resources.
         :param pulumi.Input[str] arn: Full ARN of the repository.
@@ -93,6 +107,10 @@ class _RepositoryState:
             pulumi.set(__self__, "repository_name", repository_name)
         if repository_uri is not None:
             pulumi.set(__self__, "repository_uri", repository_uri)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -163,6 +181,24 @@ class _RepositoryState:
     def repository_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "repository_uri", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 class Repository(pulumi.CustomResource):
     @overload
@@ -172,6 +208,7 @@ class Repository(pulumi.CustomResource):
                  catalog_data: Optional[pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a Public Elastic Container Registry Repository.
@@ -184,9 +221,8 @@ class Repository(pulumi.CustomResource):
         import pulumi
         import base64
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        us_east1 = pulumi.providers.Aws("usEast1", region="us-east-1")
+        us_east1 = aws.Provider("usEast1", region="us-east-1")
         foo = aws.ecrpublic.Repository("foo",
             repository_name="bar",
             catalog_data=aws.ecrpublic.RepositoryCatalogDataArgs(
@@ -197,6 +233,9 @@ class Repository(pulumi.CustomResource):
                 operating_systems=["Linux"],
                 usage_text="Usage Text",
             ),
+            tags={
+                "env": "production",
+            },
             opts=pulumi.ResourceOptions(provider=aws["us_east_1"]))
         ```
 
@@ -230,9 +269,8 @@ class Repository(pulumi.CustomResource):
         import pulumi
         import base64
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        us_east1 = pulumi.providers.Aws("usEast1", region="us-east-1")
+        us_east1 = aws.Provider("usEast1", region="us-east-1")
         foo = aws.ecrpublic.Repository("foo",
             repository_name="bar",
             catalog_data=aws.ecrpublic.RepositoryCatalogDataArgs(
@@ -243,6 +281,9 @@ class Repository(pulumi.CustomResource):
                 operating_systems=["Linux"],
                 usage_text="Usage Text",
             ),
+            tags={
+                "env": "production",
+            },
             opts=pulumi.ResourceOptions(provider=aws["us_east_1"]))
         ```
 
@@ -272,6 +313,7 @@ class Repository(pulumi.CustomResource):
                  catalog_data: Optional[pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -286,9 +328,11 @@ class Repository(pulumi.CustomResource):
             if repository_name is None and not opts.urn:
                 raise TypeError("Missing required property 'repository_name'")
             __props__.__dict__["repository_name"] = repository_name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["registry_id"] = None
             __props__.__dict__["repository_uri"] = None
+            __props__.__dict__["tags_all"] = None
         super(Repository, __self__).__init__(
             'aws:ecrpublic/repository:Repository',
             resource_name,
@@ -304,7 +348,9 @@ class Repository(pulumi.CustomResource):
             force_destroy: Optional[pulumi.Input[bool]] = None,
             registry_id: Optional[pulumi.Input[str]] = None,
             repository_name: Optional[pulumi.Input[str]] = None,
-            repository_uri: Optional[pulumi.Input[str]] = None) -> 'Repository':
+            repository_uri: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Repository':
         """
         Get an existing Repository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -328,6 +374,8 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["registry_id"] = registry_id
         __props__.__dict__["repository_name"] = repository_name
         __props__.__dict__["repository_uri"] = repository_uri
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return Repository(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -374,4 +422,14 @@ class Repository(pulumi.CustomResource):
         The URI of the repository.
         """
         return pulumi.get(self, "repository_uri")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        return pulumi.get(self, "tags_all")
 

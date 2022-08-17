@@ -16,50 +16,46 @@ namespace Pulumi.Aws.Ec2
     /// ### Public NAT
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.NatGateway("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.NatGateway("example", new Aws.Ec2.NatGatewayArgs
+    ///         AllocationId = aws_eip.Example.Id,
+    ///         SubnetId = aws_subnet.Example.Id,
+    ///         Tags = 
     ///         {
-    ///             AllocationId = aws_eip.Example.Id,
-    ///             SubnetId = aws_subnet.Example.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "gw NAT" },
-    ///             },
-    ///         }, new CustomResourceOptions
+    ///             { "Name", "gw NAT" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 aws_internet_gateway.Example,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_internet_gateway.Example,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Private NAT
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.NatGateway("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.NatGateway("example", new Aws.Ec2.NatGatewayArgs
-    ///         {
-    ///             ConnectivityType = "private",
-    ///             SubnetId = aws_subnet.Example.Id,
-    ///         });
-    ///     }
+    ///         ConnectivityType = "private",
+    ///         SubnetId = aws_subnet.Example.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/natGateway:NatGateway")]
-    public partial class NatGateway : Pulumi.CustomResource
+    public partial class NatGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
@@ -116,7 +112,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -165,7 +161,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class NatGatewayArgs : Pulumi.ResourceArgs
+    public sealed class NatGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
@@ -200,9 +196,10 @@ namespace Pulumi.Aws.Ec2
         public NatGatewayArgs()
         {
         }
+        public static new NatGatewayArgs Empty => new NatGatewayArgs();
     }
 
-    public sealed class NatGatewayState : Pulumi.ResourceArgs
+    public sealed class NatGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
@@ -256,7 +253,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -267,5 +264,6 @@ namespace Pulumi.Aws.Ec2
         public NatGatewayState()
         {
         }
+        public static new NatGatewayState Empty => new NatGatewayState();
     }
 }

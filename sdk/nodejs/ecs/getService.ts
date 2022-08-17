@@ -29,6 +29,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
     return pulumi.runtime.invoke("aws:ecs/getService:getService", {
         "clusterArn": args.clusterArn,
         "serviceName": args.serviceName,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -44,6 +45,10 @@ export interface GetServiceArgs {
      * The name of the ECS Service
      */
     serviceName: string;
+    /**
+     * Resource tags.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -73,6 +78,10 @@ export interface GetServiceResult {
     readonly schedulingStrategy: string;
     readonly serviceName: string;
     /**
+     * Resource tags.
+     */
+    readonly tags: {[key: string]: string};
+    /**
      * The family for the latest ACTIVE revision
      */
     readonly taskDefinition: string;
@@ -94,4 +103,8 @@ export interface GetServiceOutputArgs {
      * The name of the ECS Service
      */
     serviceName: pulumi.Input<string>;
+    /**
+     * Resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

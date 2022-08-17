@@ -10,16 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppStream.Inputs
 {
 
-    public sealed class StackAccessEndpointArgs : Pulumi.ResourceArgs
+    public sealed class StackAccessEndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+        /// </summary>
         [Input("endpointType", required: true)]
         public Input<string> EndpointType { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC in which the interface endpoint is used.
+        /// </summary>
         [Input("vpceId")]
         public Input<string>? VpceId { get; set; }
 
         public StackAccessEndpointArgs()
         {
         }
+        public static new StackAccessEndpointArgs Empty => new StackAccessEndpointArgs();
     }
 }

@@ -19,20 +19,18 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MemoryDb.GetSubnetGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MemoryDb.GetSubnetGroup.InvokeAsync(new Aws.MemoryDb.GetSubnetGroupArgs
-        ///         {
-        ///             Name = "my-subnet-group",
-        ///         }));
-        ///     }
+        ///         Name = "my-subnet-group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.MemoryDb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.MemoryDb.GetSubnetGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.MemoryDb.GetSubnetGroup.InvokeAsync(new Aws.MemoryDb.GetSubnetGroupArgs
-        ///         {
-        ///             Name = "my-subnet-group",
-        ///         }));
-        ///     }
+        ///         Name = "my-subnet-group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.MemoryDb
     }
 
 
-    public sealed class GetSubnetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the subnet group.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.MemoryDb
         public GetSubnetGroupArgs()
         {
         }
+        public static new GetSubnetGroupArgs Empty => new GetSubnetGroupArgs();
     }
 
-    public sealed class GetSubnetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the subnet group.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.MemoryDb
         public GetSubnetGroupInvokeArgs()
         {
         }
+        public static new GetSubnetGroupInvokeArgs Empty => new GetSubnetGroupInvokeArgs();
     }
 
 

@@ -15,19 +15,15 @@ namespace Pulumi.Aws.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var foo = new Aws.Iot.ThingType("foo", new Aws.Iot.ThingTypeArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var foo = new Aws.Iot.ThingType("foo");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -39,7 +35,7 @@ namespace Pulumi.Aws.Iot
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/thingType:ThingType")]
-    public partial class ThingType : Pulumi.CustomResource
+    public partial class ThingType : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the created AWS IoT Thing Type.
@@ -66,7 +62,7 @@ namespace Pulumi.Aws.Iot
         public Output<Outputs.ThingTypeProperties?> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -121,7 +117,7 @@ namespace Pulumi.Aws.Iot
         }
     }
 
-    public sealed class ThingTypeArgs : Pulumi.ResourceArgs
+    public sealed class ThingTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the thing type is deprecated. If true, no new things could be associated with this type.
@@ -145,7 +141,7 @@ namespace Pulumi.Aws.Iot
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -156,9 +152,10 @@ namespace Pulumi.Aws.Iot
         public ThingTypeArgs()
         {
         }
+        public static new ThingTypeArgs Empty => new ThingTypeArgs();
     }
 
-    public sealed class ThingTypeState : Pulumi.ResourceArgs
+    public sealed class ThingTypeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the created AWS IoT Thing Type.
@@ -188,7 +185,7 @@ namespace Pulumi.Aws.Iot
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -211,5 +208,6 @@ namespace Pulumi.Aws.Iot
         public ThingTypeState()
         {
         }
+        public static new ThingTypeState Empty => new ThingTypeState();
     }
 }

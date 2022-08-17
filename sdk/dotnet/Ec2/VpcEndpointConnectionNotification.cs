@@ -16,16 +16,15 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var topic = new Aws.Sns.Topic("topic", new()
     ///     {
-    ///         var topic = new Aws.Sns.Topic("topic", new Aws.Sns.TopicArgs
-    ///         {
-    ///             Policy = @"{
+    ///         Policy = @"{
     ///     ""Version"":""2012-10-17"",
     ///     ""Statement"":[{
     ///         ""Effect"": ""Allow"",
@@ -37,28 +36,29 @@ namespace Pulumi.Aws.Ec2
     ///     }]
     /// }
     /// ",
-    ///         });
-    ///         var fooVpcEndpointService = new Aws.Ec2.VpcEndpointService("fooVpcEndpointService", new Aws.Ec2.VpcEndpointServiceArgs
-    ///         {
-    ///             AcceptanceRequired = false,
-    ///             NetworkLoadBalancerArns = 
-    ///             {
-    ///                 aws_lb.Test.Arn,
-    ///             },
-    ///         });
-    ///         var fooVpcEndpointConnectionNotification = new Aws.Ec2.VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification", new Aws.Ec2.VpcEndpointConnectionNotificationArgs
-    ///         {
-    ///             VpcEndpointServiceId = fooVpcEndpointService.Id,
-    ///             ConnectionNotificationArn = topic.Arn,
-    ///             ConnectionEvents = 
-    ///             {
-    ///                 "Accept",
-    ///                 "Reject",
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var fooVpcEndpointService = new Aws.Ec2.VpcEndpointService("fooVpcEndpointService", new()
+    ///     {
+    ///         AcceptanceRequired = false,
+    ///         NetworkLoadBalancerArns = new[]
+    ///         {
+    ///             aws_lb.Test.Arn,
+    ///         },
+    ///     });
+    /// 
+    ///     var fooVpcEndpointConnectionNotification = new Aws.Ec2.VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification", new()
+    ///     {
+    ///         VpcEndpointServiceId = fooVpcEndpointService.Id,
+    ///         ConnectionNotificationArn = topic.Arn,
+    ///         ConnectionEvents = new[]
+    ///         {
+    ///             "Accept",
+    ///             "Reject",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification")]
-    public partial class VpcEndpointConnectionNotification : Pulumi.CustomResource
+    public partial class VpcEndpointConnectionNotification : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcEndpointConnectionNotificationArgs : Pulumi.ResourceArgs
+    public sealed class VpcEndpointConnectionNotificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectionEvents", required: true)]
         private InputList<string>? _connectionEvents;
@@ -187,9 +187,10 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointConnectionNotificationArgs()
         {
         }
+        public static new VpcEndpointConnectionNotificationArgs Empty => new VpcEndpointConnectionNotificationArgs();
     }
 
-    public sealed class VpcEndpointConnectionNotificationState : Pulumi.ResourceArgs
+    public sealed class VpcEndpointConnectionNotificationState : global::Pulumi.ResourceArgs
     {
         [Input("connectionEvents")]
         private InputList<string>? _connectionEvents;
@@ -236,5 +237,6 @@ namespace Pulumi.Aws.Ec2
         public VpcEndpointConnectionNotificationState()
         {
         }
+        public static new VpcEndpointConnectionNotificationState Empty => new VpcEndpointConnectionNotificationState();
     }
 }

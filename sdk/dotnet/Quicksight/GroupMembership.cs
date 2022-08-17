@@ -15,21 +15,19 @@ namespace Pulumi.Aws.Quicksight
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Quicksight.GroupMembership("example", new()
     ///     {
-    ///         var example = new Aws.Quicksight.GroupMembership("example", new Aws.Quicksight.GroupMembershipArgs
-    ///         {
-    ///             GroupName = "all-access-users",
-    ///             MemberName = "john_smith",
-    ///         });
-    ///     }
+    ///         GroupName = "all-access-users",
+    ///         MemberName = "john_smith",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Aws.Quicksight
     /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/groupMembership:GroupMembership")]
-    public partial class GroupMembership : Pulumi.CustomResource
+    public partial class GroupMembership : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -114,7 +112,7 @@ namespace Pulumi.Aws.Quicksight
         }
     }
 
-    public sealed class GroupMembershipArgs : Pulumi.ResourceArgs
+    public sealed class GroupMembershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
@@ -143,9 +141,10 @@ namespace Pulumi.Aws.Quicksight
         public GroupMembershipArgs()
         {
         }
+        public static new GroupMembershipArgs Empty => new GroupMembershipArgs();
     }
 
-    public sealed class GroupMembershipState : Pulumi.ResourceArgs
+    public sealed class GroupMembershipState : global::Pulumi.ResourceArgs
     {
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -177,5 +176,6 @@ namespace Pulumi.Aws.Quicksight
         public GroupMembershipState()
         {
         }
+        public static new GroupMembershipState Empty => new GroupMembershipState();
     }
 }

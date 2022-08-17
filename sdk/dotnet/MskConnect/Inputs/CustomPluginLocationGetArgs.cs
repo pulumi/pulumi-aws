@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MskConnect.Inputs
 {
 
-    public sealed class CustomPluginLocationGetArgs : Pulumi.ResourceArgs
+    public sealed class CustomPluginLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information of the plugin file stored in Amazon S3. See below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public CustomPluginLocationGetArgs()
         {
         }
+        public static new CustomPluginLocationGetArgs Empty => new CustomPluginLocationGetArgs();
     }
 }

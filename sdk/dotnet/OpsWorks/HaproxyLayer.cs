@@ -15,25 +15,23 @@ namespace Pulumi.Aws.OpsWorks
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var lb = new Aws.OpsWorks.HaproxyLayer("lb", new()
     ///     {
-    ///         var lb = new Aws.OpsWorks.HaproxyLayer("lb", new Aws.OpsWorks.HaproxyLayerArgs
-    ///         {
-    ///             StackId = aws_opsworks_stack.Main.Id,
-    ///             StatsPassword = "foobarbaz",
-    ///         });
-    ///     }
+    ///         StackId = aws_opsworks_stack.Main.Id,
+    ///         StatsPassword = "foobarbaz",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/haproxyLayer:HaproxyLayer")]
-    public partial class HaproxyLayer : Pulumi.CustomResource
+    public partial class HaproxyLayer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name(ARN) of the layer.
@@ -186,7 +184,7 @@ namespace Pulumi.Aws.OpsWorks
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -241,7 +239,7 @@ namespace Pulumi.Aws.OpsWorks
         }
     }
 
-    public sealed class HaproxyLayerArgs : Pulumi.ResourceArgs
+    public sealed class HaproxyLayerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to automatically assign an elastic IP address to the layer's instances.
@@ -445,9 +443,10 @@ namespace Pulumi.Aws.OpsWorks
         public HaproxyLayerArgs()
         {
         }
+        public static new HaproxyLayerArgs Empty => new HaproxyLayerArgs();
     }
 
-    public sealed class HaproxyLayerState : Pulumi.ResourceArgs
+    public sealed class HaproxyLayerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name(ARN) of the layer.
@@ -652,7 +651,7 @@ namespace Pulumi.Aws.OpsWorks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -669,5 +668,6 @@ namespace Pulumi.Aws.OpsWorks
         public HaproxyLayerState()
         {
         }
+        public static new HaproxyLayerState Empty => new HaproxyLayerState();
     }
 }

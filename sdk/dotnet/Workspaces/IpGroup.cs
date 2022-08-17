@@ -15,38 +15,36 @@ namespace Pulumi.Aws.Workspaces
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var contractors = new Aws.Workspaces.IpGroup("contractors", new()
     ///     {
-    ///         var contractors = new Aws.Workspaces.IpGroup("contractors", new Aws.Workspaces.IpGroupArgs
+    ///         Description = "Contractors IP access control group",
+    ///         Rules = new[]
     ///         {
-    ///             Description = "Contractors IP access control group",
-    ///             Rules = 
+    ///             new Aws.Workspaces.Inputs.IpGroupRuleArgs
     ///             {
-    ///                 new Aws.Workspaces.Inputs.IpGroupRuleArgs
-    ///                 {
-    ///                     Description = "NY",
-    ///                     Source = "150.24.14.0/24",
-    ///                 },
-    ///                 new Aws.Workspaces.Inputs.IpGroupRuleArgs
-    ///                 {
-    ///                     Description = "LA",
-    ///                     Source = "125.191.14.85/32",
-    ///                 },
-    ///                 new Aws.Workspaces.Inputs.IpGroupRuleArgs
-    ///                 {
-    ///                     Description = "STL",
-    ///                     Source = "44.98.100.0/24",
-    ///                 },
+    ///                 Description = "NY",
+    ///                 Source = "150.24.14.0/24",
     ///             },
-    ///         });
-    ///     }
+    ///             new Aws.Workspaces.Inputs.IpGroupRuleArgs
+    ///             {
+    ///                 Description = "LA",
+    ///                 Source = "125.191.14.85/32",
+    ///             },
+    ///             new Aws.Workspaces.Inputs.IpGroupRuleArgs
+    ///             {
+    ///                 Description = "STL",
+    ///                 Source = "44.98.100.0/24",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +56,7 @@ namespace Pulumi.Aws.Workspaces
     /// ```
     /// </summary>
     [AwsResourceType("aws:workspaces/ipGroup:IpGroup")]
-    public partial class IpGroup : Pulumi.CustomResource
+    public partial class IpGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description.
@@ -79,13 +77,13 @@ namespace Pulumi.Aws.Workspaces
         public Output<ImmutableArray<Outputs.IpGroupRule>> Rules { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the WorkSpaces directory. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -134,7 +132,7 @@ namespace Pulumi.Aws.Workspaces
         }
     }
 
-    public sealed class IpGroupArgs : Pulumi.ResourceArgs
+    public sealed class IpGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description.
@@ -164,7 +162,7 @@ namespace Pulumi.Aws.Workspaces
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the WorkSpaces directory. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -175,9 +173,10 @@ namespace Pulumi.Aws.Workspaces
         public IpGroupArgs()
         {
         }
+        public static new IpGroupArgs Empty => new IpGroupArgs();
     }
 
-    public sealed class IpGroupState : Pulumi.ResourceArgs
+    public sealed class IpGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description.
@@ -207,7 +206,7 @@ namespace Pulumi.Aws.Workspaces
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the WorkSpaces directory. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -219,7 +218,7 @@ namespace Pulumi.Aws.Workspaces
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -230,5 +229,6 @@ namespace Pulumi.Aws.Workspaces
         public IpGroupState()
         {
         }
+        public static new IpGroupState Empty => new IpGroupState();
     }
 }

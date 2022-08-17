@@ -20,7 +20,7 @@ type ConnectorProfileConnectorProfileConfig struct {
 // ConnectorProfileConnectorProfileConfigInput is an input type that accepts ConnectorProfileConnectorProfileConfigArgs and ConnectorProfileConnectorProfileConfigOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigArgs{...}
+//	ConnectorProfileConnectorProfileConfigArgs{...}
 type ConnectorProfileConnectorProfileConfigInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i ConnectorProfileConnectorProfileConfigArgs) ToConnectorProfileConnectorP
 // ConnectorProfileConnectorProfileConfigPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigArgs, ConnectorProfileConnectorProfileConfigPtr and ConnectorProfileConnectorProfileConfigPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigArgs{...}
+//	        ConnectorProfileConnectorProfileConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigPtrInput interface {
 	pulumi.Input
 
@@ -212,7 +212,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentials struct {
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInput interface {
 	pulumi.Input
 
@@ -282,11 +282,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs) T
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -676,7 +676,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude 
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeInput interface {
 	pulumi.Input
 
@@ -714,11 +714,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitu
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrInput interface {
 	pulumi.Input
 
@@ -842,7 +842,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConn
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorInput interface {
 	pulumi.Input
 
@@ -886,11 +886,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrInput interface {
 	pulumi.Input
 
@@ -1059,7 +1059,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConn
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyInput interface {
 	pulumi.Input
 
@@ -1097,11 +1097,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrInput interface {
 	pulumi.Input
 
@@ -1219,7 +1219,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConn
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicInput interface {
 	pulumi.Input
 
@@ -1257,11 +1257,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrInput interface {
 	pulumi.Input
 
@@ -1379,7 +1379,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConn
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomInput interface {
 	pulumi.Input
 
@@ -1417,11 +1417,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrInput interface {
 	pulumi.Input
 
@@ -1545,7 +1545,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConn
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Input is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Output values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Input` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Input interface {
 	pulumi.Input
 
@@ -1589,11 +1589,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Ptr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrInput interface {
 	pulumi.Input
 
@@ -1762,7 +1762,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConn
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestInput interface {
 	pulumi.Input
 
@@ -1800,11 +1800,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtrInput interface {
 	pulumi.Input
 
@@ -1922,7 +1922,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog st
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogInput interface {
 	pulumi.Input
 
@@ -1960,11 +1960,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrInput interface {
 	pulumi.Input
 
@@ -2080,7 +2080,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace 
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceInput interface {
 	pulumi.Input
 
@@ -2116,11 +2116,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatra
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrInput interface {
 	pulumi.Input
 
@@ -2227,7 +2227,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnal
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsInput interface {
 	pulumi.Input
 
@@ -2271,11 +2271,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleA
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrInput interface {
 	pulumi.Input
 
@@ -2444,7 +2444,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnal
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestInput interface {
 	pulumi.Input
 
@@ -2482,11 +2482,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleA
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrInput interface {
 	pulumi.Input
 
@@ -2606,7 +2606,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode 
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeInput interface {
 	pulumi.Input
 
@@ -2646,11 +2646,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneyco
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrInput interface {
 	pulumi.Input
 
@@ -2785,7 +2785,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeO
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestInput interface {
 	pulumi.Input
 
@@ -2823,11 +2823,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneyco
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrInput interface {
 	pulumi.Input
 
@@ -2949,7 +2949,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusInput interface {
 	pulumi.Input
 
@@ -2991,11 +2991,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNe
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrInput interface {
 	pulumi.Input
 
@@ -3151,7 +3151,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo st
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoInput interface {
 	pulumi.Input
 
@@ -3193,11 +3193,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrInput interface {
 	pulumi.Input
 
@@ -3349,7 +3349,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOau
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestInput interface {
 	pulumi.Input
 
@@ -3387,11 +3387,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrInput interface {
 	pulumi.Input
 
@@ -3509,7 +3509,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift s
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftInput interface {
 	pulumi.Input
 
@@ -3547,11 +3547,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshif
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrInput interface {
 	pulumi.Input
 
@@ -3673,7 +3673,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceInput interface {
 	pulumi.Input
 
@@ -3715,11 +3715,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrInput interface {
 	pulumi.Input
 
@@ -3871,7 +3871,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestInput interface {
 	pulumi.Input
 
@@ -3909,11 +3909,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrInput interface {
 	pulumi.Input
 
@@ -4031,7 +4031,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData s
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataInput interface {
 	pulumi.Input
 
@@ -4069,11 +4069,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrInput interface {
 	pulumi.Input
 
@@ -4191,7 +4191,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBa
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsInput interface {
 	pulumi.Input
 
@@ -4229,11 +4229,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -4357,7 +4357,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOa
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsInput interface {
 	pulumi.Input
 
@@ -4401,11 +4401,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -4574,7 +4574,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOa
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestInput interface {
 	pulumi.Input
 
@@ -4612,11 +4612,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrInput interface {
 	pulumi.Input
 
@@ -4734,7 +4734,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowInput interface {
 	pulumi.Input
 
@@ -4772,11 +4772,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsService
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrInput interface {
 	pulumi.Input
 
@@ -4892,7 +4892,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular s
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularInput interface {
 	pulumi.Input
 
@@ -4928,11 +4928,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingula
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrInput interface {
 	pulumi.Input
 
@@ -5037,7 +5037,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack stru
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackInput interface {
 	pulumi.Input
 
@@ -5079,11 +5079,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackAr
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrInput interface {
 	pulumi.Input
 
@@ -5235,7 +5235,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauth
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestInput interface {
 	pulumi.Input
 
@@ -5273,11 +5273,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOa
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrInput interface {
 	pulumi.Input
 
@@ -5395,7 +5395,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake 
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeInput interface {
 	pulumi.Input
 
@@ -5433,11 +5433,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowfla
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrInput interface {
 	pulumi.Input
 
@@ -5553,7 +5553,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroInput interface {
 	pulumi.Input
 
@@ -5589,11 +5589,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmi
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrInput interface {
 	pulumi.Input
 
@@ -5694,7 +5694,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva stru
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaInput interface {
 	pulumi.Input
 
@@ -5732,11 +5732,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaAr
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrInput interface {
 	pulumi.Input
 
@@ -5858,7 +5858,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk st
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskInput interface {
 	pulumi.Input
 
@@ -5900,11 +5900,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrInput interface {
 	pulumi.Input
 
@@ -6056,7 +6056,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOau
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestInput interface {
 	pulumi.Input
 
@@ -6094,11 +6094,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs, ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtr and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrInput interface {
 	pulumi.Input
 
@@ -6248,7 +6248,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileProperties struct {
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInput interface {
 	pulumi.Input
 
@@ -6318,11 +6318,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs) To
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrInput interface {
 	pulumi.Input
 
@@ -6708,7 +6708,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude s
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeInput interface {
 	pulumi.Input
 
@@ -6742,11 +6742,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitud
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrInput interface {
 	pulumi.Input
 
@@ -6830,7 +6830,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConne
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorInput interface {
 	pulumi.Input
 
@@ -6868,11 +6868,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomCo
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrInput interface {
 	pulumi.Input
 
@@ -6992,7 +6992,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConne
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesInput interface {
 	pulumi.Input
 
@@ -7032,11 +7032,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomCo
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrInput interface {
 	pulumi.Input
 
@@ -7169,7 +7169,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog str
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogInput interface {
 	pulumi.Input
 
@@ -7205,11 +7205,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogA
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrInput interface {
 	pulumi.Input
 
@@ -7308,7 +7308,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace s
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceInput interface {
 	pulumi.Input
 
@@ -7344,11 +7344,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrac
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrInput interface {
 	pulumi.Input
 
@@ -7445,7 +7445,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnaly
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsInput interface {
 	pulumi.Input
 
@@ -7479,11 +7479,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAn
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrInput interface {
 	pulumi.Input
 
@@ -7563,7 +7563,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode s
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeInput interface {
 	pulumi.Input
 
@@ -7597,11 +7597,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycod
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrInput interface {
 	pulumi.Input
 
@@ -7683,7 +7683,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus 
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusInput interface {
 	pulumi.Input
 
@@ -7719,11 +7719,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNex
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrInput interface {
 	pulumi.Input
 
@@ -7822,7 +7822,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo str
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoInput interface {
 	pulumi.Input
 
@@ -7858,11 +7858,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoA
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrInput interface {
 	pulumi.Input
 
@@ -7967,7 +7967,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift st
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftInput interface {
 	pulumi.Input
 
@@ -8009,11 +8009,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrInput interface {
 	pulumi.Input
 
@@ -8165,7 +8165,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce 
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceInput interface {
 	pulumi.Input
 
@@ -8203,11 +8203,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesfor
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrInput interface {
 	pulumi.Input
 
@@ -8335,7 +8335,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData st
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataInput interface {
 	pulumi.Input
 
@@ -8383,11 +8383,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrInput interface {
 	pulumi.Input
 
@@ -8592,7 +8592,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOau
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesInput interface {
 	pulumi.Input
 
@@ -8632,11 +8632,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -8769,7 +8769,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow 
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowInput interface {
 	pulumi.Input
 
@@ -8805,11 +8805,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceN
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrInput interface {
 	pulumi.Input
 
@@ -8906,7 +8906,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular st
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularInput interface {
 	pulumi.Input
 
@@ -8940,11 +8940,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrInput interface {
 	pulumi.Input
 
@@ -9026,7 +9026,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack struc
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackInput interface {
 	pulumi.Input
 
@@ -9062,11 +9062,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArg
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrInput interface {
 	pulumi.Input
 
@@ -9177,7 +9177,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake s
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeInput interface {
 	pulumi.Input
 
@@ -9225,11 +9225,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflak
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrInput interface {
 	pulumi.Input
 
@@ -9428,7 +9428,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro 
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroInput interface {
 	pulumi.Input
 
@@ -9462,11 +9462,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmic
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrInput interface {
 	pulumi.Input
 
@@ -9548,7 +9548,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva struc
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaInput interface {
 	pulumi.Input
 
@@ -9584,11 +9584,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArg
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrInput interface {
 	pulumi.Input
 
@@ -9687,7 +9687,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk str
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgs{...}
+//	ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgs{...}
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskInput interface {
 	pulumi.Input
 
@@ -9723,11 +9723,11 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskA
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgs, ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtr and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrOutput values.
 // You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgs{...}
+//	        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrInput interface {
 	pulumi.Input
 
@@ -9832,7 +9832,7 @@ type FlowDestinationFlowConfig struct {
 // FlowDestinationFlowConfigInput is an input type that accepts FlowDestinationFlowConfigArgs and FlowDestinationFlowConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigInput` via:
 //
-//          FlowDestinationFlowConfigArgs{...}
+//	FlowDestinationFlowConfigArgs{...}
 type FlowDestinationFlowConfigInput interface {
 	pulumi.Input
 
@@ -9866,7 +9866,7 @@ func (i FlowDestinationFlowConfigArgs) ToFlowDestinationFlowConfigOutputWithCont
 // FlowDestinationFlowConfigArrayInput is an input type that accepts FlowDestinationFlowConfigArray and FlowDestinationFlowConfigArrayOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigArrayInput` via:
 //
-//          FlowDestinationFlowConfigArray{ FlowDestinationFlowConfigArgs{...} }
+//	FlowDestinationFlowConfigArray{ FlowDestinationFlowConfigArgs{...} }
 type FlowDestinationFlowConfigArrayInput interface {
 	pulumi.Input
 
@@ -9975,7 +9975,7 @@ type FlowDestinationFlowConfigDestinationConnectorProperties struct {
 // FlowDestinationFlowConfigDestinationConnectorPropertiesInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesInput interface {
 	pulumi.Input
 
@@ -10143,7 +10143,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector stru
 // FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorInput interface {
 	pulumi.Input
 
@@ -10187,11 +10187,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorAr
 // FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrInput interface {
 	pulumi.Input
 
@@ -10362,7 +10362,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorError
 // FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigInput interface {
 	pulumi.Input
 
@@ -10402,11 +10402,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorEr
 // FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrInput interface {
 	pulumi.Input
 
@@ -10541,7 +10541,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles str
 // FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesInput interface {
 	pulumi.Input
 
@@ -10579,11 +10579,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesA
 // FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrInput interface {
 	pulumi.Input
 
@@ -10701,7 +10701,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge struct {
 // FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeInput interface {
 	pulumi.Input
 
@@ -10739,11 +10739,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs) 
 // FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtr and FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrInput interface {
 	pulumi.Input
 
@@ -10861,7 +10861,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHand
 // FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigInput interface {
 	pulumi.Input
 
@@ -10901,11 +10901,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorH
 // FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrInput interface {
 	pulumi.Input
 
@@ -11040,7 +11040,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode struct {
 // FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeInput interface {
 	pulumi.Input
 
@@ -11078,11 +11078,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs) To
 // FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtr and FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrInput interface {
 	pulumi.Input
 
@@ -11200,7 +11200,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandli
 // FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigInput interface {
 	pulumi.Input
 
@@ -11240,11 +11240,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHan
 // FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrInput interface {
 	pulumi.Input
 
@@ -11375,7 +11375,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics struc
 // FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsInput interface {
 	pulumi.Input
 
@@ -11409,11 +11409,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArg
 // FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrInput interface {
 	pulumi.Input
 
@@ -11497,7 +11497,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo struct {
 // FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoInput interface {
 	pulumi.Input
 
@@ -11535,11 +11535,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs) ToFl
 // FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrInput interface {
 	pulumi.Input
 
@@ -11657,7 +11657,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandling
 // FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigInput interface {
 	pulumi.Input
 
@@ -11697,11 +11697,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandl
 // FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrInput interface {
 	pulumi.Input
 
@@ -11840,7 +11840,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift struct {
 // FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftInput interface {
 	pulumi.Input
 
@@ -11882,11 +11882,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs) ToF
 // FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrInput interface {
 	pulumi.Input
 
@@ -12036,7 +12036,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlin
 // FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigInput interface {
 	pulumi.Input
 
@@ -12076,11 +12076,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHand
 // FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrInput interface {
 	pulumi.Input
 
@@ -12217,7 +12217,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesS3 struct {
 // FlowDestinationFlowConfigDestinationConnectorPropertiesS3Input is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args and FlowDestinationFlowConfigDestinationConnectorPropertiesS3Output values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesS3Input` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3Input interface {
 	pulumi.Input
 
@@ -12257,11 +12257,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args) ToFlowDes
 // FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args, FlowDestinationFlowConfigDestinationConnectorPropertiesS3Ptr and FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrInput interface {
 	pulumi.Input
 
@@ -12394,7 +12394,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConf
 // FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigInput interface {
 	pulumi.Input
 
@@ -12434,11 +12434,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 // FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrInput interface {
 	pulumi.Input
 
@@ -12571,7 +12571,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConf
 // FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigInput interface {
 	pulumi.Input
 
@@ -12607,11 +12607,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 // FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrInput interface {
 	pulumi.Input
 
@@ -12712,7 +12712,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConf
 // FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigInput interface {
 	pulumi.Input
 
@@ -12750,11 +12750,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 // FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrInput interface {
 	pulumi.Input
 
@@ -12876,7 +12876,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce struct {
 // FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceInput interface {
 	pulumi.Input
 
@@ -12918,11 +12918,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs) T
 // FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtr and FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrInput interface {
 	pulumi.Input
 
@@ -13074,7 +13074,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandl
 // FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigInput interface {
 	pulumi.Input
 
@@ -13114,11 +13114,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHa
 // FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrInput interface {
 	pulumi.Input
 
@@ -13259,7 +13259,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData struct {
 // FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataInput interface {
 	pulumi.Input
 
@@ -13303,11 +13303,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs) ToF
 // FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrInput interface {
 	pulumi.Input
 
@@ -13476,7 +13476,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlin
 // FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigInput interface {
 	pulumi.Input
 
@@ -13516,11 +13516,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHand
 // FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrInput interface {
 	pulumi.Input
 
@@ -13655,7 +13655,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessRespo
 // FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigInput interface {
 	pulumi.Input
 
@@ -13693,11 +13693,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessRe
 // FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrInput interface {
 	pulumi.Input
 
@@ -13819,7 +13819,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake struct {
 // FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeInput interface {
 	pulumi.Input
 
@@ -13861,11 +13861,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs) To
 // FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtr and FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrInput interface {
 	pulumi.Input
 
@@ -14017,7 +14017,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandli
 // FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigInput interface {
 	pulumi.Input
 
@@ -14057,11 +14057,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHan
 // FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrInput interface {
 	pulumi.Input
 
@@ -14198,7 +14198,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver struct {
 // FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverInput interface {
 	pulumi.Input
 
@@ -14238,11 +14238,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs) ToF
 // FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrInput interface {
 	pulumi.Input
 
@@ -14375,7 +14375,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputForm
 // FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigInput interface {
 	pulumi.Input
 
@@ -14415,11 +14415,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 // FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrInput interface {
 	pulumi.Input
 
@@ -14552,7 +14552,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputForm
 // FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigInput interface {
 	pulumi.Input
 
@@ -14588,11 +14588,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 // FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrInput interface {
 	pulumi.Input
 
@@ -14693,7 +14693,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputForm
 // FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigInput interface {
 	pulumi.Input
 
@@ -14731,11 +14731,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 // FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrInput interface {
 	pulumi.Input
 
@@ -14857,7 +14857,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk struct {
 // FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskInput interface {
 	pulumi.Input
 
@@ -14899,11 +14899,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs) ToFl
 // FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrInput interface {
 	pulumi.Input
 
@@ -15053,7 +15053,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandling
 // FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs and FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs{...}
+//	FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs{...}
 type FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigInput interface {
 	pulumi.Input
 
@@ -15093,11 +15093,11 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandl
 // FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrInput is an input type that accepts FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs, FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtr and FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrInput` via:
 //
-//          FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs{...}
+//	        FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrInput interface {
 	pulumi.Input
 
@@ -15238,7 +15238,7 @@ type FlowSourceFlowConfig struct {
 // FlowSourceFlowConfigInput is an input type that accepts FlowSourceFlowConfigArgs and FlowSourceFlowConfigOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigInput` via:
 //
-//          FlowSourceFlowConfigArgs{...}
+//	FlowSourceFlowConfigArgs{...}
 type FlowSourceFlowConfigInput interface {
 	pulumi.Input
 
@@ -15282,11 +15282,11 @@ func (i FlowSourceFlowConfigArgs) ToFlowSourceFlowConfigPtrOutputWithContext(ctx
 // FlowSourceFlowConfigPtrInput is an input type that accepts FlowSourceFlowConfigArgs, FlowSourceFlowConfigPtr and FlowSourceFlowConfigPtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigPtrInput` via:
 //
-//          FlowSourceFlowConfigArgs{...}
+//	        FlowSourceFlowConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigPtrInput interface {
 	pulumi.Input
 
@@ -15447,7 +15447,7 @@ type FlowSourceFlowConfigIncrementalPullConfig struct {
 // FlowSourceFlowConfigIncrementalPullConfigInput is an input type that accepts FlowSourceFlowConfigIncrementalPullConfigArgs and FlowSourceFlowConfigIncrementalPullConfigOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigIncrementalPullConfigInput` via:
 //
-//          FlowSourceFlowConfigIncrementalPullConfigArgs{...}
+//	FlowSourceFlowConfigIncrementalPullConfigArgs{...}
 type FlowSourceFlowConfigIncrementalPullConfigInput interface {
 	pulumi.Input
 
@@ -15483,11 +15483,11 @@ func (i FlowSourceFlowConfigIncrementalPullConfigArgs) ToFlowSourceFlowConfigInc
 // FlowSourceFlowConfigIncrementalPullConfigPtrInput is an input type that accepts FlowSourceFlowConfigIncrementalPullConfigArgs, FlowSourceFlowConfigIncrementalPullConfigPtr and FlowSourceFlowConfigIncrementalPullConfigPtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigIncrementalPullConfigPtrInput` via:
 //
-//          FlowSourceFlowConfigIncrementalPullConfigArgs{...}
+//	        FlowSourceFlowConfigIncrementalPullConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigIncrementalPullConfigPtrInput interface {
 	pulumi.Input
 
@@ -15614,7 +15614,7 @@ type FlowSourceFlowConfigSourceConnectorProperties struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesArgs and FlowSourceFlowConfigSourceConnectorPropertiesOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesInput interface {
 	pulumi.Input
 
@@ -15680,11 +15680,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesArgs) ToFlowSourceFlowConfi
 // FlowSourceFlowConfigSourceConnectorPropertiesPtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesArgs, FlowSourceFlowConfigSourceConnectorPropertiesPtr and FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesPtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -16038,7 +16038,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesAmplitude struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs and FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeInput interface {
 	pulumi.Input
 
@@ -16074,11 +16074,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs) ToFlowSource
 // FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs, FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtr and FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrInput interface {
 	pulumi.Input
 
@@ -16177,7 +16177,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs and FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorInput interface {
 	pulumi.Input
 
@@ -16215,11 +16215,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs) ToFlow
 // FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs, FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtr and FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrInput interface {
 	pulumi.Input
 
@@ -16333,7 +16333,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesDatadog struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesDatadogInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs and FlowSourceFlowConfigSourceConnectorPropertiesDatadogOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesDatadogInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesDatadogInput interface {
 	pulumi.Input
 
@@ -16369,11 +16369,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs) ToFlowSourceFl
 // FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs, FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtr and FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrInput interface {
 	pulumi.Input
 
@@ -16470,7 +16470,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesDynatrace struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesDynatraceInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs and FlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesDynatraceInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesDynatraceInput interface {
 	pulumi.Input
 
@@ -16506,11 +16506,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs) ToFlowSource
 // FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs, FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtr and FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrInput interface {
 	pulumi.Input
 
@@ -16607,7 +16607,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs and FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsInput interface {
 	pulumi.Input
 
@@ -16643,11 +16643,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs) ToFlow
 // FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs, FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtr and FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrInput interface {
 	pulumi.Input
 
@@ -16744,7 +16744,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesInforNexus struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesInforNexusInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs and FlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesInforNexusInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesInforNexusInput interface {
 	pulumi.Input
 
@@ -16780,11 +16780,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs) ToFlowSourc
 // FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs, FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtr and FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrInput interface {
 	pulumi.Input
 
@@ -16881,7 +16881,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesMarketo struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesMarketoInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs and FlowSourceFlowConfigSourceConnectorPropertiesMarketoOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesMarketoInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesMarketoInput interface {
 	pulumi.Input
 
@@ -16917,11 +16917,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs) ToFlowSourceFl
 // FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs, FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtr and FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrInput interface {
 	pulumi.Input
 
@@ -17022,7 +17022,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesS3 struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesS3Input is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesS3Args and FlowSourceFlowConfigSourceConnectorPropertiesS3Output values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesS3Input` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesS3Args{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesS3Args{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesS3Input interface {
 	pulumi.Input
 
@@ -17062,11 +17062,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesS3Args) ToFlowSourceFlowCon
 // FlowSourceFlowConfigSourceConnectorPropertiesS3PtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesS3Args, FlowSourceFlowConfigSourceConnectorPropertiesS3Ptr and FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesS3PtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesS3Args{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesS3Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesS3PtrInput interface {
 	pulumi.Input
 
@@ -17195,7 +17195,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs and FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigInput interface {
 	pulumi.Input
 
@@ -17231,11 +17231,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs) 
 // FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs, FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtr and FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrInput interface {
 	pulumi.Input
 
@@ -17338,7 +17338,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesSalesforce struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesSalesforceInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs and FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesSalesforceInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesSalesforceInput interface {
 	pulumi.Input
 
@@ -17378,11 +17378,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs) ToFlowSourc
 // FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs, FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtr and FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrInput interface {
 	pulumi.Input
 
@@ -17511,7 +17511,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesSapoData struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesSapoDataInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs and FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesSapoDataInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataInput interface {
 	pulumi.Input
 
@@ -17547,11 +17547,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs) ToFlowSourceF
 // FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs, FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtr and FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrInput interface {
 	pulumi.Input
 
@@ -17648,7 +17648,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesServiceNow struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesServiceNowInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs and FlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesServiceNowInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesServiceNowInput interface {
 	pulumi.Input
 
@@ -17684,11 +17684,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs) ToFlowSourc
 // FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs, FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtr and FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrInput interface {
 	pulumi.Input
 
@@ -17785,7 +17785,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesSingular struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesSingularInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs and FlowSourceFlowConfigSourceConnectorPropertiesSingularOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesSingularInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesSingularInput interface {
 	pulumi.Input
 
@@ -17821,11 +17821,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs) ToFlowSourceF
 // FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs, FlowSourceFlowConfigSourceConnectorPropertiesSingularPtr and FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrInput interface {
 	pulumi.Input
 
@@ -17922,7 +17922,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesSlack struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesSlackInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs and FlowSourceFlowConfigSourceConnectorPropertiesSlackOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesSlackInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesSlackInput interface {
 	pulumi.Input
 
@@ -17958,11 +17958,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs) ToFlowSourceFlow
 // FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs, FlowSourceFlowConfigSourceConnectorPropertiesSlackPtr and FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrInput interface {
 	pulumi.Input
 
@@ -18059,7 +18059,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs and FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroInput interface {
 	pulumi.Input
 
@@ -18095,11 +18095,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs) ToFlowSourc
 // FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs, FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtr and FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrInput interface {
 	pulumi.Input
 
@@ -18204,7 +18204,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesVeeva struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesVeevaInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs and FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesVeevaInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesVeevaInput interface {
 	pulumi.Input
 
@@ -18248,11 +18248,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs) ToFlowSourceFlow
 // FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs, FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtr and FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrInput interface {
 	pulumi.Input
 
@@ -18409,7 +18409,7 @@ type FlowSourceFlowConfigSourceConnectorPropertiesZendesk struct {
 // FlowSourceFlowConfigSourceConnectorPropertiesZendeskInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs and FlowSourceFlowConfigSourceConnectorPropertiesZendeskOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesZendeskInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs{...}
+//	FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs{...}
 type FlowSourceFlowConfigSourceConnectorPropertiesZendeskInput interface {
 	pulumi.Input
 
@@ -18445,11 +18445,11 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs) ToFlowSourceFl
 // FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs, FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtr and FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutput values.
 // You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrInput` via:
 //
-//          FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs{...}
+//	        FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrInput interface {
 	pulumi.Input
 
@@ -18554,7 +18554,7 @@ type FlowTask struct {
 // FlowTaskInput is an input type that accepts FlowTaskArgs and FlowTaskOutput values.
 // You can construct a concrete instance of `FlowTaskInput` via:
 //
-//          FlowTaskArgs{...}
+//	FlowTaskArgs{...}
 type FlowTaskInput interface {
 	pulumi.Input
 
@@ -18590,7 +18590,7 @@ func (i FlowTaskArgs) ToFlowTaskOutputWithContext(ctx context.Context) FlowTaskO
 // FlowTaskArrayInput is an input type that accepts FlowTaskArray and FlowTaskArrayOutput values.
 // You can construct a concrete instance of `FlowTaskArrayInput` via:
 //
-//          FlowTaskArray{ FlowTaskArgs{...} }
+//	FlowTaskArray{ FlowTaskArgs{...} }
 type FlowTaskArrayInput interface {
 	pulumi.Input
 
@@ -18709,7 +18709,7 @@ type FlowTaskConnectorOperator struct {
 // FlowTaskConnectorOperatorInput is an input type that accepts FlowTaskConnectorOperatorArgs and FlowTaskConnectorOperatorOutput values.
 // You can construct a concrete instance of `FlowTaskConnectorOperatorInput` via:
 //
-//          FlowTaskConnectorOperatorArgs{...}
+//	FlowTaskConnectorOperatorArgs{...}
 type FlowTaskConnectorOperatorInput interface {
 	pulumi.Input
 
@@ -18767,7 +18767,7 @@ func (i FlowTaskConnectorOperatorArgs) ToFlowTaskConnectorOperatorOutputWithCont
 // FlowTaskConnectorOperatorArrayInput is an input type that accepts FlowTaskConnectorOperatorArray and FlowTaskConnectorOperatorArrayOutput values.
 // You can construct a concrete instance of `FlowTaskConnectorOperatorArrayInput` via:
 //
-//          FlowTaskConnectorOperatorArray{ FlowTaskConnectorOperatorArgs{...} }
+//	FlowTaskConnectorOperatorArray{ FlowTaskConnectorOperatorArgs{...} }
 type FlowTaskConnectorOperatorArrayInput interface {
 	pulumi.Input
 
@@ -18913,7 +18913,7 @@ type FlowTriggerConfig struct {
 // FlowTriggerConfigInput is an input type that accepts FlowTriggerConfigArgs and FlowTriggerConfigOutput values.
 // You can construct a concrete instance of `FlowTriggerConfigInput` via:
 //
-//          FlowTriggerConfigArgs{...}
+//	FlowTriggerConfigArgs{...}
 type FlowTriggerConfigInput interface {
 	pulumi.Input
 
@@ -18951,11 +18951,11 @@ func (i FlowTriggerConfigArgs) ToFlowTriggerConfigPtrOutputWithContext(ctx conte
 // FlowTriggerConfigPtrInput is an input type that accepts FlowTriggerConfigArgs, FlowTriggerConfigPtr and FlowTriggerConfigPtrOutput values.
 // You can construct a concrete instance of `FlowTriggerConfigPtrInput` via:
 //
-//          FlowTriggerConfigArgs{...}
+//	        FlowTriggerConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowTriggerConfigPtrInput interface {
 	pulumi.Input
 
@@ -19066,7 +19066,7 @@ type FlowTriggerConfigTriggerProperties struct {
 // FlowTriggerConfigTriggerPropertiesInput is an input type that accepts FlowTriggerConfigTriggerPropertiesArgs and FlowTriggerConfigTriggerPropertiesOutput values.
 // You can construct a concrete instance of `FlowTriggerConfigTriggerPropertiesInput` via:
 //
-//          FlowTriggerConfigTriggerPropertiesArgs{...}
+//	FlowTriggerConfigTriggerPropertiesArgs{...}
 type FlowTriggerConfigTriggerPropertiesInput interface {
 	pulumi.Input
 
@@ -19101,11 +19101,11 @@ func (i FlowTriggerConfigTriggerPropertiesArgs) ToFlowTriggerConfigTriggerProper
 // FlowTriggerConfigTriggerPropertiesPtrInput is an input type that accepts FlowTriggerConfigTriggerPropertiesArgs, FlowTriggerConfigTriggerPropertiesPtr and FlowTriggerConfigTriggerPropertiesPtrOutput values.
 // You can construct a concrete instance of `FlowTriggerConfigTriggerPropertiesPtrInput` via:
 //
-//          FlowTriggerConfigTriggerPropertiesArgs{...}
+//	        FlowTriggerConfigTriggerPropertiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowTriggerConfigTriggerPropertiesPtrInput interface {
 	pulumi.Input
 
@@ -19214,7 +19214,7 @@ type FlowTriggerConfigTriggerPropertiesScheduled struct {
 // FlowTriggerConfigTriggerPropertiesScheduledInput is an input type that accepts FlowTriggerConfigTriggerPropertiesScheduledArgs and FlowTriggerConfigTriggerPropertiesScheduledOutput values.
 // You can construct a concrete instance of `FlowTriggerConfigTriggerPropertiesScheduledInput` via:
 //
-//          FlowTriggerConfigTriggerPropertiesScheduledArgs{...}
+//	FlowTriggerConfigTriggerPropertiesScheduledArgs{...}
 type FlowTriggerConfigTriggerPropertiesScheduledInput interface {
 	pulumi.Input
 
@@ -19262,11 +19262,11 @@ func (i FlowTriggerConfigTriggerPropertiesScheduledArgs) ToFlowTriggerConfigTrig
 // FlowTriggerConfigTriggerPropertiesScheduledPtrInput is an input type that accepts FlowTriggerConfigTriggerPropertiesScheduledArgs, FlowTriggerConfigTriggerPropertiesScheduledPtr and FlowTriggerConfigTriggerPropertiesScheduledPtrOutput values.
 // You can construct a concrete instance of `FlowTriggerConfigTriggerPropertiesScheduledPtrInput` via:
 //
-//          FlowTriggerConfigTriggerPropertiesScheduledArgs{...}
+//	        FlowTriggerConfigTriggerPropertiesScheduledArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlowTriggerConfigTriggerPropertiesScheduledPtrInput interface {
 	pulumi.Input
 

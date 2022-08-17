@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm.Inputs
 {
 
-    public sealed class GetMaintenanceWindowsFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetMaintenanceWindowsFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the filter field. Valid values can be found in the [SSM DescribeMaintenanceWindows API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindows.html#API_DescribeMaintenanceWindows_RequestSyntax).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ssm.Inputs
         public GetMaintenanceWindowsFilterArgs()
         {
         }
+        public static new GetMaintenanceWindowsFilterArgs Empty => new GetMaintenanceWindowsFilterArgs();
     }
 }

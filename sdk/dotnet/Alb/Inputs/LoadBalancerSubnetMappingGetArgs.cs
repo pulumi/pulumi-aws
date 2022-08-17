@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Alb.Inputs
 {
 
-    public sealed class LoadBalancerSubnetMappingGetArgs : Pulumi.ResourceArgs
+    public sealed class LoadBalancerSubnetMappingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The allocation ID of the Elastic IP address.
@@ -42,5 +42,6 @@ namespace Pulumi.Aws.Alb.Inputs
         public LoadBalancerSubnetMappingGetArgs()
         {
         }
+        public static new LoadBalancerSubnetMappingGetArgs Empty => new LoadBalancerSubnetMappingGetArgs();
     }
 }

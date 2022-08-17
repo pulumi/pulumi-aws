@@ -113,6 +113,8 @@ if typing.TYPE_CHECKING:
     codestarnotifications = __codestarnotifications
     import pulumi_aws.cognito as __cognito
     cognito = __cognito
+    import pulumi_aws.comprehend as __comprehend
+    comprehend = __comprehend
     import pulumi_aws.config as __config
     config = __config
     import pulumi_aws.connect as __connect
@@ -410,6 +412,7 @@ else:
     codestarconnections = _utilities.lazy_import('pulumi_aws.codestarconnections')
     codestarnotifications = _utilities.lazy_import('pulumi_aws.codestarnotifications')
     cognito = _utilities.lazy_import('pulumi_aws.cognito')
+    comprehend = _utilities.lazy_import('pulumi_aws.comprehend')
     config = _utilities.lazy_import('pulumi_aws.config')
     connect = _utilities.lazy_import('pulumi_aws.connect')
     costexplorer = _utilities.lazy_import('pulumi_aws.costexplorer')
@@ -603,6 +606,14 @@ _utilities.register(
   "fqn": "pulumi_aws.acmpca",
   "classes": {
    "aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate": "CertificateAuthorityCertificate"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "acmpca/permission",
+  "fqn": "pulumi_aws.acmpca",
+  "classes": {
+   "aws:acmpca/permission:Permission": "Permission"
   }
  },
  {
@@ -2391,6 +2402,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "comprehend/entityRecognizer",
+  "fqn": "pulumi_aws.comprehend",
+  "classes": {
+   "aws:comprehend/entityRecognizer:EntityRecognizer": "EntityRecognizer"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "connect/botAssociation",
   "fqn": "pulumi_aws.connect",
   "classes": {
@@ -2427,6 +2446,14 @@ _utilities.register(
   "fqn": "pulumi_aws.connect",
   "classes": {
    "aws:connect/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "connect/instanceStorageConfig",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/instanceStorageConfig:InstanceStorageConfig": "InstanceStorageConfig"
   }
  },
  {
@@ -2919,6 +2946,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "directoryservice/radiusSettings",
+  "fqn": "pulumi_aws.directoryservice",
+  "classes": {
+   "aws:directoryservice/radiusSettings:RadiusSettings": "RadiusSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "directoryservice/serviceRegion",
+  "fqn": "pulumi_aws.directoryservice",
+  "classes": {
+   "aws:directoryservice/serviceRegion:ServiceRegion": "ServiceRegion"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "directoryservice/sharedDirectory",
   "fqn": "pulumi_aws.directoryservice",
   "classes": {
@@ -3083,6 +3126,14 @@ _utilities.register(
   "fqn": "pulumi_aws.dynamodb",
   "classes": {
    "aws:dynamodb/tableItem:TableItem": "TableItem"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "dynamodb/tableReplica",
+  "fqn": "pulumi_aws.dynamodb",
+  "classes": {
+   "aws:dynamodb/tableReplica:TableReplica": "TableReplica"
   }
  },
  {
@@ -3939,6 +3990,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ec2transitgateway",
   "classes": {
    "aws:ec2transitgateway/peeringAttachment:PeeringAttachment": "PeeringAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2transitgateway/peeringAttachmentAccepter",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter": "PeeringAttachmentAccepter"
   }
  },
  {
@@ -5471,6 +5530,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "kendra/dataSource",
+  "fqn": "pulumi_aws.kendra",
+  "classes": {
+   "aws:kendra/dataSource:DataSource": "DataSource"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "kendra/experience",
   "fqn": "pulumi_aws.kendra",
   "classes": {
@@ -5975,6 +6042,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "location/trackerAssociation",
+  "fqn": "pulumi_aws.location",
+  "classes": {
+   "aws:location/trackerAssociation:TrackerAssociation": "TrackerAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "macie/customDataIdentifier",
   "fqn": "pulumi_aws.macie",
   "classes": {
@@ -6011,6 +6086,14 @@ _utilities.register(
   "fqn": "pulumi_aws.macie2",
   "classes": {
    "aws:macie2/account:Account": "Account"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "macie2/classificationExportConfiguration",
+  "fqn": "pulumi_aws.macie2",
+  "classes": {
+   "aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration": "ClassificationExportConfiguration"
   }
  },
  {
@@ -8439,6 +8522,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ssm/serviceSetting",
+  "fqn": "pulumi_aws.ssm",
+  "classes": {
+   "aws:ssm/serviceSetting:ServiceSetting": "ServiceSetting"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ssoadmin/accountAssignment",
   "fqn": "pulumi_aws.ssoadmin",
   "classes": {
@@ -8579,6 +8670,14 @@ _utilities.register(
   "fqn": "pulumi_aws.timestreamwrite",
   "classes": {
    "aws:timestreamwrite/table:Table": "Table"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "transcribe/languageModel",
+  "fqn": "pulumi_aws.transcribe",
+  "classes": {
+   "aws:transcribe/languageModel:LanguageModel": "LanguageModel"
   }
  },
  {

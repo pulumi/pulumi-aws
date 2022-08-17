@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class InstancePrivateDnsNameOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class InstancePrivateDnsNameOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public InstancePrivateDnsNameOptionsGetArgs()
         {
         }
+        public static new InstancePrivateDnsNameOptionsGetArgs Empty => new InstancePrivateDnsNameOptionsGetArgs();
     }
 }

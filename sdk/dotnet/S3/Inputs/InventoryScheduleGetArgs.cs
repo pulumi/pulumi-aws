@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class InventoryScheduleGetArgs : Pulumi.ResourceArgs
+    public sealed class InventoryScheduleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public InventoryScheduleGetArgs()
         {
         }
+        public static new InventoryScheduleGetArgs Empty => new InventoryScheduleGetArgs();
     }
 }

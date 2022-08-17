@@ -15,5 +15,6 @@ from .map import *
 from .place_index import *
 from .route_calculation import *
 from .tracker import *
+from .tracker_association import *
 from ._inputs import *
 from . import outputs

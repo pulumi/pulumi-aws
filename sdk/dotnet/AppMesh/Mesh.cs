@@ -16,43 +16,37 @@ namespace Pulumi.Aws.AppMesh
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var simple = new Aws.AppMesh.Mesh("simple", new Aws.AppMesh.MeshArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var simple = new Aws.AppMesh.Mesh("simple");
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Egress Filter
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var simple = new Aws.AppMesh.Mesh("simple", new()
     ///     {
-    ///         var simple = new Aws.AppMesh.Mesh("simple", new Aws.AppMesh.MeshArgs
+    ///         Spec = new Aws.AppMesh.Inputs.MeshSpecArgs
     ///         {
-    ///             Spec = new Aws.AppMesh.Inputs.MeshSpecArgs
+    ///             EgressFilter = new Aws.AppMesh.Inputs.MeshSpecEgressFilterArgs
     ///             {
-    ///                 EgressFilter = new Aws.AppMesh.Inputs.MeshSpecEgressFilterArgs
-    ///                 {
-    ///                     Type = "ALLOW_ALL",
-    ///                 },
+    ///                 Type = "ALLOW_ALL",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +58,7 @@ namespace Pulumi.Aws.AppMesh
     /// ```
     /// </summary>
     [AwsResourceType("aws:appmesh/mesh:Mesh")]
-    public partial class Mesh : Pulumi.CustomResource
+    public partial class Mesh : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the service mesh.
@@ -115,7 +109,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -164,7 +158,7 @@ namespace Pulumi.Aws.AppMesh
         }
     }
 
-    public sealed class MeshArgs : Pulumi.ResourceArgs
+    public sealed class MeshArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name to use for the service mesh. Must be between 1 and 255 characters in length.
@@ -193,9 +187,10 @@ namespace Pulumi.Aws.AppMesh
         public MeshArgs()
         {
         }
+        public static new MeshArgs Empty => new MeshArgs();
     }
 
-    public sealed class MeshState : Pulumi.ResourceArgs
+    public sealed class MeshState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the service mesh.
@@ -255,7 +250,7 @@ namespace Pulumi.Aws.AppMesh
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -266,5 +261,6 @@ namespace Pulumi.Aws.AppMesh
         public MeshState()
         {
         }
+        public static new MeshState Empty => new MeshState();
     }
 }

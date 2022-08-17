@@ -19,20 +19,18 @@ namespace Pulumi.Aws.CodeArtifact
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.CodeArtifact.GetAuthorizationToken.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.CodeArtifact.GetAuthorizationToken.InvokeAsync(new Aws.CodeArtifact.GetAuthorizationTokenArgs
-        ///         {
-        ///             Domain = aws_codeartifact_domain.Test.Domain,
-        ///         }));
-        ///     }
+        ///         Domain = aws_codeartifact_domain.Test.Domain,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.CodeArtifact
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.CodeArtifact.GetAuthorizationToken.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.CodeArtifact.GetAuthorizationToken.InvokeAsync(new Aws.CodeArtifact.GetAuthorizationTokenArgs
-        ///         {
-        ///             Domain = aws_codeartifact_domain.Test.Domain,
-        ///         }));
-        ///     }
+        ///         Domain = aws_codeartifact_domain.Test.Domain,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.CodeArtifact
     }
 
 
-    public sealed class GetAuthorizationTokenArgs : Pulumi.InvokeArgs
+    public sealed class GetAuthorizationTokenArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the domain that is in scope for the generated authorization token.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.CodeArtifact
         public GetAuthorizationTokenArgs()
         {
         }
+        public static new GetAuthorizationTokenArgs Empty => new GetAuthorizationTokenArgs();
     }
 
-    public sealed class GetAuthorizationTokenInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAuthorizationTokenInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the domain that is in scope for the generated authorization token.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.CodeArtifact
         public GetAuthorizationTokenInvokeArgs()
         {
         }
+        public static new GetAuthorizationTokenInvokeArgs Empty => new GetAuthorizationTokenInvokeArgs();
     }
 
 

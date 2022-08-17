@@ -18,24 +18,22 @@ namespace Pulumi.Aws.Ec2
     /// To create a basic traffic mirror filter
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Aws.Ec2.TrafficMirrorFilter("foo", new()
     ///     {
-    ///         var foo = new Aws.Ec2.TrafficMirrorFilter("foo", new Aws.Ec2.TrafficMirrorFilterArgs
+    ///         Description = "traffic mirror filter - example",
+    ///         NetworkServices = new[]
     ///         {
-    ///             Description = "traffic mirror filter - example",
-    ///             NetworkServices = 
-    ///             {
-    ///                 "amazon-dns",
-    ///             },
-    ///         });
-    ///     }
+    ///             "amazon-dns",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/trafficMirrorFilter:TrafficMirrorFilter")]
-    public partial class TrafficMirrorFilter : Pulumi.CustomResource
+    public partial class TrafficMirrorFilter : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the traffic mirror filter.
@@ -123,7 +121,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class TrafficMirrorFilterArgs : Pulumi.ResourceArgs
+    public sealed class TrafficMirrorFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the filter.
@@ -158,9 +156,10 @@ namespace Pulumi.Aws.Ec2
         public TrafficMirrorFilterArgs()
         {
         }
+        public static new TrafficMirrorFilterArgs Empty => new TrafficMirrorFilterArgs();
     }
 
-    public sealed class TrafficMirrorFilterState : Pulumi.ResourceArgs
+    public sealed class TrafficMirrorFilterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the traffic mirror filter.
@@ -213,5 +212,6 @@ namespace Pulumi.Aws.Ec2
         public TrafficMirrorFilterState()
         {
         }
+        public static new TrafficMirrorFilterState Empty => new TrafficMirrorFilterState();
     }
 }

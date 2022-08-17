@@ -28,7 +28,7 @@ type RepositoryCatalogData struct {
 // RepositoryCatalogDataInput is an input type that accepts RepositoryCatalogDataArgs and RepositoryCatalogDataOutput values.
 // You can construct a concrete instance of `RepositoryCatalogDataInput` via:
 //
-//          RepositoryCatalogDataArgs{...}
+//	RepositoryCatalogDataArgs{...}
 type RepositoryCatalogDataInput interface {
 	pulumi.Input
 
@@ -74,11 +74,11 @@ func (i RepositoryCatalogDataArgs) ToRepositoryCatalogDataPtrOutputWithContext(c
 // RepositoryCatalogDataPtrInput is an input type that accepts RepositoryCatalogDataArgs, RepositoryCatalogDataPtr and RepositoryCatalogDataPtrOutput values.
 // You can construct a concrete instance of `RepositoryCatalogDataPtrInput` via:
 //
-//          RepositoryCatalogDataArgs{...}
+//	        RepositoryCatalogDataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RepositoryCatalogDataPtrInput interface {
 	pulumi.Input
 

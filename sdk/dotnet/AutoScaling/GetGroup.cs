@@ -19,20 +19,18 @@ namespace Pulumi.Aws.AutoScaling
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Aws.AutoScaling.GetGroup.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Aws.AutoScaling.GetGroup.InvokeAsync(new Aws.AutoScaling.GetGroupArgs
-        ///         {
-        ///             Name = "foo",
-        ///         }));
-        ///     }
+        ///         Name = "foo",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.AutoScaling
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var foo = Aws.AutoScaling.GetGroup.Invoke(new()
         ///     {
-        ///         var foo = Output.Create(Aws.AutoScaling.GetGroup.InvokeAsync(new Aws.AutoScaling.GetGroupArgs
-        ///         {
-        ///             Name = "foo",
-        ///         }));
-        ///     }
+        ///         Name = "foo",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.AutoScaling
     }
 
 
-    public sealed class GetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the exact name of the desired autoscaling group.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.AutoScaling
         public GetGroupArgs()
         {
         }
+        public static new GetGroupArgs Empty => new GetGroupArgs();
     }
 
-    public sealed class GetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the exact name of the desired autoscaling group.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.AutoScaling
         public GetGroupInvokeArgs()
         {
         }
+        public static new GetGroupInvokeArgs Empty => new GetGroupInvokeArgs();
     }
 
 

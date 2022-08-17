@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/globalaccelerator"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/globalaccelerator"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := globalaccelerator.NewEndpointGroup(ctx, "example", &globalaccelerator.EndpointGroupArgs{
-// 			ListenerArn: pulumi.Any(aws_globalaccelerator_listener.Example.Id),
-// 			EndpointConfigurations: globalaccelerator.EndpointGroupEndpointConfigurationArray{
-// 				&globalaccelerator.EndpointGroupEndpointConfigurationArgs{
-// 					EndpointId: pulumi.Any(aws_lb.Example.Arn),
-// 					Weight:     pulumi.Int(100),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := globalaccelerator.NewEndpointGroup(ctx, "example", &globalaccelerator.EndpointGroupArgs{
+//				ListenerArn: pulumi.Any(aws_globalaccelerator_listener.Example.Id),
+//				EndpointConfigurations: globalaccelerator.EndpointGroupEndpointConfigurationArray{
+//					&globalaccelerator.EndpointGroupEndpointConfigurationArgs{
+//						EndpointId: pulumi.Any(aws_lb.Example.Arn),
+//						Weight:     pulumi.Int(100),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Global Accelerator endpoint groups can be imported using the `id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:globalaccelerator/endpointGroup:EndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
+//
+//	$ pulumi import aws:globalaccelerator/endpointGroup:EndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
+//
 // ```
 type EndpointGroup struct {
 	pulumi.CustomResourceState
@@ -239,7 +244,7 @@ func (i *EndpointGroup) ToEndpointGroupOutputWithContext(ctx context.Context) En
 // EndpointGroupArrayInput is an input type that accepts EndpointGroupArray and EndpointGroupArrayOutput values.
 // You can construct a concrete instance of `EndpointGroupArrayInput` via:
 //
-//          EndpointGroupArray{ EndpointGroupArgs{...} }
+//	EndpointGroupArray{ EndpointGroupArgs{...} }
 type EndpointGroupArrayInput interface {
 	pulumi.Input
 
@@ -264,7 +269,7 @@ func (i EndpointGroupArray) ToEndpointGroupArrayOutputWithContext(ctx context.Co
 // EndpointGroupMapInput is an input type that accepts EndpointGroupMap and EndpointGroupMapOutput values.
 // You can construct a concrete instance of `EndpointGroupMapInput` via:
 //
-//          EndpointGroupMap{ "key": EndpointGroupArgs{...} }
+//	EndpointGroupMap{ "key": EndpointGroupArgs{...} }
 type EndpointGroupMapInput interface {
 	pulumi.Input
 

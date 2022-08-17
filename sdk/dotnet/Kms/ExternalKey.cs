@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Kms
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Kms.ExternalKey("example", new()
     ///     {
-    ///         var example = new Aws.Kms.ExternalKey("example", new Aws.Kms.ExternalKeyArgs
-    ///         {
-    ///             Description = "KMS EXTERNAL for AMI encryption",
-    ///         });
-    ///     }
+    ///         Description = "KMS EXTERNAL for AMI encryption",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.Kms
     /// ```
     /// </summary>
     [AwsResourceType("aws:kms/externalKey:ExternalKey")]
-    public partial class ExternalKey : Pulumi.CustomResource
+    public partial class ExternalKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the key.
@@ -170,7 +168,7 @@ namespace Pulumi.Aws.Kms
         }
     }
 
-    public sealed class ExternalKeyArgs : Pulumi.ResourceArgs
+    public sealed class ExternalKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
@@ -235,9 +233,10 @@ namespace Pulumi.Aws.Kms
         public ExternalKeyArgs()
         {
         }
+        public static new ExternalKeyArgs Empty => new ExternalKeyArgs();
     }
 
-    public sealed class ExternalKeyState : Pulumi.ResourceArgs
+    public sealed class ExternalKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the key.
@@ -338,5 +337,6 @@ namespace Pulumi.Aws.Kms
         public ExternalKeyState()
         {
         }
+        public static new ExternalKeyState Empty => new ExternalKeyState();
     }
 }

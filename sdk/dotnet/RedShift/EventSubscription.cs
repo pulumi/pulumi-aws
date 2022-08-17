@@ -15,46 +15,44 @@ namespace Pulumi.Aws.RedShift
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var defaultCluster = new Aws.RedShift.Cluster("defaultCluster", new()
     ///     {
-    ///         var defaultCluster = new Aws.RedShift.Cluster("defaultCluster", new Aws.RedShift.ClusterArgs
-    ///         {
-    ///             ClusterIdentifier = "default",
-    ///             DatabaseName = "default",
-    ///         });
-    ///         // ...
-    ///         var defaultTopic = new Aws.Sns.Topic("defaultTopic", new Aws.Sns.TopicArgs
-    ///         {
-    ///         });
-    ///         var defaultEventSubscription = new Aws.RedShift.EventSubscription("defaultEventSubscription", new Aws.RedShift.EventSubscriptionArgs
-    ///         {
-    ///             SnsTopicArn = defaultTopic.Arn,
-    ///             SourceType = "cluster",
-    ///             SourceIds = 
-    ///             {
-    ///                 defaultCluster.Id,
-    ///             },
-    ///             Severity = "INFO",
-    ///             EventCategories = 
-    ///             {
-    ///                 "configuration",
-    ///                 "management",
-    ///                 "monitoring",
-    ///                 "security",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "default" },
-    ///             },
-    ///         });
-    ///     }
+    ///         ClusterIdentifier = "default",
+    ///         DatabaseName = "default",
+    ///     });
     /// 
-    /// }
+    ///     // ...
+    ///     var defaultTopic = new Aws.Sns.Topic("defaultTopic");
+    /// 
+    ///     var defaultEventSubscription = new Aws.RedShift.EventSubscription("defaultEventSubscription", new()
+    ///     {
+    ///         SnsTopicArn = defaultTopic.Arn,
+    ///         SourceType = "cluster",
+    ///         SourceIds = new[]
+    ///         {
+    ///             defaultCluster.Id,
+    ///         },
+    ///         Severity = "INFO",
+    ///         EventCategories = new[]
+    ///         {
+    ///             "configuration",
+    ///             "management",
+    ///             "monitoring",
+    ///             "security",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "default" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +64,7 @@ namespace Pulumi.Aws.RedShift
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/eventSubscription:EventSubscription")]
-    public partial class EventSubscription : Pulumi.CustomResource
+    public partial class EventSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift event notification subscription
@@ -132,7 +130,7 @@ namespace Pulumi.Aws.RedShift
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -181,7 +179,7 @@ namespace Pulumi.Aws.RedShift
         }
     }
 
-    public sealed class EventSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A boolean flag to enable/disable the subscription. Defaults to `true`.
@@ -252,9 +250,10 @@ namespace Pulumi.Aws.RedShift
         public EventSubscriptionArgs()
         {
         }
+        public static new EventSubscriptionArgs Empty => new EventSubscriptionArgs();
     }
 
-    public sealed class EventSubscriptionState : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift event notification subscription
@@ -341,7 +340,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -352,5 +351,6 @@ namespace Pulumi.Aws.RedShift
         public EventSubscriptionState()
         {
         }
+        public static new EventSubscriptionState Empty => new EventSubscriptionState();
     }
 }

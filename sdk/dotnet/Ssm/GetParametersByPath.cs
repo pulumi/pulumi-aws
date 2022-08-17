@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ssm
     }
 
 
-    public sealed class GetParametersByPathArgs : Pulumi.InvokeArgs
+    public sealed class GetParametersByPathArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The prefix path of the parameter.
@@ -42,9 +42,10 @@ namespace Pulumi.Aws.Ssm
         public GetParametersByPathArgs()
         {
         }
+        public static new GetParametersByPathArgs Empty => new GetParametersByPathArgs();
     }
 
-    public sealed class GetParametersByPathInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetParametersByPathInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The prefix path of the parameter.
@@ -67,6 +68,7 @@ namespace Pulumi.Aws.Ssm
         public GetParametersByPathInvokeArgs()
         {
         }
+        public static new GetParametersByPathInvokeArgs Empty => new GetParametersByPathInvokeArgs();
     }
 
 

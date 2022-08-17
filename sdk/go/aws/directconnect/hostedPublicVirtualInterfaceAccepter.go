@@ -20,50 +20,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/providers"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := providers.Newaws(ctx, "accepter", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		accepterCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		creator, err := directconnect.NewHostedPublicVirtualInterface(ctx, "creator", &directconnect.HostedPublicVirtualInterfaceArgs{
-// 			ConnectionId:    pulumi.String("dxcon-zzzzzzzz"),
-// 			OwnerAccountId:  pulumi.String(accepterCallerIdentity.AccountId),
-// 			Vlan:            pulumi.Int(4094),
-// 			AddressFamily:   pulumi.String("ipv4"),
-// 			BgpAsn:          pulumi.Int(65352),
-// 			CustomerAddress: pulumi.String("175.45.176.1/30"),
-// 			AmazonAddress:   pulumi.String("175.45.176.2/30"),
-// 			RouteFilterPrefixes: pulumi.StringArray{
-// 				pulumi.String("210.52.109.0/24"),
-// 				pulumi.String("175.45.176.0/22"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = directconnect.NewHostedPublicVirtualInterfaceAccepter(ctx, "accepterHostedPublicVirtualInterfaceAccepter", &directconnect.HostedPublicVirtualInterfaceAccepterArgs{
-// 			VirtualInterfaceId: creator.ID(),
-// 			Tags: pulumi.StringMap{
-// 				"Side": pulumi.String("Accepter"),
-// 			},
-// 		}, pulumi.Provider(aws.Accepter))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewProvider(ctx, "accepter", nil)
+//			if err != nil {
+//				return err
+//			}
+//			accepterCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			creator, err := directconnect.NewHostedPublicVirtualInterface(ctx, "creator", &directconnect.HostedPublicVirtualInterfaceArgs{
+//				ConnectionId:    pulumi.String("dxcon-zzzzzzzz"),
+//				OwnerAccountId:  pulumi.String(accepterCallerIdentity.AccountId),
+//				Vlan:            pulumi.Int(4094),
+//				AddressFamily:   pulumi.String("ipv4"),
+//				BgpAsn:          pulumi.Int(65352),
+//				CustomerAddress: pulumi.String("175.45.176.1/30"),
+//				AmazonAddress:   pulumi.String("175.45.176.2/30"),
+//				RouteFilterPrefixes: pulumi.StringArray{
+//					pulumi.String("210.52.109.0/24"),
+//					pulumi.String("175.45.176.0/22"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = directconnect.NewHostedPublicVirtualInterfaceAccepter(ctx, "accepterHostedPublicVirtualInterfaceAccepter", &directconnect.HostedPublicVirtualInterfaceAccepterArgs{
+//				VirtualInterfaceId: creator.ID(),
+//				Tags: pulumi.StringMap{
+//					"Side": pulumi.String("Accepter"),
+//				},
+//			}, pulumi.Provider(aws.Accepter))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +73,9 @@ import (
 // Direct Connect hosted public virtual interfaces can be imported using the `vif id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter test dxvif-33cc44dd
+//
+//	$ pulumi import aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter test dxvif-33cc44dd
+//
 // ```
 type HostedPublicVirtualInterfaceAccepter struct {
 	pulumi.CustomResourceState
@@ -80,7 +84,7 @@ type HostedPublicVirtualInterfaceAccepter struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId pulumi.StringOutput `pulumi:"virtualInterfaceId"`
@@ -122,7 +126,7 @@ type hostedPublicVirtualInterfaceAccepterState struct {
 	Arn *string `pulumi:"arn"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId *string `pulumi:"virtualInterfaceId"`
@@ -133,7 +137,7 @@ type HostedPublicVirtualInterfaceAccepterState struct {
 	Arn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ID of the Direct Connect virtual interface to accept.
 	VirtualInterfaceId pulumi.StringPtrInput
@@ -184,7 +188,7 @@ func (i *HostedPublicVirtualInterfaceAccepter) ToHostedPublicVirtualInterfaceAcc
 // HostedPublicVirtualInterfaceAccepterArrayInput is an input type that accepts HostedPublicVirtualInterfaceAccepterArray and HostedPublicVirtualInterfaceAccepterArrayOutput values.
 // You can construct a concrete instance of `HostedPublicVirtualInterfaceAccepterArrayInput` via:
 //
-//          HostedPublicVirtualInterfaceAccepterArray{ HostedPublicVirtualInterfaceAccepterArgs{...} }
+//	HostedPublicVirtualInterfaceAccepterArray{ HostedPublicVirtualInterfaceAccepterArgs{...} }
 type HostedPublicVirtualInterfaceAccepterArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +213,7 @@ func (i HostedPublicVirtualInterfaceAccepterArray) ToHostedPublicVirtualInterfac
 // HostedPublicVirtualInterfaceAccepterMapInput is an input type that accepts HostedPublicVirtualInterfaceAccepterMap and HostedPublicVirtualInterfaceAccepterMapOutput values.
 // You can construct a concrete instance of `HostedPublicVirtualInterfaceAccepterMapInput` via:
 //
-//          HostedPublicVirtualInterfaceAccepterMap{ "key": HostedPublicVirtualInterfaceAccepterArgs{...} }
+//	HostedPublicVirtualInterfaceAccepterMap{ "key": HostedPublicVirtualInterfaceAccepterArgs{...} }
 type HostedPublicVirtualInterfaceAccepterMapInput interface {
 	pulumi.Input
 
@@ -255,7 +259,7 @@ func (o HostedPublicVirtualInterfaceAccepterOutput) Tags() pulumi.StringMapOutpu
 	return o.ApplyT(func(v *HostedPublicVirtualInterfaceAccepter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o HostedPublicVirtualInterfaceAccepterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterfaceAccepter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

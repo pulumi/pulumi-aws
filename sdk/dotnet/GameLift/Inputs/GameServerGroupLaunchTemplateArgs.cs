@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift.Inputs
 {
 
-    public sealed class GameServerGroupLaunchTemplateArgs : Pulumi.ResourceArgs
+    public sealed class GameServerGroupLaunchTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A unique identifier for an existing EC2 launch template.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.GameLift.Inputs
         public GameServerGroupLaunchTemplateArgs()
         {
         }
+        public static new GameServerGroupLaunchTemplateArgs Empty => new GameServerGroupLaunchTemplateArgs();
     }
 }

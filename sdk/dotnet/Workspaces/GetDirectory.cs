@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Workspaces
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Workspaces.GetDirectory.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Workspaces.GetDirectory.InvokeAsync(new Aws.Workspaces.GetDirectoryArgs
-        ///         {
-        ///             DirectoryId = "d-9067783251",
-        ///         }));
-        ///     }
+        ///         DirectoryId = "d-9067783251",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Workspaces
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Workspaces.GetDirectory.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Workspaces.GetDirectory.InvokeAsync(new Aws.Workspaces.GetDirectoryArgs
-        ///         {
-        ///             DirectoryId = "d-9067783251",
-        ///         }));
-        ///     }
+        ///         DirectoryId = "d-9067783251",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Workspaces
     }
 
 
-    public sealed class GetDirectoryArgs : Pulumi.InvokeArgs
+    public sealed class GetDirectoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The directory identifier for registration in WorkSpaces service.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.Workspaces
         public GetDirectoryArgs()
         {
         }
+        public static new GetDirectoryArgs Empty => new GetDirectoryArgs();
     }
 
-    public sealed class GetDirectoryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDirectoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The directory identifier for registration in WorkSpaces service.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.Workspaces
         public GetDirectoryInvokeArgs()
         {
         }
+        public static new GetDirectoryInvokeArgs Empty => new GetDirectoryInvokeArgs();
     }
 
 

@@ -20,23 +20,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := networkmanager.NewTransitGatewayConnectPeerAssociation(ctx, "example", &networkmanager.TransitGatewayConnectPeerAssociationArgs{
-// 			GlobalNetworkId:              pulumi.Any(aws_networkmanager_global_network.Example.Id),
-// 			DeviceId:                     pulumi.Any(aws_networkmanager_device.Example.Id),
-// 			TransitGatewayConnectPeerArn: pulumi.Any(aws_ec2_transit_gateway_connect_peer.Example.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkmanager.NewTransitGatewayConnectPeerAssociation(ctx, "example", &networkmanager.TransitGatewayConnectPeerAssociationArgs{
+//				GlobalNetworkId:              pulumi.Any(aws_networkmanager_global_network.Example.Id),
+//				DeviceId:                     pulumi.Any(aws_networkmanager_device.Example.Id),
+//				TransitGatewayConnectPeerArn: pulumi.Any(aws_ec2_transit_gateway_connect_peer.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // `aws_networkmanager_transit_gateway_connect_peer_association` can be imported using the global network ID and customer gateway ARN, e.g.
 //
 // ```sh
-//  $ pulumi import aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
+//
+//	$ pulumi import aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
+//
 // ```
 type TransitGatewayConnectPeerAssociation struct {
 	pulumi.CustomResourceState
@@ -171,7 +176,7 @@ func (i *TransitGatewayConnectPeerAssociation) ToTransitGatewayConnectPeerAssoci
 // TransitGatewayConnectPeerAssociationArrayInput is an input type that accepts TransitGatewayConnectPeerAssociationArray and TransitGatewayConnectPeerAssociationArrayOutput values.
 // You can construct a concrete instance of `TransitGatewayConnectPeerAssociationArrayInput` via:
 //
-//          TransitGatewayConnectPeerAssociationArray{ TransitGatewayConnectPeerAssociationArgs{...} }
+//	TransitGatewayConnectPeerAssociationArray{ TransitGatewayConnectPeerAssociationArgs{...} }
 type TransitGatewayConnectPeerAssociationArrayInput interface {
 	pulumi.Input
 
@@ -196,7 +201,7 @@ func (i TransitGatewayConnectPeerAssociationArray) ToTransitGatewayConnectPeerAs
 // TransitGatewayConnectPeerAssociationMapInput is an input type that accepts TransitGatewayConnectPeerAssociationMap and TransitGatewayConnectPeerAssociationMapOutput values.
 // You can construct a concrete instance of `TransitGatewayConnectPeerAssociationMapInput` via:
 //
-//          TransitGatewayConnectPeerAssociationMap{ "key": TransitGatewayConnectPeerAssociationArgs{...} }
+//	TransitGatewayConnectPeerAssociationMap{ "key": TransitGatewayConnectPeerAssociationArgs{...} }
 type TransitGatewayConnectPeerAssociationMapInput interface {
 	pulumi.Input
 

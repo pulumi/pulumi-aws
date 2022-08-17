@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppStream.Inputs
 {
 
-    public sealed class DirectoryConfigServiceAccountCredentialsGetArgs : Pulumi.ResourceArgs
+    public sealed class DirectoryConfigServiceAccountCredentialsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppStream.Inputs
         public DirectoryConfigServiceAccountCredentialsGetArgs()
         {
         }
+        public static new DirectoryConfigServiceAccountCredentialsGetArgs Empty => new DirectoryConfigServiceAccountCredentialsGetArgs();
     }
 }

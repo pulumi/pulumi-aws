@@ -4,6 +4,7 @@
 package com.pulumi.aws.datasync;
 
 import com.pulumi.aws.datasync.inputs.TaskExcludesArgs;
+import com.pulumi.aws.datasync.inputs.TaskIncludesArgs;
 import com.pulumi.aws.datasync.inputs.TaskOptionsArgs;
 import com.pulumi.aws.datasync.inputs.TaskScheduleArgs;
 import com.pulumi.core.Output;
@@ -62,6 +63,21 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<TaskExcludesArgs>> excludes() {
         return Optional.ofNullable(this.excludes);
+    }
+
+    /**
+     * Filter rules that determines which files to include in a task.
+     * 
+     */
+    @Import(name="includes")
+    private @Nullable Output<TaskIncludesArgs> includes;
+
+    /**
+     * @return Filter rules that determines which files to include in a task.
+     * 
+     */
+    public Optional<Output<TaskIncludesArgs>> includes() {
+        return Optional.ofNullable(this.includes);
     }
 
     /**
@@ -125,14 +141,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -145,6 +161,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         this.cloudwatchLogGroupArn = $.cloudwatchLogGroupArn;
         this.destinationLocationArn = $.destinationLocationArn;
         this.excludes = $.excludes;
+        this.includes = $.includes;
         this.name = $.name;
         this.options = $.options;
         this.schedule = $.schedule;
@@ -234,6 +251,27 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param includes Filter rules that determines which files to include in a task.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includes(@Nullable Output<TaskIncludesArgs> includes) {
+            $.includes = includes;
+            return this;
+        }
+
+        /**
+         * @param includes Filter rules that determines which files to include in a task.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includes(TaskIncludesArgs includes) {
+            return includes(Output.of(includes));
+        }
+
+        /**
          * @param name Name of the DataSync Task.
          * 
          * @return builder
@@ -318,7 +356,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -329,7 +367,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

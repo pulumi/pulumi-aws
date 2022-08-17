@@ -17,20 +17,18 @@ namespace Pulumi.Aws.Qldb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sample_ledger = new Aws.Qldb.Ledger("sample-ledger", new()
     ///     {
-    ///         var sample_ledger = new Aws.Qldb.Ledger("sample-ledger", new Aws.Qldb.LedgerArgs
-    ///         {
-    ///             PermissionsMode = "STANDARD",
-    ///         });
-    ///     }
+    ///         PermissionsMode = "STANDARD",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.Qldb
     /// ```
     /// </summary>
     [AwsResourceType("aws:qldb/ledger:Ledger")]
-    public partial class Ledger : Pulumi.CustomResource
+    public partial class Ledger : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the QLDB Ledger
@@ -75,7 +73,7 @@ namespace Pulumi.Aws.Qldb
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -124,7 +122,7 @@ namespace Pulumi.Aws.Qldb
         }
     }
 
-    public sealed class LedgerArgs : Pulumi.ResourceArgs
+    public sealed class LedgerArgs : global::Pulumi.ResourceArgs
     {
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
@@ -159,9 +157,10 @@ namespace Pulumi.Aws.Qldb
         public LedgerArgs()
         {
         }
+        public static new LedgerArgs Empty => new LedgerArgs();
     }
 
-    public sealed class LedgerState : Pulumi.ResourceArgs
+    public sealed class LedgerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the QLDB Ledger
@@ -203,7 +202,7 @@ namespace Pulumi.Aws.Qldb
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -214,5 +213,6 @@ namespace Pulumi.Aws.Qldb
         public LedgerState()
         {
         }
+        public static new LedgerState Empty => new LedgerState();
     }
 }

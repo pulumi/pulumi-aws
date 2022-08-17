@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Backup.Inputs
 {
 
-    public sealed class PlanRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class PlanRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
@@ -81,5 +81,6 @@ namespace Pulumi.Aws.Backup.Inputs
         public PlanRuleGetArgs()
         {
         }
+        public static new PlanRuleGetArgs Empty => new PlanRuleGetArgs();
     }
 }

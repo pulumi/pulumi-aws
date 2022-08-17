@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Batch.Inputs
 {
 
-    public sealed class ComputeEnvironmentComputeResourcesLaunchTemplateArgs : Pulumi.ResourceArgs
+    public sealed class ComputeEnvironmentComputeResourcesLaunchTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Batch.Inputs
         public ComputeEnvironmentComputeResourcesLaunchTemplateArgs()
         {
         }
+        public static new ComputeEnvironmentComputeResourcesLaunchTemplateArgs Empty => new ComputeEnvironmentComputeResourcesLaunchTemplateArgs();
     }
 }

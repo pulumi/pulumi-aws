@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupRuleStatementGeoMatchStatementArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleStatementGeoMatchStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("countryCodes", required: true)]
         private InputList<string>? _countryCodes;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public RuleGroupRuleStatementGeoMatchStatementArgs()
         {
         }
+        public static new RuleGroupRuleStatementGeoMatchStatementArgs Empty => new RuleGroupRuleStatementGeoMatchStatementArgs();
     }
 }

@@ -17,62 +17,65 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccessPoint, err := s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
-// 			Bucket: exampleBucketV2.ID(),
-// 			PublicAccessBlockConfiguration: &s3.AccessPointPublicAccessBlockConfigurationArgs{
-// 				BlockPublicAcls:       pulumi.Bool(true),
-// 				BlockPublicPolicy:     pulumi.Bool(false),
-// 				IgnorePublicAcls:      pulumi.Bool(true),
-// 				RestrictPublicBuckets: pulumi.Bool(false),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = s3control.NewAccessPointPolicy(ctx, "exampleAccessPointPolicy", &s3control.AccessPointPolicyArgs{
-// 			AccessPointArn: exampleAccessPoint.Arn,
-// 			Policy: exampleAccessPoint.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-// 				var _zero pulumi.String
-// 				tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 					"Version": "2008-10-17",
-// 					"Statement": []map[string]interface{}{
-// 						map[string]interface{}{
-// 							"Effect": "Allow",
-// 							"Action": "s3:GetObjectTagging",
-// 							"Principal": map[string]interface{}{
-// 								"AWS": "*",
-// 							},
-// 							"Resource": fmt.Sprintf("%v/object/*", arn),
-// 						},
-// 					},
-// 				})
-// 				if err != nil {
-// 					return _zero, err
-// 				}
-// 				json0 := string(tmpJSON0)
-// 				return json0, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccessPoint, err := s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
+//				Bucket: exampleBucketV2.ID(),
+//				PublicAccessBlockConfiguration: &s3.AccessPointPublicAccessBlockConfigurationArgs{
+//					BlockPublicAcls:       pulumi.Bool(true),
+//					BlockPublicPolicy:     pulumi.Bool(false),
+//					IgnorePublicAcls:      pulumi.Bool(true),
+//					RestrictPublicBuckets: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3control.NewAccessPointPolicy(ctx, "exampleAccessPointPolicy", &s3control.AccessPointPolicyArgs{
+//				AccessPointArn: exampleAccessPoint.Arn,
+//				Policy: exampleAccessPoint.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"Version": "2008-10-17",
+//						"Statement": []map[string]interface{}{
+//							map[string]interface{}{
+//								"Effect": "Allow",
+//								"Action": "s3:GetObjectTagging",
+//								"Principal": map[string]interface{}{
+//									"AWS": "*",
+//								},
+//								"Resource": fmt.Sprintf("%v/object/*", arn),
+//							},
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return json0, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -80,7 +83,9 @@ import (
 // Access Point policies can be imported using the `access_point_arn`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
+//
+//	$ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
+//
 // ```
 type AccessPointPolicy struct {
 	pulumi.CustomResourceState
@@ -190,7 +195,7 @@ func (i *AccessPointPolicy) ToAccessPointPolicyOutputWithContext(ctx context.Con
 // AccessPointPolicyArrayInput is an input type that accepts AccessPointPolicyArray and AccessPointPolicyArrayOutput values.
 // You can construct a concrete instance of `AccessPointPolicyArrayInput` via:
 //
-//          AccessPointPolicyArray{ AccessPointPolicyArgs{...} }
+//	AccessPointPolicyArray{ AccessPointPolicyArgs{...} }
 type AccessPointPolicyArrayInput interface {
 	pulumi.Input
 
@@ -215,7 +220,7 @@ func (i AccessPointPolicyArray) ToAccessPointPolicyArrayOutputWithContext(ctx co
 // AccessPointPolicyMapInput is an input type that accepts AccessPointPolicyMap and AccessPointPolicyMapOutput values.
 // You can construct a concrete instance of `AccessPointPolicyMapInput` via:
 //
-//          AccessPointPolicyMap{ "key": AccessPointPolicyArgs{...} }
+//	AccessPointPolicyMap{ "key": AccessPointPolicyArgs{...} }
 type AccessPointPolicyMapInput interface {
 	pulumi.Input
 

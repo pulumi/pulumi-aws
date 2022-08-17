@@ -15,57 +15,55 @@ namespace Pulumi.Aws.Fsx
     /// ## Windows Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleWindowsFileSystem = new Aws.Fsx.WindowsFileSystem("exampleWindowsFileSystem", new()
     ///     {
-    ///         var exampleWindowsFileSystem = new Aws.Fsx.WindowsFileSystem("exampleWindowsFileSystem", new Aws.Fsx.WindowsFileSystemArgs
+    ///         ActiveDirectoryId = aws_directory_service_directory.Eample.Id,
+    ///         SkipFinalBackup = true,
+    ///         StorageCapacity = 32,
+    ///         SubnetIds = new[]
     ///         {
-    ///             ActiveDirectoryId = aws_directory_service_directory.Eample.Id,
-    ///             SkipFinalBackup = true,
-    ///             StorageCapacity = 32,
-    ///             SubnetIds = 
-    ///             {
-    ///                 aws_subnet.Example1.Id,
-    ///             },
-    ///             ThroughputCapacity = 8,
-    ///         });
-    ///         var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new Aws.Fsx.BackupArgs
-    ///         {
-    ///             FileSystemId = exampleWindowsFileSystem.Id,
-    ///         });
-    ///     }
+    ///             aws_subnet.Example1.Id,
+    ///         },
+    ///         ThroughputCapacity = 8,
+    ///     });
     /// 
-    /// }
+    ///     var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new()
+    ///     {
+    ///         FileSystemId = exampleWindowsFileSystem.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## ONTAP Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleOntapVolume = new Aws.Fsx.OntapVolume("exampleOntapVolume", new()
     ///     {
-    ///         var exampleOntapVolume = new Aws.Fsx.OntapVolume("exampleOntapVolume", new Aws.Fsx.OntapVolumeArgs
-    ///         {
-    ///             JunctionPath = "/example",
-    ///             SizeInMegabytes = 1024,
-    ///             StorageEfficiencyEnabled = true,
-    ///             StorageVirtualMachineId = aws_fsx_ontap_storage_virtual_machine.Test.Id,
-    ///         });
-    ///         var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new Aws.Fsx.BackupArgs
-    ///         {
-    ///             VolumeId = exampleOntapVolume.Id,
-    ///         });
-    ///     }
+    ///         JunctionPath = "/example",
+    ///         SizeInMegabytes = 1024,
+    ///         StorageEfficiencyEnabled = true,
+    ///         StorageVirtualMachineId = aws_fsx_ontap_storage_virtual_machine.Test.Id,
+    ///     });
     /// 
-    /// }
+    ///     var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new()
+    ///     {
+    ///         VolumeId = exampleOntapVolume.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -77,7 +75,7 @@ namespace Pulumi.Aws.Fsx
     /// ```
     /// </summary>
     [AwsResourceType("aws:fsx/backup:Backup")]
-    public partial class Backup : Pulumi.CustomResource
+    public partial class Backup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name of the backup.
@@ -171,7 +169,7 @@ namespace Pulumi.Aws.Fsx
         }
     }
 
-    public sealed class BackupArgs : Pulumi.ResourceArgs
+    public sealed class BackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
@@ -200,9 +198,10 @@ namespace Pulumi.Aws.Fsx
         public BackupArgs()
         {
         }
+        public static new BackupArgs Empty => new BackupArgs();
     }
 
-    public sealed class BackupState : Pulumi.ResourceArgs
+    public sealed class BackupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name of the backup.
@@ -267,5 +266,6 @@ namespace Pulumi.Aws.Fsx
         public BackupState()
         {
         }
+        public static new BackupState Empty => new BackupState();
     }
 }

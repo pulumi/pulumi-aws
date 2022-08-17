@@ -27,56 +27,60 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := connect.NewContactFlow(ctx, "test", &connect.ContactFlowArgs{
-// 			Content: pulumi.String(fmt.Sprintf(`	{
-// 		"Version": "2019-10-30",
-// 		"StartAction": "12345678-1234-1234-1234-123456789012",
-// 		"Actions": [
-// 			{
-// 				"Identifier": "12345678-1234-1234-1234-123456789012",
-// 				"Type": "MessageParticipant",
-// 				"Transitions": {
-// 					"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-// 					"Errors": [],
-// 					"Conditions": []
-// 				},
-// 				"Parameters": {
-// 					"Text": "Thanks for calling the sample flow!"
-// 				}
-// 			},
-// 			{
-// 				"Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-// 				"Type": "DisconnectParticipant",
-// 				"Transitions": {},
-// 				"Parameters": {}
-// 			}
-// 		]
-// 	}
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.NewContactFlow(ctx, "test", &connect.ContactFlowArgs{
+//				Content: pulumi.String(fmt.Sprintf(`	{
+//			"Version": "2019-10-30",
+//			"StartAction": "12345678-1234-1234-1234-123456789012",
+//			"Actions": [
+//				{
+//					"Identifier": "12345678-1234-1234-1234-123456789012",
+//					"Type": "MessageParticipant",
+//					"Transitions": {
+//						"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+//						"Errors": [],
+//						"Conditions": []
+//					},
+//					"Parameters": {
+//						"Text": "Thanks for calling the sample flow!"
+//					}
+//				},
+//				{
+//					"Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+//					"Type": "DisconnectParticipant",
+//					"Transitions": {},
+//					"Parameters": {}
+//				}
+//			]
+//		}
 //
 // `)),
-// 			Description: pulumi.String("Test Contact Flow Description"),
-// 			InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-// 			Tags: pulumi.StringMap{
-// 				"Application": pulumi.String("Terraform"),
-// 				"Method":      pulumi.String("Create"),
-// 				"Name":        pulumi.String("Test Contact Flow"),
-// 			},
-// 			Type: pulumi.String("CONTACT_FLOW"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				Description: pulumi.String("Test Contact Flow Description"),
+//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Tags: pulumi.StringMap{
+//					"Application": pulumi.String("Terraform"),
+//					"Method":      pulumi.String("Create"),
+//					"Name":        pulumi.String("Test Contact Flow"),
+//				},
+//				Type: pulumi.String("CONTACT_FLOW"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -84,7 +88,9 @@ import (
 // Amazon Connect Contact Flows can be imported using the `instance_id` and `contact_flow_id` separated by a colon (`:`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:connect/contactFlow:ContactFlow example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
+//	$ pulumi import aws:connect/contactFlow:ContactFlow example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+//
 // ```
 type ContactFlow struct {
 	pulumi.CustomResourceState
@@ -258,7 +264,7 @@ func (i *ContactFlow) ToContactFlowOutputWithContext(ctx context.Context) Contac
 // ContactFlowArrayInput is an input type that accepts ContactFlowArray and ContactFlowArrayOutput values.
 // You can construct a concrete instance of `ContactFlowArrayInput` via:
 //
-//          ContactFlowArray{ ContactFlowArgs{...} }
+//	ContactFlowArray{ ContactFlowArgs{...} }
 type ContactFlowArrayInput interface {
 	pulumi.Input
 
@@ -283,7 +289,7 @@ func (i ContactFlowArray) ToContactFlowArrayOutputWithContext(ctx context.Contex
 // ContactFlowMapInput is an input type that accepts ContactFlowMap and ContactFlowMapOutput values.
 // You can construct a concrete instance of `ContactFlowMapInput` via:
 //
-//          ContactFlowMap{ "key": ContactFlowArgs{...} }
+//	ContactFlowMap{ "key": ContactFlowArgs{...} }
 type ContactFlowMapInput interface {
 	pulumi.Input
 

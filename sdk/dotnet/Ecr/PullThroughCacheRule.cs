@@ -18,21 +18,19 @@ namespace Pulumi.Aws.Ecr
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ecr.PullThroughCacheRule("example", new()
     ///     {
-    ///         var example = new Aws.Ecr.PullThroughCacheRule("example", new Aws.Ecr.PullThroughCacheRuleArgs
-    ///         {
-    ///             EcrRepositoryPrefix = "ecr-public",
-    ///             UpstreamRegistryUrl = "public.ecr.aws",
-    ///         });
-    ///     }
+    ///         EcrRepositoryPrefix = "ecr-public",
+    ///         UpstreamRegistryUrl = "public.ecr.aws",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Aws.Ecr
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecr/pullThroughCacheRule:PullThroughCacheRule")]
-    public partial class PullThroughCacheRule : Pulumi.CustomResource
+    public partial class PullThroughCacheRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The repository name prefix to use when caching images from the source registry.
@@ -108,7 +106,7 @@ namespace Pulumi.Aws.Ecr
         }
     }
 
-    public sealed class PullThroughCacheRuleArgs : Pulumi.ResourceArgs
+    public sealed class PullThroughCacheRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The repository name prefix to use when caching images from the source registry.
@@ -125,9 +123,10 @@ namespace Pulumi.Aws.Ecr
         public PullThroughCacheRuleArgs()
         {
         }
+        public static new PullThroughCacheRuleArgs Empty => new PullThroughCacheRuleArgs();
     }
 
-    public sealed class PullThroughCacheRuleState : Pulumi.ResourceArgs
+    public sealed class PullThroughCacheRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The repository name prefix to use when caching images from the source registry.
@@ -150,5 +149,6 @@ namespace Pulumi.Aws.Ecr
         public PullThroughCacheRuleState()
         {
         }
+        public static new PullThroughCacheRuleState Empty => new PullThroughCacheRuleState();
     }
 }

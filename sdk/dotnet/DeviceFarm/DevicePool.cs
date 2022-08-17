@@ -15,29 +15,27 @@ namespace Pulumi.Aws.DeviceFarm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DeviceFarm.DevicePool("example", new()
     ///     {
-    ///         var example = new Aws.DeviceFarm.DevicePool("example", new Aws.DeviceFarm.DevicePoolArgs
+    ///         ProjectArn = aws_devicefarm_project.Example.Arn,
+    ///         Rules = new[]
     ///         {
-    ///             ProjectArn = aws_devicefarm_project.Example.Arn,
-    ///             Rules = 
+    ///             new Aws.DeviceFarm.Inputs.DevicePoolRuleArgs
     ///             {
-    ///                 new Aws.DeviceFarm.Inputs.DevicePoolRuleArgs
-    ///                 {
-    ///                     Attribute = "OS_VERSION",
-    ///                     Operator = "EQUALS",
-    ///                     Value = "\"AVAILABLE\"",
-    ///                 },
+    ///                 Attribute = "OS_VERSION",
+    ///                 Operator = "EQUALS",
+    ///                 Value = "\"AVAILABLE\"",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.DeviceFarm
     /// ```
     /// </summary>
     [AwsResourceType("aws:devicefarm/devicePool:DevicePool")]
-    public partial class DevicePool : Pulumi.CustomResource
+    public partial class DevicePool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name of this Device Pool
@@ -93,9 +91,6 @@ namespace Pulumi.Aws.DeviceFarm
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -146,7 +141,7 @@ namespace Pulumi.Aws.DeviceFarm
         }
     }
 
-    public sealed class DevicePoolArgs : Pulumi.ResourceArgs
+    public sealed class DevicePoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The device pool's description.
@@ -199,9 +194,10 @@ namespace Pulumi.Aws.DeviceFarm
         public DevicePoolArgs()
         {
         }
+        public static new DevicePoolArgs Empty => new DevicePoolArgs();
     }
 
-    public sealed class DevicePoolState : Pulumi.ResourceArgs
+    public sealed class DevicePoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name of this Device Pool
@@ -259,10 +255,6 @@ namespace Pulumi.Aws.DeviceFarm
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -275,5 +267,6 @@ namespace Pulumi.Aws.DeviceFarm
         public DevicePoolState()
         {
         }
+        public static new DevicePoolState Empty => new DevicePoolState();
     }
 }

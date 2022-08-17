@@ -21,20 +21,18 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetUser.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetUser.InvokeAsync(new Aws.Iam.GetUserArgs
-        ///         {
-        ///             UserName = "an_example_user_name",
-        ///         }));
-        ///     }
+        ///         UserName = "an_example_user_name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,20 +50,18 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Iam.GetUser.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Iam.GetUser.InvokeAsync(new Aws.Iam.GetUserArgs
-        ///         {
-        ///             UserName = "an_example_user_name",
-        ///         }));
-        ///     }
+        ///         UserName = "an_example_user_name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Iam
     }
 
 
-    public sealed class GetUserArgs : Pulumi.InvokeArgs
+    public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -98,9 +94,10 @@ namespace Pulumi.Aws.Iam
         public GetUserArgs()
         {
         }
+        public static new GetUserArgs Empty => new GetUserArgs();
     }
 
-    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -123,6 +120,7 @@ namespace Pulumi.Aws.Iam
         public GetUserInvokeArgs()
         {
         }
+        public static new GetUserInvokeArgs Empty => new GetUserInvokeArgs();
     }
 
 

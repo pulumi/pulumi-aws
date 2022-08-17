@@ -15,41 +15,39 @@ namespace Pulumi.Aws.Batch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Batch.SchedulingPolicy("example", new()
     ///     {
-    ///         var example = new Aws.Batch.SchedulingPolicy("example", new Aws.Batch.SchedulingPolicyArgs
+    ///         FairSharePolicy = new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyArgs
     ///         {
-    ///             FairSharePolicy = new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyArgs
+    ///             ComputeReservation = 1,
+    ///             ShareDecaySeconds = 3600,
+    ///             ShareDistributions = new[]
     ///             {
-    ///                 ComputeReservation = 1,
-    ///                 ShareDecaySeconds = 3600,
-    ///                 ShareDistributions = 
+    ///                 new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs
     ///                 {
-    ///                     new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs
-    ///                     {
-    ///                         ShareIdentifier = "A1*",
-    ///                         WeightFactor = 0.1,
-    ///                     },
-    ///                     new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs
-    ///                     {
-    ///                         ShareIdentifier = "A2",
-    ///                         WeightFactor = 0.2,
-    ///                     },
+    ///                     ShareIdentifier = "A1*",
+    ///                     WeightFactor = 0.1,
+    ///                 },
+    ///                 new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs
+    ///                 {
+    ///                     ShareIdentifier = "A2",
+    ///                     WeightFactor = 0.2,
     ///                 },
     ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example Batch Scheduling Policy" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Example Batch Scheduling Policy" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +59,7 @@ namespace Pulumi.Aws.Batch
     /// ```
     /// </summary>
     [AwsResourceType("aws:batch/schedulingPolicy:SchedulingPolicy")]
-    public partial class SchedulingPolicy : Pulumi.CustomResource
+    public partial class SchedulingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name of the scheduling policy.
@@ -84,9 +82,6 @@ namespace Pulumi.Aws.Batch
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -134,7 +129,7 @@ namespace Pulumi.Aws.Batch
         }
     }
 
-    public sealed class SchedulingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class SchedulingPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("fairSharePolicy")]
         public Input<Inputs.SchedulingPolicyFairSharePolicyArgs>? FairSharePolicy { get; set; }
@@ -160,9 +155,10 @@ namespace Pulumi.Aws.Batch
         public SchedulingPolicyArgs()
         {
         }
+        public static new SchedulingPolicyArgs Empty => new SchedulingPolicyArgs();
     }
 
-    public sealed class SchedulingPolicyState : Pulumi.ResourceArgs
+    public sealed class SchedulingPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name of the scheduling policy.
@@ -193,10 +189,6 @@ namespace Pulumi.Aws.Batch
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -206,5 +198,6 @@ namespace Pulumi.Aws.Batch
         public SchedulingPolicyState()
         {
         }
+        public static new SchedulingPolicyState Empty => new SchedulingPolicyState();
     }
 }

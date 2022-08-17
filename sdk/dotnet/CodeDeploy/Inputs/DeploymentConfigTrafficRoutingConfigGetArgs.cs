@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeDeploy.Inputs
 {
 
-    public sealed class DeploymentConfigTrafficRoutingConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class DeploymentConfigTrafficRoutingConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time based canary configuration information. If `type` is `TimeBasedLinear`, use `time_based_linear` instead.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         public DeploymentConfigTrafficRoutingConfigGetArgs()
         {
         }
+        public static new DeploymentConfigTrafficRoutingConfigGetArgs Empty => new DeploymentConfigTrafficRoutingConfigGetArgs();
     }
 }

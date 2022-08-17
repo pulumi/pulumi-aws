@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RegexPatternSetRegularExpressionGetArgs : Pulumi.ResourceArgs
+    public sealed class RegexPatternSetRegularExpressionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The string representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public RegexPatternSetRegularExpressionGetArgs()
         {
         }
+        public static new RegexPatternSetRegularExpressionGetArgs Empty => new RegexPatternSetRegularExpressionGetArgs();
     }
 }

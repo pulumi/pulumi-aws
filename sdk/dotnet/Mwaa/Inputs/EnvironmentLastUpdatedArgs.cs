@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Mwaa.Inputs
 {
 
-    public sealed class EnvironmentLastUpdatedArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentLastUpdatedArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Created At date of the MWAA Environment
@@ -36,5 +36,6 @@ namespace Pulumi.Aws.Mwaa.Inputs
         public EnvironmentLastUpdatedArgs()
         {
         }
+        public static new EnvironmentLastUpdatedArgs Empty => new EnvironmentLastUpdatedArgs();
     }
 }

@@ -19,20 +19,18 @@ namespace Pulumi.Aws.CodeCommit
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.CodeCommit.GetRepository.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.CodeCommit.GetRepository.InvokeAsync(new Aws.CodeCommit.GetRepositoryArgs
-        ///         {
-        ///             RepositoryName = "MyTestRepository",
-        ///         }));
-        ///     }
+        ///         RepositoryName = "MyTestRepository",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.CodeCommit
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.CodeCommit.GetRepository.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.CodeCommit.GetRepository.InvokeAsync(new Aws.CodeCommit.GetRepositoryArgs
-        ///         {
-        ///             RepositoryName = "MyTestRepository",
-        ///         }));
-        ///     }
+        ///         RepositoryName = "MyTestRepository",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.CodeCommit
     }
 
 
-    public sealed class GetRepositoryArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name for the repository. This needs to be less than 100 characters.
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.CodeCommit
         public GetRepositoryArgs()
         {
         }
+        public static new GetRepositoryArgs Empty => new GetRepositoryArgs();
     }
 
-    public sealed class GetRepositoryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name for the repository. This needs to be less than 100 characters.
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.CodeCommit
         public GetRepositoryInvokeArgs()
         {
         }
+        public static new GetRepositoryInvokeArgs Empty => new GetRepositoryInvokeArgs();
     }
 
 

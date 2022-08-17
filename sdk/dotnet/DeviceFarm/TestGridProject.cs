@@ -23,7 +23,7 @@ namespace Pulumi.Aws.DeviceFarm
     /// ```
     /// </summary>
     [AwsResourceType("aws:devicefarm/testGridProject:TestGridProject")]
-    public partial class TestGridProject : Pulumi.CustomResource
+    public partial class TestGridProject : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name of this Test Grid Project.
@@ -49,9 +49,6 @@ namespace Pulumi.Aws.DeviceFarm
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -105,7 +102,7 @@ namespace Pulumi.Aws.DeviceFarm
         }
     }
 
-    public sealed class TestGridProjectArgs : Pulumi.ResourceArgs
+    public sealed class TestGridProjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Human-readable description of the project.
@@ -140,9 +137,10 @@ namespace Pulumi.Aws.DeviceFarm
         public TestGridProjectArgs()
         {
         }
+        public static new TestGridProjectArgs Empty => new TestGridProjectArgs();
     }
 
-    public sealed class TestGridProjectState : Pulumi.ResourceArgs
+    public sealed class TestGridProjectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name of this Test Grid Project.
@@ -176,10 +174,6 @@ namespace Pulumi.Aws.DeviceFarm
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -195,5 +189,6 @@ namespace Pulumi.Aws.DeviceFarm
         public TestGridProjectState()
         {
         }
+        public static new TestGridProjectState Empty => new TestGridProjectState();
     }
 }

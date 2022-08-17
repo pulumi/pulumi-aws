@@ -16,46 +16,45 @@ namespace Pulumi.Aws.ElasticSearch
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleDomain = new Aws.ElasticSearch.Domain("exampleDomain", new()
     ///     {
-    ///         var exampleDomain = new Aws.ElasticSearch.Domain("exampleDomain", new Aws.ElasticSearch.DomainArgs
+    ///         ElasticsearchVersion = "1.5",
+    ///         ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
     ///         {
-    ///             ElasticsearchVersion = "1.5",
-    ///             ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
-    ///             {
-    ///                 InstanceType = "r4.large.elasticsearch",
-    ///             },
-    ///             SnapshotOptions = new Aws.ElasticSearch.Inputs.DomainSnapshotOptionsArgs
-    ///             {
-    ///                 AutomatedSnapshotStartHour = 23,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Domain", "TestDomain" },
-    ///             },
-    ///         });
-    ///         var exampleDomainSamlOptions = new Aws.ElasticSearch.DomainSamlOptions("exampleDomainSamlOptions", new Aws.ElasticSearch.DomainSamlOptionsArgs
+    ///             InstanceType = "r4.large.elasticsearch",
+    ///         },
+    ///         SnapshotOptions = new Aws.ElasticSearch.Inputs.DomainSnapshotOptionsArgs
     ///         {
-    ///             DomainName = exampleDomain.DomainName,
-    ///             SamlOptions = new Aws.ElasticSearch.Inputs.DomainSamlOptionsSamlOptionsArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 Idp = new Aws.ElasticSearch.Inputs.DomainSamlOptionsSamlOptionsIdpArgs
-    ///                 {
-    ///                     EntityId = "https://example.com",
-    ///                     MetadataContent = File.ReadAllText("./saml-metadata.xml"),
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///             AutomatedSnapshotStartHour = 23,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Domain", "TestDomain" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleDomainSamlOptions = new Aws.ElasticSearch.DomainSamlOptions("exampleDomainSamlOptions", new()
+    ///     {
+    ///         DomainName = exampleDomain.DomainName,
+    ///         SamlOptions = new Aws.ElasticSearch.Inputs.DomainSamlOptionsSamlOptionsArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Idp = new Aws.ElasticSearch.Inputs.DomainSamlOptionsSamlOptionsIdpArgs
+    ///             {
+    ///                 EntityId = "https://example.com",
+    ///                 MetadataContent = File.ReadAllText("./saml-metadata.xml"),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +66,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticsearch/domainSamlOptions:DomainSamlOptions")]
-    public partial class DomainSamlOptions : Pulumi.CustomResource
+    public partial class DomainSamlOptions : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the domain.
@@ -125,7 +124,7 @@ namespace Pulumi.Aws.ElasticSearch
         }
     }
 
-    public sealed class DomainSamlOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DomainSamlOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the domain.
@@ -142,9 +141,10 @@ namespace Pulumi.Aws.ElasticSearch
         public DomainSamlOptionsArgs()
         {
         }
+        public static new DomainSamlOptionsArgs Empty => new DomainSamlOptionsArgs();
     }
 
-    public sealed class DomainSamlOptionsState : Pulumi.ResourceArgs
+    public sealed class DomainSamlOptionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the domain.
@@ -161,5 +161,6 @@ namespace Pulumi.Aws.ElasticSearch
         public DomainSamlOptionsState()
         {
         }
+        public static new DomainSamlOptionsState Empty => new DomainSamlOptionsState();
     }
 }

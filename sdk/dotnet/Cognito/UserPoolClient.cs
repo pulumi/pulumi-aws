@@ -16,70 +16,62 @@ namespace Pulumi.Aws.Cognito
     /// ### Create a basic user pool client
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var pool = new Aws.Cognito.UserPool("pool", new Aws.Cognito.UserPoolArgs
-    ///         {
-    ///         });
-    ///         var client = new Aws.Cognito.UserPoolClient("client", new Aws.Cognito.UserPoolClientArgs
-    ///         {
-    ///             UserPoolId = pool.Id,
-    ///         });
-    ///     }
+    ///     var pool = new Aws.Cognito.UserPool("pool");
     /// 
-    /// }
+    ///     var client = new Aws.Cognito.UserPoolClient("client", new()
+    ///     {
+    ///         UserPoolId = pool.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Create a user pool client with no SRP authentication
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var pool = new Aws.Cognito.UserPool("pool", new Aws.Cognito.UserPoolArgs
-    ///         {
-    ///         });
-    ///         var client = new Aws.Cognito.UserPoolClient("client", new Aws.Cognito.UserPoolClientArgs
-    ///         {
-    ///             UserPoolId = pool.Id,
-    ///             GenerateSecret = true,
-    ///             ExplicitAuthFlows = 
-    ///             {
-    ///                 "ADMIN_NO_SRP_AUTH",
-    ///             },
-    ///         });
-    ///     }
+    ///     var pool = new Aws.Cognito.UserPool("pool");
     /// 
-    /// }
+    ///     var client = new Aws.Cognito.UserPoolClient("client", new()
+    ///     {
+    ///         UserPoolId = pool.Id,
+    ///         GenerateSecret = true,
+    ///         ExplicitAuthFlows = new[]
+    ///         {
+    ///             "ADMIN_NO_SRP_AUTH",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Create a user pool client with pinpoint analytics
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var testUserPool = new Aws.Cognito.UserPool("testUserPool");
+    /// 
+    ///     var testApp = new Aws.Pinpoint.App("testApp");
+    /// 
+    ///     var testRole = new Aws.Iam.Role("testRole", new()
     ///     {
-    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
-    ///         var testUserPool = new Aws.Cognito.UserPool("testUserPool", new Aws.Cognito.UserPoolArgs
-    ///         {
-    ///         });
-    ///         var testApp = new Aws.Pinpoint.App("testApp", new Aws.Pinpoint.AppArgs
-    ///         {
-    ///         });
-    ///         var testRole = new Aws.Iam.Role("testRole", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -93,15 +85,16 @@ namespace Pulumi.Aws.Cognito
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var testRolePolicy = new Aws.Iam.RolePolicy("testRolePolicy", new Aws.Iam.RolePolicyArgs
+    ///     });
+    /// 
+    ///     var testRolePolicy = new Aws.Iam.RolePolicy("testRolePolicy", new()
+    ///     {
+    ///         Role = testRole.Id,
+    ///         Policy = Output.Tuple(current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult), testApp.ApplicationId).Apply(values =&gt;
     ///         {
-    ///             Role = testRole.Id,
-    ///             Policy = Output.Tuple(current, testApp.ApplicationId).Apply(values =&gt;
-    ///             {
-    ///                 var current = values.Item1;
-    ///                 var applicationId = values.Item2;
-    ///                 return @$"{{
+    ///             var current = values.Item1;
+    ///             var applicationId = values.Item2;
+    ///             return @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {{
@@ -110,67 +103,64 @@ namespace Pulumi.Aws.Cognito
     ///         ""mobiletargeting:PutItems""
     ///       ],
     ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""arn:aws:mobiletargeting:*:{current.AccountId}:apps/{applicationId}*""
+    ///       ""Resource"": ""arn:aws:mobiletargeting:*:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:apps/{applicationId}*""
     ///     }}
     ///   ]
     /// }}
     /// ";
-    ///             }),
-    ///         });
-    ///         var testUserPoolClient = new Aws.Cognito.UserPoolClient("testUserPoolClient", new Aws.Cognito.UserPoolClientArgs
-    ///         {
-    ///             UserPoolId = testUserPool.Id,
-    ///             AnalyticsConfiguration = new Aws.Cognito.Inputs.UserPoolClientAnalyticsConfigurationArgs
-    ///             {
-    ///                 ApplicationId = testApp.ApplicationId,
-    ///                 ExternalId = "some_id",
-    ///                 RoleArn = testRole.Arn,
-    ///                 UserDataShared = true,
-    ///             },
-    ///         });
-    ///     }
+    ///         }),
+    ///     });
     /// 
-    /// }
+    ///     var testUserPoolClient = new Aws.Cognito.UserPoolClient("testUserPoolClient", new()
+    ///     {
+    ///         UserPoolId = testUserPool.Id,
+    ///         AnalyticsConfiguration = new Aws.Cognito.Inputs.UserPoolClientAnalyticsConfigurationArgs
+    ///         {
+    ///             ApplicationId = testApp.ApplicationId,
+    ///             ExternalId = "some_id",
+    ///             RoleArn = testRole.Arn,
+    ///             UserDataShared = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Create a user pool client with Cognito as the identity provider
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var pool = new Aws.Cognito.UserPool("pool", new Aws.Cognito.UserPoolArgs
-    ///         {
-    ///         });
-    ///         var userpoolClient = new Aws.Cognito.UserPoolClient("userpoolClient", new Aws.Cognito.UserPoolClientArgs
-    ///         {
-    ///             UserPoolId = pool.Id,
-    ///             CallbackUrls = 
-    ///             {
-    ///                 "https://example.com",
-    ///             },
-    ///             AllowedOauthFlowsUserPoolClient = true,
-    ///             AllowedOauthFlows = 
-    ///             {
-    ///                 "code",
-    ///                 "implicit",
-    ///             },
-    ///             AllowedOauthScopes = 
-    ///             {
-    ///                 "email",
-    ///                 "openid",
-    ///             },
-    ///             SupportedIdentityProviders = 
-    ///             {
-    ///                 "COGNITO",
-    ///             },
-    ///         });
-    ///     }
+    ///     var pool = new Aws.Cognito.UserPool("pool");
     /// 
-    /// }
+    ///     var userpoolClient = new Aws.Cognito.UserPoolClient("userpoolClient", new()
+    ///     {
+    ///         UserPoolId = pool.Id,
+    ///         CallbackUrls = new[]
+    ///         {
+    ///             "https://example.com",
+    ///         },
+    ///         AllowedOauthFlowsUserPoolClient = true,
+    ///         AllowedOauthFlows = new[]
+    ///         {
+    ///             "code",
+    ///             "implicit",
+    ///         },
+    ///         AllowedOauthScopes = new[]
+    ///         {
+    ///             "email",
+    ///             "openid",
+    ///         },
+    ///         SupportedIdentityProviders = new[]
+    ///         {
+    ///             "COGNITO",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -182,7 +172,7 @@ namespace Pulumi.Aws.Cognito
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/userPoolClient:UserPoolClient")]
-    public partial class UserPoolClient : Pulumi.CustomResource
+    public partial class UserPoolClient : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
@@ -360,7 +350,7 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
-    public sealed class UserPoolClientArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolClientArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
@@ -539,9 +529,10 @@ namespace Pulumi.Aws.Cognito
         public UserPoolClientArgs()
         {
         }
+        public static new UserPoolClientArgs Empty => new UserPoolClientArgs();
     }
 
-    public sealed class UserPoolClientState : Pulumi.ResourceArgs
+    public sealed class UserPoolClientState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
@@ -726,5 +717,6 @@ namespace Pulumi.Aws.Cognito
         public UserPoolClientState()
         {
         }
+        public static new UserPoolClientState Empty => new UserPoolClientState();
     }
 }

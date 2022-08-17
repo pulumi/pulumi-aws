@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class DistributionOriginGroupMemberGetArgs : Pulumi.ResourceArgs
+    public sealed class DistributionOriginGroupMemberGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique identifier of the member origin
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public DistributionOriginGroupMemberGetArgs()
         {
         }
+        public static new DistributionOriginGroupMemberGetArgs Empty => new DistributionOriginGroupMemberGetArgs();
     }
 }

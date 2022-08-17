@@ -17,20 +17,18 @@ namespace Pulumi.Aws.Ebs
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ebs.EncryptionByDefault("example", new()
     ///     {
-    ///         var example = new Aws.Ebs.EncryptionByDefault("example", new Aws.Ebs.EncryptionByDefaultArgs
-    ///         {
-    ///             Enabled = true,
-    ///         });
-    ///     }
+    ///         Enabled = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.Ebs
     /// ```
     /// </summary>
     [AwsResourceType("aws:ebs/encryptionByDefault:EncryptionByDefault")]
-    public partial class EncryptionByDefault : Pulumi.CustomResource
+    public partial class EncryptionByDefault : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
@@ -94,7 +92,7 @@ namespace Pulumi.Aws.Ebs
         }
     }
 
-    public sealed class EncryptionByDefaultArgs : Pulumi.ResourceArgs
+    public sealed class EncryptionByDefaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
@@ -105,9 +103,10 @@ namespace Pulumi.Aws.Ebs
         public EncryptionByDefaultArgs()
         {
         }
+        public static new EncryptionByDefaultArgs Empty => new EncryptionByDefaultArgs();
     }
 
-    public sealed class EncryptionByDefaultState : Pulumi.ResourceArgs
+    public sealed class EncryptionByDefaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
@@ -118,5 +117,6 @@ namespace Pulumi.Aws.Ebs
         public EncryptionByDefaultState()
         {
         }
+        public static new EncryptionByDefaultState Empty => new EncryptionByDefaultState();
     }
 }

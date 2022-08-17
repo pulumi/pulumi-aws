@@ -21,6 +21,7 @@ __all__ = [
     'NfsLocationOnPremConfigArgs',
     'S3LocationS3ConfigArgs',
     'TaskExcludesArgs',
+    'TaskIncludesArgs',
     'TaskOptionsArgs',
     'TaskScheduleArgs',
 ]
@@ -302,7 +303,7 @@ class TaskExcludesArgs:
                  value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] filter_type: The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
-        :param pulumi.Input[str] value: A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+        :param pulumi.Input[str] value: A single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
         """
         if filter_type is not None:
             pulumi.set(__self__, "filter_type", filter_type)
@@ -325,7 +326,46 @@ class TaskExcludesArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+        A single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TaskIncludesArgs:
+    def __init__(__self__, *,
+                 filter_type: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] filter_type: The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
+        :param pulumi.Input[str] value: A single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
+        """
+        if filter_type is not None:
+            pulumi.set(__self__, "filter_type", filter_type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
+        """
+        return pulumi.get(self, "filter_type")
+
+    @filter_type.setter
+    def filter_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        A single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
         """
         return pulumi.get(self, "value")
 

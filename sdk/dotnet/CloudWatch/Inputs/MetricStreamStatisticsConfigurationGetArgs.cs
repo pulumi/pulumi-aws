@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudWatch.Inputs
 {
 
-    public sealed class MetricStreamStatisticsConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class MetricStreamStatisticsConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalStatistics", required: true)]
         private InputList<string>? _additionalStatistics;
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public MetricStreamStatisticsConfigurationGetArgs()
         {
         }
+        public static new MetricStreamStatisticsConfigurationGetArgs Empty => new MetricStreamStatisticsConfigurationGetArgs();
     }
 }

@@ -18,29 +18,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := kendra.NewQuerySuggestionsBlockList(ctx, "example", &kendra.QuerySuggestionsBlockListArgs{
-// 			IndexId: pulumi.Any(aws_kendra_index.Example.Id),
-// 			RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 			SourceS3Path: &kendra.QuerySuggestionsBlockListSourceS3PathArgs{
-// 				Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-// 				Key:    pulumi.String("example/suggestions.txt"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("Example Kendra Index"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kendra.NewQuerySuggestionsBlockList(ctx, "example", &kendra.QuerySuggestionsBlockListArgs{
+//				IndexId: pulumi.Any(aws_kendra_index.Example.Id),
+//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				SourceS3Path: &kendra.QuerySuggestionsBlockListSourceS3PathArgs{
+//					Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
+//					Key:    pulumi.String("example/suggestions.txt"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("Example Kendra Index"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // `aws_kendra_query_suggestions_block_list` can be imported using the unique identifiers of the block list and index separated by a slash (`/`), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
+//
+//	$ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
+//
 // ```
 type QuerySuggestionsBlockList struct {
 	pulumi.CustomResourceState
@@ -69,8 +74,7 @@ type QuerySuggestionsBlockList struct {
 	SourceS3Path QuerySuggestionsBlockListSourceS3PathOutput `pulumi:"sourceS3Path"`
 	Status       pulumi.StringOutput                         `pulumi:"status"`
 	Tags         pulumi.StringMapOutput                      `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll      pulumi.StringMapOutput                      `pulumi:"tagsAll"`
 }
 
 // NewQuerySuggestionsBlockList registers a new resource with the given unique name, arguments, and options.
@@ -127,8 +131,7 @@ type querySuggestionsBlockListState struct {
 	SourceS3Path *QuerySuggestionsBlockListSourceS3Path `pulumi:"sourceS3Path"`
 	Status       *string                                `pulumi:"status"`
 	Tags         map[string]string                      `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll      map[string]string                      `pulumi:"tagsAll"`
 }
 
 type QuerySuggestionsBlockListState struct {
@@ -148,8 +151,7 @@ type QuerySuggestionsBlockListState struct {
 	SourceS3Path QuerySuggestionsBlockListSourceS3PathPtrInput
 	Status       pulumi.StringPtrInput
 	Tags         pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
+	TagsAll      pulumi.StringMapInput
 }
 
 func (QuerySuggestionsBlockListState) ElementType() reflect.Type {
@@ -168,8 +170,6 @@ type querySuggestionsBlockListArgs struct {
 	// The S3 path where your block list text file sits in S3. Detailed below.
 	SourceS3Path QuerySuggestionsBlockListSourceS3Path `pulumi:"sourceS3Path"`
 	Tags         map[string]string                     `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a QuerySuggestionsBlockList resource.
@@ -185,8 +185,6 @@ type QuerySuggestionsBlockListArgs struct {
 	// The S3 path where your block list text file sits in S3. Detailed below.
 	SourceS3Path QuerySuggestionsBlockListSourceS3PathInput
 	Tags         pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
 }
 
 func (QuerySuggestionsBlockListArgs) ElementType() reflect.Type {
@@ -215,7 +213,7 @@ func (i *QuerySuggestionsBlockList) ToQuerySuggestionsBlockListOutputWithContext
 // QuerySuggestionsBlockListArrayInput is an input type that accepts QuerySuggestionsBlockListArray and QuerySuggestionsBlockListArrayOutput values.
 // You can construct a concrete instance of `QuerySuggestionsBlockListArrayInput` via:
 //
-//          QuerySuggestionsBlockListArray{ QuerySuggestionsBlockListArgs{...} }
+//	QuerySuggestionsBlockListArray{ QuerySuggestionsBlockListArgs{...} }
 type QuerySuggestionsBlockListArrayInput interface {
 	pulumi.Input
 
@@ -240,7 +238,7 @@ func (i QuerySuggestionsBlockListArray) ToQuerySuggestionsBlockListArrayOutputWi
 // QuerySuggestionsBlockListMapInput is an input type that accepts QuerySuggestionsBlockListMap and QuerySuggestionsBlockListMapOutput values.
 // You can construct a concrete instance of `QuerySuggestionsBlockListMapInput` via:
 //
-//          QuerySuggestionsBlockListMap{ "key": QuerySuggestionsBlockListArgs{...} }
+//	QuerySuggestionsBlockListMap{ "key": QuerySuggestionsBlockListArgs{...} }
 type QuerySuggestionsBlockListMapInput interface {
 	pulumi.Input
 
@@ -319,7 +317,6 @@ func (o QuerySuggestionsBlockListOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o QuerySuggestionsBlockListOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

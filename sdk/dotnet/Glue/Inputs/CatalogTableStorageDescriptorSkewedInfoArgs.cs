@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class CatalogTableStorageDescriptorSkewedInfoArgs : Pulumi.ResourceArgs
+    public sealed class CatalogTableStorageDescriptorSkewedInfoArgs : global::Pulumi.ResourceArgs
     {
         [Input("skewedColumnNames")]
         private InputList<string>? _skewedColumnNames;
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public CatalogTableStorageDescriptorSkewedInfoArgs()
         {
         }
+        public static new CatalogTableStorageDescriptorSkewedInfoArgs Empty => new CatalogTableStorageDescriptorSkewedInfoArgs();
     }
 }

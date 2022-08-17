@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class RailsAppLayerCloudwatchConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class RailsAppLayerCloudwatchConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -26,5 +26,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public RailsAppLayerCloudwatchConfigurationArgs()
         {
         }
+        public static new RailsAppLayerCloudwatchConfigurationArgs Empty => new RailsAppLayerCloudwatchConfigurationArgs();
     }
 }

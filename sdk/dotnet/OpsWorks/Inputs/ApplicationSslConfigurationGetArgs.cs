@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpsWorks.Inputs
 {
 
-    public sealed class ApplicationSslConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationSslConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The contents of the certificate's domain.crt file.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.OpsWorks.Inputs
         public ApplicationSslConfigurationGetArgs()
         {
         }
+        public static new ApplicationSslConfigurationGetArgs Empty => new ApplicationSslConfigurationGetArgs();
     }
 }

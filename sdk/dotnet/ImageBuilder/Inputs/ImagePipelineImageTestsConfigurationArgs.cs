@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class ImagePipelineImageTestsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ImagePipelineImageTestsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether image tests are enabled. Defaults to `true`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public ImagePipelineImageTestsConfigurationArgs()
         {
         }
+        public static new ImagePipelineImageTestsConfigurationArgs Empty => new ImagePipelineImageTestsConfigurationArgs();
     }
 }

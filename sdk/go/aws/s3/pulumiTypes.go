@@ -30,7 +30,7 @@ type AccessPointPublicAccessBlockConfiguration struct {
 // AccessPointPublicAccessBlockConfigurationInput is an input type that accepts AccessPointPublicAccessBlockConfigurationArgs and AccessPointPublicAccessBlockConfigurationOutput values.
 // You can construct a concrete instance of `AccessPointPublicAccessBlockConfigurationInput` via:
 //
-//          AccessPointPublicAccessBlockConfigurationArgs{...}
+//	AccessPointPublicAccessBlockConfigurationArgs{...}
 type AccessPointPublicAccessBlockConfigurationInput interface {
 	pulumi.Input
 
@@ -78,11 +78,11 @@ func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccess
 // AccessPointPublicAccessBlockConfigurationPtrInput is an input type that accepts AccessPointPublicAccessBlockConfigurationArgs, AccessPointPublicAccessBlockConfigurationPtr and AccessPointPublicAccessBlockConfigurationPtrOutput values.
 // You can construct a concrete instance of `AccessPointPublicAccessBlockConfigurationPtrInput` via:
 //
-//          AccessPointPublicAccessBlockConfigurationArgs{...}
+//	        AccessPointPublicAccessBlockConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccessPointPublicAccessBlockConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -236,7 +236,7 @@ type AccessPointVpcConfiguration struct {
 // AccessPointVpcConfigurationInput is an input type that accepts AccessPointVpcConfigurationArgs and AccessPointVpcConfigurationOutput values.
 // You can construct a concrete instance of `AccessPointVpcConfigurationInput` via:
 //
-//          AccessPointVpcConfigurationArgs{...}
+//	AccessPointVpcConfigurationArgs{...}
 type AccessPointVpcConfigurationInput interface {
 	pulumi.Input
 
@@ -272,11 +272,11 @@ func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationPtrOutputW
 // AccessPointVpcConfigurationPtrInput is an input type that accepts AccessPointVpcConfigurationArgs, AccessPointVpcConfigurationPtr and AccessPointVpcConfigurationPtrOutput values.
 // You can construct a concrete instance of `AccessPointVpcConfigurationPtrInput` via:
 //
-//          AccessPointVpcConfigurationArgs{...}
+//	        AccessPointVpcConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccessPointVpcConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -375,7 +375,7 @@ type AnalyticsConfigurationFilter struct {
 // AnalyticsConfigurationFilterInput is an input type that accepts AnalyticsConfigurationFilterArgs and AnalyticsConfigurationFilterOutput values.
 // You can construct a concrete instance of `AnalyticsConfigurationFilterInput` via:
 //
-//          AnalyticsConfigurationFilterArgs{...}
+//	AnalyticsConfigurationFilterArgs{...}
 type AnalyticsConfigurationFilterInput interface {
 	pulumi.Input
 
@@ -413,11 +413,11 @@ func (i AnalyticsConfigurationFilterArgs) ToAnalyticsConfigurationFilterPtrOutpu
 // AnalyticsConfigurationFilterPtrInput is an input type that accepts AnalyticsConfigurationFilterArgs, AnalyticsConfigurationFilterPtr and AnalyticsConfigurationFilterPtrOutput values.
 // You can construct a concrete instance of `AnalyticsConfigurationFilterPtrInput` via:
 //
-//          AnalyticsConfigurationFilterArgs{...}
+//	        AnalyticsConfigurationFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnalyticsConfigurationFilterPtrInput interface {
 	pulumi.Input
 
@@ -529,7 +529,7 @@ type AnalyticsConfigurationStorageClassAnalysis struct {
 // AnalyticsConfigurationStorageClassAnalysisInput is an input type that accepts AnalyticsConfigurationStorageClassAnalysisArgs and AnalyticsConfigurationStorageClassAnalysisOutput values.
 // You can construct a concrete instance of `AnalyticsConfigurationStorageClassAnalysisInput` via:
 //
-//          AnalyticsConfigurationStorageClassAnalysisArgs{...}
+//	AnalyticsConfigurationStorageClassAnalysisArgs{...}
 type AnalyticsConfigurationStorageClassAnalysisInput interface {
 	pulumi.Input
 
@@ -565,11 +565,11 @@ func (i AnalyticsConfigurationStorageClassAnalysisArgs) ToAnalyticsConfiguration
 // AnalyticsConfigurationStorageClassAnalysisPtrInput is an input type that accepts AnalyticsConfigurationStorageClassAnalysisArgs, AnalyticsConfigurationStorageClassAnalysisPtr and AnalyticsConfigurationStorageClassAnalysisPtrOutput values.
 // You can construct a concrete instance of `AnalyticsConfigurationStorageClassAnalysisPtrInput` via:
 //
-//          AnalyticsConfigurationStorageClassAnalysisArgs{...}
+//	        AnalyticsConfigurationStorageClassAnalysisArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnalyticsConfigurationStorageClassAnalysisPtrInput interface {
 	pulumi.Input
 
@@ -670,7 +670,7 @@ type AnalyticsConfigurationStorageClassAnalysisDataExport struct {
 // AnalyticsConfigurationStorageClassAnalysisDataExportInput is an input type that accepts AnalyticsConfigurationStorageClassAnalysisDataExportArgs and AnalyticsConfigurationStorageClassAnalysisDataExportOutput values.
 // You can construct a concrete instance of `AnalyticsConfigurationStorageClassAnalysisDataExportInput` via:
 //
-//          AnalyticsConfigurationStorageClassAnalysisDataExportArgs{...}
+//	AnalyticsConfigurationStorageClassAnalysisDataExportArgs{...}
 type AnalyticsConfigurationStorageClassAnalysisDataExportInput interface {
 	pulumi.Input
 
@@ -708,11 +708,11 @@ func (i AnalyticsConfigurationStorageClassAnalysisDataExportArgs) ToAnalyticsCon
 // AnalyticsConfigurationStorageClassAnalysisDataExportPtrInput is an input type that accepts AnalyticsConfigurationStorageClassAnalysisDataExportArgs, AnalyticsConfigurationStorageClassAnalysisDataExportPtr and AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput values.
 // You can construct a concrete instance of `AnalyticsConfigurationStorageClassAnalysisDataExportPtrInput` via:
 //
-//          AnalyticsConfigurationStorageClassAnalysisDataExportArgs{...}
+//	        AnalyticsConfigurationStorageClassAnalysisDataExportArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnalyticsConfigurationStorageClassAnalysisDataExportPtrInput interface {
 	pulumi.Input
 
@@ -826,7 +826,7 @@ type AnalyticsConfigurationStorageClassAnalysisDataExportDestination struct {
 // AnalyticsConfigurationStorageClassAnalysisDataExportDestinationInput is an input type that accepts AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs and AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput values.
 // You can construct a concrete instance of `AnalyticsConfigurationStorageClassAnalysisDataExportDestinationInput` via:
 //
-//          AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs{...}
+//	AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs{...}
 type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationInput interface {
 	pulumi.Input
 
@@ -862,11 +862,11 @@ func (i AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs) ToA
 // AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrInput is an input type that accepts AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs, AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtr and AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput values.
 // You can construct a concrete instance of `AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrInput` via:
 //
-//          AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs{...}
+//	        AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrInput interface {
 	pulumi.Input
 
@@ -971,7 +971,7 @@ type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDest
 // AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationInput is an input type that accepts AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs and AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput values.
 // You can construct a concrete instance of `AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationInput` via:
 //
-//          AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs{...}
+//	AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs{...}
 type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationInput interface {
 	pulumi.Input
 
@@ -1013,11 +1013,11 @@ func (i AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 // AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrInput is an input type that accepts AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs, AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtr and AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput values.
 // You can construct a concrete instance of `AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrInput` via:
 //
-//          AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs{...}
+//	        AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrInput interface {
 	pulumi.Input
 
@@ -1169,7 +1169,7 @@ type BucketAclV2AccessControlPolicy struct {
 // BucketAclV2AccessControlPolicyInput is an input type that accepts BucketAclV2AccessControlPolicyArgs and BucketAclV2AccessControlPolicyOutput values.
 // You can construct a concrete instance of `BucketAclV2AccessControlPolicyInput` via:
 //
-//          BucketAclV2AccessControlPolicyArgs{...}
+//	BucketAclV2AccessControlPolicyArgs{...}
 type BucketAclV2AccessControlPolicyInput interface {
 	pulumi.Input
 
@@ -1207,11 +1207,11 @@ func (i BucketAclV2AccessControlPolicyArgs) ToBucketAclV2AccessControlPolicyPtrO
 // BucketAclV2AccessControlPolicyPtrInput is an input type that accepts BucketAclV2AccessControlPolicyArgs, BucketAclV2AccessControlPolicyPtr and BucketAclV2AccessControlPolicyPtrOutput values.
 // You can construct a concrete instance of `BucketAclV2AccessControlPolicyPtrInput` via:
 //
-//          BucketAclV2AccessControlPolicyArgs{...}
+//	        BucketAclV2AccessControlPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketAclV2AccessControlPolicyPtrInput interface {
 	pulumi.Input
 
@@ -1325,7 +1325,7 @@ type BucketAclV2AccessControlPolicyGrant struct {
 // BucketAclV2AccessControlPolicyGrantInput is an input type that accepts BucketAclV2AccessControlPolicyGrantArgs and BucketAclV2AccessControlPolicyGrantOutput values.
 // You can construct a concrete instance of `BucketAclV2AccessControlPolicyGrantInput` via:
 //
-//          BucketAclV2AccessControlPolicyGrantArgs{...}
+//	BucketAclV2AccessControlPolicyGrantArgs{...}
 type BucketAclV2AccessControlPolicyGrantInput interface {
 	pulumi.Input
 
@@ -1355,7 +1355,7 @@ func (i BucketAclV2AccessControlPolicyGrantArgs) ToBucketAclV2AccessControlPolic
 // BucketAclV2AccessControlPolicyGrantArrayInput is an input type that accepts BucketAclV2AccessControlPolicyGrantArray and BucketAclV2AccessControlPolicyGrantArrayOutput values.
 // You can construct a concrete instance of `BucketAclV2AccessControlPolicyGrantArrayInput` via:
 //
-//          BucketAclV2AccessControlPolicyGrantArray{ BucketAclV2AccessControlPolicyGrantArgs{...} }
+//	BucketAclV2AccessControlPolicyGrantArray{ BucketAclV2AccessControlPolicyGrantArgs{...} }
 type BucketAclV2AccessControlPolicyGrantArrayInput interface {
 	pulumi.Input
 
@@ -1439,7 +1439,7 @@ type BucketAclV2AccessControlPolicyGrantGrantee struct {
 // BucketAclV2AccessControlPolicyGrantGranteeInput is an input type that accepts BucketAclV2AccessControlPolicyGrantGranteeArgs and BucketAclV2AccessControlPolicyGrantGranteeOutput values.
 // You can construct a concrete instance of `BucketAclV2AccessControlPolicyGrantGranteeInput` via:
 //
-//          BucketAclV2AccessControlPolicyGrantGranteeArgs{...}
+//	BucketAclV2AccessControlPolicyGrantGranteeArgs{...}
 type BucketAclV2AccessControlPolicyGrantGranteeInput interface {
 	pulumi.Input
 
@@ -1483,11 +1483,11 @@ func (i BucketAclV2AccessControlPolicyGrantGranteeArgs) ToBucketAclV2AccessContr
 // BucketAclV2AccessControlPolicyGrantGranteePtrInput is an input type that accepts BucketAclV2AccessControlPolicyGrantGranteeArgs, BucketAclV2AccessControlPolicyGrantGranteePtr and BucketAclV2AccessControlPolicyGrantGranteePtrOutput values.
 // You can construct a concrete instance of `BucketAclV2AccessControlPolicyGrantGranteePtrInput` via:
 //
-//          BucketAclV2AccessControlPolicyGrantGranteeArgs{...}
+//	        BucketAclV2AccessControlPolicyGrantGranteeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketAclV2AccessControlPolicyGrantGranteePtrInput interface {
 	pulumi.Input
 
@@ -1646,7 +1646,7 @@ type BucketAclV2AccessControlPolicyOwner struct {
 // BucketAclV2AccessControlPolicyOwnerInput is an input type that accepts BucketAclV2AccessControlPolicyOwnerArgs and BucketAclV2AccessControlPolicyOwnerOutput values.
 // You can construct a concrete instance of `BucketAclV2AccessControlPolicyOwnerInput` via:
 //
-//          BucketAclV2AccessControlPolicyOwnerArgs{...}
+//	BucketAclV2AccessControlPolicyOwnerArgs{...}
 type BucketAclV2AccessControlPolicyOwnerInput interface {
 	pulumi.Input
 
@@ -1684,11 +1684,11 @@ func (i BucketAclV2AccessControlPolicyOwnerArgs) ToBucketAclV2AccessControlPolic
 // BucketAclV2AccessControlPolicyOwnerPtrInput is an input type that accepts BucketAclV2AccessControlPolicyOwnerArgs, BucketAclV2AccessControlPolicyOwnerPtr and BucketAclV2AccessControlPolicyOwnerPtrOutput values.
 // You can construct a concrete instance of `BucketAclV2AccessControlPolicyOwnerPtrInput` via:
 //
-//          BucketAclV2AccessControlPolicyOwnerArgs{...}
+//	        BucketAclV2AccessControlPolicyOwnerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketAclV2AccessControlPolicyOwnerPtrInput interface {
 	pulumi.Input
 
@@ -1810,7 +1810,7 @@ type BucketCorsConfigurationV2CorsRule struct {
 // BucketCorsConfigurationV2CorsRuleInput is an input type that accepts BucketCorsConfigurationV2CorsRuleArgs and BucketCorsConfigurationV2CorsRuleOutput values.
 // You can construct a concrete instance of `BucketCorsConfigurationV2CorsRuleInput` via:
 //
-//          BucketCorsConfigurationV2CorsRuleArgs{...}
+//	BucketCorsConfigurationV2CorsRuleArgs{...}
 type BucketCorsConfigurationV2CorsRuleInput interface {
 	pulumi.Input
 
@@ -1848,7 +1848,7 @@ func (i BucketCorsConfigurationV2CorsRuleArgs) ToBucketCorsConfigurationV2CorsRu
 // BucketCorsConfigurationV2CorsRuleArrayInput is an input type that accepts BucketCorsConfigurationV2CorsRuleArray and BucketCorsConfigurationV2CorsRuleArrayOutput values.
 // You can construct a concrete instance of `BucketCorsConfigurationV2CorsRuleArrayInput` via:
 //
-//          BucketCorsConfigurationV2CorsRuleArray{ BucketCorsConfigurationV2CorsRuleArgs{...} }
+//	BucketCorsConfigurationV2CorsRuleArray{ BucketCorsConfigurationV2CorsRuleArgs{...} }
 type BucketCorsConfigurationV2CorsRuleArrayInput interface {
 	pulumi.Input
 
@@ -1950,7 +1950,7 @@ type BucketCorsRule struct {
 // BucketCorsRuleInput is an input type that accepts BucketCorsRuleArgs and BucketCorsRuleOutput values.
 // You can construct a concrete instance of `BucketCorsRuleInput` via:
 //
-//          BucketCorsRuleArgs{...}
+//	BucketCorsRuleArgs{...}
 type BucketCorsRuleInput interface {
 	pulumi.Input
 
@@ -1986,7 +1986,7 @@ func (i BucketCorsRuleArgs) ToBucketCorsRuleOutputWithContext(ctx context.Contex
 // BucketCorsRuleArrayInput is an input type that accepts BucketCorsRuleArray and BucketCorsRuleArrayOutput values.
 // You can construct a concrete instance of `BucketCorsRuleArrayInput` via:
 //
-//          BucketCorsRuleArray{ BucketCorsRuleArgs{...} }
+//	BucketCorsRuleArray{ BucketCorsRuleArgs{...} }
 type BucketCorsRuleArrayInput interface {
 	pulumi.Input
 
@@ -2081,7 +2081,7 @@ type BucketGrant struct {
 // BucketGrantInput is an input type that accepts BucketGrantArgs and BucketGrantOutput values.
 // You can construct a concrete instance of `BucketGrantInput` via:
 //
-//          BucketGrantArgs{...}
+//	BucketGrantArgs{...}
 type BucketGrantInput interface {
 	pulumi.Input
 
@@ -2115,7 +2115,7 @@ func (i BucketGrantArgs) ToBucketGrantOutputWithContext(ctx context.Context) Buc
 // BucketGrantArrayInput is an input type that accepts BucketGrantArray and BucketGrantArrayOutput values.
 // You can construct a concrete instance of `BucketGrantArrayInput` via:
 //
-//          BucketGrantArray{ BucketGrantArgs{...} }
+//	BucketGrantArray{ BucketGrantArgs{...} }
 type BucketGrantArrayInput interface {
 	pulumi.Input
 
@@ -2201,7 +2201,7 @@ type BucketIntelligentTieringConfigurationFilter struct {
 // BucketIntelligentTieringConfigurationFilterInput is an input type that accepts BucketIntelligentTieringConfigurationFilterArgs and BucketIntelligentTieringConfigurationFilterOutput values.
 // You can construct a concrete instance of `BucketIntelligentTieringConfigurationFilterInput` via:
 //
-//          BucketIntelligentTieringConfigurationFilterArgs{...}
+//	BucketIntelligentTieringConfigurationFilterArgs{...}
 type BucketIntelligentTieringConfigurationFilterInput interface {
 	pulumi.Input
 
@@ -2239,11 +2239,11 @@ func (i BucketIntelligentTieringConfigurationFilterArgs) ToBucketIntelligentTier
 // BucketIntelligentTieringConfigurationFilterPtrInput is an input type that accepts BucketIntelligentTieringConfigurationFilterArgs, BucketIntelligentTieringConfigurationFilterPtr and BucketIntelligentTieringConfigurationFilterPtrOutput values.
 // You can construct a concrete instance of `BucketIntelligentTieringConfigurationFilterPtrInput` via:
 //
-//          BucketIntelligentTieringConfigurationFilterArgs{...}
+//	        BucketIntelligentTieringConfigurationFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketIntelligentTieringConfigurationFilterPtrInput interface {
 	pulumi.Input
 
@@ -2357,7 +2357,7 @@ type BucketIntelligentTieringConfigurationTiering struct {
 // BucketIntelligentTieringConfigurationTieringInput is an input type that accepts BucketIntelligentTieringConfigurationTieringArgs and BucketIntelligentTieringConfigurationTieringOutput values.
 // You can construct a concrete instance of `BucketIntelligentTieringConfigurationTieringInput` via:
 //
-//          BucketIntelligentTieringConfigurationTieringArgs{...}
+//	BucketIntelligentTieringConfigurationTieringArgs{...}
 type BucketIntelligentTieringConfigurationTieringInput interface {
 	pulumi.Input
 
@@ -2387,7 +2387,7 @@ func (i BucketIntelligentTieringConfigurationTieringArgs) ToBucketIntelligentTie
 // BucketIntelligentTieringConfigurationTieringArrayInput is an input type that accepts BucketIntelligentTieringConfigurationTieringArray and BucketIntelligentTieringConfigurationTieringArrayOutput values.
 // You can construct a concrete instance of `BucketIntelligentTieringConfigurationTieringArrayInput` via:
 //
-//          BucketIntelligentTieringConfigurationTieringArray{ BucketIntelligentTieringConfigurationTieringArgs{...} }
+//	BucketIntelligentTieringConfigurationTieringArray{ BucketIntelligentTieringConfigurationTieringArgs{...} }
 type BucketIntelligentTieringConfigurationTieringArrayInput interface {
 	pulumi.Input
 
@@ -2479,7 +2479,7 @@ type BucketLifecycleConfigurationV2Rule struct {
 // BucketLifecycleConfigurationV2RuleInput is an input type that accepts BucketLifecycleConfigurationV2RuleArgs and BucketLifecycleConfigurationV2RuleOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleArgs{...}
+//	BucketLifecycleConfigurationV2RuleArgs{...}
 type BucketLifecycleConfigurationV2RuleInput interface {
 	pulumi.Input
 
@@ -2525,7 +2525,7 @@ func (i BucketLifecycleConfigurationV2RuleArgs) ToBucketLifecycleConfigurationV2
 // BucketLifecycleConfigurationV2RuleArrayInput is an input type that accepts BucketLifecycleConfigurationV2RuleArray and BucketLifecycleConfigurationV2RuleArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleArrayInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleArray{ BucketLifecycleConfigurationV2RuleArgs{...} }
+//	BucketLifecycleConfigurationV2RuleArray{ BucketLifecycleConfigurationV2RuleArgs{...} }
 type BucketLifecycleConfigurationV2RuleArrayInput interface {
 	pulumi.Input
 
@@ -2646,7 +2646,7 @@ type BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload struct {
 // BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadInput is an input type that accepts BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs and BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs{...}
+//	BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs{...}
 type BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadInput interface {
 	pulumi.Input
 
@@ -2682,11 +2682,11 @@ func (i BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs) To
 // BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrInput is an input type that accepts BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs, BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtr and BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs{...}
+//	        BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrInput interface {
 	pulumi.Input
 
@@ -2789,7 +2789,7 @@ type BucketLifecycleConfigurationV2RuleExpiration struct {
 // BucketLifecycleConfigurationV2RuleExpirationInput is an input type that accepts BucketLifecycleConfigurationV2RuleExpirationArgs and BucketLifecycleConfigurationV2RuleExpirationOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleExpirationInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleExpirationArgs{...}
+//	BucketLifecycleConfigurationV2RuleExpirationArgs{...}
 type BucketLifecycleConfigurationV2RuleExpirationInput interface {
 	pulumi.Input
 
@@ -2829,11 +2829,11 @@ func (i BucketLifecycleConfigurationV2RuleExpirationArgs) ToBucketLifecycleConfi
 // BucketLifecycleConfigurationV2RuleExpirationPtrInput is an input type that accepts BucketLifecycleConfigurationV2RuleExpirationArgs, BucketLifecycleConfigurationV2RuleExpirationPtr and BucketLifecycleConfigurationV2RuleExpirationPtrOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleExpirationPtrInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleExpirationArgs{...}
+//	        BucketLifecycleConfigurationV2RuleExpirationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketLifecycleConfigurationV2RuleExpirationPtrInput interface {
 	pulumi.Input
 
@@ -2968,7 +2968,7 @@ type BucketLifecycleConfigurationV2RuleFilter struct {
 // BucketLifecycleConfigurationV2RuleFilterInput is an input type that accepts BucketLifecycleConfigurationV2RuleFilterArgs and BucketLifecycleConfigurationV2RuleFilterOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleFilterInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleFilterArgs{...}
+//	BucketLifecycleConfigurationV2RuleFilterArgs{...}
 type BucketLifecycleConfigurationV2RuleFilterInput interface {
 	pulumi.Input
 
@@ -3012,11 +3012,11 @@ func (i BucketLifecycleConfigurationV2RuleFilterArgs) ToBucketLifecycleConfigura
 // BucketLifecycleConfigurationV2RuleFilterPtrInput is an input type that accepts BucketLifecycleConfigurationV2RuleFilterArgs, BucketLifecycleConfigurationV2RuleFilterPtr and BucketLifecycleConfigurationV2RuleFilterPtrOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleFilterPtrInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleFilterArgs{...}
+//	        BucketLifecycleConfigurationV2RuleFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketLifecycleConfigurationV2RuleFilterPtrInput interface {
 	pulumi.Input
 
@@ -3183,7 +3183,7 @@ type BucketLifecycleConfigurationV2RuleFilterAnd struct {
 // BucketLifecycleConfigurationV2RuleFilterAndInput is an input type that accepts BucketLifecycleConfigurationV2RuleFilterAndArgs and BucketLifecycleConfigurationV2RuleFilterAndOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleFilterAndInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleFilterAndArgs{...}
+//	BucketLifecycleConfigurationV2RuleFilterAndArgs{...}
 type BucketLifecycleConfigurationV2RuleFilterAndInput interface {
 	pulumi.Input
 
@@ -3225,11 +3225,11 @@ func (i BucketLifecycleConfigurationV2RuleFilterAndArgs) ToBucketLifecycleConfig
 // BucketLifecycleConfigurationV2RuleFilterAndPtrInput is an input type that accepts BucketLifecycleConfigurationV2RuleFilterAndArgs, BucketLifecycleConfigurationV2RuleFilterAndPtr and BucketLifecycleConfigurationV2RuleFilterAndPtrOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleFilterAndPtrInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleFilterAndArgs{...}
+//	        BucketLifecycleConfigurationV2RuleFilterAndArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketLifecycleConfigurationV2RuleFilterAndPtrInput interface {
 	pulumi.Input
 
@@ -3373,7 +3373,7 @@ type BucketLifecycleConfigurationV2RuleFilterTag struct {
 // BucketLifecycleConfigurationV2RuleFilterTagInput is an input type that accepts BucketLifecycleConfigurationV2RuleFilterTagArgs and BucketLifecycleConfigurationV2RuleFilterTagOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleFilterTagInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleFilterTagArgs{...}
+//	BucketLifecycleConfigurationV2RuleFilterTagArgs{...}
 type BucketLifecycleConfigurationV2RuleFilterTagInput interface {
 	pulumi.Input
 
@@ -3411,11 +3411,11 @@ func (i BucketLifecycleConfigurationV2RuleFilterTagArgs) ToBucketLifecycleConfig
 // BucketLifecycleConfigurationV2RuleFilterTagPtrInput is an input type that accepts BucketLifecycleConfigurationV2RuleFilterTagArgs, BucketLifecycleConfigurationV2RuleFilterTagPtr and BucketLifecycleConfigurationV2RuleFilterTagPtrOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleFilterTagPtrInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleFilterTagArgs{...}
+//	        BucketLifecycleConfigurationV2RuleFilterTagArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketLifecycleConfigurationV2RuleFilterTagPtrInput interface {
 	pulumi.Input
 
@@ -3529,7 +3529,7 @@ type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration struct {
 // BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationInput is an input type that accepts BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs and BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs{...}
+//	BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs{...}
 type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationInput interface {
 	pulumi.Input
 
@@ -3567,11 +3567,11 @@ func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs) ToBuc
 // BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrInput is an input type that accepts BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs, BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtr and BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs{...}
+//	        BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrInput interface {
 	pulumi.Input
 
@@ -3689,7 +3689,7 @@ type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition struct {
 // BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionInput is an input type that accepts BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs and BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs{...}
+//	BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs{...}
 type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionInput interface {
 	pulumi.Input
 
@@ -3721,7 +3721,7 @@ func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs) ToBuc
 // BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayInput is an input type that accepts BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArray and BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArray{ BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs{...} }
+//	BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArray{ BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs{...} }
 type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayInput interface {
 	pulumi.Input
 
@@ -3806,7 +3806,7 @@ type BucketLifecycleConfigurationV2RuleTransition struct {
 // BucketLifecycleConfigurationV2RuleTransitionInput is an input type that accepts BucketLifecycleConfigurationV2RuleTransitionArgs and BucketLifecycleConfigurationV2RuleTransitionOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleTransitionInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleTransitionArgs{...}
+//	BucketLifecycleConfigurationV2RuleTransitionArgs{...}
 type BucketLifecycleConfigurationV2RuleTransitionInput interface {
 	pulumi.Input
 
@@ -3838,7 +3838,7 @@ func (i BucketLifecycleConfigurationV2RuleTransitionArgs) ToBucketLifecycleConfi
 // BucketLifecycleConfigurationV2RuleTransitionArrayInput is an input type that accepts BucketLifecycleConfigurationV2RuleTransitionArray and BucketLifecycleConfigurationV2RuleTransitionArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleTransitionArrayInput` via:
 //
-//          BucketLifecycleConfigurationV2RuleTransitionArray{ BucketLifecycleConfigurationV2RuleTransitionArgs{...} }
+//	BucketLifecycleConfigurationV2RuleTransitionArray{ BucketLifecycleConfigurationV2RuleTransitionArgs{...} }
 type BucketLifecycleConfigurationV2RuleTransitionArrayInput interface {
 	pulumi.Input
 
@@ -3933,7 +3933,7 @@ type BucketLifecycleRule struct {
 // BucketLifecycleRuleInput is an input type that accepts BucketLifecycleRuleArgs and BucketLifecycleRuleOutput values.
 // You can construct a concrete instance of `BucketLifecycleRuleInput` via:
 //
-//          BucketLifecycleRuleArgs{...}
+//	BucketLifecycleRuleArgs{...}
 type BucketLifecycleRuleInput interface {
 	pulumi.Input
 
@@ -3977,7 +3977,7 @@ func (i BucketLifecycleRuleArgs) ToBucketLifecycleRuleOutputWithContext(ctx cont
 // BucketLifecycleRuleArrayInput is an input type that accepts BucketLifecycleRuleArray and BucketLifecycleRuleArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleRuleArrayInput` via:
 //
-//          BucketLifecycleRuleArray{ BucketLifecycleRuleArgs{...} }
+//	BucketLifecycleRuleArray{ BucketLifecycleRuleArgs{...} }
 type BucketLifecycleRuleArrayInput interface {
 	pulumi.Input
 
@@ -4094,7 +4094,7 @@ type BucketLifecycleRuleExpiration struct {
 // BucketLifecycleRuleExpirationInput is an input type that accepts BucketLifecycleRuleExpirationArgs and BucketLifecycleRuleExpirationOutput values.
 // You can construct a concrete instance of `BucketLifecycleRuleExpirationInput` via:
 //
-//          BucketLifecycleRuleExpirationArgs{...}
+//	BucketLifecycleRuleExpirationArgs{...}
 type BucketLifecycleRuleExpirationInput interface {
 	pulumi.Input
 
@@ -4134,11 +4134,11 @@ func (i BucketLifecycleRuleExpirationArgs) ToBucketLifecycleRuleExpirationPtrOut
 // BucketLifecycleRuleExpirationPtrInput is an input type that accepts BucketLifecycleRuleExpirationArgs, BucketLifecycleRuleExpirationPtr and BucketLifecycleRuleExpirationPtrOutput values.
 // You can construct a concrete instance of `BucketLifecycleRuleExpirationPtrInput` via:
 //
-//          BucketLifecycleRuleExpirationArgs{...}
+//	        BucketLifecycleRuleExpirationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketLifecycleRuleExpirationPtrInput interface {
 	pulumi.Input
 
@@ -4265,7 +4265,7 @@ type BucketLifecycleRuleNoncurrentVersionExpiration struct {
 // BucketLifecycleRuleNoncurrentVersionExpirationInput is an input type that accepts BucketLifecycleRuleNoncurrentVersionExpirationArgs and BucketLifecycleRuleNoncurrentVersionExpirationOutput values.
 // You can construct a concrete instance of `BucketLifecycleRuleNoncurrentVersionExpirationInput` via:
 //
-//          BucketLifecycleRuleNoncurrentVersionExpirationArgs{...}
+//	BucketLifecycleRuleNoncurrentVersionExpirationArgs{...}
 type BucketLifecycleRuleNoncurrentVersionExpirationInput interface {
 	pulumi.Input
 
@@ -4301,11 +4301,11 @@ func (i BucketLifecycleRuleNoncurrentVersionExpirationArgs) ToBucketLifecycleRul
 // BucketLifecycleRuleNoncurrentVersionExpirationPtrInput is an input type that accepts BucketLifecycleRuleNoncurrentVersionExpirationArgs, BucketLifecycleRuleNoncurrentVersionExpirationPtr and BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput values.
 // You can construct a concrete instance of `BucketLifecycleRuleNoncurrentVersionExpirationPtrInput` via:
 //
-//          BucketLifecycleRuleNoncurrentVersionExpirationArgs{...}
+//	        BucketLifecycleRuleNoncurrentVersionExpirationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketLifecycleRuleNoncurrentVersionExpirationPtrInput interface {
 	pulumi.Input
 
@@ -4404,7 +4404,7 @@ type BucketLifecycleRuleNoncurrentVersionTransition struct {
 // BucketLifecycleRuleNoncurrentVersionTransitionInput is an input type that accepts BucketLifecycleRuleNoncurrentVersionTransitionArgs and BucketLifecycleRuleNoncurrentVersionTransitionOutput values.
 // You can construct a concrete instance of `BucketLifecycleRuleNoncurrentVersionTransitionInput` via:
 //
-//          BucketLifecycleRuleNoncurrentVersionTransitionArgs{...}
+//	BucketLifecycleRuleNoncurrentVersionTransitionArgs{...}
 type BucketLifecycleRuleNoncurrentVersionTransitionInput interface {
 	pulumi.Input
 
@@ -4434,7 +4434,7 @@ func (i BucketLifecycleRuleNoncurrentVersionTransitionArgs) ToBucketLifecycleRul
 // BucketLifecycleRuleNoncurrentVersionTransitionArrayInput is an input type that accepts BucketLifecycleRuleNoncurrentVersionTransitionArray and BucketLifecycleRuleNoncurrentVersionTransitionArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleRuleNoncurrentVersionTransitionArrayInput` via:
 //
-//          BucketLifecycleRuleNoncurrentVersionTransitionArray{ BucketLifecycleRuleNoncurrentVersionTransitionArgs{...} }
+//	BucketLifecycleRuleNoncurrentVersionTransitionArray{ BucketLifecycleRuleNoncurrentVersionTransitionArgs{...} }
 type BucketLifecycleRuleNoncurrentVersionTransitionArrayInput interface {
 	pulumi.Input
 
@@ -4512,7 +4512,7 @@ type BucketLifecycleRuleTransition struct {
 // BucketLifecycleRuleTransitionInput is an input type that accepts BucketLifecycleRuleTransitionArgs and BucketLifecycleRuleTransitionOutput values.
 // You can construct a concrete instance of `BucketLifecycleRuleTransitionInput` via:
 //
-//          BucketLifecycleRuleTransitionArgs{...}
+//	BucketLifecycleRuleTransitionArgs{...}
 type BucketLifecycleRuleTransitionInput interface {
 	pulumi.Input
 
@@ -4544,7 +4544,7 @@ func (i BucketLifecycleRuleTransitionArgs) ToBucketLifecycleRuleTransitionOutput
 // BucketLifecycleRuleTransitionArrayInput is an input type that accepts BucketLifecycleRuleTransitionArray and BucketLifecycleRuleTransitionArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleRuleTransitionArrayInput` via:
 //
-//          BucketLifecycleRuleTransitionArray{ BucketLifecycleRuleTransitionArgs{...} }
+//	BucketLifecycleRuleTransitionArray{ BucketLifecycleRuleTransitionArgs{...} }
 type BucketLifecycleRuleTransitionArrayInput interface {
 	pulumi.Input
 
@@ -4625,7 +4625,7 @@ type BucketLogging struct {
 // BucketLoggingInput is an input type that accepts BucketLoggingArgs and BucketLoggingOutput values.
 // You can construct a concrete instance of `BucketLoggingInput` via:
 //
-//          BucketLoggingArgs{...}
+//	BucketLoggingArgs{...}
 type BucketLoggingInput interface {
 	pulumi.Input
 
@@ -4655,7 +4655,7 @@ func (i BucketLoggingArgs) ToBucketLoggingOutputWithContext(ctx context.Context)
 // BucketLoggingArrayInput is an input type that accepts BucketLoggingArray and BucketLoggingArrayOutput values.
 // You can construct a concrete instance of `BucketLoggingArrayInput` via:
 //
-//          BucketLoggingArray{ BucketLoggingArgs{...} }
+//	BucketLoggingArray{ BucketLoggingArgs{...} }
 type BucketLoggingArrayInput interface {
 	pulumi.Input
 
@@ -4731,7 +4731,7 @@ type BucketLoggingV2TargetGrant struct {
 // BucketLoggingV2TargetGrantInput is an input type that accepts BucketLoggingV2TargetGrantArgs and BucketLoggingV2TargetGrantOutput values.
 // You can construct a concrete instance of `BucketLoggingV2TargetGrantInput` via:
 //
-//          BucketLoggingV2TargetGrantArgs{...}
+//	BucketLoggingV2TargetGrantArgs{...}
 type BucketLoggingV2TargetGrantInput interface {
 	pulumi.Input
 
@@ -4761,7 +4761,7 @@ func (i BucketLoggingV2TargetGrantArgs) ToBucketLoggingV2TargetGrantOutputWithCo
 // BucketLoggingV2TargetGrantArrayInput is an input type that accepts BucketLoggingV2TargetGrantArray and BucketLoggingV2TargetGrantArrayOutput values.
 // You can construct a concrete instance of `BucketLoggingV2TargetGrantArrayInput` via:
 //
-//          BucketLoggingV2TargetGrantArray{ BucketLoggingV2TargetGrantArgs{...} }
+//	BucketLoggingV2TargetGrantArray{ BucketLoggingV2TargetGrantArgs{...} }
 type BucketLoggingV2TargetGrantArrayInput interface {
 	pulumi.Input
 
@@ -4842,7 +4842,7 @@ type BucketLoggingV2TargetGrantGrantee struct {
 // BucketLoggingV2TargetGrantGranteeInput is an input type that accepts BucketLoggingV2TargetGrantGranteeArgs and BucketLoggingV2TargetGrantGranteeOutput values.
 // You can construct a concrete instance of `BucketLoggingV2TargetGrantGranteeInput` via:
 //
-//          BucketLoggingV2TargetGrantGranteeArgs{...}
+//	BucketLoggingV2TargetGrantGranteeArgs{...}
 type BucketLoggingV2TargetGrantGranteeInput interface {
 	pulumi.Input
 
@@ -4922,7 +4922,7 @@ type BucketMetricFilter struct {
 // BucketMetricFilterInput is an input type that accepts BucketMetricFilterArgs and BucketMetricFilterOutput values.
 // You can construct a concrete instance of `BucketMetricFilterInput` via:
 //
-//          BucketMetricFilterArgs{...}
+//	BucketMetricFilterArgs{...}
 type BucketMetricFilterInput interface {
 	pulumi.Input
 
@@ -4960,11 +4960,11 @@ func (i BucketMetricFilterArgs) ToBucketMetricFilterPtrOutputWithContext(ctx con
 // BucketMetricFilterPtrInput is an input type that accepts BucketMetricFilterArgs, BucketMetricFilterPtr and BucketMetricFilterPtrOutput values.
 // You can construct a concrete instance of `BucketMetricFilterPtrInput` via:
 //
-//          BucketMetricFilterArgs{...}
+//	        BucketMetricFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketMetricFilterPtrInput interface {
 	pulumi.Input
 
@@ -5084,7 +5084,7 @@ type BucketNotificationLambdaFunction struct {
 // BucketNotificationLambdaFunctionInput is an input type that accepts BucketNotificationLambdaFunctionArgs and BucketNotificationLambdaFunctionOutput values.
 // You can construct a concrete instance of `BucketNotificationLambdaFunctionInput` via:
 //
-//          BucketNotificationLambdaFunctionArgs{...}
+//	BucketNotificationLambdaFunctionArgs{...}
 type BucketNotificationLambdaFunctionInput interface {
 	pulumi.Input
 
@@ -5120,7 +5120,7 @@ func (i BucketNotificationLambdaFunctionArgs) ToBucketNotificationLambdaFunction
 // BucketNotificationLambdaFunctionArrayInput is an input type that accepts BucketNotificationLambdaFunctionArray and BucketNotificationLambdaFunctionArrayOutput values.
 // You can construct a concrete instance of `BucketNotificationLambdaFunctionArrayInput` via:
 //
-//          BucketNotificationLambdaFunctionArray{ BucketNotificationLambdaFunctionArgs{...} }
+//	BucketNotificationLambdaFunctionArray{ BucketNotificationLambdaFunctionArgs{...} }
 type BucketNotificationLambdaFunctionArrayInput interface {
 	pulumi.Input
 
@@ -5217,7 +5217,7 @@ type BucketNotificationQueue struct {
 // BucketNotificationQueueInput is an input type that accepts BucketNotificationQueueArgs and BucketNotificationQueueOutput values.
 // You can construct a concrete instance of `BucketNotificationQueueInput` via:
 //
-//          BucketNotificationQueueArgs{...}
+//	BucketNotificationQueueArgs{...}
 type BucketNotificationQueueInput interface {
 	pulumi.Input
 
@@ -5253,7 +5253,7 @@ func (i BucketNotificationQueueArgs) ToBucketNotificationQueueOutputWithContext(
 // BucketNotificationQueueArrayInput is an input type that accepts BucketNotificationQueueArray and BucketNotificationQueueArrayOutput values.
 // You can construct a concrete instance of `BucketNotificationQueueArrayInput` via:
 //
-//          BucketNotificationQueueArray{ BucketNotificationQueueArgs{...} }
+//	BucketNotificationQueueArray{ BucketNotificationQueueArgs{...} }
 type BucketNotificationQueueArrayInput interface {
 	pulumi.Input
 
@@ -5350,7 +5350,7 @@ type BucketNotificationTopic struct {
 // BucketNotificationTopicInput is an input type that accepts BucketNotificationTopicArgs and BucketNotificationTopicOutput values.
 // You can construct a concrete instance of `BucketNotificationTopicInput` via:
 //
-//          BucketNotificationTopicArgs{...}
+//	BucketNotificationTopicArgs{...}
 type BucketNotificationTopicInput interface {
 	pulumi.Input
 
@@ -5386,7 +5386,7 @@ func (i BucketNotificationTopicArgs) ToBucketNotificationTopicOutputWithContext(
 // BucketNotificationTopicArrayInput is an input type that accepts BucketNotificationTopicArray and BucketNotificationTopicArrayOutput values.
 // You can construct a concrete instance of `BucketNotificationTopicArrayInput` via:
 //
-//          BucketNotificationTopicArray{ BucketNotificationTopicArgs{...} }
+//	BucketNotificationTopicArray{ BucketNotificationTopicArgs{...} }
 type BucketNotificationTopicArrayInput interface {
 	pulumi.Input
 
@@ -5477,7 +5477,7 @@ type BucketObjectLockConfiguration struct {
 // BucketObjectLockConfigurationInput is an input type that accepts BucketObjectLockConfigurationArgs and BucketObjectLockConfigurationOutput values.
 // You can construct a concrete instance of `BucketObjectLockConfigurationInput` via:
 //
-//          BucketObjectLockConfigurationArgs{...}
+//	BucketObjectLockConfigurationArgs{...}
 type BucketObjectLockConfigurationInput interface {
 	pulumi.Input
 
@@ -5515,11 +5515,11 @@ func (i BucketObjectLockConfigurationArgs) ToBucketObjectLockConfigurationPtrOut
 // BucketObjectLockConfigurationPtrInput is an input type that accepts BucketObjectLockConfigurationArgs, BucketObjectLockConfigurationPtr and BucketObjectLockConfigurationPtrOutput values.
 // You can construct a concrete instance of `BucketObjectLockConfigurationPtrInput` via:
 //
-//          BucketObjectLockConfigurationArgs{...}
+//	        BucketObjectLockConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketObjectLockConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -5631,7 +5631,7 @@ type BucketObjectLockConfigurationRule struct {
 // BucketObjectLockConfigurationRuleInput is an input type that accepts BucketObjectLockConfigurationRuleArgs and BucketObjectLockConfigurationRuleOutput values.
 // You can construct a concrete instance of `BucketObjectLockConfigurationRuleInput` via:
 //
-//          BucketObjectLockConfigurationRuleArgs{...}
+//	BucketObjectLockConfigurationRuleArgs{...}
 type BucketObjectLockConfigurationRuleInput interface {
 	pulumi.Input
 
@@ -5667,11 +5667,11 @@ func (i BucketObjectLockConfigurationRuleArgs) ToBucketObjectLockConfigurationRu
 // BucketObjectLockConfigurationRulePtrInput is an input type that accepts BucketObjectLockConfigurationRuleArgs, BucketObjectLockConfigurationRulePtr and BucketObjectLockConfigurationRulePtrOutput values.
 // You can construct a concrete instance of `BucketObjectLockConfigurationRulePtrInput` via:
 //
-//          BucketObjectLockConfigurationRuleArgs{...}
+//	        BucketObjectLockConfigurationRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketObjectLockConfigurationRulePtrInput interface {
 	pulumi.Input
 
@@ -5774,7 +5774,7 @@ type BucketObjectLockConfigurationRuleDefaultRetention struct {
 // BucketObjectLockConfigurationRuleDefaultRetentionInput is an input type that accepts BucketObjectLockConfigurationRuleDefaultRetentionArgs and BucketObjectLockConfigurationRuleDefaultRetentionOutput values.
 // You can construct a concrete instance of `BucketObjectLockConfigurationRuleDefaultRetentionInput` via:
 //
-//          BucketObjectLockConfigurationRuleDefaultRetentionArgs{...}
+//	BucketObjectLockConfigurationRuleDefaultRetentionArgs{...}
 type BucketObjectLockConfigurationRuleDefaultRetentionInput interface {
 	pulumi.Input
 
@@ -5814,11 +5814,11 @@ func (i BucketObjectLockConfigurationRuleDefaultRetentionArgs) ToBucketObjectLoc
 // BucketObjectLockConfigurationRuleDefaultRetentionPtrInput is an input type that accepts BucketObjectLockConfigurationRuleDefaultRetentionArgs, BucketObjectLockConfigurationRuleDefaultRetentionPtr and BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput values.
 // You can construct a concrete instance of `BucketObjectLockConfigurationRuleDefaultRetentionPtrInput` via:
 //
-//          BucketObjectLockConfigurationRuleDefaultRetentionArgs{...}
+//	        BucketObjectLockConfigurationRuleDefaultRetentionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketObjectLockConfigurationRuleDefaultRetentionPtrInput interface {
 	pulumi.Input
 
@@ -5945,7 +5945,7 @@ type BucketObjectLockConfigurationV2Rule struct {
 // BucketObjectLockConfigurationV2RuleInput is an input type that accepts BucketObjectLockConfigurationV2RuleArgs and BucketObjectLockConfigurationV2RuleOutput values.
 // You can construct a concrete instance of `BucketObjectLockConfigurationV2RuleInput` via:
 //
-//          BucketObjectLockConfigurationV2RuleArgs{...}
+//	BucketObjectLockConfigurationV2RuleArgs{...}
 type BucketObjectLockConfigurationV2RuleInput interface {
 	pulumi.Input
 
@@ -5981,11 +5981,11 @@ func (i BucketObjectLockConfigurationV2RuleArgs) ToBucketObjectLockConfiguration
 // BucketObjectLockConfigurationV2RulePtrInput is an input type that accepts BucketObjectLockConfigurationV2RuleArgs, BucketObjectLockConfigurationV2RulePtr and BucketObjectLockConfigurationV2RulePtrOutput values.
 // You can construct a concrete instance of `BucketObjectLockConfigurationV2RulePtrInput` via:
 //
-//          BucketObjectLockConfigurationV2RuleArgs{...}
+//	        BucketObjectLockConfigurationV2RuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketObjectLockConfigurationV2RulePtrInput interface {
 	pulumi.Input
 
@@ -6088,7 +6088,7 @@ type BucketObjectLockConfigurationV2RuleDefaultRetention struct {
 // BucketObjectLockConfigurationV2RuleDefaultRetentionInput is an input type that accepts BucketObjectLockConfigurationV2RuleDefaultRetentionArgs and BucketObjectLockConfigurationV2RuleDefaultRetentionOutput values.
 // You can construct a concrete instance of `BucketObjectLockConfigurationV2RuleDefaultRetentionInput` via:
 //
-//          BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{...}
+//	BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{...}
 type BucketObjectLockConfigurationV2RuleDefaultRetentionInput interface {
 	pulumi.Input
 
@@ -6128,11 +6128,11 @@ func (i BucketObjectLockConfigurationV2RuleDefaultRetentionArgs) ToBucketObjectL
 // BucketObjectLockConfigurationV2RuleDefaultRetentionPtrInput is an input type that accepts BucketObjectLockConfigurationV2RuleDefaultRetentionArgs, BucketObjectLockConfigurationV2RuleDefaultRetentionPtr and BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput values.
 // You can construct a concrete instance of `BucketObjectLockConfigurationV2RuleDefaultRetentionPtrInput` via:
 //
-//          BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{...}
+//	        BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketObjectLockConfigurationV2RuleDefaultRetentionPtrInput interface {
 	pulumi.Input
 
@@ -6259,7 +6259,7 @@ type BucketOwnershipControlsRule struct {
 // BucketOwnershipControlsRuleInput is an input type that accepts BucketOwnershipControlsRuleArgs and BucketOwnershipControlsRuleOutput values.
 // You can construct a concrete instance of `BucketOwnershipControlsRuleInput` via:
 //
-//          BucketOwnershipControlsRuleArgs{...}
+//	BucketOwnershipControlsRuleArgs{...}
 type BucketOwnershipControlsRuleInput interface {
 	pulumi.Input
 
@@ -6295,11 +6295,11 @@ func (i BucketOwnershipControlsRuleArgs) ToBucketOwnershipControlsRulePtrOutputW
 // BucketOwnershipControlsRulePtrInput is an input type that accepts BucketOwnershipControlsRuleArgs, BucketOwnershipControlsRulePtr and BucketOwnershipControlsRulePtrOutput values.
 // You can construct a concrete instance of `BucketOwnershipControlsRulePtrInput` via:
 //
-//          BucketOwnershipControlsRuleArgs{...}
+//	        BucketOwnershipControlsRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketOwnershipControlsRulePtrInput interface {
 	pulumi.Input
 
@@ -6414,7 +6414,7 @@ type BucketReplicationConfigRule struct {
 // BucketReplicationConfigRuleInput is an input type that accepts BucketReplicationConfigRuleArgs and BucketReplicationConfigRuleOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleInput` via:
 //
-//          BucketReplicationConfigRuleArgs{...}
+//	BucketReplicationConfigRuleArgs{...}
 type BucketReplicationConfigRuleInput interface {
 	pulumi.Input
 
@@ -6460,7 +6460,7 @@ func (i BucketReplicationConfigRuleArgs) ToBucketReplicationConfigRuleOutputWith
 // BucketReplicationConfigRuleArrayInput is an input type that accepts BucketReplicationConfigRuleArray and BucketReplicationConfigRuleArrayOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleArrayInput` via:
 //
-//          BucketReplicationConfigRuleArray{ BucketReplicationConfigRuleArgs{...} }
+//	BucketReplicationConfigRuleArray{ BucketReplicationConfigRuleArgs{...} }
 type BucketReplicationConfigRuleArrayInput interface {
 	pulumi.Input
 
@@ -6577,7 +6577,7 @@ type BucketReplicationConfigRuleDeleteMarkerReplication struct {
 // BucketReplicationConfigRuleDeleteMarkerReplicationInput is an input type that accepts BucketReplicationConfigRuleDeleteMarkerReplicationArgs and BucketReplicationConfigRuleDeleteMarkerReplicationOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleDeleteMarkerReplicationInput` via:
 //
-//          BucketReplicationConfigRuleDeleteMarkerReplicationArgs{...}
+//	BucketReplicationConfigRuleDeleteMarkerReplicationArgs{...}
 type BucketReplicationConfigRuleDeleteMarkerReplicationInput interface {
 	pulumi.Input
 
@@ -6613,11 +6613,11 @@ func (i BucketReplicationConfigRuleDeleteMarkerReplicationArgs) ToBucketReplicat
 // BucketReplicationConfigRuleDeleteMarkerReplicationPtrInput is an input type that accepts BucketReplicationConfigRuleDeleteMarkerReplicationArgs, BucketReplicationConfigRuleDeleteMarkerReplicationPtr and BucketReplicationConfigRuleDeleteMarkerReplicationPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleDeleteMarkerReplicationPtrInput` via:
 //
-//          BucketReplicationConfigRuleDeleteMarkerReplicationArgs{...}
+//	        BucketReplicationConfigRuleDeleteMarkerReplicationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigRuleDeleteMarkerReplicationPtrInput interface {
 	pulumi.Input
 
@@ -6726,7 +6726,7 @@ type BucketReplicationConfigRuleDestination struct {
 // BucketReplicationConfigRuleDestinationInput is an input type that accepts BucketReplicationConfigRuleDestinationArgs and BucketReplicationConfigRuleDestinationOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleDestinationInput` via:
 //
-//          BucketReplicationConfigRuleDestinationArgs{...}
+//	BucketReplicationConfigRuleDestinationArgs{...}
 type BucketReplicationConfigRuleDestinationInput interface {
 	pulumi.Input
 
@@ -6828,7 +6828,7 @@ type BucketReplicationConfigRuleDestinationAccessControlTranslation struct {
 // BucketReplicationConfigRuleDestinationAccessControlTranslationInput is an input type that accepts BucketReplicationConfigRuleDestinationAccessControlTranslationArgs and BucketReplicationConfigRuleDestinationAccessControlTranslationOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleDestinationAccessControlTranslationInput` via:
 //
-//          BucketReplicationConfigRuleDestinationAccessControlTranslationArgs{...}
+//	BucketReplicationConfigRuleDestinationAccessControlTranslationArgs{...}
 type BucketReplicationConfigRuleDestinationAccessControlTranslationInput interface {
 	pulumi.Input
 
@@ -6864,11 +6864,11 @@ func (i BucketReplicationConfigRuleDestinationAccessControlTranslationArgs) ToBu
 // BucketReplicationConfigRuleDestinationAccessControlTranslationPtrInput is an input type that accepts BucketReplicationConfigRuleDestinationAccessControlTranslationArgs, BucketReplicationConfigRuleDestinationAccessControlTranslationPtr and BucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleDestinationAccessControlTranslationPtrInput` via:
 //
-//          BucketReplicationConfigRuleDestinationAccessControlTranslationArgs{...}
+//	        BucketReplicationConfigRuleDestinationAccessControlTranslationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigRuleDestinationAccessControlTranslationPtrInput interface {
 	pulumi.Input
 
@@ -6965,7 +6965,7 @@ type BucketReplicationConfigRuleDestinationEncryptionConfiguration struct {
 // BucketReplicationConfigRuleDestinationEncryptionConfigurationInput is an input type that accepts BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs and BucketReplicationConfigRuleDestinationEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleDestinationEncryptionConfigurationInput` via:
 //
-//          BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs{...}
+//	BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs{...}
 type BucketReplicationConfigRuleDestinationEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -7001,11 +7001,11 @@ func (i BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs) ToBuc
 // BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrInput is an input type that accepts BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs, BucketReplicationConfigRuleDestinationEncryptionConfigurationPtr and BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrInput` via:
 //
-//          BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs{...}
+//	        BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -7104,7 +7104,7 @@ type BucketReplicationConfigRuleDestinationMetrics struct {
 // BucketReplicationConfigRuleDestinationMetricsInput is an input type that accepts BucketReplicationConfigRuleDestinationMetricsArgs and BucketReplicationConfigRuleDestinationMetricsOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleDestinationMetricsInput` via:
 //
-//          BucketReplicationConfigRuleDestinationMetricsArgs{...}
+//	BucketReplicationConfigRuleDestinationMetricsArgs{...}
 type BucketReplicationConfigRuleDestinationMetricsInput interface {
 	pulumi.Input
 
@@ -7142,11 +7142,11 @@ func (i BucketReplicationConfigRuleDestinationMetricsArgs) ToBucketReplicationCo
 // BucketReplicationConfigRuleDestinationMetricsPtrInput is an input type that accepts BucketReplicationConfigRuleDestinationMetricsArgs, BucketReplicationConfigRuleDestinationMetricsPtr and BucketReplicationConfigRuleDestinationMetricsPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleDestinationMetricsPtrInput` via:
 //
-//          BucketReplicationConfigRuleDestinationMetricsArgs{...}
+//	        BucketReplicationConfigRuleDestinationMetricsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigRuleDestinationMetricsPtrInput interface {
 	pulumi.Input
 
@@ -7260,7 +7260,7 @@ type BucketReplicationConfigRuleDestinationMetricsEventThreshold struct {
 // BucketReplicationConfigRuleDestinationMetricsEventThresholdInput is an input type that accepts BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs and BucketReplicationConfigRuleDestinationMetricsEventThresholdOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleDestinationMetricsEventThresholdInput` via:
 //
-//          BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs{...}
+//	BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs{...}
 type BucketReplicationConfigRuleDestinationMetricsEventThresholdInput interface {
 	pulumi.Input
 
@@ -7296,11 +7296,11 @@ func (i BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs) ToBucke
 // BucketReplicationConfigRuleDestinationMetricsEventThresholdPtrInput is an input type that accepts BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs, BucketReplicationConfigRuleDestinationMetricsEventThresholdPtr and BucketReplicationConfigRuleDestinationMetricsEventThresholdPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleDestinationMetricsEventThresholdPtrInput` via:
 //
-//          BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs{...}
+//	        BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigRuleDestinationMetricsEventThresholdPtrInput interface {
 	pulumi.Input
 
@@ -7399,7 +7399,7 @@ type BucketReplicationConfigRuleDestinationReplicationTime struct {
 // BucketReplicationConfigRuleDestinationReplicationTimeInput is an input type that accepts BucketReplicationConfigRuleDestinationReplicationTimeArgs and BucketReplicationConfigRuleDestinationReplicationTimeOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleDestinationReplicationTimeInput` via:
 //
-//          BucketReplicationConfigRuleDestinationReplicationTimeArgs{...}
+//	BucketReplicationConfigRuleDestinationReplicationTimeArgs{...}
 type BucketReplicationConfigRuleDestinationReplicationTimeInput interface {
 	pulumi.Input
 
@@ -7437,11 +7437,11 @@ func (i BucketReplicationConfigRuleDestinationReplicationTimeArgs) ToBucketRepli
 // BucketReplicationConfigRuleDestinationReplicationTimePtrInput is an input type that accepts BucketReplicationConfigRuleDestinationReplicationTimeArgs, BucketReplicationConfigRuleDestinationReplicationTimePtr and BucketReplicationConfigRuleDestinationReplicationTimePtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleDestinationReplicationTimePtrInput` via:
 //
-//          BucketReplicationConfigRuleDestinationReplicationTimeArgs{...}
+//	        BucketReplicationConfigRuleDestinationReplicationTimeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigRuleDestinationReplicationTimePtrInput interface {
 	pulumi.Input
 
@@ -7555,7 +7555,7 @@ type BucketReplicationConfigRuleDestinationReplicationTimeTime struct {
 // BucketReplicationConfigRuleDestinationReplicationTimeTimeInput is an input type that accepts BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs and BucketReplicationConfigRuleDestinationReplicationTimeTimeOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleDestinationReplicationTimeTimeInput` via:
 //
-//          BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs{...}
+//	BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs{...}
 type BucketReplicationConfigRuleDestinationReplicationTimeTimeInput interface {
 	pulumi.Input
 
@@ -7591,11 +7591,11 @@ func (i BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs) ToBucketR
 // BucketReplicationConfigRuleDestinationReplicationTimeTimePtrInput is an input type that accepts BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs, BucketReplicationConfigRuleDestinationReplicationTimeTimePtr and BucketReplicationConfigRuleDestinationReplicationTimeTimePtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleDestinationReplicationTimeTimePtrInput` via:
 //
-//          BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs{...}
+//	        BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigRuleDestinationReplicationTimeTimePtrInput interface {
 	pulumi.Input
 
@@ -7692,7 +7692,7 @@ type BucketReplicationConfigRuleExistingObjectReplication struct {
 // BucketReplicationConfigRuleExistingObjectReplicationInput is an input type that accepts BucketReplicationConfigRuleExistingObjectReplicationArgs and BucketReplicationConfigRuleExistingObjectReplicationOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleExistingObjectReplicationInput` via:
 //
-//          BucketReplicationConfigRuleExistingObjectReplicationArgs{...}
+//	BucketReplicationConfigRuleExistingObjectReplicationArgs{...}
 type BucketReplicationConfigRuleExistingObjectReplicationInput interface {
 	pulumi.Input
 
@@ -7728,11 +7728,11 @@ func (i BucketReplicationConfigRuleExistingObjectReplicationArgs) ToBucketReplic
 // BucketReplicationConfigRuleExistingObjectReplicationPtrInput is an input type that accepts BucketReplicationConfigRuleExistingObjectReplicationArgs, BucketReplicationConfigRuleExistingObjectReplicationPtr and BucketReplicationConfigRuleExistingObjectReplicationPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleExistingObjectReplicationPtrInput` via:
 //
-//          BucketReplicationConfigRuleExistingObjectReplicationArgs{...}
+//	        BucketReplicationConfigRuleExistingObjectReplicationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigRuleExistingObjectReplicationPtrInput interface {
 	pulumi.Input
 
@@ -7833,7 +7833,7 @@ type BucketReplicationConfigRuleFilter struct {
 // BucketReplicationConfigRuleFilterInput is an input type that accepts BucketReplicationConfigRuleFilterArgs and BucketReplicationConfigRuleFilterOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleFilterInput` via:
 //
-//          BucketReplicationConfigRuleFilterArgs{...}
+//	BucketReplicationConfigRuleFilterArgs{...}
 type BucketReplicationConfigRuleFilterInput interface {
 	pulumi.Input
 
@@ -7873,11 +7873,11 @@ func (i BucketReplicationConfigRuleFilterArgs) ToBucketReplicationConfigRuleFilt
 // BucketReplicationConfigRuleFilterPtrInput is an input type that accepts BucketReplicationConfigRuleFilterArgs, BucketReplicationConfigRuleFilterPtr and BucketReplicationConfigRuleFilterPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleFilterPtrInput` via:
 //
-//          BucketReplicationConfigRuleFilterArgs{...}
+//	        BucketReplicationConfigRuleFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigRuleFilterPtrInput interface {
 	pulumi.Input
 
@@ -8006,7 +8006,7 @@ type BucketReplicationConfigRuleFilterAnd struct {
 // BucketReplicationConfigRuleFilterAndInput is an input type that accepts BucketReplicationConfigRuleFilterAndArgs and BucketReplicationConfigRuleFilterAndOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleFilterAndInput` via:
 //
-//          BucketReplicationConfigRuleFilterAndArgs{...}
+//	BucketReplicationConfigRuleFilterAndArgs{...}
 type BucketReplicationConfigRuleFilterAndInput interface {
 	pulumi.Input
 
@@ -8044,11 +8044,11 @@ func (i BucketReplicationConfigRuleFilterAndArgs) ToBucketReplicationConfigRuleF
 // BucketReplicationConfigRuleFilterAndPtrInput is an input type that accepts BucketReplicationConfigRuleFilterAndArgs, BucketReplicationConfigRuleFilterAndPtr and BucketReplicationConfigRuleFilterAndPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleFilterAndPtrInput` via:
 //
-//          BucketReplicationConfigRuleFilterAndArgs{...}
+//	        BucketReplicationConfigRuleFilterAndArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigRuleFilterAndPtrInput interface {
 	pulumi.Input
 
@@ -8162,7 +8162,7 @@ type BucketReplicationConfigRuleFilterTag struct {
 // BucketReplicationConfigRuleFilterTagInput is an input type that accepts BucketReplicationConfigRuleFilterTagArgs and BucketReplicationConfigRuleFilterTagOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleFilterTagInput` via:
 //
-//          BucketReplicationConfigRuleFilterTagArgs{...}
+//	BucketReplicationConfigRuleFilterTagArgs{...}
 type BucketReplicationConfigRuleFilterTagInput interface {
 	pulumi.Input
 
@@ -8200,11 +8200,11 @@ func (i BucketReplicationConfigRuleFilterTagArgs) ToBucketReplicationConfigRuleF
 // BucketReplicationConfigRuleFilterTagPtrInput is an input type that accepts BucketReplicationConfigRuleFilterTagArgs, BucketReplicationConfigRuleFilterTagPtr and BucketReplicationConfigRuleFilterTagPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleFilterTagPtrInput` via:
 //
-//          BucketReplicationConfigRuleFilterTagArgs{...}
+//	        BucketReplicationConfigRuleFilterTagArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigRuleFilterTagPtrInput interface {
 	pulumi.Input
 
@@ -8318,7 +8318,7 @@ type BucketReplicationConfigRuleSourceSelectionCriteria struct {
 // BucketReplicationConfigRuleSourceSelectionCriteriaInput is an input type that accepts BucketReplicationConfigRuleSourceSelectionCriteriaArgs and BucketReplicationConfigRuleSourceSelectionCriteriaOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleSourceSelectionCriteriaInput` via:
 //
-//          BucketReplicationConfigRuleSourceSelectionCriteriaArgs{...}
+//	BucketReplicationConfigRuleSourceSelectionCriteriaArgs{...}
 type BucketReplicationConfigRuleSourceSelectionCriteriaInput interface {
 	pulumi.Input
 
@@ -8356,11 +8356,11 @@ func (i BucketReplicationConfigRuleSourceSelectionCriteriaArgs) ToBucketReplicat
 // BucketReplicationConfigRuleSourceSelectionCriteriaPtrInput is an input type that accepts BucketReplicationConfigRuleSourceSelectionCriteriaArgs, BucketReplicationConfigRuleSourceSelectionCriteriaPtr and BucketReplicationConfigRuleSourceSelectionCriteriaPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleSourceSelectionCriteriaPtrInput` via:
 //
-//          BucketReplicationConfigRuleSourceSelectionCriteriaArgs{...}
+//	        BucketReplicationConfigRuleSourceSelectionCriteriaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigRuleSourceSelectionCriteriaPtrInput interface {
 	pulumi.Input
 
@@ -8476,7 +8476,7 @@ type BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications stru
 // BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsInput is an input type that accepts BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs and BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsInput` via:
 //
-//          BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs{...}
+//	BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs{...}
 type BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsInput interface {
 	pulumi.Input
 
@@ -8512,11 +8512,11 @@ func (i BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsAr
 // BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtrInput is an input type that accepts BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs, BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtr and BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtrInput` via:
 //
-//          BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs{...}
+//	        BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtrInput interface {
 	pulumi.Input
 
@@ -8613,7 +8613,7 @@ type BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects st
 // BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsInput is an input type that accepts BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs and BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsInput` via:
 //
-//          BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs{...}
+//	BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs{...}
 type BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsInput interface {
 	pulumi.Input
 
@@ -8649,11 +8649,11 @@ func (i BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects
 // BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrInput is an input type that accepts BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs, BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtr and BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrInput` via:
 //
-//          BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs{...}
+//	        BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrInput interface {
 	pulumi.Input
 
@@ -8754,7 +8754,7 @@ type BucketReplicationConfiguration struct {
 // BucketReplicationConfigurationInput is an input type that accepts BucketReplicationConfigurationArgs and BucketReplicationConfigurationOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationInput` via:
 //
-//          BucketReplicationConfigurationArgs{...}
+//	BucketReplicationConfigurationArgs{...}
 type BucketReplicationConfigurationInput interface {
 	pulumi.Input
 
@@ -8792,11 +8792,11 @@ func (i BucketReplicationConfigurationArgs) ToBucketReplicationConfigurationPtrO
 // BucketReplicationConfigurationPtrInput is an input type that accepts BucketReplicationConfigurationArgs, BucketReplicationConfigurationPtr and BucketReplicationConfigurationPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationPtrInput` via:
 //
-//          BucketReplicationConfigurationArgs{...}
+//	        BucketReplicationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -8922,7 +8922,7 @@ type BucketReplicationConfigurationRule struct {
 // BucketReplicationConfigurationRuleInput is an input type that accepts BucketReplicationConfigurationRuleArgs and BucketReplicationConfigurationRuleOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationRuleInput` via:
 //
-//          BucketReplicationConfigurationRuleArgs{...}
+//	BucketReplicationConfigurationRuleArgs{...}
 type BucketReplicationConfigurationRuleInput interface {
 	pulumi.Input
 
@@ -8964,7 +8964,7 @@ func (i BucketReplicationConfigurationRuleArgs) ToBucketReplicationConfiguration
 // BucketReplicationConfigurationRuleArrayInput is an input type that accepts BucketReplicationConfigurationRuleArray and BucketReplicationConfigurationRuleArrayOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationRuleArrayInput` via:
 //
-//          BucketReplicationConfigurationRuleArray{ BucketReplicationConfigurationRuleArgs{...} }
+//	BucketReplicationConfigurationRuleArray{ BucketReplicationConfigurationRuleArgs{...} }
 type BucketReplicationConfigurationRuleArrayInput interface {
 	pulumi.Input
 
@@ -9085,7 +9085,7 @@ type BucketReplicationConfigurationRuleDestination struct {
 // BucketReplicationConfigurationRuleDestinationInput is an input type that accepts BucketReplicationConfigurationRuleDestinationArgs and BucketReplicationConfigurationRuleDestinationOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationRuleDestinationInput` via:
 //
-//          BucketReplicationConfigurationRuleDestinationArgs{...}
+//	BucketReplicationConfigurationRuleDestinationArgs{...}
 type BucketReplicationConfigurationRuleDestinationInput interface {
 	pulumi.Input
 
@@ -9187,7 +9187,7 @@ type BucketReplicationConfigurationRuleDestinationAccessControlTranslation struc
 // BucketReplicationConfigurationRuleDestinationAccessControlTranslationInput is an input type that accepts BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs and BucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationRuleDestinationAccessControlTranslationInput` via:
 //
-//          BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs{...}
+//	BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs{...}
 type BucketReplicationConfigurationRuleDestinationAccessControlTranslationInput interface {
 	pulumi.Input
 
@@ -9223,11 +9223,11 @@ func (i BucketReplicationConfigurationRuleDestinationAccessControlTranslationArg
 // BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrInput is an input type that accepts BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs, BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtr and BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrInput` via:
 //
-//          BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs{...}
+//	        BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrInput interface {
 	pulumi.Input
 
@@ -9326,7 +9326,7 @@ type BucketReplicationConfigurationRuleDestinationMetrics struct {
 // BucketReplicationConfigurationRuleDestinationMetricsInput is an input type that accepts BucketReplicationConfigurationRuleDestinationMetricsArgs and BucketReplicationConfigurationRuleDestinationMetricsOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationRuleDestinationMetricsInput` via:
 //
-//          BucketReplicationConfigurationRuleDestinationMetricsArgs{...}
+//	BucketReplicationConfigurationRuleDestinationMetricsArgs{...}
 type BucketReplicationConfigurationRuleDestinationMetricsInput interface {
 	pulumi.Input
 
@@ -9364,11 +9364,11 @@ func (i BucketReplicationConfigurationRuleDestinationMetricsArgs) ToBucketReplic
 // BucketReplicationConfigurationRuleDestinationMetricsPtrInput is an input type that accepts BucketReplicationConfigurationRuleDestinationMetricsArgs, BucketReplicationConfigurationRuleDestinationMetricsPtr and BucketReplicationConfigurationRuleDestinationMetricsPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationRuleDestinationMetricsPtrInput` via:
 //
-//          BucketReplicationConfigurationRuleDestinationMetricsArgs{...}
+//	        BucketReplicationConfigurationRuleDestinationMetricsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigurationRuleDestinationMetricsPtrInput interface {
 	pulumi.Input
 
@@ -9482,7 +9482,7 @@ type BucketReplicationConfigurationRuleDestinationReplicationTime struct {
 // BucketReplicationConfigurationRuleDestinationReplicationTimeInput is an input type that accepts BucketReplicationConfigurationRuleDestinationReplicationTimeArgs and BucketReplicationConfigurationRuleDestinationReplicationTimeOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationRuleDestinationReplicationTimeInput` via:
 //
-//          BucketReplicationConfigurationRuleDestinationReplicationTimeArgs{...}
+//	BucketReplicationConfigurationRuleDestinationReplicationTimeArgs{...}
 type BucketReplicationConfigurationRuleDestinationReplicationTimeInput interface {
 	pulumi.Input
 
@@ -9520,11 +9520,11 @@ func (i BucketReplicationConfigurationRuleDestinationReplicationTimeArgs) ToBuck
 // BucketReplicationConfigurationRuleDestinationReplicationTimePtrInput is an input type that accepts BucketReplicationConfigurationRuleDestinationReplicationTimeArgs, BucketReplicationConfigurationRuleDestinationReplicationTimePtr and BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationRuleDestinationReplicationTimePtrInput` via:
 //
-//          BucketReplicationConfigurationRuleDestinationReplicationTimeArgs{...}
+//	        BucketReplicationConfigurationRuleDestinationReplicationTimeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigurationRuleDestinationReplicationTimePtrInput interface {
 	pulumi.Input
 
@@ -9639,7 +9639,7 @@ type BucketReplicationConfigurationRuleFilter struct {
 // BucketReplicationConfigurationRuleFilterInput is an input type that accepts BucketReplicationConfigurationRuleFilterArgs and BucketReplicationConfigurationRuleFilterOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationRuleFilterInput` via:
 //
-//          BucketReplicationConfigurationRuleFilterArgs{...}
+//	BucketReplicationConfigurationRuleFilterArgs{...}
 type BucketReplicationConfigurationRuleFilterInput interface {
 	pulumi.Input
 
@@ -9678,11 +9678,11 @@ func (i BucketReplicationConfigurationRuleFilterArgs) ToBucketReplicationConfigu
 // BucketReplicationConfigurationRuleFilterPtrInput is an input type that accepts BucketReplicationConfigurationRuleFilterArgs, BucketReplicationConfigurationRuleFilterPtr and BucketReplicationConfigurationRuleFilterPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationRuleFilterPtrInput` via:
 //
-//          BucketReplicationConfigurationRuleFilterArgs{...}
+//	        BucketReplicationConfigurationRuleFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigurationRuleFilterPtrInput interface {
 	pulumi.Input
 
@@ -9797,7 +9797,7 @@ type BucketReplicationConfigurationRuleSourceSelectionCriteria struct {
 // BucketReplicationConfigurationRuleSourceSelectionCriteriaInput is an input type that accepts BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs and BucketReplicationConfigurationRuleSourceSelectionCriteriaOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationRuleSourceSelectionCriteriaInput` via:
 //
-//          BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs{...}
+//	BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs{...}
 type BucketReplicationConfigurationRuleSourceSelectionCriteriaInput interface {
 	pulumi.Input
 
@@ -9834,11 +9834,11 @@ func (i BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs) ToBucketR
 // BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrInput is an input type that accepts BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs, BucketReplicationConfigurationRuleSourceSelectionCriteriaPtr and BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrInput` via:
 //
-//          BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs{...}
+//	        BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrInput interface {
 	pulumi.Input
 
@@ -9939,7 +9939,7 @@ type BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObj
 // BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsInput is an input type that accepts BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs and BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsInput` via:
 //
-//          BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs{...}
+//	BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs{...}
 type BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsInput interface {
 	pulumi.Input
 
@@ -9975,11 +9975,11 @@ func (i BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypted
 // BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrInput is an input type that accepts BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs, BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtr and BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrInput` via:
 //
-//          BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs{...}
+//	        BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrInput interface {
 	pulumi.Input
 
@@ -10078,7 +10078,7 @@ type BucketServerSideEncryptionConfiguration struct {
 // BucketServerSideEncryptionConfigurationInput is an input type that accepts BucketServerSideEncryptionConfigurationArgs and BucketServerSideEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `BucketServerSideEncryptionConfigurationInput` via:
 //
-//          BucketServerSideEncryptionConfigurationArgs{...}
+//	BucketServerSideEncryptionConfigurationArgs{...}
 type BucketServerSideEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -10114,11 +10114,11 @@ func (i BucketServerSideEncryptionConfigurationArgs) ToBucketServerSideEncryptio
 // BucketServerSideEncryptionConfigurationPtrInput is an input type that accepts BucketServerSideEncryptionConfigurationArgs, BucketServerSideEncryptionConfigurationPtr and BucketServerSideEncryptionConfigurationPtrOutput values.
 // You can construct a concrete instance of `BucketServerSideEncryptionConfigurationPtrInput` via:
 //
-//          BucketServerSideEncryptionConfigurationArgs{...}
+//	        BucketServerSideEncryptionConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketServerSideEncryptionConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -10219,7 +10219,7 @@ type BucketServerSideEncryptionConfigurationRule struct {
 // BucketServerSideEncryptionConfigurationRuleInput is an input type that accepts BucketServerSideEncryptionConfigurationRuleArgs and BucketServerSideEncryptionConfigurationRuleOutput values.
 // You can construct a concrete instance of `BucketServerSideEncryptionConfigurationRuleInput` via:
 //
-//          BucketServerSideEncryptionConfigurationRuleArgs{...}
+//	BucketServerSideEncryptionConfigurationRuleArgs{...}
 type BucketServerSideEncryptionConfigurationRuleInput interface {
 	pulumi.Input
 
@@ -10257,11 +10257,11 @@ func (i BucketServerSideEncryptionConfigurationRuleArgs) ToBucketServerSideEncry
 // BucketServerSideEncryptionConfigurationRulePtrInput is an input type that accepts BucketServerSideEncryptionConfigurationRuleArgs, BucketServerSideEncryptionConfigurationRulePtr and BucketServerSideEncryptionConfigurationRulePtrOutput values.
 // You can construct a concrete instance of `BucketServerSideEncryptionConfigurationRulePtrInput` via:
 //
-//          BucketServerSideEncryptionConfigurationRuleArgs{...}
+//	        BucketServerSideEncryptionConfigurationRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketServerSideEncryptionConfigurationRulePtrInput interface {
 	pulumi.Input
 
@@ -10377,7 +10377,7 @@ type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefau
 // BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultInput is an input type that accepts BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs and BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput values.
 // You can construct a concrete instance of `BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultInput` via:
 //
-//          BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{...}
+//	BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{...}
 type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultInput interface {
 	pulumi.Input
 
@@ -10415,11 +10415,11 @@ func (i BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
 // BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrInput is an input type that accepts BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs, BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtr and BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput values.
 // You can construct a concrete instance of `BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrInput` via:
 //
-//          BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{...}
+//	        BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrInput interface {
 	pulumi.Input
 
@@ -10537,7 +10537,7 @@ type BucketServerSideEncryptionConfigurationV2Rule struct {
 // BucketServerSideEncryptionConfigurationV2RuleInput is an input type that accepts BucketServerSideEncryptionConfigurationV2RuleArgs and BucketServerSideEncryptionConfigurationV2RuleOutput values.
 // You can construct a concrete instance of `BucketServerSideEncryptionConfigurationV2RuleInput` via:
 //
-//          BucketServerSideEncryptionConfigurationV2RuleArgs{...}
+//	BucketServerSideEncryptionConfigurationV2RuleArgs{...}
 type BucketServerSideEncryptionConfigurationV2RuleInput interface {
 	pulumi.Input
 
@@ -10567,7 +10567,7 @@ func (i BucketServerSideEncryptionConfigurationV2RuleArgs) ToBucketServerSideEnc
 // BucketServerSideEncryptionConfigurationV2RuleArrayInput is an input type that accepts BucketServerSideEncryptionConfigurationV2RuleArray and BucketServerSideEncryptionConfigurationV2RuleArrayOutput values.
 // You can construct a concrete instance of `BucketServerSideEncryptionConfigurationV2RuleArrayInput` via:
 //
-//          BucketServerSideEncryptionConfigurationV2RuleArray{ BucketServerSideEncryptionConfigurationV2RuleArgs{...} }
+//	BucketServerSideEncryptionConfigurationV2RuleArray{ BucketServerSideEncryptionConfigurationV2RuleArgs{...} }
 type BucketServerSideEncryptionConfigurationV2RuleArrayInput interface {
 	pulumi.Input
 
@@ -10645,7 +10645,7 @@ type BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDef
 // BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultInput is an input type that accepts BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs and BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput values.
 // You can construct a concrete instance of `BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultInput` via:
 //
-//          BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs{...}
+//	BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs{...}
 type BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultInput interface {
 	pulumi.Input
 
@@ -10683,11 +10683,11 @@ func (i BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionBy
 // BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrInput is an input type that accepts BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs, BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtr and BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput values.
 // You can construct a concrete instance of `BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrInput` via:
 //
-//          BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs{...}
+//	        BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrInput interface {
 	pulumi.Input
 
@@ -10811,7 +10811,7 @@ type BucketV2CorsRule struct {
 // BucketV2CorsRuleInput is an input type that accepts BucketV2CorsRuleArgs and BucketV2CorsRuleOutput values.
 // You can construct a concrete instance of `BucketV2CorsRuleInput` via:
 //
-//          BucketV2CorsRuleArgs{...}
+//	BucketV2CorsRuleArgs{...}
 type BucketV2CorsRuleInput interface {
 	pulumi.Input
 
@@ -10847,7 +10847,7 @@ func (i BucketV2CorsRuleArgs) ToBucketV2CorsRuleOutputWithContext(ctx context.Co
 // BucketV2CorsRuleArrayInput is an input type that accepts BucketV2CorsRuleArray and BucketV2CorsRuleArrayOutput values.
 // You can construct a concrete instance of `BucketV2CorsRuleArrayInput` via:
 //
-//          BucketV2CorsRuleArray{ BucketV2CorsRuleArgs{...} }
+//	BucketV2CorsRuleArray{ BucketV2CorsRuleArgs{...} }
 type BucketV2CorsRuleArrayInput interface {
 	pulumi.Input
 
@@ -10942,7 +10942,7 @@ type BucketV2Grant struct {
 // BucketV2GrantInput is an input type that accepts BucketV2GrantArgs and BucketV2GrantOutput values.
 // You can construct a concrete instance of `BucketV2GrantInput` via:
 //
-//          BucketV2GrantArgs{...}
+//	BucketV2GrantArgs{...}
 type BucketV2GrantInput interface {
 	pulumi.Input
 
@@ -10976,7 +10976,7 @@ func (i BucketV2GrantArgs) ToBucketV2GrantOutputWithContext(ctx context.Context)
 // BucketV2GrantArrayInput is an input type that accepts BucketV2GrantArray and BucketV2GrantArrayOutput values.
 // You can construct a concrete instance of `BucketV2GrantArrayInput` via:
 //
-//          BucketV2GrantArray{ BucketV2GrantArgs{...} }
+//	BucketV2GrantArray{ BucketV2GrantArgs{...} }
 type BucketV2GrantArrayInput interface {
 	pulumi.Input
 
@@ -11076,7 +11076,7 @@ type BucketV2LifecycleRule struct {
 // BucketV2LifecycleRuleInput is an input type that accepts BucketV2LifecycleRuleArgs and BucketV2LifecycleRuleOutput values.
 // You can construct a concrete instance of `BucketV2LifecycleRuleInput` via:
 //
-//          BucketV2LifecycleRuleArgs{...}
+//	BucketV2LifecycleRuleArgs{...}
 type BucketV2LifecycleRuleInput interface {
 	pulumi.Input
 
@@ -11120,7 +11120,7 @@ func (i BucketV2LifecycleRuleArgs) ToBucketV2LifecycleRuleOutputWithContext(ctx 
 // BucketV2LifecycleRuleArrayInput is an input type that accepts BucketV2LifecycleRuleArray and BucketV2LifecycleRuleArrayOutput values.
 // You can construct a concrete instance of `BucketV2LifecycleRuleArrayInput` via:
 //
-//          BucketV2LifecycleRuleArray{ BucketV2LifecycleRuleArgs{...} }
+//	BucketV2LifecycleRuleArray{ BucketV2LifecycleRuleArgs{...} }
 type BucketV2LifecycleRuleArrayInput interface {
 	pulumi.Input
 
@@ -11237,7 +11237,7 @@ type BucketV2LifecycleRuleExpiration struct {
 // BucketV2LifecycleRuleExpirationInput is an input type that accepts BucketV2LifecycleRuleExpirationArgs and BucketV2LifecycleRuleExpirationOutput values.
 // You can construct a concrete instance of `BucketV2LifecycleRuleExpirationInput` via:
 //
-//          BucketV2LifecycleRuleExpirationArgs{...}
+//	BucketV2LifecycleRuleExpirationArgs{...}
 type BucketV2LifecycleRuleExpirationInput interface {
 	pulumi.Input
 
@@ -11269,7 +11269,7 @@ func (i BucketV2LifecycleRuleExpirationArgs) ToBucketV2LifecycleRuleExpirationOu
 // BucketV2LifecycleRuleExpirationArrayInput is an input type that accepts BucketV2LifecycleRuleExpirationArray and BucketV2LifecycleRuleExpirationArrayOutput values.
 // You can construct a concrete instance of `BucketV2LifecycleRuleExpirationArrayInput` via:
 //
-//          BucketV2LifecycleRuleExpirationArray{ BucketV2LifecycleRuleExpirationArgs{...} }
+//	BucketV2LifecycleRuleExpirationArray{ BucketV2LifecycleRuleExpirationArgs{...} }
 type BucketV2LifecycleRuleExpirationArrayInput interface {
 	pulumi.Input
 
@@ -11348,7 +11348,7 @@ type BucketV2LifecycleRuleNoncurrentVersionExpiration struct {
 // BucketV2LifecycleRuleNoncurrentVersionExpirationInput is an input type that accepts BucketV2LifecycleRuleNoncurrentVersionExpirationArgs and BucketV2LifecycleRuleNoncurrentVersionExpirationOutput values.
 // You can construct a concrete instance of `BucketV2LifecycleRuleNoncurrentVersionExpirationInput` via:
 //
-//          BucketV2LifecycleRuleNoncurrentVersionExpirationArgs{...}
+//	BucketV2LifecycleRuleNoncurrentVersionExpirationArgs{...}
 type BucketV2LifecycleRuleNoncurrentVersionExpirationInput interface {
 	pulumi.Input
 
@@ -11376,7 +11376,7 @@ func (i BucketV2LifecycleRuleNoncurrentVersionExpirationArgs) ToBucketV2Lifecycl
 // BucketV2LifecycleRuleNoncurrentVersionExpirationArrayInput is an input type that accepts BucketV2LifecycleRuleNoncurrentVersionExpirationArray and BucketV2LifecycleRuleNoncurrentVersionExpirationArrayOutput values.
 // You can construct a concrete instance of `BucketV2LifecycleRuleNoncurrentVersionExpirationArrayInput` via:
 //
-//          BucketV2LifecycleRuleNoncurrentVersionExpirationArray{ BucketV2LifecycleRuleNoncurrentVersionExpirationArgs{...} }
+//	BucketV2LifecycleRuleNoncurrentVersionExpirationArray{ BucketV2LifecycleRuleNoncurrentVersionExpirationArgs{...} }
 type BucketV2LifecycleRuleNoncurrentVersionExpirationArrayInput interface {
 	pulumi.Input
 
@@ -11447,7 +11447,7 @@ type BucketV2LifecycleRuleNoncurrentVersionTransition struct {
 // BucketV2LifecycleRuleNoncurrentVersionTransitionInput is an input type that accepts BucketV2LifecycleRuleNoncurrentVersionTransitionArgs and BucketV2LifecycleRuleNoncurrentVersionTransitionOutput values.
 // You can construct a concrete instance of `BucketV2LifecycleRuleNoncurrentVersionTransitionInput` via:
 //
-//          BucketV2LifecycleRuleNoncurrentVersionTransitionArgs{...}
+//	BucketV2LifecycleRuleNoncurrentVersionTransitionArgs{...}
 type BucketV2LifecycleRuleNoncurrentVersionTransitionInput interface {
 	pulumi.Input
 
@@ -11477,7 +11477,7 @@ func (i BucketV2LifecycleRuleNoncurrentVersionTransitionArgs) ToBucketV2Lifecycl
 // BucketV2LifecycleRuleNoncurrentVersionTransitionArrayInput is an input type that accepts BucketV2LifecycleRuleNoncurrentVersionTransitionArray and BucketV2LifecycleRuleNoncurrentVersionTransitionArrayOutput values.
 // You can construct a concrete instance of `BucketV2LifecycleRuleNoncurrentVersionTransitionArrayInput` via:
 //
-//          BucketV2LifecycleRuleNoncurrentVersionTransitionArray{ BucketV2LifecycleRuleNoncurrentVersionTransitionArgs{...} }
+//	BucketV2LifecycleRuleNoncurrentVersionTransitionArray{ BucketV2LifecycleRuleNoncurrentVersionTransitionArgs{...} }
 type BucketV2LifecycleRuleNoncurrentVersionTransitionArrayInput interface {
 	pulumi.Input
 
@@ -11555,7 +11555,7 @@ type BucketV2LifecycleRuleTransition struct {
 // BucketV2LifecycleRuleTransitionInput is an input type that accepts BucketV2LifecycleRuleTransitionArgs and BucketV2LifecycleRuleTransitionOutput values.
 // You can construct a concrete instance of `BucketV2LifecycleRuleTransitionInput` via:
 //
-//          BucketV2LifecycleRuleTransitionArgs{...}
+//	BucketV2LifecycleRuleTransitionArgs{...}
 type BucketV2LifecycleRuleTransitionInput interface {
 	pulumi.Input
 
@@ -11587,7 +11587,7 @@ func (i BucketV2LifecycleRuleTransitionArgs) ToBucketV2LifecycleRuleTransitionOu
 // BucketV2LifecycleRuleTransitionArrayInput is an input type that accepts BucketV2LifecycleRuleTransitionArray and BucketV2LifecycleRuleTransitionArrayOutput values.
 // You can construct a concrete instance of `BucketV2LifecycleRuleTransitionArrayInput` via:
 //
-//          BucketV2LifecycleRuleTransitionArray{ BucketV2LifecycleRuleTransitionArgs{...} }
+//	BucketV2LifecycleRuleTransitionArray{ BucketV2LifecycleRuleTransitionArgs{...} }
 type BucketV2LifecycleRuleTransitionArrayInput interface {
 	pulumi.Input
 
@@ -11668,7 +11668,7 @@ type BucketV2Logging struct {
 // BucketV2LoggingInput is an input type that accepts BucketV2LoggingArgs and BucketV2LoggingOutput values.
 // You can construct a concrete instance of `BucketV2LoggingInput` via:
 //
-//          BucketV2LoggingArgs{...}
+//	BucketV2LoggingArgs{...}
 type BucketV2LoggingInput interface {
 	pulumi.Input
 
@@ -11698,7 +11698,7 @@ func (i BucketV2LoggingArgs) ToBucketV2LoggingOutputWithContext(ctx context.Cont
 // BucketV2LoggingArrayInput is an input type that accepts BucketV2LoggingArray and BucketV2LoggingArrayOutput values.
 // You can construct a concrete instance of `BucketV2LoggingArrayInput` via:
 //
-//          BucketV2LoggingArray{ BucketV2LoggingArgs{...} }
+//	BucketV2LoggingArray{ BucketV2LoggingArgs{...} }
 type BucketV2LoggingArrayInput interface {
 	pulumi.Input
 
@@ -11778,7 +11778,7 @@ type BucketV2ObjectLockConfiguration struct {
 // BucketV2ObjectLockConfigurationInput is an input type that accepts BucketV2ObjectLockConfigurationArgs and BucketV2ObjectLockConfigurationOutput values.
 // You can construct a concrete instance of `BucketV2ObjectLockConfigurationInput` via:
 //
-//          BucketV2ObjectLockConfigurationArgs{...}
+//	BucketV2ObjectLockConfigurationArgs{...}
 type BucketV2ObjectLockConfigurationInput interface {
 	pulumi.Input
 
@@ -11820,11 +11820,11 @@ func (i BucketV2ObjectLockConfigurationArgs) ToBucketV2ObjectLockConfigurationPt
 // BucketV2ObjectLockConfigurationPtrInput is an input type that accepts BucketV2ObjectLockConfigurationArgs, BucketV2ObjectLockConfigurationPtr and BucketV2ObjectLockConfigurationPtrOutput values.
 // You can construct a concrete instance of `BucketV2ObjectLockConfigurationPtrInput` via:
 //
-//          BucketV2ObjectLockConfigurationArgs{...}
+//	        BucketV2ObjectLockConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketV2ObjectLockConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -11944,7 +11944,7 @@ type BucketV2ObjectLockConfigurationRule struct {
 // BucketV2ObjectLockConfigurationRuleInput is an input type that accepts BucketV2ObjectLockConfigurationRuleArgs and BucketV2ObjectLockConfigurationRuleOutput values.
 // You can construct a concrete instance of `BucketV2ObjectLockConfigurationRuleInput` via:
 //
-//          BucketV2ObjectLockConfigurationRuleArgs{...}
+//	BucketV2ObjectLockConfigurationRuleArgs{...}
 type BucketV2ObjectLockConfigurationRuleInput interface {
 	pulumi.Input
 
@@ -11972,7 +11972,7 @@ func (i BucketV2ObjectLockConfigurationRuleArgs) ToBucketV2ObjectLockConfigurati
 // BucketV2ObjectLockConfigurationRuleArrayInput is an input type that accepts BucketV2ObjectLockConfigurationRuleArray and BucketV2ObjectLockConfigurationRuleArrayOutput values.
 // You can construct a concrete instance of `BucketV2ObjectLockConfigurationRuleArrayInput` via:
 //
-//          BucketV2ObjectLockConfigurationRuleArray{ BucketV2ObjectLockConfigurationRuleArgs{...} }
+//	BucketV2ObjectLockConfigurationRuleArray{ BucketV2ObjectLockConfigurationRuleArgs{...} }
 type BucketV2ObjectLockConfigurationRuleArrayInput interface {
 	pulumi.Input
 
@@ -12047,7 +12047,7 @@ type BucketV2ObjectLockConfigurationRuleDefaultRetention struct {
 // BucketV2ObjectLockConfigurationRuleDefaultRetentionInput is an input type that accepts BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs and BucketV2ObjectLockConfigurationRuleDefaultRetentionOutput values.
 // You can construct a concrete instance of `BucketV2ObjectLockConfigurationRuleDefaultRetentionInput` via:
 //
-//          BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs{...}
+//	BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs{...}
 type BucketV2ObjectLockConfigurationRuleDefaultRetentionInput interface {
 	pulumi.Input
 
@@ -12079,7 +12079,7 @@ func (i BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs) ToBucketV2Objec
 // BucketV2ObjectLockConfigurationRuleDefaultRetentionArrayInput is an input type that accepts BucketV2ObjectLockConfigurationRuleDefaultRetentionArray and BucketV2ObjectLockConfigurationRuleDefaultRetentionArrayOutput values.
 // You can construct a concrete instance of `BucketV2ObjectLockConfigurationRuleDefaultRetentionArrayInput` via:
 //
-//          BucketV2ObjectLockConfigurationRuleDefaultRetentionArray{ BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs{...} }
+//	BucketV2ObjectLockConfigurationRuleDefaultRetentionArray{ BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs{...} }
 type BucketV2ObjectLockConfigurationRuleDefaultRetentionArrayInput interface {
 	pulumi.Input
 
@@ -12160,7 +12160,7 @@ type BucketV2ReplicationConfiguration struct {
 // BucketV2ReplicationConfigurationInput is an input type that accepts BucketV2ReplicationConfigurationArgs and BucketV2ReplicationConfigurationOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationInput` via:
 //
-//          BucketV2ReplicationConfigurationArgs{...}
+//	BucketV2ReplicationConfigurationArgs{...}
 type BucketV2ReplicationConfigurationInput interface {
 	pulumi.Input
 
@@ -12190,7 +12190,7 @@ func (i BucketV2ReplicationConfigurationArgs) ToBucketV2ReplicationConfiguration
 // BucketV2ReplicationConfigurationArrayInput is an input type that accepts BucketV2ReplicationConfigurationArray and BucketV2ReplicationConfigurationArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationArrayInput` via:
 //
-//          BucketV2ReplicationConfigurationArray{ BucketV2ReplicationConfigurationArgs{...} }
+//	BucketV2ReplicationConfigurationArray{ BucketV2ReplicationConfigurationArgs{...} }
 type BucketV2ReplicationConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -12278,7 +12278,7 @@ type BucketV2ReplicationConfigurationRule struct {
 // BucketV2ReplicationConfigurationRuleInput is an input type that accepts BucketV2ReplicationConfigurationRuleArgs and BucketV2ReplicationConfigurationRuleOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleInput` via:
 //
-//          BucketV2ReplicationConfigurationRuleArgs{...}
+//	BucketV2ReplicationConfigurationRuleArgs{...}
 type BucketV2ReplicationConfigurationRuleInput interface {
 	pulumi.Input
 
@@ -12320,7 +12320,7 @@ func (i BucketV2ReplicationConfigurationRuleArgs) ToBucketV2ReplicationConfigura
 // BucketV2ReplicationConfigurationRuleArrayInput is an input type that accepts BucketV2ReplicationConfigurationRuleArray and BucketV2ReplicationConfigurationRuleArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleArrayInput` via:
 //
-//          BucketV2ReplicationConfigurationRuleArray{ BucketV2ReplicationConfigurationRuleArgs{...} }
+//	BucketV2ReplicationConfigurationRuleArray{ BucketV2ReplicationConfigurationRuleArgs{...} }
 type BucketV2ReplicationConfigurationRuleArrayInput interface {
 	pulumi.Input
 
@@ -12443,7 +12443,7 @@ type BucketV2ReplicationConfigurationRuleDestination struct {
 // BucketV2ReplicationConfigurationRuleDestinationInput is an input type that accepts BucketV2ReplicationConfigurationRuleDestinationArgs and BucketV2ReplicationConfigurationRuleDestinationOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleDestinationInput` via:
 //
-//          BucketV2ReplicationConfigurationRuleDestinationArgs{...}
+//	BucketV2ReplicationConfigurationRuleDestinationArgs{...}
 type BucketV2ReplicationConfigurationRuleDestinationInput interface {
 	pulumi.Input
 
@@ -12484,7 +12484,7 @@ func (i BucketV2ReplicationConfigurationRuleDestinationArgs) ToBucketV2Replicati
 // BucketV2ReplicationConfigurationRuleDestinationArrayInput is an input type that accepts BucketV2ReplicationConfigurationRuleDestinationArray and BucketV2ReplicationConfigurationRuleDestinationArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleDestinationArrayInput` via:
 //
-//          BucketV2ReplicationConfigurationRuleDestinationArray{ BucketV2ReplicationConfigurationRuleDestinationArgs{...} }
+//	BucketV2ReplicationConfigurationRuleDestinationArray{ BucketV2ReplicationConfigurationRuleDestinationArgs{...} }
 type BucketV2ReplicationConfigurationRuleDestinationArrayInput interface {
 	pulumi.Input
 
@@ -12589,7 +12589,7 @@ type BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation str
 // BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationInput is an input type that accepts BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs and BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationInput` via:
 //
-//          BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs{...}
+//	BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs{...}
 type BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationInput interface {
 	pulumi.Input
 
@@ -12616,7 +12616,7 @@ func (i BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationA
 // BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrayInput is an input type that accepts BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArray and BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrayInput` via:
 //
-//          BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArray{ BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs{...} }
+//	BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArray{ BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs{...} }
 type BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrayInput interface {
 	pulumi.Input
 
@@ -12686,7 +12686,7 @@ type BucketV2ReplicationConfigurationRuleDestinationMetric struct {
 // BucketV2ReplicationConfigurationRuleDestinationMetricInput is an input type that accepts BucketV2ReplicationConfigurationRuleDestinationMetricArgs and BucketV2ReplicationConfigurationRuleDestinationMetricOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleDestinationMetricInput` via:
 //
-//          BucketV2ReplicationConfigurationRuleDestinationMetricArgs{...}
+//	BucketV2ReplicationConfigurationRuleDestinationMetricArgs{...}
 type BucketV2ReplicationConfigurationRuleDestinationMetricInput interface {
 	pulumi.Input
 
@@ -12716,7 +12716,7 @@ func (i BucketV2ReplicationConfigurationRuleDestinationMetricArgs) ToBucketV2Rep
 // BucketV2ReplicationConfigurationRuleDestinationMetricArrayInput is an input type that accepts BucketV2ReplicationConfigurationRuleDestinationMetricArray and BucketV2ReplicationConfigurationRuleDestinationMetricArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleDestinationMetricArrayInput` via:
 //
-//          BucketV2ReplicationConfigurationRuleDestinationMetricArray{ BucketV2ReplicationConfigurationRuleDestinationMetricArgs{...} }
+//	BucketV2ReplicationConfigurationRuleDestinationMetricArray{ BucketV2ReplicationConfigurationRuleDestinationMetricArgs{...} }
 type BucketV2ReplicationConfigurationRuleDestinationMetricArrayInput interface {
 	pulumi.Input
 
@@ -12792,7 +12792,7 @@ type BucketV2ReplicationConfigurationRuleDestinationReplicationTime struct {
 // BucketV2ReplicationConfigurationRuleDestinationReplicationTimeInput is an input type that accepts BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs and BucketV2ReplicationConfigurationRuleDestinationReplicationTimeOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleDestinationReplicationTimeInput` via:
 //
-//          BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs{...}
+//	BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs{...}
 type BucketV2ReplicationConfigurationRuleDestinationReplicationTimeInput interface {
 	pulumi.Input
 
@@ -12822,7 +12822,7 @@ func (i BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs) ToBu
 // BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayInput is an input type that accepts BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArray and BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayInput` via:
 //
-//          BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArray{ BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs{...} }
+//	BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArray{ BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs{...} }
 type BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayInput interface {
 	pulumi.Input
 
@@ -12899,7 +12899,7 @@ type BucketV2ReplicationConfigurationRuleFilter struct {
 // BucketV2ReplicationConfigurationRuleFilterInput is an input type that accepts BucketV2ReplicationConfigurationRuleFilterArgs and BucketV2ReplicationConfigurationRuleFilterOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleFilterInput` via:
 //
-//          BucketV2ReplicationConfigurationRuleFilterArgs{...}
+//	BucketV2ReplicationConfigurationRuleFilterArgs{...}
 type BucketV2ReplicationConfigurationRuleFilterInput interface {
 	pulumi.Input
 
@@ -12930,7 +12930,7 @@ func (i BucketV2ReplicationConfigurationRuleFilterArgs) ToBucketV2ReplicationCon
 // BucketV2ReplicationConfigurationRuleFilterArrayInput is an input type that accepts BucketV2ReplicationConfigurationRuleFilterArray and BucketV2ReplicationConfigurationRuleFilterArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleFilterArrayInput` via:
 //
-//          BucketV2ReplicationConfigurationRuleFilterArray{ BucketV2ReplicationConfigurationRuleFilterArgs{...} }
+//	BucketV2ReplicationConfigurationRuleFilterArray{ BucketV2ReplicationConfigurationRuleFilterArgs{...} }
 type BucketV2ReplicationConfigurationRuleFilterArrayInput interface {
 	pulumi.Input
 
@@ -13006,7 +13006,7 @@ type BucketV2ReplicationConfigurationRuleSourceSelectionCriteria struct {
 // BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaInput is an input type that accepts BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs and BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaInput` via:
 //
-//          BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs{...}
+//	BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs{...}
 type BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaInput interface {
 	pulumi.Input
 
@@ -13035,7 +13035,7 @@ func (i BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs) ToBucke
 // BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayInput is an input type that accepts BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArray and BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayInput` via:
 //
-//          BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArray{ BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs{...} }
+//	BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArray{ BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs{...} }
 type BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayInput interface {
 	pulumi.Input
 
@@ -13107,7 +13107,7 @@ type BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedO
 // BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectInput is an input type that accepts BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs and BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectInput` via:
 //
-//          BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs{...}
+//	BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs{...}
 type BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectInput interface {
 	pulumi.Input
 
@@ -13135,7 +13135,7 @@ func (i BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypt
 // BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayInput is an input type that accepts BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArray and BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayInput` via:
 //
-//          BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArray{ BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs{...} }
+//	BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArray{ BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs{...} }
 type BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayInput interface {
 	pulumi.Input
 
@@ -13206,7 +13206,7 @@ type BucketV2ServerSideEncryptionConfiguration struct {
 // BucketV2ServerSideEncryptionConfigurationInput is an input type that accepts BucketV2ServerSideEncryptionConfigurationArgs and BucketV2ServerSideEncryptionConfigurationOutput values.
 // You can construct a concrete instance of `BucketV2ServerSideEncryptionConfigurationInput` via:
 //
-//          BucketV2ServerSideEncryptionConfigurationArgs{...}
+//	BucketV2ServerSideEncryptionConfigurationArgs{...}
 type BucketV2ServerSideEncryptionConfigurationInput interface {
 	pulumi.Input
 
@@ -13234,7 +13234,7 @@ func (i BucketV2ServerSideEncryptionConfigurationArgs) ToBucketV2ServerSideEncry
 // BucketV2ServerSideEncryptionConfigurationArrayInput is an input type that accepts BucketV2ServerSideEncryptionConfigurationArray and BucketV2ServerSideEncryptionConfigurationArrayOutput values.
 // You can construct a concrete instance of `BucketV2ServerSideEncryptionConfigurationArrayInput` via:
 //
-//          BucketV2ServerSideEncryptionConfigurationArray{ BucketV2ServerSideEncryptionConfigurationArgs{...} }
+//	BucketV2ServerSideEncryptionConfigurationArray{ BucketV2ServerSideEncryptionConfigurationArgs{...} }
 type BucketV2ServerSideEncryptionConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -13307,7 +13307,7 @@ type BucketV2ServerSideEncryptionConfigurationRule struct {
 // BucketV2ServerSideEncryptionConfigurationRuleInput is an input type that accepts BucketV2ServerSideEncryptionConfigurationRuleArgs and BucketV2ServerSideEncryptionConfigurationRuleOutput values.
 // You can construct a concrete instance of `BucketV2ServerSideEncryptionConfigurationRuleInput` via:
 //
-//          BucketV2ServerSideEncryptionConfigurationRuleArgs{...}
+//	BucketV2ServerSideEncryptionConfigurationRuleArgs{...}
 type BucketV2ServerSideEncryptionConfigurationRuleInput interface {
 	pulumi.Input
 
@@ -13337,7 +13337,7 @@ func (i BucketV2ServerSideEncryptionConfigurationRuleArgs) ToBucketV2ServerSideE
 // BucketV2ServerSideEncryptionConfigurationRuleArrayInput is an input type that accepts BucketV2ServerSideEncryptionConfigurationRuleArray and BucketV2ServerSideEncryptionConfigurationRuleArrayOutput values.
 // You can construct a concrete instance of `BucketV2ServerSideEncryptionConfigurationRuleArrayInput` via:
 //
-//          BucketV2ServerSideEncryptionConfigurationRuleArray{ BucketV2ServerSideEncryptionConfigurationRuleArgs{...} }
+//	BucketV2ServerSideEncryptionConfigurationRuleArray{ BucketV2ServerSideEncryptionConfigurationRuleArgs{...} }
 type BucketV2ServerSideEncryptionConfigurationRuleArrayInput interface {
 	pulumi.Input
 
@@ -13415,7 +13415,7 @@ type BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDef
 // BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultInput is an input type that accepts BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs and BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput values.
 // You can construct a concrete instance of `BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultInput` via:
 //
-//          BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{...}
+//	BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{...}
 type BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultInput interface {
 	pulumi.Input
 
@@ -13445,7 +13445,7 @@ func (i BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionBy
 // BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayInput is an input type that accepts BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArray and BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput values.
 // You can construct a concrete instance of `BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayInput` via:
 //
-//          BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArray{ BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{...} }
+//	BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArray{ BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{...} }
 type BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayInput interface {
 	pulumi.Input
 
@@ -13525,7 +13525,7 @@ type BucketV2Versioning struct {
 // BucketV2VersioningInput is an input type that accepts BucketV2VersioningArgs and BucketV2VersioningOutput values.
 // You can construct a concrete instance of `BucketV2VersioningInput` via:
 //
-//          BucketV2VersioningArgs{...}
+//	BucketV2VersioningArgs{...}
 type BucketV2VersioningInput interface {
 	pulumi.Input
 
@@ -13555,7 +13555,7 @@ func (i BucketV2VersioningArgs) ToBucketV2VersioningOutputWithContext(ctx contex
 // BucketV2VersioningArrayInput is an input type that accepts BucketV2VersioningArray and BucketV2VersioningArrayOutput values.
 // You can construct a concrete instance of `BucketV2VersioningArrayInput` via:
 //
-//          BucketV2VersioningArray{ BucketV2VersioningArgs{...} }
+//	BucketV2VersioningArray{ BucketV2VersioningArgs{...} }
 type BucketV2VersioningArrayInput interface {
 	pulumi.Input
 
@@ -13636,7 +13636,7 @@ type BucketV2Website struct {
 // BucketV2WebsiteInput is an input type that accepts BucketV2WebsiteArgs and BucketV2WebsiteOutput values.
 // You can construct a concrete instance of `BucketV2WebsiteInput` via:
 //
-//          BucketV2WebsiteArgs{...}
+//	BucketV2WebsiteArgs{...}
 type BucketV2WebsiteInput interface {
 	pulumi.Input
 
@@ -13671,7 +13671,7 @@ func (i BucketV2WebsiteArgs) ToBucketV2WebsiteOutputWithContext(ctx context.Cont
 // BucketV2WebsiteArrayInput is an input type that accepts BucketV2WebsiteArray and BucketV2WebsiteArrayOutput values.
 // You can construct a concrete instance of `BucketV2WebsiteArrayInput` via:
 //
-//          BucketV2WebsiteArray{ BucketV2WebsiteArgs{...} }
+//	BucketV2WebsiteArray{ BucketV2WebsiteArgs{...} }
 type BucketV2WebsiteArrayInput interface {
 	pulumi.Input
 
@@ -13758,7 +13758,7 @@ type BucketVersioning struct {
 // BucketVersioningInput is an input type that accepts BucketVersioningArgs and BucketVersioningOutput values.
 // You can construct a concrete instance of `BucketVersioningInput` via:
 //
-//          BucketVersioningArgs{...}
+//	BucketVersioningArgs{...}
 type BucketVersioningInput interface {
 	pulumi.Input
 
@@ -13796,11 +13796,11 @@ func (i BucketVersioningArgs) ToBucketVersioningPtrOutputWithContext(ctx context
 // BucketVersioningPtrInput is an input type that accepts BucketVersioningArgs, BucketVersioningPtr and BucketVersioningPtrOutput values.
 // You can construct a concrete instance of `BucketVersioningPtrInput` via:
 //
-//          BucketVersioningArgs{...}
+//	        BucketVersioningArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketVersioningPtrInput interface {
 	pulumi.Input
 
@@ -13914,7 +13914,7 @@ type BucketVersioningV2VersioningConfiguration struct {
 // BucketVersioningV2VersioningConfigurationInput is an input type that accepts BucketVersioningV2VersioningConfigurationArgs and BucketVersioningV2VersioningConfigurationOutput values.
 // You can construct a concrete instance of `BucketVersioningV2VersioningConfigurationInput` via:
 //
-//          BucketVersioningV2VersioningConfigurationArgs{...}
+//	BucketVersioningV2VersioningConfigurationArgs{...}
 type BucketVersioningV2VersioningConfigurationInput interface {
 	pulumi.Input
 
@@ -13952,11 +13952,11 @@ func (i BucketVersioningV2VersioningConfigurationArgs) ToBucketVersioningV2Versi
 // BucketVersioningV2VersioningConfigurationPtrInput is an input type that accepts BucketVersioningV2VersioningConfigurationArgs, BucketVersioningV2VersioningConfigurationPtr and BucketVersioningV2VersioningConfigurationPtrOutput values.
 // You can construct a concrete instance of `BucketVersioningV2VersioningConfigurationPtrInput` via:
 //
-//          BucketVersioningV2VersioningConfigurationArgs{...}
+//	        BucketVersioningV2VersioningConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketVersioningV2VersioningConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -14075,7 +14075,7 @@ type BucketWebsite struct {
 // BucketWebsiteInput is an input type that accepts BucketWebsiteArgs and BucketWebsiteOutput values.
 // You can construct a concrete instance of `BucketWebsiteInput` via:
 //
-//          BucketWebsiteArgs{...}
+//	BucketWebsiteArgs{...}
 type BucketWebsiteInput interface {
 	pulumi.Input
 
@@ -14118,11 +14118,11 @@ func (i BucketWebsiteArgs) ToBucketWebsitePtrOutputWithContext(ctx context.Conte
 // BucketWebsitePtrInput is an input type that accepts BucketWebsiteArgs, BucketWebsitePtr and BucketWebsitePtrOutput values.
 // You can construct a concrete instance of `BucketWebsitePtrInput` via:
 //
-//          BucketWebsiteArgs{...}
+//	        BucketWebsiteArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketWebsitePtrInput interface {
 	pulumi.Input
 
@@ -14266,7 +14266,7 @@ type BucketWebsiteConfigurationV2ErrorDocument struct {
 // BucketWebsiteConfigurationV2ErrorDocumentInput is an input type that accepts BucketWebsiteConfigurationV2ErrorDocumentArgs and BucketWebsiteConfigurationV2ErrorDocumentOutput values.
 // You can construct a concrete instance of `BucketWebsiteConfigurationV2ErrorDocumentInput` via:
 //
-//          BucketWebsiteConfigurationV2ErrorDocumentArgs{...}
+//	BucketWebsiteConfigurationV2ErrorDocumentArgs{...}
 type BucketWebsiteConfigurationV2ErrorDocumentInput interface {
 	pulumi.Input
 
@@ -14302,11 +14302,11 @@ func (i BucketWebsiteConfigurationV2ErrorDocumentArgs) ToBucketWebsiteConfigurat
 // BucketWebsiteConfigurationV2ErrorDocumentPtrInput is an input type that accepts BucketWebsiteConfigurationV2ErrorDocumentArgs, BucketWebsiteConfigurationV2ErrorDocumentPtr and BucketWebsiteConfigurationV2ErrorDocumentPtrOutput values.
 // You can construct a concrete instance of `BucketWebsiteConfigurationV2ErrorDocumentPtrInput` via:
 //
-//          BucketWebsiteConfigurationV2ErrorDocumentArgs{...}
+//	        BucketWebsiteConfigurationV2ErrorDocumentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketWebsiteConfigurationV2ErrorDocumentPtrInput interface {
 	pulumi.Input
 
@@ -14405,7 +14405,7 @@ type BucketWebsiteConfigurationV2IndexDocument struct {
 // BucketWebsiteConfigurationV2IndexDocumentInput is an input type that accepts BucketWebsiteConfigurationV2IndexDocumentArgs and BucketWebsiteConfigurationV2IndexDocumentOutput values.
 // You can construct a concrete instance of `BucketWebsiteConfigurationV2IndexDocumentInput` via:
 //
-//          BucketWebsiteConfigurationV2IndexDocumentArgs{...}
+//	BucketWebsiteConfigurationV2IndexDocumentArgs{...}
 type BucketWebsiteConfigurationV2IndexDocumentInput interface {
 	pulumi.Input
 
@@ -14443,11 +14443,11 @@ func (i BucketWebsiteConfigurationV2IndexDocumentArgs) ToBucketWebsiteConfigurat
 // BucketWebsiteConfigurationV2IndexDocumentPtrInput is an input type that accepts BucketWebsiteConfigurationV2IndexDocumentArgs, BucketWebsiteConfigurationV2IndexDocumentPtr and BucketWebsiteConfigurationV2IndexDocumentPtrOutput values.
 // You can construct a concrete instance of `BucketWebsiteConfigurationV2IndexDocumentPtrInput` via:
 //
-//          BucketWebsiteConfigurationV2IndexDocumentArgs{...}
+//	        BucketWebsiteConfigurationV2IndexDocumentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketWebsiteConfigurationV2IndexDocumentPtrInput interface {
 	pulumi.Input
 
@@ -14550,7 +14550,7 @@ type BucketWebsiteConfigurationV2RedirectAllRequestsTo struct {
 // BucketWebsiteConfigurationV2RedirectAllRequestsToInput is an input type that accepts BucketWebsiteConfigurationV2RedirectAllRequestsToArgs and BucketWebsiteConfigurationV2RedirectAllRequestsToOutput values.
 // You can construct a concrete instance of `BucketWebsiteConfigurationV2RedirectAllRequestsToInput` via:
 //
-//          BucketWebsiteConfigurationV2RedirectAllRequestsToArgs{...}
+//	BucketWebsiteConfigurationV2RedirectAllRequestsToArgs{...}
 type BucketWebsiteConfigurationV2RedirectAllRequestsToInput interface {
 	pulumi.Input
 
@@ -14588,11 +14588,11 @@ func (i BucketWebsiteConfigurationV2RedirectAllRequestsToArgs) ToBucketWebsiteCo
 // BucketWebsiteConfigurationV2RedirectAllRequestsToPtrInput is an input type that accepts BucketWebsiteConfigurationV2RedirectAllRequestsToArgs, BucketWebsiteConfigurationV2RedirectAllRequestsToPtr and BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput values.
 // You can construct a concrete instance of `BucketWebsiteConfigurationV2RedirectAllRequestsToPtrInput` via:
 //
-//          BucketWebsiteConfigurationV2RedirectAllRequestsToArgs{...}
+//	        BucketWebsiteConfigurationV2RedirectAllRequestsToArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketWebsiteConfigurationV2RedirectAllRequestsToPtrInput interface {
 	pulumi.Input
 
@@ -14706,7 +14706,7 @@ type BucketWebsiteConfigurationV2RoutingRule struct {
 // BucketWebsiteConfigurationV2RoutingRuleInput is an input type that accepts BucketWebsiteConfigurationV2RoutingRuleArgs and BucketWebsiteConfigurationV2RoutingRuleOutput values.
 // You can construct a concrete instance of `BucketWebsiteConfigurationV2RoutingRuleInput` via:
 //
-//          BucketWebsiteConfigurationV2RoutingRuleArgs{...}
+//	BucketWebsiteConfigurationV2RoutingRuleArgs{...}
 type BucketWebsiteConfigurationV2RoutingRuleInput interface {
 	pulumi.Input
 
@@ -14736,7 +14736,7 @@ func (i BucketWebsiteConfigurationV2RoutingRuleArgs) ToBucketWebsiteConfiguratio
 // BucketWebsiteConfigurationV2RoutingRuleArrayInput is an input type that accepts BucketWebsiteConfigurationV2RoutingRuleArray and BucketWebsiteConfigurationV2RoutingRuleArrayOutput values.
 // You can construct a concrete instance of `BucketWebsiteConfigurationV2RoutingRuleArrayInput` via:
 //
-//          BucketWebsiteConfigurationV2RoutingRuleArray{ BucketWebsiteConfigurationV2RoutingRuleArgs{...} }
+//	BucketWebsiteConfigurationV2RoutingRuleArray{ BucketWebsiteConfigurationV2RoutingRuleArgs{...} }
 type BucketWebsiteConfigurationV2RoutingRuleArrayInput interface {
 	pulumi.Input
 
@@ -14816,7 +14816,7 @@ type BucketWebsiteConfigurationV2RoutingRuleCondition struct {
 // BucketWebsiteConfigurationV2RoutingRuleConditionInput is an input type that accepts BucketWebsiteConfigurationV2RoutingRuleConditionArgs and BucketWebsiteConfigurationV2RoutingRuleConditionOutput values.
 // You can construct a concrete instance of `BucketWebsiteConfigurationV2RoutingRuleConditionInput` via:
 //
-//          BucketWebsiteConfigurationV2RoutingRuleConditionArgs{...}
+//	BucketWebsiteConfigurationV2RoutingRuleConditionArgs{...}
 type BucketWebsiteConfigurationV2RoutingRuleConditionInput interface {
 	pulumi.Input
 
@@ -14854,11 +14854,11 @@ func (i BucketWebsiteConfigurationV2RoutingRuleConditionArgs) ToBucketWebsiteCon
 // BucketWebsiteConfigurationV2RoutingRuleConditionPtrInput is an input type that accepts BucketWebsiteConfigurationV2RoutingRuleConditionArgs, BucketWebsiteConfigurationV2RoutingRuleConditionPtr and BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput values.
 // You can construct a concrete instance of `BucketWebsiteConfigurationV2RoutingRuleConditionPtrInput` via:
 //
-//          BucketWebsiteConfigurationV2RoutingRuleConditionArgs{...}
+//	        BucketWebsiteConfigurationV2RoutingRuleConditionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BucketWebsiteConfigurationV2RoutingRuleConditionPtrInput interface {
 	pulumi.Input
 
@@ -14978,7 +14978,7 @@ type BucketWebsiteConfigurationV2RoutingRuleRedirect struct {
 // BucketWebsiteConfigurationV2RoutingRuleRedirectInput is an input type that accepts BucketWebsiteConfigurationV2RoutingRuleRedirectArgs and BucketWebsiteConfigurationV2RoutingRuleRedirectOutput values.
 // You can construct a concrete instance of `BucketWebsiteConfigurationV2RoutingRuleRedirectInput` via:
 //
-//          BucketWebsiteConfigurationV2RoutingRuleRedirectArgs{...}
+//	BucketWebsiteConfigurationV2RoutingRuleRedirectArgs{...}
 type BucketWebsiteConfigurationV2RoutingRuleRedirectInput interface {
 	pulumi.Input
 
@@ -15058,7 +15058,7 @@ type InventoryDestination struct {
 // InventoryDestinationInput is an input type that accepts InventoryDestinationArgs and InventoryDestinationOutput values.
 // You can construct a concrete instance of `InventoryDestinationInput` via:
 //
-//          InventoryDestinationArgs{...}
+//	InventoryDestinationArgs{...}
 type InventoryDestinationInput interface {
 	pulumi.Input
 
@@ -15094,11 +15094,11 @@ func (i InventoryDestinationArgs) ToInventoryDestinationPtrOutputWithContext(ctx
 // InventoryDestinationPtrInput is an input type that accepts InventoryDestinationArgs, InventoryDestinationPtr and InventoryDestinationPtrOutput values.
 // You can construct a concrete instance of `InventoryDestinationPtrInput` via:
 //
-//          InventoryDestinationArgs{...}
+//	        InventoryDestinationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InventoryDestinationPtrInput interface {
 	pulumi.Input
 
@@ -15203,7 +15203,7 @@ type InventoryDestinationBucket struct {
 // InventoryDestinationBucketInput is an input type that accepts InventoryDestinationBucketArgs and InventoryDestinationBucketOutput values.
 // You can construct a concrete instance of `InventoryDestinationBucketInput` via:
 //
-//          InventoryDestinationBucketArgs{...}
+//	InventoryDestinationBucketArgs{...}
 type InventoryDestinationBucketInput interface {
 	pulumi.Input
 
@@ -15247,11 +15247,11 @@ func (i InventoryDestinationBucketArgs) ToInventoryDestinationBucketPtrOutputWit
 // InventoryDestinationBucketPtrInput is an input type that accepts InventoryDestinationBucketArgs, InventoryDestinationBucketPtr and InventoryDestinationBucketPtrOutput values.
 // You can construct a concrete instance of `InventoryDestinationBucketPtrInput` via:
 //
-//          InventoryDestinationBucketArgs{...}
+//	        InventoryDestinationBucketArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InventoryDestinationBucketPtrInput interface {
 	pulumi.Input
 
@@ -15410,7 +15410,7 @@ type InventoryDestinationBucketEncryption struct {
 // InventoryDestinationBucketEncryptionInput is an input type that accepts InventoryDestinationBucketEncryptionArgs and InventoryDestinationBucketEncryptionOutput values.
 // You can construct a concrete instance of `InventoryDestinationBucketEncryptionInput` via:
 //
-//          InventoryDestinationBucketEncryptionArgs{...}
+//	InventoryDestinationBucketEncryptionArgs{...}
 type InventoryDestinationBucketEncryptionInput interface {
 	pulumi.Input
 
@@ -15448,11 +15448,11 @@ func (i InventoryDestinationBucketEncryptionArgs) ToInventoryDestinationBucketEn
 // InventoryDestinationBucketEncryptionPtrInput is an input type that accepts InventoryDestinationBucketEncryptionArgs, InventoryDestinationBucketEncryptionPtr and InventoryDestinationBucketEncryptionPtrOutput values.
 // You can construct a concrete instance of `InventoryDestinationBucketEncryptionPtrInput` via:
 //
-//          InventoryDestinationBucketEncryptionArgs{...}
+//	        InventoryDestinationBucketEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InventoryDestinationBucketEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -15568,7 +15568,7 @@ type InventoryDestinationBucketEncryptionSseKms struct {
 // InventoryDestinationBucketEncryptionSseKmsInput is an input type that accepts InventoryDestinationBucketEncryptionSseKmsArgs and InventoryDestinationBucketEncryptionSseKmsOutput values.
 // You can construct a concrete instance of `InventoryDestinationBucketEncryptionSseKmsInput` via:
 //
-//          InventoryDestinationBucketEncryptionSseKmsArgs{...}
+//	InventoryDestinationBucketEncryptionSseKmsArgs{...}
 type InventoryDestinationBucketEncryptionSseKmsInput interface {
 	pulumi.Input
 
@@ -15604,11 +15604,11 @@ func (i InventoryDestinationBucketEncryptionSseKmsArgs) ToInventoryDestinationBu
 // InventoryDestinationBucketEncryptionSseKmsPtrInput is an input type that accepts InventoryDestinationBucketEncryptionSseKmsArgs, InventoryDestinationBucketEncryptionSseKmsPtr and InventoryDestinationBucketEncryptionSseKmsPtrOutput values.
 // You can construct a concrete instance of `InventoryDestinationBucketEncryptionSseKmsPtrInput` via:
 //
-//          InventoryDestinationBucketEncryptionSseKmsArgs{...}
+//	        InventoryDestinationBucketEncryptionSseKmsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InventoryDestinationBucketEncryptionSseKmsPtrInput interface {
 	pulumi.Input
 
@@ -15703,7 +15703,7 @@ type InventoryDestinationBucketEncryptionSseS3 struct {
 // InventoryDestinationBucketEncryptionSseS3Input is an input type that accepts InventoryDestinationBucketEncryptionSseS3Args and InventoryDestinationBucketEncryptionSseS3Output values.
 // You can construct a concrete instance of `InventoryDestinationBucketEncryptionSseS3Input` via:
 //
-//          InventoryDestinationBucketEncryptionSseS3Args{...}
+//	InventoryDestinationBucketEncryptionSseS3Args{...}
 type InventoryDestinationBucketEncryptionSseS3Input interface {
 	pulumi.Input
 
@@ -15737,11 +15737,11 @@ func (i InventoryDestinationBucketEncryptionSseS3Args) ToInventoryDestinationBuc
 // InventoryDestinationBucketEncryptionSseS3PtrInput is an input type that accepts InventoryDestinationBucketEncryptionSseS3Args, InventoryDestinationBucketEncryptionSseS3Ptr and InventoryDestinationBucketEncryptionSseS3PtrOutput values.
 // You can construct a concrete instance of `InventoryDestinationBucketEncryptionSseS3PtrInput` via:
 //
-//          InventoryDestinationBucketEncryptionSseS3Args{...}
+//	        InventoryDestinationBucketEncryptionSseS3Args{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InventoryDestinationBucketEncryptionSseS3PtrInput interface {
 	pulumi.Input
 
@@ -15823,7 +15823,7 @@ type InventoryFilter struct {
 // InventoryFilterInput is an input type that accepts InventoryFilterArgs and InventoryFilterOutput values.
 // You can construct a concrete instance of `InventoryFilterInput` via:
 //
-//          InventoryFilterArgs{...}
+//	InventoryFilterArgs{...}
 type InventoryFilterInput interface {
 	pulumi.Input
 
@@ -15859,11 +15859,11 @@ func (i InventoryFilterArgs) ToInventoryFilterPtrOutputWithContext(ctx context.C
 // InventoryFilterPtrInput is an input type that accepts InventoryFilterArgs, InventoryFilterPtr and InventoryFilterPtrOutput values.
 // You can construct a concrete instance of `InventoryFilterPtrInput` via:
 //
-//          InventoryFilterArgs{...}
+//	        InventoryFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InventoryFilterPtrInput interface {
 	pulumi.Input
 
@@ -15960,7 +15960,7 @@ type InventorySchedule struct {
 // InventoryScheduleInput is an input type that accepts InventoryScheduleArgs and InventoryScheduleOutput values.
 // You can construct a concrete instance of `InventoryScheduleInput` via:
 //
-//          InventoryScheduleArgs{...}
+//	InventoryScheduleArgs{...}
 type InventoryScheduleInput interface {
 	pulumi.Input
 
@@ -15996,11 +15996,11 @@ func (i InventoryScheduleArgs) ToInventorySchedulePtrOutputWithContext(ctx conte
 // InventorySchedulePtrInput is an input type that accepts InventoryScheduleArgs, InventorySchedulePtr and InventorySchedulePtrOutput values.
 // You can construct a concrete instance of `InventorySchedulePtrInput` via:
 //
-//          InventoryScheduleArgs{...}
+//	        InventoryScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InventorySchedulePtrInput interface {
 	pulumi.Input
 
@@ -16105,7 +16105,7 @@ type ObjectCopyGrant struct {
 // ObjectCopyGrantInput is an input type that accepts ObjectCopyGrantArgs and ObjectCopyGrantOutput values.
 // You can construct a concrete instance of `ObjectCopyGrantInput` via:
 //
-//          ObjectCopyGrantArgs{...}
+//	ObjectCopyGrantArgs{...}
 type ObjectCopyGrantInput interface {
 	pulumi.Input
 
@@ -16141,7 +16141,7 @@ func (i ObjectCopyGrantArgs) ToObjectCopyGrantOutputWithContext(ctx context.Cont
 // ObjectCopyGrantArrayInput is an input type that accepts ObjectCopyGrantArray and ObjectCopyGrantArrayOutput values.
 // You can construct a concrete instance of `ObjectCopyGrantArrayInput` via:
 //
-//          ObjectCopyGrantArray{ ObjectCopyGrantArgs{...} }
+//	ObjectCopyGrantArray{ ObjectCopyGrantArgs{...} }
 type ObjectCopyGrantArrayInput interface {
 	pulumi.Input
 

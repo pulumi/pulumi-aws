@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/signer"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/signer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := signer.LookupSigningJob(ctx, &signer.LookupSigningJobArgs{
-// 			JobId: "9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := signer.LookupSigningJob(ctx, &signer.LookupSigningJobArgs{
+//				JobId: "9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupSigningJob(ctx *pulumi.Context, args *LookupSigningJobArgs, opts ...pulumi.InvokeOption) (*LookupSigningJobResult, error) {
 	var rv LookupSigningJobResult

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class RouteSpecGrpcRouteRetryPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class RouteSpecGrpcRouteRetryPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("grpcRetryEvents")]
         private InputList<string>? _grpcRetryEvents;
@@ -66,5 +66,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public RouteSpecGrpcRouteRetryPolicyGetArgs()
         {
         }
+        public static new RouteSpecGrpcRouteRetryPolicyGetArgs Empty => new RouteSpecGrpcRouteRetryPolicyGetArgs();
     }
 }

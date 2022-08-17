@@ -189,9 +189,8 @@ class ResourceShareAccepter(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        alternate = pulumi.providers.Aws("alternate", profile="profile1")
+        alternate = aws.Provider("alternate", profile="profile1")
         sender_share = aws.ram.ResourceShare("senderShare",
             allow_external_principals=True,
             tags={
@@ -236,9 +235,8 @@ class ResourceShareAccepter(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_pulumi as pulumi
 
-        alternate = pulumi.providers.Aws("alternate", profile="profile1")
+        alternate = aws.Provider("alternate", profile="profile1")
         sender_share = aws.ram.ResourceShare("senderShare",
             allow_external_principals=True,
             tags={

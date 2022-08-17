@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class RuleGroupRuleGroupStatefulRuleOptionsGetArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleGroupStatefulRuleOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public RuleGroupRuleGroupStatefulRuleOptionsGetArgs()
         {
         }
+        public static new RuleGroupRuleGroupStatefulRuleOptionsGetArgs Empty => new RuleGroupRuleGroupStatefulRuleOptionsGetArgs();
     }
 }

@@ -15,87 +15,88 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
     ///     {
-    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///             EnableDnsSupport = true,
-    ///             EnableDnsHostnames = true,
-    ///         });
-    ///         var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", new Aws.ServiceDiscovery.PrivateDnsNamespaceArgs
-    ///         {
-    ///             Description = "example",
-    ///             Vpc = exampleVpc.Id,
-    ///         });
-    ///         var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new Aws.ServiceDiscovery.ServiceArgs
-    ///         {
-    ///             DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
-    ///             {
-    ///                 NamespaceId = examplePrivateDnsNamespace.Id,
-    ///                 DnsRecords = 
-    ///                 {
-    ///                     new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs
-    ///                     {
-    ///                         Ttl = 10,
-    ///                         Type = "A",
-    ///                     },
-    ///                 },
-    ///                 RoutingPolicy = "MULTIVALUE",
-    ///             },
-    ///             HealthCheckCustomConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckCustomConfigArgs
-    ///             {
-    ///                 FailureThreshold = 1,
-    ///             },
-    ///         });
-    ///         var exampleInstance = new Aws.ServiceDiscovery.Instance("exampleInstance", new Aws.ServiceDiscovery.InstanceArgs
-    ///         {
-    ///             InstanceId = "example-instance-id",
-    ///             ServiceId = exampleService.Id,
-    ///             Attributes = 
-    ///             {
-    ///                 { "AWS_INSTANCE_IPV4", "172.18.0.1" },
-    ///                 { "custom_attribute", "custom" },
-    ///             },
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///         EnableDnsSupport = true,
+    ///         EnableDnsHostnames = true,
+    ///     });
     /// 
-    /// }
+    ///     var examplePrivateDnsNamespace = new Aws.ServiceDiscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", new()
+    ///     {
+    ///         Description = "example",
+    ///         Vpc = exampleVpc.Id,
+    ///     });
+    /// 
+    ///     var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new()
+    ///     {
+    ///         DnsConfig = new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigArgs
+    ///         {
+    ///             NamespaceId = examplePrivateDnsNamespace.Id,
+    ///             DnsRecords = new[]
+    ///             {
+    ///                 new Aws.ServiceDiscovery.Inputs.ServiceDnsConfigDnsRecordArgs
+    ///                 {
+    ///                     Ttl = 10,
+    ///                     Type = "A",
+    ///                 },
+    ///             },
+    ///             RoutingPolicy = "MULTIVALUE",
+    ///         },
+    ///         HealthCheckCustomConfig = new Aws.ServiceDiscovery.Inputs.ServiceHealthCheckCustomConfigArgs
+    ///         {
+    ///             FailureThreshold = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleInstance = new Aws.ServiceDiscovery.Instance("exampleInstance", new()
+    ///     {
+    ///         InstanceId = "example-instance-id",
+    ///         ServiceId = exampleService.Id,
+    ///         Attributes = 
+    ///         {
+    ///             { "AWS_INSTANCE_IPV4", "172.18.0.1" },
+    ///             { "custom_attribute", "custom" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleHttpNamespace = new Aws.ServiceDiscovery.HttpNamespace("exampleHttpNamespace", new()
     ///     {
-    ///         var exampleHttpNamespace = new Aws.ServiceDiscovery.HttpNamespace("exampleHttpNamespace", new Aws.ServiceDiscovery.HttpNamespaceArgs
-    ///         {
-    ///             Description = "example",
-    ///         });
-    ///         var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new Aws.ServiceDiscovery.ServiceArgs
-    ///         {
-    ///             NamespaceId = exampleHttpNamespace.Id,
-    ///         });
-    ///         var exampleInstance = new Aws.ServiceDiscovery.Instance("exampleInstance", new Aws.ServiceDiscovery.InstanceArgs
-    ///         {
-    ///             InstanceId = "example-instance-id",
-    ///             ServiceId = exampleService.Id,
-    ///             Attributes = 
-    ///             {
-    ///                 { "AWS_EC2_INSTANCE_ID", "i-0abdg374kd892cj6dl" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Description = "example",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Aws.ServiceDiscovery.Service("exampleService", new()
+    ///     {
+    ///         NamespaceId = exampleHttpNamespace.Id,
+    ///     });
+    /// 
+    ///     var exampleInstance = new Aws.ServiceDiscovery.Instance("exampleInstance", new()
+    ///     {
+    ///         InstanceId = "example-instance-id",
+    ///         ServiceId = exampleService.Id,
+    ///         Attributes = 
+    ///         {
+    ///             { "AWS_EC2_INSTANCE_ID", "i-0abdg374kd892cj6dl" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -107,7 +108,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicediscovery/instance:Instance")]
-    public partial class Instance : Pulumi.CustomResource
+    public partial class Instance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
@@ -171,7 +172,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         }
     }
 
-    public sealed class InstanceArgs : Pulumi.ResourceArgs
+    public sealed class InstanceArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes", required: true)]
         private InputMap<string>? _attributes;
@@ -200,9 +201,10 @@ namespace Pulumi.Aws.ServiceDiscovery
         public InstanceArgs()
         {
         }
+        public static new InstanceArgs Empty => new InstanceArgs();
     }
 
-    public sealed class InstanceState : Pulumi.ResourceArgs
+    public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         private InputMap<string>? _attributes;
@@ -231,5 +233,6 @@ namespace Pulumi.Aws.ServiceDiscovery
         public InstanceState()
         {
         }
+        public static new InstanceState Empty => new InstanceState();
     }
 }

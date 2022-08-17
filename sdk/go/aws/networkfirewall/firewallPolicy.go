@@ -19,38 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
-// 			FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
-// 				StatelessDefaultActions: pulumi.StringArray{
-// 					pulumi.String("aws:pass"),
-// 				},
-// 				StatelessFragmentDefaultActions: pulumi.StringArray{
-// 					pulumi.String("aws:drop"),
-// 				},
-// 				StatelessRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{
-// 					&networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{
-// 						Priority:    pulumi.Int(1),
-// 						ResourceArn: pulumi.Any(aws_networkfirewall_rule_group.Example.Arn),
-// 					},
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Tag1": pulumi.String("Value1"),
-// 				"Tag2": pulumi.String("Value2"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
+//				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
+//					StatelessDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:pass"),
+//					},
+//					StatelessFragmentDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:drop"),
+//					},
+//					StatelessRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{
+//						&networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{
+//							Priority:    pulumi.Int(1),
+//							ResourceArn: pulumi.Any(aws_networkfirewall_rule_group.Example.Arn),
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -58,7 +61,9 @@ import (
 // Network Firewall Policies can be imported using their `ARN`.
 //
 // ```sh
-//  $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
+//
+//	$ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
+//
 // ```
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
@@ -71,9 +76,9 @@ type FirewallPolicy struct {
 	FirewallPolicy FirewallPolicyFirewallPolicyOutput `pulumi:"firewallPolicy"`
 	// A friendly name of the firewall policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A string token used when updating a firewall policy.
 	UpdateToken pulumi.StringOutput `pulumi:"updateToken"`
@@ -119,9 +124,9 @@ type firewallPolicyState struct {
 	FirewallPolicy *FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
 	// A friendly name of the firewall policy.
 	Name *string `pulumi:"name"`
-	// Map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A string token used when updating a firewall policy.
 	UpdateToken *string `pulumi:"updateToken"`
@@ -136,9 +141,9 @@ type FirewallPolicyState struct {
 	FirewallPolicy FirewallPolicyFirewallPolicyPtrInput
 	// A friendly name of the firewall policy.
 	Name pulumi.StringPtrInput
-	// Map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// A string token used when updating a firewall policy.
 	UpdateToken pulumi.StringPtrInput
@@ -155,7 +160,7 @@ type firewallPolicyArgs struct {
 	FirewallPolicy FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
 	// A friendly name of the firewall policy.
 	Name *string `pulumi:"name"`
-	// Map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -167,7 +172,7 @@ type FirewallPolicyArgs struct {
 	FirewallPolicy FirewallPolicyFirewallPolicyInput
 	// A friendly name of the firewall policy.
 	Name pulumi.StringPtrInput
-	// Map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -197,7 +202,7 @@ func (i *FirewallPolicy) ToFirewallPolicyOutputWithContext(ctx context.Context) 
 // FirewallPolicyArrayInput is an input type that accepts FirewallPolicyArray and FirewallPolicyArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyArrayInput` via:
 //
-//          FirewallPolicyArray{ FirewallPolicyArgs{...} }
+//	FirewallPolicyArray{ FirewallPolicyArgs{...} }
 type FirewallPolicyArrayInput interface {
 	pulumi.Input
 
@@ -222,7 +227,7 @@ func (i FirewallPolicyArray) ToFirewallPolicyArrayOutputWithContext(ctx context.
 // FirewallPolicyMapInput is an input type that accepts FirewallPolicyMap and FirewallPolicyMapOutput values.
 // You can construct a concrete instance of `FirewallPolicyMapInput` via:
 //
-//          FirewallPolicyMap{ "key": FirewallPolicyArgs{...} }
+//	FirewallPolicyMap{ "key": FirewallPolicyArgs{...} }
 type FirewallPolicyMapInput interface {
 	pulumi.Input
 
@@ -278,12 +283,12 @@ func (o FirewallPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FirewallPolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FirewallPolicyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

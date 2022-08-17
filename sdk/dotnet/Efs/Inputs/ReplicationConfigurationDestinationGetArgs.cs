@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Efs.Inputs
 {
 
-    public sealed class ReplicationConfigurationDestinationGetArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationConfigurationDestinationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Efs.Inputs
         public ReplicationConfigurationDestinationGetArgs()
         {
         }
+        public static new ReplicationConfigurationDestinationGetArgs Empty => new ReplicationConfigurationDestinationGetArgs();
     }
 }

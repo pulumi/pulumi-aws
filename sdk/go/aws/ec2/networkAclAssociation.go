@@ -17,22 +17,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewNetworkAclAssociation(ctx, "main", &ec2.NetworkAclAssociationArgs{
-// 			NetworkAclId: pulumi.Any(aws_network_acl.Main.Id),
-// 			SubnetId:     pulumi.Any(aws_subnet.Main.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewNetworkAclAssociation(ctx, "main", &ec2.NetworkAclAssociationArgs{
+//				NetworkAclId: pulumi.Any(aws_network_acl.Main.Id),
+//				SubnetId:     pulumi.Any(aws_subnet.Main.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type NetworkAclAssociation struct {
 	pulumi.CustomResourceState
@@ -136,7 +139,7 @@ func (i *NetworkAclAssociation) ToNetworkAclAssociationOutputWithContext(ctx con
 // NetworkAclAssociationArrayInput is an input type that accepts NetworkAclAssociationArray and NetworkAclAssociationArrayOutput values.
 // You can construct a concrete instance of `NetworkAclAssociationArrayInput` via:
 //
-//          NetworkAclAssociationArray{ NetworkAclAssociationArgs{...} }
+//	NetworkAclAssociationArray{ NetworkAclAssociationArgs{...} }
 type NetworkAclAssociationArrayInput interface {
 	pulumi.Input
 
@@ -161,7 +164,7 @@ func (i NetworkAclAssociationArray) ToNetworkAclAssociationArrayOutputWithContex
 // NetworkAclAssociationMapInput is an input type that accepts NetworkAclAssociationMap and NetworkAclAssociationMapOutput values.
 // You can construct a concrete instance of `NetworkAclAssociationMapInput` via:
 //
-//          NetworkAclAssociationMap{ "key": NetworkAclAssociationArgs{...} }
+//	NetworkAclAssociationMap{ "key": NetworkAclAssociationArgs{...} }
 type NetworkAclAssociationMapInput interface {
 	pulumi.Input
 

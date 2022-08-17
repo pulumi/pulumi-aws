@@ -153,7 +153,6 @@ class AwaitableGetServiceResult(GetServiceResult):
 def get_service(name: Optional[str] = None,
                 namespace_id: Optional[str] = None,
                 tags: Optional[Mapping[str, str]] = None,
-                tags_all: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Retrieves information about a Service Discovery Service.
@@ -172,13 +171,11 @@ def get_service(name: Optional[str] = None,
     :param str name: The name of the service.
     :param str namespace_id: The ID of the namespace that the service belongs to.
     :param Mapping[str, str] tags: A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-    :param Mapping[str, str] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceId'] = namespace_id
     __args__['tags'] = tags
-    __args__['tagsAll'] = tags_all
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:servicediscovery/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
@@ -199,7 +196,6 @@ def get_service(name: Optional[str] = None,
 def get_service_output(name: Optional[pulumi.Input[str]] = None,
                        namespace_id: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                       tags_all: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     Retrieves information about a Service Discovery Service.
@@ -218,6 +214,5 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the service.
     :param str namespace_id: The ID of the namespace that the service belongs to.
     :param Mapping[str, str] tags: A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-    :param Mapping[str, str] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
     """
     ...

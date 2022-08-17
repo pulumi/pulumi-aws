@@ -30,28 +30,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ram"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ram"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceShare, err := ram.NewResourceShare(ctx, "exampleResourceShare", &ram.ResourceShareArgs{
-// 			AllowExternalPrincipals: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ram.NewPrincipalAssociation(ctx, "examplePrincipalAssociation", &ram.PrincipalAssociationArgs{
-// 			Principal:        pulumi.String("111111111111"),
-// 			ResourceShareArn: exampleResourceShare.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceShare, err := ram.NewResourceShare(ctx, "exampleResourceShare", &ram.ResourceShareArgs{
+//				AllowExternalPrincipals: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ram.NewPrincipalAssociation(ctx, "examplePrincipalAssociation", &ram.PrincipalAssociationArgs{
+//				Principal:        pulumi.String("111111111111"),
+//				ResourceShareArn: exampleResourceShare.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### AWS Organization
 //
@@ -59,22 +62,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ram"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ram"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ram.NewPrincipalAssociation(ctx, "example", &ram.PrincipalAssociationArgs{
-// 			Principal:        pulumi.Any(aws_organizations_organization.Example.Arn),
-// 			ResourceShareArn: pulumi.Any(aws_ram_resource_share.Example.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ram.NewPrincipalAssociation(ctx, "example", &ram.PrincipalAssociationArgs{
+//				Principal:        pulumi.Any(aws_organizations_organization.Example.Arn),
+//				ResourceShareArn: pulumi.Any(aws_ram_resource_share.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -82,7 +88,9 @@ import (
 // RAM Principal Associations can be imported using their Resource Share ARN and the `principal` separated by a comma, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
+//
+//	$ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
+//
 // ```
 type PrincipalAssociation struct {
 	pulumi.CustomResourceState
@@ -186,7 +194,7 @@ func (i *PrincipalAssociation) ToPrincipalAssociationOutputWithContext(ctx conte
 // PrincipalAssociationArrayInput is an input type that accepts PrincipalAssociationArray and PrincipalAssociationArrayOutput values.
 // You can construct a concrete instance of `PrincipalAssociationArrayInput` via:
 //
-//          PrincipalAssociationArray{ PrincipalAssociationArgs{...} }
+//	PrincipalAssociationArray{ PrincipalAssociationArgs{...} }
 type PrincipalAssociationArrayInput interface {
 	pulumi.Input
 
@@ -211,7 +219,7 @@ func (i PrincipalAssociationArray) ToPrincipalAssociationArrayOutputWithContext(
 // PrincipalAssociationMapInput is an input type that accepts PrincipalAssociationMap and PrincipalAssociationMapOutput values.
 // You can construct a concrete instance of `PrincipalAssociationMapInput` via:
 //
-//          PrincipalAssociationMap{ "key": PrincipalAssociationArgs{...} }
+//	PrincipalAssociationMap{ "key": PrincipalAssociationArgs{...} }
 type PrincipalAssociationMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class ProjectServiceCatalogProvisioningDetailsGetArgs : Pulumi.ResourceArgs
+    public sealed class ProjectServiceCatalogProvisioningDetailsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public ProjectServiceCatalogProvisioningDetailsGetArgs()
         {
         }
+        public static new ProjectServiceCatalogProvisioningDetailsGetArgs Empty => new ProjectServiceCatalogProvisioningDetailsGetArgs();
     }
 }

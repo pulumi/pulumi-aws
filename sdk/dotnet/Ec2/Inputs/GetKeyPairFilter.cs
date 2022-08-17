@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class GetKeyPairFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyPairFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public GetKeyPairFilterArgs()
         {
         }
+        public static new GetKeyPairFilterArgs Empty => new GetKeyPairFilterArgs();
     }
 }

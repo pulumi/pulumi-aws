@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class GroupInstanceRefreshPreferencesGetArgs : Pulumi.ResourceArgs
+    public sealed class GroupInstanceRefreshPreferencesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of seconds to wait after a checkpoint. Defaults to `3600`.
@@ -48,5 +48,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public GroupInstanceRefreshPreferencesGetArgs()
         {
         }
+        public static new GroupInstanceRefreshPreferencesGetArgs Empty => new GroupInstanceRefreshPreferencesGetArgs();
     }
 }

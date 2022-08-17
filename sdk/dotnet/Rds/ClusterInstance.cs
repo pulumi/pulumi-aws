@@ -32,39 +32,36 @@ namespace Pulumi.Aws.Rds
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var @default = new Aws.Rds.Cluster("default", new()
     ///     {
-    ///         var @default = new Aws.Rds.Cluster("default", new Aws.Rds.ClusterArgs
+    ///         ClusterIdentifier = "aurora-cluster-demo",
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             ClusterIdentifier = "aurora-cluster-demo",
-    ///             AvailabilityZones = 
-    ///             {
-    ///                 "us-west-2a",
-    ///                 "us-west-2b",
-    ///                 "us-west-2c",
-    ///             },
-    ///             DatabaseName = "mydb",
-    ///             MasterUsername = "foo",
-    ///             MasterPassword = "barbut8chars",
-    ///         });
-    ///         var clusterInstances = new List&lt;Aws.Rds.ClusterInstance&gt;();
-    ///         for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
-    ///         {
-    ///             var range = new { Value = rangeIndex };
-    ///             clusterInstances.Add(new Aws.Rds.ClusterInstance($"clusterInstances-{range.Value}", new Aws.Rds.ClusterInstanceArgs
-    ///             {
-    ///                 Identifier = $"aurora-cluster-demo-{range.Value}",
-    ///                 ClusterIdentifier = @default.Id,
-    ///                 InstanceClass = "db.r4.large",
-    ///                 Engine = @default.Engine,
-    ///                 EngineVersion = @default.EngineVersion,
-    ///             }));
-    ///         }
-    ///     }
+    ///             "us-west-2a",
+    ///             "us-west-2b",
+    ///             "us-west-2c",
+    ///         },
+    ///         DatabaseName = "mydb",
+    ///         MasterUsername = "foo",
+    ///         MasterPassword = "barbut8chars",
+    ///     });
     /// 
-    /// }
+    ///     var clusterInstances = new List&lt;Aws.Rds.ClusterInstance&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         clusterInstances.Add(new Aws.Rds.ClusterInstance($"clusterInstances-{range.Value}", new()
+    ///         {
+    ///             Identifier = $"aurora-cluster-demo-{range.Value}",
+    ///             ClusterIdentifier = @default.Id,
+    ///             InstanceClass = "db.r4.large",
+    ///             Engine = @default.Engine,
+    ///             EngineVersion = @default.EngineVersion,
+    ///         }));
+    ///     }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -76,7 +73,7 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/clusterInstance:ClusterInstance")]
-    public partial class ClusterInstance : Pulumi.CustomResource
+    public partial class ClusterInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether any database modifications
@@ -264,13 +261,13 @@ namespace Pulumi.Aws.Rds
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the instance. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -325,7 +322,7 @@ namespace Pulumi.Aws.Rds
         }
     }
 
-    public sealed class ClusterInstanceArgs : Pulumi.ResourceArgs
+    public sealed class ClusterInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether any database modifications
@@ -474,7 +471,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the instance. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -485,9 +482,10 @@ namespace Pulumi.Aws.Rds
         public ClusterInstanceArgs()
         {
         }
+        public static new ClusterInstanceArgs Empty => new ClusterInstanceArgs();
     }
 
-    public sealed class ClusterInstanceState : Pulumi.ResourceArgs
+    public sealed class ClusterInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether any database modifications
@@ -678,7 +676,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the instance. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -690,7 +688,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -707,5 +705,6 @@ namespace Pulumi.Aws.Rds
         public ClusterInstanceState()
         {
         }
+        public static new ClusterInstanceState Empty => new ClusterInstanceState();
     }
 }

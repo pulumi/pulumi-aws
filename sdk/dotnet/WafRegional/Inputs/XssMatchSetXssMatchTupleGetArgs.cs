@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafRegional.Inputs
 {
 
-    public sealed class XssMatchSetXssMatchTupleGetArgs : Pulumi.ResourceArgs
+    public sealed class XssMatchSetXssMatchTupleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies where in a web request to look for cross-site scripting attacks.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafRegional.Inputs
         public XssMatchSetXssMatchTupleGetArgs()
         {
         }
+        public static new XssMatchSetXssMatchTupleGetArgs Empty => new XssMatchSetXssMatchTupleGetArgs();
     }
 }

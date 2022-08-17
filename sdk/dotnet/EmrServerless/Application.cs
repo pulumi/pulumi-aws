@@ -16,80 +16,74 @@ namespace Pulumi.Aws.EmrServerless
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.EmrServerless.Application("example", new()
     ///     {
-    ///         var example = new Aws.EmrServerless.Application("example", new Aws.EmrServerless.ApplicationArgs
-    ///         {
-    ///             ReleaseLabel = "emr-6.6.0",
-    ///             Type = "hive",
-    ///         });
-    ///     }
+    ///         ReleaseLabel = "emr-6.6.0",
+    ///         Type = "hive",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Initial Capacity Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.EmrServerless.Application("example", new()
     ///     {
-    ///         var example = new Aws.EmrServerless.Application("example", new Aws.EmrServerless.ApplicationArgs
+    ///         InitialCapacities = new[]
     ///         {
-    ///             InitialCapacities = 
+    ///             new Aws.EmrServerless.Inputs.ApplicationInitialCapacityArgs
     ///             {
-    ///                 new Aws.EmrServerless.Inputs.ApplicationInitialCapacityArgs
+    ///                 InitialCapacityConfig = new Aws.EmrServerless.Inputs.ApplicationInitialCapacityInitialCapacityConfigArgs
     ///                 {
-    ///                     InitialCapacityConfig = new Aws.EmrServerless.Inputs.ApplicationInitialCapacityInitialCapacityConfigArgs
+    ///                     WorkerConfiguration = new Aws.EmrServerless.Inputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs
     ///                     {
-    ///                         WorkerConfiguration = new Aws.EmrServerless.Inputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs
-    ///                         {
-    ///                             Cpu = "2 vCPU",
-    ///                             Memory = "10 GB",
-    ///                         },
-    ///                         WorkerCount = 1,
+    ///                         Cpu = "2 vCPU",
+    ///                         Memory = "10 GB",
     ///                     },
-    ///                     InitialCapacityType = "HiveDriver",
+    ///                     WorkerCount = 1,
     ///                 },
+    ///                 InitialCapacityType = "HiveDriver",
     ///             },
-    ///             ReleaseLabel = "emr-6.6.0",
-    ///             Type = "hive",
-    ///         });
-    ///     }
+    ///         },
+    ///         ReleaseLabel = "emr-6.6.0",
+    ///         Type = "hive",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Maximum Capacity Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.EmrServerless.Application("example", new()
     ///     {
-    ///         var example = new Aws.EmrServerless.Application("example", new Aws.EmrServerless.ApplicationArgs
+    ///         MaximumCapacity = new Aws.EmrServerless.Inputs.ApplicationMaximumCapacityArgs
     ///         {
-    ///             MaximumCapacity = new Aws.EmrServerless.Inputs.ApplicationMaximumCapacityArgs
-    ///             {
-    ///                 Cpu = "2 vCPU",
-    ///                 Memory = "10 GB",
-    ///             },
-    ///             ReleaseLabel = "emr-6.6.0",
-    ///             Type = "hive",
-    ///         });
-    ///     }
+    ///             Cpu = "2 vCPU",
+    ///             Memory = "10 GB",
+    ///         },
+    ///         ReleaseLabel = "emr-6.6.0",
+    ///         Type = "hive",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -101,7 +95,7 @@ namespace Pulumi.Aws.EmrServerless
     /// ```
     /// </summary>
     [AwsResourceType("aws:emrserverless/application:Application")]
-    public partial class Application : Pulumi.CustomResource
+    public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the cluster.
@@ -152,14 +146,11 @@ namespace Pulumi.Aws.EmrServerless
         public Output<string> ReleaseLabel { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -213,7 +204,7 @@ namespace Pulumi.Aws.EmrServerless
         }
     }
 
-    public sealed class ApplicationArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The configuration for an application to automatically start on job submission.
@@ -267,7 +258,7 @@ namespace Pulumi.Aws.EmrServerless
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -284,9 +275,10 @@ namespace Pulumi.Aws.EmrServerless
         public ApplicationArgs()
         {
         }
+        public static new ApplicationArgs Empty => new ApplicationArgs();
     }
 
-    public sealed class ApplicationState : Pulumi.ResourceArgs
+    public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the cluster.
@@ -346,7 +338,7 @@ namespace Pulumi.Aws.EmrServerless
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
         public InputMap<string> Tags
         {
@@ -356,10 +348,6 @@ namespace Pulumi.Aws.EmrServerless
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -375,5 +363,6 @@ namespace Pulumi.Aws.EmrServerless
         public ApplicationState()
         {
         }
+        public static new ApplicationState Empty => new ApplicationState();
     }
 }

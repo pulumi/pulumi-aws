@@ -16,73 +16,69 @@ namespace Pulumi.Aws.Cognito
     /// ### Basic configuration
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new Aws.Cognito.UserPoolArgs
-    ///         {
-    ///         });
-    ///         var exampleUser = new Aws.Cognito.User("exampleUser", new Aws.Cognito.UserArgs
-    ///         {
-    ///             UserPoolId = exampleUserPool.Id,
-    ///             Username = "example",
-    ///         });
-    ///     }
+    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
     /// 
-    /// }
+    ///     var exampleUser = new Aws.Cognito.User("exampleUser", new()
+    ///     {
+    ///         UserPoolId = exampleUserPool.Id,
+    ///         Username = "example",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Setting user attributes
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new()
     ///     {
-    ///         var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new Aws.Cognito.UserPoolArgs
+    ///         Schemas = new[]
     ///         {
-    ///             Schemas = 
+    ///             new Aws.Cognito.Inputs.UserPoolSchemaArgs
     ///             {
-    ///                 new Aws.Cognito.Inputs.UserPoolSchemaArgs
-    ///                 {
-    ///                     Name = "terraform",
-    ///                     AttributeDataType = "Boolean",
-    ///                     Mutable = false,
-    ///                     Required = false,
-    ///                     DeveloperOnlyAttribute = false,
-    ///                 },
-    ///                 new Aws.Cognito.Inputs.UserPoolSchemaArgs
-    ///                 {
-    ///                     Name = "foo",
-    ///                     AttributeDataType = "String",
-    ///                     Mutable = false,
-    ///                     Required = false,
-    ///                     DeveloperOnlyAttribute = false,
-    ///                     StringAttributeConstraints = ,
-    ///                 },
+    ///                 Name = "terraform",
+    ///                 AttributeDataType = "Boolean",
+    ///                 Mutable = false,
+    ///                 Required = false,
+    ///                 DeveloperOnlyAttribute = false,
     ///             },
-    ///         });
-    ///         var exampleUser = new Aws.Cognito.User("exampleUser", new Aws.Cognito.UserArgs
-    ///         {
-    ///             UserPoolId = exampleUserPool.Id,
-    ///             Username = "example",
-    ///             Attributes = 
+    ///             new Aws.Cognito.Inputs.UserPoolSchemaArgs
     ///             {
-    ///                 { "terraform", "true" },
-    ///                 { "foo", "bar" },
-    ///                 { "email", "no-reply@hashicorp.com" },
-    ///                 { "email_verified", "true" },
+    ///                 Name = "foo",
+    ///                 AttributeDataType = "String",
+    ///                 Mutable = false,
+    ///                 Required = false,
+    ///                 DeveloperOnlyAttribute = false,
+    ///                 StringAttributeConstraints = ,
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleUser = new Aws.Cognito.User("exampleUser", new()
+    ///     {
+    ///         UserPoolId = exampleUserPool.Id,
+    ///         Username = "example",
+    ///         Attributes = 
+    ///         {
+    ///             { "terraform", "true" },
+    ///             { "foo", "bar" },
+    ///             { "email", "no-reply@hashicorp.com" },
+    ///             { "email_verified", "true" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -94,7 +90,7 @@ namespace Pulumi.Aws.Cognito
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/user:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map that contains user attributes and attribute values to be set for the user.
@@ -227,7 +223,7 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         private InputMap<string>? _attributes;
@@ -319,9 +315,10 @@ namespace Pulumi.Aws.Cognito
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 
-    public sealed class UserState : Pulumi.ResourceArgs
+    public sealed class UserState : global::Pulumi.ResourceArgs
     {
         [Input("attributes")]
         private InputMap<string>? _attributes;
@@ -442,5 +439,6 @@ namespace Pulumi.Aws.Cognito
         public UserState()
         {
         }
+        public static new UserState Empty => new UserState();
     }
 }

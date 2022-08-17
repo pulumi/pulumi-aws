@@ -19,74 +19,71 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ```csharp
     /// using System;
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ReadFileBase64(string path) {
     /// 		return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)))
     /// 	}
     /// 
-    ///     public MyStack()
-    ///     {
-    ///         var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new Aws.Cognito.UserPoolArgs
-    ///         {
-    ///         });
-    ///         var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain("exampleUserPoolDomain", new Aws.Cognito.UserPoolDomainArgs
-    ///         {
-    ///             Domain = "example",
-    ///             UserPoolId = exampleUserPool.Id,
-    ///         });
-    ///         var exampleUserPoolClient = new Aws.Cognito.UserPoolClient("exampleUserPoolClient", new Aws.Cognito.UserPoolClientArgs
-    ///         {
-    ///             UserPoolId = exampleUserPool.Id,
-    ///         });
-    ///         var exampleUserPoolUICustomization = new Aws.Cognito.UserPoolUICustomization("exampleUserPoolUICustomization", new Aws.Cognito.UserPoolUICustomizationArgs
-    ///         {
-    ///             ClientId = exampleUserPoolClient.Id,
-    ///             Css = ".label-customizable {font-weight: 400;}",
-    ///             ImageFile = ReadFileBase64("logo.png"),
-    ///             UserPoolId = exampleUserPoolDomain.UserPoolId,
-    ///         });
-    ///     }
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
     /// 
-    /// }
+    ///     var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain("exampleUserPoolDomain", new()
+    ///     {
+    ///         Domain = "example",
+    ///         UserPoolId = exampleUserPool.Id,
+    ///     });
+    /// 
+    ///     var exampleUserPoolClient = new Aws.Cognito.UserPoolClient("exampleUserPoolClient", new()
+    ///     {
+    ///         UserPoolId = exampleUserPool.Id,
+    ///     });
+    /// 
+    ///     var exampleUserPoolUICustomization = new Aws.Cognito.UserPoolUICustomization("exampleUserPoolUICustomization", new()
+    ///     {
+    ///         ClientId = exampleUserPoolClient.Id,
+    ///         Css = ".label-customizable {font-weight: 400;}",
+    ///         ImageFile = ReadFileBase64("logo.png"),
+    ///         UserPoolId = exampleUserPoolDomain.UserPoolId,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### UI customization settings for all clients
     /// 
     /// ```csharp
     /// using System;
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ReadFileBase64(string path) {
     /// 		return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)))
     /// 	}
     /// 
-    ///     public MyStack()
-    ///     {
-    ///         var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new Aws.Cognito.UserPoolArgs
-    ///         {
-    ///         });
-    ///         var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain("exampleUserPoolDomain", new Aws.Cognito.UserPoolDomainArgs
-    ///         {
-    ///             Domain = "example",
-    ///             UserPoolId = exampleUserPool.Id,
-    ///         });
-    ///         var exampleUserPoolUICustomization = new Aws.Cognito.UserPoolUICustomization("exampleUserPoolUICustomization", new Aws.Cognito.UserPoolUICustomizationArgs
-    ///         {
-    ///             Css = ".label-customizable {font-weight: 400;}",
-    ///             ImageFile = ReadFileBase64("logo.png"),
-    ///             UserPoolId = exampleUserPoolDomain.UserPoolId,
-    ///         });
-    ///     }
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool");
     /// 
-    /// }
+    ///     var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain("exampleUserPoolDomain", new()
+    ///     {
+    ///         Domain = "example",
+    ///         UserPoolId = exampleUserPool.Id,
+    ///     });
+    /// 
+    ///     var exampleUserPoolUICustomization = new Aws.Cognito.UserPoolUICustomization("exampleUserPoolUICustomization", new()
+    ///     {
+    ///         Css = ".label-customizable {font-weight: 400;}",
+    ///         ImageFile = ReadFileBase64("logo.png"),
+    ///         UserPoolId = exampleUserPoolDomain.UserPoolId,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -98,7 +95,7 @@ namespace Pulumi.Aws.Cognito
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/userPoolUICustomization:UserPoolUICustomization")]
-    public partial class UserPoolUICustomization : Pulumi.CustomResource
+    public partial class UserPoolUICustomization : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
@@ -192,7 +189,7 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
-    public sealed class UserPoolUICustomizationArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolUICustomizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
@@ -221,9 +218,10 @@ namespace Pulumi.Aws.Cognito
         public UserPoolUICustomizationArgs()
         {
         }
+        public static new UserPoolUICustomizationArgs Empty => new UserPoolUICustomizationArgs();
     }
 
-    public sealed class UserPoolUICustomizationState : Pulumi.ResourceArgs
+    public sealed class UserPoolUICustomizationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
@@ -276,5 +274,6 @@ namespace Pulumi.Aws.Cognito
         public UserPoolUICustomizationState()
         {
         }
+        public static new UserPoolUICustomizationState Empty => new UserPoolUICustomizationState();
     }
 }

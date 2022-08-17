@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/spotFleetRequest:SpotFleetRequest")]
-    public partial class SpotFleetRequest : Pulumi.CustomResource
+    public partial class SpotFleetRequest : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Indicates how to allocate the target capacity across
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class SpotFleetRequestArgs : Pulumi.ResourceArgs
+    public sealed class SpotFleetRequestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates how to allocate the target capacity across
@@ -435,9 +435,10 @@ namespace Pulumi.Aws.Ec2
         public SpotFleetRequestArgs()
         {
         }
+        public static new SpotFleetRequestArgs Empty => new SpotFleetRequestArgs();
     }
 
-    public sealed class SpotFleetRequestState : Pulumi.ResourceArgs
+    public sealed class SpotFleetRequestState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates how to allocate the target capacity across
@@ -587,7 +588,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -653,5 +654,6 @@ namespace Pulumi.Aws.Ec2
         public SpotFleetRequestState()
         {
         }
+        public static new SpotFleetRequestState Empty => new SpotFleetRequestState();
     }
 }

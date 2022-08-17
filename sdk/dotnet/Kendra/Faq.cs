@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Kendra
     /// ```
     /// </summary>
     [AwsResourceType("aws:kendra/faq:Faq")]
-    public partial class Faq : Pulumi.CustomResource
+    public partial class Faq : global::Pulumi.CustomResource
     {
         /// <summary>
         /// ARN of the FAQ.
@@ -98,9 +98,6 @@ namespace Pulumi.Aws.Kendra
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -154,7 +151,7 @@ namespace Pulumi.Aws.Kendra
         }
     }
 
-    public sealed class FaqArgs : Pulumi.ResourceArgs
+    public sealed class FaqArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description for a FAQ.
@@ -206,24 +203,13 @@ namespace Pulumi.Aws.Kendra
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public FaqArgs()
         {
         }
+        public static new FaqArgs Empty => new FaqArgs();
     }
 
-    public sealed class FaqState : Pulumi.ResourceArgs
+    public sealed class FaqState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the FAQ.
@@ -307,10 +293,6 @@ namespace Pulumi.Aws.Kendra
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -326,5 +308,6 @@ namespace Pulumi.Aws.Kendra
         public FaqState()
         {
         }
+        public static new FaqState Empty => new FaqState();
     }
 }

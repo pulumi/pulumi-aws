@@ -15,16 +15,15 @@ namespace Pulumi.Aws.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var role = new Aws.Iam.Role("role", new()
     ///     {
-    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -35,15 +34,15 @@ namespace Pulumi.Aws.Iot
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var @alias = new Aws.Iot.RoleAlias("alias", new Aws.Iot.RoleAliasArgs
-    ///         {
-    ///             Alias = "Thermostat-dynamodb-access-role-alias",
-    ///             RoleArn = role.Arn,
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var @alias = new Aws.Iot.RoleAlias("alias", new()
+    ///     {
+    ///         Alias = "Thermostat-dynamodb-access-role-alias",
+    ///         RoleArn = role.Arn,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +54,7 @@ namespace Pulumi.Aws.Iot
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/roleAlias:RoleAlias")]
-    public partial class RoleAlias : Pulumi.CustomResource
+    public partial class RoleAlias : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the role alias.
@@ -125,7 +124,7 @@ namespace Pulumi.Aws.Iot
         }
     }
 
-    public sealed class RoleAliasArgs : Pulumi.ResourceArgs
+    public sealed class RoleAliasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the role alias.
@@ -148,9 +147,10 @@ namespace Pulumi.Aws.Iot
         public RoleAliasArgs()
         {
         }
+        public static new RoleAliasArgs Empty => new RoleAliasArgs();
     }
 
-    public sealed class RoleAliasState : Pulumi.ResourceArgs
+    public sealed class RoleAliasState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the role alias.
@@ -179,5 +179,6 @@ namespace Pulumi.Aws.Iot
         public RoleAliasState()
         {
         }
+        public static new RoleAliasState Empty => new RoleAliasState();
     }
 }

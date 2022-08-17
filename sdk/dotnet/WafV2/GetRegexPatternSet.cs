@@ -19,21 +19,19 @@ namespace Pulumi.Aws.WafV2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.WafV2.GetRegexPatternSet.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.WafV2.GetRegexPatternSet.InvokeAsync(new Aws.WafV2.GetRegexPatternSetArgs
-        ///         {
-        ///             Name = "some-regex-pattern-set",
-        ///             Scope = "REGIONAL",
-        ///         }));
-        ///     }
+        ///         Name = "some-regex-pattern-set",
+        ///         Scope = "REGIONAL",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.WafV2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.WafV2.GetRegexPatternSet.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.WafV2.GetRegexPatternSet.InvokeAsync(new Aws.WafV2.GetRegexPatternSetArgs
-        ///         {
-        ///             Name = "some-regex-pattern-set",
-        ///             Scope = "REGIONAL",
-        ///         }));
-        ///     }
+        ///         Name = "some-regex-pattern-set",
+        ///         Scope = "REGIONAL",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.WafV2
     }
 
 
-    public sealed class GetRegexPatternSetArgs : Pulumi.InvokeArgs
+    public sealed class GetRegexPatternSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the WAFv2 Regex Pattern Set.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.WafV2
         public GetRegexPatternSetArgs()
         {
         }
+        public static new GetRegexPatternSetArgs Empty => new GetRegexPatternSetArgs();
     }
 
-    public sealed class GetRegexPatternSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRegexPatternSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the WAFv2 Regex Pattern Set.
@@ -109,6 +106,7 @@ namespace Pulumi.Aws.WafV2
         public GetRegexPatternSetInvokeArgs()
         {
         }
+        public static new GetRegexPatternSetInvokeArgs Empty => new GetRegexPatternSetInvokeArgs();
     }
 
 

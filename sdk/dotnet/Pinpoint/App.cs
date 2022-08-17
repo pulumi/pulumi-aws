@@ -15,28 +15,26 @@ namespace Pulumi.Aws.Pinpoint
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Pinpoint.App("example", new()
     ///     {
-    ///         var example = new Aws.Pinpoint.App("example", new Aws.Pinpoint.AppArgs
+    ///         Limits = new Aws.Pinpoint.Inputs.AppLimitsArgs
     ///         {
-    ///             Limits = new Aws.Pinpoint.Inputs.AppLimitsArgs
-    ///             {
-    ///                 MaximumDuration = 600,
-    ///             },
-    ///             QuietTime = new Aws.Pinpoint.Inputs.AppQuietTimeArgs
-    ///             {
-    ///                 End = "06:00",
-    ///                 Start = "00:00",
-    ///             },
-    ///         });
-    ///     }
+    ///             MaximumDuration = 600,
+    ///         },
+    ///         QuietTime = new Aws.Pinpoint.Inputs.AppQuietTimeArgs
+    ///         {
+    ///             End = "06:00",
+    ///             Start = "00:00",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Aws.Pinpoint
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/app:App")]
-    public partial class App : Pulumi.CustomResource
+    public partial class App : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Application ID of the Pinpoint App.
@@ -99,7 +97,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -148,7 +146,7 @@ namespace Pulumi.Aws.Pinpoint
         }
     }
 
-    public sealed class AppArgs : Pulumi.ResourceArgs
+    public sealed class AppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
@@ -195,9 +193,10 @@ namespace Pulumi.Aws.Pinpoint
         public AppArgs()
         {
         }
+        public static new AppArgs Empty => new AppArgs();
     }
 
-    public sealed class AppState : Pulumi.ResourceArgs
+    public sealed class AppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Application ID of the Pinpoint App.
@@ -257,7 +256,7 @@ namespace Pulumi.Aws.Pinpoint
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -268,5 +267,6 @@ namespace Pulumi.Aws.Pinpoint
         public AppState()
         {
         }
+        public static new AppState Empty => new AppState();
     }
 }

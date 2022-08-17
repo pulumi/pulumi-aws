@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs.Inputs
 {
 
-    public sealed class TaskDefinitionEphemeralStorageArgs : Pulumi.ResourceArgs
+    public sealed class TaskDefinitionEphemeralStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         public TaskDefinitionEphemeralStorageArgs()
         {
         }
+        public static new TaskDefinitionEphemeralStorageArgs Empty => new TaskDefinitionEphemeralStorageArgs();
     }
 }

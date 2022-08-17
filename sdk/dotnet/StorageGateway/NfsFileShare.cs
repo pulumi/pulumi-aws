@@ -15,26 +15,24 @@ namespace Pulumi.Aws.StorageGateway
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.StorageGateway.NfsFileShare("example", new()
     ///     {
-    ///         var example = new Aws.StorageGateway.NfsFileShare("example", new Aws.StorageGateway.NfsFileShareArgs
+    ///         ClientLists = new[]
     ///         {
-    ///             ClientLists = 
-    ///             {
-    ///                 "0.0.0.0/0",
-    ///             },
-    ///             GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///             LocationArn = aws_s3_bucket.Example.Arn,
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///         });
-    ///     }
+    ///             "0.0.0.0/0",
+    ///         },
+    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
+    ///         LocationArn = aws_s3_bucket.Example.Arn,
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Aws.StorageGateway
     /// ```
     /// </summary>
     [AwsResourceType("aws:storagegateway/nfsFileShare:NfsFileShare")]
-    public partial class NfsFileShare : Pulumi.CustomResource
+    public partial class NfsFileShare : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the NFS File Share.
@@ -181,7 +179,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -236,7 +234,7 @@ namespace Pulumi.Aws.StorageGateway
         }
     }
 
-    public sealed class NfsFileShareArgs : Pulumi.ResourceArgs
+    public sealed class NfsFileShareArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the storage used for audit logs.
@@ -373,9 +371,10 @@ namespace Pulumi.Aws.StorageGateway
         public NfsFileShareArgs()
         {
         }
+        public static new NfsFileShareArgs Empty => new NfsFileShareArgs();
     }
 
-    public sealed class NfsFileShareState : Pulumi.ResourceArgs
+    public sealed class NfsFileShareState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the NFS File Share.
@@ -525,7 +524,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -542,5 +541,6 @@ namespace Pulumi.Aws.StorageGateway
         public NfsFileShareState()
         {
         }
+        public static new NfsFileShareState Empty => new NfsFileShareState();
     }
 }

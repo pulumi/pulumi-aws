@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2TransitGateway.Inputs
 {
 
-    public sealed class GetRouteTableFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteTableFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the filter.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ec2TransitGateway.Inputs
         public GetRouteTableFilterArgs()
         {
         }
+        public static new GetRouteTableFilterArgs Empty => new GetRouteTableFilterArgs();
     }
 }

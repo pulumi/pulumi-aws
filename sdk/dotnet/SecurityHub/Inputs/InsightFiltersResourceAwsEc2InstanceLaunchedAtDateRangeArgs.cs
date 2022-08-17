@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SecurityHub.Inputs
 {
 
-    public sealed class InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs : Pulumi.ResourceArgs
+    public sealed class InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A date range unit for the date filter. Valid values: `DAYS`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         public InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs()
         {
         }
+        public static new InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs Empty => new InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs();
     }
 }

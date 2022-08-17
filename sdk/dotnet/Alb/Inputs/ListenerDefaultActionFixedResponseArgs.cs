@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Alb.Inputs
 {
 
-    public sealed class ListenerDefaultActionFixedResponseArgs : Pulumi.ResourceArgs
+    public sealed class ListenerDefaultActionFixedResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Alb.Inputs
         public ListenerDefaultActionFixedResponseArgs()
         {
         }
+        public static new ListenerDefaultActionFixedResponseArgs Empty => new ListenerDefaultActionFixedResponseArgs();
     }
 }

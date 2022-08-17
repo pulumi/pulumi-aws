@@ -21,22 +21,20 @@ namespace Pulumi.Aws.Ec2
         /// The following example shows how one might accept a local gateway id as a variable.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var localGatewayId = config.RequireObject&lt;dynamic&gt;("localGatewayId");
+        ///     var selected = Aws.Ec2.GetLocalGateway.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var localGatewayId = config.RequireObject&lt;dynamic&gt;("localGatewayId");
-        ///         var selected = Output.Create(Aws.Ec2.GetLocalGateway.InvokeAsync(new Aws.Ec2.GetLocalGatewayArgs
-        ///         {
-        ///             Id = localGatewayId,
-        ///         }));
-        ///     }
+        ///         Id = localGatewayId,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,22 +52,20 @@ namespace Pulumi.Aws.Ec2
         /// The following example shows how one might accept a local gateway id as a variable.
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var localGatewayId = config.RequireObject&lt;dynamic&gt;("localGatewayId");
+        ///     var selected = Aws.Ec2.GetLocalGateway.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var localGatewayId = config.RequireObject&lt;dynamic&gt;("localGatewayId");
-        ///         var selected = Output.Create(Aws.Ec2.GetLocalGateway.InvokeAsync(new Aws.Ec2.GetLocalGatewayArgs
-        ///         {
-        ///             Id = localGatewayId,
-        ///         }));
-        ///     }
+        ///         Id = localGatewayId,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +75,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetLocalGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalGatewayArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetLocalGatewayFilterArgs>? _filters;
@@ -122,9 +118,10 @@ namespace Pulumi.Aws.Ec2
         public GetLocalGatewayArgs()
         {
         }
+        public static new GetLocalGatewayArgs Empty => new GetLocalGatewayArgs();
     }
 
-    public sealed class GetLocalGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLocalGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetLocalGatewayFilterInputArgs>? _filters;
@@ -167,6 +164,7 @@ namespace Pulumi.Aws.Ec2
         public GetLocalGatewayInvokeArgs()
         {
         }
+        public static new GetLocalGatewayInvokeArgs Empty => new GetLocalGatewayInvokeArgs();
     }
 
 

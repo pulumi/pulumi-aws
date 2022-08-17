@@ -6,6 +6,7 @@ package com.pulumi.aws.ecs.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -38,6 +39,11 @@ public final class GetServiceResult {
     private final String schedulingStrategy;
     private final String serviceName;
     /**
+     * @return Resource tags.
+     * 
+     */
+    private final Map<String,String> tags;
+    /**
      * @return The family for the latest ACTIVE revision
      * 
      */
@@ -52,6 +58,7 @@ public final class GetServiceResult {
         @CustomType.Parameter("launchType") String launchType,
         @CustomType.Parameter("schedulingStrategy") String schedulingStrategy,
         @CustomType.Parameter("serviceName") String serviceName,
+        @CustomType.Parameter("tags") Map<String,String> tags,
         @CustomType.Parameter("taskDefinition") String taskDefinition) {
         this.arn = arn;
         this.clusterArn = clusterArn;
@@ -60,6 +67,7 @@ public final class GetServiceResult {
         this.launchType = launchType;
         this.schedulingStrategy = schedulingStrategy;
         this.serviceName = serviceName;
+        this.tags = tags;
         this.taskDefinition = taskDefinition;
     }
 
@@ -105,6 +113,13 @@ public final class GetServiceResult {
         return this.serviceName;
     }
     /**
+     * @return Resource tags.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
+    /**
      * @return The family for the latest ACTIVE revision
      * 
      */
@@ -128,6 +143,7 @@ public final class GetServiceResult {
         private String launchType;
         private String schedulingStrategy;
         private String serviceName;
+        private Map<String,String> tags;
         private String taskDefinition;
 
         public Builder() {
@@ -143,6 +159,7 @@ public final class GetServiceResult {
     	      this.launchType = defaults.launchType;
     	      this.schedulingStrategy = defaults.schedulingStrategy;
     	      this.serviceName = defaults.serviceName;
+    	      this.tags = defaults.tags;
     	      this.taskDefinition = defaults.taskDefinition;
         }
 
@@ -174,11 +191,15 @@ public final class GetServiceResult {
             this.serviceName = Objects.requireNonNull(serviceName);
             return this;
         }
+        public Builder tags(Map<String,String> tags) {
+            this.tags = Objects.requireNonNull(tags);
+            return this;
+        }
         public Builder taskDefinition(String taskDefinition) {
             this.taskDefinition = Objects.requireNonNull(taskDefinition);
             return this;
         }        public GetServiceResult build() {
-            return new GetServiceResult(arn, clusterArn, desiredCount, id, launchType, schedulingStrategy, serviceName, taskDefinition);
+            return new GetServiceResult(arn, clusterArn, desiredCount, id, launchType, schedulingStrategy, serviceName, tags, taskDefinition);
         }
     }
 }

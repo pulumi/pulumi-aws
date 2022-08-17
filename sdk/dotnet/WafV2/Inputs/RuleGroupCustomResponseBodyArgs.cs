@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupCustomResponseBodyArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupCustomResponseBodyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The payload of the custom response.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public RuleGroupCustomResponseBodyArgs()
         {
         }
+        public static new RuleGroupCustomResponseBodyArgs Empty => new RuleGroupCustomResponseBodyArgs();
     }
 }

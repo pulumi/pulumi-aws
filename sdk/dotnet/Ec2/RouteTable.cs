@@ -34,61 +34,57 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.RouteTable("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.RouteTable("example", new Aws.Ec2.RouteTableArgs
+    ///         VpcId = aws_vpc.Example.Id,
+    ///         Routes = new[]
     ///         {
-    ///             VpcId = aws_vpc.Example.Id,
-    ///             Routes = 
+    ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
     ///             {
-    ///                 new Aws.Ec2.Inputs.RouteTableRouteArgs
-    ///                 {
-    ///                     CidrBlock = "10.0.1.0/24",
-    ///                     GatewayId = aws_internet_gateway.Example.Id,
-    ///                 },
-    ///                 new Aws.Ec2.Inputs.RouteTableRouteArgs
-    ///                 {
-    ///                     Ipv6CidrBlock = "::/0",
-    ///                     EgressOnlyGatewayId = aws_egress_only_internet_gateway.Example.Id,
-    ///                 },
+    ///                 CidrBlock = "10.0.1.0/24",
+    ///                 GatewayId = aws_internet_gateway.Example.Id,
     ///             },
-    ///             Tags = 
+    ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
     ///             {
-    ///                 { "Name", "example" },
+    ///                 Ipv6CidrBlock = "::/0",
+    ///                 EgressOnlyGatewayId = aws_egress_only_internet_gateway.Example.Id,
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// To subsequently remove all managed routes:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Ec2.RouteTable("example", new()
     ///     {
-    ///         var example = new Aws.Ec2.RouteTable("example", new Aws.Ec2.RouteTableArgs
+    ///         VpcId = aws_vpc.Example.Id,
+    ///         Routes = new[] {},
+    ///         Tags = 
     ///         {
-    ///             VpcId = aws_vpc.Example.Id,
-    ///             Routes = {},
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "example" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -100,7 +96,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/routeTable:RouteTable")]
-    public partial class RouteTable : Pulumi.CustomResource
+    public partial class RouteTable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the route table.
@@ -127,13 +123,13 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.RouteTableRoute>> Routes { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -188,7 +184,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class RouteTableArgs : Pulumi.ResourceArgs
+    public sealed class RouteTableArgs : global::Pulumi.ResourceArgs
     {
         [Input("propagatingVgws")]
         private InputList<string>? _propagatingVgws;
@@ -218,7 +214,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -235,9 +231,10 @@ namespace Pulumi.Aws.Ec2
         public RouteTableArgs()
         {
         }
+        public static new RouteTableArgs Empty => new RouteTableArgs();
     }
 
-    public sealed class RouteTableState : Pulumi.ResourceArgs
+    public sealed class RouteTableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the route table.
@@ -279,7 +276,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -291,7 +288,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -308,5 +305,6 @@ namespace Pulumi.Aws.Ec2
         public RouteTableState()
         {
         }
+        public static new RouteTableState Empty => new RouteTableState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class InfrastructureConfigurationLoggingGetArgs : Pulumi.ResourceArgs
+    public sealed class InfrastructureConfigurationLoggingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configuration block with S3 logging settings. Detailed below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public InfrastructureConfigurationLoggingGetArgs()
         {
         }
+        public static new InfrastructureConfigurationLoggingGetArgs Empty => new InfrastructureConfigurationLoggingGetArgs();
     }
 }

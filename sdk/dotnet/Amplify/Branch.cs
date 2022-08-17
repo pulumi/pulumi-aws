@@ -15,30 +15,27 @@ namespace Pulumi.Aws.Amplify
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.Amplify.App("example", new Aws.Amplify.AppArgs
-    ///         {
-    ///         });
-    ///         var master = new Aws.Amplify.Branch("master", new Aws.Amplify.BranchArgs
-    ///         {
-    ///             AppId = example.Id,
-    ///             BranchName = "master",
-    ///             Framework = "React",
-    ///             Stage = "PRODUCTION",
-    ///             EnvironmentVariables = 
-    ///             {
-    ///                 { "REACT_APP_API_SERVER", "https://api.example.com" },
-    ///             },
-    ///         });
-    ///     }
+    ///     var example = new Aws.Amplify.App("example");
     /// 
-    /// }
+    ///     var master = new Aws.Amplify.Branch("master", new()
+    ///     {
+    ///         AppId = example.Id,
+    ///         BranchName = "master",
+    ///         Framework = "React",
+    ///         Stage = "PRODUCTION",
+    ///         EnvironmentVariables = 
+    ///         {
+    ///             { "REACT_APP_API_SERVER", "https://api.example.com" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Notifications
     /// 
@@ -50,126 +47,115 @@ namespace Pulumi.Aws.Amplify
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Amplify.App("example");
+    /// 
+    ///     var master = new Aws.Amplify.Branch("master", new()
     ///     {
-    ///         var example = new Aws.Amplify.App("example", new Aws.Amplify.AppArgs
+    ///         AppId = example.Id,
+    ///         BranchName = "master",
+    ///         EnableNotification = true,
+    ///     });
+    /// 
+    ///     // EventBridge Rule for Amplify notifications
+    ///     var amplifyAppMasterEventRule = new Aws.CloudWatch.EventRule("amplifyAppMasterEventRule", new()
+    ///     {
+    ///         Description = master.BranchName.Apply(branchName =&gt; $"AWS Amplify build notifications for :  App: {aws_amplify_app.App.Id} Branch: {branchName}"),
+    ///         EventPattern = Output.Tuple(example.Id, master.BranchName).Apply(values =&gt;
     ///         {
-    ///         });
-    ///         var master = new Aws.Amplify.Branch("master", new Aws.Amplify.BranchArgs
-    ///         {
-    ///             AppId = example.Id,
-    ///             BranchName = "master",
-    ///             EnableNotification = true,
-    ///         });
-    ///         // EventBridge Rule for Amplify notifications
-    ///         var amplifyAppMasterEventRule = new Aws.CloudWatch.EventRule("amplifyAppMasterEventRule", new Aws.CloudWatch.EventRuleArgs
-    ///         {
-    ///             Description = master.BranchName.Apply(branchName =&gt; $"AWS Amplify build notifications for :  App: {aws_amplify_app.App.Id} Branch: {branchName}"),
-    ///             EventPattern = Output.Tuple(example.Id, master.BranchName).Apply(values =&gt;
+    ///             var id = values.Item1;
+    ///             var branchName = values.Item2;
+    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 var id = values.Item1;
-    ///                 var branchName = values.Item2;
-    ///                 return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 ["detail"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     { "detail", new Dictionary&lt;string, object?&gt;
+    ///                     ["appId"] = new[]
     ///                     {
-    ///                         { "appId", new[]
-    ///                             {
-    ///                                 id,
-    ///                             }
-    ///                          },
-    ///                         { "branchName", new[]
-    ///                             {
-    ///                                 branchName,
-    ///                             }
-    ///                          },
-    ///                         { "jobStatus", new[]
-    ///                             {
-    ///                                 "SUCCEED",
-    ///                                 "FAILED",
-    ///                                 "STARTED",
-    ///                             }
-    ///                          },
-    ///                     } },
-    ///                     { "detail-type", new[]
-    ///                         {
-    ///                             "Amplify Deployment Status Change",
-    ///                         }
-    ///                      },
-    ///                     { "source", new[]
-    ///                         {
-    ///                             "aws.amplify",
-    ///                         }
-    ///                      },
-    ///                 });
-    ///             }),
-    ///         });
-    ///         var amplifyAppMasterTopic = new Aws.Sns.Topic("amplifyAppMasterTopic", new Aws.Sns.TopicArgs
-    ///         {
-    ///         });
-    ///         var amplifyAppMasterEventTarget = new Aws.CloudWatch.EventTarget("amplifyAppMasterEventTarget", new Aws.CloudWatch.EventTargetArgs
-    ///         {
-    ///             Rule = amplifyAppMasterEventRule.Name,
-    ///             Arn = amplifyAppMasterTopic.Arn,
-    ///             InputTransformer = new Aws.CloudWatch.Inputs.EventTargetInputTransformerArgs
-    ///             {
-    ///                 InputPaths = 
-    ///                 {
-    ///                     { "jobId", "$.detail.jobId" },
-    ///                     { "appId", "$.detail.appId" },
-    ///                     { "region", "$.region" },
-    ///                     { "branch", "$.detail.branchName" },
-    ///                     { "status", "$.detail.jobStatus" },
+    ///                         id,
+    ///                     },
+    ///                     ["branchName"] = new[]
+    ///                     {
+    ///                         branchName,
+    ///                     },
+    ///                     ["jobStatus"] = new[]
+    ///                     {
+    ///                         "SUCCEED",
+    ///                         "FAILED",
+    ///                         "STARTED",
+    ///                     },
     ///                 },
-    ///                 InputTemplate = "\"Build notification from the AWS Amplify Console for app: https://&lt;branch&gt;.&lt;appId&gt;.amplifyapp.com/. Your build status is &lt;status&gt;. Go to https://console.aws.amazon.com/amplify/home?region=&lt;region&gt;#&lt;appId&gt;/&lt;branch&gt;/&lt;jobId&gt; to view details on your build. \"",
-    ///             },
-    ///         });
-    ///         // SNS Topic for Amplify notifications
-    ///         var amplifyAppMasterPolicyDocument = Output.Tuple(master.Arn, amplifyAppMasterTopic.Arn).Apply(values =&gt;
-    ///         {
-    ///             var masterArn = values.Item1;
-    ///             var amplifyAppMasterTopicArn = values.Item2;
-    ///             return Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
-    ///             {
-    ///                 Statements = 
+    ///                 ["detail-type"] = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///                     "Amplify Deployment Status Change",
+    ///                 },
+    ///                 ["source"] = new[]
+    ///                 {
+    ///                     "aws.amplify",
+    ///                 },
+    ///             });
+    ///         }),
+    ///     });
+    /// 
+    ///     var amplifyAppMasterTopic = new Aws.Sns.Topic("amplifyAppMasterTopic");
+    /// 
+    ///     var amplifyAppMasterEventTarget = new Aws.CloudWatch.EventTarget("amplifyAppMasterEventTarget", new()
+    ///     {
+    ///         Rule = amplifyAppMasterEventRule.Name,
+    ///         Arn = amplifyAppMasterTopic.Arn,
+    ///         InputTransformer = new Aws.CloudWatch.Inputs.EventTargetInputTransformerArgs
+    ///         {
+    ///             InputPaths = 
+    ///             {
+    ///                 { "jobId", "$.detail.jobId" },
+    ///                 { "appId", "$.detail.appId" },
+    ///                 { "region", "$.region" },
+    ///                 { "branch", "$.detail.branchName" },
+    ///                 { "status", "$.detail.jobStatus" },
+    ///             },
+    ///             InputTemplate = "\"Build notification from the AWS Amplify Console for app: https://&lt;branch&gt;.&lt;appId&gt;.amplifyapp.com/. Your build status is &lt;status&gt;. Go to https://console.aws.amazon.com/amplify/home?region=&lt;region&gt;#&lt;appId&gt;/&lt;branch&gt;/&lt;jobId&gt; to view details on your build. \"",
+    ///         },
+    ///     });
+    /// 
+    ///     // SNS Topic for Amplify notifications
+    ///     var amplifyAppMasterPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = $"Allow_Publish_Events {master.Arn}",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "SNS:Publish",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         Sid = $"Allow_Publish_Events {masterArn}",
-    ///                         Effect = "Allow",
-    ///                         Actions = 
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
     ///                         {
-    ///                             "SNS:Publish",
-    ///                         },
-    ///                         Principals = 
-    ///                         {
-    ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                             {
-    ///                                 Type = "Service",
-    ///                                 Identifiers = 
-    ///                                 {
-    ///                                     "events.amazonaws.com",
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                         Resources = 
-    ///                         {
-    ///                             amplifyAppMasterTopicArn,
+    ///                             "events.amazonaws.com",
     ///                         },
     ///                     },
     ///                 },
-    ///             });
-    ///         });
-    ///         var amplifyAppMasterTopicPolicy = new Aws.Sns.TopicPolicy("amplifyAppMasterTopicPolicy", new Aws.Sns.TopicPolicyArgs
-    ///         {
-    ///             Arn = amplifyAppMasterTopic.Arn,
-    ///             Policy = amplifyAppMasterPolicyDocument.Apply(amplifyAppMasterPolicyDocument =&gt; amplifyAppMasterPolicyDocument.Json),
-    ///         });
-    ///     }
+    ///                 Resources = new[]
+    ///                 {
+    ///                     amplifyAppMasterTopic.Arn,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var amplifyAppMasterTopicPolicy = new Aws.Sns.TopicPolicy("amplifyAppMasterTopicPolicy", new()
+    ///     {
+    ///         Arn = amplifyAppMasterTopic.Arn,
+    ///         Policy = amplifyAppMasterPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -181,7 +167,7 @@ namespace Pulumi.Aws.Amplify
     /// ```
     /// </summary>
     [AwsResourceType("aws:amplify/branch:Branch")]
-    public partial class Branch : Pulumi.CustomResource
+    public partial class Branch : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The unique ID for an Amplify app.
@@ -365,7 +351,7 @@ namespace Pulumi.Aws.Amplify
         }
     }
 
-    public sealed class BranchArgs : Pulumi.ResourceArgs
+    public sealed class BranchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique ID for an Amplify app.
@@ -484,9 +470,10 @@ namespace Pulumi.Aws.Amplify
         public BranchArgs()
         {
         }
+        public static new BranchArgs Empty => new BranchArgs();
     }
 
-    public sealed class BranchState : Pulumi.ResourceArgs
+    public sealed class BranchState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unique ID for an Amplify app.
@@ -659,5 +646,6 @@ namespace Pulumi.Aws.Amplify
         public BranchState()
         {
         }
+        public static new BranchState Empty => new BranchState();
     }
 }

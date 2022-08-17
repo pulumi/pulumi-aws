@@ -19,56 +19,61 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ecs.LookupTaskDefinition(ctx, &ecs.LookupTaskDefinitionArgs{
-// 			TaskDefinition: mongoEcs / taskDefinitionTaskDefinition.Family,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		foo, err := ecs.NewCluster(ctx, "foo", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ecs.NewTaskDefinition(ctx, "mongoEcs/taskDefinitionTaskDefinition", &ecs.TaskDefinitionArgs{
-// 			Family: pulumi.String("mongodb"),
-// 			ContainerDefinitions: pulumi.String(fmt.Sprintf(`[
-//   {
-//     "cpu": 128,
-//     "environment": [{
-//       "name": "SECRET",
-//       "value": "KEY"
-//     }],
-//     "essential": true,
-//     "image": "mongo:latest",
-//     "memory": 128,
-//     "memoryReservation": 64,
-//     "name": "mongodb"
-//   }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.LookupTaskDefinition(ctx, &ecs.LookupTaskDefinitionArgs{
+//				TaskDefinition: mongoEcs / taskDefinitionTaskDefinition.Family,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			foo, err := ecs.NewCluster(ctx, "foo", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecs.NewTaskDefinition(ctx, "mongoEcs/taskDefinitionTaskDefinition", &ecs.TaskDefinitionArgs{
+//				Family: pulumi.String("mongodb"),
+//				ContainerDefinitions: pulumi.String(fmt.Sprintf(`[
+//	  {
+//	    "cpu": 128,
+//	    "environment": [{
+//	      "name": "SECRET",
+//	      "value": "KEY"
+//	    }],
+//	    "essential": true,
+//	    "image": "mongo:latest",
+//	    "memory": 128,
+//	    "memoryReservation": 64,
+//	    "name": "mongodb"
+//	  }
+//
 // ]
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ecs.NewService(ctx, "mongoService", &ecs.ServiceArgs{
-// 			Cluster:        foo.ID(),
-// 			DesiredCount:   pulumi.Int(2),
-// 			TaskDefinition: mongoEcs / taskDefinitionTaskDefinition.Arn,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecs.NewService(ctx, "mongoService", &ecs.ServiceArgs{
+//				Cluster:        foo.ID(),
+//				DesiredCount:   pulumi.Int(2),
+//				TaskDefinition: mongoEcs / taskDefinitionTaskDefinition.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupTaskDefinition(ctx *pulumi.Context, args *LookupTaskDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupTaskDefinitionResult, error) {
 	var rv LookupTaskDefinitionResult

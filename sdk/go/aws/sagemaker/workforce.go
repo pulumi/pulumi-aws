@@ -20,44 +20,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "exampleUserPoolClient", &cognito.UserPoolClientArgs{
-// 			GenerateSecret: pulumi.Bool(true),
-// 			UserPoolId:     exampleUserPool.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "exampleUserPoolDomain", &cognito.UserPoolDomainArgs{
-// 			Domain:     pulumi.String("example"),
-// 			UserPoolId: exampleUserPool.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sagemaker.NewWorkforce(ctx, "exampleWorkforce", &sagemaker.WorkforceArgs{
-// 			WorkforceName: pulumi.String("example"),
-// 			CognitoConfig: &sagemaker.WorkforceCognitoConfigArgs{
-// 				ClientId: exampleUserPoolClient.ID(),
-// 				UserPool: exampleUserPoolDomain.UserPoolId,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "exampleUserPoolClient", &cognito.UserPoolClientArgs{
+//				GenerateSecret: pulumi.Bool(true),
+//				UserPoolId:     exampleUserPool.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "exampleUserPoolDomain", &cognito.UserPoolDomainArgs{
+//				Domain:     pulumi.String("example"),
+//				UserPoolId: exampleUserPool.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sagemaker.NewWorkforce(ctx, "exampleWorkforce", &sagemaker.WorkforceArgs{
+//				WorkforceName: pulumi.String("example"),
+//				CognitoConfig: &sagemaker.WorkforceCognitoConfigArgs{
+//					ClientId: exampleUserPoolClient.ID(),
+//					UserPool: exampleUserPoolDomain.UserPoolId,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Oidc Usage
 //
@@ -65,31 +68,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sagemaker.NewWorkforce(ctx, "example", &sagemaker.WorkforceArgs{
-// 			OidcConfig: &sagemaker.WorkforceOidcConfigArgs{
-// 				AuthorizationEndpoint: pulumi.String("https://example.com"),
-// 				ClientId:              pulumi.String("example"),
-// 				ClientSecret:          pulumi.String("example"),
-// 				Issuer:                pulumi.String("https://example.com"),
-// 				JwksUri:               pulumi.String("https://example.com"),
-// 				LogoutEndpoint:        pulumi.String("https://example.com"),
-// 				TokenEndpoint:         pulumi.String("https://example.com"),
-// 				UserInfoEndpoint:      pulumi.String("https://example.com"),
-// 			},
-// 			WorkforceName: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sagemaker.NewWorkforce(ctx, "example", &sagemaker.WorkforceArgs{
+//				OidcConfig: &sagemaker.WorkforceOidcConfigArgs{
+//					AuthorizationEndpoint: pulumi.String("https://example.com"),
+//					ClientId:              pulumi.String("example"),
+//					ClientSecret:          pulumi.String("example"),
+//					Issuer:                pulumi.String("https://example.com"),
+//					JwksUri:               pulumi.String("https://example.com"),
+//					LogoutEndpoint:        pulumi.String("https://example.com"),
+//					TokenEndpoint:         pulumi.String("https://example.com"),
+//					UserInfoEndpoint:      pulumi.String("https://example.com"),
+//				},
+//				WorkforceName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -97,7 +103,9 @@ import (
 // SageMaker Workforces can be imported using the `workforce_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:sagemaker/workforce:Workforce example example
+//
+//	$ pulumi import aws:sagemaker/workforce:Workforce example example
+//
 // ```
 type Workforce struct {
 	pulumi.CustomResourceState
@@ -230,7 +238,7 @@ func (i *Workforce) ToWorkforceOutputWithContext(ctx context.Context) WorkforceO
 // WorkforceArrayInput is an input type that accepts WorkforceArray and WorkforceArrayOutput values.
 // You can construct a concrete instance of `WorkforceArrayInput` via:
 //
-//          WorkforceArray{ WorkforceArgs{...} }
+//	WorkforceArray{ WorkforceArgs{...} }
 type WorkforceArrayInput interface {
 	pulumi.Input
 
@@ -255,7 +263,7 @@ func (i WorkforceArray) ToWorkforceArrayOutputWithContext(ctx context.Context) W
 // WorkforceMapInput is an input type that accepts WorkforceMap and WorkforceMapOutput values.
 // You can construct a concrete instance of `WorkforceMapInput` via:
 //
-//          WorkforceMap{ "key": WorkforceArgs{...} }
+//	WorkforceMap{ "key": WorkforceArgs{...} }
 type WorkforceMapInput interface {
 	pulumi.Input
 

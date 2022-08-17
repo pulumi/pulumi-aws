@@ -19,30 +19,28 @@ namespace Pulumi.Aws.SecretsManager
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.SecretsManager.GetSecrets.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.SecretsManager.GetSecrets.InvokeAsync(new Aws.SecretsManager.GetSecretsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.SecretsManager.Inputs.GetSecretsFilterInputArgs
         ///             {
-        ///                 new Aws.SecretsManager.Inputs.GetSecretsFilterArgs
+        ///                 Name = "name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "name",
-        ///                     Values = 
-        ///                     {
-        ///                         "example",
-        ///                     },
+        ///                     "example",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -58,30 +56,28 @@ namespace Pulumi.Aws.SecretsManager
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.SecretsManager.GetSecrets.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.SecretsManager.GetSecrets.InvokeAsync(new Aws.SecretsManager.GetSecretsArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.SecretsManager.Inputs.GetSecretsFilterInputArgs
         ///             {
-        ///                 new Aws.SecretsManager.Inputs.GetSecretsFilterArgs
+        ///                 Name = "name",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "name",
-        ///                     Values = 
-        ///                     {
-        ///                         "example",
-        ///                     },
+        ///                     "example",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -91,7 +87,7 @@ namespace Pulumi.Aws.SecretsManager
     }
 
 
-    public sealed class GetSecretsArgs : Pulumi.InvokeArgs
+    public sealed class GetSecretsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetSecretsFilterArgs>? _filters;
@@ -108,9 +104,10 @@ namespace Pulumi.Aws.SecretsManager
         public GetSecretsArgs()
         {
         }
+        public static new GetSecretsArgs Empty => new GetSecretsArgs();
     }
 
-    public sealed class GetSecretsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSecretsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetSecretsFilterInputArgs>? _filters;
@@ -127,6 +124,7 @@ namespace Pulumi.Aws.SecretsManager
         public GetSecretsInvokeArgs()
         {
         }
+        public static new GetSecretsInvokeArgs Empty => new GetSecretsInvokeArgs();
     }
 
 

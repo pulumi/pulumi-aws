@@ -15,29 +15,27 @@ namespace Pulumi.Aws.AppStream
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppStream.DirectoryConfig("example", new()
     ///     {
-    ///         var example = new Aws.AppStream.DirectoryConfig("example", new Aws.AppStream.DirectoryConfigArgs
+    ///         DirectoryName = "NAME OF DIRECTORY",
+    ///         OrganizationalUnitDistinguishedNames = new[]
     ///         {
-    ///             DirectoryName = "NAME OF DIRECTORY",
-    ///             OrganizationalUnitDistinguishedNames = 
-    ///             {
-    ///                 "DISTINGUISHED NAME",
-    ///             },
-    ///             ServiceAccountCredentials = new Aws.AppStream.Inputs.DirectoryConfigServiceAccountCredentialsArgs
-    ///             {
-    ///                 AccountName = "NAME OF ACCOUNT",
-    ///                 AccountPassword = "PASSWORD OF ACCOUNT",
-    ///             },
-    ///         });
-    ///     }
+    ///             "DISTINGUISHED NAME",
+    ///         },
+    ///         ServiceAccountCredentials = new Aws.AppStream.Inputs.DirectoryConfigServiceAccountCredentialsArgs
+    ///         {
+    ///             AccountName = "NAME OF ACCOUNT",
+    ///             AccountPassword = "PASSWORD OF ACCOUNT",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Aws.AppStream
     /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/directoryConfig:DirectoryConfig")]
-    public partial class DirectoryConfig : Pulumi.CustomResource
+    public partial class DirectoryConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
@@ -119,7 +117,7 @@ namespace Pulumi.Aws.AppStream
         }
     }
 
-    public sealed class DirectoryConfigArgs : Pulumi.ResourceArgs
+    public sealed class DirectoryConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fully qualified name of the directory.
@@ -148,9 +146,10 @@ namespace Pulumi.Aws.AppStream
         public DirectoryConfigArgs()
         {
         }
+        public static new DirectoryConfigArgs Empty => new DirectoryConfigArgs();
     }
 
-    public sealed class DirectoryConfigState : Pulumi.ResourceArgs
+    public sealed class DirectoryConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
@@ -185,5 +184,6 @@ namespace Pulumi.Aws.AppStream
         public DirectoryConfigState()
         {
         }
+        public static new DirectoryConfigState Empty => new DirectoryConfigState();
     }
 }

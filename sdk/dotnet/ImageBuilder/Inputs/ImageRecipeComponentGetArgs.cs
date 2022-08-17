@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
 
-    public sealed class ImageRecipeComponentGetArgs : Pulumi.ResourceArgs
+    public sealed class ImageRecipeComponentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of the Image Builder Component to associate.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public ImageRecipeComponentGetArgs()
         {
         }
+        public static new ImageRecipeComponentGetArgs Empty => new ImageRecipeComponentGetArgs();
     }
 }

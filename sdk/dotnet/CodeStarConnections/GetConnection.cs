@@ -20,40 +20,36 @@ namespace Pulumi.Aws.CodeStarConnections
         /// ### By ARN
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CodeStarConnections.GetConnection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CodeStarConnections.GetConnection.InvokeAsync(new Aws.CodeStarConnections.GetConnectionArgs
-        ///         {
-        ///             Arn = aws_codestarconnections_connection.Example.Arn,
-        ///         }));
-        ///     }
+        ///         Arn = aws_codestarconnections_connection.Example.Arn,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Name
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CodeStarConnections.GetConnection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CodeStarConnections.GetConnection.InvokeAsync(new Aws.CodeStarConnections.GetConnectionArgs
-        ///         {
-        ///             Name = aws_codestarconnections_connection.Example.Name,
-        ///         }));
-        ///     }
+        ///         Name = aws_codestarconnections_connection.Example.Name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -70,40 +66,36 @@ namespace Pulumi.Aws.CodeStarConnections
         /// ### By ARN
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CodeStarConnections.GetConnection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CodeStarConnections.GetConnection.InvokeAsync(new Aws.CodeStarConnections.GetConnectionArgs
-        ///         {
-        ///             Arn = aws_codestarconnections_connection.Example.Arn,
-        ///         }));
-        ///     }
+        ///         Arn = aws_codestarconnections_connection.Example.Arn,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Name
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.CodeStarConnections.GetConnection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.CodeStarConnections.GetConnection.InvokeAsync(new Aws.CodeStarConnections.GetConnectionArgs
-        ///         {
-        ///             Name = aws_codestarconnections_connection.Example.Name,
-        ///         }));
-        ///     }
+        ///         Name = aws_codestarconnections_connection.Example.Name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -113,7 +105,7 @@ namespace Pulumi.Aws.CodeStarConnections
     }
 
 
-    public sealed class GetConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The CodeStar Connection ARN.
@@ -142,9 +134,10 @@ namespace Pulumi.Aws.CodeStarConnections
         public GetConnectionArgs()
         {
         }
+        public static new GetConnectionArgs Empty => new GetConnectionArgs();
     }
 
-    public sealed class GetConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The CodeStar Connection ARN.
@@ -173,6 +166,7 @@ namespace Pulumi.Aws.CodeStarConnections
         public GetConnectionInvokeArgs()
         {
         }
+        public static new GetConnectionInvokeArgs Empty => new GetConnectionInvokeArgs();
     }
 
 

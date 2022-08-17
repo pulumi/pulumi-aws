@@ -20,100 +20,96 @@ namespace Pulumi.Aws.WafV2
     /// ### With Redacted Fields
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.WafV2.WebAclLoggingConfiguration("example", new()
     ///     {
-    ///         var example = new Aws.WafV2.WebAclLoggingConfiguration("example", new Aws.WafV2.WebAclLoggingConfigurationArgs
+    ///         LogDestinationConfigs = new[]
     ///         {
-    ///             LogDestinationConfigs = 
+    ///             aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///         },
+    ///         ResourceArn = aws_wafv2_web_acl.Example.Arn,
+    ///         RedactedFields = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.WebAclLoggingConfigurationRedactedFieldArgs
     ///             {
-    ///                 aws_kinesis_firehose_delivery_stream.Example.Arn,
-    ///             },
-    ///             ResourceArn = aws_wafv2_web_acl.Example.Arn,
-    ///             RedactedFields = 
-    ///             {
-    ///                 new Aws.WafV2.Inputs.WebAclLoggingConfigurationRedactedFieldArgs
+    ///                 SingleHeader = new Aws.WafV2.Inputs.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs
     ///                 {
-    ///                     SingleHeader = new Aws.WafV2.Inputs.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs
-    ///                     {
-    ///                         Name = "user-agent",
-    ///                     },
+    ///                     Name = "user-agent",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With Logging Filter
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.WafV2.WebAclLoggingConfiguration("example", new()
     ///     {
-    ///         var example = new Aws.WafV2.WebAclLoggingConfiguration("example", new Aws.WafV2.WebAclLoggingConfigurationArgs
+    ///         LogDestinationConfigs = new[]
     ///         {
-    ///             LogDestinationConfigs = 
+    ///             aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///         },
+    ///         ResourceArn = aws_wafv2_web_acl.Example.Arn,
+    ///         LoggingFilter = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterArgs
+    ///         {
+    ///             DefaultBehavior = "KEEP",
+    ///             Filters = new[]
     ///             {
-    ///                 aws_kinesis_firehose_delivery_stream.Example.Arn,
-    ///             },
-    ///             ResourceArn = aws_wafv2_web_acl.Example.Arn,
-    ///             LoggingFilter = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterArgs
-    ///             {
-    ///                 DefaultBehavior = "KEEP",
-    ///                 Filters = 
+    ///                 new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterArgs
     ///                 {
-    ///                     new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterArgs
+    ///                     Behavior = "DROP",
+    ///                     Conditions = new[]
     ///                     {
-    ///                         Behavior = "DROP",
-    ///                         Conditions = 
+    ///                         new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
     ///                         {
-    ///                             new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
+    ///                             ActionCondition = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs
     ///                             {
-    ///                                 ActionCondition = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs
-    ///                                 {
-    ///                                     Action = "COUNT",
-    ///                                 },
-    ///                             },
-    ///                             new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
-    ///                             {
-    ///                                 LabelNameCondition = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs
-    ///                                 {
-    ///                                     LabelName = "awswaf:111122223333:rulegroup:testRules:LabelNameZ",
-    ///                                 },
+    ///                                 Action = "COUNT",
     ///                             },
     ///                         },
-    ///                         Requirement = "MEETS_ALL",
-    ///                     },
-    ///                     new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterArgs
-    ///                     {
-    ///                         Behavior = "KEEP",
-    ///                         Conditions = 
+    ///                         new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
     ///                         {
-    ///                             new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
+    ///                             LabelNameCondition = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs
     ///                             {
-    ///                                 ActionCondition = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs
-    ///                                 {
-    ///                                     Action = "ALLOW",
-    ///                                 },
+    ///                                 LabelName = "awswaf:111122223333:rulegroup:testRules:LabelNameZ",
     ///                             },
     ///                         },
-    ///                         Requirement = "MEETS_ANY",
     ///                     },
+    ///                     Requirement = "MEETS_ALL",
+    ///                 },
+    ///                 new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterArgs
+    ///                 {
+    ///                     Behavior = "KEEP",
+    ///                     Conditions = new[]
+    ///                     {
+    ///                         new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
+    ///                         {
+    ///                             ActionCondition = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs
+    ///                             {
+    ///                                 Action = "ALLOW",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Requirement = "MEETS_ANY",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -125,7 +121,7 @@ namespace Pulumi.Aws.WafV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration")]
-    public partial class WebAclLoggingConfiguration : Pulumi.CustomResource
+    public partial class WebAclLoggingConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) that you want to associate with the web ACL.
@@ -195,7 +191,7 @@ namespace Pulumi.Aws.WafV2
         }
     }
 
-    public sealed class WebAclLoggingConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class WebAclLoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("logDestinationConfigs", required: true)]
         private InputList<string>? _logDestinationConfigs;
@@ -236,9 +232,10 @@ namespace Pulumi.Aws.WafV2
         public WebAclLoggingConfigurationArgs()
         {
         }
+        public static new WebAclLoggingConfigurationArgs Empty => new WebAclLoggingConfigurationArgs();
     }
 
-    public sealed class WebAclLoggingConfigurationState : Pulumi.ResourceArgs
+    public sealed class WebAclLoggingConfigurationState : global::Pulumi.ResourceArgs
     {
         [Input("logDestinationConfigs")]
         private InputList<string>? _logDestinationConfigs;
@@ -279,5 +276,6 @@ namespace Pulumi.Aws.WafV2
         public WebAclLoggingConfigurationState()
         {
         }
+        public static new WebAclLoggingConfigurationState Empty => new WebAclLoggingConfigurationState();
     }
 }

@@ -19,17 +19,15 @@ namespace Pulumi.Aws.Ecr
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var token = Output.Create(Aws.Ecr.GetAuthorizationToken.InvokeAsync());
-        ///     }
+        ///     var token = Aws.Ecr.GetAuthorizationToken.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -45,17 +43,15 @@ namespace Pulumi.Aws.Ecr
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var token = Output.Create(Aws.Ecr.GetAuthorizationToken.InvokeAsync());
-        ///     }
+        ///     var token = Aws.Ecr.GetAuthorizationToken.Invoke();
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -65,7 +61,7 @@ namespace Pulumi.Aws.Ecr
     }
 
 
-    public sealed class GetAuthorizationTokenArgs : Pulumi.InvokeArgs
+    public sealed class GetAuthorizationTokenArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// AWS account ID of the ECR Repository. If not specified the default account is assumed.
@@ -76,9 +72,10 @@ namespace Pulumi.Aws.Ecr
         public GetAuthorizationTokenArgs()
         {
         }
+        public static new GetAuthorizationTokenArgs Empty => new GetAuthorizationTokenArgs();
     }
 
-    public sealed class GetAuthorizationTokenInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAuthorizationTokenInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// AWS account ID of the ECR Repository. If not specified the default account is assumed.
@@ -89,6 +86,7 @@ namespace Pulumi.Aws.Ecr
         public GetAuthorizationTokenInvokeArgs()
         {
         }
+        public static new GetAuthorizationTokenInvokeArgs Empty => new GetAuthorizationTokenInvokeArgs();
     }
 
 

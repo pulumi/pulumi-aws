@@ -16,49 +16,45 @@ namespace Pulumi.Aws.TimestreamWrite
     /// ### Basic usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.TimestreamWrite.Table("example", new()
     ///     {
-    ///         var example = new Aws.TimestreamWrite.Table("example", new Aws.TimestreamWrite.TableArgs
-    ///         {
-    ///             DatabaseName = aws_timestreamwrite_database.Example.Database_name,
-    ///             TableName = "example",
-    ///         });
-    ///     }
+    ///         DatabaseName = aws_timestreamwrite_database.Example.Database_name,
+    ///         TableName = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Full usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.TimestreamWrite.Table("example", new()
     ///     {
-    ///         var example = new Aws.TimestreamWrite.Table("example", new Aws.TimestreamWrite.TableArgs
+    ///         DatabaseName = aws_timestreamwrite_database.Example.Database_name,
+    ///         TableName = "example",
+    ///         RetentionProperties = new Aws.TimestreamWrite.Inputs.TableRetentionPropertiesArgs
     ///         {
-    ///             DatabaseName = aws_timestreamwrite_database.Example.Database_name,
-    ///             TableName = "example",
-    ///             RetentionProperties = new Aws.TimestreamWrite.Inputs.TableRetentionPropertiesArgs
-    ///             {
-    ///                 MagneticStoreRetentionPeriodInDays = 30,
-    ///                 MemoryStoreRetentionPeriodInHours = 8,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "example-timestream-table" },
-    ///             },
-    ///         });
-    ///     }
+    ///             MagneticStoreRetentionPeriodInDays = 30,
+    ///             MemoryStoreRetentionPeriodInHours = 8,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example-timestream-table" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +66,7 @@ namespace Pulumi.Aws.TimestreamWrite
     /// ```
     /// </summary>
     [AwsResourceType("aws:timestreamwrite/table:Table")]
-    public partial class Table : Pulumi.CustomResource
+    public partial class Table : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN that uniquely identifies this table.
@@ -158,7 +154,7 @@ namespace Pulumi.Aws.TimestreamWrite
         }
     }
 
-    public sealed class TableArgs : Pulumi.ResourceArgs
+    public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Timestream database.
@@ -199,9 +195,10 @@ namespace Pulumi.Aws.TimestreamWrite
         public TableArgs()
         {
         }
+        public static new TableArgs Empty => new TableArgs();
     }
 
-    public sealed class TableState : Pulumi.ResourceArgs
+    public sealed class TableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN that uniquely identifies this table.
@@ -260,5 +257,6 @@ namespace Pulumi.Aws.TimestreamWrite
         public TableState()
         {
         }
+        public static new TableState Empty => new TableState();
     }
 }

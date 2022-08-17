@@ -21,22 +21,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := s3.NewBucketRequestPaymentConfigurationV2(ctx, "example", &s3.BucketRequestPaymentConfigurationV2Args{
-// 			Bucket: pulumi.Any(aws_s3_bucket.Example.Bucket),
-// 			Payer:  pulumi.String("Requester"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewBucketRequestPaymentConfigurationV2(ctx, "example", &s3.BucketRequestPaymentConfigurationV2Args{
+//				Bucket: pulumi.Any(aws_s3_bucket.Example.Bucket),
+//				Payer:  pulumi.String("Requester"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,13 +47,17 @@ import (
 // S3 bucket request payment configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket request payment configuration resource should be imported using the `bucket` e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name
+//
+//	$ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name
+//
 // ```
 //
-//  If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket request payment configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+//	If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, the S3 bucket request payment configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
 //
 // ```sh
-//  $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
+//
+//	$ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
+//
 // ```
 type BucketRequestPaymentConfigurationV2 struct {
 	pulumi.CustomResourceState
@@ -164,7 +171,7 @@ func (i *BucketRequestPaymentConfigurationV2) ToBucketRequestPaymentConfiguratio
 // BucketRequestPaymentConfigurationV2ArrayInput is an input type that accepts BucketRequestPaymentConfigurationV2Array and BucketRequestPaymentConfigurationV2ArrayOutput values.
 // You can construct a concrete instance of `BucketRequestPaymentConfigurationV2ArrayInput` via:
 //
-//          BucketRequestPaymentConfigurationV2Array{ BucketRequestPaymentConfigurationV2Args{...} }
+//	BucketRequestPaymentConfigurationV2Array{ BucketRequestPaymentConfigurationV2Args{...} }
 type BucketRequestPaymentConfigurationV2ArrayInput interface {
 	pulumi.Input
 
@@ -189,7 +196,7 @@ func (i BucketRequestPaymentConfigurationV2Array) ToBucketRequestPaymentConfigur
 // BucketRequestPaymentConfigurationV2MapInput is an input type that accepts BucketRequestPaymentConfigurationV2Map and BucketRequestPaymentConfigurationV2MapOutput values.
 // You can construct a concrete instance of `BucketRequestPaymentConfigurationV2MapInput` via:
 //
-//          BucketRequestPaymentConfigurationV2Map{ "key": BucketRequestPaymentConfigurationV2Args{...} }
+//	BucketRequestPaymentConfigurationV2Map{ "key": BucketRequestPaymentConfigurationV2Args{...} }
 type BucketRequestPaymentConfigurationV2MapInput interface {
 	pulumi.Input
 

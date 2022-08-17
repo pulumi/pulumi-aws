@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Keyspaces.Inputs
 {
 
-    public sealed class TablePointInTimeRecoveryArgs : Pulumi.ResourceArgs
+    public sealed class TablePointInTimeRecoveryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Keyspaces.Inputs
         public TablePointInTimeRecoveryArgs()
         {
         }
+        public static new TablePointInTimeRecoveryArgs Empty => new TablePointInTimeRecoveryArgs();
     }
 }

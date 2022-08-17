@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpenSearch.Inputs
 {
 
-    public sealed class DomainAutoTuneOptionsMaintenanceScheduleGetArgs : Pulumi.ResourceArgs
+    public sealed class DomainAutoTuneOptionsMaintenanceScheduleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public DomainAutoTuneOptionsMaintenanceScheduleGetArgs()
         {
         }
+        public static new DomainAutoTuneOptionsMaintenanceScheduleGetArgs Empty => new DomainAutoTuneOptionsMaintenanceScheduleGetArgs();
     }
 }

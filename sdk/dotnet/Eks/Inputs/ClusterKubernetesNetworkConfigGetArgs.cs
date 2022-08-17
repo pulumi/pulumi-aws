@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Eks.Inputs
 {
 
-    public sealed class ClusterKubernetesNetworkConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterKubernetesNetworkConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Eks.Inputs
         public ClusterKubernetesNetworkConfigGetArgs()
         {
         }
+        public static new ClusterKubernetesNetworkConfigGetArgs Empty => new ClusterKubernetesNetworkConfigGetArgs();
     }
 }

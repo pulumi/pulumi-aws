@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild.Inputs
 {
 
-    public sealed class ProjectSecondarySourceVersionArgs : Pulumi.ResourceArgs
+    public sealed class ProjectSecondarySourceVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An identifier for a source in the build project.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public ProjectSecondarySourceVersionArgs()
         {
         }
+        public static new ProjectSecondarySourceVersionArgs Empty => new ProjectSecondarySourceVersionArgs();
     }
 }

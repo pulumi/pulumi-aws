@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra.Inputs
 {
 
-    public sealed class IndexDocumentMetadataConfigurationUpdateSearchGetArgs : Pulumi.ResourceArgs
+    public sealed class IndexDocumentMetadataConfigurationUpdateSearchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Determines whether the field is returned in the query response. The default is `true`.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.Kendra.Inputs
         public IndexDocumentMetadataConfigurationUpdateSearchGetArgs()
         {
         }
+        public static new IndexDocumentMetadataConfigurationUpdateSearchGetArgs Empty => new IndexDocumentMetadataConfigurationUpdateSearchGetArgs();
     }
 }

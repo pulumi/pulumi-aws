@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.TimestreamWrite.Inputs
 {
 
-    public sealed class TableRetentionPropertiesGetArgs : Pulumi.ResourceArgs
+    public sealed class TableRetentionPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.TimestreamWrite.Inputs
         public TableRetentionPropertiesGetArgs()
         {
         }
+        public static new TableRetentionPropertiesGetArgs Empty => new TableRetentionPropertiesGetArgs();
     }
 }

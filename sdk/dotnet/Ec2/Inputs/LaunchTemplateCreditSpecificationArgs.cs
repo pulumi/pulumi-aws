@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2.Inputs
 {
 
-    public sealed class LaunchTemplateCreditSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class LaunchTemplateCreditSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public LaunchTemplateCreditSpecificationArgs()
         {
         }
+        public static new LaunchTemplateCreditSpecificationArgs Empty => new LaunchTemplateCreditSpecificationArgs();
     }
 }

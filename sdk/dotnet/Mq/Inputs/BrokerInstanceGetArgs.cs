@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Mq.Inputs
 {
 
-    public sealed class BrokerInstanceGetArgs : Pulumi.ResourceArgs
+    public sealed class BrokerInstanceGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("consoleUrl")]
         public Input<string>? ConsoleUrl { get; set; }
@@ -29,5 +29,6 @@ namespace Pulumi.Aws.Mq.Inputs
         public BrokerInstanceGetArgs()
         {
         }
+        public static new BrokerInstanceGetArgs Empty => new BrokerInstanceGetArgs();
     }
 }

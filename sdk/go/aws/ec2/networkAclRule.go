@@ -25,34 +25,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		barNetworkAcl, err := ec2.NewNetworkAcl(ctx, "barNetworkAcl", &ec2.NetworkAclArgs{
-// 			VpcId: pulumi.Any(aws_vpc.Foo.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewNetworkAclRule(ctx, "barNetworkAclRule", &ec2.NetworkAclRuleArgs{
-// 			NetworkAclId: barNetworkAcl.ID(),
-// 			RuleNumber:   pulumi.Int(200),
-// 			Egress:       pulumi.Bool(false),
-// 			Protocol:     pulumi.String("tcp"),
-// 			RuleAction:   pulumi.String("allow"),
-// 			CidrBlock:    pulumi.Any(aws_vpc.Foo.Cidr_block),
-// 			FromPort:     pulumi.Int(22),
-// 			ToPort:       pulumi.Int(22),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			barNetworkAcl, err := ec2.NewNetworkAcl(ctx, "barNetworkAcl", &ec2.NetworkAclArgs{
+//				VpcId: pulumi.Any(aws_vpc.Foo.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewNetworkAclRule(ctx, "barNetworkAclRule", &ec2.NetworkAclRuleArgs{
+//				NetworkAclId: barNetworkAcl.ID(),
+//				RuleNumber:   pulumi.Int(200),
+//				Egress:       pulumi.Bool(false),
+//				Protocol:     pulumi.String("tcp"),
+//				RuleAction:   pulumi.String("allow"),
+//				CidrBlock:    pulumi.Any(aws_vpc.Foo.Cidr_block),
+//				FromPort:     pulumi.Int(22),
+//				ToPort:       pulumi.Int(22),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // > **Note:** One of either `cidrBlock` or `ipv6CidrBlock` is required.
@@ -62,13 +65,17 @@ import (
 // Individual rules can be imported using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (e.g. 6) or string (e.g. tcp) value. If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml For example, import a network ACL Rule with an argument like thisconsole
 //
 // ```sh
-//  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
+//
+//	$ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
+//
 // ```
 //
-//  Or by the procotol's decimal valueconsole
+//	Or by the procotol's decimal valueconsole
 //
 // ```sh
-//  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
+//
+//	$ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
+//
 // ```
 type NetworkAclRule struct {
 	pulumi.CustomResourceState
@@ -268,7 +275,7 @@ func (i *NetworkAclRule) ToNetworkAclRuleOutputWithContext(ctx context.Context) 
 // NetworkAclRuleArrayInput is an input type that accepts NetworkAclRuleArray and NetworkAclRuleArrayOutput values.
 // You can construct a concrete instance of `NetworkAclRuleArrayInput` via:
 //
-//          NetworkAclRuleArray{ NetworkAclRuleArgs{...} }
+//	NetworkAclRuleArray{ NetworkAclRuleArgs{...} }
 type NetworkAclRuleArrayInput interface {
 	pulumi.Input
 
@@ -293,7 +300,7 @@ func (i NetworkAclRuleArray) ToNetworkAclRuleArrayOutputWithContext(ctx context.
 // NetworkAclRuleMapInput is an input type that accepts NetworkAclRuleMap and NetworkAclRuleMapOutput values.
 // You can construct a concrete instance of `NetworkAclRuleMapInput` via:
 //
-//          NetworkAclRuleMap{ "key": NetworkAclRuleArgs{...} }
+//	NetworkAclRuleMap{ "key": NetworkAclRuleArgs{...} }
 type NetworkAclRuleMapInput interface {
 	pulumi.Input
 

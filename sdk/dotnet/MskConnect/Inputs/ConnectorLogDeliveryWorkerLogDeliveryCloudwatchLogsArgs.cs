@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.MskConnect.Inputs
 {
 
-    public sealed class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs : Pulumi.ResourceArgs
+    public sealed class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether connector logs get sent to the specified Amazon S3 destination.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs()
         {
         }
+        public static new ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs Empty => new ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs();
     }
 }

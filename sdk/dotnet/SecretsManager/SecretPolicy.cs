@@ -16,20 +16,18 @@ namespace Pulumi.Aws.SecretsManager
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret");
+    /// 
+    ///     var exampleSecretPolicy = new Aws.SecretsManager.SecretPolicy("exampleSecretPolicy", new()
     ///     {
-    ///         var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret", new Aws.SecretsManager.SecretArgs
-    ///         {
-    ///         });
-    ///         var exampleSecretPolicy = new Aws.SecretsManager.SecretPolicy("exampleSecretPolicy", new Aws.SecretsManager.SecretPolicyArgs
-    ///         {
-    ///             SecretArn = exampleSecret.Arn,
-    ///             Policy = @"{
+    ///         SecretArn = exampleSecret.Arn,
+    ///         Policy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     /// 	{
@@ -44,10 +42,9 @@ namespace Pulumi.Aws.SecretsManager
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +56,7 @@ namespace Pulumi.Aws.SecretsManager
     /// ```
     /// </summary>
     [AwsResourceType("aws:secretsmanager/secretPolicy:SecretPolicy")]
-    public partial class SecretPolicy : Pulumi.CustomResource
+    public partial class SecretPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
@@ -123,7 +120,7 @@ namespace Pulumi.Aws.SecretsManager
         }
     }
 
-    public sealed class SecretPolicyArgs : Pulumi.ResourceArgs
+    public sealed class SecretPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
@@ -146,9 +143,10 @@ namespace Pulumi.Aws.SecretsManager
         public SecretPolicyArgs()
         {
         }
+        public static new SecretPolicyArgs Empty => new SecretPolicyArgs();
     }
 
-    public sealed class SecretPolicyState : Pulumi.ResourceArgs
+    public sealed class SecretPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
@@ -171,5 +169,6 @@ namespace Pulumi.Aws.SecretsManager
         public SecretPolicyState()
         {
         }
+        public static new SecretPolicyState Empty => new SecretPolicyState();
     }
 }

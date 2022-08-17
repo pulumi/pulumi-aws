@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppFlow.Inputs
 {
 
-    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs : Pulumi.ResourceArgs
+    public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon S3 bucket name where the source files are stored.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs()
         {
         }
+        public static new FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs Empty => new FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DirectoryService.Inputs
 {
 
-    public sealed class SharedDirectoryTargetArgs : Pulumi.ResourceArgs
+    public sealed class SharedDirectoryTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Identifier of the directory consumer account.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.DirectoryService.Inputs
         public SharedDirectoryTargetArgs()
         {
         }
+        public static new SharedDirectoryTargetArgs Empty => new SharedDirectoryTargetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda.Inputs
 {
 
-    public sealed class EventSourceMappingFilterCriteriaGetArgs : Pulumi.ResourceArgs
+    public sealed class EventSourceMappingFilterCriteriaGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("filters")]
         private InputList<Inputs.EventSourceMappingFilterCriteriaFilterGetArgs>? _filters;
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Lambda.Inputs
         public EventSourceMappingFilterCriteriaGetArgs()
         {
         }
+        public static new EventSourceMappingFilterCriteriaGetArgs Empty => new EventSourceMappingFilterCriteriaGetArgs();
     }
 }

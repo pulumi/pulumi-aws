@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3.Inputs
 {
 
-    public sealed class InventoryFilterGetArgs : Pulumi.ResourceArgs
+    public sealed class InventoryFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The prefix that an object must have to be included in the inventory results.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.S3.Inputs
         public InventoryFilterGetArgs()
         {
         }
+        public static new InventoryFilterGetArgs Empty => new InventoryFilterGetArgs();
     }
 }

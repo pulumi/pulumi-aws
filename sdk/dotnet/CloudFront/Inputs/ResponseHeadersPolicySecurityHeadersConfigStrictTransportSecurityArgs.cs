@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront.Inputs
 {
 
-    public sealed class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs : Pulumi.ResourceArgs
+    public sealed class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs()
         {
         }
+        public static new ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs Empty => new ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs();
     }
 }

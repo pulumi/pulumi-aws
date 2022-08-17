@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codecommit"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codecommit"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := codecommit.NewApprovalRuleTemplateAssociation(ctx, "example", &codecommit.ApprovalRuleTemplateAssociationArgs{
-// 			ApprovalRuleTemplateName: pulumi.Any(aws_codecommit_approval_rule_template.Example.Name),
-// 			RepositoryName:           pulumi.Any(aws_codecommit_repository.Example.Repository_name),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codecommit.NewApprovalRuleTemplateAssociation(ctx, "example", &codecommit.ApprovalRuleTemplateAssociationArgs{
+//				ApprovalRuleTemplateName: pulumi.Any(aws_codecommit_approval_rule_template.Example.Name),
+//				RepositoryName:           pulumi.Any(aws_codecommit_repository.Example.Repository_name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // CodeCommit approval rule template associations can be imported using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`), e.g.
 //
 // ```sh
-//  $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
+//
+//	$ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
+//
 // ```
 type ApprovalRuleTemplateAssociation struct {
 	pulumi.CustomResourceState
@@ -146,7 +151,7 @@ func (i *ApprovalRuleTemplateAssociation) ToApprovalRuleTemplateAssociationOutpu
 // ApprovalRuleTemplateAssociationArrayInput is an input type that accepts ApprovalRuleTemplateAssociationArray and ApprovalRuleTemplateAssociationArrayOutput values.
 // You can construct a concrete instance of `ApprovalRuleTemplateAssociationArrayInput` via:
 //
-//          ApprovalRuleTemplateAssociationArray{ ApprovalRuleTemplateAssociationArgs{...} }
+//	ApprovalRuleTemplateAssociationArray{ ApprovalRuleTemplateAssociationArgs{...} }
 type ApprovalRuleTemplateAssociationArrayInput interface {
 	pulumi.Input
 
@@ -171,7 +176,7 @@ func (i ApprovalRuleTemplateAssociationArray) ToApprovalRuleTemplateAssociationA
 // ApprovalRuleTemplateAssociationMapInput is an input type that accepts ApprovalRuleTemplateAssociationMap and ApprovalRuleTemplateAssociationMapOutput values.
 // You can construct a concrete instance of `ApprovalRuleTemplateAssociationMapInput` via:
 //
-//          ApprovalRuleTemplateAssociationMap{ "key": ApprovalRuleTemplateAssociationArgs{...} }
+//	ApprovalRuleTemplateAssociationMap{ "key": ApprovalRuleTemplateAssociationArgs{...} }
 type ApprovalRuleTemplateAssociationMapInput interface {
 	pulumi.Input
 

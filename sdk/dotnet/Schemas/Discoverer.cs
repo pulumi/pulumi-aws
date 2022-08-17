@@ -17,24 +17,21 @@ namespace Pulumi.Aws.Schemas
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var messenger = new Aws.CloudWatch.EventBus("messenger", new Aws.CloudWatch.EventBusArgs
-    ///         {
-    ///         });
-    ///         var test = new Aws.Schemas.Discoverer("test", new Aws.Schemas.DiscovererArgs
-    ///         {
-    ///             SourceArn = messenger.Arn,
-    ///             Description = "Auto discover event schemas",
-    ///         });
-    ///     }
+    ///     var messenger = new Aws.CloudWatch.EventBus("messenger");
     /// 
-    /// }
+    ///     var test = new Aws.Schemas.Discoverer("test", new()
+    ///     {
+    ///         SourceArn = messenger.Arn,
+    ///         Description = "Auto discover event schemas",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +43,7 @@ namespace Pulumi.Aws.Schemas
     /// ```
     /// </summary>
     [AwsResourceType("aws:schemas/discoverer:Discoverer")]
-    public partial class Discoverer : Pulumi.CustomResource
+    public partial class Discoverer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the discoverer.
@@ -122,7 +119,7 @@ namespace Pulumi.Aws.Schemas
         }
     }
 
-    public sealed class DiscovererArgs : Pulumi.ResourceArgs
+    public sealed class DiscovererArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the discoverer. Maximum of 256 characters.
@@ -151,9 +148,10 @@ namespace Pulumi.Aws.Schemas
         public DiscovererArgs()
         {
         }
+        public static new DiscovererArgs Empty => new DiscovererArgs();
     }
 
-    public sealed class DiscovererState : Pulumi.ResourceArgs
+    public sealed class DiscovererState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Amazon Resource Name (ARN) of the discoverer.
@@ -200,5 +198,6 @@ namespace Pulumi.Aws.Schemas
         public DiscovererState()
         {
         }
+        public static new DiscovererState Empty => new DiscovererState();
     }
 }

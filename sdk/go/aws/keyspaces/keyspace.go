@@ -20,19 +20,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/keyspaces"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/keyspaces"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := keyspaces.NewKeyspace(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := keyspaces.NewKeyspace(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -40,7 +43,9 @@ import (
 // Use the `name` to import a keyspace. For example
 //
 // ```sh
-//  $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
+//
+//	$ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
+//
 // ```
 type Keyspace struct {
 	pulumi.CustomResourceState
@@ -50,8 +55,7 @@ type Keyspace struct {
 	// The name of the keyspace to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -89,8 +93,7 @@ type keyspaceState struct {
 	// The name of the keyspace to be created.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -100,8 +103,7 @@ type KeyspaceState struct {
 	// The name of the keyspace to be created.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -150,7 +152,7 @@ func (i *Keyspace) ToKeyspaceOutputWithContext(ctx context.Context) KeyspaceOutp
 // KeyspaceArrayInput is an input type that accepts KeyspaceArray and KeyspaceArrayOutput values.
 // You can construct a concrete instance of `KeyspaceArrayInput` via:
 //
-//          KeyspaceArray{ KeyspaceArgs{...} }
+//	KeyspaceArray{ KeyspaceArgs{...} }
 type KeyspaceArrayInput interface {
 	pulumi.Input
 
@@ -175,7 +177,7 @@ func (i KeyspaceArray) ToKeyspaceArrayOutputWithContext(ctx context.Context) Key
 // KeyspaceMapInput is an input type that accepts KeyspaceMap and KeyspaceMapOutput values.
 // You can construct a concrete instance of `KeyspaceMapInput` via:
 //
-//          KeyspaceMap{ "key": KeyspaceArgs{...} }
+//	KeyspaceMap{ "key": KeyspaceArgs{...} }
 type KeyspaceMapInput interface {
 	pulumi.Input
 
@@ -226,7 +228,6 @@ func (o KeyspaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Keyspace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 func (o KeyspaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Keyspace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

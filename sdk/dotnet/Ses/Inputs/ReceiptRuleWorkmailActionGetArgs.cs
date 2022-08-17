@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ses.Inputs
 {
 
-    public sealed class ReceiptRuleWorkmailActionGetArgs : Pulumi.ResourceArgs
+    public sealed class ReceiptRuleWorkmailActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the WorkMail organization
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Ses.Inputs
         public ReceiptRuleWorkmailActionGetArgs()
         {
         }
+        public static new ReceiptRuleWorkmailActionGetArgs Empty => new ReceiptRuleWorkmailActionGetArgs();
     }
 }

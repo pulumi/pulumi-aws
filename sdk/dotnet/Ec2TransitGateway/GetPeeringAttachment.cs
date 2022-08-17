@@ -20,50 +20,46 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetPeeringAttachment.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetPeeringAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetPeeringAttachmentArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2TransitGateway.Inputs.GetPeeringAttachmentFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetPeeringAttachmentFilterArgs
+        ///                 Name = "transit-gateway-attachment-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "transit-gateway-attachment-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "tgw-attach-12345678",
-        ///                     },
+        ///                     "tgw-attach-12345678",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var attachment = Aws.Ec2TransitGateway.GetPeeringAttachment.Invoke(new()
         ///     {
-        ///         var attachment = Output.Create(Aws.Ec2TransitGateway.GetPeeringAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetPeeringAttachmentArgs
-        ///         {
-        ///             Id = "tgw-attach-12345678",
-        ///         }));
-        ///     }
+        ///         Id = "tgw-attach-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -80,50 +76,46 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// ### By Filter
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2TransitGateway.GetPeeringAttachment.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetPeeringAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetPeeringAttachmentArgs
+        ///         Filters = new[]
         ///         {
-        ///             Filters = 
+        ///             new Aws.Ec2TransitGateway.Inputs.GetPeeringAttachmentFilterInputArgs
         ///             {
-        ///                 new Aws.Ec2TransitGateway.Inputs.GetPeeringAttachmentFilterArgs
+        ///                 Name = "transit-gateway-attachment-id",
+        ///                 Values = new[]
         ///                 {
-        ///                     Name = "transit-gateway-attachment-id",
-        ///                     Values = 
-        ///                     {
-        ///                         "tgw-attach-12345678",
-        ///                     },
+        ///                     "tgw-attach-12345678",
         ///                 },
         ///             },
-        ///         }));
-        ///     }
+        ///         },
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### By Identifier
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var attachment = Aws.Ec2TransitGateway.GetPeeringAttachment.Invoke(new()
         ///     {
-        ///         var attachment = Output.Create(Aws.Ec2TransitGateway.GetPeeringAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetPeeringAttachmentArgs
-        ///         {
-        ///             Id = "tgw-attach-12345678",
-        ///         }));
-        ///     }
+        ///         Id = "tgw-attach-12345678",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -133,7 +125,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     }
 
 
-    public sealed class GetPeeringAttachmentArgs : Pulumi.InvokeArgs
+    public sealed class GetPeeringAttachmentArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private List<Inputs.GetPeeringAttachmentFilterArgs>? _filters;
@@ -169,9 +161,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetPeeringAttachmentArgs()
         {
         }
+        public static new GetPeeringAttachmentArgs Empty => new GetPeeringAttachmentArgs();
     }
 
-    public sealed class GetPeeringAttachmentInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPeeringAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
         private InputList<Inputs.GetPeeringAttachmentFilterInputArgs>? _filters;
@@ -207,6 +200,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public GetPeeringAttachmentInvokeArgs()
         {
         }
+        public static new GetPeeringAttachmentInvokeArgs Empty => new GetPeeringAttachmentInvokeArgs();
     }
 
 

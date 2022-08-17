@@ -74,7 +74,7 @@ namespace Pulumi.Aws
         }
     }
 
-    internal sealed class AwsResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class AwsResourceTypeAttribute : global::Pulumi.ResourceTypeAttribute
     {
         public AwsResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cognito.Inputs
 {
 
-    public sealed class UserPoolDeviceConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class UserPoolDeviceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether a challenge is required on a new device. Only applicable to a new device.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Cognito.Inputs
         public UserPoolDeviceConfigurationArgs()
         {
         }
+        public static new UserPoolDeviceConfigurationArgs Empty => new UserPoolDeviceConfigurationArgs();
     }
 }

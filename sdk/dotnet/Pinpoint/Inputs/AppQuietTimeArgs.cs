@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Pinpoint.Inputs
 {
 
-    public sealed class AppQuietTimeArgs : Pulumi.ResourceArgs
+    public sealed class AppQuietTimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default end time for quiet time in ISO 8601 format. Required if `start` is set
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Pinpoint.Inputs
         public AppQuietTimeArgs()
         {
         }
+        public static new AppQuietTimeArgs Empty => new AppQuietTimeArgs();
     }
 }

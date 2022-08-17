@@ -16,21 +16,19 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ### Basic Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ServiceCatalog.PrincipalPortfolioAssociation("example", new()
     ///     {
-    ///         var example = new Aws.ServiceCatalog.PrincipalPortfolioAssociation("example", new Aws.ServiceCatalog.PrincipalPortfolioAssociationArgs
-    ///         {
-    ///             PortfolioId = "port-68656c6c6f",
-    ///             PrincipalArn = "arn:aws:iam::123456789012:user/Eleanor",
-    ///         });
-    ///     }
+    ///         PortfolioId = "port-68656c6c6f",
+    ///         PrincipalArn = "arn:aws:iam::123456789012:user/Eleanor",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation")]
-    public partial class PrincipalPortfolioAssociation : Pulumi.CustomResource
+    public partial class PrincipalPortfolioAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -112,7 +110,7 @@ namespace Pulumi.Aws.ServiceCatalog
         }
     }
 
-    public sealed class PrincipalPortfolioAssociationArgs : Pulumi.ResourceArgs
+    public sealed class PrincipalPortfolioAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -141,9 +139,10 @@ namespace Pulumi.Aws.ServiceCatalog
         public PrincipalPortfolioAssociationArgs()
         {
         }
+        public static new PrincipalPortfolioAssociationArgs Empty => new PrincipalPortfolioAssociationArgs();
     }
 
-    public sealed class PrincipalPortfolioAssociationState : Pulumi.ResourceArgs
+    public sealed class PrincipalPortfolioAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -172,5 +171,6 @@ namespace Pulumi.Aws.ServiceCatalog
         public PrincipalPortfolioAssociationState()
         {
         }
+        public static new PrincipalPortfolioAssociationState Empty => new PrincipalPortfolioAssociationState();
     }
 }

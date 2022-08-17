@@ -134,14 +134,14 @@ public class RolePolicy extends com.pulumi.resources.CustomResource {
         return this.policy;
     }
     /**
-     * The IAM role to attach to the policy.
+     * The name of the IAM role to attach to the policy.
      * 
      */
     @Export(name="role", type=String.class, parameters={})
     private Output<String> role;
 
     /**
-     * @return The IAM role to attach to the policy.
+     * @return The name of the IAM role to attach to the policy.
      * 
      */
     public Output<String> role() {

@@ -19,21 +19,19 @@ namespace Pulumi.Aws.Lex
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var orderFlowersBot = Aws.Lex.GetBot.Invoke(new()
         ///     {
-        ///         var orderFlowersBot = Output.Create(Aws.Lex.GetBot.InvokeAsync(new Aws.Lex.GetBotArgs
-        ///         {
-        ///             Name = "OrderFlowers",
-        ///             Version = "$LATEST",
-        ///         }));
-        ///     }
+        ///         Name = "OrderFlowers",
+        ///         Version = "$LATEST",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Aws.Lex
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var orderFlowersBot = Aws.Lex.GetBot.Invoke(new()
         ///     {
-        ///         var orderFlowersBot = Output.Create(Aws.Lex.GetBot.InvokeAsync(new Aws.Lex.GetBotArgs
-        ///         {
-        ///             Name = "OrderFlowers",
-        ///             Version = "$LATEST",
-        ///         }));
-        ///     }
+        ///         Name = "OrderFlowers",
+        ///         Version = "$LATEST",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Aws.Lex
     }
 
 
-    public sealed class GetBotArgs : Pulumi.InvokeArgs
+    public sealed class GetBotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the bot. The name is case sensitive.
@@ -90,9 +86,10 @@ namespace Pulumi.Aws.Lex
         public GetBotArgs()
         {
         }
+        public static new GetBotArgs Empty => new GetBotArgs();
     }
 
-    public sealed class GetBotInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the bot. The name is case sensitive.
@@ -109,6 +106,7 @@ namespace Pulumi.Aws.Lex
         public GetBotInvokeArgs()
         {
         }
+        public static new GetBotInvokeArgs Empty => new GetBotInvokeArgs();
     }
 
 

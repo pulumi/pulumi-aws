@@ -18,74 +18,70 @@ namespace Pulumi.Aws.LakeFormation
     /// ### Data Lake Admins
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.LakeFormation.DataLakeSettings("example", new()
     ///     {
-    ///         var example = new Aws.LakeFormation.DataLakeSettings("example", new Aws.LakeFormation.DataLakeSettingsArgs
+    ///         Admins = new[]
     ///         {
-    ///             Admins = 
-    ///             {
-    ///                 aws_iam_user.Test.Arn,
-    ///                 aws_iam_role.Test.Arn,
-    ///             },
-    ///         });
-    ///     }
+    ///             aws_iam_user.Test.Arn,
+    ///             aws_iam_role.Test.Arn,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Create Default Permissions
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.LakeFormation.DataLakeSettings("example", new()
     ///     {
-    ///         var example = new Aws.LakeFormation.DataLakeSettings("example", new Aws.LakeFormation.DataLakeSettingsArgs
+    ///         Admins = new[]
     ///         {
-    ///             Admins = 
+    ///             aws_iam_user.Test.Arn,
+    ///             aws_iam_role.Test.Arn,
+    ///         },
+    ///         CreateDatabaseDefaultPermissions = new[]
+    ///         {
+    ///             new Aws.LakeFormation.Inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs
     ///             {
-    ///                 aws_iam_user.Test.Arn,
-    ///                 aws_iam_role.Test.Arn,
-    ///             },
-    ///             CreateDatabaseDefaultPermissions = 
-    ///             {
-    ///                 new Aws.LakeFormation.Inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs
+    ///                 Permissions = new[]
     ///                 {
-    ///                     Permissions = 
-    ///                     {
-    ///                         "SELECT",
-    ///                         "ALTER",
-    ///                         "DROP",
-    ///                     },
-    ///                     Principal = aws_iam_user.Test.Arn,
+    ///                     "SELECT",
+    ///                     "ALTER",
+    ///                     "DROP",
     ///                 },
+    ///                 Principal = aws_iam_user.Test.Arn,
     ///             },
-    ///             CreateTableDefaultPermissions = 
+    ///         },
+    ///         CreateTableDefaultPermissions = new[]
+    ///         {
+    ///             new Aws.LakeFormation.Inputs.DataLakeSettingsCreateTableDefaultPermissionArgs
     ///             {
-    ///                 new Aws.LakeFormation.Inputs.DataLakeSettingsCreateTableDefaultPermissionArgs
+    ///                 Permissions = new[]
     ///                 {
-    ///                     Permissions = 
-    ///                     {
-    ///                         "ALL",
-    ///                     },
-    ///                     Principal = aws_iam_role.Test.Arn,
+    ///                     "ALL",
     ///                 },
+    ///                 Principal = aws_iam_role.Test.Arn,
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:lakeformation/dataLakeSettings:DataLakeSettings")]
-    public partial class DataLakeSettings : Pulumi.CustomResource
+    public partial class DataLakeSettings : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
@@ -161,7 +157,7 @@ namespace Pulumi.Aws.LakeFormation
         }
     }
 
-    public sealed class DataLakeSettingsArgs : Pulumi.ResourceArgs
+    public sealed class DataLakeSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("admins")]
         private InputList<string>? _admins;
@@ -220,9 +216,10 @@ namespace Pulumi.Aws.LakeFormation
         public DataLakeSettingsArgs()
         {
         }
+        public static new DataLakeSettingsArgs Empty => new DataLakeSettingsArgs();
     }
 
-    public sealed class DataLakeSettingsState : Pulumi.ResourceArgs
+    public sealed class DataLakeSettingsState : global::Pulumi.ResourceArgs
     {
         [Input("admins")]
         private InputList<string>? _admins;
@@ -281,5 +278,6 @@ namespace Pulumi.Aws.LakeFormation
         public DataLakeSettingsState()
         {
         }
+        public static new DataLakeSettingsState Empty => new DataLakeSettingsState();
     }
 }

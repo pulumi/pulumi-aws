@@ -16,65 +16,62 @@ namespace Pulumi.Aws.S3
     /// ### With `routing_rule` configured
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.S3.BucketWebsiteConfigurationV2("example", new()
     ///     {
-    ///         var example = new Aws.S3.BucketWebsiteConfigurationV2("example", new Aws.S3.BucketWebsiteConfigurationV2Args
+    ///         Bucket = aws_s3_bucket.Example.Bucket,
+    ///         IndexDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2IndexDocumentArgs
     ///         {
-    ///             Bucket = aws_s3_bucket.Example.Bucket,
-    ///             IndexDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2IndexDocumentArgs
+    ///             Suffix = "index.html",
+    ///         },
+    ///         ErrorDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs
+    ///         {
+    ///             Key = "error.html",
+    ///         },
+    ///         RoutingRules = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketWebsiteConfigurationV2RoutingRuleArgs
     ///             {
-    ///                 Suffix = "index.html",
-    ///             },
-    ///             ErrorDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs
-    ///             {
-    ///                 Key = "error.html",
-    ///             },
-    ///             RoutingRules = 
-    ///             {
-    ///                 new Aws.S3.Inputs.BucketWebsiteConfigurationV2RoutingRuleArgs
+    ///                 Condition = new Aws.S3.Inputs.BucketWebsiteConfigurationV2RoutingRuleConditionArgs
     ///                 {
-    ///                     Condition = new Aws.S3.Inputs.BucketWebsiteConfigurationV2RoutingRuleConditionArgs
-    ///                     {
-    ///                         KeyPrefixEquals = "docs/",
-    ///                     },
-    ///                     Redirect = new Aws.S3.Inputs.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs
-    ///                     {
-    ///                         ReplaceKeyPrefixWith = "documents/",
-    ///                     },
+    ///                     KeyPrefixEquals = "docs/",
+    ///                 },
+    ///                 Redirect = new Aws.S3.Inputs.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs
+    ///                 {
+    ///                     ReplaceKeyPrefixWith = "documents/",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### With `routing_rules` configured
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.S3.BucketWebsiteConfigurationV2("example", new()
     ///     {
-    ///         var example = new Aws.S3.BucketWebsiteConfigurationV2("example", new Aws.S3.BucketWebsiteConfigurationV2Args
+    ///         Bucket = aws_s3_bucket.Example.Bucket,
+    ///         IndexDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2IndexDocumentArgs
     ///         {
-    ///             Bucket = aws_s3_bucket.Example.Bucket,
-    ///             IndexDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2IndexDocumentArgs
-    ///             {
-    ///                 Suffix = "index.html",
-    ///             },
-    ///             ErrorDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs
-    ///             {
-    ///                 Key = "error.html",
-    ///             },
-    ///             RoutingRuleDetails = @"[{
+    ///             Suffix = "index.html",
+    ///         },
+    ///         ErrorDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs
+    ///         {
+    ///             Key = "error.html",
+    ///         },
+    ///         RoutingRuleDetails = @"[{
     ///     ""Condition"": {
     ///         ""KeyPrefixEquals"": ""docs/""
     ///     },
@@ -83,10 +80,9 @@ namespace Pulumi.Aws.S3
     ///     }
     /// }]
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -104,7 +100,7 @@ namespace Pulumi.Aws.S3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2")]
-    public partial class BucketWebsiteConfigurationV2 : Pulumi.CustomResource
+    public partial class BucketWebsiteConfigurationV2 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the bucket.
@@ -205,7 +201,7 @@ namespace Pulumi.Aws.S3
         }
     }
 
-    public sealed class BucketWebsiteConfigurationV2Args : Pulumi.ResourceArgs
+    public sealed class BucketWebsiteConfigurationV2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket.
@@ -259,9 +255,10 @@ namespace Pulumi.Aws.S3
         public BucketWebsiteConfigurationV2Args()
         {
         }
+        public static new BucketWebsiteConfigurationV2Args Empty => new BucketWebsiteConfigurationV2Args();
     }
 
-    public sealed class BucketWebsiteConfigurationV2State : Pulumi.ResourceArgs
+    public sealed class BucketWebsiteConfigurationV2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the bucket.
@@ -327,5 +324,6 @@ namespace Pulumi.Aws.S3
         public BucketWebsiteConfigurationV2State()
         {
         }
+        public static new BucketWebsiteConfigurationV2State Empty => new BucketWebsiteConfigurationV2State();
     }
 }

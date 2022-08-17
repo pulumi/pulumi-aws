@@ -21,7 +21,7 @@ class RolePolicyArgs:
         """
         The set of arguments for constructing a RolePolicy resource.
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[str] role: The IAM role to attach to the policy.
+        :param pulumi.Input[str] role: The name of the IAM role to attach to the policy.
         :param pulumi.Input[str] name: The name of the role policy. If omitted, this provider will
                assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
@@ -50,7 +50,7 @@ class RolePolicyArgs:
     @pulumi.getter
     def role(self) -> pulumi.Input[str]:
         """
-        The IAM role to attach to the policy.
+        The name of the IAM role to attach to the policy.
         """
         return pulumi.get(self, "role")
 
@@ -99,7 +99,7 @@ class _RolePolicyState:
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[str] role: The IAM role to attach to the policy.
+        :param pulumi.Input[str] role: The name of the IAM role to attach to the policy.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -152,7 +152,7 @@ class _RolePolicyState:
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
         """
-        The IAM role to attach to the policy.
+        The name of the IAM role to attach to the policy.
         """
         return pulumi.get(self, "role")
 
@@ -221,7 +221,7 @@ class RolePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[str] role: The IAM role to attach to the policy.
+        :param pulumi.Input[str] role: The name of the IAM role to attach to the policy.
         """
         ...
     @overload
@@ -334,7 +334,7 @@ class RolePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[str] role: The IAM role to attach to the policy.
+        :param pulumi.Input[str] role: The name of the IAM role to attach to the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -376,7 +376,7 @@ class RolePolicy(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[str]:
         """
-        The IAM role to attach to the policy.
+        The name of the IAM role to attach to the policy.
         """
         return pulumi.get(self, "role")
 

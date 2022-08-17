@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class GroupLaunchTemplateArgs : Pulumi.ResourceArgs
+    public sealed class GroupLaunchTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the launch template. Conflicts with `name`.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public GroupLaunchTemplateArgs()
         {
         }
+        public static new GroupLaunchTemplateArgs Empty => new GroupLaunchTemplateArgs();
     }
 }

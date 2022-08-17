@@ -23,68 +23,61 @@ namespace Pulumi.Aws.AutoScaling
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new load balancer attachment
+    ///     var asgAttachmentBar = new Aws.AutoScaling.Attachment("asgAttachmentBar", new()
     ///     {
-    ///         // Create a new load balancer attachment
-    ///         var asgAttachmentBar = new Aws.AutoScaling.Attachment("asgAttachmentBar", new Aws.AutoScaling.AttachmentArgs
-    ///         {
-    ///             AutoscalingGroupName = aws_autoscaling_group.Asg.Id,
-    ///             Elb = aws_elb.Bar.Id,
-    ///         });
-    ///     }
+    ///         AutoscalingGroupName = aws_autoscaling_group.Asg.Id,
+    ///         Elb = aws_elb.Bar.Id,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new ALB Target Group attachment
+    ///     var asgAttachmentBar = new Aws.AutoScaling.Attachment("asgAttachmentBar", new()
     ///     {
-    ///         // Create a new ALB Target Group attachment
-    ///         var asgAttachmentBar = new Aws.AutoScaling.Attachment("asgAttachmentBar", new Aws.AutoScaling.AttachmentArgs
-    ///         {
-    ///             AutoscalingGroupName = aws_autoscaling_group.Asg.Id,
-    ///             LbTargetGroupArn = aws_lb_target_group.Test.Arn,
-    ///         });
-    ///     }
+    ///         AutoscalingGroupName = aws_autoscaling_group.Asg.Id,
+    ///         LbTargetGroupArn = aws_lb_target_group.Test.Arn,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## With An AutoScaling Group Resource
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         // ... other configuration ...
-    ///         var asg = new Aws.AutoScaling.Group("asg", new Aws.AutoScaling.GroupArgs
-    ///         {
-    ///         });
-    ///         var asgAttachmentBar = new Aws.AutoScaling.Attachment("asgAttachmentBar", new Aws.AutoScaling.AttachmentArgs
-    ///         {
-    ///             AutoscalingGroupName = asg.Id,
-    ///             Elb = aws_elb.Test.Id,
-    ///         });
-    ///     }
+    ///     // ... other configuration ...
+    ///     var asg = new Aws.AutoScaling.Group("asg");
     /// 
-    /// }
+    ///     var asgAttachmentBar = new Aws.AutoScaling.Attachment("asgAttachmentBar", new()
+    ///     {
+    ///         AutoscalingGroupName = asg.Id,
+    ///         Elb = aws_elb.Test.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AwsResourceType("aws:autoscaling/attachment:Attachment")]
-    public partial class Attachment : Pulumi.CustomResource
+    public partial class Attachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of an ALB Target Group.
@@ -154,7 +147,7 @@ namespace Pulumi.Aws.AutoScaling
         }
     }
 
-    public sealed class AttachmentArgs : Pulumi.ResourceArgs
+    public sealed class AttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of an ALB Target Group.
@@ -183,9 +176,10 @@ namespace Pulumi.Aws.AutoScaling
         public AttachmentArgs()
         {
         }
+        public static new AttachmentArgs Empty => new AttachmentArgs();
     }
 
-    public sealed class AttachmentState : Pulumi.ResourceArgs
+    public sealed class AttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of an ALB Target Group.
@@ -214,5 +208,6 @@ namespace Pulumi.Aws.AutoScaling
         public AttachmentState()
         {
         }
+        public static new AttachmentState Empty => new AttachmentState();
     }
 }

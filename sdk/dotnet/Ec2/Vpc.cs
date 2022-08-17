@@ -17,92 +17,90 @@ namespace Pulumi.Aws.Ec2
     /// Basic usage:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.Ec2.Vpc("main", new()
     ///     {
-    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///     }
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// Basic usage with tags:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var main = new Aws.Ec2.Vpc("main", new()
     ///     {
-    ///         var main = new Aws.Ec2.Vpc("main", new Aws.Ec2.VpcArgs
+    ///         CidrBlock = "10.0.0.0/16",
+    ///         InstanceTenancy = "default",
+    ///         Tags = 
     ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///             InstanceTenancy = "default",
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "main" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "Name", "main" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// VPC with CIDR from AWS IPAM:
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
-    ///         var testVpcIpam = new Aws.Ec2.VpcIpam("testVpcIpam", new Aws.Ec2.VpcIpamArgs
-    ///         {
-    ///             OperatingRegions = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
-    ///                 {
-    ///                     RegionName = current.Apply(current =&gt; current.Name),
-    ///                 },
-    ///             },
-    ///         });
-    ///         var testVpcIpamPool = new Aws.Ec2.VpcIpamPool("testVpcIpamPool", new Aws.Ec2.VpcIpamPoolArgs
-    ///         {
-    ///             AddressFamily = "ipv4",
-    ///             IpamScopeId = testVpcIpam.PrivateDefaultScopeId,
-    ///             Locale = current.Apply(current =&gt; current.Name),
-    ///         });
-    ///         var testVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("testVpcIpamPoolCidr", new Aws.Ec2.VpcIpamPoolCidrArgs
-    ///         {
-    ///             IpamPoolId = testVpcIpamPool.Id,
-    ///             Cidr = "172.2.0.0/16",
-    ///         });
-    ///         var testVpc = new Aws.Ec2.Vpc("testVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             Ipv4IpamPoolId = testVpcIpamPool.Id,
-    ///             Ipv4NetmaskLength = 28,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 testVpcIpamPoolCidr,
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
-    /// }
+    ///     var testVpcIpam = new Aws.Ec2.VpcIpam("testVpcIpam", new()
+    ///     {
+    ///         OperatingRegions = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
+    ///             {
+    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var testVpcIpamPool = new Aws.Ec2.VpcIpamPool("testVpcIpamPool", new()
+    ///     {
+    ///         AddressFamily = "ipv4",
+    ///         IpamScopeId = testVpcIpam.PrivateDefaultScopeId,
+    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///     });
+    /// 
+    ///     var testVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("testVpcIpamPoolCidr", new()
+    ///     {
+    ///         IpamPoolId = testVpcIpamPool.Id,
+    ///         Cidr = "172.2.0.0/16",
+    ///     });
+    /// 
+    ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
+    ///     {
+    ///         Ipv4IpamPoolId = testVpcIpamPool.Id,
+    ///         Ipv4NetmaskLength = 28,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             testVpcIpamPoolCidr,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -114,7 +112,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpc:Vpc")]
-    public partial class Vpc : Pulumi.CustomResource
+    public partial class Vpc : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of VPC
@@ -251,7 +249,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -300,7 +298,7 @@ namespace Pulumi.Aws.Ec2
         }
     }
 
-    public sealed class VpcArgs : Pulumi.ResourceArgs
+    public sealed class VpcArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
@@ -398,9 +396,10 @@ namespace Pulumi.Aws.Ec2
         public VpcArgs()
         {
         }
+        public static new VpcArgs Empty => new VpcArgs();
     }
 
-    public sealed class VpcState : Pulumi.ResourceArgs
+    public sealed class VpcState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of VPC
@@ -546,7 +545,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -557,5 +556,6 @@ namespace Pulumi.Aws.Ec2
         public VpcState()
         {
         }
+        public static new VpcState Empty => new VpcState();
     }
 }

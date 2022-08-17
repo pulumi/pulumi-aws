@@ -17,49 +17,49 @@ namespace Pulumi.Aws.GuardDuty
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var primary = new Aws.GuardDuty.Detector("primary", new()
     ///     {
-    ///         var primary = new Aws.GuardDuty.Detector("primary", new Aws.GuardDuty.DetectorArgs
-    ///         {
-    ///             Enable = true,
-    ///         });
-    ///         var bucket = new Aws.S3.BucketV2("bucket", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         // ... other configuration ...
-    ///         var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = bucket.Id,
-    ///             Acl = "private",
-    ///         });
-    ///         var myThreatIntelSetBucketObjectv2 = new Aws.S3.BucketObjectv2("myThreatIntelSetBucketObjectv2", new Aws.S3.BucketObjectv2Args
-    ///         {
-    ///             Acl = "public-read",
-    ///             Content = @"10.0.0.0/8
-    /// ",
-    ///             Bucket = bucket.Id,
-    ///             Key = "MyThreatIntelSet",
-    ///         });
-    ///         var myThreatIntelSetThreatIntelSet = new Aws.GuardDuty.ThreatIntelSet("myThreatIntelSetThreatIntelSet", new Aws.GuardDuty.ThreatIntelSetArgs
-    ///         {
-    ///             Activate = true,
-    ///             DetectorId = primary.Id,
-    ///             Format = "TXT",
-    ///             Location = Output.Tuple(myThreatIntelSetBucketObjectv2.Bucket, myThreatIntelSetBucketObjectv2.Key).Apply(values =&gt;
-    ///             {
-    ///                 var bucket = values.Item1;
-    ///                 var key = values.Item2;
-    ///                 return $"https://s3.amazonaws.com/{bucket}/{key}";
-    ///             }),
-    ///         });
-    ///     }
+    ///         Enable = true,
+    ///     });
     /// 
-    /// }
+    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    /// 
+    ///     // ... other configuration ...
+    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Acl = "private",
+    ///     });
+    /// 
+    ///     var myThreatIntelSetBucketObjectv2 = new Aws.S3.BucketObjectv2("myThreatIntelSetBucketObjectv2", new()
+    ///     {
+    ///         Acl = "public-read",
+    ///         Content = @"10.0.0.0/8
+    /// ",
+    ///         Bucket = bucket.Id,
+    ///         Key = "MyThreatIntelSet",
+    ///     });
+    /// 
+    ///     var myThreatIntelSetThreatIntelSet = new Aws.GuardDuty.ThreatIntelSet("myThreatIntelSetThreatIntelSet", new()
+    ///     {
+    ///         Activate = true,
+    ///         DetectorId = primary.Id,
+    ///         Format = "TXT",
+    ///         Location = Output.Tuple(myThreatIntelSetBucketObjectv2.Bucket, myThreatIntelSetBucketObjectv2.Key).Apply(values =&gt;
+    ///         {
+    ///             var bucket = values.Item1;
+    ///             var key = values.Item2;
+    ///             return $"https://s3.amazonaws.com/{bucket}/{key}";
+    ///         }),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.GuardDuty
     /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/threatIntelSet:ThreatIntelSet")]
-    public partial class ThreatIntelSet : Pulumi.CustomResource
+    public partial class ThreatIntelSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.GuardDuty
         }
     }
 
-    public sealed class ThreatIntelSetArgs : Pulumi.ResourceArgs
+    public sealed class ThreatIntelSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
@@ -212,9 +212,10 @@ namespace Pulumi.Aws.GuardDuty
         public ThreatIntelSetArgs()
         {
         }
+        public static new ThreatIntelSetArgs Empty => new ThreatIntelSetArgs();
     }
 
-    public sealed class ThreatIntelSetState : Pulumi.ResourceArgs
+    public sealed class ThreatIntelSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
@@ -268,7 +269,7 @@ namespace Pulumi.Aws.GuardDuty
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -279,5 +280,6 @@ namespace Pulumi.Aws.GuardDuty
         public ThreatIntelSetState()
         {
         }
+        public static new ThreatIntelSetState Empty => new ThreatIntelSetState();
     }
 }

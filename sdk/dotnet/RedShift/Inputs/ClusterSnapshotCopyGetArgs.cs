@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RedShift.Inputs
 {
 
-    public sealed class ClusterSnapshotCopyGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSnapshotCopyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The destination region that you want to copy snapshots to.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.RedShift.Inputs
         public ClusterSnapshotCopyGetArgs()
         {
         }
+        public static new ClusterSnapshotCopyGetArgs Empty => new ClusterSnapshotCopyGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Cfg.Inputs
 {
 
-    public sealed class DeliveryChannelSnapshotDeliveryPropertiesGetArgs : Pulumi.ResourceArgs
+    public sealed class DeliveryChannelSnapshotDeliveryPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// - The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Cfg.Inputs
         public DeliveryChannelSnapshotDeliveryPropertiesGetArgs()
         {
         }
+        public static new DeliveryChannelSnapshotDeliveryPropertiesGetArgs Empty => new DeliveryChannelSnapshotDeliveryPropertiesGetArgs();
     }
 }

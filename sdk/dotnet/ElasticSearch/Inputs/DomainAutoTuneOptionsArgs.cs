@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElasticSearch.Inputs
 {
 
-    public sealed class DomainAutoTuneOptionsArgs : Pulumi.ResourceArgs
+    public sealed class DomainAutoTuneOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
@@ -39,5 +39,6 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         public DomainAutoTuneOptionsArgs()
         {
         }
+        public static new DomainAutoTuneOptionsArgs Empty => new DomainAutoTuneOptionsArgs();
     }
 }

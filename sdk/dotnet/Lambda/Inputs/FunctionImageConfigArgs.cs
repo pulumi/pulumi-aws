@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda.Inputs
 {
 
-    public sealed class FunctionImageConfigArgs : Pulumi.ResourceArgs
+    public sealed class FunctionImageConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("commands")]
         private InputList<string>? _commands;
@@ -45,5 +45,6 @@ namespace Pulumi.Aws.Lambda.Inputs
         public FunctionImageConfigArgs()
         {
         }
+        public static new FunctionImageConfigArgs Empty => new FunctionImageConfigArgs();
     }
 }

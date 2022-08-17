@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := gamelift.NewGameServerGroup(ctx, "example", &gamelift.GameServerGroupArgs{
-// 			GameServerGroupName: pulumi.String("example"),
-// 			InstanceDefinitions: gamelift.GameServerGroupInstanceDefinitionArray{
-// 				&gamelift.GameServerGroupInstanceDefinitionArgs{
-// 					InstanceType: pulumi.String("c5.large"),
-// 				},
-// 				&gamelift.GameServerGroupInstanceDefinitionArgs{
-// 					InstanceType: pulumi.String("c5a.large"),
-// 				},
-// 			},
-// 			LaunchTemplate: &gamelift.GameServerGroupLaunchTemplateArgs{
-// 				Id: pulumi.Any(aws_launch_template.Example.Id),
-// 			},
-// 			MaxSize: pulumi.Int(1),
-// 			MinSize: pulumi.Int(1),
-// 			RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			aws_iam_role_policy_attachment.Example,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := gamelift.NewGameServerGroup(ctx, "example", &gamelift.GameServerGroupArgs{
+//				GameServerGroupName: pulumi.String("example"),
+//				InstanceDefinitions: gamelift.GameServerGroupInstanceDefinitionArray{
+//					&gamelift.GameServerGroupInstanceDefinitionArgs{
+//						InstanceType: pulumi.String("c5.large"),
+//					},
+//					&gamelift.GameServerGroupInstanceDefinitionArgs{
+//						InstanceType: pulumi.String("c5a.large"),
+//					},
+//				},
+//				LaunchTemplate: &gamelift.GameServerGroupLaunchTemplateArgs{
+//					Id: pulumi.Any(aws_launch_template.Example.Id),
+//				},
+//				MaxSize: pulumi.Int(1),
+//				MinSize: pulumi.Int(1),
+//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				aws_iam_role_policy_attachment.Example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Full usage:
@@ -58,55 +61,58 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := gamelift.NewGameServerGroup(ctx, "example", &gamelift.GameServerGroupArgs{
-// 			AutoScalingPolicy: &gamelift.GameServerGroupAutoScalingPolicyArgs{
-// 				EstimatedInstanceWarmup: pulumi.Int(60),
-// 				TargetTrackingConfiguration: &gamelift.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs{
-// 					TargetValue: pulumi.Float64(75),
-// 				},
-// 			},
-// 			BalancingStrategy:          pulumi.String("SPOT_ONLY"),
-// 			GameServerGroupName:        pulumi.String("example"),
-// 			GameServerProtectionPolicy: pulumi.String("FULL_PROTECTION"),
-// 			InstanceDefinitions: gamelift.GameServerGroupInstanceDefinitionArray{
-// 				&gamelift.GameServerGroupInstanceDefinitionArgs{
-// 					InstanceType:     pulumi.String("c5.large"),
-// 					WeightedCapacity: pulumi.String("1"),
-// 				},
-// 				&gamelift.GameServerGroupInstanceDefinitionArgs{
-// 					InstanceType:     pulumi.String("c5.2xlarge"),
-// 					WeightedCapacity: pulumi.String("2"),
-// 				},
-// 			},
-// 			LaunchTemplate: &gamelift.GameServerGroupLaunchTemplateArgs{
-// 				Id:      pulumi.Any(aws_launch_template.Example.Id),
-// 				Version: pulumi.String("1"),
-// 			},
-// 			MaxSize: pulumi.Int(1),
-// 			MinSize: pulumi.Int(1),
-// 			RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// 			Tags: pulumi.StringMap{
-// 				"Name": pulumi.String("example"),
-// 			},
-// 			VpcSubnets: pulumi.StringArray{
-// 				pulumi.String("subnet-12345678"),
-// 				pulumi.String("subnet-23456789"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			aws_iam_role_policy_attachment.Example,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := gamelift.NewGameServerGroup(ctx, "example", &gamelift.GameServerGroupArgs{
+//				AutoScalingPolicy: &gamelift.GameServerGroupAutoScalingPolicyArgs{
+//					EstimatedInstanceWarmup: pulumi.Int(60),
+//					TargetTrackingConfiguration: &gamelift.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs{
+//						TargetValue: pulumi.Float64(75),
+//					},
+//				},
+//				BalancingStrategy:          pulumi.String("SPOT_ONLY"),
+//				GameServerGroupName:        pulumi.String("example"),
+//				GameServerProtectionPolicy: pulumi.String("FULL_PROTECTION"),
+//				InstanceDefinitions: gamelift.GameServerGroupInstanceDefinitionArray{
+//					&gamelift.GameServerGroupInstanceDefinitionArgs{
+//						InstanceType:     pulumi.String("c5.large"),
+//						WeightedCapacity: pulumi.String("1"),
+//					},
+//					&gamelift.GameServerGroupInstanceDefinitionArgs{
+//						InstanceType:     pulumi.String("c5.2xlarge"),
+//						WeightedCapacity: pulumi.String("2"),
+//					},
+//				},
+//				LaunchTemplate: &gamelift.GameServerGroupLaunchTemplateArgs{
+//					Id:      pulumi.Any(aws_launch_template.Example.Id),
+//					Version: pulumi.String("1"),
+//				},
+//				MaxSize: pulumi.Int(1),
+//				MinSize: pulumi.Int(1),
+//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example"),
+//				},
+//				VpcSubnets: pulumi.StringArray{
+//					pulumi.String("subnet-12345678"),
+//					pulumi.String("subnet-23456789"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				aws_iam_role_policy_attachment.Example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Example IAM Role for GameLift Game Server Group
 //
@@ -114,50 +120,55 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := aws.GetPartition(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
-//   "Version": "2012-10-17",
-//   "Statement": [
-//     {
-//       "Effect": "Allow",
-//       "Principal": {
-//         "Service": [
-//           "autoscaling.amazonaws.com",
-//           "gamelift.amazonaws.com"
-//         ]
-//       },
-//       "Action": "sts:AssumeRole"
-//     }
-//   ]
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//				AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "Service": [
+//	          "autoscaling.amazonaws.com",
+//	          "gamelift.amazonaws.com"
+//	        ]
+//	      },
+//	      "Action": "sts:AssumeRole"
+//	    }
+//	  ]
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-// 			PolicyArn: pulumi.String(fmt.Sprintf("arn:%v:iam::aws:policy/GameLiftGameServerGroupPolicy", current.Partition)),
-// 			Role:      exampleRole.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//				PolicyArn: pulumi.String(fmt.Sprintf("arn:%v:iam::aws:policy/GameLiftGameServerGroupPolicy", current.Partition)),
+//				Role:      exampleRole.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -165,7 +176,9 @@ import (
 // GameLift Game Server Group can be imported using the `name`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
+//
+//	$ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
+//
 // ```
 type GameServerGroup struct {
 	pulumi.CustomResourceState
@@ -421,7 +434,7 @@ func (i *GameServerGroup) ToGameServerGroupOutputWithContext(ctx context.Context
 // GameServerGroupArrayInput is an input type that accepts GameServerGroupArray and GameServerGroupArrayOutput values.
 // You can construct a concrete instance of `GameServerGroupArrayInput` via:
 //
-//          GameServerGroupArray{ GameServerGroupArgs{...} }
+//	GameServerGroupArray{ GameServerGroupArgs{...} }
 type GameServerGroupArrayInput interface {
 	pulumi.Input
 
@@ -446,7 +459,7 @@ func (i GameServerGroupArray) ToGameServerGroupArrayOutputWithContext(ctx contex
 // GameServerGroupMapInput is an input type that accepts GameServerGroupMap and GameServerGroupMapOutput values.
 // You can construct a concrete instance of `GameServerGroupMapInput` via:
 //
-//          GameServerGroupMap{ "key": GameServerGroupArgs{...} }
+//	GameServerGroupMap{ "key": GameServerGroupArgs{...} }
 type GameServerGroupMapInput interface {
 	pulumi.Input
 

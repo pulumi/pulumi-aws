@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
 
-    public sealed class FirewallFirewallStatusSyncStateArgs : Pulumi.ResourceArgs
+    public sealed class FirewallFirewallStatusSyncStateArgs : global::Pulumi.ResourceArgs
     {
         [Input("attachments")]
         private InputList<Inputs.FirewallFirewallStatusSyncStateAttachmentArgs>? _attachments;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public FirewallFirewallStatusSyncStateArgs()
         {
         }
+        public static new FirewallFirewallStatusSyncStateArgs Empty => new FirewallFirewallStatusSyncStateArgs();
     }
 }

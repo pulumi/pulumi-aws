@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudwatch.NewLogDestination(ctx, "testDestination", &cloudwatch.LogDestinationArgs{
-// 			RoleArn:   pulumi.Any(aws_iam_role.Iam_for_cloudwatch.Arn),
-// 			TargetArn: pulumi.Any(aws_kinesis_stream.Kinesis_for_cloudwatch.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewLogDestination(ctx, "testDestination", &cloudwatch.LogDestinationArgs{
+//				RoleArn:   pulumi.Any(aws_iam_role.Iam_for_cloudwatch.Arn),
+//				TargetArn: pulumi.Any(aws_kinesis_stream.Kinesis_for_cloudwatch.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // CloudWatch Logs destinations can be imported using the `name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+//
+//	$ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+//
 // ```
 type LogDestination struct {
 	pulumi.CustomResourceState
@@ -162,7 +167,7 @@ func (i *LogDestination) ToLogDestinationOutputWithContext(ctx context.Context) 
 // LogDestinationArrayInput is an input type that accepts LogDestinationArray and LogDestinationArrayOutput values.
 // You can construct a concrete instance of `LogDestinationArrayInput` via:
 //
-//          LogDestinationArray{ LogDestinationArgs{...} }
+//	LogDestinationArray{ LogDestinationArgs{...} }
 type LogDestinationArrayInput interface {
 	pulumi.Input
 
@@ -187,7 +192,7 @@ func (i LogDestinationArray) ToLogDestinationArrayOutputWithContext(ctx context.
 // LogDestinationMapInput is an input type that accepts LogDestinationMap and LogDestinationMapOutput values.
 // You can construct a concrete instance of `LogDestinationMapInput` via:
 //
-//          LogDestinationMap{ "key": LogDestinationArgs{...} }
+//	LogDestinationMap{ "key": LogDestinationArgs{...} }
 type LogDestinationMapInput interface {
 	pulumi.Input
 

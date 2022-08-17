@@ -16,18 +16,17 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.ApiGatewayV2.Model("example", new()
     ///     {
-    ///         var example = new Aws.ApiGatewayV2.Model("example", new Aws.ApiGatewayV2.ModelArgs
-    ///         {
-    ///             ApiId = aws_apigatewayv2_api.Example.Id,
-    ///             ContentType = "application/json",
-    ///             Schema = @"{
+    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         ContentType = "application/json",
+    ///         Schema = @"{
     ///   ""$schema"": ""http://json-schema.org/draft-04/schema#"",
     ///   ""title"": ""ExampleModel"",
     ///   ""type"": ""object"",
@@ -36,10 +35,9 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///   }
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/model:Model")]
-    public partial class Model : Pulumi.CustomResource
+    public partial class Model : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The API identifier.
@@ -127,7 +125,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
     }
 
-    public sealed class ModelArgs : Pulumi.ResourceArgs
+    public sealed class ModelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API identifier.
@@ -162,9 +160,10 @@ namespace Pulumi.Aws.ApiGatewayV2
         public ModelArgs()
         {
         }
+        public static new ModelArgs Empty => new ModelArgs();
     }
 
-    public sealed class ModelState : Pulumi.ResourceArgs
+    public sealed class ModelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API identifier.
@@ -199,5 +198,6 @@ namespace Pulumi.Aws.ApiGatewayV2
         public ModelState()
         {
         }
+        public static new ModelState Empty => new ModelState();
     }
 }

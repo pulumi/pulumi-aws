@@ -16,85 +16,81 @@ namespace Pulumi.Aws.AppMesh
     /// ### Basic
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppMesh.VirtualGateway("example", new()
     ///     {
-    ///         var example = new Aws.AppMesh.VirtualGateway("example", new Aws.AppMesh.VirtualGatewayArgs
+    ///         MeshName = "example-service-mesh",
+    ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
     ///         {
-    ///             MeshName = "example-service-mesh",
-    ///             Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
+    ///             Listener = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
     ///             {
-    ///                 Listener = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
+    ///                 PortMapping = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerPortMappingArgs
     ///                 {
-    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerPortMappingArgs
-    ///                     {
-    ///                         Port = 8080,
-    ///                         Protocol = "http",
-    ///                     },
+    ///                     Port = 8080,
+    ///                     Protocol = "http",
     ///                 },
     ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "test" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "test" },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Access Logs and TLS
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.AppMesh.VirtualGateway("example", new()
     ///     {
-    ///         var example = new Aws.AppMesh.VirtualGateway("example", new Aws.AppMesh.VirtualGatewayArgs
+    ///         MeshName = "example-service-mesh",
+    ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
     ///         {
-    ///             MeshName = "example-service-mesh",
-    ///             Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
+    ///             Listener = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
     ///             {
-    ///                 Listener = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
+    ///                 PortMapping = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerPortMappingArgs
     ///                 {
-    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerPortMappingArgs
-    ///                     {
-    ///                         Port = 8080,
-    ///                         Protocol = "http",
-    ///                     },
-    ///                     Tls = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsArgs
-    ///                     {
-    ///                         Certificate = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateArgs
-    ///                         {
-    ///                             Acm = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateAcmArgs
-    ///                             {
-    ///                                 CertificateArn = aws_acm_certificate.Example.Arn,
-    ///                             },
-    ///                         },
-    ///                         Mode = "STRICT",
-    ///                     },
+    ///                     Port = 8080,
+    ///                     Protocol = "http",
     ///                 },
-    ///                 Logging = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingArgs
+    ///                 Tls = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsArgs
     ///                 {
-    ///                     AccessLog = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingAccessLogArgs
+    ///                     Certificate = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateArgs
     ///                     {
-    ///                         File = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingAccessLogFileArgs
+    ///                         Acm = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateAcmArgs
     ///                         {
-    ///                             Path = "/var/log/access.log",
+    ///                             CertificateArn = aws_acm_certificate.Example.Arn,
     ///                         },
+    ///                     },
+    ///                     Mode = "STRICT",
+    ///                 },
+    ///             },
+    ///             Logging = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingArgs
+    ///             {
+    ///                 AccessLog = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingAccessLogArgs
+    ///                 {
+    ///                     File = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingAccessLogFileArgs
+    ///                     {
+    ///                         Path = "/var/log/access.log",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -108,7 +104,7 @@ namespace Pulumi.Aws.AppMesh
     ///  [1]/docs/providers/aws/index.html
     /// </summary>
     [AwsResourceType("aws:appmesh/virtualGateway:VirtualGateway")]
-    public partial class VirtualGateway : Pulumi.CustomResource
+    public partial class VirtualGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the virtual gateway.
@@ -165,7 +161,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -214,7 +210,7 @@ namespace Pulumi.Aws.AppMesh
         }
     }
 
-    public sealed class VirtualGatewayArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
@@ -255,9 +251,10 @@ namespace Pulumi.Aws.AppMesh
         public VirtualGatewayArgs()
         {
         }
+        public static new VirtualGatewayArgs Empty => new VirtualGatewayArgs();
     }
 
-    public sealed class VirtualGatewayState : Pulumi.ResourceArgs
+    public sealed class VirtualGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the virtual gateway.
@@ -323,7 +320,7 @@ namespace Pulumi.Aws.AppMesh
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -334,5 +331,6 @@ namespace Pulumi.Aws.AppMesh
         public VirtualGatewayState()
         {
         }
+        public static new VirtualGatewayState Empty => new VirtualGatewayState();
     }
 }

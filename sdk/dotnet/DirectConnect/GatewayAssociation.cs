@@ -20,100 +20,100 @@ namespace Pulumi.Aws.DirectConnect
     /// ### VPN Gateway Association
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new()
     ///     {
-    ///         var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new Aws.DirectConnect.GatewayArgs
-    ///         {
-    ///             AmazonSideAsn = "64512",
-    ///         });
-    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.255.255.0/28",
-    ///         });
-    ///         var exampleVpnGateway = new Aws.Ec2.VpnGateway("exampleVpnGateway", new Aws.Ec2.VpnGatewayArgs
-    ///         {
-    ///             VpcId = exampleVpc.Id,
-    ///         });
-    ///         var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new Aws.DirectConnect.GatewayAssociationArgs
-    ///         {
-    ///             DxGatewayId = exampleGateway.Id,
-    ///             AssociatedGatewayId = exampleVpnGateway.Id,
-    ///         });
-    ///     }
+    ///         AmazonSideAsn = "64512",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     {
+    ///         CidrBlock = "10.255.255.0/28",
+    ///     });
+    /// 
+    ///     var exampleVpnGateway = new Aws.Ec2.VpnGateway("exampleVpnGateway", new()
+    ///     {
+    ///         VpcId = exampleVpc.Id,
+    ///     });
+    /// 
+    ///     var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new()
+    ///     {
+    ///         DxGatewayId = exampleGateway.Id,
+    ///         AssociatedGatewayId = exampleVpnGateway.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Transit Gateway Association
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new()
     ///     {
-    ///         var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new Aws.DirectConnect.GatewayArgs
-    ///         {
-    ///             AmazonSideAsn = "64512",
-    ///         });
-    ///         var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new Aws.Ec2TransitGateway.TransitGatewayArgs
-    ///         {
-    ///         });
-    ///         var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new Aws.DirectConnect.GatewayAssociationArgs
-    ///         {
-    ///             DxGatewayId = exampleGateway.Id,
-    ///             AssociatedGatewayId = exampleTransitGateway.Id,
-    ///             AllowedPrefixes = 
-    ///             {
-    ///                 "10.255.255.0/30",
-    ///                 "10.255.255.8/30",
-    ///             },
-    ///         });
-    ///     }
+    ///         AmazonSideAsn = "64512",
+    ///     });
     /// 
-    /// }
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway");
+    /// 
+    ///     var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new()
+    ///     {
+    ///         DxGatewayId = exampleGateway.Id,
+    ///         AssociatedGatewayId = exampleTransitGateway.Id,
+    ///         AllowedPrefixes = new[]
+    ///         {
+    ///             "10.255.255.0/30",
+    ///             "10.255.255.8/30",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Allowed Prefixes
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new()
     ///     {
-    ///         var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new Aws.DirectConnect.GatewayArgs
-    ///         {
-    ///             AmazonSideAsn = "64512",
-    ///         });
-    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.255.255.0/28",
-    ///         });
-    ///         var exampleVpnGateway = new Aws.Ec2.VpnGateway("exampleVpnGateway", new Aws.Ec2.VpnGatewayArgs
-    ///         {
-    ///             VpcId = exampleVpc.Id,
-    ///         });
-    ///         var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new Aws.DirectConnect.GatewayAssociationArgs
-    ///         {
-    ///             DxGatewayId = exampleGateway.Id,
-    ///             AssociatedGatewayId = exampleVpnGateway.Id,
-    ///             AllowedPrefixes = 
-    ///             {
-    ///                 "210.52.109.0/24",
-    ///                 "175.45.176.0/22",
-    ///             },
-    ///         });
-    ///     }
+    ///         AmazonSideAsn = "64512",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     {
+    ///         CidrBlock = "10.255.255.0/28",
+    ///     });
+    /// 
+    ///     var exampleVpnGateway = new Aws.Ec2.VpnGateway("exampleVpnGateway", new()
+    ///     {
+    ///         VpcId = exampleVpc.Id,
+    ///     });
+    /// 
+    ///     var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new()
+    ///     {
+    ///         DxGatewayId = exampleGateway.Id,
+    ///         AssociatedGatewayId = exampleVpnGateway.Id,
+    ///         AllowedPrefixes = new[]
+    ///         {
+    ///             "210.52.109.0/24",
+    ///             "175.45.176.0/22",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.DirectConnect
     /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/gatewayAssociation:GatewayAssociation")]
-    public partial class GatewayAssociation : Pulumi.CustomResource
+    public partial class GatewayAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.DirectConnect
         }
     }
 
-    public sealed class GatewayAssociationArgs : Pulumi.ResourceArgs
+    public sealed class GatewayAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedPrefixes")]
         private InputList<string>? _allowedPrefixes;
@@ -272,9 +272,10 @@ namespace Pulumi.Aws.DirectConnect
         public GatewayAssociationArgs()
         {
         }
+        public static new GatewayAssociationArgs Empty => new GatewayAssociationArgs();
     }
 
-    public sealed class GatewayAssociationState : Pulumi.ResourceArgs
+    public sealed class GatewayAssociationState : global::Pulumi.ResourceArgs
     {
         [Input("allowedPrefixes")]
         private InputList<string>? _allowedPrefixes;
@@ -339,5 +340,6 @@ namespace Pulumi.Aws.DirectConnect
         public GatewayAssociationState()
         {
         }
+        public static new GatewayAssociationState Empty => new GatewayAssociationState();
     }
 }

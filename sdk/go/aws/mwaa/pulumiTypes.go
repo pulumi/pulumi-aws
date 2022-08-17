@@ -22,7 +22,7 @@ type EnvironmentLastUpdated struct {
 // EnvironmentLastUpdatedInput is an input type that accepts EnvironmentLastUpdatedArgs and EnvironmentLastUpdatedOutput values.
 // You can construct a concrete instance of `EnvironmentLastUpdatedInput` via:
 //
-//          EnvironmentLastUpdatedArgs{...}
+//	EnvironmentLastUpdatedArgs{...}
 type EnvironmentLastUpdatedInput interface {
 	pulumi.Input
 
@@ -54,7 +54,7 @@ func (i EnvironmentLastUpdatedArgs) ToEnvironmentLastUpdatedOutputWithContext(ct
 // EnvironmentLastUpdatedArrayInput is an input type that accepts EnvironmentLastUpdatedArray and EnvironmentLastUpdatedArrayOutput values.
 // You can construct a concrete instance of `EnvironmentLastUpdatedArrayInput` via:
 //
-//          EnvironmentLastUpdatedArray{ EnvironmentLastUpdatedArgs{...} }
+//	EnvironmentLastUpdatedArray{ EnvironmentLastUpdatedArgs{...} }
 type EnvironmentLastUpdatedArrayInput interface {
 	pulumi.Input
 
@@ -133,7 +133,7 @@ type EnvironmentLastUpdatedError struct {
 // EnvironmentLastUpdatedErrorInput is an input type that accepts EnvironmentLastUpdatedErrorArgs and EnvironmentLastUpdatedErrorOutput values.
 // You can construct a concrete instance of `EnvironmentLastUpdatedErrorInput` via:
 //
-//          EnvironmentLastUpdatedErrorArgs{...}
+//	EnvironmentLastUpdatedErrorArgs{...}
 type EnvironmentLastUpdatedErrorInput interface {
 	pulumi.Input
 
@@ -161,7 +161,7 @@ func (i EnvironmentLastUpdatedErrorArgs) ToEnvironmentLastUpdatedErrorOutputWith
 // EnvironmentLastUpdatedErrorArrayInput is an input type that accepts EnvironmentLastUpdatedErrorArray and EnvironmentLastUpdatedErrorArrayOutput values.
 // You can construct a concrete instance of `EnvironmentLastUpdatedErrorArrayInput` via:
 //
-//          EnvironmentLastUpdatedErrorArray{ EnvironmentLastUpdatedErrorArgs{...} }
+//	EnvironmentLastUpdatedErrorArray{ EnvironmentLastUpdatedErrorArgs{...} }
 type EnvironmentLastUpdatedErrorArrayInput interface {
 	pulumi.Input
 
@@ -241,7 +241,7 @@ type EnvironmentLoggingConfiguration struct {
 // EnvironmentLoggingConfigurationInput is an input type that accepts EnvironmentLoggingConfigurationArgs and EnvironmentLoggingConfigurationOutput values.
 // You can construct a concrete instance of `EnvironmentLoggingConfigurationInput` via:
 //
-//          EnvironmentLoggingConfigurationArgs{...}
+//	EnvironmentLoggingConfigurationArgs{...}
 type EnvironmentLoggingConfigurationInput interface {
 	pulumi.Input
 
@@ -285,11 +285,11 @@ func (i EnvironmentLoggingConfigurationArgs) ToEnvironmentLoggingConfigurationPt
 // EnvironmentLoggingConfigurationPtrInput is an input type that accepts EnvironmentLoggingConfigurationArgs, EnvironmentLoggingConfigurationPtr and EnvironmentLoggingConfigurationPtrOutput values.
 // You can construct a concrete instance of `EnvironmentLoggingConfigurationPtrInput` via:
 //
-//          EnvironmentLoggingConfigurationArgs{...}
+//	        EnvironmentLoggingConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EnvironmentLoggingConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -457,7 +457,7 @@ type EnvironmentLoggingConfigurationDagProcessingLogs struct {
 // EnvironmentLoggingConfigurationDagProcessingLogsInput is an input type that accepts EnvironmentLoggingConfigurationDagProcessingLogsArgs and EnvironmentLoggingConfigurationDagProcessingLogsOutput values.
 // You can construct a concrete instance of `EnvironmentLoggingConfigurationDagProcessingLogsInput` via:
 //
-//          EnvironmentLoggingConfigurationDagProcessingLogsArgs{...}
+//	EnvironmentLoggingConfigurationDagProcessingLogsArgs{...}
 type EnvironmentLoggingConfigurationDagProcessingLogsInput interface {
 	pulumi.Input
 
@@ -496,11 +496,11 @@ func (i EnvironmentLoggingConfigurationDagProcessingLogsArgs) ToEnvironmentLoggi
 // EnvironmentLoggingConfigurationDagProcessingLogsPtrInput is an input type that accepts EnvironmentLoggingConfigurationDagProcessingLogsArgs, EnvironmentLoggingConfigurationDagProcessingLogsPtr and EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput values.
 // You can construct a concrete instance of `EnvironmentLoggingConfigurationDagProcessingLogsPtrInput` via:
 //
-//          EnvironmentLoggingConfigurationDagProcessingLogsArgs{...}
+//	        EnvironmentLoggingConfigurationDagProcessingLogsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EnvironmentLoggingConfigurationDagProcessingLogsPtrInput interface {
 	pulumi.Input
 
@@ -628,7 +628,7 @@ type EnvironmentLoggingConfigurationSchedulerLogs struct {
 // EnvironmentLoggingConfigurationSchedulerLogsInput is an input type that accepts EnvironmentLoggingConfigurationSchedulerLogsArgs and EnvironmentLoggingConfigurationSchedulerLogsOutput values.
 // You can construct a concrete instance of `EnvironmentLoggingConfigurationSchedulerLogsInput` via:
 //
-//          EnvironmentLoggingConfigurationSchedulerLogsArgs{...}
+//	EnvironmentLoggingConfigurationSchedulerLogsArgs{...}
 type EnvironmentLoggingConfigurationSchedulerLogsInput interface {
 	pulumi.Input
 
@@ -667,11 +667,11 @@ func (i EnvironmentLoggingConfigurationSchedulerLogsArgs) ToEnvironmentLoggingCo
 // EnvironmentLoggingConfigurationSchedulerLogsPtrInput is an input type that accepts EnvironmentLoggingConfigurationSchedulerLogsArgs, EnvironmentLoggingConfigurationSchedulerLogsPtr and EnvironmentLoggingConfigurationSchedulerLogsPtrOutput values.
 // You can construct a concrete instance of `EnvironmentLoggingConfigurationSchedulerLogsPtrInput` via:
 //
-//          EnvironmentLoggingConfigurationSchedulerLogsArgs{...}
+//	        EnvironmentLoggingConfigurationSchedulerLogsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EnvironmentLoggingConfigurationSchedulerLogsPtrInput interface {
 	pulumi.Input
 
@@ -799,7 +799,7 @@ type EnvironmentLoggingConfigurationTaskLogs struct {
 // EnvironmentLoggingConfigurationTaskLogsInput is an input type that accepts EnvironmentLoggingConfigurationTaskLogsArgs and EnvironmentLoggingConfigurationTaskLogsOutput values.
 // You can construct a concrete instance of `EnvironmentLoggingConfigurationTaskLogsInput` via:
 //
-//          EnvironmentLoggingConfigurationTaskLogsArgs{...}
+//	EnvironmentLoggingConfigurationTaskLogsArgs{...}
 type EnvironmentLoggingConfigurationTaskLogsInput interface {
 	pulumi.Input
 
@@ -838,11 +838,11 @@ func (i EnvironmentLoggingConfigurationTaskLogsArgs) ToEnvironmentLoggingConfigu
 // EnvironmentLoggingConfigurationTaskLogsPtrInput is an input type that accepts EnvironmentLoggingConfigurationTaskLogsArgs, EnvironmentLoggingConfigurationTaskLogsPtr and EnvironmentLoggingConfigurationTaskLogsPtrOutput values.
 // You can construct a concrete instance of `EnvironmentLoggingConfigurationTaskLogsPtrInput` via:
 //
-//          EnvironmentLoggingConfigurationTaskLogsArgs{...}
+//	        EnvironmentLoggingConfigurationTaskLogsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EnvironmentLoggingConfigurationTaskLogsPtrInput interface {
 	pulumi.Input
 
@@ -970,7 +970,7 @@ type EnvironmentLoggingConfigurationWebserverLogs struct {
 // EnvironmentLoggingConfigurationWebserverLogsInput is an input type that accepts EnvironmentLoggingConfigurationWebserverLogsArgs and EnvironmentLoggingConfigurationWebserverLogsOutput values.
 // You can construct a concrete instance of `EnvironmentLoggingConfigurationWebserverLogsInput` via:
 //
-//          EnvironmentLoggingConfigurationWebserverLogsArgs{...}
+//	EnvironmentLoggingConfigurationWebserverLogsArgs{...}
 type EnvironmentLoggingConfigurationWebserverLogsInput interface {
 	pulumi.Input
 
@@ -1009,11 +1009,11 @@ func (i EnvironmentLoggingConfigurationWebserverLogsArgs) ToEnvironmentLoggingCo
 // EnvironmentLoggingConfigurationWebserverLogsPtrInput is an input type that accepts EnvironmentLoggingConfigurationWebserverLogsArgs, EnvironmentLoggingConfigurationWebserverLogsPtr and EnvironmentLoggingConfigurationWebserverLogsPtrOutput values.
 // You can construct a concrete instance of `EnvironmentLoggingConfigurationWebserverLogsPtrInput` via:
 //
-//          EnvironmentLoggingConfigurationWebserverLogsArgs{...}
+//	        EnvironmentLoggingConfigurationWebserverLogsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EnvironmentLoggingConfigurationWebserverLogsPtrInput interface {
 	pulumi.Input
 
@@ -1141,7 +1141,7 @@ type EnvironmentLoggingConfigurationWorkerLogs struct {
 // EnvironmentLoggingConfigurationWorkerLogsInput is an input type that accepts EnvironmentLoggingConfigurationWorkerLogsArgs and EnvironmentLoggingConfigurationWorkerLogsOutput values.
 // You can construct a concrete instance of `EnvironmentLoggingConfigurationWorkerLogsInput` via:
 //
-//          EnvironmentLoggingConfigurationWorkerLogsArgs{...}
+//	EnvironmentLoggingConfigurationWorkerLogsArgs{...}
 type EnvironmentLoggingConfigurationWorkerLogsInput interface {
 	pulumi.Input
 
@@ -1180,11 +1180,11 @@ func (i EnvironmentLoggingConfigurationWorkerLogsArgs) ToEnvironmentLoggingConfi
 // EnvironmentLoggingConfigurationWorkerLogsPtrInput is an input type that accepts EnvironmentLoggingConfigurationWorkerLogsArgs, EnvironmentLoggingConfigurationWorkerLogsPtr and EnvironmentLoggingConfigurationWorkerLogsPtrOutput values.
 // You can construct a concrete instance of `EnvironmentLoggingConfigurationWorkerLogsPtrInput` via:
 //
-//          EnvironmentLoggingConfigurationWorkerLogsArgs{...}
+//	        EnvironmentLoggingConfigurationWorkerLogsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EnvironmentLoggingConfigurationWorkerLogsPtrInput interface {
 	pulumi.Input
 
@@ -1311,7 +1311,7 @@ type EnvironmentNetworkConfiguration struct {
 // EnvironmentNetworkConfigurationInput is an input type that accepts EnvironmentNetworkConfigurationArgs and EnvironmentNetworkConfigurationOutput values.
 // You can construct a concrete instance of `EnvironmentNetworkConfigurationInput` via:
 //
-//          EnvironmentNetworkConfigurationArgs{...}
+//	EnvironmentNetworkConfigurationArgs{...}
 type EnvironmentNetworkConfigurationInput interface {
 	pulumi.Input
 
@@ -1349,11 +1349,11 @@ func (i EnvironmentNetworkConfigurationArgs) ToEnvironmentNetworkConfigurationPt
 // EnvironmentNetworkConfigurationPtrInput is an input type that accepts EnvironmentNetworkConfigurationArgs, EnvironmentNetworkConfigurationPtr and EnvironmentNetworkConfigurationPtrOutput values.
 // You can construct a concrete instance of `EnvironmentNetworkConfigurationPtrInput` via:
 //
-//          EnvironmentNetworkConfigurationArgs{...}
+//	        EnvironmentNetworkConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EnvironmentNetworkConfigurationPtrInput interface {
 	pulumi.Input
 

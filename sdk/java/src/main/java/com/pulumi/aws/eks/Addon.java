@@ -225,14 +225,14 @@ public class Addon extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * (Optional) Key-value map of resource tags, including those inherited from the provider .
+     * (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return (Optional) Key-value map of resource tags, including those inherited from the provider .
+     * @return (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

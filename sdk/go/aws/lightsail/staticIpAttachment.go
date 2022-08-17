@@ -21,35 +21,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testStaticIp, err := lightsail.NewStaticIp(ctx, "testStaticIp", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
-// 			AvailabilityZone: pulumi.String("us-east-1b"),
-// 			BlueprintId:      pulumi.String("string"),
-// 			BundleId:         pulumi.String("string"),
-// 			KeyPairName:      pulumi.String("some_key_name"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = lightsail.NewStaticIpAttachment(ctx, "testStaticIpAttachment", &lightsail.StaticIpAttachmentArgs{
-// 			StaticIpName: testStaticIp.ID(),
-// 			InstanceName: testInstance.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testStaticIp, err := lightsail.NewStaticIp(ctx, "testStaticIp", nil)
+//			if err != nil {
+//				return err
+//			}
+//			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
+//				AvailabilityZone: pulumi.String("us-east-1b"),
+//				BlueprintId:      pulumi.String("string"),
+//				BundleId:         pulumi.String("string"),
+//				KeyPairName:      pulumi.String("some_key_name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lightsail.NewStaticIpAttachment(ctx, "testStaticIpAttachment", &lightsail.StaticIpAttachmentArgs{
+//				StaticIpName: testStaticIp.ID(),
+//				InstanceName: testInstance.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type StaticIpAttachment struct {
 	pulumi.CustomResourceState
@@ -159,7 +162,7 @@ func (i *StaticIpAttachment) ToStaticIpAttachmentOutputWithContext(ctx context.C
 // StaticIpAttachmentArrayInput is an input type that accepts StaticIpAttachmentArray and StaticIpAttachmentArrayOutput values.
 // You can construct a concrete instance of `StaticIpAttachmentArrayInput` via:
 //
-//          StaticIpAttachmentArray{ StaticIpAttachmentArgs{...} }
+//	StaticIpAttachmentArray{ StaticIpAttachmentArgs{...} }
 type StaticIpAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -184,7 +187,7 @@ func (i StaticIpAttachmentArray) ToStaticIpAttachmentArrayOutputWithContext(ctx 
 // StaticIpAttachmentMapInput is an input type that accepts StaticIpAttachmentMap and StaticIpAttachmentMapOutput values.
 // You can construct a concrete instance of `StaticIpAttachmentMapInput` via:
 //
-//          StaticIpAttachmentMap{ "key": StaticIpAttachmentArgs{...} }
+//	StaticIpAttachmentMap{ "key": StaticIpAttachmentArgs{...} }
 type StaticIpAttachmentMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppMesh.Inputs
 {
 
-    public sealed class RouteSpecGrpcRouteTimeoutIdleGetArgs : Pulumi.ResourceArgs
+    public sealed class RouteSpecGrpcRouteTimeoutIdleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The unit of time. Valid values: `ms`, `s`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public RouteSpecGrpcRouteTimeoutIdleGetArgs()
         {
         }
+        public static new RouteSpecGrpcRouteTimeoutIdleGetArgs Empty => new RouteSpecGrpcRouteTimeoutIdleGetArgs();
     }
 }

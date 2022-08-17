@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ResourceGroupsTaggingApi.Inputs
 {
 
-    public sealed class GetResourcesTagFilterArgs : Pulumi.InvokeArgs
+    public sealed class GetResourcesTagFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// One part of a key-value pair that makes up a tag.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi.Inputs
         public GetResourcesTagFilterArgs()
         {
         }
+        public static new GetResourcesTagFilterArgs Empty => new GetResourcesTagFilterArgs();
     }
 }

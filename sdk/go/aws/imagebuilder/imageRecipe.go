@@ -19,49 +19,52 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := imagebuilder.NewImageRecipe(ctx, "example", &imagebuilder.ImageRecipeArgs{
-// 			BlockDeviceMappings: imagebuilder.ImageRecipeBlockDeviceMappingArray{
-// 				&imagebuilder.ImageRecipeBlockDeviceMappingArgs{
-// 					DeviceName: pulumi.String("/dev/xvdb"),
-// 					Ebs: &imagebuilder.ImageRecipeBlockDeviceMappingEbsArgs{
-// 						DeleteOnTermination: pulumi.String("true"),
-// 						VolumeSize:          pulumi.Int(100),
-// 						VolumeType:          pulumi.String("gp2"),
-// 					},
-// 				},
-// 			},
-// 			Components: imagebuilder.ImageRecipeComponentArray{
-// 				&imagebuilder.ImageRecipeComponentArgs{
-// 					ComponentArn: pulumi.Any(aws_imagebuilder_component.Example.Arn),
-// 					Parameters: imagebuilder.ImageRecipeComponentParameterArray{
-// 						&imagebuilder.ImageRecipeComponentParameterArgs{
-// 							Name:  pulumi.String("Parameter1"),
-// 							Value: pulumi.String("Value1"),
-// 						},
-// 						&imagebuilder.ImageRecipeComponentParameterArgs{
-// 							Name:  pulumi.String("Parameter2"),
-// 							Value: pulumi.String("Value2"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			ParentImage: pulumi.String(fmt.Sprintf("arn:%v:imagebuilder:%v:aws:image/amazon-linux-2-x86/x.x.x", data.Aws_partition.Current.Partition, data.Aws_region.Current.Name)),
-// 			Version:     pulumi.String("1.0.0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := imagebuilder.NewImageRecipe(ctx, "example", &imagebuilder.ImageRecipeArgs{
+//				BlockDeviceMappings: imagebuilder.ImageRecipeBlockDeviceMappingArray{
+//					&imagebuilder.ImageRecipeBlockDeviceMappingArgs{
+//						DeviceName: pulumi.String("/dev/xvdb"),
+//						Ebs: &imagebuilder.ImageRecipeBlockDeviceMappingEbsArgs{
+//							DeleteOnTermination: pulumi.String("true"),
+//							VolumeSize:          pulumi.Int(100),
+//							VolumeType:          pulumi.String("gp2"),
+//						},
+//					},
+//				},
+//				Components: imagebuilder.ImageRecipeComponentArray{
+//					&imagebuilder.ImageRecipeComponentArgs{
+//						ComponentArn: pulumi.Any(aws_imagebuilder_component.Example.Arn),
+//						Parameters: imagebuilder.ImageRecipeComponentParameterArray{
+//							&imagebuilder.ImageRecipeComponentParameterArgs{
+//								Name:  pulumi.String("Parameter1"),
+//								Value: pulumi.String("Value1"),
+//							},
+//							&imagebuilder.ImageRecipeComponentParameterArgs{
+//								Name:  pulumi.String("Parameter2"),
+//								Value: pulumi.String("Value2"),
+//							},
+//						},
+//					},
+//				},
+//				ParentImage: pulumi.String(fmt.Sprintf("arn:%v:imagebuilder:%v:aws:image/amazon-linux-2-x86/x.x.x", data.Aws_partition.Current.Partition, data.Aws_region.Current.Name)),
+//				Version:     pulumi.String("1.0.0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // `aws_imagebuilder_image_recipe` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
-//  $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
+//
+//	$ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
+//
 // ```
 type ImageRecipe struct {
 	pulumi.CustomResourceState
@@ -96,7 +101,7 @@ type ImageRecipe struct {
 	SystemsManagerAgent ImageRecipeSystemsManagerAgentOutput `pulumi:"systemsManagerAgent"`
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
 	UserDataBase64 pulumi.StringOutput `pulumi:"userDataBase64"`
@@ -166,7 +171,7 @@ type imageRecipeState struct {
 	SystemsManagerAgent *ImageRecipeSystemsManagerAgent `pulumi:"systemsManagerAgent"`
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
@@ -199,7 +204,7 @@ type ImageRecipeState struct {
 	SystemsManagerAgent ImageRecipeSystemsManagerAgentPtrInput
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
 	UserDataBase64 pulumi.StringPtrInput
@@ -286,7 +291,7 @@ func (i *ImageRecipe) ToImageRecipeOutputWithContext(ctx context.Context) ImageR
 // ImageRecipeArrayInput is an input type that accepts ImageRecipeArray and ImageRecipeArrayOutput values.
 // You can construct a concrete instance of `ImageRecipeArrayInput` via:
 //
-//          ImageRecipeArray{ ImageRecipeArgs{...} }
+//	ImageRecipeArray{ ImageRecipeArgs{...} }
 type ImageRecipeArrayInput interface {
 	pulumi.Input
 
@@ -311,7 +316,7 @@ func (i ImageRecipeArray) ToImageRecipeArrayOutputWithContext(ctx context.Contex
 // ImageRecipeMapInput is an input type that accepts ImageRecipeMap and ImageRecipeMapOutput values.
 // You can construct a concrete instance of `ImageRecipeMapInput` via:
 //
-//          ImageRecipeMap{ "key": ImageRecipeArgs{...} }
+//	ImageRecipeMap{ "key": ImageRecipeArgs{...} }
 type ImageRecipeMapInput interface {
 	pulumi.Input
 
@@ -402,7 +407,7 @@ func (o ImageRecipeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ImageRecipeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

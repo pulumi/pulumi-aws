@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class GroupTagArgs : Pulumi.ResourceArgs
+    public sealed class GroupTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Key
@@ -34,5 +34,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public GroupTagArgs()
         {
         }
+        public static new GroupTagArgs Empty => new GroupTagArgs();
     }
 }

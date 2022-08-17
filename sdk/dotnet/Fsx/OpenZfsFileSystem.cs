@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Fsx
     ///  } }
     /// </summary>
     [AwsResourceType("aws:fsx/openZfsFileSystem:OpenZfsFileSystem")]
-    public partial class OpenZfsFileSystem : Pulumi.CustomResource
+    public partial class OpenZfsFileSystem : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name of the file system.
@@ -147,14 +147,11 @@ namespace Pulumi.Aws.Fsx
         public Output<string> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -220,7 +217,7 @@ namespace Pulumi.Aws.Fsx
         }
     }
 
-    public sealed class OpenZfsFileSystemArgs : Pulumi.ResourceArgs
+    public sealed class OpenZfsFileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
@@ -310,7 +307,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -333,9 +330,10 @@ namespace Pulumi.Aws.Fsx
         public OpenZfsFileSystemArgs()
         {
         }
+        public static new OpenZfsFileSystemArgs Empty => new OpenZfsFileSystemArgs();
     }
 
-    public sealed class OpenZfsFileSystemState : Pulumi.ResourceArgs
+    public sealed class OpenZfsFileSystemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name of the file system.
@@ -461,7 +459,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -471,10 +469,6 @@ namespace Pulumi.Aws.Fsx
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -502,5 +496,6 @@ namespace Pulumi.Aws.Fsx
         public OpenZfsFileSystemState()
         {
         }
+        public static new OpenZfsFileSystemState Empty => new OpenZfsFileSystemState();
     }
 }

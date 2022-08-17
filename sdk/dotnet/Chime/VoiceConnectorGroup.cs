@@ -17,42 +17,42 @@ namespace Pulumi.Aws.Chime
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var vc1 = new Aws.Chime.VoiceConnector("vc1", new()
     ///     {
-    ///         var vc1 = new Aws.Chime.VoiceConnector("vc1", new Aws.Chime.VoiceConnectorArgs
-    ///         {
-    ///             RequireEncryption = true,
-    ///             AwsRegion = "us-east-1",
-    ///         });
-    ///         var vc2 = new Aws.Chime.VoiceConnector("vc2", new Aws.Chime.VoiceConnectorArgs
-    ///         {
-    ///             RequireEncryption = true,
-    ///             AwsRegion = "us-west-2",
-    ///         });
-    ///         var @group = new Aws.Chime.VoiceConnectorGroup("group", new Aws.Chime.VoiceConnectorGroupArgs
-    ///         {
-    ///             Connectors = 
-    ///             {
-    ///                 new Aws.Chime.Inputs.VoiceConnectorGroupConnectorArgs
-    ///                 {
-    ///                     VoiceConnectorId = vc1.Id,
-    ///                     Priority = 1,
-    ///                 },
-    ///                 new Aws.Chime.Inputs.VoiceConnectorGroupConnectorArgs
-    ///                 {
-    ///                     VoiceConnectorId = vc2.Id,
-    ///                     Priority = 3,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         RequireEncryption = true,
+    ///         AwsRegion = "us-east-1",
+    ///     });
     /// 
-    /// }
+    ///     var vc2 = new Aws.Chime.VoiceConnector("vc2", new()
+    ///     {
+    ///         RequireEncryption = true,
+    ///         AwsRegion = "us-west-2",
+    ///     });
+    /// 
+    ///     var @group = new Aws.Chime.VoiceConnectorGroup("group", new()
+    ///     {
+    ///         Connectors = new[]
+    ///         {
+    ///             new Aws.Chime.Inputs.VoiceConnectorGroupConnectorArgs
+    ///             {
+    ///                 VoiceConnectorId = vc1.Id,
+    ///                 Priority = 1,
+    ///             },
+    ///             new Aws.Chime.Inputs.VoiceConnectorGroupConnectorArgs
+    ///             {
+    ///                 VoiceConnectorId = vc2.Id,
+    ///                 Priority = 3,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Chime
     /// ```
     /// </summary>
     [AwsResourceType("aws:chime/voiceConnectorGroup:VoiceConnectorGroup")]
-    public partial class VoiceConnectorGroup : Pulumi.CustomResource
+    public partial class VoiceConnectorGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Amazon Chime Voice Connectors to route inbound calls to.
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Chime
         }
     }
 
-    public sealed class VoiceConnectorGroupArgs : Pulumi.ResourceArgs
+    public sealed class VoiceConnectorGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("connectors")]
         private InputList<Inputs.VoiceConnectorGroupConnectorArgs>? _connectors;
@@ -145,9 +145,10 @@ namespace Pulumi.Aws.Chime
         public VoiceConnectorGroupArgs()
         {
         }
+        public static new VoiceConnectorGroupArgs Empty => new VoiceConnectorGroupArgs();
     }
 
-    public sealed class VoiceConnectorGroupState : Pulumi.ResourceArgs
+    public sealed class VoiceConnectorGroupState : global::Pulumi.ResourceArgs
     {
         [Input("connectors")]
         private InputList<Inputs.VoiceConnectorGroupConnectorGetArgs>? _connectors;
@@ -170,5 +171,6 @@ namespace Pulumi.Aws.Chime
         public VoiceConnectorGroupState()
         {
         }
+        public static new VoiceConnectorGroupState Empty => new VoiceConnectorGroupState();
     }
 }

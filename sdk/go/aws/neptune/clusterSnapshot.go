@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := neptune.NewClusterSnapshot(ctx, "example", &neptune.ClusterSnapshotArgs{
-// 			DbClusterIdentifier:         pulumi.Any(aws_neptune_cluster.Example.Id),
-// 			DbClusterSnapshotIdentifier: pulumi.String("resourcetestsnapshot1234"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := neptune.NewClusterSnapshot(ctx, "example", &neptune.ClusterSnapshotArgs{
+//				DbClusterIdentifier:         pulumi.Any(aws_neptune_cluster.Example.Id),
+//				DbClusterSnapshotIdentifier: pulumi.String("resourcetestsnapshot1234"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // `aws_neptune_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+//
+//	$ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+//
 // ```
 type ClusterSnapshot struct {
 	pulumi.CustomResourceState
@@ -218,7 +223,7 @@ func (i *ClusterSnapshot) ToClusterSnapshotOutputWithContext(ctx context.Context
 // ClusterSnapshotArrayInput is an input type that accepts ClusterSnapshotArray and ClusterSnapshotArrayOutput values.
 // You can construct a concrete instance of `ClusterSnapshotArrayInput` via:
 //
-//          ClusterSnapshotArray{ ClusterSnapshotArgs{...} }
+//	ClusterSnapshotArray{ ClusterSnapshotArgs{...} }
 type ClusterSnapshotArrayInput interface {
 	pulumi.Input
 
@@ -243,7 +248,7 @@ func (i ClusterSnapshotArray) ToClusterSnapshotArrayOutputWithContext(ctx contex
 // ClusterSnapshotMapInput is an input type that accepts ClusterSnapshotMap and ClusterSnapshotMapOutput values.
 // You can construct a concrete instance of `ClusterSnapshotMapInput` via:
 //
-//          ClusterSnapshotMap{ "key": ClusterSnapshotArgs{...} }
+//	ClusterSnapshotMap{ "key": ClusterSnapshotArgs{...} }
 type ClusterSnapshotMapInput interface {
 	pulumi.Input
 

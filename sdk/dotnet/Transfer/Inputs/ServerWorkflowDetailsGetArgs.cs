@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transfer.Inputs
 {
 
-    public sealed class ServerWorkflowDetailsGetArgs : Pulumi.ResourceArgs
+    public sealed class ServerWorkflowDetailsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.Transfer.Inputs
         public ServerWorkflowDetailsGetArgs()
         {
         }
+        public static new ServerWorkflowDetailsGetArgs Empty => new ServerWorkflowDetailsGetArgs();
     }
 }

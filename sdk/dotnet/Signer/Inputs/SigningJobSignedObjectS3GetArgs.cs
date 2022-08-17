@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Signer.Inputs
 {
 
-    public sealed class SigningJobSignedObjectS3GetArgs : Pulumi.ResourceArgs
+    public sealed class SigningJobSignedObjectS3GetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the S3 bucket.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Signer.Inputs
         public SigningJobSignedObjectS3GetArgs()
         {
         }
+        public static new SigningJobSignedObjectS3GetArgs Empty => new SigningJobSignedObjectS3GetArgs();
     }
 }

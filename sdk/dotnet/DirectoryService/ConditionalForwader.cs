@@ -15,26 +15,24 @@ namespace Pulumi.Aws.DirectoryService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.DirectoryService.ConditionalForwader("example", new()
     ///     {
-    ///         var example = new Aws.DirectoryService.ConditionalForwader("example", new Aws.DirectoryService.ConditionalForwaderArgs
+    ///         DirectoryId = aws_directory_service_directory.Ad.Id,
+    ///         RemoteDomainName = "example.com",
+    ///         DnsIps = new[]
     ///         {
-    ///             DirectoryId = aws_directory_service_directory.Ad.Id,
-    ///             RemoteDomainName = "example.com",
-    ///             DnsIps = 
-    ///             {
-    ///                 "8.8.8.8",
-    ///                 "8.8.4.4",
-    ///             },
-    ///         });
-    ///     }
+    ///             "8.8.8.8",
+    ///             "8.8.4.4",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Aws.DirectoryService
     /// ```
     /// </summary>
     [AwsResourceType("aws:directoryservice/conditionalForwader:ConditionalForwader")]
-    public partial class ConditionalForwader : Pulumi.CustomResource
+    public partial class ConditionalForwader : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The id of directory.
@@ -110,7 +108,7 @@ namespace Pulumi.Aws.DirectoryService
         }
     }
 
-    public sealed class ConditionalForwaderArgs : Pulumi.ResourceArgs
+    public sealed class ConditionalForwaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of directory.
@@ -139,9 +137,10 @@ namespace Pulumi.Aws.DirectoryService
         public ConditionalForwaderArgs()
         {
         }
+        public static new ConditionalForwaderArgs Empty => new ConditionalForwaderArgs();
     }
 
-    public sealed class ConditionalForwaderState : Pulumi.ResourceArgs
+    public sealed class ConditionalForwaderState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of directory.
@@ -170,5 +169,6 @@ namespace Pulumi.Aws.DirectoryService
         public ConditionalForwaderState()
         {
         }
+        public static new ConditionalForwaderState Empty => new ConditionalForwaderState();
     }
 }

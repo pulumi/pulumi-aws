@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GuardDuty.Inputs
 {
 
-    public sealed class DetectorDatasourcesKubernetesAuditLogsGetArgs : Pulumi.ResourceArgs
+    public sealed class DetectorDatasourcesKubernetesAuditLogsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
@@ -22,5 +22,6 @@ namespace Pulumi.Aws.GuardDuty.Inputs
         public DetectorDatasourcesKubernetesAuditLogsGetArgs()
         {
         }
+        public static new DetectorDatasourcesKubernetesAuditLogsGetArgs Empty => new DetectorDatasourcesKubernetesAuditLogsGetArgs();
     }
 }

@@ -21,20 +21,18 @@ namespace Pulumi.Aws.Sns
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Sns.GetTopic.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Sns.GetTopic.InvokeAsync(new Aws.Sns.GetTopicArgs
-        ///         {
-        ///             Name = "an_example_topic",
-        ///         }));
-        ///     }
+        ///         Name = "an_example_topic",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,20 +50,18 @@ namespace Pulumi.Aws.Sns
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Sns.GetTopic.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Sns.GetTopic.InvokeAsync(new Aws.Sns.GetTopicArgs
-        ///         {
-        ///             Name = "an_example_topic",
-        ///         }));
-        ///     }
+        ///         Name = "an_example_topic",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Sns
     }
 
 
-    public sealed class GetTopicArgs : Pulumi.InvokeArgs
+    public sealed class GetTopicArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The friendly name of the topic to match.
@@ -86,9 +82,10 @@ namespace Pulumi.Aws.Sns
         public GetTopicArgs()
         {
         }
+        public static new GetTopicArgs Empty => new GetTopicArgs();
     }
 
-    public sealed class GetTopicInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTopicInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The friendly name of the topic to match.
@@ -99,6 +96,7 @@ namespace Pulumi.Aws.Sns
         public GetTopicInvokeArgs()
         {
         }
+        public static new GetTopicInvokeArgs Empty => new GetTopicInvokeArgs();
     }
 
 

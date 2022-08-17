@@ -26,27 +26,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := neptune.NewCluster(ctx, "default", &neptune.ClusterArgs{
-// 			ApplyImmediately:                 pulumi.Bool(true),
-// 			BackupRetentionPeriod:            pulumi.Int(5),
-// 			ClusterIdentifier:                pulumi.String("neptune-cluster-demo"),
-// 			Engine:                           pulumi.String("neptune"),
-// 			IamDatabaseAuthenticationEnabled: pulumi.Bool(true),
-// 			PreferredBackupWindow:            pulumi.String("07:00-09:00"),
-// 			SkipFinalSnapshot:                pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := neptune.NewCluster(ctx, "default", &neptune.ClusterArgs{
+//				ApplyImmediately:                 pulumi.Bool(true),
+//				BackupRetentionPeriod:            pulumi.Int(5),
+//				ClusterIdentifier:                pulumi.String("neptune-cluster-demo"),
+//				Engine:                           pulumi.String("neptune"),
+//				IamDatabaseAuthenticationEnabled: pulumi.Bool(true),
+//				PreferredBackupWindow:            pulumi.String("07:00-09:00"),
+//				SkipFinalSnapshot:                pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // > **Note:** AWS Neptune does not support user name/password–based access control.
@@ -57,7 +60,9 @@ import (
 // `aws_neptune_cluster` can be imported by using the cluster identifier, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:neptune/cluster:Cluster example my-cluster
+//
+//	$ pulumi import aws:neptune/cluster:Cluster example my-cluster
+//
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -122,9 +127,9 @@ type Cluster struct {
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
-	// A map of tags to assign to the Neptune cluster. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// List of VPC security groups to associate with the Cluster
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -219,9 +224,9 @@ type clusterState struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A map of tags to assign to the Neptune cluster. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// List of VPC security groups to associate with the Cluster
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -288,9 +293,9 @@ type ClusterState struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A map of tags to assign to the Neptune cluster. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// List of VPC security groups to associate with the Cluster
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -349,7 +354,7 @@ type clusterArgs struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A map of tags to assign to the Neptune cluster. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// List of VPC security groups to associate with the Cluster
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -405,7 +410,7 @@ type ClusterArgs struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A map of tags to assign to the Neptune cluster. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// List of VPC security groups to associate with the Cluster
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -437,7 +442,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 // ClusterArrayInput is an input type that accepts ClusterArray and ClusterArrayOutput values.
 // You can construct a concrete instance of `ClusterArrayInput` via:
 //
-//          ClusterArray{ ClusterArgs{...} }
+//	ClusterArray{ ClusterArgs{...} }
 type ClusterArrayInput interface {
 	pulumi.Input
 
@@ -462,7 +467,7 @@ func (i ClusterArray) ToClusterArrayOutputWithContext(ctx context.Context) Clust
 // ClusterMapInput is an input type that accepts ClusterMap and ClusterMapOutput values.
 // You can construct a concrete instance of `ClusterMapInput` via:
 //
-//          ClusterMap{ "key": ClusterArgs{...} }
+//	ClusterMap{ "key": ClusterArgs{...} }
 type ClusterMapInput interface {
 	pulumi.Input
 
@@ -648,12 +653,12 @@ func (o ClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
 }
 
-// A map of tags to assign to the Neptune cluster. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the Neptune cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

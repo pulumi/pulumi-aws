@@ -19,22 +19,20 @@ namespace Pulumi.Aws.Lambda
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var functionName = config.Require("functionName");
+        ///     var existing = Aws.Lambda.GetFunctionUrl.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var functionName = config.Require("functionName");
-        ///         var existing = Output.Create(Aws.Lambda.GetFunctionUrl.InvokeAsync(new Aws.Lambda.GetFunctionUrlArgs
-        ///         {
-        ///             FunctionName = functionName,
-        ///         }));
-        ///     }
+        ///         FunctionName = functionName,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Aws.Lambda
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var functionName = config.Require("functionName");
+        ///     var existing = Aws.Lambda.GetFunctionUrl.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var functionName = config.Require("functionName");
-        ///         var existing = Output.Create(Aws.Lambda.GetFunctionUrl.InvokeAsync(new Aws.Lambda.GetFunctionUrlArgs
-        ///         {
-        ///             FunctionName = functionName,
-        ///         }));
-        ///     }
+        ///         FunctionName = functionName,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Lambda
     }
 
 
-    public sealed class GetFunctionUrlArgs : Pulumi.InvokeArgs
+    public sealed class GetFunctionUrlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// he name (or ARN) of the Lambda function.
@@ -92,9 +88,10 @@ namespace Pulumi.Aws.Lambda
         public GetFunctionUrlArgs()
         {
         }
+        public static new GetFunctionUrlArgs Empty => new GetFunctionUrlArgs();
     }
 
-    public sealed class GetFunctionUrlInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFunctionUrlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// he name (or ARN) of the Lambda function.
@@ -111,6 +108,7 @@ namespace Pulumi.Aws.Lambda
         public GetFunctionUrlInvokeArgs()
         {
         }
+        public static new GetFunctionUrlInvokeArgs Empty => new GetFunctionUrlInvokeArgs();
     }
 
 

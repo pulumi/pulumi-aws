@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewAmiLaunchPermission(ctx, "example", &ec2.AmiLaunchPermissionArgs{
-// 			AccountId: pulumi.String("123456789012"),
-// 			ImageId:   pulumi.String("ami-12345678"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewAmiLaunchPermission(ctx, "example", &ec2.AmiLaunchPermissionArgs{
+//				AccountId: pulumi.String("123456789012"),
+//				ImageId:   pulumi.String("ami-12345678"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Public Access
 //
@@ -43,22 +46,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewAmiLaunchPermission(ctx, "example", &ec2.AmiLaunchPermissionArgs{
-// 			Group:   pulumi.String("all"),
-// 			ImageId: pulumi.String("ami-12345678"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewAmiLaunchPermission(ctx, "example", &ec2.AmiLaunchPermissionArgs{
+//				Group:   pulumi.String("all"),
+//				ImageId: pulumi.String("ami-12345678"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Organization Access
 //
@@ -66,27 +72,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := organizations.LookupOrganization(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewAmiLaunchPermission(ctx, "example", &ec2.AmiLaunchPermissionArgs{
-// 			ImageId:         pulumi.String("ami-12345678"),
-// 			OrganizationArn: pulumi.String(current.Arn),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := organizations.LookupOrganization(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewAmiLaunchPermission(ctx, "example", &ec2.AmiLaunchPermissionArgs{
+//				ImageId:         pulumi.String("ami-12345678"),
+//				OrganizationArn: pulumi.String(current.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -94,7 +103,9 @@ import (
 // AMI Launch Permissions can be imported using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
+//
+//	$ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
+//
 // ```
 type AmiLaunchPermission struct {
 	pulumi.CustomResourceState
@@ -225,7 +236,7 @@ func (i *AmiLaunchPermission) ToAmiLaunchPermissionOutputWithContext(ctx context
 // AmiLaunchPermissionArrayInput is an input type that accepts AmiLaunchPermissionArray and AmiLaunchPermissionArrayOutput values.
 // You can construct a concrete instance of `AmiLaunchPermissionArrayInput` via:
 //
-//          AmiLaunchPermissionArray{ AmiLaunchPermissionArgs{...} }
+//	AmiLaunchPermissionArray{ AmiLaunchPermissionArgs{...} }
 type AmiLaunchPermissionArrayInput interface {
 	pulumi.Input
 
@@ -250,7 +261,7 @@ func (i AmiLaunchPermissionArray) ToAmiLaunchPermissionArrayOutputWithContext(ct
 // AmiLaunchPermissionMapInput is an input type that accepts AmiLaunchPermissionMap and AmiLaunchPermissionMapOutput values.
 // You can construct a concrete instance of `AmiLaunchPermissionMapInput` via:
 //
-//          AmiLaunchPermissionMap{ "key": AmiLaunchPermissionArgs{...} }
+//	AmiLaunchPermissionMap{ "key": AmiLaunchPermissionArgs{...} }
 type AmiLaunchPermissionMapInput interface {
 	pulumi.Input
 

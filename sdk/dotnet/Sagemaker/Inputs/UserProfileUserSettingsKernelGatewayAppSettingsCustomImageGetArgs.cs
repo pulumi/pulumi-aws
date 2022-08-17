@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class UserProfileUserSettingsKernelGatewayAppSettingsCustomImageGetArgs : Pulumi.ResourceArgs
+    public sealed class UserProfileUserSettingsKernelGatewayAppSettingsCustomImageGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the App Image Config.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public UserProfileUserSettingsKernelGatewayAppSettingsCustomImageGetArgs()
         {
         }
+        public static new UserProfileUserSettingsKernelGatewayAppSettingsCustomImageGetArgs Empty => new UserProfileUserSettingsKernelGatewayAppSettingsCustomImageGetArgs();
     }
 }

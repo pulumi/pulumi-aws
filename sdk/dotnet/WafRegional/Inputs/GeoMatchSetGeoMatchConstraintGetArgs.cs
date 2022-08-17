@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafRegional.Inputs
 {
 
-    public sealed class GeoMatchSetGeoMatchConstraintGetArgs : Pulumi.ResourceArgs
+    public sealed class GeoMatchSetGeoMatchConstraintGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
@@ -29,5 +29,6 @@ namespace Pulumi.Aws.WafRegional.Inputs
         public GeoMatchSetGeoMatchConstraintGetArgs()
         {
         }
+        public static new GeoMatchSetGeoMatchConstraintGetArgs Empty => new GeoMatchSetGeoMatchConstraintGetArgs();
     }
 }

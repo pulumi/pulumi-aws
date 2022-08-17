@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs : Pulumi.ResourceArgs
+    public sealed class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs()
         {
         }
+        public static new PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs Empty => new PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs();
     }
 }

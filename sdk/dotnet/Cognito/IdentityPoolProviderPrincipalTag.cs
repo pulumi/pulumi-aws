@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Cognito
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag")]
-    public partial class IdentityPoolProviderPrincipalTag : Pulumi.CustomResource
+    public partial class IdentityPoolProviderPrincipalTag : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An identity pool ID.
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Cognito
         }
     }
 
-    public sealed class IdentityPoolProviderPrincipalTagArgs : Pulumi.ResourceArgs
+    public sealed class IdentityPoolProviderPrincipalTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An identity pool ID.
@@ -117,9 +117,10 @@ namespace Pulumi.Aws.Cognito
         public IdentityPoolProviderPrincipalTagArgs()
         {
         }
+        public static new IdentityPoolProviderPrincipalTagArgs Empty => new IdentityPoolProviderPrincipalTagArgs();
     }
 
-    public sealed class IdentityPoolProviderPrincipalTagState : Pulumi.ResourceArgs
+    public sealed class IdentityPoolProviderPrincipalTagState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An identity pool ID.
@@ -149,5 +150,6 @@ namespace Pulumi.Aws.Cognito
         public IdentityPoolProviderPrincipalTagState()
         {
         }
+        public static new IdentityPoolProviderPrincipalTagState Empty => new IdentityPoolProviderPrincipalTagState();
     }
 }

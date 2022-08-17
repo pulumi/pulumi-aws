@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AppRunner.Inputs
 {
 
-    public sealed class ServiceSourceConfigurationAuthenticationConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSourceConfigurationAuthenticationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public ServiceSourceConfigurationAuthenticationConfigurationArgs()
         {
         }
+        public static new ServiceSourceConfigurationAuthenticationConfigurationArgs Empty => new ServiceSourceConfigurationAuthenticationConfigurationArgs();
     }
 }

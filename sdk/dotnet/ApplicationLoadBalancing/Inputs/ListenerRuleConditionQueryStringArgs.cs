@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
 {
 
-    public sealed class ListenerRuleConditionQueryStringArgs : Pulumi.ResourceArgs
+    public sealed class ListenerRuleConditionQueryStringArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Query string key pattern to match.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
         public ListenerRuleConditionQueryStringArgs()
         {
         }
+        public static new ListenerRuleConditionQueryStringArgs Empty => new ListenerRuleConditionQueryStringArgs();
     }
 }

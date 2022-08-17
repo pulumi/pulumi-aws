@@ -739,17 +739,21 @@ class DomainEbsOptions(dict):
     def __init__(__self__, *,
                  ebs_enabled: bool,
                  iops: Optional[int] = None,
+                 throughput: Optional[int] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
         """
         :param bool ebs_enabled: Whether EBS volumes are attached to data nodes in the domain.
-        :param int iops: Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+        :param int iops: Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
+        :param int throughput: Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
         :param int volume_size: Size of EBS volumes attached to data nodes (in GiB).
         :param str volume_type: Type of EBS volumes attached to data nodes.
         """
         pulumi.set(__self__, "ebs_enabled", ebs_enabled)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
@@ -767,9 +771,17 @@ class DomainEbsOptions(dict):
     @pulumi.getter
     def iops(self) -> Optional[int]:
         """
-        Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+        Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
         """
         return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        """
+        Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type. Valid values are between `125` and `1000`.
+        """
+        return pulumi.get(self, "throughput")
 
     @property
     @pulumi.getter(name="volumeSize")
@@ -1536,16 +1548,19 @@ class GetDomainEbsOptionResult(dict):
     def __init__(__self__, *,
                  ebs_enabled: bool,
                  iops: int,
+                 throughput: int,
                  volume_size: int,
                  volume_type: str):
         """
         :param bool ebs_enabled: Whether EBS volumes are attached to data nodes in the domain.
         :param int iops: The baseline input/output (I/O) performance of EBS volumes attached to data nodes.
+        :param int throughput: The throughput (in MiB/s) of the EBS volumes attached to data nodes.
         :param int volume_size: The size of EBS volumes attached to data nodes (in GB).
         :param str volume_type: The type of EBS volumes attached to data nodes.
         """
         pulumi.set(__self__, "ebs_enabled", ebs_enabled)
         pulumi.set(__self__, "iops", iops)
+        pulumi.set(__self__, "throughput", throughput)
         pulumi.set(__self__, "volume_size", volume_size)
         pulumi.set(__self__, "volume_type", volume_type)
 
@@ -1564,6 +1579,14 @@ class GetDomainEbsOptionResult(dict):
         The baseline input/output (I/O) performance of EBS volumes attached to data nodes.
         """
         return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> int:
+        """
+        The throughput (in MiB/s) of the EBS volumes attached to data nodes.
+        """
+        return pulumi.get(self, "throughput")
 
     @property
     @pulumi.getter(name="volumeSize")

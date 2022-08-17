@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetInstanceType.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetInstanceType.InvokeAsync(new Aws.Ec2.GetInstanceTypeArgs
-        ///         {
-        ///             InstanceType = "t2.micro",
-        ///         }));
-        ///     }
+        ///         InstanceType = "t2.micro",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Ec2
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Ec2.GetInstanceType.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Ec2.GetInstanceType.InvokeAsync(new Aws.Ec2.GetInstanceTypeArgs
-        ///         {
-        ///             InstanceType = "t2.micro",
-        ///         }));
-        ///     }
+        ///         InstanceType = "t2.micro",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Ec2
     }
 
 
-    public sealed class GetInstanceTypeArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Instance
@@ -82,9 +78,10 @@ namespace Pulumi.Aws.Ec2
         public GetInstanceTypeArgs()
         {
         }
+        public static new GetInstanceTypeArgs Empty => new GetInstanceTypeArgs();
     }
 
-    public sealed class GetInstanceTypeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Instance
@@ -95,6 +92,7 @@ namespace Pulumi.Aws.Ec2
         public GetInstanceTypeInvokeArgs()
         {
         }
+        public static new GetInstanceTypeInvokeArgs Empty => new GetInstanceTypeInvokeArgs();
     }
 
 

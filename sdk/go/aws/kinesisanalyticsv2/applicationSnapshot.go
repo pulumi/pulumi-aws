@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesisanalyticsv2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesisanalyticsv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := kinesisanalyticsv2.NewApplicationSnapshot(ctx, "example", &kinesisanalyticsv2.ApplicationSnapshotArgs{
-// 			ApplicationName: pulumi.Any(aws_kinesisanalyticsv2_application.Example.Name),
-// 			SnapshotName:    pulumi.String("example-snapshot"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kinesisanalyticsv2.NewApplicationSnapshot(ctx, "example", &kinesisanalyticsv2.ApplicationSnapshotArgs{
+//				ApplicationName: pulumi.Any(aws_kinesisanalyticsv2_application.Example.Name),
+//				SnapshotName:    pulumi.String("example-snapshot"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
+//
+//	$ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
+//
 // ```
 type ApplicationSnapshot struct {
 	pulumi.CustomResourceState
@@ -159,7 +164,7 @@ func (i *ApplicationSnapshot) ToApplicationSnapshotOutputWithContext(ctx context
 // ApplicationSnapshotArrayInput is an input type that accepts ApplicationSnapshotArray and ApplicationSnapshotArrayOutput values.
 // You can construct a concrete instance of `ApplicationSnapshotArrayInput` via:
 //
-//          ApplicationSnapshotArray{ ApplicationSnapshotArgs{...} }
+//	ApplicationSnapshotArray{ ApplicationSnapshotArgs{...} }
 type ApplicationSnapshotArrayInput interface {
 	pulumi.Input
 
@@ -184,7 +189,7 @@ func (i ApplicationSnapshotArray) ToApplicationSnapshotArrayOutputWithContext(ct
 // ApplicationSnapshotMapInput is an input type that accepts ApplicationSnapshotMap and ApplicationSnapshotMapOutput values.
 // You can construct a concrete instance of `ApplicationSnapshotMapInput` via:
 //
-//          ApplicationSnapshotMap{ "key": ApplicationSnapshotArgs{...} }
+//	ApplicationSnapshotMap{ "key": ApplicationSnapshotArgs{...} }
 type ApplicationSnapshotMapInput interface {
 	pulumi.Input
 

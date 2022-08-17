@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager.Inputs
 {
 
-    public sealed class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs : global::Pulumi.InvokeArgs
     {
         [Input("asnRanges", required: true)]
         private List<string>? _asnRanges;
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs()
         {
         }
+        public static new GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs Empty => new GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs();
     }
 }

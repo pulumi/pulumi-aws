@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker.Inputs
 {
 
-    public sealed class FeatureGroupOfflineStoreConfigS3StorageConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class FeatureGroupOfflineStoreConfigS3StorageConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public FeatureGroupOfflineStoreConfigS3StorageConfigGetArgs()
         {
         }
+        public static new FeatureGroupOfflineStoreConfigS3StorageConfigGetArgs Empty => new FeatureGroupOfflineStoreConfigS3StorageConfigGetArgs();
     }
 }

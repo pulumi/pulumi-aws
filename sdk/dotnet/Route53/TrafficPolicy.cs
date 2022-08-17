@@ -15,17 +15,16 @@ namespace Pulumi.Aws.Route53
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Route53.TrafficPolicy("example", new()
     ///     {
-    ///         var example = new Aws.Route53.TrafficPolicy("example", new Aws.Route53.TrafficPolicyArgs
-    ///         {
-    ///             Comment = "example comment",
-    ///             Document = @"{
+    ///         Comment = "example comment",
+    ///         Document = @"{
     ///   ""AWSPolicyFormatVersion"": ""2015-10-01"",
     ///   ""RecordType"": ""A"",
     ///   ""Endpoints"": {
@@ -38,10 +37,9 @@ namespace Pulumi.Aws.Route53
     /// }
     /// 
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Aws.Route53
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/trafficPolicy:TrafficPolicy")]
-    public partial class TrafficPolicy : Pulumi.CustomResource
+    public partial class TrafficPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Comment for the traffic policy.
@@ -129,7 +127,7 @@ namespace Pulumi.Aws.Route53
         }
     }
 
-    public sealed class TrafficPolicyArgs : Pulumi.ResourceArgs
+    public sealed class TrafficPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Comment for the traffic policy.
@@ -152,9 +150,10 @@ namespace Pulumi.Aws.Route53
         public TrafficPolicyArgs()
         {
         }
+        public static new TrafficPolicyArgs Empty => new TrafficPolicyArgs();
     }
 
-    public sealed class TrafficPolicyState : Pulumi.ResourceArgs
+    public sealed class TrafficPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Comment for the traffic policy.
@@ -189,5 +188,6 @@ namespace Pulumi.Aws.Route53
         public TrafficPolicyState()
         {
         }
+        public static new TrafficPolicyState Empty => new TrafficPolicyState();
     }
 }

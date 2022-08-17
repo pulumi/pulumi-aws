@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.AutoScaling.Inputs
 {
 
-    public sealed class GroupMixedInstancesPolicyInstancesDistributionArgs : Pulumi.ResourceArgs
+    public sealed class GroupMixedInstancesPolicyInstancesDistributionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Strategy to use when launching on-demand instances. Valid values: `prioritized`. Default: `prioritized`.
@@ -51,5 +51,6 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public GroupMixedInstancesPolicyInstancesDistributionArgs()
         {
         }
+        public static new GroupMixedInstancesPolicyInstancesDistributionArgs Empty => new GroupMixedInstancesPolicyInstancesDistributionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager.Inputs
 {
 
-    public sealed class SiteLocationGetArgs : Pulumi.ResourceArgs
+    public sealed class SiteLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Address of the location.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         public SiteLocationGetArgs()
         {
         }
+        public static new SiteLocationGetArgs Empty => new SiteLocationGetArgs();
     }
 }

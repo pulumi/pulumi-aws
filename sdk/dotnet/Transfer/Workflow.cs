@@ -15,31 +15,29 @@ namespace Pulumi.Aws.Transfer
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Transfer.Workflow("example", new()
     ///     {
-    ///         var example = new Aws.Transfer.Workflow("example", new Aws.Transfer.WorkflowArgs
+    ///         Steps = new[]
     ///         {
-    ///             Steps = 
+    ///             new Aws.Transfer.Inputs.WorkflowStepArgs
     ///             {
-    ///                 new Aws.Transfer.Inputs.WorkflowStepArgs
+    ///                 DeleteStepDetails = new Aws.Transfer.Inputs.WorkflowStepDeleteStepDetailsArgs
     ///                 {
-    ///                     DeleteStepDetails = new Aws.Transfer.Inputs.WorkflowStepDeleteStepDetailsArgs
-    ///                     {
-    ///                         Name = "example",
-    ///                         SourceFileLocation = original.File,
-    ///                     },
-    ///                     Type = "DELETE",
+    ///                     Name = "example",
+    ///                     SourceFileLocation = original.File,
     ///                 },
+    ///                 Type = "DELETE",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +49,7 @@ namespace Pulumi.Aws.Transfer
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/workflow:Workflow")]
-    public partial class Workflow : Pulumi.CustomResource
+    public partial class Workflow : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Workflow ARN.
@@ -130,7 +128,7 @@ namespace Pulumi.Aws.Transfer
         }
     }
 
-    public sealed class WorkflowArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A textual description for the workflow.
@@ -177,9 +175,10 @@ namespace Pulumi.Aws.Transfer
         public WorkflowArgs()
         {
         }
+        public static new WorkflowArgs Empty => new WorkflowArgs();
     }
 
-    public sealed class WorkflowState : Pulumi.ResourceArgs
+    public sealed class WorkflowState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Workflow ARN.
@@ -240,5 +239,6 @@ namespace Pulumi.Aws.Transfer
         public WorkflowState()
         {
         }
+        public static new WorkflowState Empty => new WorkflowState();
     }
 }

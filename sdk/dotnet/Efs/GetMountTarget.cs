@@ -19,22 +19,20 @@ namespace Pulumi.Aws.Efs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var mountTargetId = config.Get("mountTargetId") ?? "";
+        ///     var byId = Aws.Efs.GetMountTarget.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var mountTargetId = config.Get("mountTargetId") ?? "";
-        ///         var byId = Output.Create(Aws.Efs.GetMountTarget.InvokeAsync(new Aws.Efs.GetMountTargetArgs
-        ///         {
-        ///             MountTargetId = mountTargetId,
-        ///         }));
-        ///     }
+        ///         MountTargetId = mountTargetId,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Aws.Efs
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var config = new Config();
+        ///     var mountTargetId = config.Get("mountTargetId") ?? "";
+        ///     var byId = Aws.Efs.GetMountTarget.Invoke(new()
         ///     {
-        ///         var config = new Config();
-        ///         var mountTargetId = config.Get("mountTargetId") ?? "";
-        ///         var byId = Output.Create(Aws.Efs.GetMountTarget.InvokeAsync(new Aws.Efs.GetMountTargetArgs
-        ///         {
-        ///             MountTargetId = mountTargetId,
-        ///         }));
-        ///     }
+        ///         MountTargetId = mountTargetId,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Aws.Efs
     }
 
 
-    public sealed class GetMountTargetArgs : Pulumi.InvokeArgs
+    public sealed class GetMountTargetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
@@ -98,9 +94,10 @@ namespace Pulumi.Aws.Efs
         public GetMountTargetArgs()
         {
         }
+        public static new GetMountTargetArgs Empty => new GetMountTargetArgs();
     }
 
-    public sealed class GetMountTargetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMountTargetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
@@ -123,6 +120,7 @@ namespace Pulumi.Aws.Efs
         public GetMountTargetInvokeArgs()
         {
         }
+        public static new GetMountTargetInvokeArgs Empty => new GetMountTargetInvokeArgs();
     }
 
 

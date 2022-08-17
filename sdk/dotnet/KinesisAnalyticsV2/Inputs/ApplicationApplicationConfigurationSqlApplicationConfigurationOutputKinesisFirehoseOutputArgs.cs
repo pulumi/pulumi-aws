@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
 {
 
-    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the destination delivery stream to write to.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         public ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs()
         {
         }
+        public static new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs Empty => new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs();
     }
 }

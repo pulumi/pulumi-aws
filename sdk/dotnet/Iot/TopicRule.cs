@@ -13,22 +13,19 @@ namespace Pulumi.Aws.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var mytopic = new Aws.Sns.Topic("mytopic");
+    /// 
+    ///     var myerrortopic = new Aws.Sns.Topic("myerrortopic");
+    /// 
+    ///     var role = new Aws.Iam.Role("role", new()
     ///     {
-    ///         var mytopic = new Aws.Sns.Topic("mytopic", new Aws.Sns.TopicArgs
-    ///         {
-    ///         });
-    ///         var myerrortopic = new Aws.Sns.Topic("myerrortopic", new Aws.Sns.TopicArgs
-    ///         {
-    ///         });
-    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
-    ///         {
-    ///             AssumeRolePolicy = @"{
+    ///         AssumeRolePolicy = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {
@@ -41,33 +38,35 @@ namespace Pulumi.Aws.Iot
     ///   ]
     /// }
     /// ",
-    ///         });
-    ///         var rule = new Aws.Iot.TopicRule("rule", new Aws.Iot.TopicRuleArgs
+    ///     });
+    /// 
+    ///     var rule = new Aws.Iot.TopicRule("rule", new()
+    ///     {
+    ///         Description = "Example rule",
+    ///         Enabled = true,
+    ///         Sql = "SELECT * FROM 'topic/test'",
+    ///         SqlVersion = "2016-03-23",
+    ///         Sns = new Aws.Iot.Inputs.TopicRuleSnsArgs
     ///         {
-    ///             Description = "Example rule",
-    ///             Enabled = true,
-    ///             Sql = "SELECT * FROM 'topic/test'",
-    ///             SqlVersion = "2016-03-23",
-    ///             Sns = new Aws.Iot.Inputs.TopicRuleSnsArgs
+    ///             MessageFormat = "RAW",
+    ///             RoleArn = role.Arn,
+    ///             TargetArn = mytopic.Arn,
+    ///         },
+    ///         ErrorAction = new Aws.Iot.Inputs.TopicRuleErrorActionArgs
+    ///         {
+    ///             Sns = new Aws.Iot.Inputs.TopicRuleErrorActionSnsArgs
     ///             {
     ///                 MessageFormat = "RAW",
     ///                 RoleArn = role.Arn,
-    ///                 TargetArn = mytopic.Arn,
+    ///                 TargetArn = myerrortopic.Arn,
     ///             },
-    ///             ErrorAction = new Aws.Iot.Inputs.TopicRuleErrorActionArgs
-    ///             {
-    ///                 Sns = new Aws.Iot.Inputs.TopicRuleErrorActionSnsArgs
-    ///                 {
-    ///                     MessageFormat = "RAW",
-    ///                     RoleArn = role.Arn,
-    ///                     TargetArn = myerrortopic.Arn,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var iamPolicyForLambda = new Aws.Iam.RolePolicy("iamPolicyForLambda", new Aws.Iam.RolePolicyArgs
-    ///         {
-    ///             Role = role.Id,
-    ///             Policy = mytopic.Arn.Apply(arn =&gt; @$"{{
+    ///         },
+    ///     });
+    /// 
+    ///     var iamPolicyForLambda = new Aws.Iam.RolePolicy("iamPolicyForLambda", new()
+    ///     {
+    ///         Role = role.Id,
+    ///         Policy = mytopic.Arn.Apply(arn =&gt; @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {{
@@ -80,10 +79,9 @@ namespace Pulumi.Aws.Iot
     ///   ]
     /// }}
     /// "),
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -95,7 +93,7 @@ namespace Pulumi.Aws.Iot
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/topicRule:TopicRule")]
-    public partial class TopicRule : Pulumi.CustomResource
+    public partial class TopicRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the topic rule
@@ -200,7 +198,7 @@ namespace Pulumi.Aws.Iot
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -252,7 +250,7 @@ namespace Pulumi.Aws.Iot
         }
     }
 
-    public sealed class TopicRuleArgs : Pulumi.ResourceArgs
+    public sealed class TopicRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudwatchAlarm")]
         public Input<Inputs.TopicRuleCloudwatchAlarmArgs>? CloudwatchAlarm { get; set; }
@@ -402,9 +400,10 @@ namespace Pulumi.Aws.Iot
         public TopicRuleArgs()
         {
         }
+        public static new TopicRuleArgs Empty => new TopicRuleArgs();
     }
 
-    public sealed class TopicRuleState : Pulumi.ResourceArgs
+    public sealed class TopicRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the topic rule
@@ -553,7 +552,7 @@ namespace Pulumi.Aws.Iot
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -572,5 +571,6 @@ namespace Pulumi.Aws.Iot
         public TopicRuleState()
         {
         }
+        public static new TopicRuleState Empty => new TopicRuleState();
     }
 }

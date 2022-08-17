@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Eks.Inputs
 {
 
-    public sealed class NodeGroupResourceGetArgs : Pulumi.ResourceArgs
+    public sealed class NodeGroupResourceGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoscalingGroups")]
         private InputList<Inputs.NodeGroupResourceAutoscalingGroupGetArgs>? _autoscalingGroups;
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Eks.Inputs
         public NodeGroupResourceGetArgs()
         {
         }
+        public static new NodeGroupResourceGetArgs Empty => new NodeGroupResourceGetArgs();
     }
 }

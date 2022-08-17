@@ -17,19 +17,15 @@ namespace Pulumi.Aws.Keyspaces
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.Keyspaces.Keyspace("example", new Aws.Keyspaces.KeyspaceArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     var example = new Aws.Keyspaces.Keyspace("example");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +37,7 @@ namespace Pulumi.Aws.Keyspaces
     /// ```
     /// </summary>
     [AwsResourceType("aws:keyspaces/keyspace:Keyspace")]
-    public partial class Keyspace : Pulumi.CustomResource
+    public partial class Keyspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the keyspace.
@@ -61,9 +57,6 @@ namespace Pulumi.Aws.Keyspaces
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -111,7 +104,7 @@ namespace Pulumi.Aws.Keyspaces
         }
     }
 
-    public sealed class KeyspaceArgs : Pulumi.ResourceArgs
+    public sealed class KeyspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the keyspace to be created.
@@ -134,9 +127,10 @@ namespace Pulumi.Aws.Keyspaces
         public KeyspaceArgs()
         {
         }
+        public static new KeyspaceArgs Empty => new KeyspaceArgs();
     }
 
-    public sealed class KeyspaceState : Pulumi.ResourceArgs
+    public sealed class KeyspaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the keyspace.
@@ -164,10 +158,6 @@ namespace Pulumi.Aws.Keyspaces
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -177,5 +167,6 @@ namespace Pulumi.Aws.Keyspaces
         public KeyspaceState()
         {
         }
+        public static new KeyspaceState Empty => new KeyspaceState();
     }
 }

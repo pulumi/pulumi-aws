@@ -30,45 +30,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.1.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewDefaultSecurityGroup(ctx, "default", &ec2.DefaultSecurityGroupArgs{
-// 			VpcId: mainvpc.ID(),
-// 			Ingress: ec2.DefaultSecurityGroupIngressArray{
-// 				&ec2.DefaultSecurityGroupIngressArgs{
-// 					Protocol: pulumi.String("-1"),
-// 					Self:     pulumi.Bool(true),
-// 					FromPort: pulumi.Int(0),
-// 					ToPort:   pulumi.Int(0),
-// 				},
-// 			},
-// 			Egress: ec2.DefaultSecurityGroupEgressArray{
-// 				&ec2.DefaultSecurityGroupEgressArgs{
-// 					FromPort: pulumi.Int(0),
-// 					ToPort:   pulumi.Int(0),
-// 					Protocol: pulumi.String("-1"),
-// 					CidrBlocks: pulumi.StringArray{
-// 						pulumi.String("0.0.0.0/0"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.1.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewDefaultSecurityGroup(ctx, "default", &ec2.DefaultSecurityGroupArgs{
+//				VpcId: mainvpc.ID(),
+//				Ingress: ec2.DefaultSecurityGroupIngressArray{
+//					&ec2.DefaultSecurityGroupIngressArgs{
+//						Protocol: pulumi.String("-1"),
+//						Self:     pulumi.Bool(true),
+//						FromPort: pulumi.Int(0),
+//						ToPort:   pulumi.Int(0),
+//					},
+//				},
+//				Egress: ec2.DefaultSecurityGroupEgressArray{
+//					&ec2.DefaultSecurityGroupEgressArgs{
+//						FromPort: pulumi.Int(0),
+//						ToPort:   pulumi.Int(0),
+//						Protocol: pulumi.String("-1"),
+//						CidrBlocks: pulumi.StringArray{
+//							pulumi.String("0.0.0.0/0"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Example Config To Deny All Egress Traffic, Allowing Ingress
 //
@@ -78,35 +81,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
-// 			CidrBlock: pulumi.String("10.1.0.0/16"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewDefaultSecurityGroup(ctx, "default", &ec2.DefaultSecurityGroupArgs{
-// 			VpcId: mainvpc.ID(),
-// 			Ingress: ec2.DefaultSecurityGroupIngressArray{
-// 				&ec2.DefaultSecurityGroupIngressArgs{
-// 					Protocol: pulumi.String("-1"),
-// 					Self:     pulumi.Bool(true),
-// 					FromPort: pulumi.Int(0),
-// 					ToPort:   pulumi.Int(0),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mainvpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.1.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewDefaultSecurityGroup(ctx, "default", &ec2.DefaultSecurityGroupArgs{
+//				VpcId: mainvpc.ID(),
+//				Ingress: ec2.DefaultSecurityGroupIngressArray{
+//					&ec2.DefaultSecurityGroupIngressArgs{
+//						Protocol: pulumi.String("-1"),
+//						Self:     pulumi.Bool(true),
+//						FromPort: pulumi.Int(0),
+//						ToPort:   pulumi.Int(0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Removing `ec2.DefaultSecurityGroup` From Your Configuration
 //
@@ -117,7 +123,9 @@ import (
 // Security Groups can be imported using the `security group id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
+//
+//	$ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
+//
 // ```
 type DefaultSecurityGroup struct {
 	pulumi.CustomResourceState
@@ -131,13 +139,14 @@ type DefaultSecurityGroup struct {
 	// Configuration block. Detailed below.
 	Ingress DefaultSecurityGroupIngressArrayOutput `pulumi:"ingress"`
 	// Name of the security group.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Owner ID.
 	OwnerId             pulumi.StringOutput  `pulumi:"ownerId"`
 	RevokeRulesOnDelete pulumi.BoolPtrOutput `pulumi:"revokeRulesOnDelete"`
-	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -181,13 +190,14 @@ type defaultSecurityGroupState struct {
 	// Configuration block. Detailed below.
 	Ingress []DefaultSecurityGroupIngress `pulumi:"ingress"`
 	// Name of the security group.
-	Name *string `pulumi:"name"`
+	Name       *string `pulumi:"name"`
+	NamePrefix *string `pulumi:"namePrefix"`
 	// Owner ID.
 	OwnerId             *string `pulumi:"ownerId"`
 	RevokeRulesOnDelete *bool   `pulumi:"revokeRulesOnDelete"`
-	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
 	VpcId *string `pulumi:"vpcId"`
@@ -203,13 +213,14 @@ type DefaultSecurityGroupState struct {
 	// Configuration block. Detailed below.
 	Ingress DefaultSecurityGroupIngressArrayInput
 	// Name of the security group.
-	Name pulumi.StringPtrInput
+	Name       pulumi.StringPtrInput
+	NamePrefix pulumi.StringPtrInput
 	// Owner ID.
 	OwnerId             pulumi.StringPtrInput
 	RevokeRulesOnDelete pulumi.BoolPtrInput
-	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
 	VpcId pulumi.StringPtrInput
@@ -225,7 +236,7 @@ type defaultSecurityGroupArgs struct {
 	// Configuration block. Detailed below.
 	Ingress             []DefaultSecurityGroupIngress `pulumi:"ingress"`
 	RevokeRulesOnDelete *bool                         `pulumi:"revokeRulesOnDelete"`
-	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
 	VpcId *string `pulumi:"vpcId"`
@@ -238,7 +249,7 @@ type DefaultSecurityGroupArgs struct {
 	// Configuration block. Detailed below.
 	Ingress             DefaultSecurityGroupIngressArrayInput
 	RevokeRulesOnDelete pulumi.BoolPtrInput
-	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
 	VpcId pulumi.StringPtrInput
@@ -270,7 +281,7 @@ func (i *DefaultSecurityGroup) ToDefaultSecurityGroupOutputWithContext(ctx conte
 // DefaultSecurityGroupArrayInput is an input type that accepts DefaultSecurityGroupArray and DefaultSecurityGroupArrayOutput values.
 // You can construct a concrete instance of `DefaultSecurityGroupArrayInput` via:
 //
-//          DefaultSecurityGroupArray{ DefaultSecurityGroupArgs{...} }
+//	DefaultSecurityGroupArray{ DefaultSecurityGroupArgs{...} }
 type DefaultSecurityGroupArrayInput interface {
 	pulumi.Input
 
@@ -295,7 +306,7 @@ func (i DefaultSecurityGroupArray) ToDefaultSecurityGroupArrayOutputWithContext(
 // DefaultSecurityGroupMapInput is an input type that accepts DefaultSecurityGroupMap and DefaultSecurityGroupMapOutput values.
 // You can construct a concrete instance of `DefaultSecurityGroupMapInput` via:
 //
-//          DefaultSecurityGroupMap{ "key": DefaultSecurityGroupArgs{...} }
+//	DefaultSecurityGroupMap{ "key": DefaultSecurityGroupArgs{...} }
 type DefaultSecurityGroupMapInput interface {
 	pulumi.Input
 
@@ -356,6 +367,10 @@ func (o DefaultSecurityGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o DefaultSecurityGroupOutput) NamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+}
+
 // Owner ID.
 func (o DefaultSecurityGroupOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
@@ -365,12 +380,12 @@ func (o DefaultSecurityGroupOutput) RevokeRulesOnDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.BoolPtrOutput { return v.RevokeRulesOnDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DefaultSecurityGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DefaultSecurityGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultSecurityGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Inputs
 {
 
-    public sealed class ProviderEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ProviderEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessanalyzer")]
         public Input<string>? Accessanalyzer { get; set; }
@@ -1119,5 +1119,6 @@ namespace Pulumi.Aws.Inputs
         public ProviderEndpointArgs()
         {
         }
+        public static new ProviderEndpointArgs Empty => new ProviderEndpointArgs();
     }
 }

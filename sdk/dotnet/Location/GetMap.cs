@@ -19,20 +19,18 @@ namespace Pulumi.Aws.Location
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Location.GetMap.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Location.GetMap.InvokeAsync(new Aws.Location.GetMapArgs
-        ///         {
-        ///             MapName = "example",
-        ///         }));
-        ///     }
+        ///         MapName = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Aws.Location
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Aws.Location.GetMap.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Aws.Location.GetMap.InvokeAsync(new Aws.Location.GetMapArgs
-        ///         {
-        ///             MapName = "example",
-        ///         }));
-        ///     }
+        ///         MapName = "example",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Aws.Location
     }
 
 
-    public sealed class GetMapArgs : Pulumi.InvokeArgs
+    public sealed class GetMapArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the map resource.
@@ -94,9 +90,10 @@ namespace Pulumi.Aws.Location
         public GetMapArgs()
         {
         }
+        public static new GetMapArgs Empty => new GetMapArgs();
     }
 
-    public sealed class GetMapInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMapInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the map resource.
@@ -119,6 +116,7 @@ namespace Pulumi.Aws.Location
         public GetMapInvokeArgs()
         {
         }
+        public static new GetMapInvokeArgs Empty => new GetMapInvokeArgs();
     }
 
 

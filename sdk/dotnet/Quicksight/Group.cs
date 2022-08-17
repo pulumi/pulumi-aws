@@ -15,20 +15,18 @@ namespace Pulumi.Aws.Quicksight
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Aws.Quicksight.Group("example", new()
     ///     {
-    ///         var example = new Aws.Quicksight.Group("example", new Aws.Quicksight.GroupArgs
-    ///         {
-    ///             GroupName = "tf-example",
-    ///         });
-    ///     }
+    ///         GroupName = "tf-example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Aws.Quicksight
     /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/group:Group")]
-    public partial class Group : Pulumi.CustomResource
+    public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of group
@@ -116,7 +114,7 @@ namespace Pulumi.Aws.Quicksight
         }
     }
 
-    public sealed class GroupArgs : Pulumi.ResourceArgs
+    public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
@@ -145,9 +143,10 @@ namespace Pulumi.Aws.Quicksight
         public GroupArgs()
         {
         }
+        public static new GroupArgs Empty => new GroupArgs();
     }
 
-    public sealed class GroupState : Pulumi.ResourceArgs
+    public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Amazon Resource Name (ARN) of group
@@ -182,5 +181,6 @@ namespace Pulumi.Aws.Quicksight
         public GroupState()
         {
         }
+        public static new GroupState Empty => new GroupState();
     }
 }

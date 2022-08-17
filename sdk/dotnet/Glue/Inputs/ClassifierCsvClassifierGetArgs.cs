@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Glue.Inputs
 {
 
-    public sealed class ClassifierCsvClassifierGetArgs : Pulumi.ResourceArgs
+    public sealed class ClassifierCsvClassifierGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables the processing of files that contain only one column.
@@ -57,5 +57,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public ClassifierCsvClassifierGetArgs()
         {
         }
+        public static new ClassifierCsvClassifierGetArgs Empty => new ClassifierCsvClassifierGetArgs();
     }
 }

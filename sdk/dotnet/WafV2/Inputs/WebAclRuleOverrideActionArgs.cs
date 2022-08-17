@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class WebAclRuleOverrideActionArgs : Pulumi.ResourceArgs
+    public sealed class WebAclRuleOverrideActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
@@ -27,5 +27,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public WebAclRuleOverrideActionArgs()
         {
         }
+        public static new WebAclRuleOverrideActionArgs Empty => new WebAclRuleOverrideActionArgs();
     }
 }

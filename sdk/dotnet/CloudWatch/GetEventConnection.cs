@@ -22,20 +22,18 @@ namespace Pulumi.Aws.CloudWatch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.CloudWatch.GetEventConnection.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.CloudWatch.GetEventConnection.InvokeAsync(new Aws.CloudWatch.GetEventConnectionArgs
-        ///         {
-        ///             Name = "test",
-        ///         }));
-        ///     }
+        ///         Name = "test",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,20 +52,18 @@ namespace Pulumi.Aws.CloudWatch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Aws.CloudWatch.GetEventConnection.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Aws.CloudWatch.GetEventConnection.InvokeAsync(new Aws.CloudWatch.GetEventConnectionArgs
-        ///         {
-        ///             Name = "test",
-        ///         }));
-        ///     }
+        ///         Name = "test",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.Aws.CloudWatch
     }
 
 
-    public sealed class GetEventConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetEventConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the connection.
@@ -88,9 +84,10 @@ namespace Pulumi.Aws.CloudWatch
         public GetEventConnectionArgs()
         {
         }
+        public static new GetEventConnectionArgs Empty => new GetEventConnectionArgs();
     }
 
-    public sealed class GetEventConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the connection.
@@ -101,6 +98,7 @@ namespace Pulumi.Aws.CloudWatch
         public GetEventConnectionInvokeArgs()
         {
         }
+        public static new GetEventConnectionInvokeArgs Empty => new GetEventConnectionInvokeArgs();
     }
 
 

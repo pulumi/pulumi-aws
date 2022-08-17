@@ -20,21 +20,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ebs.NewEncryptionByDefault(ctx, "example", &ebs.EncryptionByDefaultArgs{
-// 			Enabled: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ebs.NewEncryptionByDefault(ctx, "example", &ebs.EncryptionByDefaultArgs{
+//				Enabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // Default EBS encryption state can be imported, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
+//
+//	$ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
+//
 // ```
 type EncryptionByDefault struct {
 	pulumi.CustomResourceState
@@ -130,7 +135,7 @@ func (i *EncryptionByDefault) ToEncryptionByDefaultOutputWithContext(ctx context
 // EncryptionByDefaultArrayInput is an input type that accepts EncryptionByDefaultArray and EncryptionByDefaultArrayOutput values.
 // You can construct a concrete instance of `EncryptionByDefaultArrayInput` via:
 //
-//          EncryptionByDefaultArray{ EncryptionByDefaultArgs{...} }
+//	EncryptionByDefaultArray{ EncryptionByDefaultArgs{...} }
 type EncryptionByDefaultArrayInput interface {
 	pulumi.Input
 
@@ -155,7 +160,7 @@ func (i EncryptionByDefaultArray) ToEncryptionByDefaultArrayOutputWithContext(ct
 // EncryptionByDefaultMapInput is an input type that accepts EncryptionByDefaultMap and EncryptionByDefaultMapOutput values.
 // You can construct a concrete instance of `EncryptionByDefaultMapInput` via:
 //
-//          EncryptionByDefaultMap{ "key": EncryptionByDefaultArgs{...} }
+//	EncryptionByDefaultMap{ "key": EncryptionByDefaultArgs{...} }
 type EncryptionByDefaultMapInput interface {
 	pulumi.Input
 

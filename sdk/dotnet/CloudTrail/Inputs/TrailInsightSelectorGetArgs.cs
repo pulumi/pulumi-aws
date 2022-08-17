@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudTrail.Inputs
 {
 
-    public sealed class TrailInsightSelectorGetArgs : Pulumi.ResourceArgs
+    public sealed class TrailInsightSelectorGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of insights to log on a trail. Valid values are: `ApiCallRateInsight` and `ApiErrorRateInsight`.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.CloudTrail.Inputs
         public TrailInsightSelectorGetArgs()
         {
         }
+        public static new TrailInsightSelectorGetArgs Empty => new TrailInsightSelectorGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GuardDuty.Inputs
 {
 
-    public sealed class OrganizationConfigurationDatasourcesKubernetesGetArgs : Pulumi.ResourceArgs
+    public sealed class OrganizationConfigurationDatasourcesKubernetesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
@@ -22,5 +22,6 @@ namespace Pulumi.Aws.GuardDuty.Inputs
         public OrganizationConfigurationDatasourcesKubernetesGetArgs()
         {
         }
+        public static new OrganizationConfigurationDatasourcesKubernetesGetArgs Empty => new OrganizationConfigurationDatasourcesKubernetesGetArgs();
     }
 }

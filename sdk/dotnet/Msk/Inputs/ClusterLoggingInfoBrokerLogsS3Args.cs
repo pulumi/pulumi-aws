@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Msk.Inputs
 {
 
-    public sealed class ClusterLoggingInfoBrokerLogsS3Args : Pulumi.ResourceArgs
+    public sealed class ClusterLoggingInfoBrokerLogsS3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the S3 bucket to deliver logs to.
@@ -33,5 +33,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public ClusterLoggingInfoBrokerLogsS3Args()
         {
         }
+        public static new ClusterLoggingInfoBrokerLogsS3Args Empty => new ClusterLoggingInfoBrokerLogsS3Args();
     }
 }

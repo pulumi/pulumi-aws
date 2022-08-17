@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WafV2.Inputs
 {
 
-    public sealed class RuleGroupRuleActionAllowArgs : Pulumi.ResourceArgs
+    public sealed class RuleGroupRuleActionAllowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Defines custom handling for the web request. See Custom Request Handling below for details.
@@ -21,5 +21,6 @@ namespace Pulumi.Aws.WafV2.Inputs
         public RuleGroupRuleActionAllowArgs()
         {
         }
+        public static new RuleGroupRuleActionAllowArgs Empty => new RuleGroupRuleActionAllowArgs();
     }
 }
