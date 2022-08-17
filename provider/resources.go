@@ -1494,10 +1494,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_traffic_mirror_session":              {Tok: awsResource(ec2Mod, "TrafficMirrorSession")},
 			"aws_ec2_traffic_mirror_target":               {Tok: awsResource(ec2Mod, "TrafficMirrorTarget")},
 			"aws_ec2_availability_zone_group":             {Tok: awsResource(ec2Mod, "AvailabilityZoneGroup")},
-			"aws_ec2_transit_gateway_peering_attachment_accepter": {
-				Tok: awsResource(ec2Mod, "TransitGatewayPeeringAttachmentAccepter"),
-			},
-			"aws_ec2_local_gateway_route": {Tok: awsResource(ec2Mod, "LocalGatewayRoute")},
+			"aws_ec2_local_gateway_route":                 {Tok: awsResource(ec2Mod, "LocalGatewayRoute")},
 			"aws_ec2_local_gateway_route_table_vpc_association": {
 				Tok: awsResource(ec2Mod, "LocalGatewayRouteTableVpcAssociation"),
 			},
@@ -5375,6 +5372,11 @@ func Provider() tfbridge.ProviderInfo {
 
 	prov.RenameDataSource("aws_cloudfront_function", awsDataSource(cloudtrailMod, "getFunction"),
 		awsDataSource(cloudfrontMod, "getFunction"), cloudtrailMod, cloudfrontMod, nil)
+
+	// Ec2 Transit Gateway
+	prov.RenameResourceWithAlias("aws_ec2_transit_gateway_peering_attachment_accepter",
+		awsResource(ec2Mod, "TransitGatewayPeeringAttachmentAccepter"),
+		awsResource(ec2TransitGatewayMod, "PeeringAttachmentAccepter"), ec2Mod, ec2TransitGatewayMod, nil)
 
 	// Define the tf `alb` resources.  For legacy compat we also export them from the `applicationloadbalancing` module
 	// not just the `alb` module.
