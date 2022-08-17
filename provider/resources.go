@@ -1441,7 +1441,8 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_security_group_rule": {
-				Tok: awsResource(ec2Mod, "SecurityGroupRule"),
+				Tok:                 awsResource(ec2Mod, "SecurityGroupRule"),
+				DeleteBeforeReplace: true,
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"protocol": {
 						Type:     "string",
